@@ -8,6 +8,9 @@
 
 [resource]
 default_font = ExtResource("4_rwklj")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/styles/focus = ExtResource("1_vlvem")
 Button/styles/hover = ExtResource("1_vlvem")
 Button/styles/normal = ExtResource("2_e552v")

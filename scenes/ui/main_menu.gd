@@ -20,8 +20,12 @@ func main_button_event(but):
 		anim.play("options_open")
 		current_screen = SCREENS.OPTIONS
 		$Options/Panel/VBoxContainer/mus_vol.grab_focus()
-		$Options/Panel/VBoxContainer/mus_vol.grab_click_focus()
-		
+	if but == "credits" and current_screen == SCREENS.MAIN:
+		anim.play("credits_open")
+		current_screen = SCREENS.CREDITS
+		$Credits/Panel/VBoxContainer/finished.grab_focus()
+	if but == "quit":
+		get_tree().quit()
 
 
 func option_button_event(but):
@@ -30,3 +34,12 @@ func option_button_event(but):
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
 		$Main/Play.grab_focus()
+
+
+func credit_button_event(but):
+	print("Button Pressed: ", but)
+	if but == "credits_done" and current_screen == SCREENS.CREDITS:
+		anim.play("credits_close")
+		current_screen = SCREENS.MAIN
+		$Main/Play.grab_focus()
+		
