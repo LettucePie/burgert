@@ -49,6 +49,10 @@ func credit_button_event(but):
 		$Main/Play.grab_focus()
 
 
+func pause_button_event(but):
+	print("Button Pressed: ", but)
+
+
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "play_start":
 		print("Starting PLAY")

@@ -16,3 +16,8 @@ func _process(delta):
 
 func _on_main_menu_start_play():
 	get_tree().paused = false
+
+
+func _on_game_game_paused():
+	get_tree().paused = true
+	
