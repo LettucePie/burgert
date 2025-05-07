@@ -15,7 +15,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("1_758j5")
 animation = &"Idle_L"
 autoplay = "Idle_L"
-frame_progress = 0.884746
+frame_progress = 0.718722
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 

@@ -13,3 +13,5 @@ main_menu = NodePath("MainMenu")
 [node name="Game" parent="." instance=ExtResource("1_l5scj")]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_8ijes")]
+
+[connection signal="start_play" from="MainMenu" to="." method="_on_main_menu_start_play"]

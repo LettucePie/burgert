@@ -1,6 +1,8 @@
 extends Node2D
 class_name Chef
 
+const MOVE_SPEED = 5
+
 var stations : Array[Workstation]
 var current_station : Workstation = null
 
@@ -26,15 +28,19 @@ func assess_closest_station():
 		set_station(target)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("left"): move_vec.x -= 1
 	if Input.is_action_pressed("right"): move_vec.x += 1
-	position.x += move_vec.x * delta
+	position.x += move_vec.x * MOVE_SPEED
 	if move_vec != Vector2.ZERO:
 		assess_closest_station()
+	
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	process_movement(delta)
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Workstation") and !stations.has(area):

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=4 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
+[ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
 
 [node name="Game" type="Node"]
 process_mode = 1
 script = ExtResource("1_ebpk4")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
+
+[node name="hud" parent="." instance=ExtResource("3_wdtco")]

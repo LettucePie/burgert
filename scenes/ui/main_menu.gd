@@ -1,6 +1,8 @@
 extends Control
 class_name MainMenu
 
+signal start_play()
+
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, CREDITS}
 var current_screen : SCREENS = SCREENS.MAIN
@@ -17,6 +19,8 @@ func _process(delta):
 
 func main_button_event(but):
 	print("Button Pressed: ", but)
+	if but == "play" and current_screen == SCREENS.MAIN:
+		anim.play("play_start")
 	if but == "options" and current_screen == SCREENS.MAIN:
 		anim.play("options_open")
 		current_screen = SCREENS.OPTIONS
@@ -43,4 +47,9 @@ func credit_button_event(but):
 		anim.play("credits_close")
 		current_screen = SCREENS.MAIN
 		$Main/Play.grab_focus()
-		
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "play_start":
+		print("Starting PLAY")
+		emit_signal("start_play")
