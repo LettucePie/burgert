@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddp4wjcafmrbj"]
+
+[ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/resources/sprites/chef_frames.tres" id="1_758j5"]
+
+[node name="chef" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_758j5")
+animation = &"Run_Plate_L"
