@@ -1,32 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bud4js66ji46l"]
+[gd_scene load_steps=6 format=3 uid="uid://cb2lak3w8b1s8"]
 
-[ext_resource type="PackedScene" uid="uid://c2mcut13a1xud" path="res://scenes/game/chef_3d.tscn" id="1_iknjt"]
+[ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_0d1jc"]
+[ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
+[ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 
-[sub_resource type="TorusMesh" id="TorusMesh_dc1du"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
+size = Vector2(40, 80)
 
-[node name="kitchen_a" type="Node3D"]
+[node name="kitchen_a" type="Node2D"]
+texture_filter = 1
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-projection = 1
-size = 4.0
+[node name="background_1" type="Node2D" parent="."]
+position = Vector2(0, -168)
 
-[node name="chef3d" parent="." instance=ExtResource("1_iknjt")]
-
-[node name="Objects" type="Node3D" parent="."]
-
-[node name="Counter" type="Sprite3D" parent="Objects"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -0.251008)
+[node name="Sprite2D" type="Sprite2D" parent="background_1"]
+position = Vector2(144, 368)
+scale = Vector2(2, 2)
 texture = ExtResource("2_to378")
 
-[node name="Counter2" type="Sprite3D" parent="Objects"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.6, 0, -0.251008)
+[node name="Sprite2D2" type="Sprite2D" parent="background_1"]
+position = Vector2(432, 368)
+scale = Vector2(2, 2)
 texture = ExtResource("2_to378")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects"]
-transform = Transform3D(0.79583, 0.555508, -0.24097, -0.0513662, 0.458454, 0.887232, 0.603338, -0.693708, 0.393386, 1.78527, 0, 0)
-mesh = SubResource("TorusMesh_dc1du")
+[node name="background_2" type="Node2D" parent="."]
+position = Vector2(0, -32)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575898, 0, 1.26116)
+[node name="workstation" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(72, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_dt4bo")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation"]
+texture = ExtResource("2_gi7bb")
+
+[node name="chef" parent="." instance=ExtResource("2_0d1jc")]
+position = Vector2(96, 328)

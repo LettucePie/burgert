@@ -1,4 +1,5 @@
 extends Control
+class_name MainMenu
 
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, CREDITS}

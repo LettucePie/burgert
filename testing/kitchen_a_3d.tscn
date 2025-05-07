@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bud4js66ji46l"]
+
+[ext_resource type="PackedScene" uid="uid://c2mcut13a1xud" path="res://testing/chef_3d.tscn" id="1_iknjt"]
+[ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_dc1du"]
+
+[node name="kitchen_a_3d" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+projection = 1
+size = 4.0
+
+[node name="chef3d" parent="." instance=ExtResource("1_iknjt")]
+
+[node name="Objects" type="Node3D" parent="."]
+
+[node name="Counter" type="Sprite3D" parent="Objects"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, -0.251008)
+texture = ExtResource("2_to378")
+
+[node name="Counter2" type="Sprite3D" parent="Objects"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -1.6, 0, -0.251008)
+texture = ExtResource("2_to378")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects"]
+transform = Transform3D(0.79583, 0.555508, -0.24097, -0.0513662, 0.458454, 0.887232, 0.603338, -0.693708, 0.393386, 1.78527, 0, 0)
+mesh = SubResource("TorusMesh_dc1du")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575898, 0, 1.26116)
