@@ -2,9 +2,10 @@ extends Control
 class_name MainMenu
 
 signal start_play()
+signal resume_play()
 
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, CREDITS}
+enum SCREENS{MAIN, OPTIONS, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN
 
 # Called when the node enters the scene tree for the first time.
@@ -51,9 +52,28 @@ func credit_button_event(but):
 
 func pause_button_event(but):
 	print("Button Pressed: ", but)
+	if but == "resume" and current_screen == SCREENS.PAUSE:
+		anim.play("pause_close")
+	if but == "quit" and current_screen == SCREENS.PAUSE:
+		pass
+
+
+func set_state(state : SCREENS):
+	anim.play("start")
+	current_screen = state
+	if state == SCREENS.OPTIONS:
+		anim.play("options_open")
+	if state == SCREENS.CREDITS:
+		anim.play("credits_open")
+	if state == SCREENS.PAUSE:
+		anim.play("pause_open")
 
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "play_start":
 		print("Starting PLAY")
 		emit_signal("start_play")
+	if anim_name == "pause_open" and current_screen == SCREENS.PAUSE:
+		$Paused/Panel/VBoxContainer/resume.grab_focus()
+	if anim_name == "pause_close" and current_screen == SCREENS.PAUSE:
+		emit_signal("resume_play")

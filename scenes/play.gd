@@ -20,4 +20,8 @@ func _on_main_menu_start_play():
 
 func _on_game_game_paused():
 	get_tree().paused = true
-	
+	main_menu.set_state(MainMenu.SCREENS.PAUSE)
+
+
+func _on_main_menu_resume_play():
+	get_tree().paused = false
