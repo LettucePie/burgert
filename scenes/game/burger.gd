@@ -1,9 +1,9 @@
 extends Node3D
 class_name Burger
 
-const OFFSET_MULTI = 2
+const OFFSET_MULTI = 0.12
 @onready var offset_4 : PackedStringArray = [
-	"Bun Bottom", "Meat", "Tomato"
+	"Bun Bottom", "Meat", "Tomato", "Bun"
 ]
 @onready var offset_2 : PackedStringArray = [
 	"Lettuce", "Ketchup", "Mustard"
@@ -33,9 +33,9 @@ func calculate_next_offset(ingredient_name : String):
 
 func add_ingredient(ingredient_name : String):
 	var new_ingredient3d : Ingredient3D = ingredient3d_scene.instantiate()
-	new_ingredient3d.set_ingredient(new_ingredient3d.string_to_index(ingredient_name))
 	ingredients_node.add_child(new_ingredient3d)
-	ingredients_node.position.y = offset_y
+	new_ingredient3d.position.y = offset_y
+	new_ingredient3d.set_ingredient(new_ingredient3d.string_to_index(ingredient_name))
 	ingredients.append(new_ingredient3d)
 	calculate_next_offset(ingredient_name)
 

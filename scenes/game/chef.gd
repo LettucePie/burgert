@@ -17,6 +17,7 @@ func _ready():
 
 func set_station(ws : Workstation):
 	print("Setting Current Station: ", ws.ingredient)
+	current_station = ws
 
 
 func assess_closest_station():
@@ -39,12 +40,20 @@ func process_movement(delta):
 	position.x += move_vec.x * MOVE_SPEED
 	if move_vec != Vector2.ZERO:
 		assess_closest_station()
-	
+
+
+func process_actions(delta):
+	if Input.is_action_just_pressed("confirm"):
+		if current_station != null:
+			print("Grabbing Ingredient: ", current_station.ingredient)
+			current_burger.add_ingredient(current_station.ingredient)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	process_movement(delta)
+	process_actions(delta)
+
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Workstation") and !stations.has(area):
