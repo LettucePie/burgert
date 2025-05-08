@@ -2,13 +2,17 @@ extends Node2D
 class_name Chef
 
 const MOVE_SPEED = 5
+@onready var burger_portal : BurgerPortal = $burger_portal
+@onready var current_burger : Burger = burger_portal.burger
 
 var stations : Array[Workstation]
 var current_station : Workstation = null
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	#$burger_sprite.hide()
 
 
 func set_station(ws : Workstation):

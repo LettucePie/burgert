@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3ew6f33rvhla"]
+[gd_scene load_steps=3 format=3 uid="uid://d3ew6f33rvhla"]
 
-[ext_resource type="PackedScene" uid="uid://bxtacva7nkug1" path="res://scenes/game/burger_dimension.tscn" id="1_rjjf0"]
+[ext_resource type="Script" path="res://scenes/game/burger_portal.gd" id="1_6lmef"]
+[ext_resource type="PackedScene" uid="uid://bxtacva7nkug1" path="res://scenes/game/burger.tscn" id="2_sq1gu"]
 
 [node name="burger_portal" type="SubViewport"]
 own_world_3d = true
 transparent_bg = true
+script = ExtResource("1_6lmef")
 
-[node name="burger_dimension" parent="." instance=ExtResource("1_rjjf0")]
+[node name="burger" parent="." instance=ExtResource("2_sq1gu")]
