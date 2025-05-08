@@ -1,10 +1,13 @@
 extends HBoxContainer
 
+signal update_value(new_val)
+
 @export var slider : HSlider
 @export var label : Label
 @export var marker : Control
 var value : int = 10
 var focused : bool = false
+
 
 func _ready():
 	if slider == null:
@@ -35,6 +38,7 @@ func _process(delta):
 func update_vals():
 	slider.value = value
 	label.text = str(value)
+	emit_signal("update_value", value)
 
 
 func _on_focus_entered():
@@ -43,3 +47,9 @@ func _on_focus_entered():
 
 func _on_focus_exited():
 	focused = false
+
+
+func _on_volslider_drag_ended(value_changed, handle):
+	print(handle, " volume changed to: ", value_changed)
+	value = value_changed
+	update_vals()

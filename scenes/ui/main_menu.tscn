@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tsfaclpdbofl"]
+[gd_scene load_steps=16 format=3 uid="uid://tsfaclpdbofl"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_oirqw"]
@@ -227,6 +227,94 @@ tracks/1/keys = {
 "values": [Vector2(-641, 0), Vector2(-1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_w65qp"]
+resource_name = "pause_close"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paused:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paused:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -480)]
+}
+
+[sub_resource type="Animation" id="Animation_gjdh7"]
+resource_name = "pause_open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paused:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paused:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -480), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b8mpw"]
+resource_name = "play_start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_lsaoh"]
+resource_name = "play_stop"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_v5kc5"]
 resource_name = "start"
 tracks/0/type = "value"
@@ -338,69 +426,9 @@ tracks/8/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_b8mpw"]
-resource_name = "play_start"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Main:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 480)]
-}
-
-[sub_resource type="Animation" id="Animation_lsaoh"]
-resource_name = "play_stop"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Main:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 480), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_gjdh7"]
-resource_name = "pause_open"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Paused:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Paused:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -480), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_w65qp"]
-resource_name = "pause_close"
-length = 0.6
+[sub_resource type="Animation" id="Animation_2ayle"]
+resource_name = "quit_game"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -425,6 +453,32 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -480)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, 480), Vector2(0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0],
+"method": &"set_state"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c5ufq"]
 _data = {
@@ -437,6 +491,7 @@ _data = {
 "pause_open": SubResource("Animation_gjdh7"),
 "play_start": SubResource("Animation_b8mpw"),
 "play_stop": SubResource("Animation_lsaoh"),
+"quit_game": SubResource("Animation_2ayle"),
 "start": SubResource("Animation_v5kc5")
 }
 
@@ -818,8 +873,11 @@ text = "QUIT"
 [connection signal="pressed" from="Main/Quit" to="." method="main_button_event" binds= ["quit"]]
 [connection signal="focus_entered" from="Options/Panel/VBoxContainer/mus_vol" to="Options/Panel/VBoxContainer/mus_vol" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Options/Panel/VBoxContainer/mus_vol" to="Options/Panel/VBoxContainer/mus_vol" method="_on_focus_exited"]
+[connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
+[connection signal="drag_ended" from="Options/Panel/VBoxContainer/mus_vol/HSlider" to="Options/Panel/VBoxContainer/mus_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
 [connection signal="focus_entered" from="Options/Panel/VBoxContainer/sfx_vol" to="Options/Panel/VBoxContainer/sfx_vol" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Options/Panel/VBoxContainer/sfx_vol" to="Options/Panel/VBoxContainer/sfx_vol" method="_on_focus_exited"]
+[connection signal="drag_ended" from="Options/Panel/VBoxContainer/sfx_vol/HSlider" to="Options/Panel/VBoxContainer/sfx_vol" method="_on_volslider_drag_ended" binds= ["sfx"]]
 [connection signal="pressed" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="option_button_event" binds= ["swap_ab"]]
 [connection signal="pressed" from="Options/Panel/VBoxContainer/finished" to="." method="option_button_event" binds= ["options_done"]]
 [connection signal="pressed" from="Credits/Panel/VBoxContainer/finished" to="." method="credit_button_event" binds= ["credits_done"]]

@@ -3,6 +3,7 @@ class_name MainMenu
 
 signal start_play()
 signal resume_play()
+signal quit_play()
 
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, CREDITS, PAUSE}
@@ -55,7 +56,9 @@ func pause_button_event(but):
 	if but == "resume" and current_screen == SCREENS.PAUSE:
 		anim.play("pause_close")
 	if but == "quit" and current_screen == SCREENS.PAUSE:
-		pass
+		anim.play("quit_game")
+		emit_signal("quit_play")
+		$Main/Play.grab_focus()
 
 
 func set_state(state : SCREENS):
@@ -77,3 +80,7 @@ func _on_animation_player_animation_finished(anim_name):
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_close" and current_screen == SCREENS.PAUSE:
 		emit_signal("resume_play")
+
+
+func _on_mus_vol_update_value(new_val):
+	pass # Replace with function body.

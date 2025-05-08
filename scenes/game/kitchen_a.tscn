@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=11 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_0d1jc"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
+[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/bun.tres" id="4_6hvvk"]
+[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/lettuce.tres" id="4_we2ul"]
+[ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
+[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/meat.tres" id="6_pk5me"]
+[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/tomato.tres" id="8_quo1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -27,17 +32,77 @@ texture = ExtResource("2_to378")
 [node name="background_2" type="Node2D" parent="."]
 position = Vector2(0, -32)
 
-[node name="workstation" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="workstation_bun" type="Area2D" parent="background_2" groups=["Workstation"]]
 position = Vector2(72, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
+ingredient = "Bun"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_bun"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="sprite" type="Sprite2D" parent="background_2/workstation"]
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_bun"]
 texture = ExtResource("2_gi7bb")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_bun/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("4_6hvvk")
+
+[node name="workstation_meat" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(192, 288)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+ingredient = "Meat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_meat"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_dt4bo")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_meat"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_0qxmp")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_meat/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("6_pk5me")
+
+[node name="workstation_lettuce" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(312, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_lettuce"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_dt4bo")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_lettuce"]
+texture = ExtResource("2_gi7bb")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_lettuce/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("4_we2ul")
+
+[node name="workstation_tomato" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(408, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+ingredient = "Tomato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_tomato"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_dt4bo")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_tomato"]
+texture = ExtResource("2_gi7bb")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_tomato/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("8_quo1k")
 
 [node name="chef" parent="." instance=ExtResource("2_0d1jc")]
 position = Vector2(96, 328)
