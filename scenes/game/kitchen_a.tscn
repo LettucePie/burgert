@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=16 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_0d1jc"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
+[ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/bun.tres" id="4_6hvvk"]
@@ -9,9 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/meat.tres" id="6_pk5me"]
 [ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/tomato.tres" id="8_quo1k"]
+[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ketchup.tres" id="10_ruk21"]
+[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/mustard.tres" id="11_533m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3xul"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
+size = Vector2(16, 80)
 
 [node name="kitchen_a" type="Node2D"]
 texture_filter = 1
@@ -28,6 +37,11 @@ texture = ExtResource("2_to378")
 position = Vector2(432, 368)
 scale = Vector2(2, 2)
 texture = ExtResource("2_to378")
+
+[node name="Sprite2D3" type="Sprite2D" parent="background_1"]
+position = Vector2(496, 272)
+scale = Vector2(2, 2)
+texture = ExtResource("2_hv2ir")
 
 [node name="background_2" type="Node2D" parent="."]
 position = Vector2(0, -32)
@@ -103,6 +117,42 @@ texture = ExtResource("2_gi7bb")
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
 texture = ExtResource("8_quo1k")
+
+[node name="workstation_ketchup" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(480, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+ingredient = "Ketchup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_ketchup"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_l3xul")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_ketchup"]
+position = Vector2(12, 0)
+texture = ExtResource("2_gi7bb")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_ketchup/sprite"]
+position = Vector2(-12, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("10_ruk21")
+
+[node name="workstation_mustard" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(528, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+ingredient = "Mustard"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_mustard"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_62g6r")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_mustard"]
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_mustard/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("11_533m8")
 
 [node name="chef" parent="." instance=ExtResource("2_0d1jc")]
 position = Vector2(96, 328)
