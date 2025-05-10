@@ -49,7 +49,6 @@ func process_actions(delta):
 			current_burger.add_ingredient(current_station.ingredient)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	process_movement(delta)
 	process_actions(delta)

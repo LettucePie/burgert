@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=15 format=3 uid="uid://cb2lak3w8b1s8"]
 
-[ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_0d1jc"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
@@ -153,6 +152,3 @@ shape = SubResource("RectangleShape2D_62g6r")
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
 texture = ExtResource("11_533m8")
-
-[node name="chef" parent="." instance=ExtResource("2_0d1jc")]
-position = Vector2(96, 328)

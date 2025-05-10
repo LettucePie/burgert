@@ -6,7 +6,10 @@ const OFFSET_MULTI = 0.12
 	"Bun Bottom", "Meat", "Tomato", "Bun"
 ]
 @onready var offset_2 : PackedStringArray = [
-	"Lettuce", "Ketchup", "Mustard"
+	"Lettuce"
+]
+@onready var offset_down : PackedStringArray = [
+	"Ketchup", "Mustard"
 ]
 
 @export var ingredient3d_scene : PackedScene
