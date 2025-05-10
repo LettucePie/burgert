@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=5 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_fvcjt"]
+[ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_32m8j"]
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_80asv"]
+viewport_path = NodePath("burger_portal")
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -10,3 +15,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fvcjt")
+script = ExtResource("2_c4wvn")
+
+[node name="goal_texrect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.359
+anchor_right = 0.641
+anchor_bottom = 0.375
+grow_horizontal = 2
+texture = SubResource("ViewportTexture_80asv")
+
+[node name="burger_portal" parent="." instance=ExtResource("2_32m8j")]
+size = Vector2i(180, 180)
+rotating_burger = true
