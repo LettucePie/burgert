@@ -25,7 +25,7 @@ func assess_closest_station():
 	var target = null
 	if stations.size() > 0:
 		for s in stations:
-			var dist = abs(self.position.x - s.position.x)
+			var dist = abs(self.position.x - s.global_position.x)
 			if dist < smallest:
 				target = s
 				smallest = dist

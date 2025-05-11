@@ -43,7 +43,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_hv2ir")
 
 [node name="background_2" type="Node2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(-20, -32)
 
 [node name="workstation_bun" type="Area2D" parent="background_2" groups=["Workstation"]]
 position = Vector2(72, 304)
@@ -117,8 +117,26 @@ position = Vector2(0, -28)
 scale = Vector2(2, 2)
 texture = ExtResource("8_quo1k")
 
+[node name="workstation_cheese" type="Area2D" parent="background_2" groups=["Workstation"]]
+position = Vector2(506, 304)
+scale = Vector2(2, 2)
+script = ExtResource("3_ualts")
+ingredient = "Cheese"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_cheese"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_dt4bo")
+
+[node name="sprite" type="Sprite2D" parent="background_2/workstation_cheese"]
+texture = ExtResource("2_gi7bb")
+
+[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_cheese/sprite"]
+position = Vector2(0, -28)
+scale = Vector2(2, 2)
+texture = ExtResource("8_quo1k")
+
 [node name="workstation_ketchup" type="Area2D" parent="background_2" groups=["Workstation"]]
-position = Vector2(480, 304)
+position = Vector2(578, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Ketchup"
@@ -137,7 +155,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_ruk21")
 
 [node name="workstation_mustard" type="Area2D" parent="background_2" groups=["Workstation"]]
-position = Vector2(528, 304)
+position = Vector2(626, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Mustard"
