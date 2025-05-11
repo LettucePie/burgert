@@ -7,6 +7,7 @@ class_name Play
 
 func _ready():
 	get_tree().paused = true
+	game_scene.stop_game()
 
 
 func _process(delta):

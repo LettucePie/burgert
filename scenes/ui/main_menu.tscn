@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://tsfaclpdbofl"]
+[gd_scene load_steps=18 format=3 uid="uid://tsfaclpdbofl"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_oirqw"]
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="3_cpm03"]
+[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="4_ovyib"]
 
 [sub_resource type="Animation" id="Animation_kgpfh"]
 length = 0.001
@@ -495,6 +496,10 @@ _data = {
 "start": SubResource("Animation_v5kc5")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_6dlio"]
+font = ExtResource("4_ovyib")
+shadow_color = Color(0.0313726, 0.0313726, 0.0313726, 0.333333)
+
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
 process_mode = 2
 texture_filter = 1
@@ -781,15 +786,17 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Credits/Panel/VBoxContainer"]
 layout_mode = 2
-text = "Art, Design - Houndfall
-Programming - lettucepie
+text = "Art, Sound, Design - Houndfall
+Programming, Design - lettucepie
 
 Made in
 Godot 4.2.2
 Aseprite
+Krita
 
 third-party assets
 kenney-nl fonts"
+label_settings = SubResource("LabelSettings_6dlio")
 horizontal_alignment = 1
 vertical_alignment = 1
 
