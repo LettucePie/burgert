@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diinen43qqt07"
-path="res://.godot/imported/order-paper-bot2.png-40bee0f34a33cee16a98b1685d666f4b.ctex"
+uid="uid://cpdr8xiqk60x"
+path="res://.godot/imported/order-scribble_meat2.png-b8a4f396604512e7c18b2bc040ea251a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/order-paper-bot2.png"
-dest_files=["res://.godot/imported/order-paper-bot2.png-40bee0f34a33cee16a98b1685d666f4b.ctex"]
+source_file="res://assets/sprites/ui/orders/order-scribble_meat2.png"
+dest_files=["res://.godot/imported/order-scribble_meat2.png-b8a4f396604512e7c18b2bc040ea251a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c16apfolphpkt"
-path="res://.godot/imported/order-paper-center.png-cd946ce67715d2332fc7962c53b67234.ctex"
+uid="uid://bqjfop30tsydx"
+path="res://.godot/imported/order-scribble_lettuce2.png-817e5c8adde416250a5ca09fd40da085.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/order-paper-center.png"
-dest_files=["res://.godot/imported/order-paper-center.png-cd946ce67715d2332fc7962c53b67234.ctex"]
+source_file="res://assets/sprites/ui/orders/order-scribble_lettuce2.png"
+dest_files=["res://.godot/imported/order-scribble_lettuce2.png-817e5c8adde416250a5ca09fd40da085.ctex"]
 
 [params]
 

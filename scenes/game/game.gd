@@ -19,10 +19,17 @@ var game_started : bool = false
 	"Cheese", "Mustard", "Ketchup"
 ]
 
-func _process(delta):
+func _physics_process(delta):
 	if Input.is_action_just_pressed("menu"):
 		print("PAUSE")
 		emit_signal("game_paused")
+	if Input.is_action_just_pressed("special1") and game_started:
+		if chef.active:
+			chef.active = false
+			hud.show_order(true)
+		else:
+			chef.active = true
+			hud.show_order(false)
 
 
 func start_game():

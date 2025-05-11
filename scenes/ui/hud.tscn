@@ -1,12 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=31 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_32m8j"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
-[ext_resource type="Texture2D" uid="uid://c16apfolphpkt" path="res://assets/sprites/ui/order-paper-center.png" id="4_t37td"]
+[ext_resource type="Texture2D" uid="uid://drkmruswb2lyt" path="res://assets/sprites/ui/orders/order-scribble_bun1.png" id="3_fxif7"]
+[ext_resource type="Texture2D" uid="uid://dmnoebbi17et3" path="res://assets/sprites/ui/orders/order-scribble_bun2.png" id="4_am3kf"]
+[ext_resource type="Texture2D" uid="uid://tu5bsc68jwv3" path="res://assets/sprites/ui/orders/order-paper-top1.png" id="4_toowh"]
+[ext_resource type="Texture2D" uid="uid://d1spj1edofpum" path="res://assets/sprites/ui/orders/order-paper-top2.png" id="5_dsbnf"]
+[ext_resource type="Texture2D" uid="uid://3vi4hhoo63cy" path="res://assets/sprites/ui/orders/order-scribble_bun3.png" id="5_slng6"]
+[ext_resource type="Texture2D" uid="uid://jt77r6cawdcb" path="res://assets/sprites/ui/orders/order-scribble_meat1.png" id="6_nvuwb"]
+[ext_resource type="Texture2D" uid="uid://qw18xf82s4yr" path="res://assets/sprites/ui/orders/order-paper-bot1.png" id="6_wejp0"]
+[ext_resource type="Texture2D" uid="uid://diinen43qqt07" path="res://assets/sprites/ui/orders/order-paper-bot2.png" id="7_jd1ob"]
+[ext_resource type="Texture2D" uid="uid://cpdr8xiqk60x" path="res://assets/sprites/ui/orders/order-scribble_meat2.png" id="7_s278f"]
+[ext_resource type="Texture2D" uid="uid://baww4yw5s23ow" path="res://assets/sprites/ui/orders/order-scribble_meat3.png" id="8_xwki4"]
+[ext_resource type="Texture2D" uid="uid://diwwb3av2ui2a" path="res://assets/sprites/ui/orders/order-scribble_lettuce1.png" id="9_hdko1"]
+[ext_resource type="Texture2D" uid="uid://bqjfop30tsydx" path="res://assets/sprites/ui/orders/order-scribble_lettuce2.png" id="10_py31f"]
+[ext_resource type="Texture2D" uid="uid://bjnsuumo8bhs5" path="res://assets/sprites/ui/orders/order-scribble_lettuce3.png" id="11_2a8pg"]
+[ext_resource type="Texture2D" uid="uid://l7kslmj2pg00" path="res://assets/sprites/ui/orders/order-scribble_tomato1.png" id="12_4elof"]
+[ext_resource type="Texture2D" uid="uid://bcm3ai7uvsgnr" path="res://assets/sprites/ui/orders/order-scribble_tomato2.png" id="13_7216w"]
+[ext_resource type="Texture2D" uid="uid://cspw4nycnaoxf" path="res://assets/sprites/ui/orders/order-scribble_tomato3.png" id="14_7vxxc"]
+[ext_resource type="Texture2D" uid="uid://dfp14c7hj4sf" path="res://assets/sprites/ui/orders/order-scribble_cheese1.png" id="15_8bl5s"]
+[ext_resource type="Texture2D" uid="uid://dg3xyemudq0ic" path="res://assets/sprites/ui/orders/order-scribble_cheese2.png" id="16_gybm6"]
+[ext_resource type="Texture2D" uid="uid://cc326alfiod3n" path="res://assets/sprites/ui/orders/order-scribble_cheese3.png" id="17_dme0v"]
+[ext_resource type="Texture2D" uid="uid://blw0qq55m0k20" path="res://assets/sprites/ui/orders/order-scribble_ketchup1.png" id="18_52t0t"]
+[ext_resource type="Texture2D" uid="uid://dvxa1t08b16qb" path="res://assets/sprites/ui/orders/order-scribble_ketchup2.png" id="19_tywnd"]
+[ext_resource type="Texture2D" uid="uid://mwyharsxi8iw" path="res://assets/sprites/ui/orders/order-scribble_ketchup3.png" id="20_ya3xl"]
+[ext_resource type="Texture2D" uid="uid://cqctcskcahhau" path="res://assets/sprites/ui/orders/order-scribble_mustard1.png" id="21_p5sgu"]
+[ext_resource type="Texture2D" uid="uid://c5ssx5yhrma4o" path="res://assets/sprites/ui/orders/order-scribble_mustard2.png" id="22_5n1vg"]
+[ext_resource type="Texture2D" uid="uid://ckiwno1pxnat7" path="res://assets/sprites/ui/orders/order-scribble_mustard3.png" id="23_shojr"]
+[ext_resource type="PackedScene" uid="uid://bldfvrixfhcp4" path="res://scenes/ui/scribble-entry.tscn" id="26_dy7st"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_80asv"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -17,6 +42,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fvcjt")
 script = ExtResource("2_c4wvn")
+entry_scene = ExtResource("26_dy7st")
+top_tears = Array[Texture2D]([ExtResource("4_toowh"), ExtResource("5_dsbnf")])
+bot_tears = Array[Texture2D]([ExtResource("6_wejp0"), ExtResource("7_jd1ob")])
+bun_scribbles = Array[Texture2D]([ExtResource("3_fxif7"), ExtResource("4_am3kf"), ExtResource("5_slng6")])
+meat_scribbles = Array[Texture2D]([ExtResource("6_nvuwb"), ExtResource("7_s278f"), ExtResource("8_xwki4")])
+lettuce_scribbles = Array[Texture2D]([ExtResource("9_hdko1"), ExtResource("10_py31f"), ExtResource("11_2a8pg")])
+tomato_scribbles = Array[Texture2D]([ExtResource("12_4elof"), ExtResource("13_7216w"), ExtResource("14_7vxxc")])
+cheese_scribbles = Array[Texture2D]([ExtResource("15_8bl5s"), ExtResource("16_gybm6"), ExtResource("17_dme0v")])
+ketchup_scribbles = Array[Texture2D]([ExtResource("18_52t0t"), ExtResource("19_tywnd"), ExtResource("20_ya3xl")])
+mustard_scribbles = Array[Texture2D]([ExtResource("21_p5sgu"), ExtResource("22_5n1vg"), ExtResource("23_shojr")])
 
 [node name="goal_texrect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -31,25 +66,37 @@ texture = SubResource("ViewportTexture_80asv")
 size = Vector2i(180, 180)
 rotating_burger = true
 
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="order" type="ScrollContainer" parent="."]
 texture_filter = 1
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+horizontal_scroll_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-texture_filter = 1
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_t37td")
-expand_mode = 4
-stretch_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="order"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="top" type="TextureRect" parent="order/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+texture = ExtResource("4_toowh")
+
+[node name="entry" parent="order/VBoxContainer" instance=ExtResource("26_dy7st")]
+layout_mode = 2
+
+[node name="bot" type="TextureRect" parent="order/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("6_wejp0")

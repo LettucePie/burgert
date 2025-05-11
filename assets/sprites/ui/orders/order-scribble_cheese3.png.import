@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tu5bsc68jwv3"
-path="res://.godot/imported/order-paper-top1.png-ea9d384ecb416dde2db6f81b595391e1.ctex"
+uid="uid://cc326alfiod3n"
+path="res://.godot/imported/order-scribble_cheese3.png-0c5a2e0f80ffe628b8fed92a40e5f57b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/order-paper-top1.png"
-dest_files=["res://.godot/imported/order-paper-top1.png-ea9d384ecb416dde2db6f81b595391e1.ctex"]
+source_file="res://assets/sprites/ui/orders/order-scribble_cheese3.png"
+dest_files=["res://.godot/imported/order-scribble_cheese3.png-0c5a2e0f80ffe628b8fed92a40e5f57b.ctex"]
 
 [params]
 

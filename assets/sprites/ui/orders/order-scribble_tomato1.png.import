@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdsvdefycpnn7"
-path="res://.godot/imported/order-paper.png-4ba95037cebe8e550a517a34631f2e9c.ctex"
+uid="uid://l7kslmj2pg00"
+path="res://.godot/imported/order-scribble_tomato1.png-e8d3c9d85aacc86ea04082985b528751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/order-paper.png"
-dest_files=["res://.godot/imported/order-paper.png-4ba95037cebe8e550a517a34631f2e9c.ctex"]
+source_file="res://assets/sprites/ui/orders/order-scribble_tomato1.png"
+dest_files=["res://.godot/imported/order-scribble_tomato1.png-e8d3c9d85aacc86ea04082985b528751.ctex"]
 
 [params]
 

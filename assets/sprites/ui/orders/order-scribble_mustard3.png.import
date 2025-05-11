@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qw18xf82s4yr"
-path="res://.godot/imported/order-paper-bot1.png-80caf41101ac45177a23d3f71c2278e4.ctex"
+uid="uid://ckiwno1pxnat7"
+path="res://.godot/imported/order-scribble_mustard3.png-5446a16e17395e5de22dec5bdc25f632.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ui/order-paper-bot1.png"
-dest_files=["res://.godot/imported/order-paper-bot1.png-80caf41101ac45177a23d3f71c2278e4.ctex"]
+source_file="res://assets/sprites/ui/orders/order-scribble_mustard3.png"
+dest_files=["res://.godot/imported/order-scribble_mustard3.png-5446a16e17395e5de22dec5bdc25f632.ctex"]
 
 [params]
 

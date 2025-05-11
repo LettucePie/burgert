@@ -5,14 +5,14 @@ const MOVE_SPEED = 5
 @onready var burger_portal : BurgerPortal = $burger_portal
 @onready var current_burger : Burger = burger_portal.burger
 
+var active : bool = true
 var stations : Array[Workstation]
 var current_station : Workstation = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#$burger_sprite.hide()
+	$burger_sprite.texture.viewport_path = "burger_portal"
 
 
 func set_station(ws : Workstation):
@@ -50,8 +50,9 @@ func process_actions(delta):
 
 
 func _physics_process(delta):
-	process_movement(delta)
-	process_actions(delta)
+	if active:
+		process_movement(delta)
+		process_actions(delta)
 
 
 func _on_area_2d_area_entered(area):
