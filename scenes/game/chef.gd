@@ -4,8 +4,11 @@ class_name Chef
 const MOVE_SPEED = 10
 @onready var burger_portal : BurgerPortal = $burger_portal
 @onready var current_burger : Burger = burger_portal.burger
-@onready var anim : AnimatedSprite2D = $AnimatedSprite2D
-@onready var frames : SpriteFrames = anim.sprite_frames
+#@onready var anim : AnimatedSprite2D = $AnimatedSprite2D
+#@onready var frames : SpriteFrames = anim.sprite_frames
+@onready var anim_tree : AnimationTree = $AnimationTree
+@onready var anim_play : AnimationPlayer = $AnimationPlayer
+@onready var state_machine = anim_tree["parameters/playback"]
 
 var active : bool = true
 var stations : Array[Workstation]
@@ -17,6 +20,7 @@ var direction : String = "L"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$burger_sprite.texture.viewport_path = "burger_portal"
+	anim_tree.set("parameters/conditions/idle_R", true)
 
 
 func set_station(ws : Workstation):
@@ -41,17 +45,19 @@ func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("left"):
 		move_vec.x -= 1
-		query_anim("Run_Plate_L")
+		state_machine.travel("Run_L")
 		direction = "L"
 	if Input.is_action_pressed("right"):
 		move_vec.x += 1
-		query_anim("Run_Plate_R")
+		state_machine.travel("Run_R")
 		direction = "R"
 	position.x += move_vec.x * MOVE_SPEED
 	if move_vec != Vector2.ZERO:
 		assess_closest_station()
+		anim_tree.set("parameters/conditions/idle_L", false)
+		anim_tree.set("parameters/conditions/idle_R", false)
 	else:
-		query_anim("Idle_Plate_" + direction)
+		anim_tree.set("parameters/conditions/idle_" + direction, true)
 
 
 func process_actions(delta):
@@ -77,7 +83,3 @@ func _on_area_2d_area_exited(area):
 	if stations.has(area):
 		stations.erase(area)
 
-
-func query_anim(new_anim : String):
-	if frames.has_animation(new_anim) and anim.get_animation() != new_anim:
-		anim.play(new_anim)
