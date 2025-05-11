@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c16apfolphpkt" path="res://assets/sprites/ui/order-paper-center.png" id="4_t37td"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_80asv"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 
 [node name="hud" type="Control"]
 layout_mode = 3
