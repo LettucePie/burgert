@@ -29,3 +29,4 @@ func _on_main_menu_resume_play():
 
 func _on_main_menu_quit_play():
 	get_tree().paused = true
+	game_scene.stop_game()

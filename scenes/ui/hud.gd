@@ -2,6 +2,7 @@ extends Control
 class_name HUD
 
 var order_shown : bool = false
+var timer : Timer = null
 
 @onready var target_burger : Burger = $burger_portal.burger
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
@@ -68,6 +69,14 @@ func push_burger_build(build : PackedStringArray):
 	_build_order(build)
 
 
+func set_timer(t : Timer):
+	timer = t
+
+
+func get_timer() -> Timer:
+	return timer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$goal_texrect.texture.viewport_path = "burger_portal"
@@ -82,4 +91,5 @@ func process_scrolling(delta):
 func _physics_process(delta):
 	if order_shown:
 		process_scrolling(delta)
-
+	if timer != null:
+		$VBoxContainer/time.text = "TIME - " + str(floor(timer.time_left))

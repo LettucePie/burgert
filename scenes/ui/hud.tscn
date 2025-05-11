@@ -66,6 +66,24 @@ texture = SubResource("ViewportTexture_80asv")
 size = Vector2i(180, 180)
 rotating_burger = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.341
+anchor_bottom = 0.171
+offset_right = -0.240021
+offset_bottom = -0.0800018
+
+[node name="time" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "time"
+
+[node name="score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "score"
+
 [node name="order" type="ScrollContainer" parent="."]
 texture_filter = 1
 custom_minimum_size = Vector2(320, 0)

@@ -35,7 +35,19 @@ func _physics_process(delta):
 func start_game():
 	game_started = true
 	chef.current_burger.refresh_plate()
+	hud.show()
 	hud.push_burger_build(generate_burger(1))
+	$game_timer.start(120)
+	hud.set_timer($game_timer)
+
+
+func stop_game():
+	if game_started:
+		chef.current_burger.refresh_plate()
+		chef.position.x = 0
+	game_started = false
+	hud.hide()
+	$game_timer.stop()
 
 
 func generate_burger(difficulty : int) -> PackedStringArray:
