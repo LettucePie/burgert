@@ -32,13 +32,15 @@ func _ready():
 func set_station(ws : Workstation):
 	print("Setting Current Station: ", ws.ingredient)
 	current_station = ws
+	ws.set_highlight(true)
 
 
 func assess_closest_station():
 	var smallest = 640
-	var target = null
+	var target : Workstation = null
 	if stations.size() > 0:
 		for s in stations:
+			s.set_highlight(false)
 			var dist = abs(self.position.x - s.global_position.x)
 			if dist < smallest:
 				target = s
@@ -107,6 +109,7 @@ func _on_area_2d_area_entered(area):
 
 
 func _on_area_2d_area_exited(area):
-	if stations.has(area):
+	if stations.has(area) and area is Workstation:
+		area.set_highlight(false)
 		stations.erase(area)
 

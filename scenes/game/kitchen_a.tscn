@@ -1,16 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=22 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
-[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/bun.tres" id="4_6hvvk"]
-[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/lettuce.tres" id="4_we2ul"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
-[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/meat.tres" id="6_pk5me"]
-[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/tomato.tres" id="8_quo1k"]
-[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ketchup.tres" id="10_ruk21"]
-[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/mustard.tres" id="11_533m8"]
+[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
+[ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
+[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
+[ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/resources/sprites/ingredients/meat_highlight.tres" id="9_lqetf"]
+[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/ingredients/lettuce.tres" id="10_1mb32"]
+[ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
+[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/ingredients/tomato.tres" id="12_rknrk"]
+[ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/resources/sprites/ingredients/tomato_highlight.tres" id="13_x2inu"]
+[ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/resources/sprites/ingredients/cheese.tres" id="14_t0dgj"]
+[ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/resources/sprites/ingredients/cheese_highlight.tres" id="15_bm1ut"]
+[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ingredients/ketchup.tres" id="16_vtaef"]
+[ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/resources/sprites/ingredients/ketchup_highlight.tres" id="17_8eli0"]
+[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/ingredients/mustard.tres" id="18_8nry3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -45,11 +52,12 @@ texture = ExtResource("2_hv2ir")
 [node name="background_2" type="Node2D" parent="."]
 position = Vector2(-20, -32)
 
-[node name="workstation_bun" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="workstation_bun" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(72, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Bun"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_bun"]
 position = Vector2(0, 20)
@@ -61,13 +69,17 @@ texture = ExtResource("2_gi7bb")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_bun/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("4_6hvvk")
+texture = ExtResource("5_er5ok")
 
-[node name="workstation_meat" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_bun/sprite/ingredient_sprite"]
+texture = ExtResource("6_xprxa")
+
+[node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(192, 288)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Meat"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_meat"]
 position = Vector2(0, 20)
@@ -80,12 +92,16 @@ texture = ExtResource("5_0qxmp")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_meat/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2.25, 2.25)
-texture = ExtResource("6_pk5me")
+texture = ExtResource("8_42nsw")
 
-[node name="workstation_lettuce" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_meat/sprite/ingredient_sprite"]
+texture = ExtResource("9_lqetf")
+
+[node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(312, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_lettuce"]
 position = Vector2(0, 20)
@@ -97,13 +113,17 @@ texture = ExtResource("2_gi7bb")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_lettuce/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("4_we2ul")
+texture = ExtResource("10_1mb32")
 
-[node name="workstation_tomato" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_lettuce/sprite/ingredient_sprite"]
+texture = ExtResource("11_r8857")
+
+[node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(408, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Tomato"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_tomato"]
 position = Vector2(0, 20)
@@ -115,13 +135,17 @@ texture = ExtResource("2_gi7bb")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_tomato/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("8_quo1k")
+texture = ExtResource("12_rknrk")
 
-[node name="workstation_cheese" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_tomato/sprite/ingredient_sprite"]
+texture = ExtResource("13_x2inu")
+
+[node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(506, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Cheese"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_cheese"]
 position = Vector2(0, 20)
@@ -133,13 +157,17 @@ texture = ExtResource("2_gi7bb")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_cheese/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("8_quo1k")
+texture = ExtResource("14_t0dgj")
 
-[node name="workstation_ketchup" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_cheese/sprite/ingredient_sprite"]
+texture = ExtResource("15_bm1ut")
+
+[node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(578, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Ketchup"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_ketchup"]
 position = Vector2(0, 20)
@@ -152,13 +180,17 @@ texture = ExtResource("2_gi7bb")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_ketchup/sprite"]
 position = Vector2(-12, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("10_ruk21")
+texture = ExtResource("16_vtaef")
 
-[node name="workstation_mustard" type="Area2D" parent="background_2" groups=["Workstation"]]
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_ketchup/sprite/ingredient_sprite"]
+texture = ExtResource("17_8eli0")
+
+[node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(626, 304)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Mustard"
+highlight = NodePath("sprite/ingredient_sprite/highlight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_mustard"]
 position = Vector2(0, 20)
@@ -169,4 +201,7 @@ shape = SubResource("RectangleShape2D_62g6r")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_mustard/sprite"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("11_533m8")
+texture = ExtResource("18_8nry3")
+
+[node name="highlight" type="Sprite2D" parent="background_2/workstation_mustard/sprite/ingredient_sprite"]
+texture = ExtResource("17_8eli0")
