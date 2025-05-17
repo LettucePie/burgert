@@ -21,6 +21,11 @@ var timer : Timer = null
 @export var mustard_scribbles : Array[Texture2D]
 
 
+@onready var goal_points : Array[TextureRect] = [
+	$goal_1, $goal_2, $goal_3, $goal_4
+]
+
+
 func clear_order():
 	top_tear.reparent(self)
 	top_tear.hide()
@@ -79,7 +84,8 @@ func get_timer() -> Timer:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$goal_texrect.texture.viewport_path = "burger_portal"
+	for g in goal_points:
+		g.texture.viewport_path = "burger_portal"
 	$order.hide()
 
 
