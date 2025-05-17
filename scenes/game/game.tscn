@@ -8,17 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef")]
+[node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit")]
 process_mode = 1
 script = ExtResource("1_ebpk4")
 kitchen = NodePath("kitchen_a")
 hud = NodePath("hud")
 chef = NodePath("chef")
+submit = NodePath("submit")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
 z_index = -1
 
 [node name="submit" type="Node2D" parent="."]
+z_index = 1
 texture_filter = 1
 script = ExtResource("3_8i30r")
 
@@ -41,3 +43,7 @@ visible = false
 
 [node name="game_timer" type="Timer" parent="."]
 wait_time = 120.0
+
+[connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
+[connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
+[connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]

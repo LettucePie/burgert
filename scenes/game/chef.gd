@@ -29,6 +29,14 @@ func _ready():
 	anim_tree.set("parameters/conditions/idle_R", true)
 
 
+func reset_chef():
+	current_burger.refresh_plate()
+	self.position.x = 24
+	direction = "R"
+	anim_tree.set("parameters/conditions/idle_R", true)
+	submitting_burger = false
+
+
 func set_station(ws : Workstation):
 	print("Setting Current Station: ", ws.ingredient)
 	current_station = ws
@@ -81,25 +89,32 @@ func process_actions(delta):
 				print("Grabbing Ingredient: ", current_station.ingredient)
 				current_burger.add_ingredient(current_station.ingredient)
 	if Input.is_action_just_pressed("up"):
-		if current_burger.ingredients.size() >= order_size:
-			if submitting_burger:
-				print("Send Burger")
-				emit_signal("submit_burger")
-			else:
-				submitting_burger = true
-				print("Enter Throw Stance")
-				emit_signal("start_burger_submission")
-	if Input.is_action_just_pressed("down"):
-		if submitting_burger:
-			submitting_burger = false
-			print("Cancel Throw")
-			emit_signal("cancel_burger_submission")
+		if current_burger.ingredients.size() >= order_size \
+		and !submitting_burger:
+			submitting_burger = true
+			print("Enter Throw Stance")
+			emit_signal("start_burger_submission")
+
+
+func process_submission(delta):
+	if Input.is_action_just_pressed("up") \
+	or Input.is_action_just_pressed("confirm"):
+		print("Send Burger")
+		emit_signal("submit_burger")
+	if Input.is_action_just_pressed("down") \
+	or Input.is_action_just_pressed("cancel"):
+		submitting_burger = false
+		print("Cancel Throw")
+		emit_signal("cancel_burger_submission")
 
 
 func _physics_process(delta):
 	if active:
-		process_movement(delta)
-		process_actions(delta)
+		if !submitting_burger:
+			process_movement(delta)
+			process_actions(delta)
+		else:
+			process_submission(delta)
 
 
 func _on_area_2d_area_entered(area):

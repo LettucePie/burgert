@@ -6,6 +6,7 @@ signal game_paused()
 @export var kitchen : Node2D
 @export var hud : HUD
 @export var chef : Chef
+@export var submit : Submit
 #@export var chef_scene : PackedScene
 var game_started : bool = false
 
@@ -36,7 +37,8 @@ func _physics_process(delta):
 
 func start_game():
 	game_started = true
-	chef.current_burger.refresh_plate()
+	chef.reset_chef()
+	submit.set_playing(false)
 	hud.show()
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
@@ -91,3 +93,15 @@ func generate_order(difficulty : int) -> PackedStringArray:
 	build.append("Bun Top")
 	
 	return build
+
+
+func _on_chef_start_burger_submission():
+	submit.set_playing(true)
+
+
+func _on_chef_cancel_burger_submission():
+	submit.set_playing(false)
+
+
+func _on_chef_submit_burger():
+	pass # Replace with function body.
