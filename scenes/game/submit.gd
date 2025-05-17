@@ -27,10 +27,9 @@ func _physics_process(delta):
 			travel = 1
 
 
-func set_playing(tf : bool):
+func set_playing(tf : bool, start_pos : float):
 	playing = tf
 	visible = tf
 	if tf:
-		target.position.x = x_min
+		target.position.x = start_pos
 		travel = 1
-	

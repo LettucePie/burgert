@@ -38,7 +38,7 @@ func _physics_process(delta):
 func start_game():
 	game_started = true
 	chef.reset_chef()
-	submit.set_playing(false)
+	submit.set_playing(false, 0)
 	hud.show()
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
@@ -47,8 +47,8 @@ func start_game():
 
 func stop_game():
 	if game_started:
-		chef.current_burger.refresh_plate()
-		chef.position.x = 0
+		chef.reset_chef()
+		submit.set_playing(false, 0)
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
@@ -96,11 +96,11 @@ func generate_order(difficulty : int) -> PackedStringArray:
 
 
 func _on_chef_start_burger_submission():
-	submit.set_playing(true)
+	submit.set_playing(true, chef.position.x)
 
 
 func _on_chef_cancel_burger_submission():
-	submit.set_playing(false)
+	submit.set_playing(false, 0)
 
 
 func _on_chef_submit_burger():
