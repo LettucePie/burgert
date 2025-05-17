@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=8 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
 [ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_go7ox"]
+[ext_resource type="Script" path="res://scenes/game/submit.gd" id="3_8i30r"]
+[ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/sprites/ui/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
+[ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef")]
 process_mode = 1
@@ -14,6 +17,21 @@ chef = NodePath("chef")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
 z_index = -1
+
+[node name="submit" type="Node2D" parent="."]
+texture_filter = 1
+script = ExtResource("3_8i30r")
+
+[node name="crosshair" type="Node2D" parent="submit"]
+position = Vector2(0, 78)
+
+[node name="Sprite2D" type="Sprite2D" parent="submit/crosshair"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_de6vf")
+
+[node name="Line2D" type="Line2D" parent="submit"]
+texture = ExtResource("4_qu4ek")
+texture_mode = 1
 
 [node name="chef" parent="." instance=ExtResource("2_go7ox")]
 position = Vector2(0, 328)

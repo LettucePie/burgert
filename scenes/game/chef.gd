@@ -1,6 +1,10 @@
 extends Node2D
 class_name Chef
 
+signal start_burger_submission()
+signal cancel_burger_submission()
+signal submit_burger()
+
 const MOVE_SPEED = 10
 @onready var burger_portal : BurgerPortal = $burger_portal
 @onready var current_burger : Burger = burger_portal.burger
@@ -16,6 +20,7 @@ var current_station : Workstation = null
 #var running : bool = false
 var direction : String = "L"
 var order_size : int = 0
+var submitting_burger : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -73,6 +78,20 @@ func process_actions(delta):
 			else:
 				print("Grabbing Ingredient: ", current_station.ingredient)
 				current_burger.add_ingredient(current_station.ingredient)
+	if Input.is_action_just_pressed("up"):
+		if current_burger.ingredients.size() >= order_size:
+			if submitting_burger:
+				print("Send Burger")
+				emit_signal("submit_burger")
+			else:
+				submitting_burger = true
+				print("Enter Throw Stance")
+				emit_signal("start_burger_submission")
+	if Input.is_action_just_pressed("down"):
+		if submitting_burger:
+			submitting_burger = false
+			print("Cancel Throw")
+			emit_signal("cancel_burger_submission")
 
 
 func _physics_process(delta):
