@@ -13,6 +13,7 @@ hud = NodePath("hud")
 chef = NodePath("chef")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
+z_index = -1
 
 [node name="chef" parent="." instance=ExtResource("2_go7ox")]
 position = Vector2(0, 328)

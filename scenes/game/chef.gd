@@ -15,6 +15,7 @@ var stations : Array[Workstation]
 var current_station : Workstation = null
 #var running : bool = false
 var direction : String = "L"
+var order_size : int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,9 +64,15 @@ func process_movement(delta):
 
 func process_actions(delta):
 	if Input.is_action_just_pressed("confirm"):
-		if current_station != null:
-			print("Grabbing Ingredient: ", current_station.ingredient)
-			current_burger.add_ingredient(current_station.ingredient)
+		if current_station != null \
+		and current_burger.ingredients.size() < order_size:
+			if current_station.ingredient == "Bun" \
+			and current_burger.ingredients.size() == order_size - 1:
+				print("Grabbing Top Bun")
+				current_burger.add_ingredient("Bun Top")
+			else:
+				print("Grabbing Ingredient: ", current_station.ingredient)
+				current_burger.add_ingredient(current_station.ingredient)
 
 
 func _physics_process(delta):

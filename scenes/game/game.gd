@@ -19,6 +19,8 @@ var game_started : bool = false
 	"Cheese", "Mustard", "Ketchup"
 ]
 
+var current_order : PackedStringArray = []
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu"):
 		print("PAUSE")
@@ -36,9 +38,9 @@ func start_game():
 	game_started = true
 	chef.current_burger.refresh_plate()
 	hud.show()
-	hud.push_burger_build(generate_burger(1))
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
+	make_new_order()
 
 
 func stop_game():
@@ -50,7 +52,16 @@ func stop_game():
 	$game_timer.stop()
 
 
-func generate_burger(difficulty : int) -> PackedStringArray:
+func make_new_order():
+	current_order.clear()
+	current_order = generate_order(1)
+	hud.push_burger_build(current_order)
+	chef.order_size = current_order.size()
+	print("TODO replace with throw-away burger anim + function")
+	chef.current_burger.refresh_plate()
+
+
+func generate_order(difficulty : int) -> PackedStringArray:
 	var build : PackedStringArray
 	
 	randomize()
