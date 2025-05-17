@@ -48,7 +48,7 @@ func process_movement(delta):
 		move_vec.x -= 1
 		state_machine.travel("Run_L")
 		direction = "L"
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right"):
 		move_vec.x += 1
 		state_machine.travel("Run_R")
 		direction = "R"

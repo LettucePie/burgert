@@ -79,7 +79,7 @@ states/Swing_L/position = Vector2(295, 32)
 states/Swing_R/node = SubResource("AnimationNodeAnimation_wl3i6")
 states/Swing_R/position = Vector2(295, 154)
 transitions = ["Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_r8pf8"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3vxsd"), "Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_e4jl1"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_47y3o"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Idle_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_nq01q"), "Idle_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_uw4ke"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_o78tg"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_0hebr"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c")]
-graph_offset = Vector2(-71, -49)
+graph_offset = Vector2(-208, -17)
 
 [sub_resource type="Animation" id="Animation_ovhst"]
 resource_name = "Idle_L"
@@ -438,10 +438,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"TurnLeft_Plate"]
+"values": [&"TurnLeft_Plate", &"TurnLeft_Plate"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
