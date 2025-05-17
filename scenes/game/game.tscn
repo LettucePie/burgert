@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=9 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/sprites/ui/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
+radius = 33.0151
 
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit")]
 process_mode = 1
@@ -31,6 +34,11 @@ position = Vector2(0, 78)
 scale = Vector2(3, 3)
 texture = ExtResource("3_de6vf")
 
+[node name="area_target" type="Area2D" parent="submit/crosshair"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="submit/crosshair/area_target"]
+shape = SubResource("CircleShape2D_p5ec3")
+
 [node name="Line2D" type="Line2D" parent="submit"]
 texture = ExtResource("4_qu4ek")
 texture_mode = 1
@@ -45,6 +53,8 @@ z_index = 1
 [node name="game_timer" type="Timer" parent="."]
 wait_time = 120.0
 
+[connection signal="area_entered" from="submit/crosshair/area_target" to="submit" method="_on_area_target_area_entered"]
+[connection signal="area_exited" from="submit/crosshair/area_target" to="submit" method="_on_area_target_area_exited"]
 [connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]

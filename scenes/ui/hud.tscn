@@ -56,30 +56,27 @@ mustard_scribbles = Array[Texture2D]([ExtResource("21_p5sgu"), ExtResource("22_5
 [node name="goal_1" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.137
-anchor_right = 0.419
+anchor_left = 0.1
+anchor_right = 0.382
 anchor_bottom = 0.375
-offset_left = 0.319992
-offset_right = 0.319946
+offset_right = -3.05176e-05
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 texture = SubResource("ViewportTexture_80asv")
 
 [node name="goal_2" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.323
-anchor_right = 0.605
+anchor_left = 0.306
+anchor_right = 0.588
 anchor_bottom = 0.375
-offset_left = 0.279999
-offset_right = 0.279968
+offset_left = 0.159988
+offset_right = 0.159973
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 texture = SubResource("ViewportTexture_80asv")
 
 [node name="goal_3" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -92,14 +89,13 @@ grow_horizontal = 2
 texture = SubResource("ViewportTexture_80asv")
 
 [node name="goal_4" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.681
-anchor_right = 0.963
+anchor_left = 0.716
+anchor_right = 0.998
 anchor_bottom = 0.375
-offset_left = 0.159973
-offset_right = 0.159912
+offset_left = -0.240021
+offset_right = -0.240051
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 texture = SubResource("ViewportTexture_80asv")

@@ -3,7 +3,7 @@ class_name Game
 
 signal game_paused()
 
-@export var kitchen : Node2D
+@export var kitchen : Kitchen
 @export var hud : HUD
 @export var chef : Chef
 @export var submit : Submit
@@ -21,6 +21,7 @@ var game_started : bool = false
 ]
 
 var current_order : PackedStringArray = []
+var current_order_position : int = 0
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu"):
@@ -38,6 +39,7 @@ func _physics_process(delta):
 func start_game():
 	game_started = true
 	chef.reset_chef()
+	kitchen.hide_all()
 	submit.set_playing(false, 0)
 	hud.show()
 	$game_timer.start(120)
@@ -49,6 +51,7 @@ func stop_game():
 	if game_started:
 		chef.reset_chef()
 		submit.set_playing(false, 0)
+		kitchen.hide_all()
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
@@ -57,7 +60,9 @@ func stop_game():
 func make_new_order():
 	current_order.clear()
 	current_order = generate_order(1)
-	hud.push_burger_build(current_order)
+	current_order_position = randi_range(0, 3)
+	hud.push_burger_build(current_order, current_order_position)
+	kitchen.assign_spot(current_order_position)
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()

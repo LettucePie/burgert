@@ -1,8 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=26 format=3 uid="uid://cb2lak3w8b1s8"]
 
+[ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
+[ext_resource type="Texture2D" uid="uid://be35n4pr04nkx" path="res://icon.svg" id="1_euexd"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
+[ext_resource type="Texture2D" uid="uid://rhq307xvqrjk" path="res://assets/sprites/ui/customer.png" id="3_650ko"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
@@ -19,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/resources/sprites/ingredients/ketchup_highlight.tres" id="17_8eli0"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/ingredients/mustard.tres" id="18_8nry3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr1xd"]
+size = Vector2(128, 127)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
 
@@ -30,6 +36,50 @@ size = Vector2(16, 80)
 
 [node name="kitchen_a" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_737en")
+customers = Array[Texture2D]([ExtResource("1_euexd"), ExtResource("3_650ko")])
+
+[node name="customers" type="Node2D" parent="."]
+
+[node name="spot_1" type="Sprite2D" parent="customers"]
+position = Vector2(89, 88)
+texture = ExtResource("1_euexd")
+
+[node name="area_1" type="Area2D" parent="customers/spot_1" groups=["Target_Area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_1/area_1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lr1xd")
+
+[node name="spot_2" type="Sprite2D" parent="customers"]
+position = Vector2(222, 88)
+texture = ExtResource("1_euexd")
+
+[node name="area_2" type="Area2D" parent="customers/spot_2" groups=["Target_Area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_2/area_2"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lr1xd")
+
+[node name="spot_3" type="Sprite2D" parent="customers"]
+position = Vector2(351, 88)
+texture = ExtResource("1_euexd")
+
+[node name="area_3" type="Area2D" parent="customers/spot_3" groups=["Target_Area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_3/area_3"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lr1xd")
+
+[node name="spot_4" type="Sprite2D" parent="customers"]
+position = Vector2(483, 88)
+texture = ExtResource("1_euexd")
+
+[node name="area_4" type="Area2D" parent="customers/spot_4" groups=["Target_Area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_4/area_4"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lr1xd")
 
 [node name="background_1" type="Node2D" parent="."]
 position = Vector2(0, -168)

@@ -20,13 +20,14 @@ var timer : Timer = null
 @export var ketchup_scribbles : Array[Texture2D]
 @export var mustard_scribbles : Array[Texture2D]
 
-
 @onready var goal_points : Array[TextureRect] = [
 	$goal_1, $goal_2, $goal_3, $goal_4
 ]
 
 
 func clear_order():
+	for gp in goal_points:
+		gp.hide()
 	top_tear.reparent(self)
 	top_tear.hide()
 	bot_tear.reparent(self)
@@ -69,9 +70,10 @@ func show_order(tf : bool):
 	$order.visible = tf
 
 
-func push_burger_build(build : PackedStringArray):
+func push_burger_build(build : PackedStringArray, goal_idx : int):
 	target_burger.assemble_burger_build(build)
 	_build_order(build)
+	goal_points[goal_idx].show()
 
 
 func set_timer(t : Timer):
