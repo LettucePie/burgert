@@ -20,6 +20,8 @@ var current_station : Workstation = null
 var direction : String = "L"
 var order_size : int = 0
 var submitting_burger : bool = false
+var trashing : bool = false
+var trashing_ticks : int = 60
 
 
 # Called when the node enters the scene tree for the first time.
@@ -94,6 +96,19 @@ func process_actions(delta):
 			submitting_burger = true
 			print("Enter Throw Stance")
 			emit_signal("start_burger_submission")
+	if Input.is_action_pressed("cancel") \
+	and current_burger.ingredients.size() > 0:
+		if !trashing:
+			trashing = true
+			trashing_ticks = 60
+		trashing_ticks -= 2
+		print(trashing_ticks)
+		if trashing_ticks <= 0:
+			trashing = false
+			print("Trashing Burger")
+			current_burger.refresh_plate()
+	if Input.is_action_just_released("cancel") and trashing:
+		trashing = false
 
 
 func process_submission(delta):
