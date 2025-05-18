@@ -5,6 +5,7 @@ const SPEED = 700
 @export var x_min : float = 10
 @export var x_max : float = 630
 @onready var target : Node2D = $crosshair
+@onready var line : Line2D = $Line2D
 
 
 var playing : bool = false
@@ -12,6 +13,7 @@ var travel : int = 1
 var spot_areas : Array[Area2D] = []
 var current_area : Area2D = null
 var current_area_idx : int = -1
+var start_pos_x : float = 0
 
 
 func _ready():
@@ -28,6 +30,10 @@ func _physics_process(delta):
 			travel = -1
 		elif new_pos <= x_min:
 			travel = 1
+		var points : PackedVector2Array = [
+			Vector2(start_pos_x, 328), Vector2(new_pos, 78)
+		]
+		line.points = points
 
 
 func set_playing(tf : bool, start_pos : float):
@@ -37,6 +43,7 @@ func set_playing(tf : bool, start_pos : float):
 	current_area = null
 	if tf:
 		target.position.x = start_pos
+		start_pos_x = start_pos
 		travel = 1
 	else:
 		current_area_idx = -1

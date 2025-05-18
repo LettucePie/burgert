@@ -58,8 +58,7 @@ func stop_game():
 func make_new_order():
 	current_order.clear()
 	current_order = generate_order(1)
-	#current_order_position = randi_range(0, 3)
-	current_order_position = 3
+	current_order_position = randi_range(0, 3)
 	hud.push_burger_build(current_order, current_order_position)
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")
@@ -107,4 +106,8 @@ func _on_chef_cancel_burger_submission():
 
 
 func _on_chef_submit_burger():
-	print("Submit Target on correct spot: ", submit.current_area_idx == current_order_position)
+	if submit.current_area_idx == current_order_position:
+		print("Successful Throw")
+	else:
+		print("Failed Throw")
+	chef.current_burger.refresh_plate()

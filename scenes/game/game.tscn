@@ -40,6 +40,7 @@ texture = ExtResource("3_de6vf")
 shape = SubResource("CircleShape2D_p5ec3")
 
 [node name="Line2D" type="Line2D" parent="submit"]
+texture_repeat = 2
 texture = ExtResource("4_qu4ek")
 texture_mode = 1
 
