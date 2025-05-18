@@ -39,7 +39,6 @@ func _physics_process(delta):
 func start_game():
 	game_started = true
 	chef.reset_chef()
-	kitchen.hide_all()
 	submit.set_playing(false, 0)
 	hud.show()
 	$game_timer.start(120)
@@ -51,7 +50,6 @@ func stop_game():
 	if game_started:
 		chef.reset_chef()
 		submit.set_playing(false, 0)
-		kitchen.hide_all()
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
@@ -63,7 +61,6 @@ func make_new_order():
 	#current_order_position = randi_range(0, 3)
 	current_order_position = 3
 	hud.push_burger_build(current_order, current_order_position)
-	kitchen.assign_spot(current_order_position)
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()
@@ -110,4 +107,4 @@ func _on_chef_cancel_burger_submission():
 
 
 func _on_chef_submit_burger():
-	pass # Replace with function body.
+	print("Submit Target on correct spot: ", submit.current_area_idx == current_order_position)

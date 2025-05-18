@@ -11,6 +11,7 @@ var playing : bool = false
 var travel : int = 1
 var spot_areas : Array[Area2D] = []
 var current_area : Area2D = null
+var current_area_idx : int = -1
 
 
 func _ready():
@@ -37,6 +38,8 @@ func set_playing(tf : bool, start_pos : float):
 	if tf:
 		target.position.x = start_pos
 		travel = 1
+	else:
+		current_area_idx = -1
 
 
 func _assess_current_area():
@@ -50,6 +53,9 @@ func _assess_current_area():
 				smallest = dist
 	if current_area != null:
 		print("Current Target: ", current_area.name)
+		current_area_idx = int(current_area.name.lstrip("spot_")) - 1
+	else:
+		current_area_idx = -1
 
 
 func _on_area_target_area_entered(area):

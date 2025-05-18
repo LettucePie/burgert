@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
-radius = 33.0151
+radius = 22.2036
 
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit")]
 process_mode = 1
