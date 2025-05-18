@@ -1,11 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=25 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://be35n4pr04nkx" path="res://icon.svg" id="1_euexd"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
-[ext_resource type="Texture2D" uid="uid://rhq307xvqrjk" path="res://assets/sprites/ui/customer.png" id="3_650ko"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
@@ -37,7 +36,7 @@ size = Vector2(16, 80)
 [node name="kitchen_a" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_737en")
-customers = Array[Texture2D]([ExtResource("1_euexd"), ExtResource("3_650ko")])
+customers = Array[Texture2D]([ExtResource("1_euexd")])
 
 [node name="customers" type="Node2D" parent="."]
 

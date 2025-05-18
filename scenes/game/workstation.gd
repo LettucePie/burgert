@@ -1,20 +1,22 @@
 extends Area2D
 class_name Workstation
 
+
 @export var ingredient : String = "Lettuce"
 @export var highlight : Sprite2D = null
 @onready var ingredient_sprite : Sprite2D = $sprite/ingredient_sprite
 var tick : int = 60
 var down : bool = false
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	if highlight == null:
 		highlight = get_node("sprite/ingredient_sprite/highlight")
 	set_highlight(false)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta):
 	if highlight.visible:
 		tick -= 3

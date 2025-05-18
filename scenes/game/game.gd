@@ -60,7 +60,8 @@ func stop_game():
 func make_new_order():
 	current_order.clear()
 	current_order = generate_order(1)
-	current_order_position = randi_range(0, 3)
+	#current_order_position = randi_range(0, 3)
+	current_order_position = 3
 	hud.push_burger_build(current_order, current_order_position)
 	kitchen.assign_spot(current_order_position)
 	chef.order_size = current_order.size()
