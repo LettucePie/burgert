@@ -82,6 +82,10 @@ func push_burger_build(build : PackedStringArray, goal_idx : int):
 	goal_points[goal_idx].get_parent().show()
 
 
+func set_score(arg : int):
+	$VBoxContainer/score.text = "SCORE " + str(arg)
+
+
 func set_timer(t : Timer):
 	timer = t
 

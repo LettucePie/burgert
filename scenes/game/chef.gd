@@ -17,7 +17,6 @@ const MOVE_SPEED = 10
 var active : bool = true
 var stations : Array[Workstation]
 var current_station : Workstation = null
-#var running : bool = false
 var direction : String = "L"
 var order_size : int = 0
 var submitting_burger : bool = false

@@ -22,6 +22,7 @@ var game_started : bool = false
 
 var current_order : PackedStringArray = []
 var current_order_position : int = 0
+var current_score : int = 0
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu"):
@@ -38,11 +39,13 @@ func _physics_process(delta):
 
 func start_game():
 	game_started = true
+	current_score = 0
 	chef.reset_chef()
 	submit.set_playing(false, 0)
 	hud.show()
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
+	hud.set_score(current_score)
 	make_new_order()
 
 
@@ -53,6 +56,11 @@ func stop_game():
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
+
+
+func adjust_score(arg : int):
+	current_score += arg
+	hud.set_score(current_score)
 
 
 func make_new_order():
@@ -69,7 +77,7 @@ func generate_order(difficulty : int) -> PackedStringArray:
 	var build : PackedStringArray
 	
 	randomize()
-	build.append("Bun Bottom")
+	build.append("Bun")
 	if difficulty <= 1:
 		build.append(bases[randi_range(0,2)])
 		build.append(toppings[randi_range(0,2)])
@@ -97,6 +105,28 @@ func generate_order(difficulty : int) -> PackedStringArray:
 	return build
 
 
+func assess_submission():
+	var submission : PackedStringArray = chef.current_burger.ingredients
+	var submission_total : int = 0
+	var correct_ingredients : int = 0
+	var correct_placements : int = 0
+	for i in current_order.size():
+		var a = current_order[i]
+		var b = "invalid"
+		if submission.size() >= i + 1:
+			b = submission[i]
+		print("[",i,"]: ", a, " | ", b)
+		if current_order.has(b):
+			correct_ingredients += 1
+		if a == b:
+			correct_placements += 1
+	## TODO account for time
+	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, "\ncorrect_placements: ", correct_placements)
+	submission_total = correct_ingredients + correct_placements
+	adjust_score(submission_total)
+	make_new_order()
+
+
 func _on_chef_start_burger_submission():
 	submit.set_playing(true, chef.position.x)
 
@@ -108,6 +138,9 @@ func _on_chef_cancel_burger_submission():
 func _on_chef_submit_burger():
 	if submit.current_area_idx == current_order_position:
 		print("Successful Throw")
+		assess_submission()
 	else:
 		print("Failed Throw")
 	chef.current_burger.refresh_plate()
+	chef.submitting_burger = false
+	submit.set_playing(false, 0)

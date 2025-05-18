@@ -16,12 +16,14 @@ const OFFSET_MULTI = 0.12
 @onready var plate : Node3D = $plate
 @onready var ingredients_node : Node3D = $plate/ingredients
 
-var ingredients : Array[Ingredient3D] = []
+var ingredient_meshes : Array[Ingredient3D] = []
+var ingredients : PackedStringArray = []
 var offset_y : float = 0
 var rotate_plate : bool = false
 
 func refresh_plate():
 	ingredients.clear()
+	ingredient_meshes.clear()
 	for c in ingredients_node.get_children():
 		c.queue_free()
 	offset_y = 0
@@ -40,7 +42,8 @@ func add_ingredient(ingredient_name : String):
 	ingredients_node.add_child(new_ingredient3d)
 	new_ingredient3d.position.y = offset_y
 	new_ingredient3d.set_ingredient(new_ingredient3d.string_to_index(ingredient_name))
-	ingredients.append(new_ingredient3d)
+	ingredient_meshes.append(new_ingredient3d)
+	ingredients.append(ingredient_name)
 	calculate_next_offset(ingredient_name)
 
 
