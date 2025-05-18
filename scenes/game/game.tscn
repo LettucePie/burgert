@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=10 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/sprites/ui/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
+
+[sub_resource type="Curve" id="Curve_qcuyr"]
+min_value = 1.0
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 1, Vector2(0.373684, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.59664, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
 radius = 22.2036
@@ -18,6 +24,7 @@ kitchen = NodePath("kitchen_a")
 hud = NodePath("hud")
 chef = NodePath("chef")
 submit = NodePath("submit")
+order_point_time_curve = SubResource("Curve_qcuyr")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
 z_index = -1

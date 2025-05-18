@@ -7,7 +7,7 @@ signal game_paused()
 @export var hud : HUD
 @export var chef : Chef
 @export var submit : Submit
-#@export var chef_scene : PackedScene
+@export var order_point_time_curve : Curve
 var game_started : bool = false
 
 @onready var bases : PackedStringArray = [
@@ -23,6 +23,8 @@ var game_started : bool = false
 var current_order : PackedStringArray = []
 var current_order_position : int = 0
 var current_score : int = 0
+var current_order_start_time : float = 0
+
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu"):
@@ -61,6 +63,7 @@ func stop_game():
 func adjust_score(arg : int):
 	current_score += arg
 	hud.set_score(current_score)
+	print("Adding ", arg, " points")
 
 
 func make_new_order():
@@ -71,6 +74,7 @@ func make_new_order():
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()
+	current_order_start_time = $game_timer.time_left
 
 
 func generate_order(difficulty : int) -> PackedStringArray:
@@ -108,6 +112,7 @@ func generate_order(difficulty : int) -> PackedStringArray:
 func assess_submission():
 	var submission : PackedStringArray = chef.current_burger.ingredients
 	var submission_total : int = 0
+	var correct_ingredient_storage : PackedStringArray = current_order.duplicate()
 	var correct_ingredients : int = 0
 	var correct_placements : int = 0
 	for i in current_order.size():
@@ -116,13 +121,21 @@ func assess_submission():
 		if submission.size() >= i + 1:
 			b = submission[i]
 		print("[",i,"]: ", a, " | ", b)
-		if current_order.has(b):
+		if current_order.has(b) and correct_ingredient_storage.has(b):
 			correct_ingredients += 1
+			correct_ingredient_storage.remove_at(correct_ingredient_storage.find(b))
 		if a == b:
-			correct_placements += 1
-	## TODO account for time
-	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, "\ncorrect_placements: ", correct_placements)
-	submission_total = correct_ingredients + correct_placements
+			correct_placements += 3
+		else:
+			correct_placements = abs(correct_placements - 3)
+	var finish_time : float = $game_timer.time_left
+	var time_performance = inverse_lerp(0, 12, current_order_start_time - finish_time)
+	var time_multiplier = order_point_time_curve.sample(time_performance)
+	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
+	"\ncorrect_placements: ", correct_placements,
+	"\ntime_performance: ", time_performance,
+	"\ntime_multiplier: ", time_multiplier)
+	submission_total = int((correct_ingredients + correct_placements) * time_multiplier)
 	adjust_score(submission_total)
 	make_new_order()
 
