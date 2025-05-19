@@ -23,6 +23,7 @@ var game_started : bool = false
 var current_order : PackedStringArray = []
 var current_order_position : int = 0
 var current_score : int = 0
+var game_accuracies : PackedFloat32Array = []
 var current_order_start_time : float = 0
 
 
@@ -42,6 +43,7 @@ func _physics_process(delta):
 func start_game():
 	game_started = true
 	current_score = 0
+	game_accuracies.clear()
 	chef.reset_chef()
 	submit.set_playing(false, 0)
 	hud.show()
@@ -115,6 +117,7 @@ func assess_submission():
 	var correct_ingredient_storage : PackedStringArray = current_order.duplicate()
 	var correct_ingredients : int = 0
 	var correct_placements : int = 0
+	var wrong_ingredients : int = 0
 	for i in current_order.size():
 		var a = current_order[i]
 		var b = "invalid"
@@ -124,19 +127,23 @@ func assess_submission():
 		if current_order.has(b) and correct_ingredient_storage.has(b):
 			correct_ingredients += 1
 			correct_ingredient_storage.remove_at(correct_ingredient_storage.find(b))
-		if a == b:
-			correct_placements += 3
 		else:
-			correct_placements = abs(correct_placements - 3)
-	var finish_time : float = $game_timer.time_left
-	var time_performance = inverse_lerp(0, 12, current_order_start_time - finish_time)
-	var time_multiplier = order_point_time_curve.sample(time_performance)
+			wrong_ingredients += 1
+		if a == b:
+			correct_placements += 1
+	var burger_score : int = (correct_ingredients + correct_placements) - wrong_ingredients
+	var finish_time : float = current_order_start_time - $game_timer.time_left
+	var deadline : float = 6 + (current_order.size() * 1.5)
+	var time_performance = inverse_lerp(0, deadline, finish_time)
+	var time_percent = order_point_time_curve.sample(time_performance)
+	var time_score := int((current_order.size() - wrong_ingredients) * time_percent)
 	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
 	"\ncorrect_placements: ", correct_placements,
 	"\ntime_performance: ", time_performance,
-	"\ntime_multiplier: ", time_multiplier)
-	submission_total = int((correct_ingredients + correct_placements) * time_multiplier)
+	"\ntime_score: ", time_score)
+	submission_total = burger_score + time_score
 	adjust_score(submission_total)
+	game_accuracies.append(correct_placements / current_order.size())
 	make_new_order()
 
 

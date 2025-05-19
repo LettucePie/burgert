@@ -39,7 +39,6 @@ func reset_chef():
 
 
 func set_station(ws : Workstation):
-	print("Setting Current Station: ", ws.ingredient)
 	current_station = ws
 	ws.set_highlight(true)
 

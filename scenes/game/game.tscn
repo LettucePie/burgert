@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
 
 [sub_resource type="Curve" id="Curve_qcuyr"]
-min_value = 1.0
-max_value = 2.0
-_data = [Vector2(0, 2), 0.0, 0.0, 0, 1, Vector2(0.373684, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), -1.59664, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, -0.160609, 0, 1, Vector2(0.342105, 0.945055), -0.404112, -0.404112, 0, 0, Vector2(1, 0), -1.43648, 0.0, 1, 0]
 point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
