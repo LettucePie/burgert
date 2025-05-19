@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://m6bxbm4udcdw"]
+
+[ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_v5lsf"]
+[ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
+[ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/resources/fonts/scoreboard_settings.tres" id="3_wqw0x"]
+
+[node name="results" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_v5lsf")
+script = ExtResource("2_xe4yp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Results"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="entry_1" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Orders Finished"
+label_settings = ExtResource("3_wqw0x")
+vertical_alignment = 1
+
+[node name="ordercount" type="Label" parent="Panel/VBoxContainer/entry_1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Value"
+label_settings = ExtResource("3_wqw0x")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="entry_2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Order Accuracy"
+label_settings = ExtResource("3_wqw0x")
+vertical_alignment = 1
+
+[node name="accuracy" type="Label" parent="Panel/VBoxContainer/entry_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Value"
+label_settings = ExtResource("3_wqw0x")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="entry_3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Score"
+label_settings = ExtResource("3_wqw0x")
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="Panel/VBoxContainer/entry_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Value"
+label_settings = ExtResource("3_wqw0x")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="finish" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_vertical = 6
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Finish"
+
+[connection signal="pressed" from="Panel/VBoxContainer/finish" to="." method="_on_finish_pressed"]

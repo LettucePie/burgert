@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=11 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/sprites/ui/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
 [ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
+[ext_resource type="PackedScene" uid="uid://m6bxbm4udcdw" path="res://scenes/ui/results.tscn" id="8_40o0c"]
 
 [sub_resource type="Curve" id="Curve_qcuyr"]
 _data = [Vector2(0, 1), 0.0, -0.160609, 0, 1, Vector2(0.342105, 0.945055), -0.404112, -0.404112, 0, 0, Vector2(1, 0), -1.43648, 0.0, 1, 0]
@@ -15,13 +16,14 @@ point_count = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
 radius = 22.2036
 
-[node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit")]
+[node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit", "results")]
 process_mode = 1
 script = ExtResource("1_ebpk4")
 kitchen = NodePath("kitchen_a")
 hud = NodePath("hud")
 chef = NodePath("chef")
 submit = NodePath("submit")
+results = NodePath("results")
 order_point_time_curve = SubResource("Curve_qcuyr")
 
 [node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
@@ -56,6 +58,11 @@ position = Vector2(0, 328)
 visible = false
 z_index = 1
 
+[node name="results" parent="." instance=ExtResource("8_40o0c")]
+process_mode = 2
+visible = false
+z_index = 2
+
 [node name="game_timer" type="Timer" parent="."]
 wait_time = 120.0
 
@@ -64,3 +71,5 @@ wait_time = 120.0
 [connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]
+[connection signal="finished_results" from="results" to="." method="_on_results_finished_results"]
+[connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

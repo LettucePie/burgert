@@ -15,6 +15,8 @@ main_menu = NodePath("MainMenu")
 [node name="MainMenu" parent="." instance=ExtResource("1_8ijes")]
 z_index = 2
 
+[connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
+[connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
 [connection signal="game_paused" from="Game" to="." method="_on_game_game_paused"]
 [connection signal="quit_play" from="MainMenu" to="." method="_on_main_menu_quit_play"]
 [connection signal="resume_play" from="MainMenu" to="." method="_on_main_menu_resume_play"]

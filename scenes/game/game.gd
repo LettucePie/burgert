@@ -2,11 +2,14 @@ extends Node
 class_name Game
 
 signal game_paused()
+signal game_finished()
+signal game_over()
 
 @export var kitchen : Kitchen
 @export var hud : HUD
 @export var chef : Chef
 @export var submit : Submit
+@export var results : Results
 @export var order_point_time_curve : Curve
 var game_started : bool = false
 
@@ -50,6 +53,7 @@ func start_game():
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
 	hud.set_score(current_score)
+	results.hide()
 	make_new_order()
 
 
@@ -57,6 +61,7 @@ func stop_game():
 	if game_started:
 		chef.reset_chef()
 		submit.set_playing(false, 0)
+	results.hide()
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
@@ -143,7 +148,8 @@ func assess_submission():
 	"\ntime_score: ", time_score)
 	submission_total = burger_score + time_score
 	adjust_score(submission_total)
-	game_accuracies.append(correct_placements / current_order.size())
+	var accuracy = float(correct_placements) / float(current_order.size())
+	game_accuracies.append(accuracy)
 	make_new_order()
 
 
@@ -164,3 +170,18 @@ func _on_chef_submit_burger():
 	chef.current_burger.refresh_plate()
 	chef.submitting_burger = false
 	submit.set_playing(false, 0)
+
+
+func _on_game_timer_timeout():
+	$game_timer.stop()
+	game_started = false
+	chef.active = false
+	chef.submitting_burger = false
+	hud.show_order(false)
+	submit.set_playing(false, 0)
+	results.display_results(game_accuracies, current_score)
+	emit_signal("game_finished")
+
+
+func _on_results_finished_results():
+	emit_signal("game_over")

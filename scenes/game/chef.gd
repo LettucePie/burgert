@@ -36,6 +36,7 @@ func reset_chef():
 	direction = "R"
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
+	active = true
 
 
 func set_station(ws : Workstation):

@@ -64,6 +64,8 @@ func pause_button_event(but):
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
+	if state == SCREENS.MAIN:
+		$Main/Play.grab_focus()
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:
