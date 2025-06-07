@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=34 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
 [ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen_bg.png" id="2_n5ebe"]
+[ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/customers.gd" id="2_trii0"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
@@ -13,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/sprites/game/customers/customers__1.png" id="5_jd2jh"]
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
+[ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/sprites/ui/order-thought-cloud1.png" id="7_nq4e3"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
+[ext_resource type="AudioStream" uid="uid://c6t6oe1facwid" path="res://assets/sound/customer_intros.wav" id="8_ffwwe"]
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/resources/sprites/ingredients/meat_highlight.tres" id="9_lqetf"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/ingredients/lettuce.tres" id="10_1mb32"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
@@ -27,6 +30,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr1xd"]
 size = Vector2(128, 127)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2jej8"]
+viewport_path = NodePath(".")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n63mh"]
 radius = 78.0
@@ -43,6 +49,8 @@ size = Vector2(16, 80)
 [node name="kitchen_a" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_737en")
+
+[node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
@@ -84,19 +92,32 @@ position = Vector2(483, 88)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lr1xd")
 
-[node name="Customer_1" type="Node2D" parent="customers"]
+[node name="Tommy" type="Area2D" parent="customers"]
 script = ExtResource("3_488ky")
+customer_name = "Tommy"
 
-[node name="Sprite2D" type="Sprite2D" parent="customers/Customer_1"]
+[node name="character" type="Sprite2D" parent="customers/Tommy"]
 position = Vector2(320, 86)
 scale = Vector2(2, 2)
 texture = ExtResource("5_jd2jh")
 
-[node name="Hit" type="Area2D" parent="customers/Customer_1" groups=["Target_Area"]]
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Tommy"]
+position = Vector2(387, 95)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_2jej8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Customer_1/Hit"]
+[node name="thought_cloud" type="Sprite2D" parent="customers/Tommy"]
+position = Vector2(387, 93)
+scale = Vector2(5.20313, 5.20313)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Tommy"]
 position = Vector2(551, 128)
 shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
+position = Vector2(551, 127)
+stream = ExtResource("8_ffwwe")
 
 [node name="background_1" type="Node2D" parent="."]
 
