@@ -52,7 +52,7 @@ texture = ExtResource("4_qu4ek")
 texture_mode = 1
 
 [node name="chef" parent="." instance=ExtResource("2_go7ox")]
-position = Vector2(0, 328)
+position = Vector2(0, 370)
 
 [node name="hud" parent="." instance=ExtResource("3_wdtco")]
 visible = false
