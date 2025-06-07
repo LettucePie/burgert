@@ -77,6 +77,8 @@ func make_new_order():
 	current_order.clear()
 	current_order = generate_order(1)
 	current_order_position = randi_range(0, 3)
+	## TODO transition burger portal display from HUD to Kitchen. Keep Order List
+	#kitchen.update_burger_portal()
 	hud.push_burger_build(current_order, current_order_position)
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")

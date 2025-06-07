@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=36 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen_bg.png" id="2_n5ebe"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
-[ext_resource type="Script" path="res://scenes/game/customers.gd" id="2_trii0"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
@@ -16,9 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
 [ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/sprites/ui/order-thought-cloud1.png" id="7_nq4e3"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
-[ext_resource type="AudioStream" uid="uid://c6t6oe1facwid" path="res://assets/sound/customer_intros.wav" id="8_ffwwe"]
+[ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/Audio 1.wav" id="8_dpewk"]
+[ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/sprites/game/customers/customers__2.png" id="9_62i65"]
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/resources/sprites/ingredients/meat_highlight.tres" id="9_lqetf"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/ingredients/lettuce.tres" id="10_1mb32"]
+[ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/Audio 2.wav" id="10_vp4l7"]
+[ext_resource type="Texture2D" uid="uid://xygve8lpah31" path="res://assets/sprites/game/customers/customers__3.png" id="11_gbh4p"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
 [ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/ingredients/tomato.tres" id="12_rknrk"]
 [ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/resources/sprites/ingredients/tomato_highlight.tres" id="13_x2inu"]
@@ -46,9 +48,11 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
 size = Vector2(16, 80)
 
-[node name="kitchen_a" type="Node2D"]
+[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node")]
 texture_filter = 1
 script = ExtResource("1_737en")
+customer_burger_portal = NodePath("burger_portal")
+customers_node = NodePath("customers")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 
@@ -58,7 +62,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_n5ebe")
 
 [node name="customers" type="Node2D" parent="."]
-script = ExtResource("2_trii0")
 
 [node name="spot_1" type="Area2D" parent="customers" groups=["Target_Area"]]
 visible = false
@@ -92,9 +95,12 @@ position = Vector2(483, 88)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lr1xd")
 
-[node name="Tommy" type="Area2D" parent="customers"]
+[node name="Tommy" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
 script = ExtResource("3_488ky")
 customer_name = "Tommy"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="character" type="Sprite2D" parent="customers/Tommy"]
 position = Vector2(320, 86)
@@ -106,9 +112,9 @@ position = Vector2(387, 95)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_2jej8")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Tommy"]
-position = Vector2(387, 93)
-scale = Vector2(5.20313, 5.20313)
+[node name="thought_cloud" type="Sprite2D" parent="customers/Tommy/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
 texture = ExtResource("7_nq4e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Tommy"]
@@ -117,7 +123,67 @@ shape = SubResource("CircleShape2D_n63mh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
 position = Vector2(551, 127)
-stream = ExtResource("8_ffwwe")
+stream = ExtResource("8_dpewk")
+
+[node name="Teddy" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Teddy"
+burger_portal_sprite = NodePath("../Tommy/burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Teddy"]
+position = Vector2(320, 149)
+scale = Vector2(2, 2)
+texture = ExtResource("9_62i65")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Teddy"]
+position = Vector2(306, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_2jej8")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Teddy/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Teddy"]
+position = Vector2(459, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Teddy"]
+position = Vector2(458, 77)
+stream = ExtResource("10_vp4l7")
+
+[node name="Ted" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+script = ExtResource("3_488ky")
+customer_name = "Ted"
+burger_portal_sprite = NodePath("../Tommy/burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Ted"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("11_gbh4p")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Ted"]
+position = Vector2(246, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_2jej8")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Ted/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Ted"]
+position = Vector2(105, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
+position = Vector2(106, 126)
+stream = ExtResource("10_vp4l7")
 
 [node name="background_1" type="Node2D" parent="."]
 
@@ -139,6 +205,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("5_cyuyu")
 
 [node name="cash" type="Sprite2D" parent="background_1"]
+visible = false
 position = Vector2(496, 179)
 scale = Vector2(2, 2)
 texture = ExtResource("2_hv2ir")
