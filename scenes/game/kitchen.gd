@@ -20,7 +20,8 @@ func _ready():
 
 func pick_customer() -> PackedStringArray:
 	var result : PackedStringArray = []
-	
+	print("kitchen.pick_customer() Called")
+	print("Current_Customer == ", current_customer)
 	## Deliberate which Customer to randomly pick.
 	randomize()
 	if current_customer == null:
@@ -30,24 +31,33 @@ func pick_customer() -> PackedStringArray:
 		past_customers.append(current_customer)
 		current_customer.hide()
 		
-		if current_customer.consecutive_orders > 1 \
-		and past_customers.size() >= current_customer.consecutive_orders:
+		if current_customer.consecutive_orders > 1:
+			print(current_customer.customer_name, " Consecutive: ", current_customer.consecutive_orders)
 			var satisfied : bool = true
 			for i in current_customer.consecutive_orders:
 				var index : int = past_customers.size() - (i + 1)
-				if past_customers[index] != current_customer:
+				if index >= 0:
+					print("Checking index[", index, "] of past_customers.size(): ", past_customers.size())
+					if past_customers[index] != current_customer:
+						satisfied = false
+				else:
 					satisfied = false
 			if satisfied:
-				var altered_list : Array[Customer] = customers.duplicate()
+				print("Current Consecutive Customer is satisfied")
+				var altered_list : Array[Customer] = customers.duplicate(true)
 				altered_list.erase(current_customer)
 				current_customer = altered_list.pick_random()
+			else:
+				print("Current Consecutive Customer is NOT YET satisfied")
 		else:
 			current_customer = customers.pick_random()
 	
 	## Pick one of their orders randomly.
+	print("Deliberation Result Current Customer = ", current_customer)
 	current_customer.show()
 	result = current_customer.orders.pick_random()
 	customer_burger_portal.burger.assemble_burger_build(result)
+	print("Current_Customer New Order\n\n", result)
 	
 	return result
 
