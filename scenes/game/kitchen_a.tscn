@@ -482,6 +482,7 @@ position = Vector2(260, 126)
 stream = ExtResource("29_srhvm")
 
 [node name="Persistant" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
 script = ExtResource("3_488ky")
 customer_name = "Persistant"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
@@ -513,9 +514,9 @@ position = Vector2(352, 126)
 stream = ExtResource("31_421yl")
 
 [node name="Anxiety" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
-visible = false
 script = ExtResource("3_488ky")
 customer_name = "Anxiety"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
