@@ -7,6 +7,7 @@ var customers : Array[Customer] = []
 var current_customer : Customer
 var past_customers : Array[Customer]
 
+
 func _ready():
 	## build customer list
 	customers.clear()

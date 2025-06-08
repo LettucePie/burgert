@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=61 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
@@ -23,19 +23,41 @@
 [ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/Audio 2.wav" id="10_vp4l7"]
 [ext_resource type="Texture2D" uid="uid://xygve8lpah31" path="res://assets/sprites/game/customers/customers__3.png" id="11_gbh4p"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
+[ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/Audio 3.wav" id="12_4qbcy"]
 [ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/ingredients/tomato.tres" id="12_rknrk"]
 [ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/resources/sprites/ingredients/tomato_highlight.tres" id="13_x2inu"]
+[ext_resource type="Texture2D" uid="uid://byr4q1fxrvpx5" path="res://assets/sprites/game/customers/customers__4.png" id="13_y24t5"]
+[ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/Audio 4.wav" id="14_6vm2n"]
 [ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/resources/sprites/ingredients/cheese.tres" id="14_t0dgj"]
 [ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/resources/sprites/ingredients/cheese_highlight.tres" id="15_bm1ut"]
+[ext_resource type="Texture2D" uid="uid://dmxd42ydjfaye" path="res://assets/sprites/game/customers/customers__5.png" id="15_mqeil"]
+[ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/Audio 5.wav" id="16_hkchl"]
 [ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ingredients/ketchup.tres" id="16_vtaef"]
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/resources/sprites/ingredients/ketchup_highlight.tres" id="17_8eli0"]
+[ext_resource type="Texture2D" uid="uid://4og10atuetw7" path="res://assets/sprites/game/customers/customers__6.png" id="17_q0c3n"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/ingredients/mustard.tres" id="18_8nry3"]
+[ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/Audio 6.wav" id="18_olat5"]
+[ext_resource type="Texture2D" uid="uid://b20j5d0bdfn3e" path="res://assets/sprites/game/customers/customers__7.png" id="19_7l50s"]
+[ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/Audio 7.wav" id="20_3e2qe"]
+[ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/sprites/game/customers/customers__8.png" id="21_tmhs0"]
+[ext_resource type="AudioStream" uid="uid://6awwq0fr8g45" path="res://assets/sound/Audio 8.wav" id="22_dstdj"]
+[ext_resource type="Texture2D" uid="uid://me3pvftyofx7" path="res://assets/sprites/game/customers/customers__9.png" id="23_yq4at"]
+[ext_resource type="AudioStream" uid="uid://ci4766rfr1j0l" path="res://assets/sound/Audio 9.wav" id="24_lmcvu"]
+[ext_resource type="Texture2D" uid="uid://bgi1r131cm1mw" path="res://assets/sprites/game/customers/customers__10.png" id="25_eh2xn"]
+[ext_resource type="AudioStream" uid="uid://hepjc5fw3uqa" path="res://assets/sound/Audio 10.wav" id="26_e6txb"]
+[ext_resource type="Texture2D" uid="uid://pc73h887hkoh" path="res://assets/sprites/game/customers/customers__11.png" id="27_wbkil"]
+[ext_resource type="Texture2D" uid="uid://dlqnfn8gqs7a8" path="res://assets/sprites/game/customers/customers__12.png" id="28_baryf"]
+[ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/Audio 11.wav" id="29_srhvm"]
+[ext_resource type="Texture2D" uid="uid://c085b04unljsh" path="res://assets/sprites/game/customers/customers__13.png" id="30_42u8a"]
+[ext_resource type="AudioStream" uid="uid://werdrs07c7q6" path="res://assets/sound/Audio 13.wav" id="31_421yl"]
+[ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/sprites/game/customers/customers__14.png" id="32_6wy5e"]
+[ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/Audio 14.wav" id="33_cx7vi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr1xd"]
 size = Vector2(128, 127)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
@@ -43,12 +65,12 @@ viewport_path_again = NodePath("../../../burger_portal")
 radius = 78.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2j35s"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8mrc"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
@@ -112,6 +134,7 @@ shape = SubResource("RectangleShape2D_lr1xd")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Tommy"
+orders = Array[PackedStringArray]([PackedStringArray()])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -142,7 +165,7 @@ stream = ExtResource("8_dpewk")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Teddy"
-burger_portal_sprite = NodePath("../Tommy/burger_portal_view")
+burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="character" type="Sprite2D" parent="customers/Teddy"]
@@ -169,9 +192,10 @@ position = Vector2(458, 77)
 stream = ExtResource("10_vp4l7")
 
 [node name="Ted" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
 script = ExtResource("3_488ky")
 customer_name = "Ted"
-burger_portal_sprite = NodePath("../Tommy/burger_portal_view")
+burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
 [node name="character" type="Sprite2D" parent="customers/Ted"]
@@ -196,7 +220,312 @@ shape = SubResource("CircleShape2D_n63mh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
 position = Vector2(106, 126)
-stream = ExtResource("10_vp4l7")
+stream = ExtResource("12_4qbcy")
+
+[node name="Al" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Al"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Al"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("13_y24t5")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Al"]
+position = Vector2(148, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Al/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Al"]
+position = Vector2(292, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Al"]
+position = Vector2(292, 126)
+stream = ExtResource("14_6vm2n")
+
+[node name="Emo" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Emo"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Emo"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("15_mqeil")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Emo"]
+position = Vector2(304, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Emo/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Emo"]
+position = Vector2(432, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Emo"]
+position = Vector2(424, 126)
+stream = ExtResource("16_hkchl")
+
+[node name="Karen" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Karen"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Karen"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("17_q0c3n")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Karen"]
+position = Vector2(340, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Karen/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Karen"]
+position = Vector2(440, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Karen"]
+position = Vector2(436, 126)
+stream = ExtResource("18_olat5")
+
+[node name="Patient" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Patient"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Patient"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("19_7l50s")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Patient"]
+position = Vector2(520, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Patient/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Patient"]
+position = Vector2(440, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
+position = Vector2(436, 126)
+stream = ExtResource("20_3e2qe")
+
+[node name="Mustard" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Mustard"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Mustard"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("21_tmhs0")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Mustard"]
+position = Vector2(396, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Mustard/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Mustard"]
+position = Vector2(552, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Mustard"]
+position = Vector2(556, 126)
+stream = ExtResource("22_dstdj")
+
+[node name="Dancer" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Dancer"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Dancer"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("23_yq4at")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Dancer"]
+position = Vector2(248, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Dancer/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Dancer"]
+position = Vector2(120, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Dancer"]
+position = Vector2(124, 126)
+stream = ExtResource("24_lmcvu")
+
+[node name="Punk" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Punk"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Punk"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("25_eh2xn")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Punk"]
+position = Vector2(348, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Punk/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Punk"]
+position = Vector2(492, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Punk"]
+position = Vector2(492, 126)
+stream = ExtResource("26_e6txb")
+
+[node name="Toad" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Toad"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Toad"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("27_wbkil")
+
+[node name="buddy" type="Sprite2D" parent="customers/Toad/character"]
+texture = ExtResource("28_baryf")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Toad"]
+position = Vector2(140, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Toad/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Toad"]
+position = Vector2(264, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Toad"]
+position = Vector2(260, 126)
+stream = ExtResource("29_srhvm")
+
+[node name="Persistant" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Persistant"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Persistant"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("30_42u8a")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Persistant"]
+position = Vector2(208, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Persistant/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Persistant"]
+position = Vector2(348, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Persistant"]
+position = Vector2(352, 126)
+stream = ExtResource("31_421yl")
+
+[node name="Anxiety" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
+script = ExtResource("3_488ky")
+customer_name = "Anxiety"
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="character" type="Sprite2D" parent="customers/Anxiety"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("32_6wy5e")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Anxiety"]
+position = Vector2(340, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = SubResource("ViewportTexture_m8mrc")
+
+[node name="thought_cloud" type="Sprite2D" parent="customers/Anxiety/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+texture = ExtResource("7_nq4e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Anxiety"]
+position = Vector2(476, 128)
+shape = SubResource("CircleShape2D_n63mh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Anxiety"]
+position = Vector2(480, 126)
+stream = ExtResource("33_cx7vi")
 
 [node name="background_1" type="Node2D" parent="."]
 
