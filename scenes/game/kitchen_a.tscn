@@ -134,7 +134,7 @@ shape = SubResource("RectangleShape2D_lr1xd")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Tommy"
-orders = Array[PackedStringArray]([PackedStringArray()])
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Lettuce", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Lettuce", "Meat", "Bun", "Lettuce", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -165,6 +165,7 @@ stream = ExtResource("8_dpewk")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Teddy"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Cheese", "Cheese", "Bun Top"), PackedStringArray("Bun", "Tomato", "Cheese", "Tomato", "Cheese", "Cheese", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -195,6 +196,7 @@ stream = ExtResource("10_vp4l7")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Ted"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -226,6 +228,8 @@ stream = ExtResource("12_4qbcy")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Al"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
+consecutive_orders = 2
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -256,6 +260,7 @@ stream = ExtResource("14_6vm2n")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Emo"
+orders = Array[PackedStringArray]([PackedStringArray("Lettuce", "Lettuce", "Tomato", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Cheese", "Ketchup", "Bun", "Lettuce"), PackedStringArray("Tomato", "Ketchup", "Tomato", "Ketchup", "Tomato")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -286,6 +291,7 @@ stream = ExtResource("16_hkchl")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Karen"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Tomato", "Ketchup", "Mustard", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -316,6 +322,7 @@ stream = ExtResource("18_olat5")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Patient"
+orders = Array[PackedStringArray]([PackedStringArray("Cheese", "Cheese", "Cheese", "Cheese", "Lettuce"), PackedStringArray("Bun", "Cheese", "Bun Top"), PackedStringArray("Bun", "Cheese", "Meat", "Cheese", "Lettuce", "Cheese", "Tomato", "Cheese", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -336,17 +343,19 @@ texture = ExtResource("7_nq4e3")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="customers/Patient"]
-position = Vector2(440, 128)
+position = Vector2(396, 128)
 shape = SubResource("CircleShape2D_n63mh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
-position = Vector2(436, 126)
+position = Vector2(396, 126)
 stream = ExtResource("20_3e2qe")
 
 [node name="Mustard" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Mustard"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Mustard", "Mustard", "Mustard", "Mustard"), PackedStringArray("Mustard", "Mustard", "Mustard"), PackedStringArray("Bun", "Mustard", "Meat", "Mustard", "Mustard", "Mustard", "Mustard", "Bun", "Mustard")])
+consecutive_orders = 2
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -377,6 +386,7 @@ stream = ExtResource("22_dstdj")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Dancer"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun Top"), PackedStringArray("Lettuce")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -408,6 +418,8 @@ stream = ExtResource("24_lmcvu")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Punk"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Ketchup", "Ketchup", "Bun Top"), PackedStringArray("Cheese", "Ketchup", "Ketchup", "Ketchup", "Cheese"), PackedStringArray("Bun", "Cheese", "Bun", "Ketchup", "Bun", "Cheese", "Bun", "Ketchup", "Bun", "Ketchup", "Bun Top")])
+consecutive_orders = 2
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -438,6 +450,8 @@ stream = ExtResource("26_e6txb")
 visible = false
 script = ExtResource("3_488ky")
 customer_name = "Toad"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top"), PackedStringArray("Meat", "Meat"), PackedStringArray("Cheese", "Cheese"), PackedStringArray("Ketchup", "Mustard"), PackedStringArray("Lettuce", "Tomato")])
+consecutive_orders = 2
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
@@ -468,9 +482,10 @@ position = Vector2(260, 126)
 stream = ExtResource("29_srhvm")
 
 [node name="Persistant" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
-visible = false
 script = ExtResource("3_488ky")
 customer_name = "Persistant"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
+consecutive_orders = 4
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 
