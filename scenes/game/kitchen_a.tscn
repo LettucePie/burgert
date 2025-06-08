@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=60 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
@@ -53,9 +53,6 @@
 [ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/sprites/game/customers/customers__14.png" id="32_6wy5e"]
 [ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/Audio 14.wav" id="33_cx7vi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr1xd"]
-size = Vector2(128, 127)
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
 viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
@@ -65,12 +62,12 @@ viewport_path_again = NodePath("../../../burger_portal")
 radius = 78.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2j35s"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8mrc"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
@@ -90,6 +87,7 @@ customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
+rotating_burger = true
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
@@ -97,38 +95,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_n5ebe")
 
 [node name="customers" type="Node2D" parent="."]
-
-[node name="spot_1" type="Area2D" parent="customers" groups=["Target_Area"]]
-visible = false
-position = Vector2(89, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_1"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lr1xd")
-
-[node name="spot_2" type="Area2D" parent="customers" groups=["Target_Area"]]
-visible = false
-position = Vector2(222, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_2"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lr1xd")
-
-[node name="spot_3" type="Area2D" parent="customers" groups=["Target_Area"]]
-visible = false
-position = Vector2(351, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_3"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lr1xd")
-
-[node name="spot_4" type="Area2D" parent="customers" groups=["Target_Area"]]
-visible = false
-position = Vector2(483, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="customers/spot_4"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lr1xd")
 
 [node name="Tommy" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
 visible = false
@@ -383,7 +349,6 @@ position = Vector2(556, 126)
 stream = ExtResource("22_dstdj")
 
 [node name="Dancer" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
-visible = false
 script = ExtResource("3_488ky")
 customer_name = "Dancer"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun Top"), PackedStringArray("Lettuce")])
@@ -514,6 +479,7 @@ position = Vector2(352, 126)
 stream = ExtResource("31_421yl")
 
 [node name="Anxiety" type="Area2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player")]
+visible = false
 script = ExtResource("3_488ky")
 customer_name = "Anxiety"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
