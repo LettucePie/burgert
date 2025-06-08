@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=38 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/resources/sprites/chef_frames.tres" id="1_758j5"]
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
+[ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhn51"]
 animation = &"Idle_L"
@@ -598,8 +599,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_btgba"]
 radius = 46.5296
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wuj4m"]
-viewport_path = NodePath(".")
+[sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
+viewport_path = NodePath("burger_portal")
+script = ExtResource("3_fq8hn")
+viewport_path_again = NodePath("../burger_portal")
 
 [node name="chef" type="Node2D"]
 texture_filter = 1
@@ -631,7 +634,7 @@ shape = SubResource("CircleShape2D_btgba")
 [node name="burger_sprite" type="Sprite2D" parent="."]
 position = Vector2(34, -7)
 scale = Vector2(0.380859, 0.380859)
-texture = SubResource("ViewportTexture_wuj4m")
+texture = SubResource("ViewportTexture_sys53")
 
 [node name="burger_portal" parent="." instance=ExtResource("3_3owfg")]
 

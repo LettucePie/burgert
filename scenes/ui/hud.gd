@@ -4,7 +4,6 @@ class_name HUD
 var order_shown : bool = false
 var timer : Timer = null
 
-@onready var target_burger : Burger = $burger_portal.burger
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
 @onready var top_tear : TextureRect = $order/VBoxContainer/top
 @onready var bot_tear : TextureRect = $order/VBoxContainer/bot
@@ -20,19 +19,8 @@ var timer : Timer = null
 @export var ketchup_scribbles : Array[Texture2D]
 @export var mustard_scribbles : Array[Texture2D]
 
-@onready var customer_spots : Array[TextureRect] = [
-	$spot_1, $spot_2, $spot_3, $spot_4
-]
-@onready var goal_points : Array[TextureRect] = [
-	$thought_1/goal, $thought_2/goal, $thought_3/goal, $thought_4/goal
-]
-
 
 func clear_order():
-	for gp in goal_points:
-		gp.get_parent().hide()
-	for cs in customer_spots:
-		cs.hide()
 	top_tear.reparent(self)
 	top_tear.hide()
 	bot_tear.reparent(self)
@@ -75,11 +63,8 @@ func show_order(tf : bool):
 	$order.visible = tf
 
 
-func push_burger_build(build : PackedStringArray, goal_idx : int):
-	target_burger.assemble_burger_build(build)
+func push_burger_build(build : PackedStringArray):
 	_build_order(build)
-	customer_spots[goal_idx].show()
-	goal_points[goal_idx].get_parent().show()
 
 
 func set_score(arg : int):
@@ -96,8 +81,6 @@ func get_timer() -> Timer:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for g in goal_points:
-		g.texture.viewport_path = "burger_portal"
 	$order.hide()
 
 

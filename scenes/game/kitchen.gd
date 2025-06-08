@@ -4,6 +4,8 @@ class_name Kitchen
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
 var customers : Array[Customer] = []
+var current_customer : Customer
+var past_customers : Array[Customer]
 
 func _ready():
 	## build customer list
@@ -13,6 +15,10 @@ func _ready():
 			customers.append(child)
 	for c in customers:
 		c.hide()
+
+
+func pick_customer():
+	pass
 
 
 func push_burger_build(build : PackedStringArray):
