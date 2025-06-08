@@ -34,7 +34,7 @@ func pick_customer() -> PackedStringArray:
 		and past_customers.size() >= current_customer.consecutive_orders:
 			var satisfied : bool = true
 			for i in current_customer.consecutive_orders:
-				var index : int = past_customers.size() - i
+				var index : int = past_customers.size() - (i + 1)
 				if past_customers[index] != current_customer:
 					satisfied = false
 			if satisfied:

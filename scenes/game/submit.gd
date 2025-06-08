@@ -10,9 +10,7 @@ const SPEED = 700
 
 var playing : bool = false
 var travel : int = 1
-var spot_areas : Array[Area2D] = []
-var current_area : Area2D = null
-var current_area_idx : int = -1
+var spot_areas : Array[Customer] = []
 var start_pos_x : float = 0
 
 
@@ -31,7 +29,7 @@ func _physics_process(delta):
 		elif new_pos <= x_min:
 			travel = 1
 		var points : PackedVector2Array = [
-			Vector2(start_pos_x, 328), Vector2(new_pos, 78)
+			Vector2(start_pos_x, 328), Vector2(new_pos, $crosshair.position.y)
 		]
 		line.points = points
 
@@ -40,38 +38,21 @@ func set_playing(tf : bool, start_pos : float):
 	playing = tf
 	visible = tf
 	spot_areas.clear()
-	current_area = null
 	if tf:
 		target.position.x = start_pos
 		start_pos_x = start_pos
 		travel = 1
-	else:
-		current_area_idx = -1
 
 
-func _assess_current_area():
-	current_area = null
-	var smallest = 640
-	if spot_areas.size() > 0:
-		for spot in spot_areas:
-			var dist = abs(target.position.x - spot.global_position.x)
-			if dist < smallest:
-				current_area = spot
-				smallest = dist
-	if current_area != null:
-		print("Current Target: ", current_area.name)
-		current_area_idx = int(current_area.name.lstrip("spot_")) - 1
-	else:
-		current_area_idx = -1
+func check_customer(customer : Customer) -> bool:
+	return spot_areas.has(customer)
 
 
 func _on_area_target_area_entered(area):
 	if area.is_in_group("Target_Area") and !spot_areas.has(area):
 		spot_areas.append(area)
-		_assess_current_area()
 
 
 func _on_area_target_area_exited(area):
 	if area.is_in_group("Target_Area") and spot_areas.has(area):
 		spot_areas.erase(area)
-		_assess_current_area()

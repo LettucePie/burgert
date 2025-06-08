@@ -24,7 +24,6 @@ var game_started : bool = false
 ]
 
 var current_order : PackedStringArray = []
-var current_order_position : int = 0
 var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
 var current_order_start_time : float = 0
@@ -166,7 +165,7 @@ func _on_chef_cancel_burger_submission():
 
 
 func _on_chef_submit_burger():
-	if submit.current_area_idx == current_order_position:
+	if submit.check_customer(kitchen.current_customer):
 		print("Successful Throw")
 		assess_submission()
 	else:
