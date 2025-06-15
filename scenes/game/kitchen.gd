@@ -56,7 +56,13 @@ func pick_customer() -> PackedStringArray:
 	## Pick one of their orders randomly.
 	print("Deliberation Result Current Customer = ", current_customer)
 	current_customer.show()
-	result = current_customer.orders.pick_random()
+	var out : String = "Current_Customer order options:\n"
+	for psa in current_customer.orders:
+		for order in psa:
+			out += order + ", "
+		out += "\n"
+	print(out)
+	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	current_customer.play_greeting()
 	print("Current_Customer New Order\n\n", result)
