@@ -62,12 +62,12 @@ viewport_path_again = NodePath("../../../burger_portal")
 radius = 78.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2j35s"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8mrc"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 

@@ -12,3 +12,7 @@ class_name Customer
 func _ready():
 	if !is_in_group("Target_Area"):
 		add_to_group("Target_Area")
+
+
+func play_greeting():
+	sound_player.play()

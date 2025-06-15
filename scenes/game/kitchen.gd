@@ -14,6 +14,7 @@ func _ready():
 	for child in customers_node.get_children():
 		if child is Customer:
 			customers.append(child)
+			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
 	for c in customers:
 		c.hide()
 
@@ -57,6 +58,7 @@ func pick_customer() -> PackedStringArray:
 	current_customer.show()
 	result = current_customer.orders.pick_random()
 	customer_burger_portal.burger.assemble_burger_build(result)
+	current_customer.play_greeting()
 	print("Current_Customer New Order\n\n", result)
 	
 	return result
