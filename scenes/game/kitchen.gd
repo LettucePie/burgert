@@ -64,7 +64,8 @@ func pick_customer() -> PackedStringArray:
 	print(out)
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
-	current_customer.play_greeting()
+	current_customer.set_active(true)
+	#current_customer.play_greeting()
 	print("Current_Customer New Order\n\n", result)
 	
 	return result
