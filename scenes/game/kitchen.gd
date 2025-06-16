@@ -31,7 +31,7 @@ func pick_customer() -> PackedStringArray:
 		## Cleanup Previous Customer
 		past_customers.append(current_customer)
 		current_customer.hide()
-		
+		current_customer.set_active(false)
 		if current_customer.consecutive_orders > 1:
 			print(current_customer.customer_name, " Consecutive: ", current_customer.consecutive_orders)
 			var satisfied : bool = true

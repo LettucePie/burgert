@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 class_name Customer
 
 
@@ -7,6 +7,8 @@ class_name Customer
 @export var consecutive_orders : int = 1
 @export var burger_portal_sprite : Sprite2D
 @export var sound_player : AudioStreamPlayer2D
+@export var left_area : Marker2D
+@export var right_area : Marker2D
 var active : bool = false
 var tic : int = 0
 var default_y : float = 0

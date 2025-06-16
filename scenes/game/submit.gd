@@ -10,7 +10,6 @@ const SPEED = 700
 
 var playing : bool = false
 var travel : int = 1
-var spot_areas : Array[Customer] = []
 var start_pos_x : float = 0
 
 
@@ -37,7 +36,6 @@ func _physics_process(delta):
 func set_playing(tf : bool, start_pos : float):
 	playing = tf
 	visible = tf
-	spot_areas.clear()
 	if tf:
 		target.position.x = start_pos
 		start_pos_x = start_pos
@@ -45,14 +43,5 @@ func set_playing(tf : bool, start_pos : float):
 
 
 func check_customer(customer : Customer) -> bool:
-	return spot_areas.has(customer)
-
-
-func _on_area_target_area_entered(area):
-	if area.is_in_group("Target_Area") and !spot_areas.has(area):
-		spot_areas.append(area)
-
-
-func _on_area_target_area_exited(area):
-	if area.is_in_group("Target_Area") and spot_areas.has(area):
-		spot_areas.erase(area)
+	return target.global_position.x >= customer.left_area.global_position.x \
+	and target.global_position.x < customer.right_area.global_position.x

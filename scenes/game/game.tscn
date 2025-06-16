@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=10 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
@@ -12,9 +12,6 @@
 [sub_resource type="Curve" id="Curve_qcuyr"]
 _data = [Vector2(0, 1), 0.0, -0.160609, 0, 1, Vector2(0.342105, 0.945055), -0.404112, -0.404112, 0, 0, Vector2(1, 0), -1.43648, 0.0, 1, 0]
 point_count = 3
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p5ec3"]
-radius = 22.2036
 
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit", "results")]
 process_mode = 1
@@ -41,11 +38,6 @@ position = Vector2(0, 115)
 scale = Vector2(3, 3)
 texture = ExtResource("3_de6vf")
 
-[node name="area_target" type="Area2D" parent="submit/crosshair"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="submit/crosshair/area_target"]
-shape = SubResource("CircleShape2D_p5ec3")
-
 [node name="Line2D" type="Line2D" parent="submit"]
 texture_repeat = 2
 texture = ExtResource("4_qu4ek")
@@ -66,8 +58,6 @@ z_index = 2
 [node name="game_timer" type="Timer" parent="."]
 wait_time = 120.0
 
-[connection signal="area_entered" from="submit/crosshair/area_target" to="submit" method="_on_area_target_area_entered"]
-[connection signal="area_exited" from="submit/crosshair/area_target" to="submit" method="_on_area_target_area_exited"]
 [connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]
