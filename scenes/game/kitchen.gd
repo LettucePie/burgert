@@ -3,6 +3,7 @@ class_name Kitchen
 
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
+@export var splat : AnimatedSprite2D
 var customers : Array[Customer] = []
 var current_customer : Customer = null
 var past_customers : Array[Customer]
@@ -17,6 +18,7 @@ func _ready():
 			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
 	for c in customers:
 		c.hide()
+	splat.hide()
 
 
 func pick_customer() -> PackedStringArray:
@@ -75,3 +77,13 @@ func reveal_customer(customer : Customer):
 	for c in customers:
 		c.hide()
 	customer.show()
+
+
+func play_splat(pos : Vector2):
+	splat.position = pos
+	splat.show()
+	splat.play("splat")
+
+
+func _on_splat_animation_finished():
+	splat.hide()

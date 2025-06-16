@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=60 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
+[ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/resources/sprites/missing_burger_frames.tres" id="4_4wkpx"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
 [ext_resource type="Texture2D" uid="uid://crpsas8wed3g8" path="res://assets/sprites/game/counter.png" id="5_cyuyu"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
@@ -77,11 +78,12 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
 size = Vector2(16, 80)
 
-[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node")]
+[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "splat")]
 texture_filter = 1
 script = ExtResource("1_737en")
 customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
+splat = NodePath("splat")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 rotating_burger = true
@@ -90,6 +92,13 @@ rotating_burger = true
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("2_n5ebe")
+
+[node name="splat" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_4wkpx")
+animation = &"splat"
 
 [node name="customers" type="Node2D" parent="."]
 
@@ -739,3 +748,5 @@ texture = ExtResource("18_8nry3")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_mustard/sprite/ingredient_sprite"]
 texture = ExtResource("17_8eli0")
+
+[connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]

@@ -173,6 +173,7 @@ func _on_chef_submit_burger():
 		assess_submission()
 	else:
 		print("Failed Throw")
+		kitchen.play_splat(submit.target.position)
 	chef.current_burger.refresh_plate()
 	chef.submitting_burger = false
 	submit.set_playing(false, 0, 0)
