@@ -33,13 +33,13 @@ func _physics_process(delta):
 		line.points = points
 
 
-func set_playing(tf : bool, start_pos : float):
+func set_playing(tf : bool, start_pos : float, travel_dir : int):
 	playing = tf
 	visible = tf
 	if tf:
 		target.position.x = start_pos
 		start_pos_x = start_pos
-		travel = 1
+		travel = travel_dir
 
 
 func check_customer(customer : Customer) -> bool:

@@ -47,7 +47,7 @@ func start_game():
 	current_score = 0
 	game_accuracies.clear()
 	chef.reset_chef()
-	submit.set_playing(false, 0)
+	submit.set_playing(false, 0, 0)
 	hud.show()
 	$game_timer.start(120)
 	hud.set_timer($game_timer)
@@ -59,7 +59,7 @@ func start_game():
 func stop_game():
 	if game_started:
 		chef.reset_chef()
-		submit.set_playing(false, 0)
+		submit.set_playing(false, 0, 0)
 	results.hide()
 	game_started = false
 	hud.hide()
@@ -157,11 +157,14 @@ func assess_submission():
 
 
 func _on_chef_start_burger_submission():
-	submit.set_playing(true, chef.position.x)
+	var travel_dir : int = 1
+	if chef.direction == "L":
+		travel_dir = -1
+	submit.set_playing(true, chef.position.x, travel_dir)
 
 
 func _on_chef_cancel_burger_submission():
-	submit.set_playing(false, 0)
+	submit.set_playing(false, 0, 0)
 
 
 func _on_chef_submit_burger():
@@ -172,7 +175,7 @@ func _on_chef_submit_burger():
 		print("Failed Throw")
 	chef.current_burger.refresh_plate()
 	chef.submitting_burger = false
-	submit.set_playing(false, 0)
+	submit.set_playing(false, 0, 0)
 
 
 func _on_game_timer_timeout():
@@ -181,7 +184,7 @@ func _on_game_timer_timeout():
 	chef.active = false
 	chef.submitting_burger = false
 	hud.show_order(false)
-	submit.set_playing(false, 0)
+	submit.set_playing(false, 0, 0)
 	results.display_results(game_accuracies, current_score)
 	emit_signal("game_finished")
 
