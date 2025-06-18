@@ -3,56 +3,56 @@
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
-[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen_bg.png" id="2_n5ebe"]
+[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen/kitchen_bg.png" id="2_n5ebe"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/resources/sprites/missing_burger_frames.tres" id="4_4wkpx"]
 [ext_resource type="Texture2D" uid="uid://bxdxvy6nj7cam" path="res://assets/resources/sprites/stove.tres" id="5_0qxmp"]
-[ext_resource type="Texture2D" uid="uid://crpsas8wed3g8" path="res://assets/sprites/game/counter.png" id="5_cyuyu"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/sprites/game/customers/customers__1.png" id="5_jd2jh"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="6_b3mif"]
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
 [ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/sprites/ui/order-thought-cloud1.png" id="7_nq4e3"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
-[ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/Audio 1.wav" id="8_dpewk"]
 [ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/sprites/game/customers/customers__2.png" id="9_62i65"]
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/resources/sprites/ingredients/meat_highlight.tres" id="9_lqetf"]
+[ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="9_q7db7"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/ingredients/lettuce.tres" id="10_1mb32"]
-[ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/Audio 2.wav" id="10_vp4l7"]
 [ext_resource type="Texture2D" uid="uid://xygve8lpah31" path="res://assets/sprites/game/customers/customers__3.png" id="11_gbh4p"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
-[ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/Audio 3.wav" id="12_4qbcy"]
+[ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/sfx/Audio 2.wav" id="11_yu3hg"]
 [ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/ingredients/tomato.tres" id="12_rknrk"]
+[ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/sfx/Audio 3.wav" id="13_s6p7b"]
 [ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/resources/sprites/ingredients/tomato_highlight.tres" id="13_x2inu"]
 [ext_resource type="Texture2D" uid="uid://byr4q1fxrvpx5" path="res://assets/sprites/game/customers/customers__4.png" id="13_y24t5"]
-[ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/Audio 4.wav" id="14_6vm2n"]
 [ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/resources/sprites/ingredients/cheese.tres" id="14_t0dgj"]
 [ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/resources/sprites/ingredients/cheese_highlight.tres" id="15_bm1ut"]
+[ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/sfx/Audio 4.wav" id="15_k3c7l"]
 [ext_resource type="Texture2D" uid="uid://dmxd42ydjfaye" path="res://assets/sprites/game/customers/customers__5.png" id="15_mqeil"]
-[ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/Audio 5.wav" id="16_hkchl"]
 [ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ingredients/ketchup.tres" id="16_vtaef"]
+[ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/sfx/Audio 5.wav" id="17_3g7u0"]
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/resources/sprites/ingredients/ketchup_highlight.tres" id="17_8eli0"]
 [ext_resource type="Texture2D" uid="uid://4og10atuetw7" path="res://assets/sprites/game/customers/customers__6.png" id="17_q0c3n"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/ingredients/mustard.tres" id="18_8nry3"]
-[ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/Audio 6.wav" id="18_olat5"]
 [ext_resource type="Texture2D" uid="uid://b20j5d0bdfn3e" path="res://assets/sprites/game/customers/customers__7.png" id="19_7l50s"]
-[ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/Audio 7.wav" id="20_3e2qe"]
+[ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/sfx/Audio 6.wav" id="19_21giq"]
+[ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/sfx/Audio 7.wav" id="21_8ka0h"]
 [ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/sprites/game/customers/customers__8.png" id="21_tmhs0"]
-[ext_resource type="AudioStream" uid="uid://6awwq0fr8g45" path="res://assets/sound/Audio 8.wav" id="22_dstdj"]
+[ext_resource type="AudioStream" uid="uid://6awwq0fr8g45" path="res://assets/sound/sfx/Audio 8.wav" id="23_c4ttp"]
 [ext_resource type="Texture2D" uid="uid://me3pvftyofx7" path="res://assets/sprites/game/customers/customers__9.png" id="23_yq4at"]
-[ext_resource type="AudioStream" uid="uid://ci4766rfr1j0l" path="res://assets/sound/Audio 9.wav" id="24_lmcvu"]
+[ext_resource type="AudioStream" uid="uid://ci4766rfr1j0l" path="res://assets/sound/sfx/Audio 9.wav" id="25_clbmo"]
 [ext_resource type="Texture2D" uid="uid://bgi1r131cm1mw" path="res://assets/sprites/game/customers/customers__10.png" id="25_eh2xn"]
-[ext_resource type="AudioStream" uid="uid://hepjc5fw3uqa" path="res://assets/sound/Audio 10.wav" id="26_e6txb"]
+[ext_resource type="AudioStream" uid="uid://hepjc5fw3uqa" path="res://assets/sound/sfx/Audio 10.wav" id="27_30fc8"]
 [ext_resource type="Texture2D" uid="uid://pc73h887hkoh" path="res://assets/sprites/game/customers/customers__11.png" id="27_wbkil"]
 [ext_resource type="Texture2D" uid="uid://dlqnfn8gqs7a8" path="res://assets/sprites/game/customers/customers__12.png" id="28_baryf"]
-[ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/Audio 11.wav" id="29_srhvm"]
+[ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/sfx/Audio 11.wav" id="30_6f0yp"]
 [ext_resource type="Texture2D" uid="uid://c085b04unljsh" path="res://assets/sprites/game/customers/customers__13.png" id="30_42u8a"]
-[ext_resource type="AudioStream" uid="uid://werdrs07c7q6" path="res://assets/sound/Audio 13.wav" id="31_421yl"]
 [ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/sprites/game/customers/customers__14.png" id="32_6wy5e"]
-[ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/Audio 14.wav" id="33_cx7vi"]
+[ext_resource type="AudioStream" uid="uid://werdrs07c7q6" path="res://assets/sound/sfx/Audio 13.wav" id="32_jbtrj"]
+[ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/sfx/Audio 14.wav" id="34_83rug"]
+[ext_resource type="Texture2D" uid="uid://crpsas8wed3g8" path="res://assets/sprites/game/kitchen/counter.png" id="36_gcjf7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
 viewport_path = NodePath(".")
@@ -129,7 +129,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
 position = Vector2(551, 127)
-stream = ExtResource("8_dpewk")
+stream = ExtResource("9_q7db7")
 
 [node name="Left" type="Marker2D" parent="customers/Tommy"]
 position = Vector2(478, 114)
@@ -164,7 +164,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Teddy"]
 position = Vector2(458, 77)
-stream = ExtResource("10_vp4l7")
+stream = ExtResource("11_yu3hg")
 
 [node name="Left" type="Marker2D" parent="customers/Teddy"]
 position = Vector2(388, 28)
@@ -200,7 +200,7 @@ flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
 position = Vector2(106, 126)
-stream = ExtResource("12_4qbcy")
+stream = ExtResource("13_s6p7b")
 
 [node name="Left" type="Marker2D" parent="customers/Ted"]
 position = Vector2(32, 60)
@@ -236,7 +236,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Al"]
 position = Vector2(292, 126)
-stream = ExtResource("14_6vm2n")
+stream = ExtResource("15_k3c7l")
 
 [node name="Left" type="Marker2D" parent="customers/Al"]
 position = Vector2(176, 156)
@@ -271,7 +271,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Emo"]
 position = Vector2(424, 126)
-stream = ExtResource("16_hkchl")
+stream = ExtResource("17_3g7u0")
 
 [node name="Left" type="Marker2D" parent="customers/Emo"]
 position = Vector2(364, 128)
@@ -306,7 +306,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Karen"]
 position = Vector2(436, 126)
-stream = ExtResource("18_olat5")
+stream = ExtResource("19_21giq")
 
 [node name="Left" type="Marker2D" parent="customers/Karen"]
 position = Vector2(372, 140)
@@ -342,7 +342,7 @@ flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
 position = Vector2(396, 126)
-stream = ExtResource("20_3e2qe")
+stream = ExtResource("21_8ka0h")
 
 [node name="Left" type="Marker2D" parent="customers/Patient"]
 position = Vector2(336, 168)
@@ -378,7 +378,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Mustard"]
 position = Vector2(556, 126)
-stream = ExtResource("22_dstdj")
+stream = ExtResource("23_c4ttp")
 
 [node name="Left" type="Marker2D" parent="customers/Mustard"]
 position = Vector2(460, 112)
@@ -414,7 +414,7 @@ flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Dancer"]
 position = Vector2(124, 126)
-stream = ExtResource("24_lmcvu")
+stream = ExtResource("25_clbmo")
 
 [node name="Left" type="Marker2D" parent="customers/Dancer"]
 position = Vector2(68, 112)
@@ -450,7 +450,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Punk"]
 position = Vector2(492, 126)
-stream = ExtResource("26_e6txb")
+stream = ExtResource("27_30fc8")
 
 [node name="Left" type="Marker2D" parent="customers/Punk"]
 position = Vector2(416, 112)
@@ -489,7 +489,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Toad"]
 position = Vector2(260, 126)
-stream = ExtResource("29_srhvm")
+stream = ExtResource("30_6f0yp")
 
 [node name="Left" type="Marker2D" parent="customers/Toad"]
 position = Vector2(204, 108)
@@ -525,7 +525,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Persistant"]
 position = Vector2(352, 126)
-stream = ExtResource("31_421yl")
+stream = ExtResource("32_jbtrj")
 
 [node name="Left" type="Marker2D" parent="customers/Persistant"]
 position = Vector2(288, 116)
@@ -560,7 +560,7 @@ texture = ExtResource("7_nq4e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Anxiety"]
 position = Vector2(480, 126)
-stream = ExtResource("33_cx7vi")
+stream = ExtResource("34_83rug")
 
 [node name="Left" type="Marker2D" parent="customers/Anxiety"]
 position = Vector2(420, 124)
@@ -585,7 +585,7 @@ texture = ExtResource("2_to378")
 [node name="counter" type="Sprite2D" parent="background_1"]
 position = Vector2(320, 86)
 scale = Vector2(2, 2)
-texture = ExtResource("5_cyuyu")
+texture = ExtResource("36_gcjf7")
 
 [node name="cash" type="Sprite2D" parent="background_1"]
 visible = false
