@@ -47,7 +47,6 @@ texture_mode = 1
 position = Vector2(0, 370)
 
 [node name="hud" parent="." instance=ExtResource("3_wdtco")]
-visible = false
 z_index = 1
 
 [node name="results" parent="." instance=ExtResource("8_40o0c")]

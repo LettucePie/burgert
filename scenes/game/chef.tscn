@@ -80,7 +80,7 @@ states/Swing_L/position = Vector2(295, 32)
 states/Swing_R/node = SubResource("AnimationNodeAnimation_wl3i6")
 states/Swing_R/position = Vector2(295, 154)
 transitions = ["Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_r8pf8"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3vxsd"), "Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_e4jl1"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_47y3o"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Idle_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_nq01q"), "Idle_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_uw4ke"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_o78tg"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_0hebr"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c")]
-graph_offset = Vector2(-208, -17)
+graph_offset = Vector2(-64, -37)
 
 [sub_resource type="Animation" id="Animation_ovhst"]
 resource_name = "Idle_L"
@@ -628,7 +628,7 @@ autoplay = "Idle_L"
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-11, 23)
+position = Vector2(100, 16)
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
@@ -637,6 +637,12 @@ scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_sys53")
 
 [node name="burger_portal" parent="." instance=ExtResource("3_3owfg")]
+
+[node name="right_pos" type="Marker2D" parent="."]
+position = Vector2(92, 16)
+
+[node name="left_pos" type="Marker2D" parent="."]
+position = Vector2(-92, 16)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

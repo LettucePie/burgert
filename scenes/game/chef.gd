@@ -13,6 +13,9 @@ const MOVE_SPEED = 10
 @onready var anim_tree : AnimationTree = $AnimationTree
 @onready var anim_play : AnimationPlayer = $AnimationPlayer
 @onready var state_machine = anim_tree["parameters/playback"]
+@onready var grab_area : CollisionShape2D = $Area2D/CollisionShape2D
+@onready var grab_left : Vector2 = $left_pos.position
+@onready var grab_right : Vector2 = $right_pos.position
 
 var active : bool = true
 var stations : Array[Workstation]
@@ -33,7 +36,7 @@ func _ready():
 func reset_chef():
 	current_burger.refresh_plate()
 	self.position.x = 24
-	direction = "R"
+	_update_direction("R")
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
 	active = true
@@ -58,16 +61,25 @@ func assess_closest_station():
 		set_station(target)
 
 
+func _update_direction(dir : String):
+	if direction != dir:
+		direction = dir
+		if dir == "L":
+			grab_area.position = grab_left
+		else:
+			grab_area.position = grab_right
+
+
 func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("left"):
 		move_vec.x -= 1
 		state_machine.travel("Run_L")
-		direction = "L"
+		_update_direction("L")
 	elif Input.is_action_pressed("right"):
 		move_vec.x += 1
 		state_machine.travel("Run_R")
-		direction = "R"
+		_update_direction("R")
 	if !state_machine.get_current_node().contains("Swing"):
 		position.x += move_vec.x * MOVE_SPEED
 		position.x = clamp(position.x, 0, 640)

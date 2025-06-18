@@ -791,12 +791,13 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="Credits/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Art, Sound, Design - Houndfall
-Programming, Design - lettucepie
+Art, Programming, Design - lettucepie
 
 Made in
 Godot 4.2.2
 Aseprite
 Krita
+LMMS
 
 third-party assets
 kenney-nl fonts"

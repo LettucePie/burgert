@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="Texture2D" uid="uid://nabw6f4disui" path="res://assets/resources/sprites/work_station.tres" id="2_gi7bb"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/register.tres" id="2_hv2ir"]
-[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen/kitchen_bg.png" id="2_n5ebe"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
+[ext_resource type="Texture2D" uid="uid://bn6ct21nq5buc" path="res://assets/sprites/game/kitchen/Restaurant_2_bg.png" id="3_28wba"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/resources/sprites/missing_burger_frames.tres" id="4_4wkpx"]
@@ -55,17 +55,17 @@
 [ext_resource type="Texture2D" uid="uid://crpsas8wed3g8" path="res://assets/sprites/game/kitchen/counter.png" id="36_gcjf7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2j35s"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8mrc"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
@@ -91,7 +91,7 @@ rotating_burger = true
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("2_n5ebe")
+texture = ExtResource("3_28wba")
 
 [node name="splat" type="AnimatedSprite2D" parent="."]
 visible = false
