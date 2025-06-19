@@ -600,7 +600,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("3_fq8hn")
 viewport_path_again = NodePath("../burger_portal")
 

@@ -57,17 +57,17 @@
 [ext_resource type="Texture2D" uid="uid://crpsas8wed3g8" path="res://assets/sprites/game/kitchen/counter.png" id="36_gcjf7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2j35s"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8mrc"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 

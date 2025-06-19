@@ -4,15 +4,20 @@
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
 [ext_resource type="PackedScene" uid="uid://drcc15jq33yol" path="res://scenes/game/game.tscn" id="1_l5scj"]
 
-[node name="Play" type="Node" node_paths=PackedStringArray("game_scene")]
+[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu")]
 process_mode = 3
 script = ExtResource("1_j8n80")
 game_scene = NodePath("Game")
+main_menu = NodePath("MainMenu")
 
 [node name="Game" parent="." instance=ExtResource("1_l5scj")]
 
 [node name="MainMenu" parent="." instance=ExtResource("1_8ijes")]
+process_mode = 2
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
 [connection signal="game_paused" from="Game" to="." method="_on_game_game_paused"]
+[connection signal="quit_play" from="MainMenu" to="." method="_on_main_menu_quit_play"]
+[connection signal="resume_play" from="MainMenu" to="." method="_on_main_menu_resume_play"]
+[connection signal="start_play" from="MainMenu" to="." method="_on_main_menu_start_play"]
