@@ -407,7 +407,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_fcog8"]
 resource_name = "Swing_L"
-length = 0.5
+length = 0.3
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -415,7 +416,7 @@ tracks/0/path = NodePath("burger_sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(70, -39), Vector2(81, -40), Vector2(68, -36), Vector2(64, -35), Vector2(60, -35), Vector2(60, -36), Vector2(-65, -39)]
@@ -463,7 +464,7 @@ tracks/4/path = NodePath("AnimatedSprite2D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
@@ -471,7 +472,8 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_dwxh2"]
 resource_name = "Swing_R"
-length = 0.5
+length = 0.3
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -479,7 +481,7 @@ tracks/0/path = NodePath("burger_sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(-74, -40), Vector2(-14, -43), Vector2(76, -37), Vector2(74, -35), Vector2(79, -35), Vector2(77, -39), Vector2(76, -39)]
@@ -527,7 +529,7 @@ tracks/4/path = NodePath("AnimatedSprite2D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
