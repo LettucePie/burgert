@@ -1,17 +1,19 @@
-[gd_scene load_steps=62 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=64 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
-[ext_resource type="Texture2D" uid="uid://bn6ct21nq5buc" path="res://assets/sprites/game/kitchen/Restaurant_2_bg.png" id="3_28wba"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
+[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen/kitchen_bg.png" id="3_wcp2b"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/resources/sprites/kitchen/missing_burger_frames.tres" id="4_3psbk"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
 [ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/resources/sprites/kitchen/kitchen_window_spriteframes.tres" id="5_hgtvl"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/sprites/game/customers/customers__1.png" id="5_jd2jh"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="6_b3mif"]
 [ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/resources/sprites/kitchen/kitchen_sign_spriteframes.tres" id="6_sosdx"]
+[ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/sprites/game/kitchen/Restaurant_stools.png" id="6_u0xpl"]
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
+[ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/sprites/game/kitchen/Restaurant_stopnpuke_sign.png" id="7_dfeum"]
 [ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/sprites/ui/order-thought-cloud1.png" id="7_nq4e3"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
 [ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/sprites/game/customers/customers__2.png" id="9_62i65"]
@@ -93,7 +95,7 @@ rotating_burger = true
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("3_28wba")
+texture = ExtResource("3_wcp2b")
 
 [node name="window_anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 240)
@@ -109,6 +111,16 @@ sprite_frames = ExtResource("6_sosdx")
 animation = &"sign"
 autoplay = "sign"
 
+[node name="wall_stools" type="Sprite2D" parent="."]
+position = Vector2(320, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("6_u0xpl")
+
+[node name="stopnpuke" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("7_dfeum")
+
 [node name="splat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(320, 240)
@@ -119,7 +131,7 @@ animation = &"splat"
 [node name="customers" type="Node2D" parent="."]
 
 [node name="Tommy" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Tommy"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Lettuce", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Lettuce", "Meat", "Bun", "Lettuce", "Bun Top")])
@@ -154,7 +166,7 @@ position = Vector2(478, 114)
 position = Vector2(632, 114)
 
 [node name="Teddy" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Teddy"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Cheese", "Cheese", "Bun Top"), PackedStringArray("Bun", "Tomato", "Cheese", "Tomato", "Cheese", "Cheese", "Bun Top")])
@@ -189,7 +201,7 @@ position = Vector2(388, 28)
 position = Vector2(540, 28)
 
 [node name="Ted" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Ted"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
@@ -225,7 +237,7 @@ position = Vector2(32, 60)
 position = Vector2(176, 60)
 
 [node name="Al" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Al"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
@@ -261,7 +273,7 @@ position = Vector2(176, 156)
 position = Vector2(412, 160)
 
 [node name="Emo" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Emo"
 orders = Array[PackedStringArray]([PackedStringArray("Lettuce", "Lettuce", "Tomato", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Cheese", "Ketchup", "Bun", "Lettuce"), PackedStringArray("Tomato", "Ketchup", "Tomato", "Ketchup", "Tomato")])
@@ -296,7 +308,7 @@ position = Vector2(364, 128)
 position = Vector2(488, 124)
 
 [node name="Karen" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Karen"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Tomato", "Ketchup", "Mustard", "Bun Top")])
@@ -331,7 +343,7 @@ position = Vector2(372, 140)
 position = Vector2(512, 140)
 
 [node name="Patient" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Patient"
 orders = Array[PackedStringArray]([PackedStringArray("Cheese", "Cheese", "Cheese", "Cheese", "Lettuce"), PackedStringArray("Bun", "Cheese", "Bun Top"), PackedStringArray("Bun", "Cheese", "Meat", "Cheese", "Lettuce", "Cheese", "Tomato", "Cheese", "Bun Top")])
@@ -367,7 +379,7 @@ position = Vector2(336, 168)
 position = Vector2(468, 172)
 
 [node name="Mustard" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Mustard"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Mustard", "Mustard", "Mustard", "Mustard"), PackedStringArray("Mustard", "Mustard", "Mustard"), PackedStringArray("Bun", "Mustard", "Meat", "Mustard", "Mustard", "Mustard", "Mustard", "Bun", "Mustard")])
@@ -403,7 +415,7 @@ position = Vector2(460, 112)
 position = Vector2(636, 104)
 
 [node name="Dancer" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Dancer"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun Top"), PackedStringArray("Lettuce")])
@@ -439,7 +451,7 @@ position = Vector2(68, 112)
 position = Vector2(176, 116)
 
 [node name="Punk" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Punk"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Ketchup", "Ketchup", "Bun Top"), PackedStringArray("Cheese", "Ketchup", "Ketchup", "Ketchup", "Cheese"), PackedStringArray("Bun", "Cheese", "Bun", "Ketchup", "Bun", "Cheese", "Bun", "Ketchup", "Bun", "Ketchup", "Bun Top")])
@@ -475,7 +487,7 @@ position = Vector2(416, 112)
 position = Vector2(576, 108)
 
 [node name="Toad" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Toad"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top"), PackedStringArray("Meat", "Meat"), PackedStringArray("Cheese", "Cheese"), PackedStringArray("Ketchup", "Mustard"), PackedStringArray("Lettuce", "Tomato")])
@@ -514,7 +526,7 @@ position = Vector2(204, 108)
 position = Vector2(316, 116)
 
 [node name="Persistant" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Persistant"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
@@ -550,7 +562,7 @@ position = Vector2(288, 116)
 position = Vector2(420, 100)
 
 [node name="Anxiety" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
-position = Vector2(0, 70)
+position = Vector2(0, 59)
 script = ExtResource("3_488ky")
 customer_name = "Anxiety"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
@@ -599,7 +611,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("37_iktmn")
 
 [node name="counter" type="Sprite2D" parent="background_1"]
-position = Vector2(320, 311)
+position = Vector2(320, 322)
 scale = Vector2(2, 2)
 texture = ExtResource("38_3w3u7")
 
@@ -610,29 +622,29 @@ scale = Vector2(2, 2)
 texture = ExtResource("39_wk6ax")
 
 [node name="grill" type="Sprite2D" parent="background_1"]
-position = Vector2(178, 294)
+position = Vector2(178, 305.25)
 scale = Vector2(1.72857, 1.72857)
 texture = ExtResource("40_4v1tc")
 
 [node name="alcove" type="Sprite2D" parent="background_1"]
-position = Vector2(296.079, 294)
+position = Vector2(296.079, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("41_7gis0")
 
 [node name="alcove2" type="Sprite2D" parent="background_1"]
-position = Vector2(392, 294)
+position = Vector2(392, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("41_7gis0")
 
 [node name="alcove3" type="Sprite2D" parent="background_1"]
-position = Vector2(490, 294)
+position = Vector2(490, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("41_7gis0")
 
 [node name="background_2" type="Node2D" parent="."]
 
 [node name="workstation_bun" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(57, 337)
+position = Vector2(57, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Bun"
@@ -651,7 +663,7 @@ texture = ExtResource("5_er5ok")
 texture = ExtResource("6_xprxa")
 
 [node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(177, 321)
+position = Vector2(177, 333)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Meat"
@@ -670,7 +682,7 @@ texture = ExtResource("8_42nsw")
 texture = ExtResource("9_lqetf")
 
 [node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(297, 337)
+position = Vector2(297, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 highlight = NodePath("ingredient_sprite/highlight")
@@ -688,7 +700,7 @@ texture = ExtResource("10_1mb32")
 texture = ExtResource("11_r8857")
 
 [node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(393, 337)
+position = Vector2(393, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Tomato"
@@ -707,7 +719,7 @@ texture = ExtResource("12_rknrk")
 texture = ExtResource("13_x2inu")
 
 [node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(491, 337)
+position = Vector2(491, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Cheese"
@@ -726,7 +738,7 @@ texture = ExtResource("14_t0dgj")
 texture = ExtResource("15_bm1ut")
 
 [node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(563, 337)
+position = Vector2(563, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Ketchup"
@@ -745,7 +757,7 @@ texture = ExtResource("16_vtaef")
 texture = ExtResource("17_8eli0")
 
 [node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
-position = Vector2(611, 337)
+position = Vector2(611, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Mustard"
