@@ -32,7 +32,7 @@ texture_filter = 1
 script = ExtResource("3_8i30r")
 
 [node name="crosshair" type="Node2D" parent="submit"]
-position = Vector2(0, 115)
+position = Vector2(0, 181)
 
 [node name="Sprite2D" type="Sprite2D" parent="submit/crosshair"]
 scale = Vector2(3, 3)

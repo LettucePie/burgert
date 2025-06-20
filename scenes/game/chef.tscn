@@ -602,7 +602,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("3_fq8hn")
 viewport_path_again = NodePath("../burger_portal")
 
@@ -641,10 +641,10 @@ texture = SubResource("ViewportTexture_sys53")
 [node name="burger_portal" parent="." instance=ExtResource("3_3owfg")]
 
 [node name="right_pos" type="Marker2D" parent="."]
-position = Vector2(96, 16)
+position = Vector2(0, 16)
 
 [node name="left_pos" type="Marker2D" parent="."]
-position = Vector2(-96, 16)
+position = Vector2(0, 16)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

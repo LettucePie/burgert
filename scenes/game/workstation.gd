@@ -4,7 +4,7 @@ class_name Workstation
 
 @export var ingredient : String = "Lettuce"
 @export var highlight : Sprite2D = null
-@onready var ingredient_sprite : Sprite2D = $sprite/ingredient_sprite
+@onready var ingredient_sprite : Sprite2D = $ingredient_sprite
 var tick : int = 60
 var down : bool = false
 

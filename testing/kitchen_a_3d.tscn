@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bud4js66ji46l"]
 
 [ext_resource type="PackedScene" uid="uid://c2mcut13a1xud" path="res://testing/chef_3d.tscn" id="1_iknjt"]
-[ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/large_counter.tres" id="2_to378"]
+[ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/kitchen/large_counter.tres" id="2_to378"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_dc1du"]
 
