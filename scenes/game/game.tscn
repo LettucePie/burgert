@@ -58,6 +58,7 @@ z_index = 2
 wait_time = 120.0
 
 [connection signal="customer_left" from="kitchen_a" to="." method="_on_kitchen_a_customer_left"]
+[connection signal="customer_ready" from="kitchen_a" to="." method="_on_kitchen_a_customer_ready"]
 [connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]

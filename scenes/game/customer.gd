@@ -1,6 +1,8 @@
 extends Node2D
 class_name Customer
 
+signal customer_arrived()
+signal customer_served()
 signal customer_finished()
 
 
@@ -31,6 +33,12 @@ func _ready():
 	default_y = $character.position.y
 
 
+func reset():
+	status = CUSTOMER_STATE.Gone
+	munch_timer = 0
+	munch.hide()
+
+
 func set_state(new_state : CUSTOMER_STATE):
 	status = new_state
 	if new_state == CUSTOMER_STATE.Entering:
@@ -41,6 +49,7 @@ func set_state(new_state : CUSTOMER_STATE):
 		self.position = stay_pos
 		burger_portal_sprite.show()
 		play_greeting()
+		emit_signal("customer_arrived")
 	if new_state == CUSTOMER_STATE.Munching:
 		burger_portal_sprite.hide()
 		munch.show()

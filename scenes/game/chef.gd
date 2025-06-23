@@ -25,6 +25,7 @@ var order_size : int = 0
 var submitting_burger : bool = false
 var trashing : bool = false
 var trashing_ticks : int = 60
+var waiting : bool = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,7 @@ func reset_chef():
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
 	active = true
+	waiting = true
 
 
 func set_station(ws : Workstation):
@@ -139,7 +141,8 @@ func _physics_process(delta):
 	if active:
 		if !submitting_burger:
 			process_movement(delta)
-			process_actions(delta)
+			if !waiting:
+				process_actions(delta)
 		else:
 			process_submission(delta)
 

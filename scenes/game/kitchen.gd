@@ -1,6 +1,7 @@
 extends Node2D
 class_name Kitchen
 
+signal customer_ready()
 signal customer_left()
 
 @export var customer_burger_portal : BurgerPortal
@@ -18,9 +19,15 @@ func _ready():
 		if child is Customer:
 			customers.append(child)
 			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
+	prep_kitchen()
+
+
+func prep_kitchen():
 	for c in customers:
 		c.hide()
+		c.reset()
 	splat.hide()
+	past_customers.clear()
 
 
 func pick_customer() -> PackedStringArray:
@@ -69,6 +76,8 @@ func pick_customer() -> PackedStringArray:
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	if !current_customer.customer_arrived.is_connected(_on_customer_arrived):
+		current_customer.customer_arrived.connect(_on_customer_arrived)
 	if !current_customer.customer_finished.is_connected(_on_customer_finished):
 		current_customer.customer_finished.connect(_on_customer_finished)
 	#current_customer.play_greeting()
@@ -90,6 +99,12 @@ func _on_splat_animation_finished():
 func customer_fed():
 	if current_customer.status == Customer.CUSTOMER_STATE.Waiting:
 		current_customer.set_state(Customer.CUSTOMER_STATE.Munching)
+
+
+func _on_customer_arrived():
+	print("Kitchen Customer has Arrived")
+	emit_signal("customer_ready")
+
 
 
 func _on_customer_finished():

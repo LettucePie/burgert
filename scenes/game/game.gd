@@ -47,6 +47,7 @@ func start_game():
 	current_score = 0
 	game_accuracies.clear()
 	chef.reset_chef()
+	kitchen.prep_kitchen()
 	submit.set_playing(false, 0, 0)
 	hud.show()
 	$game_timer.start(120)
@@ -84,6 +85,7 @@ func make_new_order():
 	chef.order_size = current_order.size()
 	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()
+	chef.waiting = true
 	current_order_start_time = $game_timer.time_left
 
 
@@ -154,6 +156,7 @@ func assess_submission():
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
 	kitchen.customer_fed()
+	chef.waiting = true
 	#make_new_order()
 
 
@@ -195,5 +198,11 @@ func _on_results_finished_results():
 	emit_signal("game_over")
 
 
+func _on_kitchen_a_customer_ready():
+	chef.waiting = false
+
+
 func _on_kitchen_a_customer_left():
 	make_new_order()
+
+
