@@ -1,6 +1,8 @@
 extends Node2D
 class_name Kitchen
 
+signal customer_left()
+
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
 @export var splat : AnimatedSprite2D
@@ -33,7 +35,7 @@ func pick_customer() -> PackedStringArray:
 		## Cleanup Previous Customer
 		past_customers.append(current_customer)
 		current_customer.hide()
-		current_customer.set_active(false)
+		#current_customer.set_active(false)
 		if current_customer.consecutive_orders > 1:
 			print(current_customer.customer_name, " Consecutive: ", current_customer.consecutive_orders)
 			var satisfied : bool = true
@@ -66,7 +68,9 @@ func pick_customer() -> PackedStringArray:
 	print(out)
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
-	current_customer.set_active(true)
+	current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	if !current_customer.customer_finished.is_connected(_on_customer_finished):
+		current_customer.customer_finished.connect(_on_customer_finished)
 	#current_customer.play_greeting()
 	print("Current_Customer New Order\n\n", result)
 	
@@ -81,3 +85,13 @@ func play_splat(pos : Vector2):
 
 func _on_splat_animation_finished():
 	splat.hide()
+
+
+func customer_fed():
+	if current_customer.status == Customer.CUSTOMER_STATE.Waiting:
+		current_customer.set_state(Customer.CUSTOMER_STATE.Munching)
+
+
+func _on_customer_finished():
+	print("Kitchen Acknowledges the Customer is Gone")
+	emit_signal("customer_left")

@@ -153,7 +153,8 @@ func assess_submission():
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
-	make_new_order()
+	kitchen.customer_fed()
+	#make_new_order()
 
 
 func _on_chef_start_burger_submission():
@@ -192,3 +193,7 @@ func _on_game_timer_timeout():
 
 func _on_results_finished_results():
 	emit_signal("game_over")
+
+
+func _on_kitchen_a_customer_left():
+	make_new_order()

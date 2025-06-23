@@ -32,8 +32,10 @@ func _ready():
 
 
 func set_state(new_state : CUSTOMER_STATE):
+	status = new_state
 	if new_state == CUSTOMER_STATE.Entering:
 		self.position = enter_pos
+		self.show()
 		burger_portal_sprite.hide()
 	if new_state == CUSTOMER_STATE.Waiting:
 		self.position = stay_pos
@@ -42,8 +44,10 @@ func set_state(new_state : CUSTOMER_STATE):
 	if new_state == CUSTOMER_STATE.Munching:
 		burger_portal_sprite.hide()
 		munch.show()
+		munch.play()
 		munch_timer = Time.get_ticks_msec() + (munch_seconds * 1000)
 	if new_state == CUSTOMER_STATE.Leaving:
+		munch.stop()
 		munch.hide()
 	if new_state == CUSTOMER_STATE.Gone:
 		emit_signal("customer_finished")
@@ -67,7 +71,7 @@ func _physics_process(delta):
 			else:
 				$character.position.y = default_y
 	if status == CUSTOMER_STATE.Munching:
-		tic += 2
+		tic += 3
 		if tic >= 60:
 			tic = 0
 			if $character.position.y == default_y :

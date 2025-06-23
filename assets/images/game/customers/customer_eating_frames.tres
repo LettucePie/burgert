@@ -78,7 +78,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"crumble_1",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"crumble_2",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -124,5 +124,5 @@ animations = [{
 }],
 "loop": false,
 "name": &"crumble_3",
-"speed": 5.0
+"speed": 10.0
 }]
