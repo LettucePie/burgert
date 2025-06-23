@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=66 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://c085b04unljsh" path="res://assets/images/game/customers/customers__13.png" id="35_m5wms"]
 [ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/images/game/customers/customers__14.png" id="37_os6ba"]
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/images/game/kitchen/large_counter.tres" id="39_ul271"]
+[ext_resource type="Texture2D" uid="uid://dmvku22ms6kgo" path="res://assets/images/game/kitchen/Restaurant_floor.png" id="40_5d7jh"]
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/game/kitchen/counter_v2.tres" id="40_arepm"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/game/kitchen/register.tres" id="41_60jb7"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/game/kitchen/counter_v2_grill.tres" id="42_y6et2"]
@@ -132,6 +133,7 @@ animation = &"splat"
 [node name="customers" type="Node2D" parent="."]
 
 [node name="Tommy" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
+visible = false
 position = Vector2(-645, 59)
 script = ExtResource("3_488ky")
 customer_name = "Tommy"
@@ -172,9 +174,9 @@ position = Vector2(632, 114)
 
 [node name="munch" parent="customers/Tommy" instance=ExtResource("14_rquj2")]
 
-[node name="Teddy" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="Teddy" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(-557, 59)
 script = ExtResource("3_488ky")
 customer_name = "Teddy"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Cheese", "Cheese", "Bun Top"), PackedStringArray("Bun", "Tomato", "Cheese", "Tomato", "Cheese", "Cheese", "Bun Top")])
@@ -182,6 +184,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(256, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(-557, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Teddy"]
 position = Vector2(320, 149)
@@ -208,9 +214,12 @@ position = Vector2(388, 28)
 [node name="Right" type="Marker2D" parent="customers/Teddy"]
 position = Vector2(540, 28)
 
-[node name="Ted" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Teddy" instance=ExtResource("14_rquj2")]
+position = Vector2(462, 91)
+
+[node name="Ted" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(0, 234)
 script = ExtResource("3_488ky")
 customer_name = "Ted"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
@@ -218,6 +227,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(0, 234)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(0, 234)
 
 [node name="character" type="Sprite2D" parent="customers/Ted"]
 position = Vector2(320, 101)
@@ -245,9 +258,12 @@ position = Vector2(32, 60)
 [node name="Right" type="Marker2D" parent="customers/Ted"]
 position = Vector2(176, 60)
 
-[node name="Al" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Ted" instance=ExtResource("14_rquj2")]
+position = Vector2(105, 136)
+
+[node name="Al" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(-476, 59)
 script = ExtResource("3_488ky")
 customer_name = "Al"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
@@ -256,6 +272,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(493, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(-476, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Al"]
 position = Vector2(320, 101)
@@ -282,9 +302,12 @@ position = Vector2(176, 156)
 [node name="Right" type="Marker2D" parent="customers/Al"]
 position = Vector2(412, 160)
 
-[node name="Emo" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Al" instance=ExtResource("14_rquj2")]
+position = Vector2(285, 150)
+
+[node name="Emo" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(302, 59)
 script = ExtResource("3_488ky")
 customer_name = "Emo"
 orders = Array[PackedStringArray]([PackedStringArray("Lettuce", "Lettuce", "Tomato", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Cheese", "Ketchup", "Bun", "Lettuce"), PackedStringArray("Tomato", "Ketchup", "Tomato", "Ketchup", "Tomato")])
@@ -292,6 +315,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(302, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(302, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Emo"]
 position = Vector2(320, 101)
@@ -318,9 +345,12 @@ position = Vector2(364, 128)
 [node name="Right" type="Marker2D" parent="customers/Emo"]
 position = Vector2(488, 124)
 
-[node name="Karen" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Emo" instance=ExtResource("14_rquj2")]
+position = Vector2(427, 143)
+
+[node name="Karen" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(-568, 59)
 script = ExtResource("3_488ky")
 customer_name = "Karen"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Tomato", "Ketchup", "Mustard", "Bun Top")])
@@ -328,6 +358,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(315, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(-570, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Karen"]
 position = Vector2(320, 101)
@@ -354,9 +388,12 @@ position = Vector2(372, 140)
 [node name="Right" type="Marker2D" parent="customers/Karen"]
 position = Vector2(512, 140)
 
-[node name="Patient" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Karen" instance=ExtResource("14_rquj2")]
+position = Vector2(435, 170)
+
+[node name="Patient" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(-519, 59)
 script = ExtResource("3_488ky")
 customer_name = "Patient"
 orders = Array[PackedStringArray]([PackedStringArray("Cheese", "Cheese", "Cheese", "Cheese", "Lettuce"), PackedStringArray("Bun", "Cheese", "Bun Top"), PackedStringArray("Bun", "Cheese", "Meat", "Cheese", "Lettuce", "Cheese", "Tomato", "Cheese", "Bun Top")])
@@ -364,6 +401,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(345, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(-520, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Patient"]
 position = Vector2(320, 101)
@@ -391,9 +432,12 @@ position = Vector2(336, 168)
 [node name="Right" type="Marker2D" parent="customers/Patient"]
 position = Vector2(468, 172)
 
-[node name="Mustard" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Patient" instance=ExtResource("14_rquj2")]
+position = Vector2(400, 147)
+
+[node name="Mustard" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(196, 127)
 script = ExtResource("3_488ky")
 customer_name = "Mustard"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Mustard", "Mustard", "Mustard", "Mustard"), PackedStringArray("Mustard", "Mustard", "Mustard"), PackedStringArray("Bun", "Mustard", "Meat", "Mustard", "Mustard", "Mustard", "Mustard", "Bun", "Mustard")])
@@ -402,6 +446,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(0, 215)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(200, 130)
 
 [node name="character" type="Sprite2D" parent="customers/Mustard"]
 position = Vector2(320, 101)
@@ -428,9 +476,12 @@ position = Vector2(460, 112)
 [node name="Right" type="Marker2D" parent="customers/Mustard"]
 position = Vector2(636, 104)
 
-[node name="Dancer" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Mustard" instance=ExtResource("14_rquj2")]
+position = Vector2(552, 108)
+
+[node name="Dancer" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(618, 59)
 script = ExtResource("3_488ky")
 customer_name = "Dancer"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun Top"), PackedStringArray("Lettuce")])
@@ -438,6 +489,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(-211, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(620, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Dancer"]
 position = Vector2(320, 101)
@@ -465,9 +520,12 @@ position = Vector2(68, 112)
 [node name="Right" type="Marker2D" parent="customers/Dancer"]
 position = Vector2(176, 116)
 
-[node name="Punk" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Dancer" instance=ExtResource("14_rquj2")]
+position = Vector2(123, 140)
+
+[node name="Punk" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(0, 324)
 script = ExtResource("3_488ky")
 customer_name = "Punk"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Ketchup", "Ketchup", "Bun Top"), PackedStringArray("Cheese", "Ketchup", "Ketchup", "Ketchup", "Cheese"), PackedStringArray("Bun", "Cheese", "Bun", "Ketchup", "Bun", "Cheese", "Bun", "Ketchup", "Bun", "Ketchup", "Bun Top")])
@@ -476,6 +534,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(-588, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(0, 330)
 
 [node name="character" type="Sprite2D" parent="customers/Punk"]
 position = Vector2(320, 101)
@@ -502,9 +564,12 @@ position = Vector2(416, 112)
 [node name="Right" type="Marker2D" parent="customers/Punk"]
 position = Vector2(576, 108)
 
-[node name="Toad" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Punk" instance=ExtResource("14_rquj2")]
+position = Vector2(490, 130)
+
+[node name="Toad" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(463, 59)
 script = ExtResource("3_488ky")
 customer_name = "Toad"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top"), PackedStringArray("Meat", "Meat"), PackedStringArray("Cheese", "Cheese"), PackedStringArray("Ketchup", "Mustard"), PackedStringArray("Lettuce", "Tomato")])
@@ -513,6 +578,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(-340, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(464, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Toad"]
 position = Vector2(320, 101)
@@ -542,9 +611,12 @@ position = Vector2(204, 108)
 [node name="Right" type="Marker2D" parent="customers/Toad"]
 position = Vector2(316, 116)
 
-[node name="Persistant" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Toad" instance=ExtResource("14_rquj2")]
+position = Vector2(264, 145)
+
+[node name="Persistant" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(-433, 59)
 script = ExtResource("3_488ky")
 customer_name = "Persistant"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
@@ -553,6 +625,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(370, 59)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(-435, 59)
 
 [node name="character" type="Sprite2D" parent="customers/Persistant"]
 position = Vector2(320, 101)
@@ -579,9 +655,12 @@ position = Vector2(288, 116)
 [node name="Right" type="Marker2D" parent="customers/Persistant"]
 position = Vector2(420, 100)
 
-[node name="Anxiety" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area")]
+[node name="munch" parent="customers/Persistant" instance=ExtResource("14_rquj2")]
+position = Vector2(351, 137)
+
+[node name="Anxiety" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
 visible = false
-position = Vector2(0, 59)
+position = Vector2(0, 218)
 script = ExtResource("3_488ky")
 customer_name = "Anxiety"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
@@ -589,6 +668,10 @@ burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(0, 218)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(0, 218)
 
 [node name="character" type="Sprite2D" parent="customers/Anxiety"]
 position = Vector2(320, 101)
@@ -614,6 +697,14 @@ position = Vector2(420, 124)
 
 [node name="Right" type="Marker2D" parent="customers/Anxiety"]
 position = Vector2(540, 124)
+
+[node name="munch" parent="customers/Anxiety" instance=ExtResource("14_rquj2")]
+position = Vector2(481, 127)
+
+[node name="kitchen_floor" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("40_5d7jh")
 
 [node name="background_1" type="Node2D" parent="."]
 
