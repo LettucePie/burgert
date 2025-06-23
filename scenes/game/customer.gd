@@ -9,9 +9,14 @@ class_name Customer
 @export var sound_player : AudioStreamPlayer2D
 @export var left_area : Marker2D
 @export var right_area : Marker2D
+@export var munch : Munch
+@export var enter_pos : Vector2
+@export var stay_pos : Vector2
+@export var exit_pos : Vector2
 var active : bool = false
 var tic : int = 0
 var default_y : float = 0
+var munching : bool = false
 
 
 func _ready():

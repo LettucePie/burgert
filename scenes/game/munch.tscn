@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://e7qictdempjp"]
+
+[ext_resource type="Script" path="res://scenes/game/munch.gd" id="1_3f41q"]
+[ext_resource type="SpriteFrames" uid="uid://d2qv6v80ys6uc" path="res://assets/images/game/customers/customer_eating_frames.tres" id="2_ucjjy"]
+
+[node name="munch" type="Node2D"]
+position = Vector2(539, 162)
+script = ExtResource("1_3f41q")
+
+[node name="left" type="AnimatedSprite2D" parent="."]
+position = Vector2(-30, 0)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_ucjjy")
+animation = &"crumble_1"
+flip_h = true
+
+[node name="right" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 0)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("2_ucjjy")
+animation = &"crumble_1"
