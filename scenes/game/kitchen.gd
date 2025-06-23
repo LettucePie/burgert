@@ -73,12 +73,6 @@ func pick_customer() -> PackedStringArray:
 	return result
 
 
-func reveal_customer(customer : Customer):
-	for c in customers:
-		c.hide()
-	customer.show()
-
-
 func play_splat(pos : Vector2):
 	splat.position = pos
 	splat.show()
