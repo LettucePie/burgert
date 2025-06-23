@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
 [ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_go7ox"]
 [ext_resource type="Script" path="res://scenes/game/submit.gd" id="3_8i30r"]
-[ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/sprites/ui/crosshair.png" id="3_de6vf"]
+[ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/images/ui/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
-[ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/sprites/ui/dot.png" id="4_qu4ek"]
+[ext_resource type="Texture2D" uid="uid://cs2gjbmi4f3jj" path="res://assets/images/ui/dot.png" id="4_qu4ek"]
 [ext_resource type="PackedScene" uid="uid://m6bxbm4udcdw" path="res://scenes/ui/results.tscn" id="8_40o0c"]
 
 [sub_resource type="Curve" id="Curve_qcuyr"]

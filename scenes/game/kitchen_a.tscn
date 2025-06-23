@@ -3,60 +3,60 @@
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Script" path="res://scenes/game/customer.gd" id="3_488ky"]
+[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/images/game/kitchen/kitchen_bg.png" id="3_m4pdk"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
-[ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/sprites/game/kitchen/kitchen_bg.png" id="3_wcp2b"]
-[ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/resources/sprites/kitchen/missing_burger_frames.tres" id="4_3psbk"]
-[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/resources/sprites/ingredients/bun.tres" id="5_er5ok"]
-[ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/resources/sprites/kitchen/kitchen_window_spriteframes.tres" id="5_hgtvl"]
-[ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/sprites/game/customers/customers__1.png" id="5_jd2jh"]
+[ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/images/game/kitchen/kitchen_window_spriteframes.tres" id="4_gx61c"]
+[ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/images/game/kitchen/kitchen_sign_spriteframes.tres" id="5_l5lse"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="6_b3mif"]
-[ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/resources/sprites/kitchen/kitchen_sign_spriteframes.tres" id="6_sosdx"]
-[ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/sprites/game/kitchen/Restaurant_stools.png" id="6_u0xpl"]
-[ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/resources/sprites/ingredients/bun_highlight.tres" id="6_xprxa"]
-[ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/sprites/game/kitchen/Restaurant_stopnpuke_sign.png" id="7_dfeum"]
-[ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/sprites/ui/order-thought-cloud1.png" id="7_nq4e3"]
-[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/resources/sprites/ingredients/meat.tres" id="8_42nsw"]
-[ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/sprites/game/customers/customers__2.png" id="9_62i65"]
-[ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/resources/sprites/ingredients/meat_highlight.tres" id="9_lqetf"]
+[ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/images/game/kitchen/Restaurant_stools.png" id="6_hsy50"]
+[ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/images/game/kitchen/Restaurant_stopnpuke_sign.png" id="7_b5ba6"]
+[ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/images/game/kitchen/missing_burger_frames.tres" id="8_hjo3x"]
 [ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="9_q7db7"]
-[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/resources/sprites/ingredients/lettuce.tres" id="10_1mb32"]
-[ext_resource type="Texture2D" uid="uid://xygve8lpah31" path="res://assets/sprites/game/customers/customers__3.png" id="11_gbh4p"]
-[ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/resources/sprites/ingredients/lettuce_highlight.tres" id="11_r8857"]
+[ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/game/customers/customers__1.png" id="10_k67uf"]
 [ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/sfx/Audio 2.wav" id="11_yu3hg"]
-[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/resources/sprites/ingredients/tomato.tres" id="12_rknrk"]
+[ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/images/ui/order-thought-cloud1.png" id="12_n6ods"]
 [ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/sfx/Audio 3.wav" id="13_s6p7b"]
-[ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/resources/sprites/ingredients/tomato_highlight.tres" id="13_x2inu"]
-[ext_resource type="Texture2D" uid="uid://byr4q1fxrvpx5" path="res://assets/sprites/game/customers/customers__4.png" id="13_y24t5"]
-[ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/resources/sprites/ingredients/cheese.tres" id="14_t0dgj"]
-[ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/resources/sprites/ingredients/cheese_highlight.tres" id="15_bm1ut"]
+[ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/images/game/customers/customers__2.png" id="14_a0ex1"]
 [ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/sfx/Audio 4.wav" id="15_k3c7l"]
-[ext_resource type="Texture2D" uid="uid://dmxd42ydjfaye" path="res://assets/sprites/game/customers/customers__5.png" id="15_mqeil"]
-[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/resources/sprites/ingredients/ketchup.tres" id="16_vtaef"]
+[ext_resource type="Texture2D" uid="uid://xygve8lpah31" path="res://assets/images/game/customers/customers__3.png" id="16_xjc5m"]
 [ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/sfx/Audio 5.wav" id="17_3g7u0"]
-[ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/resources/sprites/ingredients/ketchup_highlight.tres" id="17_8eli0"]
-[ext_resource type="Texture2D" uid="uid://4og10atuetw7" path="res://assets/sprites/game/customers/customers__6.png" id="17_q0c3n"]
-[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/resources/sprites/ingredients/mustard.tres" id="18_8nry3"]
-[ext_resource type="Texture2D" uid="uid://b20j5d0bdfn3e" path="res://assets/sprites/game/customers/customers__7.png" id="19_7l50s"]
+[ext_resource type="Texture2D" uid="uid://byr4q1fxrvpx5" path="res://assets/images/game/customers/customers__4.png" id="18_itdi4"]
 [ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/sfx/Audio 6.wav" id="19_21giq"]
+[ext_resource type="Texture2D" uid="uid://dmxd42ydjfaye" path="res://assets/images/game/customers/customers__5.png" id="20_uie4n"]
 [ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/sfx/Audio 7.wav" id="21_8ka0h"]
-[ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/sprites/game/customers/customers__8.png" id="21_tmhs0"]
+[ext_resource type="Texture2D" uid="uid://4og10atuetw7" path="res://assets/images/game/customers/customers__6.png" id="22_ib8ia"]
 [ext_resource type="AudioStream" uid="uid://6awwq0fr8g45" path="res://assets/sound/sfx/Audio 8.wav" id="23_c4ttp"]
-[ext_resource type="Texture2D" uid="uid://me3pvftyofx7" path="res://assets/sprites/game/customers/customers__9.png" id="23_yq4at"]
+[ext_resource type="Texture2D" uid="uid://b20j5d0bdfn3e" path="res://assets/images/game/customers/customers__7.png" id="24_46gr4"]
 [ext_resource type="AudioStream" uid="uid://ci4766rfr1j0l" path="res://assets/sound/sfx/Audio 9.wav" id="25_clbmo"]
-[ext_resource type="Texture2D" uid="uid://bgi1r131cm1mw" path="res://assets/sprites/game/customers/customers__10.png" id="25_eh2xn"]
+[ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/images/game/customers/customers__8.png" id="26_n0e0r"]
 [ext_resource type="AudioStream" uid="uid://hepjc5fw3uqa" path="res://assets/sound/sfx/Audio 10.wav" id="27_30fc8"]
-[ext_resource type="Texture2D" uid="uid://pc73h887hkoh" path="res://assets/sprites/game/customers/customers__11.png" id="27_wbkil"]
-[ext_resource type="Texture2D" uid="uid://dlqnfn8gqs7a8" path="res://assets/sprites/game/customers/customers__12.png" id="28_baryf"]
+[ext_resource type="Texture2D" uid="uid://me3pvftyofx7" path="res://assets/images/game/customers/customers__9.png" id="28_uifyl"]
 [ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/sfx/Audio 11.wav" id="30_6f0yp"]
-[ext_resource type="Texture2D" uid="uid://c085b04unljsh" path="res://assets/sprites/game/customers/customers__13.png" id="30_42u8a"]
-[ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/sprites/game/customers/customers__14.png" id="32_6wy5e"]
+[ext_resource type="Texture2D" uid="uid://bgi1r131cm1mw" path="res://assets/images/game/customers/customers__10.png" id="30_cm027"]
+[ext_resource type="Texture2D" uid="uid://pc73h887hkoh" path="res://assets/images/game/customers/customers__11.png" id="32_7qbm4"]
 [ext_resource type="AudioStream" uid="uid://werdrs07c7q6" path="res://assets/sound/sfx/Audio 13.wav" id="32_jbtrj"]
+[ext_resource type="Texture2D" uid="uid://dlqnfn8gqs7a8" path="res://assets/images/game/customers/customers__12.png" id="33_4k2si"]
 [ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/sfx/Audio 14.wav" id="34_83rug"]
-[ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/resources/sprites/kitchen/large_counter.tres" id="37_iktmn"]
-[ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/resources/sprites/kitchen/counter_v2.tres" id="38_3w3u7"]
-[ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/resources/sprites/kitchen/register.tres" id="39_wk6ax"]
-[ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/resources/sprites/kitchen/counter_v2_grill.tres" id="40_4v1tc"]
-[ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/resources/sprites/kitchen/counter_v2_alcove.tres" id="41_7gis0"]
+[ext_resource type="Texture2D" uid="uid://c085b04unljsh" path="res://assets/images/game/customers/customers__13.png" id="35_m5wms"]
+[ext_resource type="Texture2D" uid="uid://crbnqpyawunif" path="res://assets/images/game/customers/customers__14.png" id="37_os6ba"]
+[ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/images/game/kitchen/large_counter.tres" id="39_ul271"]
+[ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/game/kitchen/counter_v2.tres" id="40_arepm"]
+[ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/game/kitchen/register.tres" id="41_60jb7"]
+[ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/game/kitchen/counter_v2_grill.tres" id="42_y6et2"]
+[ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/game/kitchen/counter_v2_alcove.tres" id="43_yb70e"]
+[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/images/game/kitchen/bun.tres" id="45_gga11"]
+[ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/game/kitchen/bun_highlight.tres" id="46_bk7km"]
+[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/images/game/kitchen/meat.tres" id="47_sn0s0"]
+[ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/images/game/kitchen/meat_highlight.tres" id="48_mixwx"]
+[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/game/kitchen/lettuce.tres" id="49_4b8hj"]
+[ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/game/kitchen/lettuce_highlight.tres" id="50_n0mmw"]
+[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/images/game/kitchen/tomato.tres" id="51_483gu"]
+[ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/images/game/kitchen/tomato_highlight.tres" id="52_qpg1h"]
+[ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/images/game/kitchen/cheese.tres" id="53_0tmef"]
+[ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/images/game/kitchen/cheese_highlight.tres" id="54_0rxtm"]
+[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/images/game/kitchen/ketchup.tres" id="55_v6m6k"]
+[ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/images/game/kitchen/ketchup_highlight.tres" id="56_782jn"]
+[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/images/game/kitchen/mustard.tres" id="57_w4kew"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gp2sq"]
 viewport_path = NodePath(".")
@@ -95,37 +95,37 @@ rotating_burger = true
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wcp2b")
+texture = ExtResource("3_m4pdk")
 
 [node name="window_anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("5_hgtvl")
+sprite_frames = ExtResource("4_gx61c")
 animation = &"rainy"
 autoplay = "rainy"
 
 [node name="sign_anim" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("6_sosdx")
+sprite_frames = ExtResource("5_l5lse")
 animation = &"sign"
 autoplay = "sign"
 
 [node name="wall_stools" type="Sprite2D" parent="."]
 position = Vector2(320, 232)
 scale = Vector2(2, 2)
-texture = ExtResource("6_u0xpl")
+texture = ExtResource("6_hsy50")
 
 [node name="stopnpuke" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("7_dfeum")
+texture = ExtResource("7_b5ba6")
 
 [node name="splat" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("4_3psbk")
+sprite_frames = ExtResource("8_hjo3x")
 animation = &"splat"
 
 [node name="customers" type="Node2D" parent="."]
@@ -143,7 +143,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Tommy"]
 position = Vector2(320, 86)
 scale = Vector2(2, 2)
-texture = ExtResource("5_jd2jh")
+texture = ExtResource("10_k67uf")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Tommy"]
 position = Vector2(387, 95)
@@ -153,7 +153,7 @@ texture = SubResource("ViewportTexture_gp2sq")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Tommy/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
 position = Vector2(551, 127)
@@ -178,7 +178,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Teddy"]
 position = Vector2(320, 149)
 scale = Vector2(2, 2)
-texture = ExtResource("9_62i65")
+texture = ExtResource("14_a0ex1")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Teddy"]
 position = Vector2(306, 93)
@@ -188,7 +188,7 @@ texture = SubResource("ViewportTexture_2j35s")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Teddy/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Teddy"]
 position = Vector2(458, 77)
@@ -213,7 +213,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Ted"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("11_gbh4p")
+texture = ExtResource("16_xjc5m")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Ted"]
 position = Vector2(246, 93)
@@ -223,7 +223,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Ted/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
@@ -250,7 +250,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Al"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("13_y24t5")
+texture = ExtResource("18_itdi4")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Al"]
 position = Vector2(148, 93)
@@ -260,7 +260,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Al/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Al"]
 position = Vector2(292, 126)
@@ -285,7 +285,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Emo"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("15_mqeil")
+texture = ExtResource("20_uie4n")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Emo"]
 position = Vector2(304, 93)
@@ -295,7 +295,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Emo/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Emo"]
 position = Vector2(424, 126)
@@ -320,7 +320,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Karen"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("17_q0c3n")
+texture = ExtResource("22_ib8ia")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Karen"]
 position = Vector2(340, 93)
@@ -330,7 +330,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Karen/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Karen"]
 position = Vector2(436, 126)
@@ -355,7 +355,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Patient"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("19_7l50s")
+texture = ExtResource("24_46gr4")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Patient"]
 position = Vector2(520, 93)
@@ -365,7 +365,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Patient/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
@@ -392,7 +392,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Mustard"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("21_tmhs0")
+texture = ExtResource("26_n0e0r")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Mustard"]
 position = Vector2(396, 93)
@@ -402,7 +402,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Mustard/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Mustard"]
 position = Vector2(556, 126)
@@ -427,7 +427,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Dancer"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("23_yq4at")
+texture = ExtResource("28_uifyl")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Dancer"]
 position = Vector2(248, 93)
@@ -437,7 +437,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Dancer/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Dancer"]
@@ -464,7 +464,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Punk"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("25_eh2xn")
+texture = ExtResource("30_cm027")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Punk"]
 position = Vector2(348, 93)
@@ -474,7 +474,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Punk/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Punk"]
 position = Vector2(492, 126)
@@ -500,10 +500,10 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Toad"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("27_wbkil")
+texture = ExtResource("32_7qbm4")
 
 [node name="buddy" type="Sprite2D" parent="customers/Toad/character"]
-texture = ExtResource("28_baryf")
+texture = ExtResource("33_4k2si")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Toad"]
 position = Vector2(140, 93)
@@ -513,7 +513,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Toad/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Toad"]
 position = Vector2(260, 126)
@@ -539,7 +539,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Persistant"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("30_42u8a")
+texture = ExtResource("35_m5wms")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Persistant"]
 position = Vector2(208, 93)
@@ -549,7 +549,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Persistant/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Persistant"]
 position = Vector2(352, 126)
@@ -574,7 +574,7 @@ right_area = NodePath("Right")
 [node name="character" type="Sprite2D" parent="customers/Anxiety"]
 position = Vector2(320, 101)
 scale = Vector2(2, 2)
-texture = ExtResource("32_6wy5e")
+texture = ExtResource("37_os6ba")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Anxiety"]
 position = Vector2(340, 93)
@@ -584,7 +584,7 @@ texture = SubResource("ViewportTexture_m8mrc")
 [node name="thought_cloud" type="Sprite2D" parent="customers/Anxiety/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("7_nq4e3")
+texture = ExtResource("12_n6ods")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Anxiety"]
 position = Vector2(480, 126)
@@ -602,44 +602,44 @@ position = Vector2(540, 124)
 visible = false
 position = Vector2(144, 368)
 scale = Vector2(2, 2)
-texture = ExtResource("37_iktmn")
+texture = ExtResource("39_ul271")
 
 [node name="Sprite2D2" type="Sprite2D" parent="background_1"]
 visible = false
 position = Vector2(432, 368)
 scale = Vector2(2, 2)
-texture = ExtResource("37_iktmn")
+texture = ExtResource("39_ul271")
 
 [node name="counter" type="Sprite2D" parent="background_1"]
 position = Vector2(320, 322)
 scale = Vector2(2, 2)
-texture = ExtResource("38_3w3u7")
+texture = ExtResource("40_arepm")
 
 [node name="cash" type="Sprite2D" parent="background_1"]
 visible = false
 position = Vector2(496, 179)
 scale = Vector2(2, 2)
-texture = ExtResource("39_wk6ax")
+texture = ExtResource("41_60jb7")
 
 [node name="grill" type="Sprite2D" parent="background_1"]
 position = Vector2(178, 305.25)
 scale = Vector2(1.72857, 1.72857)
-texture = ExtResource("40_4v1tc")
+texture = ExtResource("42_y6et2")
 
 [node name="alcove" type="Sprite2D" parent="background_1"]
 position = Vector2(296.079, 305.25)
 scale = Vector2(2.57481, 1.72857)
-texture = ExtResource("41_7gis0")
+texture = ExtResource("43_yb70e")
 
 [node name="alcove2" type="Sprite2D" parent="background_1"]
 position = Vector2(392, 305.25)
 scale = Vector2(2.57481, 1.72857)
-texture = ExtResource("41_7gis0")
+texture = ExtResource("43_yb70e")
 
 [node name="alcove3" type="Sprite2D" parent="background_1"]
 position = Vector2(490, 305.25)
 scale = Vector2(2.57481, 1.72857)
-texture = ExtResource("41_7gis0")
+texture = ExtResource("43_yb70e")
 
 [node name="background_2" type="Node2D" parent="."]
 
@@ -657,10 +657,10 @@ shape = SubResource("RectangleShape2D_dt4bo")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_bun"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("5_er5ok")
+texture = ExtResource("45_gga11")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_bun/ingredient_sprite"]
-texture = ExtResource("6_xprxa")
+texture = ExtResource("46_bk7km")
 
 [node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(177, 333)
@@ -676,10 +676,10 @@ shape = SubResource("RectangleShape2D_dt4bo")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_meat"]
 position = Vector2(0, -21)
 scale = Vector2(1.6875, 1.6875)
-texture = ExtResource("8_42nsw")
+texture = ExtResource("47_sn0s0")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_meat/ingredient_sprite"]
-texture = ExtResource("9_lqetf")
+texture = ExtResource("48_mixwx")
 
 [node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(297, 349)
@@ -694,10 +694,10 @@ shape = SubResource("RectangleShape2D_dt4bo")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_lettuce"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("10_1mb32")
+texture = ExtResource("49_4b8hj")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_lettuce/ingredient_sprite"]
-texture = ExtResource("11_r8857")
+texture = ExtResource("50_n0mmw")
 
 [node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(393, 349)
@@ -713,10 +713,10 @@ shape = SubResource("RectangleShape2D_dt4bo")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_tomato"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("12_rknrk")
+texture = ExtResource("51_483gu")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_tomato/ingredient_sprite"]
-texture = ExtResource("13_x2inu")
+texture = ExtResource("52_qpg1h")
 
 [node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(491, 349)
@@ -732,10 +732,10 @@ shape = SubResource("RectangleShape2D_dt4bo")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_cheese"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("14_t0dgj")
+texture = ExtResource("53_0tmef")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_cheese/ingredient_sprite"]
-texture = ExtResource("15_bm1ut")
+texture = ExtResource("54_0rxtm")
 
 [node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(563, 349)
@@ -751,10 +751,10 @@ shape = SubResource("RectangleShape2D_l3xul")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_ketchup"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("16_vtaef")
+texture = ExtResource("55_v6m6k")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_ketchup/ingredient_sprite"]
-texture = ExtResource("17_8eli0")
+texture = ExtResource("56_782jn")
 
 [node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
 position = Vector2(611, 349)
@@ -770,9 +770,9 @@ shape = SubResource("RectangleShape2D_62g6r")
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_mustard"]
 position = Vector2(0, -28)
 scale = Vector2(2, 2)
-texture = ExtResource("18_8nry3")
+texture = ExtResource("57_w4kew")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_mustard/ingredient_sprite"]
-texture = ExtResource("17_8eli0")
+texture = ExtResource("56_782jn")
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]

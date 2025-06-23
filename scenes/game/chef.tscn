@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://ddp4wjcafmrbj"]
 
-[ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/resources/sprites/chef_frames.tres" id="1_758j5"]
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
+[ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/game/chef/chef_frames.tres" id="2_wpwgh"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
 
@@ -623,7 +623,7 @@ libraries = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("1_758j5")
+sprite_frames = ExtResource("2_wpwgh")
 animation = &"Idle_L"
 autoplay = "Idle_L"
 

@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://nrvg88xgp6gg"]
-
-[ext_resource type="Texture2D" uid="uid://dwtvusewngmup" path="res://assets/sprites/game/kitchen/Ingredients_highlight_only.png" id="1_ll63l"]
-
-[resource]
-atlas = ExtResource("1_ll63l")
-region = Rect2(0, 1, 18, 17)
