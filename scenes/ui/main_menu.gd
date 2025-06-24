@@ -4,6 +4,9 @@ class_name MainMenu
 signal start_play()
 signal resume_play()
 signal quit_play()
+signal update_mus_vol(new_val)
+signal update_sfx_vol(new_val)
+signal update_a_b_swap(new_val)
 
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, CREDITS, PAUSE}
@@ -85,4 +88,21 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_mus_vol_update_value(new_val):
-	pass # Replace with function body.
+	emit_signal("update_mus_vol", new_val)
+
+
+func _on_sfx_vol_update_value(new_val):
+	emit_signal("update_sfx_vol", new_val)
+
+
+func _on_swap_confirm_toggled(toggled_on):
+	emit_signal("update_a_b_swap", toggled_on)
+
+
+func update_settings_display(settings : Play.Settings):
+	print("Updating Settings Display")
+	$Options/Panel/VBoxContainer/mus_vol.value = settings.get_mus_vol()
+	$Options/Panel/VBoxContainer/mus_vol.update_vals(false)
+	$Options/Panel/VBoxContainer/sfx_vol.value = settings.get_sfx_vol()
+	$Options/Panel/VBoxContainer/sfx_vol.update_vals(false)
+	$Options/Panel/VBoxContainer/swap_confirm.toggle_mode = settings.get_a_b_swap()

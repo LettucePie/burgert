@@ -40,6 +40,12 @@ offset_left = -641.0
 offset_right = -1.0
 offset_bottom = 480.0
 
+[node name="mus_vol" parent="Options/Panel/VBoxContainer" index="1" node_paths=PackedStringArray("label")]
+label = NodePath("value")
+
+[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" node_paths=PackedStringArray("label")]
+label = NodePath("value")
+
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
 layout_mode = 1
 offset_left = 640.0
@@ -57,6 +63,9 @@ offset_right = 640.0
 [connection signal="pressed" from="Main/Options" to="." method="main_button_event" binds= ["options"]]
 [connection signal="pressed" from="Main/Credits" to="." method="main_button_event" binds= ["credits"]]
 [connection signal="pressed" from="Main/Quit" to="." method="main_button_event" binds= ["quit"]]
+[connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
+[connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
+[connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
 [connection signal="pressed" from="Options/Panel/VBoxContainer/finished" to="." method="option_button_event" binds= ["options_done"]]
 [connection signal="pressed" from="Credits/Panel/VBoxContainer/finished" to="." method="credit_button_event" binds= ["credits_done"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
