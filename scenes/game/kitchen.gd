@@ -28,6 +28,7 @@ func prep_kitchen():
 		c.reset()
 	splat.hide()
 	past_customers.clear()
+	current_customer = null
 
 
 func pick_customer() -> PackedStringArray:

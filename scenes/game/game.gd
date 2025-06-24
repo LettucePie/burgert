@@ -61,6 +61,7 @@ func stop_game():
 	if game_started:
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)
+		kitchen.prep_kitchen()
 	results.hide()
 	game_started = false
 	hud.hide()
