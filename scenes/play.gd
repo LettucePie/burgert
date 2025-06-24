@@ -4,6 +4,7 @@ class_name Play
 @export var game_version : int = 1
 @export var game_scene : Game
 @export var main_menu : MainMenu
+@export var music : Music
 ##-----------
 @export var audio_bus : AudioBusLayout
 
@@ -126,9 +127,8 @@ func _ready():
 		_load_settings()
 	else:
 		_default_settings()
-	#if OS.has_feature("portmaster"):
-	_clear_joypad_inputs()
-	_clear_joypad_inputs()
+	if OS.has_feature("portmaster"):
+		_clear_joypad_inputs()
 	if $Inputtesting.visible:
 		game_scene.queue_free()
 		main_menu.queue_free()
@@ -142,29 +142,35 @@ func _process(delta):
 func _on_main_menu_start_play():
 	get_tree().paused = false
 	game_scene.start_game()
+	music.set_state(Music.STATE.PLAY)
 
 
 func _on_game_game_paused():
 	get_tree().paused = true
 	main_menu.set_state(MainMenu.SCREENS.PAUSE)
+	music.set_state(Music.STATE.PAUSE)
 
 
 func _on_game_game_finished():
 	get_tree().paused = true
+	music.set_state(Music.STATE.MENU)
 
 
 func _on_main_menu_resume_play():
 	get_tree().paused = false
+	music.set_state(Music.STATE.PLAY)
 
 
 func _on_main_menu_quit_play():
 	get_tree().paused = true
 	game_scene.stop_game()
+	music.set_state(Music.STATE.MENU)
 
 
 func _on_game_game_over():
 	_on_main_menu_quit_play()
 	main_menu.set_state(MainMenu.SCREENS.MAIN)
+	music.set_state(Music.STATE.MENU)
 
 
 func _on_main_menu_update_mus_vol(new_val):
