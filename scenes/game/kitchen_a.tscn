@@ -215,6 +215,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
 position = Vector2(551, 127)
 stream = ExtResource("9_q7db7")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Tommy"]
 position = Vector2(478, 114)
@@ -257,6 +258,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Teddy"]
 position = Vector2(458, 77)
 stream = ExtResource("11_yu3hg")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Teddy"]
 position = Vector2(388, 28)
@@ -301,6 +303,7 @@ flip_h = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
 position = Vector2(106, 126)
 stream = ExtResource("13_s6p7b")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Ted"]
 position = Vector2(32, 60)
@@ -345,6 +348,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Al"]
 position = Vector2(292, 126)
 stream = ExtResource("15_k3c7l")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Al"]
 position = Vector2(176, 156)
@@ -388,6 +392,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Emo"]
 position = Vector2(424, 126)
 stream = ExtResource("17_3g7u0")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Emo"]
 position = Vector2(364, 128)
@@ -431,6 +436,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Karen"]
 position = Vector2(436, 126)
 stream = ExtResource("19_21giq")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Karen"]
 position = Vector2(372, 140)
@@ -475,6 +481,7 @@ flip_h = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
 position = Vector2(396, 126)
 stream = ExtResource("21_8ka0h")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Patient"]
 position = Vector2(336, 168)
@@ -519,6 +526,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Mustard"]
 position = Vector2(556, 126)
 stream = ExtResource("23_c4ttp")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Mustard"]
 position = Vector2(460, 112)
@@ -563,6 +571,7 @@ flip_h = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Dancer"]
 position = Vector2(124, 126)
 stream = ExtResource("25_clbmo")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Dancer"]
 position = Vector2(68, 112)
@@ -607,6 +616,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Punk"]
 position = Vector2(492, 126)
 stream = ExtResource("27_30fc8")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Punk"]
 position = Vector2(416, 112)
@@ -654,6 +664,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Toad"]
 position = Vector2(260, 126)
 stream = ExtResource("30_6f0yp")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Toad"]
 position = Vector2(204, 108)
@@ -698,6 +709,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Persistant"]
 position = Vector2(352, 126)
 stream = ExtResource("32_jbtrj")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Persistant"]
 position = Vector2(288, 116)
@@ -741,6 +753,7 @@ texture = ExtResource("12_n6ods")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Anxiety"]
 position = Vector2(480, 126)
 stream = ExtResource("34_83rug")
+bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Anxiety"]
 position = Vector2(420, 124)

@@ -105,4 +105,4 @@ func update_settings_display(settings : Play.Settings):
 	$Options/Panel/VBoxContainer/mus_vol.update_vals(false)
 	$Options/Panel/VBoxContainer/sfx_vol.value = settings.get_sfx_vol()
 	$Options/Panel/VBoxContainer/sfx_vol.update_vals(false)
-	$Options/Panel/VBoxContainer/swap_confirm.toggle_mode = settings.get_a_b_swap()
+	$Options/Panel/VBoxContainer/swap_confirm.button_pressed = settings.get_a_b_swap()

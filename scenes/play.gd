@@ -35,6 +35,8 @@ class Settings:
 
 
 var settings : Settings
+@onready var default_confirm_events : Array[InputEvent] = InputMap.action_get_events("confirm")
+@onready var default_cancel_events : Array[InputEvent] = InputMap.action_get_events("cancel")
 
 
 func _default_settings():
@@ -161,6 +163,7 @@ func _on_main_menu_update_a_b_swap(new_val):
 
 
 func apply_settings():
+	print("APPLYING SETTINGS TO GAME")
 	main_menu.update_settings_display(settings)
 	var mus_idx : int = AudioServer.get_bus_index("MUS")
 	var sfx_idx : int = AudioServer.get_bus_index("SFX")
@@ -168,6 +171,21 @@ func apply_settings():
 	var sfx_db : float = linear_to_db(float(settings.get_sfx_vol()) / 10.0)
 	AudioServer.set_bus_volume_db(mus_idx, mus_db)
 	AudioServer.set_bus_volume_db(sfx_idx, sfx_db)
+	InputMap.action_erase_events("confirm")
+	InputMap.action_erase_events("cancel")
+	var confirm_target : String = "confirm"
+	var cancel_target : String = "cancel"
+	if settings.get_a_b_swap():
+		confirm_target = "cancel"
+		cancel_target = "confirm"
+	for ie in default_confirm_events:
+		InputMap.action_add_event(confirm_target, ie)
+		if confirm_target == "confirm":
+			InputMap.action_add_event("ui_accept", ie)
+	for ie in default_cancel_events:
+		InputMap.action_add_event(cancel_target, ie)
+		if cancel_target == "confirm":
+			InputMap.action_add_event("ui_accept", ie)
 
 
 
