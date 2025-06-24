@@ -103,6 +103,15 @@ func _save_settings():
 	apply_settings()
 
 
+func _clear_joystick_inputs():
+	var actions = InputMap.get_actions()
+	for a in actions:
+		var events = InputMap.action_get_events(a)
+		for e in events:
+			if e is InputEventJoypadMotion:
+				InputMap.action_erase_event(a, e)
+
+
 func _ready():
 	get_tree().paused = true
 	game_scene.stop_game()
@@ -110,6 +119,12 @@ func _ready():
 		_load_settings()
 	else:
 		_default_settings()
+	if OS.has_feature("portmaster"):
+		_clear_joystick_inputs()
+	if $Inputtesting.visible:
+		game_scene.queue_free()
+		main_menu.queue_free()
+		$Music.queue_free()
 
 
 func _process(delta):
