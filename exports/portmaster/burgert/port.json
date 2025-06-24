@@ -1,0 +1,36 @@
+{
+  "version": 4,
+  "name": "burgert.pck",
+  "items": [
+    "Burgert.sh",
+    "burgert"
+  ],
+  "items_opt": [],
+  "attr": {
+    "title": "Burgert",
+    "porter": [
+      "LettucePie"
+    ],
+    "desc": "Test",
+    "desc_md": null,
+    "inst": "Test",
+    "inst_md": null,
+    "genres": [
+      "arcade"
+    ],
+    "image": null,
+    "rtr": true,
+    "exp": true,
+    "runtime": [
+      "weston_pkg_0.2.squashfs",
+      "godot_4.2.2.squashfs"
+    ],
+    "store": [],
+    "availability": "full",
+    "reqs": [],
+    "arch": [
+      "aarch64"
+    ],
+    "min_glibc": ""
+  }
+}

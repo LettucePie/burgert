@@ -1,0 +1,15 @@
+ <?xml version="1.0" encoding="utf-8"?>
+<gameList>
+  <game>
+    <path>./Burgert.sh</path>
+    <name>Burgert</name>
+    <desc>Burgert is a Game With BURGERS.
+
+Mmmmmm. Delicious.</desc>
+    <releasedate>20250626T000000</releasedate>
+    <developer>LettucePie</developer>
+    <publisher>LettucePie</publisher>
+    <genre>Arcade</genre>
+    <image>./temp-cover.png</image>
+  </game>
+</gameList>
