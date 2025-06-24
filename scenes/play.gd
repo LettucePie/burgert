@@ -129,10 +129,6 @@ func _ready():
 		_default_settings()
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
-	if $Inputtesting.visible:
-		game_scene.queue_free()
-		main_menu.queue_free()
-		$Music.queue_free()
 
 
 func _process(delta):

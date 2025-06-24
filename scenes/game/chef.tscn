@@ -1,9 +1,21 @@
-[gd_scene load_steps=38 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=64 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/game/chef/chef_frames.tres" id="2_nyvt1"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hpm1r"]
+animation = &"Charging_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ks54"]
+animation = &"Charging_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8kcc6"]
+animation = &"Chargup_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_auogh"]
+animation = &"Chargup_R"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhn51"]
 animation = &"Idle_L"
@@ -22,6 +34,12 @@ animation = &"Swing_L"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl3i6"]
 animation = &"Swing_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lxi8j"]
+animation = &"Throw_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ht0x7"]
+animation = &"Throw_R"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8pf8"]
 switch_mode = 2
@@ -64,8 +82,56 @@ advance_condition = &"idle_L"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhl4c"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evovq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wb3lj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6i7vt"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qt3b6"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5vt0y"]
+advance_condition = &"idle_L"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs48m"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle_L"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_id870"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_66gqr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh6bj"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d4pti"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofope"]
+advance_condition = &"idle_R"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ky21"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle_R"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v54ij"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rtjc"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jkxya"]
-states/End/position = Vector2(669, 248)
+states/Charging_L/node = SubResource("AnimationNodeAnimation_hpm1r")
+states/Charging_L/position = Vector2(685, -133)
+states/Charging_R/node = SubResource("AnimationNodeAnimation_5ks54")
+states/Charging_R/position = Vector2(685, 332)
+states/Chargup_L/node = SubResource("AnimationNodeAnimation_8kcc6")
+states/Chargup_L/position = Vector2(510, -133)
+states/Chargup_R/node = SubResource("AnimationNodeAnimation_auogh")
+states/Chargup_R/position = Vector2(510, 331)
+states/End/position = Vector2(1024, 154)
 states/Idle_L/node = SubResource("AnimationNodeAnimation_qhn51")
 states/Idle_L/position = Vector2(578, 32)
 states/Idle_R/node = SubResource("AnimationNodeAnimation_a0xtc")
@@ -74,13 +140,17 @@ states/Run_L/node = SubResource("AnimationNodeAnimation_ax3on")
 states/Run_L/position = Vector2(414, -16)
 states/Run_R/node = SubResource("AnimationNodeAnimation_j7etc")
 states/Run_R/position = Vector2(414, 197)
-states/Start/position = Vector2(578, 248)
+states/Start/position = Vector2(933, 154)
 states/Swing_L/node = SubResource("AnimationNodeAnimation_vwqq0")
 states/Swing_L/position = Vector2(295, 32)
 states/Swing_R/node = SubResource("AnimationNodeAnimation_wl3i6")
 states/Swing_R/position = Vector2(295, 154)
-transitions = ["Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_r8pf8"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3vxsd"), "Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_e4jl1"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_47y3o"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Idle_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_nq01q"), "Idle_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_uw4ke"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_o78tg"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_0hebr"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c")]
-graph_offset = Vector2(-64, -37)
+states/Throw_L/node = SubResource("AnimationNodeAnimation_lxi8j")
+states/Throw_L/position = Vector2(685, -30)
+states/Throw_R/node = SubResource("AnimationNodeAnimation_ht0x7")
+states/Throw_R/position = Vector2(685, 237)
+transitions = ["Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_r8pf8"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3vxsd"), "Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_e4jl1"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_47y3o"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Idle_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_nq01q"), "Idle_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_uw4ke"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_o78tg"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_0hebr"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c"), "Run_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_evovq"), "Idle_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_wb3lj"), "Chargup_L", "Charging_L", SubResource("AnimationNodeStateMachineTransition_6i7vt"), "Charging_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_qt3b6"), "Charging_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_5vt0y"), "Throw_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_fs48m"), "Run_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_id870"), "Idle_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_66gqr"), "Chargup_R", "Charging_R", SubResource("AnimationNodeStateMachineTransition_wh6bj"), "Charging_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_d4pti"), "Charging_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_ofope"), "Throw_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_0ky21"), "Chargup_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_v54ij"), "Chargup_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_3rtjc")]
+graph_offset = Vector2(79, -134)
 
 [sub_resource type="Animation" id="Animation_ovhst"]
 resource_name = "Idle_L"
@@ -145,6 +215,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_oocgj"]
@@ -211,6 +293,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_p6gpc"]
 length = 0.001
@@ -273,6 +367,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_4oiag"]
@@ -586,8 +692,446 @@ tracks/3/keys = {
 "values": [Vector2(2, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_vmjv2"]
+resource_name = "Chargup_R"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-30, -11), Vector2(-28, -13), Vector2(-27, -13), Vector2(-28, -8), Vector2(-33, -14), Vector2(-31, -15), Vector2(-28, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Charge"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0]
+}
+
+[sub_resource type="Animation" id="Animation_hxo7g"]
+resource_name = "Charging_R"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-26, -11), Vector2(-27, -10), Vector2(-30, -9), Vector2(-26, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Charge_Loop"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_w2k4o"]
+resource_name = "Throw_R"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-56, -7), Vector2(-30, -7), Vector2(-23, -9), Vector2(0, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Throw"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dd8s6"]
+resource_name = "Chargup_L"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(43, -11), Vector2(30, -10), Vector2(26, -11), Vector2(28, -8), Vector2(34, -14), Vector2(34, -10), Vector2(35, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Charge"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_e27pi"]
+resource_name = "Charging_L"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(30, -8), Vector2(34, -9), Vector2(30, -16), Vector2(35, -11)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Charge_Loop"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pdxxp"]
+resource_name = "Throw_L"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("burger_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(45, -7), Vector2(29, -10), Vector2(21, -10), Vector2(0, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("burger_sprite:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Throw"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jp2nr"]
 _data = {
+"Charging_L": SubResource("Animation_e27pi"),
+"Charging_R": SubResource("Animation_hxo7g"),
+"Chargup_L": SubResource("Animation_dd8s6"),
+"Chargup_R": SubResource("Animation_vmjv2"),
 "Idle_L": SubResource("Animation_ovhst"),
 "Idle_R": SubResource("Animation_oocgj"),
 "RESET": SubResource("Animation_p6gpc"),
@@ -595,6 +1139,8 @@ _data = {
 "Run_R": SubResource("Animation_5u833"),
 "Swing_L": SubResource("Animation_fcog8"),
 "Swing_R": SubResource("Animation_dwxh2"),
+"Throw_L": SubResource("Animation_pdxxp"),
+"Throw_R": SubResource("Animation_w2k4o"),
 "start": SubResource("Animation_f3gpu")
 }
 
@@ -626,11 +1172,11 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
 animation = &"Idle_L"
 autoplay = "Idle_L"
+flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(100, 16)
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]

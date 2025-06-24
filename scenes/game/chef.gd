@@ -36,7 +36,7 @@ func _ready():
 
 func reset_chef():
 	current_burger.refresh_plate()
-	self.position.x = 24
+	self.position.x = -100
 	_update_direction("R")
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
@@ -109,6 +109,7 @@ func process_actions(delta):
 		and !submitting_burger:
 			submitting_burger = true
 			print("Enter Throw Stance")
+			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
 	if Input.is_action_pressed("cancel") \
 	and current_burger.ingredients.size() > 0:
@@ -130,11 +131,13 @@ func process_submission(delta):
 	or Input.is_action_just_pressed("confirm"):
 		print("Send Burger")
 		emit_signal("submit_burger")
+		state_machine.travel("Throw_" + direction)
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
 		print("Cancel Throw")
 		emit_signal("cancel_burger_submission")
+		state_machine.travel("Idle_" + direction)
 
 
 func _physics_process(delta):
