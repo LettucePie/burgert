@@ -32,6 +32,7 @@ menu = ExtResource("4_o7inx")
 tracks = Array[AudioStreamMP3]([ExtResource("5_lvl06"), ExtResource("6_qxwcy"), ExtResource("7_m0cnl")])
 
 [node name="Inputtesting" parent="." instance=ExtResource("10_u2c8s")]
+visible = false
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]

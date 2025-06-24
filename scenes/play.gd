@@ -103,13 +103,20 @@ func _save_settings():
 	apply_settings()
 
 
-func _clear_joystick_inputs():
+func _clear_joypad_inputs():
 	var actions = InputMap.get_actions()
+	var events = []
 	for a in actions:
-		var events = InputMap.action_get_events(a)
-		for e in events:
-			if e is InputEventJoypadMotion:
-				InputMap.action_erase_event(a, e)
+		events.append(InputMap.action_get_events(a))
+		InputMap.action_erase_events(a)
+	for i in actions.size():
+		var action = actions[i]
+		var action_events = events[i]
+		for ae in action_events:
+			if ae is InputEventKey:
+				InputMap.action_add_event(action, ae)
+	for a in actions:
+		print(a, " | ", InputMap.action_get_events(a))
 
 
 func _ready():
@@ -119,8 +126,9 @@ func _ready():
 		_load_settings()
 	else:
 		_default_settings()
-	if OS.has_feature("portmaster"):
-		_clear_joystick_inputs()
+	#if OS.has_feature("portmaster"):
+	_clear_joypad_inputs()
+	_clear_joypad_inputs()
 	if $Inputtesting.visible:
 		game_scene.queue_free()
 		main_menu.queue_free()
