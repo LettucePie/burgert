@@ -150,6 +150,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_m4pdk")
 
 [node name="window_anim" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_gx61c")
@@ -157,6 +158,7 @@ animation = &"rainy"
 autoplay = "rainy"
 
 [node name="sign_anim" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_l5lse")

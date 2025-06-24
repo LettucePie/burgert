@@ -4,6 +4,7 @@ class_name Chef
 signal start_burger_submission()
 signal cancel_burger_submission()
 signal submit_burger()
+signal chef_ready()
 
 const MOVE_SPEED = 10
 @onready var burger_portal : BurgerPortal = $burger_portal
@@ -40,7 +41,7 @@ func reset_chef():
 	_update_direction("R")
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
-	active = true
+	active = false
 	waiting = true
 
 
@@ -161,3 +162,14 @@ func _on_area_2d_area_exited(area):
 		area.set_highlight(false)
 		stations.erase(area)
 
+
+func intro_animation_override():
+	anim_tree.active = false
+	anim_play.play("Intro")
+
+
+func intro_animation_finished():
+	print("Intro Finished")
+	anim_tree.active = true
+	emit_signal("chef_ready")
+	active = true

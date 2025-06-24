@@ -1,9 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=176 format=3 uid="uid://b6p88o7ouw26p"]
+[gd_resource type="SpriteFrames" load_steps=190 format=3 uid="uid://b6p88o7ouw26p"]
 
 [ext_resource type="Texture2D" uid="uid://cyo77eaa40x5g" path="res://assets/images/game/chef/chef_charge_throw.png" id="1_1mt45"]
 [ext_resource type="Texture2D" uid="uid://bblrk47cyxqbu" path="res://assets/images/game/chef/Chef_1.png" id="1_swudr"]
+[ext_resource type="Texture2D" uid="uid://c2au5iy3xrn4" path="res://assets/images/game/chef/Chef_throw_bald.png" id="2_cojhv"]
 [ext_resource type="Texture2D" uid="uid://6sp6se5dldwn" path="res://assets/images/game/chef/Chef_NoPlate_Run_L.png" id="2_eubsy"]
 [ext_resource type="Texture2D" uid="uid://dxcemngrdrair" path="res://assets/images/game/chef/Chef_NoPlate_Run_R.png" id="3_pog4e"]
+[ext_resource type="Texture2D" uid="uid://mablubc2cw2f" path="res://assets/images/game/chef/Chef_enter_kitchen.png" id="4_nbcem"]
 [ext_resource type="Texture2D" uid="uid://bjinxn6d1f5d4" path="res://assets/images/game/chef/chef_throw.png" id="5_ixcn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnyxc"]
@@ -37,6 +39,54 @@ region = Rect2(288, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rqu5n"]
 atlas = ExtResource("1_1mt45")
 region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjojg"]
+atlas = ExtResource("2_cojhv")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgd2w"]
+atlas = ExtResource("2_cojhv")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky3cb"]
+atlas = ExtResource("2_cojhv")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i26w"]
+atlas = ExtResource("2_cojhv")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhyn0"]
+atlas = ExtResource("5_ixcn1")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr366"]
+atlas = ExtResource("5_ixcn1")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4y6m"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ifp4"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_law57"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4jxq"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uplgq"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1f8u"]
+atlas = ExtResource("4_nbcem")
+region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw1aq"]
 atlas = ExtResource("1_swudr")
@@ -720,6 +770,52 @@ animations = [{
 }],
 "loop": true,
 "name": &"Charge_Loop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjojg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgd2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky3cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i26w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhyn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr366")
+}],
+"loop": false,
+"name": &"Chef_Don_Hat",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4y6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ifp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_law57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4jxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uplgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1f8u")
+}],
+"loop": true,
+"name": &"Chef_Enter",
 "speed": 10.0
 }, {
 "frames": [{

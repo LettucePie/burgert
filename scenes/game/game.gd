@@ -42,19 +42,23 @@ func _physics_process(delta):
 			hud.show_order(false)
 
 
-func start_game():
+func _on_chef_chef_ready():
 	game_started = true
+	hud.show()
+	$game_timer.start(120)
+	hud.set_timer($game_timer)
+	hud.set_score(current_score)
+	make_new_order()
+
+
+func start_game():
 	current_score = 0
 	game_accuracies.clear()
 	chef.reset_chef()
 	kitchen.prep_kitchen()
 	submit.set_playing(false, 0, 0)
-	hud.show()
-	$game_timer.start(120)
-	hud.set_timer($game_timer)
-	hud.set_score(current_score)
 	results.hide()
-	make_new_order()
+	$AnimationPlayer.play("play_transition")
 
 
 func stop_game():
@@ -66,6 +70,7 @@ func stop_game():
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
+	$AnimationPlayer.play("menu_mode")
 
 
 func adjust_score(arg : int):
@@ -205,5 +210,4 @@ func _on_kitchen_a_customer_ready():
 
 func _on_kitchen_a_customer_left():
 	make_new_order()
-
 
