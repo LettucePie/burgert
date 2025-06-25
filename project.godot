@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Burgert"
+config/name="burgert"
+config/version="1"
 run/main_scene="res://scenes/play.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://publishing/game_icon192x192.png"
+config/windows_native_icon="res://publishing/game_icon.ico"
 
 [display]
 

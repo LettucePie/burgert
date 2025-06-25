@@ -81,7 +81,7 @@ script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_trvsp"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_onmpr"]
 viewport_path = NodePath(".")
@@ -481,7 +481,7 @@ position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
 sprite_frames = ExtResource("12_vq758")
 autoplay = "default"
-frame_progress = 0.541907
+frame_progress = 0.0884637
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
