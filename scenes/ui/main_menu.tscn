@@ -113,6 +113,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Title" type="TextureRect" parent="Main"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3

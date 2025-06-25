@@ -28,6 +28,9 @@ func prep_kitchen():
 		c.reset()
 	splat.hide()
 	past_customers.clear()
+	if current_customer != null:
+		current_customer.munch.stop()
+		current_customer.sound_player.stop()
 	current_customer = null
 
 

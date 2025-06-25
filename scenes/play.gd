@@ -149,7 +149,7 @@ func _on_game_game_paused():
 
 func _on_game_game_finished():
 	get_tree().paused = true
-	music.set_state(Music.STATE.MENU)
+	#music.set_state(Music.STATE.MENU)
 
 
 func _on_main_menu_resume_play():

@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="9_q7db7"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/game/customers/customers__1.png" id="10_k67uf"]
 [ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/sfx/Audio 2.wav" id="11_yu3hg"]
-[ext_resource type="Texture2D" uid="uid://d3vxhubsue53l" path="res://assets/images/ui/order-thought-cloud1.png" id="12_n6ods"]
+[ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/ui/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/sfx/Audio 3.wav" id="13_s6p7b"]
 [ext_resource type="Texture2D" uid="uid://h8p8acm8qmp5" path="res://assets/images/game/customers/customers__2.png" id="14_a0ex1"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
@@ -80,10 +80,8 @@ viewport_path = NodePath(".")
 script = ExtResource("6_b3mif")
 viewport_path_again = NodePath("../../../burger_portal")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nbdwm"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
+[sub_resource type="ViewportTexture" id="ViewportTexture_trvsp"]
+viewport_path = NodePath("burger_portal")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_onmpr"]
 viewport_path = NodePath(".")
@@ -209,10 +207,11 @@ position = Vector2(387, 95)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_g7edx")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Tommy/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Tommy/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Tommy"]
 position = Vector2(551, 127)
@@ -252,10 +251,11 @@ position = Vector2(306, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_o5sbl")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Teddy/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Teddy/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Teddy"]
 position = Vector2(458, 77)
@@ -296,10 +296,11 @@ position = Vector2(246, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_oe5wx")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Ted/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Ted/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Ted"]
@@ -342,10 +343,11 @@ position = Vector2(148, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_8f6tc")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Al/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Al/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Al"]
 position = Vector2(292, 126)
@@ -362,7 +364,6 @@ position = Vector2(412, 160)
 position = Vector2(285, 150)
 
 [node name="Emo" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
-visible = false
 position = Vector2(302, 59)
 script = ExtResource("3_488ky")
 customer_name = "Emo"
@@ -384,12 +385,13 @@ texture = ExtResource("20_uie4n")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Emo"]
 position = Vector2(304, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_nbdwm")
+texture = SubResource("ViewportTexture_trvsp")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Emo/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Emo/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Emo"]
 position = Vector2(424, 126)
@@ -406,7 +408,6 @@ position = Vector2(488, 124)
 position = Vector2(427, 143)
 
 [node name="Karen" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
-visible = false
 position = Vector2(-568, 59)
 script = ExtResource("3_488ky")
 customer_name = "Karen"
@@ -426,14 +427,15 @@ scale = Vector2(2, 2)
 texture = ExtResource("22_ib8ia")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Karen"]
-position = Vector2(340, 93)
+position = Vector2(278, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_onmpr")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Karen/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Karen/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Karen"]
 position = Vector2(436, 126)
@@ -474,10 +476,12 @@ position = Vector2(520, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_y71pj")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Patient/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Patient/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
+frame_progress = 0.541907
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Patient"]
@@ -520,10 +524,11 @@ position = Vector2(396, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_72d7f")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Mustard/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Mustard/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Mustard"]
 position = Vector2(556, 126)
@@ -564,10 +569,11 @@ position = Vector2(248, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_70ajt")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Dancer/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Dancer/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 flip_h = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Dancer"]
@@ -610,10 +616,11 @@ position = Vector2(348, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_dlup0")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Punk/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Punk/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Punk"]
 position = Vector2(492, 126)
@@ -658,10 +665,11 @@ position = Vector2(140, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_ujj28")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Toad/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Toad/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Toad"]
 position = Vector2(260, 126)
@@ -703,10 +711,11 @@ position = Vector2(208, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_y63l0")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Persistant/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Persistant/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Persistant"]
 position = Vector2(352, 126)
@@ -747,10 +756,11 @@ position = Vector2(340, 93)
 scale = Vector2(0.275879, 0.275879)
 texture = SubResource("ViewportTexture_y0rjw")
 
-[node name="thought_cloud" type="Sprite2D" parent="customers/Anxiety/burger_portal_view"]
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Anxiety/burger_portal_view"]
 position = Vector2(0, -7.24954)
 scale = Vector2(18.8602, 18.8602)
-texture = ExtResource("12_n6ods")
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Anxiety"]
 position = Vector2(480, 126)
