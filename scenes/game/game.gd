@@ -66,11 +66,12 @@ func stop_game():
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)
 		kitchen.prep_kitchen()
+		print("Returning to Menu Mode")
+		$AnimationPlayer.play("menu_transition")
 	results.hide()
 	game_started = false
 	hud.hide()
 	$game_timer.stop()
-	$AnimationPlayer.play("menu_mode")
 
 
 func adjust_score(arg : int):

@@ -1,11 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=15 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
+[ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/resources/animation/main_menu_animation_lib.res" id="3_lbgav"]
+[ext_resource type="Texture2D" uid="uid://b54623rsxjkyh" path="res://assets/images/ui/brushmetal_texture.png" id="3_ov1nx"]
 [ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/main.tscn" id="4_6oetw"]
+[ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="4_oua5h"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
+
+[sub_resource type="Animation" id="Animation_23ruw"]
+resource_name = "wobble"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_sign:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.4, 3.8, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, -0.149487, 0), Vector3(1.5708, 0.0444623, 0), Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, 0.0206812, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_crl3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_sign:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, -0.0774926, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcemy"]
+_data = {
+"RESET": SubResource("Animation_crl3l"),
+"wobble": SubResource("Animation_23ruw")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0h8q"]
+albedo_texture = ExtResource("3_ov1nx")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_25xsh"]
+viewport_path = NodePath("SubViewport")
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
 layout_mode = 3
@@ -18,6 +65,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b0wja")
 anim = NodePath("AnimationPlayer")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(640, 480)
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Node3D"]
+libraries = {
+"": SubResource("AnimationLibrary_rcemy")
+}
+autoplay = "wobble"
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+transform = Transform3D(0.986309, -0.0445649, 0.15877, 0.010031, 0.977222, 0.211981, -0.1646, -0.207486, 0.964291, 0.484856, 0.332375, 1.35827)
+
+[node name="title_sign" parent="SubViewport/Node3D" instance=ExtResource("2_pv64k")]
+transform = Transform3D(0.996999, -0.0774151, 3.38392e-09, 0, -4.37114e-08, -1, 0.0774151, 0.996999, -4.35802e-08, 0, 0, -0.0674168)
+
+[node name="Sign" parent="SubViewport/Node3D/title_sign" index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_s0h8q")
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewport/Node3D/title_sign"]
+transform = Transform3D(0.452684, 0, 0, 0, -1.97874e-08, 0.452684, 0, -0.452684, -1.97874e-08, 0, 0.0674168, -2.94688e-09)
+texture_filter = 0
+texture = ExtResource("4_oua5h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
+transform = Transform3D(0.779972, 0.459367, 0.425, -0.537899, 0.839194, 0.0801133, -0.319856, -0.291093, 0.901641, 0, 0, 1.09039)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -33,6 +111,18 @@ offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Title" type="TextureRect" parent="Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.483
+offset_bottom = 0.159988
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_25xsh")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 layout_mode = 1
@@ -71,6 +161,7 @@ offset_right = 640.0
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 
+[editable path="SubViewport/Node3D/title_sign"]
 [editable path="Main"]
 [editable path="Options"]
 [editable path="Credits"]

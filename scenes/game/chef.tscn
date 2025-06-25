@@ -1,156 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=24 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://cf702r7mdbxyi" path="res://assets/resources/animation/chef_animtree_no_spin.tres" id="2_ny6ao"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/game/chef/chef_frames.tres" id="2_nyvt1"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hpm1r"]
-animation = &"Charging_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ks54"]
-animation = &"Charging_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8kcc6"]
-animation = &"Chargup_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_auogh"]
-animation = &"Chargup_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhn51"]
-animation = &"Idle_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0xtc"]
-animation = &"Idle_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ax3on"]
-animation = &"Run_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j7etc"]
-animation = &"Run_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vwqq0"]
-animation = &"Swing_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wl3i6"]
-animation = &"Swing_R"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lxi8j"]
-animation = &"Throw_L"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ht0x7"]
-animation = &"Throw_R"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r8pf8"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3vxsd"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_atlst"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e4jl1"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_47y3o"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u7hov"]
-advance_mode = 2
-advance_condition = &"idle_R"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ovb8p"]
-advance_mode = 2
-advance_condition = &"idle_L"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nq01q"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uw4ke"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_haref"]
-advance_condition = &"idle_R"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g4tsn"]
-advance_condition = &"idle_L"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o78tg"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0hebr"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nau1a"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhl4c"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evovq"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wb3lj"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6i7vt"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qt3b6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5vt0y"]
-advance_condition = &"idle_L"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs48m"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle_L"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_id870"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_66gqr"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wh6bj"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d4pti"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ofope"]
-advance_condition = &"idle_R"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ky21"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"idle_R"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v54ij"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rtjc"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jkxya"]
-states/Charging_L/node = SubResource("AnimationNodeAnimation_hpm1r")
-states/Charging_L/position = Vector2(685, -133)
-states/Charging_R/node = SubResource("AnimationNodeAnimation_5ks54")
-states/Charging_R/position = Vector2(685, 332)
-states/Chargup_L/node = SubResource("AnimationNodeAnimation_8kcc6")
-states/Chargup_L/position = Vector2(510, -133)
-states/Chargup_R/node = SubResource("AnimationNodeAnimation_auogh")
-states/Chargup_R/position = Vector2(510, 331)
-states/End/position = Vector2(1024, 154)
-states/Idle_L/node = SubResource("AnimationNodeAnimation_qhn51")
-states/Idle_L/position = Vector2(578, 32)
-states/Idle_R/node = SubResource("AnimationNodeAnimation_a0xtc")
-states/Idle_R/position = Vector2(578, 154)
-states/Run_L/node = SubResource("AnimationNodeAnimation_ax3on")
-states/Run_L/position = Vector2(414, -16)
-states/Run_R/node = SubResource("AnimationNodeAnimation_j7etc")
-states/Run_R/position = Vector2(414, 197)
-states/Start/position = Vector2(933, 154)
-states/Swing_L/node = SubResource("AnimationNodeAnimation_vwqq0")
-states/Swing_L/position = Vector2(295, 32)
-states/Swing_R/node = SubResource("AnimationNodeAnimation_wl3i6")
-states/Swing_R/position = Vector2(295, 154)
-states/Throw_L/node = SubResource("AnimationNodeAnimation_lxi8j")
-states/Throw_L/position = Vector2(685, -30)
-states/Throw_R/node = SubResource("AnimationNodeAnimation_ht0x7")
-states/Throw_R/position = Vector2(685, 237)
-transitions = ["Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_r8pf8"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3vxsd"), "Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_e4jl1"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_47y3o"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Idle_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_nq01q"), "Idle_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_uw4ke"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_o78tg"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_0hebr"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c"), "Run_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_evovq"), "Idle_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_wb3lj"), "Chargup_L", "Charging_L", SubResource("AnimationNodeStateMachineTransition_6i7vt"), "Charging_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_qt3b6"), "Charging_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_5vt0y"), "Throw_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_fs48m"), "Run_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_id870"), "Idle_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_66gqr"), "Chargup_R", "Charging_R", SubResource("AnimationNodeStateMachineTransition_wh6bj"), "Charging_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_d4pti"), "Charging_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_ofope"), "Throw_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_0ky21"), "Chargup_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_v54ij"), "Chargup_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_3rtjc")]
-graph_offset = Vector2(79, -134)
 
 [sub_resource type="Animation" id="Animation_ovhst"]
 resource_name = "Idle_L"
@@ -1249,7 +1103,7 @@ script = ExtResource("1_qyhq5")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false
-tree_root = SubResource("AnimationNodeStateMachine_jkxya")
+tree_root = ExtResource("2_ny6ao")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
