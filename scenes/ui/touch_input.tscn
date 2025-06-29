@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://0fsnbio1axqf"]
+
+[ext_resource type="Texture2D" uid="uid://bt66r43jvigyd" path="res://assets/images/ui/view_order_gui.png" id="1_y8cnf"]
+[ext_resource type="Texture2D" uid="uid://o0a8mc3idhin" path="res://assets/images/ui/trash_sandwhich_gui.png" id="2_3sck6"]
+[ext_resource type="Texture2D" uid="uid://capmpj6qs8lqi" path="res://assets/images/ui/arrow_left_gui.png" id="3_pavhl"]
+[ext_resource type="Texture2D" uid="uid://cwg0uprqg21ri" path="res://assets/images/ui/send_sandwhich_gui.png" id="4_iqoyf"]
+[ext_resource type="Texture2D" uid="uid://bpvglfwnrk7pf" path="res://assets/images/ui/add_ingredient_gui.png" id="5_2dodl"]
+[ext_resource type="Texture2D" uid="uid://ccfyv375hycm3" path="res://assets/images/ui/arrow_right_gui.png" id="6_1n8e5"]
+
+[node name="TouchInput" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftEdge" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="ViewOrder" type="TextureRect" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_y8cnf")
+stretch_mode = 5
+
+[node name="TrashSandwhich" type="TextureRect" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_3sck6")
+stretch_mode = 5
+
+[node name="LeftArrow" type="TextureRect" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_pavhl")
+stretch_mode = 5
+
+[node name="Fill" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.73
+
+[node name="RightEdge" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="SendSandwhich" type="TextureRect" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_iqoyf")
+stretch_mode = 5
+
+[node name="AddIngredient" type="TextureRect" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_2dodl")
+stretch_mode = 5
+
+[node name="RightArrow" type="TextureRect" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("6_1n8e5")
+stretch_mode = 5
