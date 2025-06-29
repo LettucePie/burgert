@@ -10,6 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 
+[sub_resource type="Animation" id="Animation_crl3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title_sign:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, -0.0774926, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_23ruw"]
 resource_name = "wobble"
 length = 8.0
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, -0.149487, 0), Vector3(1.5708, 0.0444623, 0), Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, 0.0206812, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_crl3l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("title_sign:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.5708, -0.0774926, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rcemy"]
@@ -83,7 +83,7 @@ autoplay = "wobble"
 transform = Transform3D(0.986309, -0.0445649, 0.15877, 0.010031, 0.977222, 0.211981, -0.1646, -0.207486, 0.964291, 0.484856, 0.332375, 1.35827)
 
 [node name="title_sign" parent="SubViewport/Node3D" instance=ExtResource("2_pv64k")]
-transform = Transform3D(0.996999, -0.0774151, 3.38392e-09, 0, -4.37114e-08, -1, 0.0774151, 0.996999, -4.35802e-08, 0, 0, -0.0674168)
+transform = Transform3D(0.996999, -0.0774151, 2.80242e-07, 0, -3.61999e-06, -1, 0.0774151, 0.996999, -3.60913e-06, 0, 0, -0.0674168)
 
 [node name="Sign" parent="SubViewport/Node3D/title_sign" index="0"]
 visible = false

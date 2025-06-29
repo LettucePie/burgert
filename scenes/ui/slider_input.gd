@@ -51,6 +51,5 @@ func _on_focus_exited():
 
 
 func _on_volslider_drag_ended(value_changed, handle):
-	print(handle, " volume changed to: ", value_changed)
-	value = value_changed
+	value = slider.value
 	update_vals(true)

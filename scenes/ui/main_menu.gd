@@ -88,6 +88,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 
 func _on_mus_vol_update_value(new_val):
+	print("Mus Vol Update, new_val: ", new_val)
 	emit_signal("update_mus_vol", new_val)
 
 
