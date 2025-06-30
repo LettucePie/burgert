@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://scqqlikbqc8q"]
+
+[ext_resource type="Script" path="res://scenes/ui/vfx/splat.gd" id="1_idjpk"]
+[ext_resource type="AudioStream" uid="uid://bwdhasi7xaxtw" path="res://assets/sound/sfx/menu_splat_1.wav" id="2_kexie"]
+[ext_resource type="AudioStream" uid="uid://dymcwjbenk86e" path="res://assets/sound/sfx/menu_splat_2.wav" id="3_ibujj"]
+[ext_resource type="AudioStream" uid="uid://dkvh28hlgcm1g" path="res://assets/sound/sfx/menu_splat_3.wav" id="4_kbyta"]
+
+[sub_resource type="Curve" id="Curve_ngl1u"]
+_data = [Vector2(0, 0), 0.0, 7.58, 0, 0, Vector2(0.321429, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Splat" type="Node"]
+script = ExtResource("1_idjpk")
+curve = SubResource("Curve_ngl1u")
+splat_sounds = Array[AudioStreamWAV]([ExtResource("2_kexie"), ExtResource("3_ibujj"), ExtResource("4_kbyta")])
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kexie")
+bus = &"SFX"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

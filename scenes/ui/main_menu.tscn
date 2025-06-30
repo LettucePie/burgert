@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=17 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/main.tscn" id="4_6oetw"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="4_oua5h"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
+[ext_resource type="Script" path="res://scenes/ui/menu_flair.gd" id="5_eqawj"]
+[ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splat.tscn" id="6_a85yp"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 
@@ -96,6 +98,11 @@ texture = ExtResource("4_oua5h")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.779972, 0.459367, 0.425, -0.537899, 0.839194, 0.0801133, -0.319856, -0.291093, 0.901641, 0, 0, 1.09039)
+
+[node name="MenuFlair" type="Node" parent="." node_paths=PackedStringArray("splat_buttons")]
+script = ExtResource("5_eqawj")
+splat_buttons = [NodePath("../Main/Play"), NodePath("../Main/Options"), NodePath("../Main/Credits"), NodePath("../Main/Quit"), NodePath("../Options/Panel/VBoxContainer/swap_confirm"), NodePath("../Options/Panel/VBoxContainer/finished"), NodePath("../Options/Panel/VBoxContainer/mus_vol"), NodePath("../Options/Panel/VBoxContainer/sfx_vol")]
+splat_vfx = ExtResource("6_a85yp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
