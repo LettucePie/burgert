@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=63 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -7,12 +7,12 @@
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/images/game/kitchen/kitchen_window_spriteframes.tres" id="4_gx61c"]
 [ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/images/game/kitchen/kitchen_sign_spriteframes.tres" id="5_l5lse"]
-[ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="6_b3mif"]
 [ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/images/game/kitchen/Restaurant_stools.png" id="6_hsy50"]
 [ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/images/game/kitchen/Restaurant_stopnpuke_sign.png" id="7_b5ba6"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/images/game/kitchen/missing_burger_frames.tres" id="8_hjo3x"]
 [ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="9_q7db7"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/game/customers/customers__1.png" id="10_k67uf"]
+[ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/ui/vptex_customer_burger.tres" id="11_q4v5g"]
 [ext_resource type="AudioStream" uid="uid://bn0y42mlgytnq" path="res://assets/sound/sfx/Audio 2.wav" id="11_yu3hg"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/ui/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/sfx/Audio 3.wav" id="13_s6p7b"]
@@ -59,69 +59,6 @@
 [ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/images/game/kitchen/ketchup.tres" id="55_v6m6k"]
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/images/game/kitchen/ketchup_highlight.tres" id="56_782jn"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/images/game/kitchen/mustard.tres" id="57_w4kew"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_g7edx"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_o5sbl"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_oe5wx"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8f6tc"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_trvsp"]
-viewport_path = NodePath(".")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_onmpr"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_y71pj"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_72d7f"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_70ajt"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_dlup0"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ujj28"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_y63l0"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_y0rjw"]
-viewport_path = NodePath(".")
-script = ExtResource("6_b3mif")
-viewport_path_again = NodePath("../../../burger_portal")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -205,7 +142,7 @@ texture = ExtResource("10_k67uf")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Tommy"]
 position = Vector2(387, 95)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_g7edx")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Tommy/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -249,7 +186,7 @@ texture = ExtResource("14_a0ex1")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Teddy"]
 position = Vector2(306, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_o5sbl")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Teddy/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -294,7 +231,7 @@ texture = ExtResource("16_xjc5m")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Ted"]
 position = Vector2(246, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_oe5wx")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Ted/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -341,7 +278,7 @@ texture = ExtResource("18_itdi4")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Al"]
 position = Vector2(148, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_8f6tc")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Al/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -385,7 +322,7 @@ texture = ExtResource("20_uie4n")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Emo"]
 position = Vector2(304, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_trvsp")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Emo/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -429,7 +366,7 @@ texture = ExtResource("22_ib8ia")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Karen"]
 position = Vector2(278, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_onmpr")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Karen/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -474,7 +411,7 @@ texture = ExtResource("24_46gr4")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Patient"]
 position = Vector2(520, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_y71pj")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Patient/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -522,7 +459,7 @@ texture = ExtResource("26_n0e0r")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Mustard"]
 position = Vector2(396, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_72d7f")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Mustard/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -567,7 +504,7 @@ texture = ExtResource("28_uifyl")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Dancer"]
 position = Vector2(248, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_70ajt")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Dancer/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -614,7 +551,7 @@ texture = ExtResource("30_cm027")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Punk"]
 position = Vector2(348, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_dlup0")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Punk/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -663,7 +600,7 @@ texture = ExtResource("33_4k2si")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Toad"]
 position = Vector2(140, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_ujj28")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Toad/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -709,7 +646,7 @@ texture = ExtResource("35_m5wms")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Persistant"]
 position = Vector2(208, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_y63l0")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Persistant/burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -754,7 +691,7 @@ texture = ExtResource("37_os6ba")
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Anxiety"]
 position = Vector2(340, 93)
 scale = Vector2(0.275879, 0.275879)
-texture = SubResource("ViewportTexture_y0rjw")
+texture = ExtResource("11_q4v5g")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Anxiety/burger_portal_view"]
 position = Vector2(0, -7.24954)

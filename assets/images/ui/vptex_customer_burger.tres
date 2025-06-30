@@ -1,0 +1,4 @@
+[gd_resource type="ViewportTexture" format=3 uid="uid://ddwiu4633dbx7"]
+
+[resource]
+viewport_path = NodePath("burger_portal")
