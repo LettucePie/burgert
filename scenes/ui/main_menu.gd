@@ -12,12 +12,15 @@ signal update_a_b_swap(new_val)
 enum SCREENS{MAIN, OPTIONS, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func refocus():
 	$Main/Play.call_deferred("grab_focus")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready():
+	refocus()
+
+
 func _process(delta):
 	pass
 

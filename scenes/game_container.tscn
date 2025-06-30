@@ -7,35 +7,56 @@
 viewport_path = NodePath("GameWorldPort")
 
 [node name="GameContainer" type="Control" node_paths=PackedStringArray("portal", "render", "touch_controls")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_nekdu")
 portal = NodePath("GameWorldPort")
-render = NodePath("AspectRatioContainer/GameWorldRender")
+render = NodePath("GameWorldRender")
 touch_controls = NodePath("TouchInput")
 
-[node name="GameWorldPort" type="SubViewport" parent="."]
-disable_3d = true
-audio_listener_enable_2d = true
-size = Vector2i(640, 480)
-
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 1
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
-[node name="GameWorldRender" type="TextureRect" parent="AspectRatioContainer"]
-layout_mode = 2
+[node name="GameWorldPort" type="SubViewport" parent="."]
+disable_3d = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(640, 480)
+
+[node name="GameWorldRender" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
 texture = SubResource("ViewportTexture_416yf")
-stretch_mode = 5
 
 [node name="TouchInput" parent="." instance=ExtResource("1_1vfml")]
 layout_mode = 1
+mouse_filter = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="gui_input" from="GameWorldRender" to="." method="_on_game_world_render_gui_input"]
