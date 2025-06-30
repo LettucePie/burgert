@@ -25,7 +25,7 @@ Button/styles/hover = SubResource("StyleBoxEmpty_2dvx0")
 Button/styles/normal = SubResource("StyleBoxEmpty_7ix6f")
 Button/styles/pressed = SubResource("StyleBoxEmpty_inylb")
 
-[node name="TouchInputs" type="Control"]
+[node name="TouchInputs" type="Control" node_paths=PackedStringArray("buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +35,7 @@ grow_vertical = 2
 mouse_filter = 1
 theme = SubResource("Theme_tq5g7")
 script = ExtResource("1_37wk1")
+buttons = [NodePath("HBoxContainer/LeftEdge/Frame1/ViewOrder"), NodePath("HBoxContainer/LeftEdge/Frame2/TrashSandwhich"), NodePath("HBoxContainer/LeftEdge/Frame3/LeftArrow"), NodePath("HBoxContainer/RightEdge/Frame1/SendSandwhich"), NodePath("HBoxContainer/RightEdge/Frame2/AddIngredient"), NodePath("HBoxContainer/RightEdge/Frame3/RightArrow")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 texture_filter = 1
@@ -52,26 +53,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="ViewOrder" type="TextureRect" parent="HBoxContainer/LeftEdge"]
+[node name="Frame1" type="ColorRect" parent="HBoxContainer/LeftEdge"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_mit08")
-expand_mode = 1
-stretch_mode = 5
+color = Color(1, 1, 1, 0.0784314)
 
-[node name="TrashSandwhich" type="TextureRect" parent="HBoxContainer/LeftEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_puvvy")
-expand_mode = 1
-stretch_mode = 5
+[node name="ViewOrder" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame1"]
+texture_normal = ExtResource("2_mit08")
+action = "special1"
 
-[node name="LeftArrow" type="TextureRect" parent="HBoxContainer/LeftEdge"]
+[node name="Frame2" type="ColorRect" parent="HBoxContainer/LeftEdge"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_1ywls")
-expand_mode = 1
-stretch_mode = 5
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="TrashSandwhich" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame2"]
+texture_normal = ExtResource("3_puvvy")
+action = "cancel"
+
+[node name="Frame3" type="ColorRect" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="LeftArrow" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame3"]
+texture_normal = ExtResource("4_1ywls")
+action = "left"
 
 [node name="Fill" type="Control" parent="HBoxContainer"]
 layout_mode = 2
@@ -84,26 +91,34 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="SendSandwhich" type="TextureRect" parent="HBoxContainer/RightEdge"]
+[node name="Frame1" type="ColorRect" parent="HBoxContainer/RightEdge"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("5_e8a4x")
-expand_mode = 1
-stretch_mode = 5
+color = Color(1, 1, 1, 0.0784314)
 
-[node name="AddIngredient" type="TextureRect" parent="HBoxContainer/RightEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("6_v0pqa")
-expand_mode = 1
-stretch_mode = 5
+[node name="SendSandwhich" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame1"]
+texture_normal = ExtResource("5_e8a4x")
+action = "up"
 
-[node name="RightArrow" type="TextureRect" parent="HBoxContainer/RightEdge"]
+[node name="Frame2" type="ColorRect" parent="HBoxContainer/RightEdge"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("7_yihio")
-expand_mode = 1
-stretch_mode = 5
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="AddIngredient" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame2"]
+texture_normal = ExtResource("6_v0pqa")
+action = "confirm"
+
+[node name="Frame3" type="ColorRect" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="RightArrow" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame3"]
+position = Vector2(15.905, 0)
+scale = Vector2(1.695, 1.695)
+texture_normal = ExtResource("7_yihio")
+action = "right"
 
 [node name="update_size" type="Timer" parent="."]
 one_shot = true

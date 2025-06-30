@@ -40,37 +40,16 @@ func _process(delta):
 	touch_controls.modulate.a = curve_percent
 
 
-func touch_mapping(event):
-	var pos : Vector2 = event.position
-	var code : Key = touch_controls.pos_to_keycode(pos)
-	var new_event : InputEventKey = InputEventKey.new()
-	new_event.keycode = code
-	if event is InputEventScreenDrag:
-		new_event.echo = true
-		new_event.pressed = true
-	else:
-		new_event.echo = event.pressed
-		new_event.pressed = event.pressed
-	print("Touch Mapping Result: ", new_event)
-	#portal.push_input(new_event, false)
-	#Input.parse_input_event(new_event)
-	var new_action : InputEventAction = InputEventAction.new()
-	new_action.pressed = true
-	new_action.action = "right"
-	Input.parse_input_event(new_action)
-
 
 func _input(event):
 	if event is InputEventKey \
 	or event is InputEventJoypadButton \
 	or event is InputEventJoypadMotion:
 		portal.push_input(event, false)
-		#Input.parse_input_event(event)
 		pass
 	elif event is InputEventScreenTouch \
 	or event is InputEventScreenDrag:
 		last_touch_time = Time.get_ticks_msec()
-		touch_mapping(event)
 
 
 func _on_game_world_render_gui_input(event):
