@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/ui/touch_inputs.gd" id="1_37wk1"]
 [ext_resource type="Texture2D" uid="uid://bt66r43jvigyd" path="res://assets/images/ui/view_order_gui.png" id="2_mit08"]
-[ext_resource type="Texture2D" uid="uid://o0a8mc3idhin" path="res://assets/images/ui/trash_sandwhich_gui.png" id="3_puvvy"]
+[ext_resource type="Texture2D" uid="uid://ddx8w03f1wqxm" path="res://assets/images/ui/b_button_gui.png" id="3_o3h1h"]
 [ext_resource type="Texture2D" uid="uid://capmpj6qs8lqi" path="res://assets/images/ui/arrow_left_gui.png" id="4_1ywls"]
 [ext_resource type="Texture2D" uid="uid://cwg0uprqg21ri" path="res://assets/images/ui/send_sandwhich_gui.png" id="5_e8a4x"]
-[ext_resource type="Texture2D" uid="uid://bpvglfwnrk7pf" path="res://assets/images/ui/add_ingredient_gui.png" id="6_v0pqa"]
+[ext_resource type="Texture2D" uid="uid://dgbsu2gn0tej7" path="res://assets/images/ui/a_button_gui.png" id="6_to0nm"]
 [ext_resource type="Texture2D" uid="uid://ccfyv375hycm3" path="res://assets/images/ui/arrow_right_gui.png" id="7_yihio"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mx1r"]
@@ -35,94 +35,114 @@ grow_vertical = 2
 mouse_filter = 1
 theme = SubResource("Theme_tq5g7")
 script = ExtResource("1_37wk1")
-buttons = [NodePath("HBoxContainer/LeftEdge/Frame1/ViewOrder"), NodePath("HBoxContainer/LeftEdge/Frame2/TrashSandwhich"), NodePath("HBoxContainer/LeftEdge/Frame3/LeftArrow"), NodePath("HBoxContainer/RightEdge/Frame1/SendSandwhich"), NodePath("HBoxContainer/RightEdge/Frame2/AddIngredient"), NodePath("HBoxContainer/RightEdge/Frame3/RightArrow")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.3
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="LeftEdge" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
-
-[node name="Frame1" type="ColorRect" parent="HBoxContainer/LeftEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="ViewOrder" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame1"]
-texture_normal = ExtResource("2_mit08")
-action = "special1"
-
-[node name="Frame2" type="ColorRect" parent="HBoxContainer/LeftEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="TrashSandwhich" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame2"]
-texture_normal = ExtResource("3_puvvy")
-action = "cancel"
-
-[node name="Frame3" type="ColorRect" parent="HBoxContainer/LeftEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="LeftArrow" type="TouchScreenButton" parent="HBoxContainer/LeftEdge/Frame3"]
-texture_normal = ExtResource("4_1ywls")
-action = "left"
-
-[node name="Fill" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.73
-mouse_filter = 2
-
-[node name="RightEdge" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
-
-[node name="Frame1" type="ColorRect" parent="HBoxContainer/RightEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="SendSandwhich" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame1"]
-texture_normal = ExtResource("5_e8a4x")
-action = "up"
-
-[node name="Frame2" type="ColorRect" parent="HBoxContainer/RightEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="AddIngredient" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame2"]
-texture_normal = ExtResource("6_v0pqa")
-action = "confirm"
-
-[node name="Frame3" type="ColorRect" parent="HBoxContainer/RightEdge"]
-layout_mode = 2
-size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
-
-[node name="RightArrow" type="TouchScreenButton" parent="HBoxContainer/RightEdge/Frame3"]
-position = Vector2(15.905, 0)
-scale = Vector2(1.695, 1.695)
-texture_normal = ExtResource("7_yihio")
-action = "right"
+buttons = [NodePath("Frame1/ViewOrder"), NodePath("Frame2/TrashSandwhich"), NodePath("Frame3/LeftArrow"), NodePath("Frame4/SendSandwhich"), NodePath("Frame5/AddIngredient"), NodePath("Frame6/RightArrow")]
 
 [node name="update_size" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="Frame1" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.731
+anchor_top = 0.625
+anchor_right = 0.856
+anchor_bottom = 0.792
+offset_left = 0.160004
+offset_right = 0.159973
+offset_bottom = -0.160034
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="ViewOrder" type="TouchScreenButton" parent="Frame1"]
+texture_normal = ExtResource("2_mit08")
+action = "special1"
+
+[node name="Frame2" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.731
+anchor_top = 0.8
+anchor_right = 0.856
+anchor_bottom = 0.95
+offset_left = 0.160004
+offset_top = -4.0
+offset_right = 0.159973
+offset_bottom = 3.99997
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="TrashSandwhich" type="TouchScreenButton" parent="Frame2"]
+texture_normal = ExtResource("3_o3h1h")
+action = "cancel"
+
+[node name="Frame3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.817
+anchor_right = 0.137
+anchor_bottom = 0.983
+offset_left = 0.32
+offset_top = -0.160004
+offset_right = 0.319992
+offset_bottom = 0.159973
+grow_vertical = 0
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="LeftArrow" type="TouchScreenButton" parent="Frame3"]
+texture_normal = ExtResource("4_1ywls")
+action = "left"
+
+[node name="Frame4" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.075
+anchor_top = 0.65
+anchor_right = 0.2
+anchor_bottom = 0.817
+offset_top = -3.05176e-05
+offset_bottom = -0.160004
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="SendSandwhich" type="TouchScreenButton" parent="Frame4"]
+texture_normal = ExtResource("5_e8a4x")
+action = "up"
+
+[node name="Frame5" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.856
+anchor_top = 0.708
+anchor_right = 0.981
+anchor_bottom = 0.875
+offset_left = 0.159973
+offset_top = 0.160004
+offset_right = 0.159973
+offset_bottom = -3.05176e-05
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="AddIngredient" type="TouchScreenButton" parent="Frame5"]
+texture_normal = ExtResource("6_to0nm")
+action = "confirm"
+
+[node name="Frame6" type="ColorRect" parent="."]
+layout_mode = 2
+anchor_left = 0.144
+anchor_top = 0.817
+anchor_right = 0.262
+anchor_bottom = 0.983
+offset_left = -4.16
+offset_top = -0.160004
+offset_right = 0.319977
+offset_bottom = 0.159973
+size_flags_vertical = 3
+color = Color(1, 1, 1, 0.0784314)
+
+[node name="RightArrow" type="TouchScreenButton" parent="Frame6"]
+position = Vector2(15.905, 0)
+scale = Vector2(1.695, 1.695)
+texture_normal = ExtResource("7_yihio")
+action = "right"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="timeout" from="update_size" to="." method="_on_update_size_timeout"]
