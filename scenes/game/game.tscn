@@ -438,5 +438,6 @@ wait_time = 120.0
 [connection signal="chef_ready" from="chef" to="." method="_on_chef_chef_ready"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]
+[connection signal="gui_pause" from="hud" to="." method="_on_hud_gui_pause"]
 [connection signal="finished_results" from="results" to="." method="_on_results_finished_results"]
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

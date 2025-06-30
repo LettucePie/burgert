@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=30 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ssx5yhrma4o" path="res://assets/images/ui/orders/order-scribble_mustard2.png" id="22_5n1vg"]
 [ext_resource type="Texture2D" uid="uid://ckiwno1pxnat7" path="res://assets/images/ui/orders/order-scribble_mustard3.png" id="23_shojr"]
 [ext_resource type="PackedScene" uid="uid://bldfvrixfhcp4" path="res://scenes/ui/scribble-entry.tscn" id="26_dy7st"]
+[ext_resource type="Texture2D" uid="uid://c4jqebjtv1k6j" path="res://assets/images/ui/pause_button_gui.png" id="29_jwmgn"]
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -102,3 +103,19 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 2
 texture = ExtResource("6_wejp0")
+
+[node name="Pause" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_bottom = 0.16
+grow_horizontal = 0
+theme_type_variation = &"IconButton"
+icon = ExtResource("29_jwmgn")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

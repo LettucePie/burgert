@@ -91,6 +91,7 @@ color = Color(1, 1, 1, 0.0784314)
 
 [node name="LeftArrow" type="TouchScreenButton" parent="Frame3"]
 texture_normal = ExtResource("4_1ywls")
+passby_press = true
 action = "left"
 
 [node name="Frame4" type="ColorRect" parent="."]
@@ -142,6 +143,7 @@ color = Color(1, 1, 1, 0.0784314)
 position = Vector2(15.905, 0)
 scale = Vector2(1.695, 1.695)
 texture_normal = ExtResource("7_yihio")
+passby_press = true
 action = "right"
 
 [connection signal="resized" from="." to="." method="_on_resized"]

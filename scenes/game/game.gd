@@ -212,3 +212,6 @@ func _on_kitchen_a_customer_ready():
 func _on_kitchen_a_customer_left():
 	make_new_order()
 
+
+func _on_hud_gui_pause():
+	emit_signal("game_paused")

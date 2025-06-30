@@ -1,6 +1,8 @@
 extends Control
 class_name HUD
 
+signal gui_pause()
+
 var order_shown : bool = false
 var timer : Timer = null
 
@@ -94,3 +96,7 @@ func _physics_process(delta):
 		process_scrolling(delta)
 	if timer != null:
 		$VBoxContainer/time.text = "TIME - " + str(floor(timer.time_left))
+
+
+func _on_pause_pressed():
+	emit_signal("gui_pause")
