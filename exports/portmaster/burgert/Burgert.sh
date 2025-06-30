@@ -17,8 +17,8 @@ get_controls
 
 # Adjust these to your paths and desired godot version
 GAMEDIR=/$directory/ports/burgert/burgert
-godot_runtime="godot_4.2.2"
-godot_executable="godot422.$DEVICE_ARCH"
+godot_runtime="godot_4.3"
+godot_executable="godot43.$DEVICE_ARCH"
 pck_filename="burgert.pck"
 gptk_filename="burgert.gptk"
 
