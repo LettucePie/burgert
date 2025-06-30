@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=18 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
 [ext_resource type="PackedScene" uid="uid://drcc15jq33yol" path="res://scenes/game/game.tscn" id="1_l5scj"]
 [ext_resource type="AudioBusLayout" uid="uid://ce7cv6nqqm3e8" path="res://default_bus_layout.tres" id="2_tutvg"]
-[ext_resource type="PackedScene" uid="uid://rsgcpc7pk037" path="res://scenes/game_container.tscn" id="3_7qtb8"]
 [ext_resource type="Script" path="res://scenes/music.gd" id="4_8x8kb"]
 [ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/Break.mp3" id="4_o7inx"]
 [ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/Burgert_1.mp3" id="5_lvl06"]
@@ -196,7 +195,6 @@ game_scene = NodePath("Game")
 main_menu = NodePath("MainMenu")
 music = NodePath("Music")
 audio_bus = ExtResource("2_tutvg")
-container_scene = ExtResource("3_7qtb8")
 
 [node name="Game" parent="." instance=ExtResource("1_l5scj")]
 
