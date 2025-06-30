@@ -22,7 +22,6 @@ func adopt(game : Play, root : Window):
 	root.handle_input_locally = false
 	portal.handle_input_locally = true
 	game.main_menu.refocus()
-	touch_controls.pushed_event.connect(game.touch_controls_input)
 	rescale()
 
 
@@ -41,6 +40,19 @@ func _process(delta):
 	touch_controls.modulate.a = curve_percent
 
 
+func touch_mapping(event):
+	var pos : Vector2 = event.position
+	var code : Key = touch_controls.pos_to_keycode(pos)
+	var new_event : InputEventKey = InputEventKey.new()
+	new_event.keycode = code
+	new_event.echo = true
+	if event is InputEventScreenTouch:
+		if !event.pressed:
+			new_event.pressed = true
+	print("Touch Mapping Result: ", new_event)
+	portal.push_input(new_event)
+
+
 func _input(event):
 	if event is InputEventKey \
 	or event is InputEventJoypadButton \
@@ -49,6 +61,7 @@ func _input(event):
 	elif event is InputEventScreenTouch \
 	or event is InputEventScreenDrag:
 		last_touch_time = Time.get_ticks_msec()
+		touch_mapping(event)
 
 
 func _on_game_world_render_gui_input(event):
