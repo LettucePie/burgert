@@ -7,6 +7,7 @@ class_name Play
 @export var music : Music
 ##-----------
 @export var audio_bus : AudioBusLayout
+@export var container_scene : PackedScene
 
 class Settings:
 	var version : int
@@ -129,6 +130,9 @@ func _ready():
 		_default_settings()
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
+	if OS.has_feature("mobile") or 1 > 0:
+		var container : GameContainer = container_scene.instantiate()
+		container.call_deferred("adopt", self, get_tree().get_root())
 
 
 func _process(delta):
