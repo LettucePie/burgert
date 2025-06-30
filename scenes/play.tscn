@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=25 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -11,6 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/Burgert_2.mp3" id="6_qxwcy"]
 [ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="7_m0cnl"]
 [ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="10_dvsmx"]
+[ext_resource type="AudioStream" uid="uid://h2nl0l3ff2wh" path="res://assets/sound/music/Break_lowquality.mp3" id="12_vvnai"]
+[ext_resource type="AudioStream" uid="uid://i2befmydoatw" path="res://assets/sound/music/BurgerFlippin'_lq.mp3" id="13_ecxlf"]
+[ext_resource type="AudioStream" uid="uid://cdcegss8ruqmv" path="res://assets/sound/music/Burgert_1_lq.mp3" id="14_bt2rr"]
+[ext_resource type="AudioStream" uid="uid://3vuccqh0dtje" path="res://assets/sound/music/Burgert_2_lq.mp3" id="15_iu5ip"]
+[ext_resource type="AudioStream" uid="uid://cxtnj6dtuq8d3" path="res://assets/sound/music/Burgert_3_lq.mp3" id="16_oelua"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -179,10 +184,39 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_xvga2"]
+resource_name = "intro_ramp_WEB"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_vvnai")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ve64"]
 _data = {
 "RESET": SubResource("Animation_ffduw"),
 "intro_ramp": SubResource("Animation_f03kv"),
+"intro_ramp_WEB": SubResource("Animation_xvga2"),
 "pause_play": SubResource("Animation_x2kpy"),
 "queue_next": SubResource("Animation_ebfph"),
 "resume_play": SubResource("Animation_pf0l8"),
@@ -211,6 +245,8 @@ bus = &"MUS"
 script = ExtResource("4_8x8kb")
 menu = ExtResource("4_o7inx")
 tracks = Array[AudioStreamMP3]([ExtResource("5_lvl06"), ExtResource("6_qxwcy"), ExtResource("7_m0cnl"), ExtResource("10_dvsmx")])
+menu_lq = ExtResource("12_vvnai")
+tracks_lq = Array[AudioStreamMP3]([ExtResource("13_ecxlf"), ExtResource("14_bt2rr"), ExtResource("15_iu5ip"), ExtResource("16_oelua")])
 
 [node name="anim" type="AnimationPlayer" parent="Music"]
 libraries = {
