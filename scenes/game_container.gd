@@ -10,6 +10,7 @@ func adopt(game : Play, root : Window):
 	print("Game Container adopting Play/Game: ", game, " with root of: ", root)
 	root.remove_child(game)
 	portal.add_child(game)
+	root.content_scale_mode = 0
 	root.add_child(self)
 	root.handle_input_locally = false
 	portal.handle_input_locally = true
