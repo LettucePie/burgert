@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://rsgcpc7pk037"]
+[gd_scene load_steps=5 format=3 uid="uid://rsgcpc7pk037"]
 
 [ext_resource type="PackedScene" uid="uid://0fsnbio1axqf" path="res://scenes/ui/touch_input.tscn" id="1_1vfml"]
 [ext_resource type="Script" path="res://scenes/game_container.gd" id="1_nekdu"]
+
+[sub_resource type="Curve" id="Curve_c8uva"]
+_data = [Vector2(0.746622, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_416yf"]
 viewport_path = NodePath("GameWorldPort")
@@ -19,6 +23,7 @@ script = ExtResource("1_nekdu")
 portal = NodePath("GameWorldPort")
 render = NodePath("GameWorldRender")
 touch_controls = NodePath("TouchInput")
+touch_gui_lifetime_curve = SubResource("Curve_c8uva")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 texture_filter = 1

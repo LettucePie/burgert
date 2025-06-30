@@ -4,6 +4,9 @@ class_name GameContainer
 @export var portal : SubViewport
 @export var render : TextureRect
 @export var touch_controls : Control
+@export var touch_gui_lifetime : float = 6.0
+@export var touch_gui_lifetime_curve : Curve
+var last_touch_time : int = 0
 
 
 func adopt(game : Play, root : Window):
@@ -27,8 +30,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	var time_msec : int = Time.get_ticks_msec()
+	var time_elapsed : float = float(time_msec) - float(last_touch_time)
+	time_elapsed = time_elapsed / 1000
+	var progress : float = time_elapsed / touch_gui_lifetime
+	var curve_percent : float = touch_gui_lifetime_curve.sample(progress)
+	touch_controls.modulate.a = curve_percent
 
 
 func _input(event):
@@ -36,10 +43,12 @@ func _input(event):
 	or event is InputEventJoypadButton \
 	or event is InputEventJoypadMotion:
 		portal.push_input(event, false)
+	elif event is InputEventScreenTouch \
+	or event is InputEventScreenDrag:
+		last_touch_time = Time.get_ticks_msec()
 
 
 func _on_game_world_render_gui_input(event):
-	print(event)
 	portal.push_input(event)
 
 
