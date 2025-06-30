@@ -54,6 +54,10 @@ func touch_mapping(event):
 	print("Touch Mapping Result: ", new_event)
 	#portal.push_input(new_event, false)
 	#Input.parse_input_event(new_event)
+	var new_action : InputEventAction = InputEventAction.new()
+	new_action.pressed = true
+	new_action.action = "right"
+	Input.parse_input_event(new_action)
 
 
 func _input(event):
