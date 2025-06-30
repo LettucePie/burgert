@@ -45,12 +45,15 @@ func touch_mapping(event):
 	var code : Key = touch_controls.pos_to_keycode(pos)
 	var new_event : InputEventKey = InputEventKey.new()
 	new_event.keycode = code
-	new_event.echo = true
-	if event is InputEventScreenTouch:
-		if !event.pressed:
-			new_event.pressed = true
+	if event is InputEventScreenDrag:
+		new_event.echo = true
+		new_event.pressed = true
+	else:
+		new_event.echo = event.pressed
+		new_event.pressed = event.pressed
 	print("Touch Mapping Result: ", new_event)
-	portal.push_input(new_event)
+	#portal.push_input(new_event, false)
+	#Input.parse_input_event(new_event)
 
 
 func _input(event):
@@ -58,6 +61,8 @@ func _input(event):
 	or event is InputEventJoypadButton \
 	or event is InputEventJoypadMotion:
 		portal.push_input(event, false)
+		#Input.parse_input_event(event)
+		pass
 	elif event is InputEventScreenTouch \
 	or event is InputEventScreenDrag:
 		last_touch_time = Time.get_ticks_msec()

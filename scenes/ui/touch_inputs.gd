@@ -69,7 +69,6 @@ func pos_to_keycode(pos) -> Key:
 	var result = KEY_0
 	
 	print("Looking Through Zones filtering by pos: ", pos)
-	print(left.size)
 	for zone in zone_map:
 		print("Looking at Zone, ", zone)
 		if pos >= zone["pos"] and pos < (zone["pos"] + zone["size"]):
