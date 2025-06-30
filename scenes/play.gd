@@ -7,6 +7,8 @@ class_name Play
 @export var music : Music
 ##-----------
 @export var audio_bus : AudioBusLayout
+@export var container_scene : PackedScene
+var adopted : bool = false
 
 class Settings:
 	var version : int
@@ -129,18 +131,21 @@ func _ready():
 		_default_settings()
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
-<<<<<<< HEAD
 	#if OS.has_feature("mobile") and !adopted:
 	var container : GameContainer = container_scene.instantiate()
 	container.call_deferred("adopt", self, get_tree().get_root())
 	adopted = true
-=======
->>>>>>> master
 
 
 func _process(delta):
 	pass
 
+
+func _input(event):
+	if event is InputEventScreenTouch and !adopted:
+		var container : GameContainer = container_scene.instantiate()
+		container.call_deferred("adopt", self, get_tree().get_root())
+		adopted = true
 
 
 func _on_main_menu_start_play():
