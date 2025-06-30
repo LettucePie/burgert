@@ -8,10 +8,12 @@ class_name GameContainer
 
 func adopt(game : Play, root : Window):
 	print("Game Container adopting Play/Game: ", game, " with root of: ", root)
+	var mus_progress : float = game.music.get_playback_position()
 	root.remove_child(game)
 	portal.add_child(game)
 	root.content_scale_mode = 0
 	root.add_child(self)
+	game.music.play(mus_progress)
 	root.handle_input_locally = false
 	portal.handle_input_locally = true
 	game.main_menu.refocus()
