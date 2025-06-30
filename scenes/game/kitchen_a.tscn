@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=65 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://f6jubesn86as" path="res://assets/images/game/kitchen/large_counter.tres" id="39_ul271"]
 [ext_resource type="Texture2D" uid="uid://dmvku22ms6kgo" path="res://assets/images/game/kitchen/Restaurant_floor.png" id="40_5d7jh"]
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/game/kitchen/counter_v2.tres" id="40_arepm"]
+[ext_resource type="Texture2D" uid="uid://b555sav40m4ag" path="res://assets/images/game/customers/customers_wave3_packed.png" id="40_eqbl1"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/game/kitchen/register.tres" id="41_60jb7"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/game/kitchen/counter_v2_grill.tres" id="42_y6et2"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/game/kitchen/counter_v2_alcove.tres" id="43_yb70e"]
@@ -59,6 +60,10 @@
 [ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/images/game/kitchen/ketchup.tres" id="55_v6m6k"]
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/images/game/kitchen/ketchup_highlight.tres" id="56_782jn"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/images/game/kitchen/mustard.tres" id="57_w4kew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywhr8"]
+atlas = ExtResource("40_eqbl1")
+region = Rect2(0, 0, 66, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -623,7 +628,6 @@ position = Vector2(316, 116)
 position = Vector2(264, 145)
 
 [node name="Persistant" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
-visible = false
 position = Vector2(-433, 59)
 script = ExtResource("3_488ky")
 customer_name = "Persistant"
@@ -711,6 +715,50 @@ position = Vector2(420, 124)
 position = Vector2(540, 124)
 
 [node name="munch" parent="customers/Anxiety" instance=ExtResource("14_rquj2")]
+position = Vector2(481, 127)
+
+[node name="Haircut" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
+position = Vector2(0, 218)
+script = ExtResource("3_488ky")
+customer_name = "Haircut"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+left_area = NodePath("Left")
+right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(0, 218)
+stay_pos = Vector2(0, 59)
+exit_pos = Vector2(0, 218)
+
+[node name="character" type="Sprite2D" parent="customers/Haircut"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_ywhr8")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/Haircut"]
+position = Vector2(340, 93)
+scale = Vector2(0.275879, 0.275879)
+texture = ExtResource("11_q4v5g")
+
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/Haircut/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Haircut"]
+position = Vector2(480, 126)
+stream = ExtResource("34_83rug")
+bus = &"SFX"
+
+[node name="Left" type="Marker2D" parent="customers/Haircut"]
+position = Vector2(420, 124)
+
+[node name="Right" type="Marker2D" parent="customers/Haircut"]
+position = Vector2(540, 124)
+
+[node name="munch" parent="customers/Haircut" instance=ExtResource("14_rquj2")]
 position = Vector2(481, 127)
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
