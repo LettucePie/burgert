@@ -77,4 +77,3 @@ func rescale():
 
 func _on_resized():
 	rescale()
-
