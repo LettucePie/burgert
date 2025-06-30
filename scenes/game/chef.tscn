@@ -147,6 +147,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dd8s6"]
 resource_name = "Chargup_L"
@@ -286,6 +298,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ovhst"]
@@ -1117,7 +1141,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("3_fq8hn")
 viewport_path_again = NodePath("../burger_portal")
 
@@ -1126,12 +1150,14 @@ texture_filter = 1
 script = ExtResource("1_qyhq5")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+reset_on_save = false
 tree_root = ExtResource("2_ny6ao")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_jp2nr")
 }
@@ -1139,7 +1165,7 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
-animation = &"Idle_L"
+animation = &"Charge_Loop"
 autoplay = "Idle_L"
 flip_h = true
 
@@ -1149,7 +1175,7 @@ flip_h = true
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(34, -7)
+position = Vector2(30, -8)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_sys53")
 

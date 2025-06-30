@@ -11,6 +11,7 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_vertical = 0
+mouse_filter = 2
 script = ExtResource("1_ktvss")
 
 [node name="bg" type="TextureRect" parent="."]

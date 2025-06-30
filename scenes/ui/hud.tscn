@@ -37,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_fvcjt")
 script = ExtResource("2_c4wvn")
 entry_scene = ExtResource("26_dy7st")
@@ -69,7 +70,6 @@ size_flags_vertical = 6
 text = "score"
 
 [node name="order" type="ScrollContainer" parent="."]
-visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 1
@@ -83,12 +83,14 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
+mouse_filter = 0
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="order"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="top" type="TextureRect" parent="order/VBoxContainer"]
@@ -118,4 +120,5 @@ icon = ExtResource("29_jwmgn")
 icon_alignment = 1
 expand_icon = true
 
+[connection signal="gui_input" from="order" to="." method="_on_order_gui_input"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

@@ -100,3 +100,9 @@ func _physics_process(delta):
 
 func _on_pause_pressed():
 	emit_signal("gui_pause")
+
+
+func _on_order_gui_input(event: InputEvent) -> void:
+	print(event)
+	if event is InputEventMouseMotion:
+		$order.scroll_vertical -= event.relative.y

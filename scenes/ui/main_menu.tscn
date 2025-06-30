@@ -143,6 +143,19 @@ offset_left = 640.0
 offset_right = 1280.0
 offset_bottom = 480.0
 
+[node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
+text = "Art, Sound, Design - Houndfall
+Art, Programming, Design - lettucepie
+
+Made in
+Godot 4.2.2 & 4.3
+Aseprite
+Krita
+LMMS
+
+third-party assets
+kenney-nl fontss"
+
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
 layout_mode = 1
