@@ -6,6 +6,9 @@ class_name TouchInputs
 
 func _ready():
 	_on_resized()
+	for child in get_children():
+		if child.name.contains("Frame"):
+			child.color.a = 0.0
 
 
 func _on_resized():

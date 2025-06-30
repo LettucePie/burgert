@@ -43,15 +43,16 @@ autostart = true
 
 [node name="Frame1" type="ColorRect" parent="."]
 layout_mode = 2
-anchor_left = 0.731
-anchor_top = 0.625
-anchor_right = 0.856
-anchor_bottom = 0.792
-offset_left = 0.160004
-offset_right = 0.159973
+anchor_left = 0.837
+anchor_top = 0.475
+anchor_right = 0.962
+anchor_bottom = 0.642
+offset_left = 0.320007
+offset_top = -1.52588e-05
+offset_right = 0.319946
 offset_bottom = -0.160034
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="ViewOrder" type="TouchScreenButton" parent="Frame1"]
 texture_normal = ExtResource("2_mit08")
@@ -59,16 +60,16 @@ action = "special1"
 
 [node name="Frame2" type="ColorRect" parent="."]
 layout_mode = 2
-anchor_left = 0.731
-anchor_top = 0.8
-anchor_right = 0.856
-anchor_bottom = 0.95
-offset_left = 0.160004
-offset_top = -4.0
+anchor_left = 0.706
+anchor_top = 0.808
+anchor_right = 0.831
+anchor_bottom = 0.975
+offset_left = 0.159973
+offset_top = 0.159973
 offset_right = 0.159973
-offset_bottom = 3.99997
+offset_bottom = -3.05176e-05
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="TrashSandwhich" type="TouchScreenButton" parent="Frame2"]
 texture_normal = ExtResource("3_o3h1h")
@@ -78,16 +79,16 @@ action = "cancel"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.012
-anchor_top = 0.817
-anchor_right = 0.137
-anchor_bottom = 0.983
+anchor_top = 0.792
+anchor_right = 0.147
+anchor_bottom = 0.967
 offset_left = 0.32
-offset_top = -0.160004
-offset_right = 0.319992
-offset_bottom = 0.159973
+offset_top = -0.160034
+offset_right = -0.0800018
+offset_bottom = 1.83997
 grow_vertical = 0
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="LeftArrow" type="TouchScreenButton" parent="Frame3"]
 texture_normal = ExtResource("4_1ywls")
@@ -97,13 +98,13 @@ action = "left"
 [node name="Frame4" type="ColorRect" parent="."]
 layout_mode = 2
 anchor_left = 0.075
-anchor_top = 0.65
+anchor_top = 0.608
 anchor_right = 0.2
-anchor_bottom = 0.817
-offset_top = -3.05176e-05
-offset_bottom = -0.160004
+anchor_bottom = 0.775
+offset_top = 0.159973
+offset_bottom = -3.05176e-05
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="SendSandwhich" type="TouchScreenButton" parent="Frame4"]
 texture_normal = ExtResource("5_e8a4x")
@@ -111,16 +112,16 @@ action = "up"
 
 [node name="Frame5" type="ColorRect" parent="."]
 layout_mode = 2
-anchor_left = 0.856
-anchor_top = 0.708
-anchor_right = 0.981
-anchor_bottom = 0.875
-offset_left = 0.159973
-offset_top = 0.160004
-offset_right = 0.159973
+anchor_left = 0.837
+anchor_top = 0.692
+anchor_right = 0.994
+anchor_bottom = 0.9
+offset_left = 0.320007
+offset_top = -0.160004
+offset_right = -0.160034
 offset_bottom = -3.05176e-05
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="AddIngredient" type="TouchScreenButton" parent="Frame5"]
 texture_normal = ExtResource("6_to0nm")
@@ -128,20 +129,17 @@ action = "confirm"
 
 [node name="Frame6" type="ColorRect" parent="."]
 layout_mode = 2
-anchor_left = 0.144
-anchor_top = 0.817
-anchor_right = 0.262
-anchor_bottom = 0.983
-offset_left = -4.16
-offset_top = -0.160004
-offset_right = 0.319977
-offset_bottom = 0.159973
+anchor_left = 0.15
+anchor_top = 0.792
+anchor_right = 0.284
+anchor_bottom = 0.971
+offset_top = -0.160034
+offset_right = 0.23999
+offset_bottom = -0.0800476
 size_flags_vertical = 3
-color = Color(1, 1, 1, 0.0784314)
+color = Color(1, 1, 1, 0.184314)
 
 [node name="RightArrow" type="TouchScreenButton" parent="Frame6"]
-position = Vector2(15.905, 0)
-scale = Vector2(1.695, 1.695)
 texture_normal = ExtResource("7_yihio")
 passby_press = true
 action = "right"
