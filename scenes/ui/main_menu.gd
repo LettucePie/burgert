@@ -22,7 +22,7 @@ func _ready():
 
 
 func _process(delta):
-	pass
+	$Main/Quit.visible = OS.has_feature("web") == false
 
 
 func main_button_event(but):
