@@ -1,9 +1,10 @@
 extends Control
 class_name GameContainer
 
+var play : Play
 @export var portal : SubViewport
 @export var render : TextureRect
-@export var touch_controls : Control
+@export var touch_controls : TouchInputs
 @export var touch_gui_lifetime : float = 6.0
 @export var touch_gui_lifetime_curve : Curve
 var last_touch_time : int = 0
@@ -11,6 +12,7 @@ var last_touch_time : int = 0
 
 func adopt(game : Play, root : Window):
 	print("Game Container adopting Play/Game: ", game, " with root of: ", root)
+	play = game
 	var mus_progress : float = game.music.get_playback_position()
 	root.remove_child(game)
 	portal.add_child(game)
@@ -20,6 +22,7 @@ func adopt(game : Play, root : Window):
 	root.handle_input_locally = false
 	portal.handle_input_locally = true
 	game.main_menu.refocus()
+	touch_controls.pushed_event.connect(game.touch_controls_input)
 	rescale()
 
 

@@ -226,5 +226,8 @@ func apply_settings():
 			InputMap.action_add_event("ui_accept", ie)
 
 
-
-
+func touch_controls_input(event):
+	print("Play recieved input event: ", event)
+	#print(is_processing_unhandled_input())
+	set_process_unhandled_input(true)
+	Input.parse_input_event(event)

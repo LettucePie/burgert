@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://0fsnbio1axqf"]
+
+[ext_resource type="Script" path="res://scenes/ui/touch_inputs.gd" id="1_37wk1"]
+[ext_resource type="Texture2D" uid="uid://bt66r43jvigyd" path="res://assets/images/ui/view_order_gui.png" id="2_mit08"]
+[ext_resource type="Texture2D" uid="uid://o0a8mc3idhin" path="res://assets/images/ui/trash_sandwhich_gui.png" id="3_puvvy"]
+[ext_resource type="Texture2D" uid="uid://capmpj6qs8lqi" path="res://assets/images/ui/arrow_left_gui.png" id="4_1ywls"]
+[ext_resource type="Texture2D" uid="uid://cwg0uprqg21ri" path="res://assets/images/ui/send_sandwhich_gui.png" id="5_e8a4x"]
+[ext_resource type="Texture2D" uid="uid://bpvglfwnrk7pf" path="res://assets/images/ui/add_ingredient_gui.png" id="6_v0pqa"]
+[ext_resource type="Texture2D" uid="uid://ccfyv375hycm3" path="res://assets/images/ui/arrow_right_gui.png" id="7_yihio"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mx1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsc1x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dvx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ix6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_inylb"]
+
+[sub_resource type="Theme" id="Theme_tq5g7"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_2mx1r")
+Button/styles/focus = SubResource("StyleBoxEmpty_tsc1x")
+Button/styles/hover = SubResource("StyleBoxEmpty_2dvx0")
+Button/styles/normal = SubResource("StyleBoxEmpty_7ix6f")
+Button/styles/pressed = SubResource("StyleBoxEmpty_inylb")
+
+[node name="TouchInputs" type="Control" node_paths=PackedStringArray("hold_buttons", "release_buttons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_tq5g7")
+script = ExtResource("1_37wk1")
+hold_buttons = [NodePath("HBoxContainer/LeftEdge/LeftArrow"), NodePath("HBoxContainer/RightEdge/RightArrow"), NodePath("HBoxContainer/LeftEdge/TrashSandwhich")]
+release_buttons = [NodePath("HBoxContainer/LeftEdge/ViewOrder"), NodePath("HBoxContainer/RightEdge/SendSandwhich"), NodePath("HBoxContainer/RightEdge/AddIngredient"), NodePath("HBoxContainer/LeftEdge/TrashSandwhich"), NodePath("HBoxContainer/LeftEdge/LeftArrow"), NodePath("HBoxContainer/RightEdge/RightArrow")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftEdge" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="ViewOrder" type="Button" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("2_mit08")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TrashSandwhich" type="Button" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+icon = ExtResource("3_puvvy")
+icon_alignment = 1
+expand_icon = true
+
+[node name="LeftArrow" type="Button" parent="HBoxContainer/LeftEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+icon = ExtResource("4_1ywls")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Fill" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.73
+mouse_filter = 2
+
+[node name="RightEdge" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="SendSandwhich" type="Button" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("5_e8a4x")
+icon_alignment = 1
+expand_icon = true
+
+[node name="AddIngredient" type="Button" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("6_v0pqa")
+icon_alignment = 1
+expand_icon = true
+
+[node name="RightArrow" type="Button" parent="HBoxContainer/RightEdge"]
+layout_mode = 2
+size_flags_vertical = 3
+action_mode = 0
+icon = ExtResource("7_yihio")
+icon_alignment = 1
+expand_icon = true
