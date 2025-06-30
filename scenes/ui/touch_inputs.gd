@@ -15,10 +15,11 @@ func _on_resized():
 		if frame.size.y < min_edge:
 			min_edge = frame.size.y
 		var scale_factor = float(min_edge) / 64.0
-		print(min_edge)
-		print(scale_factor)
 		b.scale = Vector2(scale_factor, scale_factor)
 		b.position = Vector2.ZERO
+		b.position.x = frame.size.x / 2
+		b.position.x -= (64 * b.scale.x) / 2
+		print(b.position, " | ", b.scale)
 
 
 func _on_update_size_timeout():
