@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=66 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/game/kitchen/counter_v2.tres" id="40_arepm"]
 [ext_resource type="Texture2D" uid="uid://b555sav40m4ag" path="res://assets/images/game/customers/customers_wave3_packed.png" id="40_eqbl1"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/game/kitchen/register.tres" id="41_60jb7"]
+[ext_resource type="AudioStream" uid="uid://cdt21gfyo12x2" path="res://assets/sound/sfx/Audio 15.wav" id="41_ycyvm"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/game/kitchen/counter_v2_grill.tres" id="42_y6et2"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/game/kitchen/counter_v2_alcove.tres" id="43_yb70e"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/images/game/kitchen/bun.tres" id="45_gga11"]
@@ -718,18 +719,18 @@ position = Vector2(540, 124)
 position = Vector2(481, 127)
 
 [node name="Haircut" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
-position = Vector2(0, 218)
+position = Vector2(399, 99)
 script = ExtResource("3_488ky")
 customer_name = "Haircut"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Lettuce", "Meat", "Lettuce"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
 sound_player = NodePath("AudioStreamPlayer2D")
 left_area = NodePath("Left")
 right_area = NodePath("Right")
 munch = NodePath("munch")
-enter_pos = Vector2(0, 218)
-stay_pos = Vector2(0, 59)
-exit_pos = Vector2(0, 218)
+enter_pos = Vector2(-402, 99)
+stay_pos = Vector2(0, 99)
+exit_pos = Vector2(400, 99)
 
 [node name="character" type="Sprite2D" parent="customers/Haircut"]
 position = Vector2(320, 101)
@@ -737,7 +738,7 @@ scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ywhr8")
 
 [node name="burger_portal_view" type="Sprite2D" parent="customers/Haircut"]
-position = Vector2(340, 93)
+position = Vector2(182, 23)
 scale = Vector2(0.275879, 0.275879)
 texture = ExtResource("11_q4v5g")
 
@@ -749,17 +750,17 @@ autoplay = "default"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/Haircut"]
 position = Vector2(480, 126)
-stream = ExtResource("34_83rug")
+stream = ExtResource("41_ycyvm")
 bus = &"SFX"
 
 [node name="Left" type="Marker2D" parent="customers/Haircut"]
-position = Vector2(420, 124)
+position = Vector2(261, 88)
 
 [node name="Right" type="Marker2D" parent="customers/Haircut"]
-position = Vector2(540, 124)
+position = Vector2(381, 88)
 
 [node name="munch" parent="customers/Haircut" instance=ExtResource("14_rquj2")]
-position = Vector2(481, 127)
+position = Vector2(326, 78)
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
