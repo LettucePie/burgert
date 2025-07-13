@@ -84,6 +84,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "play_start":
 		print("Starting PLAY")
 		emit_signal("start_play")
+		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_open" and current_screen == SCREENS.PAUSE:
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_close" and current_screen == SCREENS.PAUSE:
