@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=68 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/game/kitchen/counter_v2_grill.tres" id="42_y6et2"]
 [ext_resource type="AudioStream" uid="uid://cxtpbxd1ikh4a" path="res://assets/sound/sfx/Audio 16.wav" id="43_pkjyh"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/game/kitchen/counter_v2_alcove.tres" id="43_yb70e"]
+[ext_resource type="Texture2D" uid="uid://2rdv7lntg74d" path="res://assets/images/game/customers/customer_mrpink_still.tres" id="44_dvdxs"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/images/game/kitchen/bun.tres" id="45_gga11"]
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/game/kitchen/bun_highlight.tres" id="46_bk7km"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/images/game/kitchen/meat.tres" id="47_sn0s0"]
@@ -805,7 +806,54 @@ position = Vector2(261, 88)
 position = Vector2(381, 88)
 
 [node name="munch" parent="customers/Jimmie" instance=ExtResource("14_rquj2")]
-position = Vector2(326, 78)
+position = Vector2(320, 64)
+
+[node name="MrPink" type="Node2D" parent="customers" node_paths=PackedStringArray("burger_portal_sprite", "sound_player", "left_area", "right_area", "munch")]
+position = Vector2(265, 110)
+script = ExtResource("3_488ky")
+customer_name = "Mr. Pink"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Ketchup", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Meat", "Tomato", "Ketchup", "Meat")])
+burger_portal_sprite = NodePath("burger_portal_view")
+sound_player = NodePath("AudioStreamPlayer2D")
+left_area = NodePath("Left")
+right_area = NodePath("Right")
+munch = NodePath("munch")
+enter_pos = Vector2(412, 110)
+stay_pos = Vector2(256, 110)
+exit_pos = Vector2(412, 110)
+enter_speed = 4.0
+munch_seconds = 3.0
+exit_speed = 4.0
+
+[node name="character" type="Sprite2D" parent="customers/MrPink"]
+position = Vector2(320, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("44_dvdxs")
+
+[node name="burger_portal_view" type="Sprite2D" parent="customers/MrPink"]
+position = Vector2(182, 23)
+scale = Vector2(0.275879, 0.275879)
+texture = ExtResource("11_q4v5g")
+
+[node name="thought_cloud" type="AnimatedSprite2D" parent="customers/MrPink/burger_portal_view"]
+position = Vector2(0, -7.24954)
+scale = Vector2(18.8602, 18.8602)
+sprite_frames = ExtResource("12_vq758")
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers/MrPink"]
+position = Vector2(480, 126)
+stream = ExtResource("43_pkjyh")
+bus = &"SFX"
+
+[node name="Left" type="Marker2D" parent="customers/MrPink"]
+position = Vector2(232, 88)
+
+[node name="Right" type="Marker2D" parent="customers/MrPink"]
+position = Vector2(381, 88)
+
+[node name="munch" parent="customers/MrPink" instance=ExtResource("14_rquj2")]
+position = Vector2(321, 55)
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
