@@ -40,6 +40,10 @@ func _physics_process(delta):
 		else:
 			chef.active = true
 			hud.show_order(false)
+	if Input.is_action_just_pressed("cancel") and game_started:
+		if hud.order_shown:
+			chef.active = true
+			hud.show_order(false)
 
 
 func _on_chef_chef_ready():
