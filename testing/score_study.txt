@@ -1,0 +1,164 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API 4.6 (Core Profile) Mesa 24.2.8-1ubuntu1~24.04.1 - Compatibility - Using Device: AMD - AMD Radeon Graphics (radeonsi, renoir, LLVM 19.1.1, DRM 3.57, 6.8.0-63-lowlatency)
+
+Settings File Opened
+APPLYING SETTINGS TO GAME
+Updating Settings Display
+Button Pressed: play
+Starting PLAY
+Intro Finished
+kitchen.pick_customer() Called
+Current_Customer == <null>
+Deliberation Result Current Customer = Emo:<Node2D#64726501294>
+Current_Customer order options:
+Lettuce, Lettuce, Tomato, Lettuce, Bun Top,
+Lettuce, Cheese, Ketchup, Bun, Lettuce,
+Tomato, Ketchup, Tomato, Ketchup, Tomato,
+
+Current_Customer New Order
+
+## TRYING TO DO THIS CORRECT
+
+["Lettuce", "Lettuce", "Tomato", "Lettuce", "Bun Top"]
+TODO replace with throw-away burger anim + function
+Kitchen Customer has Arrived
+(2) Grabbing Ingredient: Lettuce
+Grabbing Ingredient: Tomato
+Grabbing Ingredient: Lettuce
+Grabbing Top Bun
+Enter Throw Stance
+Send Burger
+Successful Throw
+[0]: Lettuce | Lettuce
+[1]: Lettuce | Lettuce
+[2]: Tomato | Tomato
+[3]: Lettuce | Lettuce
+[4]: Bun Top | Bun Top
+SCORE Asessment:
+correct_ingredients: 5
+correct_placements: 5
+time_performance: 0.44312688888923
+time_score: 4
+burger_score: 10
+submission_total: 14
+Adding 14 points
+Kitchen Acknowledges the Customer is Gone
+kitchen.pick_customer() Called
+Current_Customer == Emo:<Node2D#64726501294>
+Deliberation Result Current Customer = Jimmie:<Node2D#66924316721>
+Current_Customer order options:
+Lettuce,
+Bun, Lettuce, Bun Top,
+Lettuce, Bun, Lettuce,
+Bun, Meat, Lettuce, Bun Top,
+
+Current_Customer New Order
+
+## TRYING TO DO THIS CORRECT
+
+["Bun", "Meat", "Lettuce", "Bun Top"]
+TODO replace with throw-away burger anim + function
+Kitchen Customer has Arrived
+Grabbing Ingredient: Bun
+Grabbing Ingredient: Meat
+Grabbing Ingredient: Lettuce
+Grabbing Top Bun
+Enter Throw Stance
+Send Burger
+Successful Throw
+[0]: Bun | Bun
+[1]: Meat | Meat
+[2]: Lettuce | Lettuce
+[3]: Bun Top | Bun Top
+SCORE Asessment:
+correct_ingredients: 4
+correct_placements: 4
+time_performance: 0.3888888888892
+time_score: 3
+burger_score: 8
+submission_total: 11
+Adding 11 points
+Kitchen Acknowledges the Customer is Gone
+kitchen.pick_customer() Called
+Current_Customer == Jimmie:<Node2D#66924316721>
+Jimmie Consecutive: 2
+Checking index[1] of past_customers.size(): 2
+Checking index[0] of past_customers.size(): 2
+Current Consecutive Customer is NOT YET satisfied
+Deliberation Result Current Customer = Jimmie:<Node2D#66924316721>
+Current_Customer order options:
+Lettuce,
+Bun, Lettuce, Bun Top,
+Lettuce, Bun, Lettuce,
+Bun, Meat, Lettuce, Bun Top,
+
+Current_Customer New Order
+
+## TRYING TO DO THIS WRONG
+
+["Bun", "Meat", "Lettuce", "Bun Top"]
+TODO replace with throw-away burger anim + function
+Kitchen Customer has Arrived
+(3) Grabbing Ingredient: Bun
+Grabbing Top Bun
+Enter Throw Stance
+Send Burger
+Successful Throw
+[0]: Bun | Bun
+[1]: Meat | Bun
+[2]: Lettuce | Bun
+[3]: Bun Top | Bun Top
+SCORE Asessment:
+correct_ingredients: 2
+correct_placements: 2
+time_performance: 0.20694130555559
+time_score: 1
+burger_score: 2
+submission_total: 3
+Adding 3 points
+Kitchen Acknowledges the Customer is Gone
+kitchen.pick_customer() Called
+Current_Customer == Jimmie:<Node2D#66924316721>
+Jimmie Consecutive: 2
+Checking index[2] of past_customers.size(): 3
+Checking index[1] of past_customers.size(): 3
+Current Consecutive Customer is satisfied
+Deliberation Result Current Customer = Ted:<Node2D#64290293652>
+Current_Customer order options:
+Bun, Meat, Bun Top,
+Bun, Meat, Cheese, Meat, Bun Top,
+Bun, Meat, Bun, Meat, Bun, Meat, Bun Top,
+
+Current_Customer New Order
+
+## TRYING TO DO THIS WRONG AND SLOW
+
+["Bun", "Meat", "Cheese", "Meat", "Bun Top"]
+TODO replace with throw-away burger anim + function
+Kitchen Customer has Arrived
+(5) Grabbing Ingredient: Ketchup
+Enter Throw Stance
+Send Burger
+Successful Throw
+[0]: Bun | Ketchup
+[1]: Meat | Ketchup
+[2]: Cheese | Ketchup
+[3]: Meat | Ketchup
+[4]: Bun Top | Ketchup
+SCORE Asessment:
+correct_ingredients: 0
+correct_placements: 0
+time_performance: 0.72713140740682
+time_score: 0
+burger_score: -5
+submission_total: -5
+Adding -5 points
+Kitchen Acknowledges the Customer is Gone
+kitchen.pick_customer() Called
+Current_Customer == Ted:<Node2D#64290293652>
+Deliberation Result Current Customer = Mustard:<Node2D#65380812757>
+Current_Customer order options:
+Bun, Mustard, Mustard, Mustard, Mustard,
+Mustard, Mustard, Mustard,
+Bun, Mustard, Meat, Mustard, Mustard, Mustard, Mustard, Bun, Mustard,
+

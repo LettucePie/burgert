@@ -161,7 +161,9 @@ func assess_submission():
 	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
 	"\ncorrect_placements: ", correct_placements,
 	"\ntime_performance: ", time_performance,
-	"\ntime_score: ", time_score)
+	"\ntime_score: ", time_score,
+	"\nburger_score: ", burger_score,
+	"\nsubmission_total: ", burger_score + time_score)
 	submission_total = burger_score + time_score
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
