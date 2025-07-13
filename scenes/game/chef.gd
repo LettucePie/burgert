@@ -5,6 +5,9 @@ signal start_burger_submission()
 signal cancel_burger_submission()
 signal submit_burger()
 signal chef_ready()
+signal trashing_start()
+signal trashing_progress(val)
+signal trashing_stopped()
 
 const MOVE_SPEED = 10
 @onready var burger_portal : BurgerPortal = $burger_portal
@@ -117,14 +120,18 @@ func process_actions(delta):
 		if !trashing:
 			trashing = true
 			trashing_ticks = 60
+			emit_signal("trashing_start")
 		trashing_ticks -= 2
 		print(trashing_ticks)
+		emit_signal("trashing_progress", abs(float((trashing_ticks - 60) / float(60))))
 		if trashing_ticks <= 0:
 			trashing = false
 			print("Trashing Burger")
 			current_burger.refresh_plate()
+			emit_signal("trashing_stopped")
 	if Input.is_action_just_released("cancel") and trashing:
 		trashing = false
+		emit_signal("trashing_stopped")
 
 
 func process_submission(delta):

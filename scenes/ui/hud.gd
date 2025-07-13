@@ -21,6 +21,7 @@ var timer : Timer = null
 @export var ketchup_scribbles : Array[Texture2D]
 @export var mustard_scribbles : Array[Texture2D]
 
+@onready var trash_bar : TextureProgressBar = $trash_bar
 
 func clear_order():
 	top_tear.reparent(self)
@@ -84,6 +85,7 @@ func get_timer() -> Timer:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$order.hide()
+	trash_bar.hide()
 
 
 func process_scrolling(delta):
@@ -106,3 +108,18 @@ func _on_order_gui_input(event: InputEvent) -> void:
 	print(event)
 	if event is InputEventMouseMotion:
 		$order.scroll_vertical -= event.relative.y
+
+
+func start_trashing():
+	trash_bar.show()
+	trash_bar.value = 0
+
+
+func update_trashing(val):
+	print("Trashing NewVal: ", val)
+	trash_bar.value = val
+
+
+func trashing_stopped():
+	trash_bar.hide()
+	trash_bar.value = 0

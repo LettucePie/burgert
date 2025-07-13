@@ -219,3 +219,15 @@ func _on_kitchen_a_customer_left():
 
 func _on_hud_gui_pause():
 	emit_signal("game_paused")
+
+
+func _on_chef_trashing_start() -> void:
+	hud.start_trashing()
+
+
+func _on_chef_trashing_progress(val: Variant) -> void:
+	hud.update_trashing(val)
+
+
+func _on_chef_trashing_stopped() -> void:
+	hud.trashing_stopped()

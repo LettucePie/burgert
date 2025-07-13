@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=33 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://ckiwno1pxnat7" path="res://assets/images/ui/orders/order-scribble_mustard3.png" id="23_shojr"]
 [ext_resource type="PackedScene" uid="uid://bldfvrixfhcp4" path="res://scenes/ui/scribble-entry.tscn" id="26_dy7st"]
 [ext_resource type="Texture2D" uid="uid://c4jqebjtv1k6j" path="res://assets/images/ui/pause_button_gui.png" id="29_jwmgn"]
+[ext_resource type="Texture2D" uid="uid://c6awwnkoa4uln" path="res://assets/images/ui/trashing_bar_normal.png" id="30_uwlyk"]
+[ext_resource type="Texture2D" uid="uid://duv4r7hqlyjvq" path="res://assets/images/ui/trashing_bar_outline.png" id="31_e2bgx"]
+[ext_resource type="Texture2D" uid="uid://bvrdf2pd0d14p" path="res://assets/images/ui/trashing_bar_fill.png" id="32_1x083"]
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -119,6 +122,42 @@ theme_type_variation = &"IconButton"
 icon = ExtResource("29_jwmgn")
 icon_alignment = 1
 expand_icon = true
+
+[node name="trash_bar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.89
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.200012
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.01
+value = 0.45
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("30_uwlyk")
+texture_over = ExtResource("31_e2bgx")
+texture_progress = ExtResource("32_1x083")
+
+[node name="Label" type="Label" parent="trash_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "trashing"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gui_input" from="order" to="." method="_on_order_gui_input"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
