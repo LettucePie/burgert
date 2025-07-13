@@ -94,6 +94,7 @@ func play_splat(pos : Vector2):
 	splat.position = pos
 	splat.show()
 	splat.play("splat")
+	splat.get_child(0).play()
 
 
 func _on_splat_animation_finished():
