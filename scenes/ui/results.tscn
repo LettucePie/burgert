@@ -34,7 +34,7 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 text = "Results"
 horizontal_alignment = 1
@@ -44,7 +44,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_1"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_1" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Orders Finished"
@@ -63,7 +63,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_2" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Order Accuracy"
@@ -82,7 +82,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_3"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_3" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Total Score"
@@ -97,7 +97,7 @@ label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="finish" type="Button" parent="Panel/VBoxContainer"]
+[node name="finish" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_vertical = 6

@@ -9,7 +9,7 @@ signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, CREDITS, PAUSE}
+enum SCREENS{MAIN, OPTIONS, EXTRAS, HELP, DEX, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN
 
 
@@ -33,10 +33,10 @@ func main_button_event(but):
 		anim.play("options_open")
 		current_screen = SCREENS.OPTIONS
 		$Options/Panel/VBoxContainer/mus_vol.grab_focus()
-	if but == "credits" and current_screen == SCREENS.MAIN:
-		anim.play("credits_open")
-		current_screen = SCREENS.CREDITS
-		$Credits/Panel/VBoxContainer/finished.grab_focus()
+	if but == "extras" and current_screen == SCREENS.MAIN:
+		anim.play("extras_open")
+		current_screen = SCREENS.EXTRAS
+		$Extras/Panel/VBoxContainer/button_row/howto.grab_focus()
 	if but == "quit":
 		get_tree().quit()
 
@@ -46,15 +46,31 @@ func option_button_event(but):
 	if but == "options_done" and current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
-		$Main/Play.grab_focus()
+		$Main/Options.grab_focus()
+
+
+func extras_button_event(but):
+	print("Button Pressed: ", but)
+	if but == "howto":
+		pass
+	if but == "dex":
+		pass
+	if but == "credits" and current_screen == SCREENS.EXTRAS:
+		anim.play("credits_open")
+		current_screen = SCREENS.CREDITS
+		$Credits/Panel/VBoxContainer/finished.grab_focus()
+	if but == "finish" and current_screen == SCREENS.EXTRAS:
+		anim.play("extras_close")
+		current_screen = SCREENS.MAIN
+		$Main/Extras.grab_focus()
 
 
 func credit_button_event(but):
 	print("Button Pressed: ", but)
 	if but == "credits_done" and current_screen == SCREENS.CREDITS:
 		anim.play("credits_close")
-		current_screen = SCREENS.MAIN
-		$Main/Play.grab_focus()
+		current_screen = SCREENS.EXTRAS
+		$Extras/Panel/VBoxContainer/button_row3/credits.grab_focus()
 
 
 func pause_button_event(but):

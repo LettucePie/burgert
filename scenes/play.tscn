@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=20 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/Burgert_2.mp3" id="6_qxwcy"]
 [ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="7_m0cnl"]
 [ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="10_dvsmx"]
+[ext_resource type="PackedScene" uid="uid://302e8pwqbk7d" path="res://lang/multi_lang.tscn" id="12_78ged"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -231,6 +232,8 @@ libraries = {
 "": SubResource("AnimationLibrary_2ve64")
 }
 autoplay = "intro_ramp"
+
+[node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]

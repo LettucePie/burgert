@@ -28,6 +28,11 @@ window/stretch/scale_mode="integer"
 
 import/blender/enabled=false
 
+[global_group]
+
+lang_text=""
+lang_image=""
+
 [gui]
 
 theme/custom="res://assets/resources/ui/theme_a.tres"

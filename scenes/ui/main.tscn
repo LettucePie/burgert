@@ -40,12 +40,12 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../Play")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Credits")
-focus_next = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../Extras")
+focus_next = NodePath("../Extras")
 focus_previous = NodePath("../Play")
 text = "Options"
 
-[node name="Credits" type="Button" parent="."]
+[node name="Extras" type="Button" parent="."]
 layout_mode = 2
 anchor_left = 0.111
 anchor_top = 0.754
@@ -62,7 +62,7 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Options")
-text = "Credits"
+text = "Extras"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 2
@@ -75,9 +75,9 @@ offset_top = 0.119995
 offset_right = 0.319946
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Credits")
+focus_neighbor_top = NodePath("../Extras")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../Play")
 focus_next = NodePath("../Play")
-focus_previous = NodePath("../Credits")
+focus_previous = NodePath("../Extras")
 text = "Quit"
