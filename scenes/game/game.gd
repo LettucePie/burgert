@@ -202,6 +202,7 @@ func _on_chef_submit_burger():
 
 
 func _on_game_timer_timeout():
+	print("GAME TIMER FINISH")
 	$game_timer.stop()
 	game_started = false
 	chef.active = false

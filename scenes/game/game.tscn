@@ -430,6 +430,7 @@ visible = false
 z_index = 2
 
 [node name="game_timer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 120.0
 
 [connection signal="customer_left" from="kitchen_a" to="." method="_on_kitchen_a_customer_left"]
