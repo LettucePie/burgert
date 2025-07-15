@@ -1,201 +1,456 @@
 {
-	"639-2": "eng",
-	"data0": [
+	"languages": [
 		{
-			"data1": {
-				"data2": "time",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/hud/VBoxContainer/time"
+			"eng": [
+				{
+					"data1": {
+						"data2": "time",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/VBoxContainer/time"
+				},
+				{
+					"data1": {
+						"data2": "score",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/VBoxContainer/score"
+				},
+				{
+					"data1": {
+						"data2": "trashing",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/trash_bar/Label"
+				},
+				{
+					"data1": {
+						"data2": "Results",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "Orders Finished",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+				},
+				{
+					"data1": {
+						"data2": "Order Accuracy",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+				},
+				{
+					"data1": {
+						"data2": "Total Score",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+				},
+				{
+					"data1": {
+						"data2": "Finish",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
+				},
+				{
+					"data1": {
+						"data2": "Play",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Play"
+				},
+				{
+					"data1": {
+						"data2": "Options",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Options"
+				},
+				{
+					"data1": {
+						"data2": "Extras",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Extras"
+				},
+				{
+					"data1": {
+						"data2": "Quit",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Quit"
+				},
+				{
+					"data1": {
+						"data2": "OPTIONS",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "MUSIC VOL",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+				},
+				{
+					"data1": {
+						"data2": "SFX Vol",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+				},
+				{
+					"data1": {
+						"data2": "Swap A-B",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "Done",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+				},
+				{
+					"data1": {
+						"data2": "Help",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
+				},
+				{
+					"data1": {
+						"data2": "CUSTOMER-DEX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
+				},
+				{
+					"data1": {
+						"data2": "CREDITS",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+				},
+				{
+					"data1": {
+						"data2": "RETURN",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
+				},
+				{
+					"data1": {
+						"data2": "CREDITS",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "Art, Sound, Design - Houndfall\nArt, Programming, Design - lettucepie\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
+				},
+				{
+					"data1": {
+						"data2": "Done",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+				},
+				{
+					"data1": {
+						"data2": "Pause",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "RESUME",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/resume"
+				},
+				{
+					"data1": {
+						"data2": "QUIT",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/quit"
+				},
+				{
+					"data1": {
+						"data2": "res://assets/images/game/kitchen/Restaurant_stopnpuke_sign.png",
+						"type": "image"
+					},
+					"path": "/root/Play/Game/kitchen_a/stopnpuke"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"res://assets/images/ui/orders/order-scribble_bun1.png",
+								"res://assets/images/ui/orders/order-scribble_bun2.png",
+								"res://assets/images/ui/orders/order-scribble_bun3.png"
+							],
+							[
+								"res://assets/images/ui/orders/order-scribble_meat1.png",
+								"res://assets/images/ui/orders/order-scribble_meat2.png",
+								"res://assets/images/ui/orders/order-scribble_meat3.png"
+							]
+						],
+						"setter": [
+							[
+								"set_bun_scribbles"
+							],
+							[
+								"set_meat_scribbles"
+							]
+						],
+						"type": "image_host"
+					},
+					"path": "/root/Play/Game/hud"
+				}
+			]
 		},
 		{
-			"data1": {
-				"data2": "score",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/hud/VBoxContainer/score"
-		},
-		{
-			"data1": {
-				"data2": "trashing",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/hud/trash_bar/Label"
-		},
-		{
-			"data1": {
-				"data2": "Results",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
-		},
-		{
-			"data1": {
-				"data2": "Orders Finished",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
-		},
-		{
-			"data1": {
-				"data2": "Order Accuracy",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
-		},
-		{
-			"data1": {
-				"data2": "Total Score",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
-		},
-		{
-			"data1": {
-				"data2": "Finish",
-				"type": "text"
-			},
-			"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
-		},
-		{
-			"data1": {
-				"data2": "Play",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Main/Play"
-		},
-		{
-			"data1": {
-				"data2": "Options",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Main/Options"
-		},
-		{
-			"data1": {
-				"data2": "Extras",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Main/Extras"
-		},
-		{
-			"data1": {
-				"data2": "Quit",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Main/Quit"
-		},
-		{
-			"data1": {
-				"data2": "OPTIONS",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
-		},
-		{
-			"data1": {
-				"data2": "MUSIC VOL",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
-		},
-		{
-			"data1": {
-				"data2": "SFX Vol",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
-		},
-		{
-			"data1": {
-				"data2": "Swap A-B",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
-		},
-		{
-			"data1": {
-				"data2": "Done",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
-		},
-		{
-			"data1": {
-				"data2": "Help",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
-		},
-		{
-			"data1": {
-				"data2": "CUSTOMER-DEX",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
-		},
-		{
-			"data1": {
-				"data2": "CREDITS",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
-		},
-		{
-			"data1": {
-				"data2": "RETURN",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
-		},
-		{
-			"data1": {
-				"data2": "CREDITS",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
-		},
-		{
-			"data1": {
-				"data2": "Art, Sound, Design - Houndfall\nArt, Programming, Design - lettucepie\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
-		},
-		{
-			"data1": {
-				"data2": "Done",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
-		},
-		{
-			"data1": {
-				"data2": "Pause",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/Label"
-		},
-		{
-			"data1": {
-				"data2": "RESUME",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/resume"
-		},
-		{
-			"data1": {
-				"data2": "QUIT",
-				"type": "text"
-			},
-			"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/quit"
-		},
-		{
-			"data1": {
-				"data2": "OVERRIDE_TEXTURE_PATH",
-				"type": "image"
-			},
-			"path": "/root/Play/Game/kitchen_a/stopnpuke"
+			"example": [
+				{
+					"data1": {
+						"data2": "time-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/VBoxContainer/time"
+				},
+				{
+					"data1": {
+						"data2": "score-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/VBoxContainer/score"
+				},
+				{
+					"data1": {
+						"data2": "trashing-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/hud/trash_bar/Label"
+				},
+				{
+					"data1": {
+						"data2": "Results-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "Orders Finished-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+				},
+				{
+					"data1": {
+						"data2": "Order Accuracy-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+				},
+				{
+					"data1": {
+						"data2": "Total Score-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+				},
+				{
+					"data1": {
+						"data2": "Finish-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
+				},
+				{
+					"data1": {
+						"data2": "Play-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Play"
+				},
+				{
+					"data1": {
+						"data2": "Options-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Options"
+				},
+				{
+					"data1": {
+						"data2": "Extras-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Extras"
+				},
+				{
+					"data1": {
+						"data2": "Quit-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Main/Quit"
+				},
+				{
+					"data1": {
+						"data2": "OPTIONS-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "MUSIC VOL-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+				},
+				{
+					"data1": {
+						"data2": "SFX Vol-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+				},
+				{
+					"data1": {
+						"data2": "Swap A-B-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "Done-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+				},
+				{
+					"data1": {
+						"data2": "Help-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
+				},
+				{
+					"data1": {
+						"data2": "CUSTOMER-DEX-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
+				},
+				{
+					"data1": {
+						"data2": "CREDITS-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+				},
+				{
+					"data1": {
+						"data2": "RETURN-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
+				},
+				{
+					"data1": {
+						"data2": "CREDITS-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "Art, Sound, Design - Houndfall-EX\nArt, Programming, Design - lettucepie-EX\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
+				},
+				{
+					"data1": {
+						"data2": "Done-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+				},
+				{
+					"data1": {
+						"data2": "Pause-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/Label"
+				},
+				{
+					"data1": {
+						"data2": "RESUME-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/resume"
+				},
+				{
+					"data1": {
+						"data2": "QUIT-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Paused/Panel/VBoxContainer/quit"
+				},
+				{
+					"data1": {
+						"data2": "res://lang/example/Restaurant_stopnpuke_sign_example.png",
+						"type": "image"
+					},
+					"path": "/root/Play/Game/kitchen_a/stopnpuke"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"res://lang/example/order-scribble_bun1_example.png",
+								"res://lang/example/order-scribble_bun2_example.png",
+								"res://lang/example/order-scribble_bun3_example.png"
+							],
+							[
+								"res://lang/example/order-scribble_meat1_example.png",
+								"res://lang/example/order-scribble_meat2_example.png",
+								"res://lang/example/order-scribble_meat3_example.png"
+							]
+						],
+						"setter": [
+							[
+								"set_bun_scribbles"
+							],
+							[
+								"set_meat_scribbles"
+							]
+						],
+						"type": "image_host"
+					},
+					"path": "/root/Play/Game/hud"
+				}
+			]
 		}
 	]
 }

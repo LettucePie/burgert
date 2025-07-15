@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/Burgert_2.mp3" id="6_qxwcy"]
 [ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="7_m0cnl"]
 [ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="10_dvsmx"]
-[ext_resource type="PackedScene" uid="uid://302e8pwqbk7d" path="res://lang/multi_lang.tscn" id="12_78ged"]
+[ext_resource type="PackedScene" uid="uid://bve20nkqnnssv" path="res://lang/multi_lang.tscn" id="12_78ged"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -234,8 +234,7 @@ libraries = {
 autoplay = "intro_ramp"
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
-lang_master = "res://lang/lang_master.json"
-save_target_name = "lang_master_template"
+starting_lang = "example"
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]

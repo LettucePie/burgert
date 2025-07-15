@@ -18,6 +18,7 @@ splat_sounds = Array[AudioStreamWAV]([ExtResource("2_kexie"), ExtResource("3_ibu
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kexie")
+volume_db = -4.0
 bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://302e8pwqbk7d"]
+[gd_scene load_steps=2 format=3 uid="uid://bve20nkqnnssv"]
 
 [ext_resource type="Script" path="res://lang/multi_lang.gd" id="1_3p6a5"]
 
 [node name="MultiLang" type="Node"]
 script = ExtResource("1_3p6a5")
+lang_master = "res://lang/lang_master.json"
 save_target_dir = "res://lang"

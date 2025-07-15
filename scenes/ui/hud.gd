@@ -23,6 +23,55 @@ var timer : Timer = null
 
 @onready var trash_bar : TextureProgressBar = $trash_bar
 
+####
+#### Multi-Lang Texture Setters
+####
+func set_bun_scribbles(textures : Array):
+	bun_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			bun_scribbles.append(t)
+
+func set_meat_scribbles(textures : Array):
+	meat_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			meat_scribbles.append(t)
+
+func set_lettuce_scribbles(textures : Array):
+	lettuce_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			lettuce_scribbles.append(t)
+
+func set_tomato_scribbles(textures : Array):
+	tomato_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			tomato_scribbles.append(t)
+
+func set_cheese_scribbles(textures : Array):
+	cheese_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			cheese_scribbles.append(t)
+
+func set_ketchup_scribbles(textures : Array):
+	ketchup_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			ketchup_scribbles.append(t)
+
+func set_mustard_scribbles(textures : Array):
+	mustard_scribbles.clear()
+	for t in textures:
+		if t is Texture2D:
+			mustard_scribbles.append(t)
+
+####
+#### End Multi-Lang Texture Setters
+####
+
 func clear_order():
 	top_tear.reparent(self)
 	top_tear.hide()
