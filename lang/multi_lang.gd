@@ -47,14 +47,12 @@ func _build_template():
 			"data1" = [],
 		}
 		data0["path"] = image_node.get_path()
-		var data1 = {
-			"data2" = "OVERRIDE_TEXTURE",
+		data0["data1"] = {
+			"data2" = "OVERRIDE_TEXTURE_PATH",
 			"type" = "image",
 		}
-		if image_node is Sprite2D or image_node is TextureRect:
-			data1["data2"] = image_node.texture.load_path
-		data0["data1"] = data1
 		lang_code["data0"].append(data0)
+		
 	print(lang_code)
 	## Save
 	print("Writing to File... ", save_target_dir, "/", save_target_name)
@@ -62,4 +60,4 @@ func _build_template():
 	print(FileAccess.get_open_error())
 	var json_string = JSON.stringify(lang_code, "\t")
 	file.store_line(json_string)
-	print("Saved SETTINGS!")
+	print("Build Template Written")

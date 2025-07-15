@@ -234,7 +234,8 @@ libraries = {
 autoplay = "intro_ramp"
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
-build_template = true
+lang_master = "res://lang/lang_master.json"
+save_target_name = "lang_master_template"
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
