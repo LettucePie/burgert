@@ -56,6 +56,19 @@ func load_lang(target : String):
 					var node : Node = get_node(NodePath(n["path"]))
 					if n["data1"]["type"] == "text":
 						node.text = n["data1"]["data2"]
+					if n["data1"]["type"] == "image":
+						node.texture = load(n["data1"]["data2"])
+					if n["data1"]["type"] == "image_host":
+						for ix in n["data1"]["data2"].size():
+							var setter = n["data1"]["setter"][ix][0]
+							print(setter)
+							if node.has_method(setter):
+								print("ImageHost: ", node, " Has Method: ", setter)
+								var send = []
+								for block in n["data1"]["data2"]:
+									for res in block:
+										send.append(load(res))
+								node.call(setter, send)
 
 
 func _build_template():
