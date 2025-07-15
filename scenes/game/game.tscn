@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m6bxbm4udcdw" path="res://scenes/ui/results.tscn" id="8_40o0c"]
 
 [sub_resource type="Curve" id="Curve_qcuyr"]
-_data = [Vector2(0, 1), 0.0, -0.160609, 0, 1, Vector2(0.342105, 0.945055), -0.404112, -0.404112, 0, 0, Vector2(1, 0), -1.43648, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.42, 1), 0.0, -0.380512, 1, 0, Vector2(1, 0), -4.53206, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Animation" id="Animation_fnrwq"]

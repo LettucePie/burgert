@@ -154,16 +154,21 @@ func assess_submission():
 			correct_placements += 1
 	var burger_score : int = (correct_ingredients + correct_placements) - wrong_ingredients
 	var finish_time : float = current_order_start_time - $game_timer.time_left
-	var deadline : float = 6 + (current_order.size() * 1.5)
+	var deadline : float = 6 + (current_order.size() * 1.33)
 	var time_performance = inverse_lerp(0, deadline, finish_time)
 	var time_percent = order_point_time_curve.sample(time_performance)
-	var time_score := int((current_order.size() - wrong_ingredients) * time_percent)
+	var time_score := roundf((current_order.size() - wrong_ingredients) * time_percent)
+	var satisfaction_percent : float = float(time_score) / float(current_order.size())
 	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
 	"\ncorrect_placements: ", correct_placements,
+	"\nfinish_time: ", finish_time,
+	"\ndeadline: ", deadline,
 	"\ntime_performance: ", time_performance,
+	"\ntime_percent: ", time_percent,
 	"\ntime_score: ", time_score,
 	"\nburger_score: ", burger_score,
-	"\nsubmission_total: ", burger_score + time_score)
+	"\nsubmission_total: ", burger_score + time_score,
+	"\nsatisfaction_percent: ", satisfaction_percent)
 	submission_total = burger_score + time_score
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
