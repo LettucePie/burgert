@@ -41,7 +41,7 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mus_vol" type="HBoxContainer" parent="Panel/VBoxContainer" node_paths=PackedStringArray("slider", "label", "marker")]
+[node name="mus_vol" type="HBoxContainer" parent="Panel/VBoxContainer" node_paths=PackedStringArray("slider", "label", "marker") groups=["splat"]]
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
@@ -76,7 +76,7 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mus_marker" type="ColorRect" parent="Panel/VBoxContainer"]
+[node name="mus_marker" type="ColorRect" parent="Panel/VBoxContainer" groups=["splat"]]
 visible = false
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
@@ -123,7 +123,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(0.67451, 0.196078, 0.196078, 1)
 
-[node name="swap_confirm" type="CheckButton" parent="Panel/VBoxContainer" groups=["lang_text"]]
+[node name="swap_confirm" type="CheckButton" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
@@ -133,7 +133,7 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../finished")
 text = "Swap A-B"
 
-[node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
+[node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")

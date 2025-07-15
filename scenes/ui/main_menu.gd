@@ -8,6 +8,7 @@ signal update_mus_vol(new_val)
 signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
+@onready var menu_flair : MenuFlair = $MenuFlair
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, EXTRAS, HELP, DEX, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN

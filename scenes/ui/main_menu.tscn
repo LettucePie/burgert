@@ -100,9 +100,8 @@ texture = ExtResource("4_oua5h")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.779972, 0.459367, 0.425, -0.537899, 0.839194, 0.0801133, -0.319856, -0.291093, 0.901641, 0, 0, 1.09039)
 
-[node name="MenuFlair" type="Node" parent="." node_paths=PackedStringArray("splat_buttons")]
+[node name="MenuFlair" type="Node" parent="."]
 script = ExtResource("5_eqawj")
-splat_buttons = [NodePath("../Main/Play"), NodePath("../Main/Options"), NodePath("../Main/Extras"), NodePath("../Main/Quit"), NodePath("../Options/Panel/VBoxContainer/swap_confirm"), NodePath("../Options/Panel/VBoxContainer/finished"), NodePath("../Options/Panel/VBoxContainer/mus_vol"), NodePath("../Options/Panel/VBoxContainer/sfx_vol"), NodePath("../Extras/Panel/VBoxContainer/button_row/howto"), NodePath("../Extras/Panel/VBoxContainer/button_row2/dex"), NodePath("../Extras/Panel/VBoxContainer/button_row3/credits"), NodePath("../Extras/Panel/VBoxContainer/finish")]
 splat_vfx = ExtResource("6_a85yp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -121,14 +120,6 @@ offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Play" parent="Main" index="0" groups=["lang_text"]]
-
-[node name="Options" parent="Main" index="1" groups=["lang_text"]]
-
-[node name="Extras" parent="Main" index="2" groups=["lang_text"]]
-
-[node name="Quit" parent="Main" index="3" groups=["lang_text"]]
 
 [node name="Title" type="TextureRect" parent="Main"]
 texture_filter = 1
@@ -152,7 +143,7 @@ offset_bottom = 480.0
 [node name="mus_vol" parent="Options/Panel/VBoxContainer" index="1" node_paths=PackedStringArray("label")]
 label = NodePath("value")
 
-[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" node_paths=PackedStringArray("label")]
+[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" node_paths=PackedStringArray("label") groups=["splat"]]
 label = NodePath("value")
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
@@ -187,7 +178,6 @@ third-party assets
 kenney-nl fontss"
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
-visible = false
 layout_mode = 1
 offset_top = -480.0
 offset_right = 640.0

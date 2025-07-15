@@ -33,6 +33,7 @@ import/blender/enabled=false
 lang_text=""
 lang_image=""
 lang_image_array=""
+splat=""
 
 [gui]
 

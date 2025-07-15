@@ -1,15 +1,19 @@
 extends Node
 class_name MenuFlair
 
-@export var splat_buttons : Array[Control]
-
 @export var splat_vfx : PackedScene
 
 var last_button_splattered : Control = null
 
 func _ready():
+	var splat_buttons = get_tree().get_nodes_in_group("splat")
 	for sb in splat_buttons:
 		sb.focus_entered.connect(splat_button_focused.bind(sb))
+		sb.mouse_entered.connect(mouse_focus.bind(sb))
+
+
+func mouse_focus(control : Control):
+	control.grab_focus()
 
 
 func splat_button_focused(control : Control):
