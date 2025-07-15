@@ -25,6 +25,7 @@ func _ready():
 	load_lang(starting_lang)
 
 
+## The ugliest brick of code you will ever see
 func load_lang(target : String):
 	if supported_languages.has(target) and current_lang != target:
 		print("Loading target language: ", target)
@@ -65,9 +66,9 @@ func load_lang(target : String):
 							if node.has_method(setter):
 								print("ImageHost: ", node, " Has Method: ", setter)
 								var send = []
-								for block in n["data1"]["data2"]:
-									for res in block:
-										send.append(load(res))
+								for res in n["data1"]["data2"][ix]:
+									print(ix, " | ", res)
+									send.append(load(res))
 								node.call(setter, send)
 
 
