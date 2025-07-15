@@ -30,7 +30,7 @@ var current_order_start_time : float = 0
 
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("menu"):
+	if Input.is_action_just_pressed("menu") and game_started:
 		print("PAUSE")
 		emit_signal("game_paused")
 	if Input.is_action_just_pressed("special1") and game_started:
@@ -226,7 +226,8 @@ func _on_kitchen_a_customer_left():
 
 
 func _on_hud_gui_pause():
-	emit_signal("game_paused")
+	if game_started:
+		emit_signal("game_paused")
 
 
 func _on_chef_trashing_start() -> void:
