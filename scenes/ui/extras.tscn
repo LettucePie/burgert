@@ -45,7 +45,7 @@ size_flags_stretch_ratio = 0.3
 texture = ExtResource("1_wiy28")
 stretch_mode = 5
 
-[node name="howto" type="Button" parent="Panel/VBoxContainer/button_row"]
+[node name="howto" type="Button" parent="Panel/VBoxContainer/button_row" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../../finish")
@@ -67,7 +67,7 @@ size_flags_stretch_ratio = 0.3
 texture = ExtResource("2_bijk8")
 stretch_mode = 5
 
-[node name="dex" type="Button" parent="Panel/VBoxContainer/button_row2"]
+[node name="dex" type="Button" parent="Panel/VBoxContainer/button_row2" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../../button_row/howto")
@@ -89,7 +89,7 @@ size_flags_stretch_ratio = 0.3
 texture = ExtResource("3_p2lnp")
 stretch_mode = 5
 
-[node name="credits" type="Button" parent="Panel/VBoxContainer/button_row3"]
+[node name="credits" type="Button" parent="Panel/VBoxContainer/button_row3" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../../button_row2/dex")
@@ -100,7 +100,7 @@ focus_next = NodePath("../../finish")
 focus_previous = NodePath("../../button_row2/dex")
 text = "CREDITS"
 
-[node name="finish" type="Button" parent="Panel/VBoxContainer"]
+[node name="finish" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../button_row3/credits")

@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://duv4r7hqlyjvq" path="res://assets/images/ui/trashing_bar_outline.png" id="31_e2bgx"]
 [ext_resource type="Texture2D" uid="uid://bvrdf2pd0d14p" path="res://assets/images/ui/trashing_bar_fill.png" id="32_1x083"]
 
-[node name="hud" type="Control" groups=["lang_image"]]
+[node name="hud" type="Control" groups=["lang_image_array"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

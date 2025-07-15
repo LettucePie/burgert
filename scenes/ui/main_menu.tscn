@@ -122,6 +122,14 @@ offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="Play" parent="Main" index="0" groups=["lang_text"]]
+
+[node name="Options" parent="Main" index="1" groups=["lang_text"]]
+
+[node name="Extras" parent="Main" index="2" groups=["lang_text"]]
+
+[node name="Quit" parent="Main" index="3" groups=["lang_text"]]
+
 [node name="Title" type="TextureRect" parent="Main"]
 texture_filter = 1
 layout_mode = 1

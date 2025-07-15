@@ -38,14 +38,14 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 size_flags_vertical = 6
 text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 text = "Art, Sound, Design - Houndfall
 Art, Programming, Design - lettucepie
@@ -62,7 +62,7 @@ label_settings = SubResource("LabelSettings_6dlio")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="finished" type="Button" parent="Panel/VBoxContainer"]
+[node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")

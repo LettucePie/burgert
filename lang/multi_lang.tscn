@@ -4,3 +4,4 @@
 
 [node name="MultiLang" type="Node"]
 script = ExtResource("1_3p6a5")
+save_target_dir = "res://lang"

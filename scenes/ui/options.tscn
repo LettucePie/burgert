@@ -34,7 +34,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 size_flags_vertical = 6
 text = "OPTIONS"
@@ -54,7 +54,7 @@ slider = NodePath("HSlider")
 label = NodePath("Label")
 marker = NodePath("../mus_marker")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/mus_vol"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/mus_vol" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
@@ -95,7 +95,7 @@ slider = NodePath("HSlider")
 label = NodePath("Label")
 marker = NodePath("../sfx_marker")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/sfx_vol"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/sfx_vol" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
@@ -123,7 +123,7 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(0.67451, 0.196078, 0.196078, 1)
 
-[node name="swap_confirm" type="CheckButton" parent="Panel/VBoxContainer"]
+[node name="swap_confirm" type="CheckButton" parent="Panel/VBoxContainer" groups=["lang_text"]]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
@@ -133,7 +133,7 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../finished")
 text = "Swap A-B"
 
-[node name="finished" type="Button" parent="Panel/VBoxContainer"]
+[node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
