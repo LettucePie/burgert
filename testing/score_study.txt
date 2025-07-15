@@ -94,7 +94,7 @@ Bun, Meat, Lettuce, Bun Top,
 
 Current_Customer New Order
 
-## TRYING TO DO THIS WRONG
+## TRYING TO DO THIS WRONG AND FAST
 
 ["Bun", "Meat", "Lettuce", "Bun Top"]
 TODO replace with throw-away burger anim + function
