@@ -22,19 +22,10 @@ func populate_list(languages : PackedStringArray, callback : Callable):
 			lo.queue_free()
 	language_options.clear()
 	var idx : int = 0
-	#for l in languages:
-		#var new_entry : Button = entry_original.duplicate()
-		#new_entry.name = str(idx)
-		#new_entry.text = l
-		#new_entry.pressed.connect(callback.bind(idx))
-		#new_entry.pressed.connect(language_selected)
-		#language_options.append(new_entry)
-		#directory.add_child(new_entry)
-		#idx += 1
-	for i in 10:
+	for l in languages:
 		var new_entry : Button = entry_original.duplicate()
 		new_entry.name = str(idx)
-		new_entry.text = "TEST"
+		new_entry.text = l
 		new_entry.pressed.connect(callback.bind(idx))
 		new_entry.pressed.connect(language_selected)
 		language_options.append(new_entry)
