@@ -8,6 +8,10 @@ class_name MultiLang
 	"eng",
 	"example",
 ]
+@export var supported_languages_named : PackedStringArray = [
+	"English",
+	"English-EX"
+]
 @export_file("*.json") var lang_master
 @export_dir var save_target_dir
 @export var save_target_name : String = "lang_master_template"
@@ -24,6 +28,19 @@ func _ready():
 	if build_template:
 		_build_template()
 	load_lang(starting_lang)
+
+
+func introduce_language_control(dropdown : OptionButton):
+	print("Connecting dropdown button: ", dropdown, " to Multi-Lang")
+	dropdown.clear()
+	for i in supported_languages_named.size():
+		dropdown.add_item(supported_languages_named[i], i)
+	dropdown.connect("item_selected", _on_set_lang_item_selected)
+
+
+func _on_set_lang_item_selected(idx : int):
+	print("Multi-Lang recieved request to switch language to ", supported_languages_named[idx])
+	load_lang(supported_languages[idx])
 
 
 ## The ugliest brick of code you will ever see

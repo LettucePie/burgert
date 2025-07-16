@@ -5,6 +5,7 @@ class_name Play
 @export var game_scene : Game
 @export var main_menu : MainMenu
 @export var music : Music
+@export var multi_lang : MultiLang
 ##-----------
 @export var audio_bus : AudioBusLayout
 @export var container_scene : PackedScene
@@ -125,6 +126,9 @@ func _clear_joypad_inputs():
 func _ready():
 	get_tree().paused = true
 	game_scene.stop_game()
+	multi_lang.introduce_language_control(
+		main_menu.get_node("Options/Panel/VBoxContainer/set_lang")
+	)
 	if FileAccess.file_exists("user://settings.json"):
 		_load_settings()
 	else:

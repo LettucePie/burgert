@@ -204,12 +204,13 @@ _data = {
 "start_play": SubResource("Animation_occq5")
 }
 
-[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music")]
+[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang")]
 process_mode = 3
 script = ExtResource("1_j8n80")
 game_scene = NodePath("Game")
 main_menu = NodePath("MainMenu")
 music = NodePath("Music")
+multi_lang = NodePath("MultiLang")
 audio_bus = ExtResource("2_tutvg")
 container_scene = ExtResource("3_7qtb8")
 
@@ -234,8 +235,6 @@ libraries = {
 autoplay = "intro_ramp"
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
-build_template = true
-starting_lang = "example"
 
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]

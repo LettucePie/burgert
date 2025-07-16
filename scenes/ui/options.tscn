@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
 
 [node name="Options" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,18 +128,27 @@ color = Color(0.67451, 0.196078, 0.196078, 1)
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_left = NodePath(".")
+focus_neighbor_left = NodePath("../sfx_vol")
 focus_neighbor_top = NodePath("../sfx_vol")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../finished")
+focus_neighbor_right = NodePath("../set_lang")
+focus_neighbor_bottom = NodePath("../set_lang")
 text = "Swap A-B"
+
+[node name="set_lang" type="OptionButton" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../swap_confirm")
+focus_neighbor_top = NodePath("../swap_confirm")
+focus_neighbor_right = NodePath("../finished")
+focus_neighbor_bottom = NodePath("../finished")
+item_count = 1
 
 [node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../swap_confirm")
-focus_neighbor_right = NodePath(".")
+focus_neighbor_left = NodePath("../set_lang")
+focus_neighbor_top = NodePath("../set_lang")
+focus_neighbor_right = NodePath("../mus_vol")
 focus_neighbor_bottom = NodePath("../mus_vol")
 text = "Done"
 
