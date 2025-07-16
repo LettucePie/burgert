@@ -192,6 +192,7 @@ offset_right = 640.0
 [connection signal="pressed" from="Main/Options" to="." method="main_button_event" binds= ["options"]]
 [connection signal="pressed" from="Main/Extras" to="." method="main_button_event" binds= ["extras"]]
 [connection signal="pressed" from="Main/Quit" to="." method="main_button_event" binds= ["quit"]]
+[connection signal="containered_lang_selection" from="Options" to="." method="_on_options_containered_lang_selection"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dliaynw0s7s52"]
+[gd_scene load_steps=3 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
+[ext_resource type="Script" path="res://scenes/ui/options.gd" id="1_2g6bh"]
 
 [node name="Options" type="Control"]
 texture_filter = 1
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2g6bh")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -158,3 +160,4 @@ text = "Done"
 [connection signal="focus_entered" from="Panel/VBoxContainer/sfx_vol" to="Panel/VBoxContainer/sfx_vol" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Panel/VBoxContainer/sfx_vol" to="Panel/VBoxContainer/sfx_vol" method="_on_focus_exited"]
 [connection signal="drag_ended" from="Panel/VBoxContainer/sfx_vol/HSlider" to="Panel/VBoxContainer/sfx_vol" method="_on_volslider_drag_ended" binds= ["sfx"]]
+[connection signal="pressed" from="Panel/VBoxContainer/set_lang" to="." method="_on_set_lang_pressed"]

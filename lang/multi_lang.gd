@@ -36,6 +36,12 @@ func introduce_language_control(dropdown : OptionButton):
 	for i in supported_languages_named.size():
 		dropdown.add_item(supported_languages_named[i], i)
 	dropdown.connect("item_selected", _on_set_lang_item_selected)
+	dropdown.connect("item_focused", _on_containered_selection)
+
+
+func _on_containered_selection(idx : int):
+	if get_window().get_child(0) is GameContainer:
+		_on_set_lang_item_selected(idx)
 
 
 func _on_set_lang_item_selected(idx : int):
