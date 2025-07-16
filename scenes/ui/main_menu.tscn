@@ -152,18 +152,16 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 480.0
 offset_right = 640.0
-offset_bottom = 960.0
+offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
-visible = false
 layout_mode = 1
-offset_left = 640.0
-offset_right = 1280.0
-offset_bottom = 480.0
+offset_top = 480.0
+offset_right = 640.0
+offset_bottom = 960.0
 
 [node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
 text = "Art, Sound, Design - Houndfall
@@ -179,15 +177,15 @@ third-party assets
 kenney-nl fontss"
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
-visible = false
 layout_mode = 1
 offset_top = -480.0
 offset_right = 640.0
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
+visible = false
 layout_mode = 1
+offset_top = -480.0
 offset_right = 640.0
-offset_bottom = 480.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Main/Play" to="." method="main_button_event" binds= ["play"]]
