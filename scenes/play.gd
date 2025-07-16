@@ -126,7 +126,6 @@ func _clear_joypad_inputs():
 func _ready():
 	get_tree().paused = true
 	game_scene.stop_game()
-	multi_lang.introduce_language_selector(main_menu.language_selector)
 	if FileAccess.file_exists("user://settings.json"):
 		_load_settings()
 	else:
@@ -137,6 +136,7 @@ func _ready():
 		var container : GameContainer = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
+	multi_lang.call_deferred("introduce_language_selector", main_menu.language_selector)
 
 
 func _process(delta):
