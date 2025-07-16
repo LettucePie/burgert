@@ -49,6 +49,8 @@ func populate_list(languages : PackedStringArray, callback : Callable):
 			var next_lo : Button = language_options[next_index]
 			lo.set_focus_neighbor(SIDE_TOP, prev_lo.get_path())
 			lo.set_focus_neighbor(SIDE_BOTTOM, next_lo.get_path())
+			lo.set_focus_neighbor(SIDE_LEFT, self.get_path())
+			lo.set_focus_neighbor(SIDE_RIGHT, self.get_path())
 
 
 func language_selected():
