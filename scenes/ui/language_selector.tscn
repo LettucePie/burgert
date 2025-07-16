@@ -39,6 +39,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
+follow_focus = true
+horizontal_scroll_mode = 0
 
 [node name="Directory" type="VBoxContainer" parent="Panel/H1/Scroll"]
 layout_mode = 2
@@ -81,5 +83,11 @@ texture_disabled = ExtResource("2_2aycm")
 texture_focused = ExtResource("2_2aycm")
 stretch_mode = 5
 
+[node name="pad2" type="Control" parent="Panel/H1/TouchButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.29
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/H1/TouchButtons/scrollup" to="." method="_on_scroll_pressed" binds= [-1]]
 [connection signal="pressed" from="Panel/H1/TouchButtons/scrolldown" to="." method="_on_scroll_pressed" binds= [1]]

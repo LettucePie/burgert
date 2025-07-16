@@ -3,6 +3,7 @@ class_name LanguageSelector
 
 signal language_selector_finished()
 
+@onready var scroll : ScrollContainer = $Panel/H1/Scroll
 @export var directory : Control
 @export var touch_interface : Control
 @export var entry_original : Button
@@ -21,10 +22,19 @@ func populate_list(languages : PackedStringArray, callback : Callable):
 			lo.queue_free()
 	language_options.clear()
 	var idx : int = 0
-	for l in languages:
+	#for l in languages:
+		#var new_entry : Button = entry_original.duplicate()
+		#new_entry.name = str(idx)
+		#new_entry.text = l
+		#new_entry.pressed.connect(callback.bind(idx))
+		#new_entry.pressed.connect(language_selected)
+		#language_options.append(new_entry)
+		#directory.add_child(new_entry)
+		#idx += 1
+	for i in 10:
 		var new_entry : Button = entry_original.duplicate()
 		new_entry.name = str(idx)
-		new_entry.text = l
+		new_entry.text = "TEST"
 		new_entry.pressed.connect(callback.bind(idx))
 		new_entry.pressed.connect(language_selected)
 		language_options.append(new_entry)
@@ -48,6 +58,7 @@ func language_selected():
 func focus_top():
 	print("Focusing on First Entry in Language Options")
 	language_options.front().grab_focus()
+	scroll.scroll_vertical = 0
 
 
 func _on_visibility_changed() -> void:
@@ -59,3 +70,4 @@ func _on_visibility_changed() -> void:
 
 func _on_scroll_pressed(dir: int) -> void:
 	print("Scroll Button Pressed: ", dir)
+	scroll.scroll_vertical += 24 * dir
