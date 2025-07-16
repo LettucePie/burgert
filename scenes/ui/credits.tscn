@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://chbckskdwg1q5"]
+[gd_scene load_steps=2 format=3 uid="uid://chbckskdwg1q5"]
 
-[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="1_s6yr2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6dlio"]
-font = ExtResource("1_s6yr2")
-shadow_color = Color(0.0313726, 0.0313726, 0.0313726, 0.333333)
+[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://scenes/ui/smaller_label.tres" id="1_bikxg"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -58,7 +54,7 @@ LMMS
 
 third-party assets
 kenney-nl fonts"
-label_settings = SubResource("LabelSettings_6dlio")
+label_settings = ExtResource("1_bikxg")
 horizontal_alignment = 1
 vertical_alignment = 1
 

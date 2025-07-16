@@ -1,6 +1,14 @@
 extends Control
 class_name Help
 
+@onready var title : Label = $InfoPanel/VBoxContainer/title
+@onready var page : Label = $InfoPanel/VBoxContainer/page
+
+@onready var controls : Control = $Controls
+@onready var close_but : Button = $Controls/close
+@onready var next_but : Button = $Controls/next
+@onready var prev_but : Button = $Controls/prev
+
 @export var titles : PackedStringArray = [
 	"Goal",
 	"Controls",
@@ -28,6 +36,8 @@ class_name Help
 	you may lose points."
 ]
 
+var current_page : int = 0
+
 ####
 #### Mutli-Lang Help Setters
 ####
@@ -47,11 +57,50 @@ func set_pages(strings : Array):
 #### End Multi-Lang Help Setters
 ####
 
-# Called when the node enters the scene tree for the first time.
+func start_page():
+	current_page = 0
+	_load_page(0)
+
+
+func _load_page(num : int):
+	current_page = num
+	title.text = titles[current_page]
+	page.text = pages[current_page]
+	close_but.hide()
+	prev_but.show()
+	next_but.show()
+	if current_page <= 0:
+		close_but.show()
+		controls.move_child(close_but, 0)
+		prev_but.hide()
+		next_but.show()
+		controls.move_child(next_but, 1)
+		next_but.grab_focus()
+	if current_page > 0 and current_page < titles.size() - 1:
+		close_but.hide()
+		controls.move_child(close_but,3)
+		prev_but.show()
+		controls.move_child(prev_but,0)
+		next_but.show()
+		controls.move_child(next_but, 1)
+		controls.move_child(close_but, 2)
+	if current_page == titles.size() - 1:
+		next_but.hide()
+		controls.move_child(next_but, 3)
+		close_but.show()
+		prev_but.show()
+		controls.move_child(prev_but, 0)
+		controls.move_child(close_but, 1)
+		controls.move_child(next_but, 2)
+		prev_but.grab_focus()
+
+
+func _turn_page(dir : int):
+	print("Turning Page: ", dir)
+	if current_page + dir < titles.size() \
+	and current_page + dir >= 0:
+		_load_page(current_page + dir)
+
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	start_page()

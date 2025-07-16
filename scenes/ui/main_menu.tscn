@@ -117,7 +117,7 @@ layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 640.0
+offset_left = -640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -152,9 +152,9 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 640.0
-offset_right = 1280.0
-offset_bottom = 480.0
+offset_top = 480.0
+offset_right = 640.0
+offset_bottom = 960.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -179,13 +179,15 @@ third-party assets
 kenney-nl fontss"
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
+visible = false
 layout_mode = 1
 offset_top = -480.0
 offset_right = 640.0
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
-visible = false
 layout_mode = 1
+offset_right = 640.0
+offset_bottom = 480.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Main/Play" to="." method="main_button_event" binds= ["play"]]
@@ -203,6 +205,7 @@ layout_mode = 1
 [connection signal="pressed" from="Credits/Panel/VBoxContainer/finished" to="." method="credit_button_event" binds= ["credits_done"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
+[connection signal="pressed" from="Help/Controls/close" to="." method="help_button_event" binds= ["close_help"]]
 
 [editable path="SubViewport/Node3D/title_sign"]
 [editable path="Main"]
@@ -210,3 +213,4 @@ layout_mode = 1
 [editable path="Extras"]
 [editable path="Credits"]
 [editable path="Paused"]
+[editable path="Help"]

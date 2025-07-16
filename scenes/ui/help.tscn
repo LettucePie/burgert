@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0ugadc4ilb6n"]
+[gd_scene load_steps=3 format=3 uid="uid://d0ugadc4ilb6n"]
 
 [ext_resource type="Script" path="res://scenes/ui/help.gd" id="1_ik1ax"]
+[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://scenes/ui/smaller_label.tres" id="2_t1yeq"]
 
-[node name="help" type="Control" groups=["lang_text_array"]]
+[node name="Help" type="Control" groups=["lang_text_array"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -44,7 +45,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Title"
+label_settings = ExtResource("2_t1yeq")
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Controls" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -57,18 +60,39 @@ offset_top = 0.159973
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="close" type="Button" parent="Controls"]
-visible = false
+[node name="close" type="Button" parent="Controls" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../prev")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../next")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../next")
+focus_previous = NodePath("../prev")
 text = "Close"
 
 [node name="prev" type="Button" parent="Controls" groups=["lang_text"]]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../close")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../next")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../next")
+focus_previous = NodePath("../close")
 text = "Previous"
 
 [node name="next" type="Button" parent="Controls" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../prev")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../close")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath("../close")
+focus_previous = NodePath("../prev")
 text = "Next"
+
+[connection signal="pressed" from="Controls/prev" to="." method="_turn_page" binds= [-1]]
+[connection signal="pressed" from="Controls/next" to="." method="_turn_page" binds= [1]]

@@ -8,6 +8,7 @@ signal update_mus_vol(new_val)
 signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
+@onready var help : Help = $Help
 @onready var menu_flair : MenuFlair = $MenuFlair
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, EXTRAS, HELP, DEX, CREDITS, PAUSE}
@@ -52,8 +53,11 @@ func option_button_event(but):
 
 func extras_button_event(but):
 	print("Button Pressed: ", but)
-	if but == "howto":
-		pass
+	if but == "howto" and current_screen == SCREENS.EXTRAS:
+		anim.play("help_open")
+		current_screen = SCREENS.HELP
+		$Help/Controls/next.grab_focus()
+		help.start_page()
 	if but == "dex":
 		pass
 	if but == "credits" and current_screen == SCREENS.EXTRAS:
@@ -64,6 +68,14 @@ func extras_button_event(but):
 		anim.play("extras_close")
 		current_screen = SCREENS.MAIN
 		$Main/Extras.grab_focus()
+
+
+func help_button_event(but):
+	print("Button Pressed: ", but)
+	if but == "close_help" and current_screen == SCREENS.HELP:
+		anim.play("help_close")
+		current_screen = SCREENS.EXTRAS
+		$Extras/Panel/VBoxContainer/button_row/howto.grab_focus()
 
 
 func credit_button_event(but):
