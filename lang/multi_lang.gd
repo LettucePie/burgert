@@ -15,6 +15,7 @@ class_name MultiLang
 @onready var lang_image_nodes : Array = get_tree().get_nodes_in_group("lang_image")
 @onready var lang_image_hosts : Array = get_tree().get_nodes_in_group("lang_image_array")
 @onready var lang_text_nodes : Array = get_tree().get_nodes_in_group("lang_text")
+@onready var lang_text_hosts : Array = get_tree().get_nodes_in_group("lang_text_array")
 
 @export var starting_lang : String = "eng"
 var current_lang : String = "eng"
@@ -70,6 +71,14 @@ func load_lang(target : String):
 									print(ix, " | ", res)
 									send.append(load(res))
 								node.call(setter, send)
+					if n["data1"]["type"] == "text_host":
+						for ix in n["data1"]["data2"].size():
+							var setter = n["data1"]["setter"][ix][0]
+							print(setter)
+							if node.has_method(setter):
+								print("TextHost: ", node, " Has Method: ", setter)
+								var send = n["data1"]["data2"][ix]
+								node.call(setter, send)
 
 
 func _build_template():
@@ -115,6 +124,27 @@ func _build_template():
 				["..."],
 			],
 			"type" = "image_host",
+			"setter" = [
+				["OVERRIDE_SETTER_METHOD"],
+				["OVERRIDE_SETTER_METHOD"],
+				["..."],
+			]
+		}
+		lang_code["eng"].append(data0)
+	
+	for text_host in lang_text_hosts:
+		var data0 = {
+			"path" = "",
+			"data1" = []
+		}
+		data0["path"] = text_host.get_path()
+		data0["data1"] ={
+			"data2" = [
+				["OVERRIDE_MULTIPLE_STRINGS"],
+				["OVERRIDE_MULTIPLE_STRINGS"],
+				["..."],
+			],
+			"type" = "text_host",
 			"setter" = [
 				["OVERRIDE_SETTER_METHOD"],
 				["OVERRIDE_SETTER_METHOD"],

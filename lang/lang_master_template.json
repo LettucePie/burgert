@@ -193,6 +193,20 @@
 				},
 				{
 					"data1": {
+						"data2": "Previous",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/prev"
+				},
+				{
+					"data1": {
+						"data2": "Next",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/next"
+				},
+				{
+					"data1": {
 						"data2": "OVERRIDE_TEXTURE_PATH",
 						"type": "image"
 					},
@@ -225,6 +239,34 @@
 						"type": "image_host"
 					},
 					"path": "/root/Play/Game/hud"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Help"
 				}
 			]
 		}

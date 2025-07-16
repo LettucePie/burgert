@@ -223,6 +223,36 @@
 						"type": "image_host"
 					},
 					"path": "/root/Play/Game/hud"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"Goal",
+								"Controls",
+								"Making The Order",
+								"Submitting The Order",
+								"Scoring Points"
+							],
+							[
+								"Make the orders for the Customers as quick and accurate as you can. Then throw them their meal and start up the next order. You get 2 minutes!",
+								"Movement - Left and Right\nGrab Ingredients - A (Z on Keyboard)\nRestart - Hold B (X on Keyboard)\nCheck the Order Receipt - Y (C on Keyboard)\nSubmit Order Mode - Up",
+								"Start by Checking the Order or just use the model in the thought cloud. Then simply gather the ingredients in that order and send it away. Customers have preferred orders, so you can develop a pattern over time.",
+								"You cannot submit an order until it has the same amount of Ingredients as what the customer is ordering. Once that's set you enter \"Throwing Mode\" with the Submit button. Then when the reticle is over the customer press the submit button again or the primary Confirm button.",
+								"Points are calculated by how many of the desired Ingredients are on the order, as well as how they are sequenced. Then that score is scaled by how long it took to submit it. Send an order that's completely wrong, and you may lose points."
+							]
+						],
+						"setter": [
+							[
+								"set_titles"
+							],
+							[
+								"set_pages"
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Help"
 				}
 			]
 		},
@@ -449,6 +479,36 @@
 						"type": "image_host"
 					},
 					"path": "/root/Play/Game/hud"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"Goal-EX",
+								"Controls-EX",
+								"Making The Order-EX",
+								"Submitting The Order-EX",
+								"Scoring Points-EX"
+							],
+							[
+								"Make the orders-EX for the Customers as quick and accurate as you can. Then throw them their meal and start up the next order. You get 2 minutes!",
+								"Movement - Left and Right\nGrab Ingredients - A (Z on Keyboard)\nRestart - Hold B (X on Keyboard)\nCheck the Order-EX Receipt - Y (C on Keyboard)\nSubmit Order Mode - Up",
+								"Start by Checking the Order-EX or just use the model in the thought cloud. Then simply gather the ingredients in that order and send it away. Customers have preferred orders, so you can develop a pattern over time.",
+								"You cannot submit an order-EX until it has the same amount of Ingredients as what the customer is ordering. Once that's set you enter \"Throwing Mode\" with the Submit button. Then when the reticle is over the customer press the submit button again or the primary Confirm button.",
+								"Points are calculated by how many of the desired Ingredients are on the order-EX, as well as how they are sequenced. Then that score is scaled by how long it took to submit it. Send an order that's completely wrong, and you may lose points."
+							]
+						],
+						"setter": [
+							[
+								"set_titles"
+							],
+							[
+								"set_pages"
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Help"
 				}
 			]
 		}

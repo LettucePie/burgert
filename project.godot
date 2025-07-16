@@ -34,6 +34,7 @@ lang_text=""
 lang_image=""
 lang_image_array=""
 splat=""
+lang_text_array=""
 
 [gui]
 
