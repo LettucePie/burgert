@@ -30,6 +30,10 @@ func _ready():
 	load_lang(starting_lang)
 
 
+func _process(delta : float):
+	pass
+
+
 func introduce_language_selector(selector : LanguageSelector):
 	print("Connecting Language Selector: ", selector, " to Multi-Lang")
 	selector.populate_list(supported_languages_named, _on_language_selector_lang_selected)
@@ -69,7 +73,12 @@ func load_lang(target : String):
 					print("\n", n["path"])
 					print(n["data1"]["type"])
 					print(n["data1"]["data2"])
-					var node : Node = get_node(NodePath(n["path"]))
+					var path = n["path"]
+					if get_window().get_child(0) is GameContainer:
+						path = path.lstrip("/root")
+						path = "/root/GameContainer/GameWorldPort/" + path
+						print("Containered_Path: ", path)
+					var node : Node = get_node(NodePath(path))
 					if n["data1"]["type"] == "text":
 						node.text = n["data1"]["data2"]
 					if n["data1"]["type"] == "image":
