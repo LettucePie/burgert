@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=20 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
+[ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
 
 [sub_resource type="Animation" id="Animation_crl3l"]
 length = 0.001
@@ -117,7 +118,7 @@ layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -640.0
+offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -152,16 +153,18 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 640.0
+offset_left = 640.0
+offset_right = 1280.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
+visible = false
 layout_mode = 1
-offset_top = 480.0
-offset_right = 640.0
-offset_bottom = 960.0
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 480.0
 
 [node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
 text = "Art, Sound, Design - Houndfall
@@ -177,6 +180,7 @@ third-party assets
 kenney-nl fontss"
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
+visible = false
 layout_mode = 1
 offset_top = -480.0
 offset_right = 640.0
@@ -187,15 +191,21 @@ layout_mode = 1
 offset_top = -480.0
 offset_right = 640.0
 
+[node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
+visible = false
+layout_mode = 1
+offset_left = -640.0
+offset_bottom = 480.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Main/Play" to="." method="main_button_event" binds= ["play"]]
 [connection signal="pressed" from="Main/Options" to="." method="main_button_event" binds= ["options"]]
 [connection signal="pressed" from="Main/Extras" to="." method="main_button_event" binds= ["extras"]]
 [connection signal="pressed" from="Main/Quit" to="." method="main_button_event" binds= ["quit"]]
-[connection signal="containered_lang_selection" from="Options" to="." method="_on_options_containered_lang_selection"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
+[connection signal="pressed" from="Options/Panel/VBoxContainer/set_lang" to="." method="option_button_event" binds= ["lang_select"]]
 [connection signal="pressed" from="Options/Panel/VBoxContainer/finished" to="." method="option_button_event" binds= ["options_done"]]
 [connection signal="pressed" from="Extras/Panel/VBoxContainer/button_row/howto" to="." method="extras_button_event" binds= ["howto"]]
 [connection signal="pressed" from="Extras/Panel/VBoxContainer/button_row2/dex" to="." method="extras_button_event" binds= ["dex"]]
@@ -205,6 +215,7 @@ offset_right = 640.0
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="pressed" from="Help/Controls/close" to="." method="help_button_event" binds= ["close_help"]]
+[connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 
 [editable path="SubViewport/Node3D/title_sign"]
 [editable path="Main"]
@@ -213,3 +224,4 @@ offset_right = 640.0
 [editable path="Credits"]
 [editable path="Paused"]
 [editable path="Help"]
+[editable path="LanguageSelector"]

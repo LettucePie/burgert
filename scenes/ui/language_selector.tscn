@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://seucfpsgfcnf"]
+
+[ext_resource type="Texture2D" uid="uid://rqx2pjoqqqj" path="res://assets/images/ui/arrow_up.png" id="1_2k1iw"]
+[ext_resource type="Script" path="res://scenes/ui/language_selector.gd" id="1_sfgx0"]
+[ext_resource type="Texture2D" uid="uid://bu2e6ek7c7n0a" path="res://assets/images/ui/arrow_down.png" id="2_2aycm"]
+
+[node name="LanguageSelector" type="Control" node_paths=PackedStringArray("directory", "touch_interface", "entry_original")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sfgx0")
+directory = NodePath("Panel/H1/Scroll/Directory")
+touch_interface = NodePath("Panel/H1/TouchButtons")
+entry_original = NodePath("Panel/H1/Scroll/Directory/Entry")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="H1" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/H1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="Directory" type="VBoxContainer" parent="Panel/H1/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Entry" type="Button" parent="Panel/H1/Scroll/Directory"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "English"
+
+[node name="TouchButtons" type="VBoxContainer" parent="Panel/H1"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="pad" type="Control" parent="Panel/H1/TouchButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.29
+
+[node name="scrollup" type="TextureButton" parent="Panel/H1/TouchButtons"]
+custom_minimum_size = Vector2(82, 82)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_2k1iw")
+texture_pressed = ExtResource("1_2k1iw")
+texture_hover = ExtResource("1_2k1iw")
+texture_disabled = ExtResource("1_2k1iw")
+texture_focused = ExtResource("1_2k1iw")
+stretch_mode = 5
+
+[node name="scrolldown" type="TextureButton" parent="Panel/H1/TouchButtons"]
+custom_minimum_size = Vector2(82, 82)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_2aycm")
+texture_pressed = ExtResource("2_2aycm")
+texture_hover = ExtResource("2_2aycm")
+texture_disabled = ExtResource("2_2aycm")
+texture_focused = ExtResource("2_2aycm")
+stretch_mode = 5
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/H1/TouchButtons/scrolldown" to="." method="_on_scroll_pressed" binds= [1]]

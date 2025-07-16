@@ -126,9 +126,7 @@ func _clear_joypad_inputs():
 func _ready():
 	get_tree().paused = true
 	game_scene.stop_game()
-	multi_lang.introduce_language_control(
-		main_menu.get_node("Options/Panel/VBoxContainer/set_lang")
-	)
+	multi_lang.introduce_language_selector(main_menu.language_selector)
 	if FileAccess.file_exists("user://settings.json"):
 		_load_settings()
 	else:

@@ -30,21 +30,12 @@ func _ready():
 	load_lang(starting_lang)
 
 
-func introduce_language_control(dropdown : OptionButton):
-	print("Connecting dropdown button: ", dropdown, " to Multi-Lang")
-	dropdown.clear()
-	for i in supported_languages_named.size():
-		dropdown.add_item(supported_languages_named[i], i)
-	dropdown.connect("item_selected", _on_set_lang_item_selected)
-	dropdown.connect("item_focused", _on_containered_selection)
+func introduce_language_selector(selector : LanguageSelector):
+	print("Connecting Language Selector: ", selector, " to Multi-Lang")
+	selector.populate_list(supported_languages_named, _on_language_selector_lang_selected)
 
 
-func _on_containered_selection(idx : int):
-	if get_window().get_child(0) is GameContainer:
-		_on_set_lang_item_selected(idx)
-
-
-func _on_set_lang_item_selected(idx : int):
+func _on_language_selector_lang_selected(idx : int):
 	print("Multi-Lang recieved request to switch language to ", supported_languages_named[idx])
 	load_lang(supported_languages[idx])
 

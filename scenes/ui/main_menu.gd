@@ -10,8 +10,9 @@ signal update_a_b_swap(new_val)
 
 @onready var help : Help = $Help
 @onready var menu_flair : MenuFlair = $MenuFlair
+@onready var language_selector : LanguageSelector = $LanguageSelector
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, EXTRAS, HELP, DEX, CREDITS, PAUSE}
+enum SCREENS{MAIN, OPTIONS, LANG, EXTRAS, HELP, DEX, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN
 
 
@@ -45,6 +46,10 @@ func main_button_event(but):
 
 func option_button_event(but):
 	print("Button Pressed: ", but)
+	if but == "lang_select" and current_screen == SCREENS.OPTIONS:
+		anim.play("lang_select_open")
+		current_screen = SCREENS.LANG
+		language_selector.focus_top()
 	if but == "options_done" and current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
@@ -140,3 +145,11 @@ func update_settings_display(settings : Play.Settings):
 	$Options/Panel/VBoxContainer/sfx_vol.value = settings.get_sfx_vol()
 	$Options/Panel/VBoxContainer/sfx_vol.update_vals(false)
 	$Options/Panel/VBoxContainer/swap_confirm.button_pressed = settings.get_a_b_swap()
+
+
+func _on_language_selector_language_selector_finished() -> void:
+	print("Language Selector is finished")
+	if current_screen == SCREENS.LANG:
+		anim.play("lang_select_close")
+		current_screen = SCREENS.OPTIONS
+		$Options/Panel/VBoxContainer/set_lang.grab_focus()
