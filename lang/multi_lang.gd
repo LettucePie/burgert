@@ -96,6 +96,11 @@ func load_lang(target : String):
 								print("TextHost: ", node, " Has Method: ", setter)
 								var send = n["data1"]["data2"][ix]
 								node.call(setter, send)
+				current_lang = target
+			else:
+				print("Sorry, Failed to find target: ", target, " in ", lang_master)
+		else:
+			print("JSON Error, failed to find Data-Root \"languages\"")
 
 
 func _build_template():
