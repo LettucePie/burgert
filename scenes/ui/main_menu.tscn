@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=21 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
 [ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
+[ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/ui/folder_drop_spriteframes.tres" id="15_6gf58"]
 
 [sub_resource type="Animation" id="Animation_crl3l"]
 length = 0.001
@@ -60,6 +61,7 @@ albedo_texture = ExtResource("3_ov1nx")
 viewport_path = NodePath("SubViewport")
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,11 +116,12 @@ libraries = {
 autoplay = "start"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 640.0
+offset_left = -640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -150,13 +153,11 @@ label = NodePath("value")
 label = NodePath("value")
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 640.0
-offset_right = 1280.0
+offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -198,6 +199,11 @@ visible = false
 layout_mode = 1
 offset_left = -640.0
 offset_bottom = 480.0
+
+[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 240)
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("15_6gf58")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Main/Play" to="." method="main_button_event" binds= ["play"]]

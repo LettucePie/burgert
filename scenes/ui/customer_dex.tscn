@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://basa4au3y5d08"]
+
+[ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/resources/ui/theme_customer-dex.tres" id="1_bmtbe"]
+[ext_resource type="Texture2D" uid="uid://ccbtvcnvluecu" path="res://assets/images/ui/customerdex_pic_bg.png" id="2_s21vm"]
+[ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/images/game/customers/customers__8.png" id="3_iacyx"]
+[ext_resource type="Texture2D" uid="uid://b2vs2iv3q2y5e" path="res://assets/images/ui/customerdex_pic_overlay.png" id="4_0sqbd"]
+[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="5_lp8lr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2rcj"]
+font_color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8akrv"]
+font = ExtResource("5_lp8lr")
+font_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_color = Color(0.0313726, 0.0313726, 0.0313726, 0.333333)
+
+[node name="CustomerDex" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bmtbe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="picture_bg" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072
+anchor_top = 0.09
+anchor_right = 0.433
+anchor_bottom = 0.731
+offset_left = -0.0800018
+offset_top = -0.200001
+offset_right = -0.120026
+offset_bottom = 0.119995
+texture = ExtResource("2_s21vm")
+
+[node name="customer_pic" type="TextureRect" parent="Panel/picture_bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iacyx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="picture_overlay" type="TextureRect" parent="Panel/picture_bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0sqbd")
+
+[node name="Label" type="Label" parent="Panel/picture_bg/picture_overlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.708
+anchor_right = 0.965
+anchor_bottom = 0.977
+offset_left = 0.0699997
+offset_top = -0.0639954
+offset_right = 0.0849915
+offset_bottom = 0.0839844
+grow_horizontal = 2
+grow_vertical = 0
+text = "name"
+label_settings = SubResource("LabelSettings_s2rcj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vbox" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.098
+anchor_right = 0.942
+anchor_bottom = 0.725
+offset_left = -0.240021
+offset_top = -0.0400009
+offset_right = 0.119995
+
+[node name="completion_label" type="Label" parent="Panel/vbox"]
+layout_mode = 2
+text = "Satisfied Orders"
+label_settings = SubResource("LabelSettings_8akrv")
+
+[node name="stars" type="HBoxContainer" parent="Panel/vbox"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="div" type="ColorRect" parent="Panel/vbox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.419066, 0.119201, 0.0880072, 1)
+
+[node name="description" type="Label" parent="Panel/vbox"]
+layout_mode = 2
+text = "This Customer Customers"
+label_settings = SubResource("LabelSettings_8akrv")
