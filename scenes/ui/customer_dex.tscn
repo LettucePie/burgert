@@ -1,20 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://basa4au3y5d08"]
+[gd_scene load_steps=14 format=3 uid="uid://basa4au3y5d08"]
 
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/resources/ui/theme_customer-dex.tres" id="1_bmtbe"]
+[ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="2_7ioh0"]
 [ext_resource type="Texture2D" uid="uid://ccbtvcnvluecu" path="res://assets/images/ui/customerdex_pic_bg.png" id="2_s21vm"]
 [ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/images/game/customers/customers__8.png" id="3_iacyx"]
 [ext_resource type="Texture2D" uid="uid://b2vs2iv3q2y5e" path="res://assets/images/ui/customerdex_pic_overlay.png" id="4_0sqbd"]
-[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="5_lp8lr"]
+[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://scenes/ui/customerdex_label.tres" id="6_tom22"]
+[ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/ui/customerdex_arrow_left.png" id="7_prpuf"]
+[ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/ui/customerdex_arrow_leftt_underlined.png" id="8_2dgq3"]
+[ext_resource type="Texture2D" uid="uid://um58kqim5brh" path="res://assets/images/ui/customerdex_close.png" id="9_e6lgw"]
+[ext_resource type="Texture2D" uid="uid://n1yhonsjg515" path="res://assets/images/ui/customerdex_close_underlined.png" id="10_e1lod"]
+[ext_resource type="Texture2D" uid="uid://dk7508eo7xxbe" path="res://assets/images/ui/customerdex_arrow_right.png" id="11_4tvur"]
+[ext_resource type="Texture2D" uid="uid://cwa8iu4r5ftml" path="res://assets/images/ui/customerdex_arrow_right_underlined.png" id="12_v5ow2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s2rcj"]
 font_color = Color(0.144063, 0.144063, 0.144063, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8akrv"]
-font = ExtResource("5_lp8lr")
-font_color = Color(0.151276, 0.151276, 0.151276, 1)
-shadow_color = Color(0.0313726, 0.0313726, 0.0313726, 0.333333)
-
-[node name="CustomerDex" type="Control"]
+[node name="CustomerDex" type="Control" groups=["lang_text_array"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -23,6 +25,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bmtbe")
+script = ExtResource("2_7ioh0")
+
+[node name="decoypanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -32,7 +43,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="picture_bg" type="TextureRect" parent="Panel"]
+[node name="content" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="picture_bg" type="TextureRect" parent="Panel/content"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.072
@@ -41,11 +60,9 @@ anchor_right = 0.433
 anchor_bottom = 0.731
 offset_left = -0.0800018
 offset_top = -0.200001
-offset_right = -0.120026
-offset_bottom = 0.119995
 texture = ExtResource("2_s21vm")
 
-[node name="customer_pic" type="TextureRect" parent="Panel/picture_bg"]
+[node name="customer_pic" type="TextureRect" parent="Panel/content/picture_bg"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +73,7 @@ texture = ExtResource("3_iacyx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="picture_overlay" type="TextureRect" parent="Panel/picture_bg"]
+[node name="picture_overlay" type="TextureRect" parent="Panel/content/picture_bg"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_0sqbd")
 
-[node name="Label" type="Label" parent="Panel/picture_bg/picture_overlay"]
+[node name="Label" type="Label" parent="Panel/content/picture_bg/picture_overlay"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -83,32 +100,84 @@ label_settings = SubResource("LabelSettings_s2rcj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="vbox" type="VBoxContainer" parent="Panel"]
+[node name="vbox" type="VBoxContainer" parent="Panel/content"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.441
 anchor_top = 0.098
 anchor_right = 0.942
 anchor_bottom = 0.725
-offset_left = -0.240021
-offset_top = -0.0400009
-offset_right = 0.119995
 
-[node name="completion_label" type="Label" parent="Panel/vbox"]
+[node name="completion_label" type="Label" parent="Panel/content/vbox"]
 layout_mode = 2
 text = "Satisfied Orders"
-label_settings = SubResource("LabelSettings_8akrv")
+label_settings = ExtResource("6_tom22")
 
-[node name="stars" type="HBoxContainer" parent="Panel/vbox"]
+[node name="stars" type="HBoxContainer" parent="Panel/content/vbox"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="div" type="ColorRect" parent="Panel/vbox"]
+[node name="div" type="ColorRect" parent="Panel/content/vbox"]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(0.419066, 0.119201, 0.0880072, 1)
 
-[node name="description" type="Label" parent="Panel/vbox"]
+[node name="description" type="Label" parent="Panel/content/vbox"]
 layout_mode = 2
 text = "This Customer Customers"
-label_settings = SubResource("LabelSettings_8akrv")
+label_settings = ExtResource("6_tom22")
+
+[node name="pgnum" type="Label" parent="Panel/content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.872
+anchor_top = 0.794
+anchor_right = 0.95
+anchor_bottom = 0.931
+grow_horizontal = 0
+grow_vertical = 0
+text = "1
+--
+16"
+label_settings = ExtResource("6_tom22")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="controls" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06
+anchor_top = 0.731
+anchor_right = 0.886
+anchor_bottom = 0.927
+offset_left = -0.399998
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="prev" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("7_prpuf")
+texture_pressed = ExtResource("8_2dgq3")
+texture_hover = ExtResource("8_2dgq3")
+texture_focused = ExtResource("8_2dgq3")
+stretch_mode = 5
+
+[node name="done" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("9_e6lgw")
+texture_pressed = ExtResource("10_e1lod")
+texture_hover = ExtResource("10_e1lod")
+texture_focused = ExtResource("10_e1lod")
+stretch_mode = 5
+
+[node name="next" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("11_4tvur")
+texture_pressed = ExtResource("12_v5ow2")
+texture_hover = ExtResource("12_v5ow2")
+texture_focused = ExtResource("12_v5ow2")
+stretch_mode = 5

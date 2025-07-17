@@ -63,8 +63,10 @@ func extras_button_event(but):
 		current_screen = SCREENS.HELP
 		$Help/Controls/next.grab_focus()
 		help.start_page()
-	if but == "dex":
-		pass
+	if but == "dex" and current_screen == SCREENS.EXTRAS:
+		anim.play("customerdex_open")
+		current_screen = SCREENS.DEX
+		$CustomerDex/controls/done.grab_focus()
 	if but == "credits" and current_screen == SCREENS.EXTRAS:
 		anim.play("credits_open")
 		current_screen = SCREENS.CREDITS
