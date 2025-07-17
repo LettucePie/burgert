@@ -1,19 +1,25 @@
 extends Node
 class_name MultiLang
 
+## Supported Languages by 639-2 Codes
 ## Ref https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
-
-@export var build_template : bool = false
 @export var supported_languages : PackedStringArray = [
 	"eng",
 	"example",
 ]
+## Supported Languages in legible form.
 @export var supported_languages_named : PackedStringArray = [
 	"English",
 	"English-EX"
 ]
+## The Language Masterfile that hosts all the text / image paths per marked nodepath
 @export_file("*.json") var lang_master
+## Builds a reference template to every game element marked with the group tags
+## lang_text , lang_text_array , lang_image , lang_image_array
+@export var build_template : bool = false
+## The Directory for where to put the Reference Template
 @export_dir var save_target_dir
+## The Name of the Reference Template File.
 @export var save_target_name : String = "lang_master_template"
 
 @onready var lang_image_nodes : Array = get_tree().get_nodes_in_group("lang_image")
