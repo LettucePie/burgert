@@ -181,3 +181,6 @@ texture_pressed = ExtResource("12_v5ow2")
 texture_hover = ExtResource("12_v5ow2")
 texture_focused = ExtResource("12_v5ow2")
 stretch_mode = 5
+
+[connection signal="pressed" from="controls/prev" to="." method="_on_pagebutton_pressed" binds= [-1]]
+[connection signal="pressed" from="controls/next" to="." method="_on_pagebutton_pressed" binds= [1]]

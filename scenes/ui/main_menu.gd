@@ -155,3 +155,10 @@ func _on_language_selector_language_selector_finished() -> void:
 		anim.play("lang_select_close")
 		current_screen = SCREENS.OPTIONS
 		$Options/Panel/VBoxContainer/set_lang.grab_focus()
+
+
+func _on_customerdex_done_pressed() -> void:
+	if current_screen == SCREENS.DEX:
+		anim.play("customerdex_close")
+		current_screen = SCREENS.EXTRAS
+		$Extras/Panel/VBoxContainer/button_row2/dex.grab_focus()
