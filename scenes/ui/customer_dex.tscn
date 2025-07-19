@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="1_bmtbe"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="2_7ioh0"]
 [ext_resource type="Texture2D" uid="uid://ccbtvcnvluecu" path="res://assets/images/graphics/menu/customerdex/customerdex_pic_bg.png" id="2_s21vm"]
-[ext_resource type="Texture2D" uid="uid://d0fosrm6jmhk8" path="res://assets/images/characters/customers/customers__8.png" id="3_iacyx"]
 [ext_resource type="Texture2D" uid="uid://b2vs2iv3q2y5e" path="res://assets/images/graphics/menu/customerdex/customerdex_pic_overlay.png" id="4_0sqbd"]
+[ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/characters/customers/customer_tommy_still.png" id="4_28jgo"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_label.tres" id="6_tom22"]
 [ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="7_prpuf"]
 [ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="8_2dgq3"]
@@ -64,12 +64,18 @@ texture = ExtResource("2_s21vm")
 
 [node name="customer_pic" type="TextureRect" parent="Panel/content/picture_bg"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.133
+anchor_right = 0.943
+anchor_bottom = 0.974
+offset_left = 0.0572796
+offset_top = 0.05196
+offset_right = 0.053833
+offset_bottom = 0.124878
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_iacyx")
+texture = ExtResource("4_28jgo")
 expand_mode = 1
 stretch_mode = 5
 

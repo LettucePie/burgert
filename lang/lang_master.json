@@ -193,7 +193,7 @@
 				},
 				{
 					"data1": {
-						"data2": "res://assets/images/game/kitchen/Restaurant_stopnpuke_sign.png",
+						"data2": "res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stopnpuke_sign.png",
 						"type": "image"
 					},
 					"path": "/root/Play/Game/kitchen_a/stopnpuke"
@@ -202,14 +202,14 @@
 					"data1": {
 						"data2": [
 							[
-								"res://assets/images/ui/orders/order-scribble_bun1.png",
-								"res://assets/images/ui/orders/order-scribble_bun2.png",
-								"res://assets/images/ui/orders/order-scribble_bun3.png"
+								"res://assets/images/graphics/orders/order-scribble_bun1.png",
+								"res://assets/images/graphics/orders/order-scribble_bun2.png",
+								"res://assets/images/graphics/orders/order-scribble_bun3.png"
 							],
 							[
-								"res://assets/images/ui/orders/order-scribble_meat1.png",
-								"res://assets/images/ui/orders/order-scribble_meat2.png",
-								"res://assets/images/ui/orders/order-scribble_meat3.png"
+								"res://assets/images/graphics/orders/order-scribble_meat1.png",
+								"res://assets/images/graphics/orders/order-scribble_meat2.png",
+								"res://assets/images/graphics/orders/order-scribble_meat3.png"
 							]
 						],
 						"setter": [
