@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxlt1mwtpdlgc"
-path="res://.godot/imported/customers_split__7.png-62845cd1ae64bf051f8df4290987a824.ctex"
+uid="uid://d2p2i73x7xdhi"
+path="res://.godot/imported/customer_al_still.png-2f7259729c61489db377a9c2abb5ae20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__7.png"
-dest_files=["res://.godot/imported/customers_split__7.png-62845cd1ae64bf051f8df4290987a824.ctex"]
+source_file="res://assets/images/characters/customers/customer_al_still.png"
+dest_files=["res://.godot/imported/customer_al_still.png-2f7259729c61489db377a9c2abb5ae20.ctex"]
 
 [params]
 

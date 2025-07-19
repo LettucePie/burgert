@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgi1r131cm1mw"
-path="res://.godot/imported/customers__10.png-d75854b90185d89b8d95ea60f2788f85.ctex"
+uid="uid://d1u3542wpc4vx"
+path="res://.godot/imported/customer_jimmie_still.png-be396cfe25ab91b82f2c153bcd27333a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers__10.png"
-dest_files=["res://.godot/imported/customers__10.png-d75854b90185d89b8d95ea60f2788f85.ctex"]
+source_file="res://assets/images/characters/customers/customer_jimmie_still.png"
+dest_files=["res://.godot/imported/customer_jimmie_still.png-be396cfe25ab91b82f2c153bcd27333a.ctex"]
 
 [params]
 

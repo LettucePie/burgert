@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1u3542wpc4vx"
-path="res://.godot/imported/customers_split__18.png-b1e1360b65fabc208f7b6ce7b088ea10.ctex"
+uid="uid://p6m7b8sqepi1"
+path="res://.godot/imported/customer_dancer_still.png-c8c128ee21b5be77b45102e1acf33449.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__18.png"
-dest_files=["res://.godot/imported/customers_split__18.png-b1e1360b65fabc208f7b6ce7b088ea10.ctex"]
+source_file="res://assets/images/characters/customers/customer_dancer_still.png"
+dest_files=["res://.godot/imported/customer_dancer_still.png-c8c128ee21b5be77b45102e1acf33449.ctex"]
 
 [params]
 

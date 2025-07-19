@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfbtsdgflb0cl"
-path="res://.godot/imported/customers__15.png-30c617dd73f5083b5620bf07a8739f74.ctex"
+uid="uid://crhdkvxa8ixn0"
+path="res://.godot/imported/customer_teddy_still.png-be50ab901f54d421865c032af52486f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers__15.png"
-dest_files=["res://.godot/imported/customers__15.png-30c617dd73f5083b5620bf07a8739f74.ctex"]
+source_file="res://assets/images/characters/customers/customer_teddy_still.png"
+dest_files=["res://.godot/imported/customer_teddy_still.png-be50ab901f54d421865c032af52486f6.ctex"]
 
 [params]
 

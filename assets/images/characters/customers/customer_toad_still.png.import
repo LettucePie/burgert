@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p6m7b8sqepi1"
-path="res://.godot/imported/customers_split__9.png-46a6adfba899df9343b8129be18cb8c5.ctex"
+uid="uid://cavbtnijwnrko"
+path="res://.godot/imported/customer_toad_still.png-7b56b82f6a141a5f77917b831b4ab644.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__9.png"
-dest_files=["res://.godot/imported/customers_split__9.png-46a6adfba899df9343b8129be18cb8c5.ctex"]
+source_file="res://assets/images/characters/customers/customer_toad_still.png"
+dest_files=["res://.godot/imported/customer_toad_still.png-7b56b82f6a141a5f77917b831b4ab644.ctex"]
 
 [params]
 

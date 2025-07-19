@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlqnfn8gqs7a8"
-path="res://.godot/imported/customers__12.png-e47f1248466e217496091e7a550b523f.ctex"
+uid="uid://dxlt1mwtpdlgc"
+path="res://.godot/imported/customer_patient_still.png-a6dcf31f75f54ecf4f7286a760e60478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers__12.png"
-dest_files=["res://.godot/imported/customers__12.png-e47f1248466e217496091e7a550b523f.ctex"]
+source_file="res://assets/images/characters/customers/customer_patient_still.png"
+dest_files=["res://.godot/imported/customer_patient_still.png-a6dcf31f75f54ecf4f7286a760e60478.ctex"]
 
 [params]
 

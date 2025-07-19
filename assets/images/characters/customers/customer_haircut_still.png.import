@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2p2i73x7xdhi"
-path="res://.godot/imported/customers_split__4.png-f56d2b2445572f16aa8cc33f76fe5da1.ctex"
+uid="uid://iqllnco2obag"
+path="res://.godot/imported/customer_haircut_still.png-2884670d9c154b9876935fbf51b251af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__4.png"
-dest_files=["res://.godot/imported/customers_split__4.png-f56d2b2445572f16aa8cc33f76fe5da1.ctex"]
+source_file="res://assets/images/characters/customers/customer_haircut_still.png"
+dest_files=["res://.godot/imported/customer_haircut_still.png-2884670d9c154b9876935fbf51b251af.ctex"]
 
 [params]
 
