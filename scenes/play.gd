@@ -346,7 +346,7 @@ func _save_stats():
 
 func _ready():
 	get_tree().paused = true
-	game_scene.stop_game()
+	game_scene.stop_game(false)
 	if FileAccess.file_exists("user://settings.json"):
 		_load_settings()
 	else:
@@ -387,9 +387,24 @@ func _on_game_game_paused():
 	music.set_state(Music.STATE.PAUSE)
 
 
-func _on_game_game_finished():
+func _on_game_game_finished(final_score : int):
 	get_tree().paused = true
+	stats.add_times_played()
+	stats.set_highest_score(final_score)
+	_save_stats()
 	#music.set_state(Music.STATE.MENU)
+
+
+func _on_game_finished_order(customer_name: String, satisfaction_rank: int) -> void:
+	var customer_stats : Stats.CustomerStat = stats.fetch_customerstat(customer_name)
+	customer_stats.add_orders_served()
+	if satisfaction_rank == 1:
+		customer_stats.add_disappointing_orders()
+	elif satisfaction_rank == 2:
+		customer_stats.add_satisfactory_orders()
+	elif satisfaction_rank == 3:
+		customer_stats.add_fantastic_orders()
+	_save_stats()
 
 
 func _on_main_menu_resume_play():
@@ -398,15 +413,15 @@ func _on_main_menu_resume_play():
 
 
 func _on_main_menu_quit_play():
-	get_tree().paused = true
-	game_scene.stop_game()
+	print("Main Menu Quit Play")
+	game_scene.stop_game(true)
 	music.set_state(Music.STATE.MENU)
+	get_tree().paused = true
 
 
 func _on_game_game_over():
+	main_menu.anim.play("quit_game")
 	_on_main_menu_quit_play()
-	main_menu.set_state(MainMenu.SCREENS.MAIN)
-	music.set_state(Music.STATE.MENU)
 
 
 func _on_main_menu_update_mus_vol(new_val):

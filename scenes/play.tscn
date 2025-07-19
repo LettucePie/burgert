@@ -236,6 +236,7 @@ autoplay = "intro_ramp"
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
 
+[connection signal="finished_order" from="Game" to="." method="_on_game_finished_order"]
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
 [connection signal="game_paused" from="Game" to="." method="_on_game_game_paused"]

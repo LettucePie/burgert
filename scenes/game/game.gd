@@ -2,8 +2,10 @@ extends Node
 class_name Game
 
 signal game_paused()
-signal game_finished()
+signal game_finished(final_score : int)
 signal game_over()
+
+signal finished_order(customer_name : String, satisfaction_rank : int)
 
 @export var kitchen : Kitchen
 @export var hud : HUD
@@ -65,8 +67,9 @@ func start_game():
 	$AnimationPlayer.play("play_transition")
 
 
-func stop_game():
-	if game_started:
+func stop_game(reset : bool):
+	print("Game_ stop_game Called")
+	if reset:
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)
 		kitchen.prep_kitchen()
@@ -173,6 +176,12 @@ func assess_submission():
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
+	var rank = 1
+	if satisfaction_percent > 0.5:
+		rank = 2
+	if satisfaction_percent > 0.9:
+		rank = 3
+	emit_signal("finished_order", kitchen.current_customer.customer_name, rank)
 	kitchen.customer_fed()
 	chef.waiting = true
 	#make_new_order()
@@ -210,7 +219,7 @@ func _on_game_timer_timeout():
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
 	results.display_results(game_accuracies, current_score)
-	emit_signal("game_finished")
+	emit_signal("game_finished", current_score)
 
 
 func _on_results_finished_results():
