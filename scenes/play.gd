@@ -16,6 +16,7 @@ class Settings:
 	var mus_vol : int
 	var sfx_vol : int
 	var a_b_swap : bool
+	var language : String
 	
 	var keys : Array = ["version", "mus_vol", "sfx_vol", "a_b_swap"]
 	
@@ -36,12 +37,95 @@ class Settings:
 	
 	func get_a_b_swap() -> bool:
 		return a_b_swap
-
+	
+	func set_language(new : String):
+		language = new
+	
+	func get_language() -> String:
+		return language
 
 var settings : Settings
 @onready var default_confirm_events : Array[InputEvent] = InputMap.action_get_events("confirm")
 @onready var default_cancel_events : Array[InputEvent] = InputMap.action_get_events("cancel")
 
+class Stats:
+	var highest_score : int = 0
+	var times_played : int = 0
+	
+	class CustomerStat:
+		var customer_name : String
+		var orders_served : int
+		var fantastic_orders : int
+		var satisfactory_orders : int
+		var disappointed_orders : int
+		
+		func set_orders_served(new : int):
+			orders_served = new
+		
+		func get_orders_served() -> int:
+			return orders_served
+		
+		func add_orders_served():
+			orders_served += 1
+		
+		func set_fantastic_orders(new : int):
+			fantastic_orders = new
+		
+		func get_fantastic_orders() -> int:
+			return fantastic_orders
+		
+		func add_fantastic_orders():
+			fantastic_orders += 1
+		
+		func set_satisfactory_orders(new : int):
+			satisfactory_orders = new
+		
+		func get_satisfactory_orders() -> int:
+			return satisfactory_orders
+		
+		func add_satisfactory_orders():
+			satisfactory_orders += 1
+		
+		func set_disappointing_orders(new : int):
+			disappointed_orders = new
+		
+		func get_disappointing_orders() -> int:
+			return disappointed_orders
+		
+		func add_disappointing_orders():
+			disappointed_orders += 1
+	
+	var customer_stats : Array[CustomerStat] = []
+	
+	func set_highest_score(new : int):
+		if new > highest_score:
+			highest_score = new
+	
+	func get_highest_score() -> int:
+		return highest_score
+	
+	func set_times_played(new : int):
+		times_played = new
+	
+	func get_times_played() -> int:
+		return times_played
+	
+	func add_times_played() -> void:
+		times_played += 1
+	
+	func get_customerstat(customer_name : String) -> CustomerStat:
+		var result : CustomerStat = null
+		for cs in customer_stats:
+			if cs.customer_name == customer_name:
+				result = cs
+		if result == null:
+			result = CustomerStat.new()
+			result.customer_name = customer_name
+			customer_stats.append(result)
+		return result
+
+
+var stats : Stats
 
 func _default_settings():
 	settings = Settings.new()

@@ -114,14 +114,29 @@ anchor_top = 0.098
 anchor_right = 0.942
 anchor_bottom = 0.725
 
-[node name="completion_label" type="Label" parent="Panel/content/vbox"]
+[node name="stats" type="HBoxContainer" parent="Panel/content/vbox"]
 layout_mode = 2
-text = "Satisfied Orders"
-label_settings = ExtResource("6_tom22")
 
-[node name="stars" type="HBoxContainer" parent="Panel/content/vbox"]
-custom_minimum_size = Vector2(0, 64)
+[node name="stats_label" type="Label" parent="Panel/content/vbox/stats"]
 layout_mode = 2
+size_flags_horizontal = 2
+text = "Fantastic Orders : 
+Satisfied Orders : 
+Disappointed Orders : 
+"
+label_settings = ExtResource("6_tom22")
+vertical_alignment = 1
+
+[node name="value_label" type="Label" parent="Panel/content/vbox/stats"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "00
+00
+00
+"
+label_settings = ExtResource("6_tom22")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="div" type="ColorRect" parent="Panel/content/vbox"]
 custom_minimum_size = Vector2(0, 4)

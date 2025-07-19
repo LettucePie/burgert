@@ -207,6 +207,7 @@ _data = {
 [node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang")]
 process_mode = 3
 script = ExtResource("1_j8n80")
+game_version = null
 game_scene = NodePath("Game")
 main_menu = NodePath("MainMenu")
 music = NodePath("Music")
