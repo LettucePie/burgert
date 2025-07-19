@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://b3715nb5f0qc3"]
 
-[ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/images/graphics/menu/ui_theming/theme_a.tres" id="1_fvcjt"]
+[ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
 [ext_resource type="Texture2D" uid="uid://drkmruswb2lyt" path="res://assets/images/graphics/orders/order-scribble_bun1.png" id="3_fxif7"]
 [ext_resource type="Texture2D" uid="uid://dmnoebbi17et3" path="res://assets/images/graphics/orders/order-scribble_bun2.png" id="4_am3kf"]
@@ -29,9 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://ckiwno1pxnat7" path="res://assets/images/graphics/orders/order-scribble_mustard3.png" id="23_shojr"]
 [ext_resource type="PackedScene" uid="uid://bldfvrixfhcp4" path="res://scenes/ui/scribble-entry.tscn" id="26_dy7st"]
 [ext_resource type="Texture2D" uid="uid://c4jqebjtv1k6j" path="res://assets/images/graphics/touch_input/pause_button_gui.png" id="29_jwmgn"]
-[ext_resource type="Texture2D" uid="uid://w1wcnxbfdf2w" path="res://assets/images/graphics/trashing_bar_normal.png" id="30_uwlyk"]
-[ext_resource type="Texture2D" uid="uid://slfcr78udeyr" path="res://assets/images/graphics/trashing_bar_outline.png" id="31_e2bgx"]
-[ext_resource type="Texture2D" uid="uid://dvqf8ptbu5d45" path="res://assets/images/graphics/trashing_bar_fill.png" id="32_1x083"]
+[ext_resource type="Texture2D" uid="uid://c6awwnkoa4uln" path="res://assets/images/graphics/trashing_bar_normal.png" id="30_uwlyk"]
+[ext_resource type="Texture2D" uid="uid://duv4r7hqlyjvq" path="res://assets/images/graphics/trashing_bar_outline.png" id="31_e2bgx"]
+[ext_resource type="Texture2D" uid="uid://bvrdf2pd0d14p" path="res://assets/images/graphics/trashing_bar_fill.png" id="32_1x083"]
 
 [node name="hud" type="Control" groups=["lang_image_array"]]
 layout_mode = 3

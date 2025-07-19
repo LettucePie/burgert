@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://c3tnbswc271oo"]
 
-[ext_resource type="StyleBox" uid="uid://ccpgrwb7nr35f" path="res://assets/images/graphics/menu/ui_theming/customerdex_button_stylebox_hover.tres" id="1_58w5d"]
+[ext_resource type="StyleBox" uid="uid://ccpgrwb7nr35f" path="res://assets/theme/styleboxes/customerdex_button_stylebox_hover.tres" id="1_58w5d"]
 [ext_resource type="Texture2D" uid="uid://ceesljfsy42gk" path="res://assets/images/graphics/menu/customerdex/customerdex_panel.png" id="2_aholx"]
-[ext_resource type="StyleBox" uid="uid://qghoks3ugl0j" path="res://assets/images/graphics/menu/ui_theming/customerdex_panel_stylebox.tres" id="3_mu7rh"]
+[ext_resource type="StyleBox" uid="uid://qghoks3ugl0j" path="res://assets/theme/styleboxes/customerdex_panel_stylebox.tres" id="3_mu7rh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jv4pv"]
 texture = ExtResource("2_aholx")
