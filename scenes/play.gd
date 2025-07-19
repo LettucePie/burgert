@@ -108,7 +108,8 @@ func _save_settings():
 		"version" = game_version,
 		"mus_vol" = settings.get_mus_vol(),
 		"sfx_vol" = settings.get_sfx_vol(),
-		"a_b_swap" = settings.get_a_b_swap()
+		"a_b_swap" = settings.get_a_b_swap(),
+		"language" = settings.get_language()
 	}
 	var settings_file = FileAccess.open("user://settings.json", FileAccess.WRITE)
 	print(FileAccess.get_open_error())
@@ -283,7 +284,7 @@ var stats : Stats
 
 func _default_stats():
 	stats = Stats.new()
-	_save_settings()
+	_save_stats()
 
 
 func _update_stats(old_data, old_version):
@@ -353,7 +354,7 @@ func _ready():
 	if FileAccess.file_exists("user://burgert.sav"):
 		_load_stats()
 	else:
-		_default_stats
+		_default_stats()
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
 	if OS.has_feature("mobile") and !adopted:

@@ -57,6 +57,7 @@ func introduce_language_selector(selector : LanguageSelector):
 
 func _on_language_selector_lang_selected(idx : int):
 	print("Multi-Lang recieved request to switch language to ", supported_languages_named[idx])
+	emit_signal("set_lang", supported_languages[idx])
 	load_lang(supported_languages[idx])
 
 
@@ -86,7 +87,6 @@ func load_lang(target : String):
 					valid = true
 			if valid:
 				print("Language File has found target lang: ", target)
-				emit_signal("set_lang", target)
 				print("Assigning Fonts\
 				\nlarge: ", target_block["font_large"], \
 				"\nmedium: ", target_block["font_medium"], \
