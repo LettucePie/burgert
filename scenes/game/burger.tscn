@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxtacva7nkug1"]
 
 [ext_resource type="Script" path="res://scenes/game/burger.gd" id="1_rgq5u"]
-[ext_resource type="PackedScene" uid="uid://c1mreetvotj58" path="res://assets/resources/models/ingredient3d.tscn" id="2_ypink"]
+[ext_resource type="PackedScene" uid="uid://c1mreetvotj58" path="res://assets/models/ingredient3d.tscn" id="2_ypink"]
 [ext_resource type="PackedScene" uid="uid://bh6c6sbro0847" path="res://assets/models/plate.glb" id="3_yruii"]
 
 [node name="burger" type="Node3D"]

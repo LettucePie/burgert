@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2mcut13a1xud"]
 
-[ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/game/chef/chef_frames.tres" id="1_2pahe"]
+[ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="1_2pahe"]
 [ext_resource type="Script" path="res://testing/chef_3d.gd" id="1_qvhhd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hpbu8"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
-[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/ui/language_icon.png" id="2_6uhjv"]
+[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/language_icon.png" id="2_6uhjv"]
 
 [node name="Options" type="Control"]
 texture_filter = 1

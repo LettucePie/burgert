@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dcode7kblp41y"]
-
-[ext_resource type="Texture2D" uid="uid://760qelralgim" path="res://assets/images/game/kitchen/Worksheet_1.png" id="1_tecbx"]
-
-[resource]
-atlas = ExtResource("1_tecbx")
-region = Rect2(32, 0, 48, 48)

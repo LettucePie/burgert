@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bu0o3jigw2qy7"]
 
-[ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/ui/help_icon.png" id="1_wiy28"]
-[ext_resource type="Texture2D" uid="uid://b5cj66mp4k0ro" path="res://assets/images/ui/customerdex_icon.png" id="2_bijk8"]
-[ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/ui/credits_icon.png" id="3_p2lnp"]
+[ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/help_icon.png" id="1_wiy28"]
+[ext_resource type="Texture2D" uid="uid://b5cj66mp4k0ro" path="res://assets/images/graphics/customerdex_icon.png" id="2_bijk8"]
+[ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/credits_icon.png" id="3_p2lnp"]
 
 [node name="Extras" type="Control"]
 texture_filter = 1

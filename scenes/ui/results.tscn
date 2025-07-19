@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://m6bxbm4udcdw"]
 
-[ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/resources/ui/theme_a.tres" id="1_v5lsf"]
+[ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/ui_theming/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
-[ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/resources/fonts/scoreboard_settings.tres" id="3_wqw0x"]
+[ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/ui_theming/fonts/scoreboard_settings.tres" id="3_wqw0x"]
 
 [node name="results" type="Control"]
 layout_mode = 3

@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://e64v81dublgv"]
+
+[ext_resource type="Texture2D" uid="uid://k4p5q8nixh8u" path="res://assets/images/graphics/missed_burger.png" id="1_jwsw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r32o"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo2lg"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmpjm"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl4w2"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay4du"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r32o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo2lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmpjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl4w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay4du")
+}],
+"loop": false,
+"name": &"splat",
+"speed": 10.0
+}]

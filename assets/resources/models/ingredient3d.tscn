@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1mreetvotj58"]
-
-[ext_resource type="PackedScene" uid="uid://bdft5vyu6cghv" path="res://assets/models/burger.glb" id="1_m6bhl"]
-[ext_resource type="Script" path="res://assets/resources/models/ingredient3d.gd" id="2_l4a6s"]
-
-[node name="ingredient_3d" instance=ExtResource("1_m6bhl")]
-script = ExtResource("2_l4a6s")
