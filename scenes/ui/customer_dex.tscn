@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ccbtvcnvluecu" path="res://assets/images/graphics/menu/customerdex/customerdex_pic_bg.png" id="2_s21vm"]
 [ext_resource type="Texture2D" uid="uid://b2vs2iv3q2y5e" path="res://assets/images/graphics/menu/customerdex/customerdex_pic_overlay.png" id="4_0sqbd"]
 [ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/characters/customers/customer_tommy_still.png" id="4_28jgo"]
-[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_label.tres" id="6_tom22"]
+[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="6_tom22"]
 [ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="7_prpuf"]
 [ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="8_2dgq3"]
 [ext_resource type="Texture2D" uid="uid://um58kqim5brh" path="res://assets/images/graphics/menu/customerdex/customerdex_close.png" id="9_e6lgw"]

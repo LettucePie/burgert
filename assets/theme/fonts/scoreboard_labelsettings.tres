@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://caxy0xglfp5b0"]
+
+[ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="1_6iury"]
+
+[resource]
+font = ExtResource("1_6iury")
+font_size = 38
+shadow_color = Color(0, 0, 0, 0.47451)

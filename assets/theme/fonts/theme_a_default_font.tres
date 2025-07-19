@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bn04ewryf11gi"]
+
+[ext_resource type="FontFile" uid="uid://bbaxa6qum5nko" path="res://third-party/kenney-nl/fonts/Kenney Thick.ttf" id="1_ka162"]
+
+[resource]
+base_font = ExtResource("1_ka162")

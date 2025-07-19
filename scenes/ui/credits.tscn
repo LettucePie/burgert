@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chbckskdwg1q5"]
 
-[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_label.tres" id="1_bikxg"]
+[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="1_bikxg"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3

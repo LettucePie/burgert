@@ -1,8 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://caxy0xglfp5b0"]
-
-[ext_resource type="FontFile" uid="uid://cx8yc8iwhrr32" path="res://third-party/kenney-nl/fonts/Kenney Pixel.ttf" id="1_qkesn"]
-
-[resource]
-font = ExtResource("1_qkesn")
-font_size = 38
-shadow_color = Color(0, 0, 0, 0.47451)

@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c12bdxjmsfbpe"]
+
+[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="1_n60k0"]
+
+[resource]
+base_font = ExtResource("1_n60k0")

@@ -253,8 +253,39 @@
 						"type": "text_host"
 					},
 					"path": "/root/Play/MainMenu/Help"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/CustomerDex"
 				}
-			]
+			],
+			"font_large": 0,
+			"font_medium": 0,
+			"font_small": 0
 		},
 		{
 			"example": [
@@ -509,8 +540,39 @@
 						"type": "text_host"
 					},
 					"path": "/root/Play/MainMenu/Help"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/CustomerDex"
 				}
-			]
+			],
+			"font_large": 0,
+			"font_medium": 0,
+			"font_small": 1
 		}
 	]
 }

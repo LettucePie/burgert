@@ -12,6 +12,14 @@ class_name MultiLang
 	"English",
 	"English-EX"
 ]
+## Source Font Files, refer to their indecies
+@export var large_fontfiles : Array[FontFile]
+@export var medium_fontfiles : Array[FontFile]
+@export var small_fontfiles : Array[FontFile]
+## Where each FontFile should be applied
+@export var large_font_targets : Array[FontVariation]
+@export var medium_font_targets : Array[FontVariation]
+@export var small_font_targets : Array[FontVariation]
 ## The Language Masterfile that hosts all the text / image paths per marked nodepath
 @export_file("*.json") var lang_master
 ## Builds a reference template to every game element marked with the group tags
@@ -66,16 +74,29 @@ func load_lang(target : String):
 		if data.has("languages"):
 			print("Language File at: ", lang_master, " is valid")
 			#print("has eng: ", data.has("eng"))
+			## Filter for datablock containing target
 			var target_block = data["languages"][0]
 			var valid = false
 			for i in data["languages"].size():
 				print("INDEX: ", i)
 				if data["languages"][i].has(target):
-					target_block = data["languages"][i][target]
+					target_block = data["languages"][i]
 					valid = true
 			if valid:
 				print("Language File has found target lang: ", target)
-				for n in target_block:
+				print("Assigning Fonts\
+				\nlarge: ", target_block["font_large"], \
+				"\nmedium: ", target_block["font_medium"], \
+				"\nsmall: ", target_block["font_small"])
+				for lt in large_font_targets:
+					lt.set_base_font(large_fontfiles[target_block["font_large"]])
+				for mt in medium_font_targets:
+					mt.set_base_font(medium_fontfiles[target_block["font_medium"]])
+				for st in small_font_targets:
+					st.set_base_font(small_fontfiles[target_block["font_small"]])
+				
+				## Iterate through the languages[target] array for paths, and data
+				for n in target_block[target]:
 					print("\n", n["path"])
 					print(n["data1"]["type"])
 					print(n["data1"]["data2"])
@@ -117,82 +138,87 @@ func load_lang(target : String):
 
 func _build_template():
 	print("BUILDING Multi-Lang Template")
-	var lang_code = {
-		"eng" = []
-	}
-	
-	for text_node in lang_text_nodes:
-		var data0 = {
-			"path" = "",
-			"data1" = [],
-		}
-		data0["path"] = text_node.get_path()
-		data0["data1"] = {
-			"data2" = text_node.text,
-			"type" = "text",
-		}
-		lang_code["eng"].append(data0)
-	
-	for image_node in lang_image_nodes:
-		var data0 = {
-			"path" = "",
-			"data1" = [],
-		}
-		data0["path"] = image_node.get_path()
-		data0["data1"] = {
-			"data2" = "OVERRIDE_TEXTURE_PATH",
-			"type" = "image",
-		}
-		lang_code["eng"].append(data0)
-	
-	for image_host in lang_image_hosts:
-		var data0 = {
-			"path" = "",
-			"data1" = [],
-		}
-		data0["path"] = image_host.get_path()
-		data0["data1"] = {
-			"data2" = [
-				["OVERRIDE_MULTIPLE_TEXTURE_PATHS"],
-				["OVERRIDE_MULTIPLE_TEXTURE_PATHS"],
-				["..."],
-			],
-			"type" = "image_host",
-			"setter" = [
-				["OVERRIDE_SETTER_METHOD"],
-				["OVERRIDE_SETTER_METHOD"],
-				["..."],
-			]
-		}
-		lang_code["eng"].append(data0)
-	
-	for text_host in lang_text_hosts:
-		var data0 = {
-			"path" = "",
-			"data1" = []
-		}
-		data0["path"] = text_host.get_path()
-		data0["data1"] ={
-			"data2" = [
-				["OVERRIDE_MULTIPLE_STRINGS"],
-				["OVERRIDE_MULTIPLE_STRINGS"],
-				["..."],
-			],
-			"type" = "text_host",
-			"setter" = [
-				["OVERRIDE_SETTER_METHOD"],
-				["OVERRIDE_SETTER_METHOD"],
-				["..."],
-			]
-		}
-		lang_code["eng"].append(data0)
-	
 	var output = {
 		"languages" = []
 	}
-	output["languages"].append(lang_code)
 	
-	print(output)
+	for language in supported_languages:
+		
+		var lang_code = {
+			language : [],
+			"font_large" : 0,
+			"font_medium" : 0,
+			"font_small" : 1,
+		}
+	
+		for text_node in lang_text_nodes:
+			var data0 = {
+				"path" = "",
+				"data1" = [],
+			}
+			data0["path"] = text_node.get_path()
+			data0["data1"] = {
+				"data2" = text_node.text,
+				"type" = "text",
+			}
+			lang_code[language].append(data0)
+		
+		for image_node in lang_image_nodes:
+			var data0 = {
+				"path" = "",
+				"data1" = [],
+			}
+			data0["path"] = image_node.get_path()
+			data0["data1"] = {
+				"data2" = "OVERRIDE_TEXTURE_PATH",
+				"type" = "image",
+			}
+			lang_code[language].append(data0)
+		
+		for image_host in lang_image_hosts:
+			var data0 = {
+				"path" = "",
+				"data1" = [],
+			}
+			data0["path"] = image_host.get_path()
+			data0["data1"] = {
+				"data2" = [
+					["OVERRIDE_MULTIPLE_TEXTURE_PATHS"],
+					["OVERRIDE_MULTIPLE_TEXTURE_PATHS"],
+					["..."],
+				],
+				"type" = "image_host",
+				"setter" = [
+					["OVERRIDE_SETTER_METHOD"],
+					["OVERRIDE_SETTER_METHOD"],
+					["..."],
+				]
+			}
+			lang_code[language].append(data0)
+		
+		for text_host in lang_text_hosts:
+			var data0 = {
+				"path" = "",
+				"data1" = []
+			}
+			data0["path"] = text_host.get_path()
+			data0["data1"] ={
+				"data2" = [
+					["OVERRIDE_MULTIPLE_STRINGS"],
+					["OVERRIDE_MULTIPLE_STRINGS"],
+					["..."],
+				],
+				"type" = "text_host",
+				"setter" = [
+					["OVERRIDE_SETTER_METHOD"],
+					["OVERRIDE_SETTER_METHOD"],
+					["..."],
+				]
+			}
+			lang_code[language].append(data0)
+	
+		output["languages"].append(lang_code)
+	
 	## Save
 	print("Writing to File... ", save_target_dir, "/", save_target_name)
 	var file = FileAccess.open(save_target_dir + "/" + save_target_name + ".json", FileAccess.WRITE)

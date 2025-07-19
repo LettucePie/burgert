@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bve20nkqnnssv"]
+[gd_scene load_steps=9 format=3 uid="uid://bve20nkqnnssv"]
 
 [ext_resource type="Script" path="res://lang/multi_lang.gd" id="1_3p6a5"]
+[ext_resource type="FontFile" uid="uid://bbaxa6qum5nko" path="res://third-party/kenney-nl/fonts/Kenney Thick.ttf" id="2_55gke"]
+[ext_resource type="FontFile" uid="uid://cx8yc8iwhrr32" path="res://third-party/kenney-nl/fonts/Kenney Pixel.ttf" id="3_pnm6o"]
+[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="4_n2lsn"]
+[ext_resource type="FontFile" uid="uid://c5n137fof8ra1" path="res://third-party/kenney-nl/fonts/Kenney Future.ttf" id="5_7fhcp"]
+[ext_resource type="FontVariation" uid="uid://bn04ewryf11gi" path="res://assets/theme/fonts/theme_a_default_font.tres" id="5_elv5d"]
+[ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="6_jd3qx"]
+[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="7_ie50p"]
 
 [node name="MultiLang" type="Node"]
 script = ExtResource("1_3p6a5")
+large_fontfiles = Array[FontFile]([ExtResource("2_55gke")])
+medium_fontfiles = Array[FontFile]([ExtResource("3_pnm6o")])
+small_fontfiles = Array[FontFile]([ExtResource("4_n2lsn"), ExtResource("5_7fhcp")])
+large_font_targets = Array[FontVariation]([ExtResource("5_elv5d")])
+medium_font_targets = Array[FontVariation]([ExtResource("6_jd3qx")])
+small_font_targets = Array[FontVariation]([ExtResource("7_ie50p")])
 lang_master = "res://lang/lang_master.json"
 save_target_dir = "res://lang"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0ugadc4ilb6n"]
 
 [ext_resource type="Script" path="res://scenes/ui/help.gd" id="1_ik1ax"]
-[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_label.tres" id="2_t1yeq"]
+[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="2_t1yeq"]
 
 [node name="Help" type="Control" groups=["lang_text_array"]]
 texture_filter = 1

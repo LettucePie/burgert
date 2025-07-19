@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cmxx3kcd4lvrr"]
+
+[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="1_qgpvp"]
+
+[resource]
+font = ExtResource("1_qgpvp")
+shadow_color = Color(0.0313726, 0.0313726, 0.0313726, 0.333333)
