@@ -1,25 +1,15 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c3tnbswc271oo"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c3tnbswc271oo"]
 
 [ext_resource type="StyleBox" uid="uid://ccpgrwb7nr35f" path="res://assets/resources/ui/customerdex_button_stylebox_hover.tres" id="1_58w5d"]
-[ext_resource type="Texture2D" uid="uid://bggfute5c2pyj" path="res://assets/images/ui/customerdex_panel_8x.png" id="1_lrgbd"]
 [ext_resource type="Texture2D" uid="uid://ceesljfsy42gk" path="res://assets/images/ui/customerdex_panel.png" id="2_aholx"]
+[ext_resource type="StyleBox" uid="uid://qghoks3ugl0j" path="res://assets/resources/ui/customerdex_panel_stylebox.tres" id="3_mu7rh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jv4pv"]
 texture = ExtResource("2_aholx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8slje"]
-texture = ExtResource("1_lrgbd")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 256, 256)
 
 [resource]
 Button/colors/font_color = Color(0.129559, 0.129559, 0.129558, 1)
 Button/styles/hover = ExtResource("1_58w5d")
 Button/styles/normal = SubResource("StyleBoxTexture_jv4pv")
 Button/styles/pressed = ExtResource("1_58w5d")
-Panel/styles/panel = SubResource("StyleBoxTexture_8slje")
+Panel/styles/panel = ExtResource("3_mu7rh")
