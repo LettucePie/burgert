@@ -977,11 +977,12 @@ position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_bun"]
-position = Vector2(0, -28)
+position = Vector2(0, -26)
 scale = Vector2(2, 2)
 texture = ExtResource("45_gga11")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_bun/ingredient_sprite"]
+position = Vector2(0, -1)
 texture = ExtResource("46_bk7km")
 
 [node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]
@@ -996,11 +997,12 @@ position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
 [node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_meat"]
-position = Vector2(0, -21)
+position = Vector2(0, -16)
 scale = Vector2(1.6875, 1.6875)
 texture = ExtResource("47_sn0s0")
 
 [node name="highlight" type="Sprite2D" parent="background_2/workstation_meat/ingredient_sprite"]
+position = Vector2(0, -2.37037)
 texture = ExtResource("48_mixwx")
 
 [node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight") groups=["Workstation"]]

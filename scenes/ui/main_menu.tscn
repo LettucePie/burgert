@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
 [ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
-[ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/folder_drop_spriteframes.tres" id="15_6gf58"]
+[ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_6gf58"]
 [ext_resource type="PackedScene" uid="uid://basa4au3y5d08" path="res://scenes/ui/customer_dex.tscn" id="16_gc8o8"]
 
 [sub_resource type="Animation" id="Animation_crl3l"]

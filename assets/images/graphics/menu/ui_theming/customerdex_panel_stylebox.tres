@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://qghoks3ugl0j"]
+
+[ext_resource type="Texture2D" uid="uid://bggfute5c2pyj" path="res://assets/images/graphics/menu/customerdex/customerdex_panel_8x.png" id="1_us2rh"]
+
+[resource]
+texture = ExtResource("1_us2rh")
+texture_margin_left = 36.0
+texture_margin_top = 36.0
+texture_margin_right = 36.0
+texture_margin_bottom = 36.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 256, 256)

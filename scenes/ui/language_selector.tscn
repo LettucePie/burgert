@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://seucfpsgfcnf"]
 
-[ext_resource type="Texture2D" uid="uid://rqx2pjoqqqj" path="res://assets/images/graphics/arrow_up.png" id="1_2k1iw"]
+[ext_resource type="Texture2D" uid="uid://rqx2pjoqqqj" path="res://assets/images/graphics/touch_input/arrow_up.png" id="1_2k1iw"]
 [ext_resource type="Script" path="res://scenes/ui/language_selector.gd" id="1_sfgx0"]
-[ext_resource type="Texture2D" uid="uid://bu2e6ek7c7n0a" path="res://assets/images/graphics/arrow_down.png" id="2_2aycm"]
+[ext_resource type="Texture2D" uid="uid://bu2e6ek7c7n0a" path="res://assets/images/graphics/touch_input/arrow_down.png" id="2_2aycm"]
 
 [node name="LanguageSelector" type="Control" node_paths=PackedStringArray("directory", "touch_interface", "entry_original")]
 texture_filter = 1

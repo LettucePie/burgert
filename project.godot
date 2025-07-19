@@ -38,7 +38,7 @@ lang_text_array=""
 
 [gui]
 
-theme/custom="res://assets/ui_theming/theme_a.tres"
+theme/custom="res://assets/images/graphics/menu/ui_theming/theme_a.tres"
 
 [input]
 
