@@ -1,6 +1,12 @@
 extends Control
 class_name CustomerDex
 
+@onready var name_label : Label = $Panel/content/picture_bg/picture_overlay/customer_name
+@onready var pic_rect : TextureRect = $Panel/content/picture_bg/customer_pic
+@onready var stats_label : Label = $Panel/content/vbox/stats/value_label
+@onready var description : Label = $Panel/content/vbox/description
+@onready var page_label : Label = $Panel/content/pgnum
+
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
@@ -74,6 +80,8 @@ class_name CustomerDex
 	with that other guy..."
 ]
 
+var current_page : int = 0
+
 ####
 #### Multi Lang Setters
 ####
@@ -94,15 +102,33 @@ func set_customer_descriptions(strings : Array):
 #### End Multi Lang Setters
 ####
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func open_dex():
+	current_page = 0
+	_load_page(0)
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
 	print("CustomerDex PageButton: ", dir)
+	var new_val = current_page + dir
+	if new_val > customer_names_internal.size() - 1:
+		new_val = 0
+	elif new_val < 0:
+		new_val = customer_names_internal.size() - 1
+	_load_page(new_val)
+
+
+func _load_page(target : int):
+	current_page = target
+	name_label.text = customer_names_display[target]
+	pic_rect.texture = customer_images[target]
+	print("TODO")
+	#var stats : Play.Stats.CustomerStats = 
+	#stats_label.text = 
+	description.text = customer_descriptions[target]
+	description.visible_ratio = 0.0
+	page_label.text = str(target + 1) + "\n--\n" + str(customer_names_internal.size())
+
+
+func _physics_process(delta: float) -> void:
+	if description.visible_ratio < 1.0:
+		description.visible_ratio += 0.018

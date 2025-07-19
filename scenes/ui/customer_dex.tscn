@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_0sqbd")
 
-[node name="Label" type="Label" parent="Panel/content/picture_bg/picture_overlay"]
+[node name="customer_name" type="Label" parent="Panel/content/picture_bg/picture_overlay"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -164,6 +164,7 @@ color = Color(0.419066, 0.119201, 0.0880072, 1)
 layout_mode = 2
 text = "This Customer Customers"
 label_settings = ExtResource("6_tom22")
+autowrap_mode = 3
 
 [node name="pgnum" type="Label" parent="Panel/content"]
 layout_mode = 1

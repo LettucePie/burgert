@@ -9,6 +9,7 @@ signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
 @onready var help : Help = $Help
+@onready var customer_dex : CustomerDex = $CustomerDex
 @onready var menu_flair : MenuFlair = $MenuFlair
 @onready var language_selector : LanguageSelector = $LanguageSelector
 @export var anim : AnimationPlayer
@@ -67,6 +68,7 @@ func extras_button_event(but):
 		anim.play("customerdex_open")
 		current_screen = SCREENS.DEX
 		$CustomerDex/controls/done.grab_focus()
+		customer_dex.open_dex()
 	if but == "credits" and current_screen == SCREENS.EXTRAS:
 		anim.play("credits_open")
 		current_screen = SCREENS.CREDITS
