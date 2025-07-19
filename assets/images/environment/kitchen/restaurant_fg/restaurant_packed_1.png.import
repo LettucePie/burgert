@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://760qelralgim"
-path.s3tc="res://.godot/imported/restaurant_packed_1.png-8f31536b77976a94abfac419889398b2.s3tc.ctex"
-path.etc2="res://.godot/imported/restaurant_packed_1.png-8f31536b77976a94abfac419889398b2.etc2.ctex"
+path.s3tc="res://.godot/imported/restaurant_packed_1.png-df174767349991865da716e3e4324f20.s3tc.ctex"
+path.etc2="res://.godot/imported/restaurant_packed_1.png-df174767349991865da716e3e4324f20.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/environment/kitchen/restaurant_packed_1.png"
-dest_files=["res://.godot/imported/restaurant_packed_1.png-8f31536b77976a94abfac419889398b2.s3tc.ctex", "res://.godot/imported/restaurant_packed_1.png-8f31536b77976a94abfac419889398b2.etc2.ctex"]
+source_file="res://assets/images/environment/kitchen/restaurant_fg/restaurant_packed_1.png"
+dest_files=["res://.godot/imported/restaurant_packed_1.png-df174767349991865da716e3e4324f20.s3tc.ctex", "res://.godot/imported/restaurant_packed_1.png-df174767349991865da716e3e4324f20.etc2.ctex"]
 
 [params]
 

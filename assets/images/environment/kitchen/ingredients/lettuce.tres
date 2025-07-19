@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://1k21cq24s2qa"]
 
-[ext_resource type="Texture2D" uid="uid://760qelralgim" path="res://assets/images/environment/kitchen/restaurant_packed_1.png" id="1_5v0mr"]
+[ext_resource type="Texture2D" uid="uid://cjywpkb1kee7g" path="res://assets/images/environment/kitchen/ingredients/Ingredients_no_highlight.png" id="1_2yypa"]
 
 [resource]
-atlas = ExtResource("1_5v0mr")
-region = Rect2(32, 129, 16, 15)
+atlas = ExtResource("1_2yypa")
+region = Rect2(19, 2, 16, 15)
