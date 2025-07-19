@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="4_oua5h"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
 [ext_resource type="Script" path="res://scenes/ui/menu_flair.gd" id="5_eqawj"]
-[ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splat.tscn" id="6_a85yp"]
+[ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splatfx.tscn" id="6_a85yp"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]

@@ -1,4 +1,5 @@
 extends Node
+class_name SplatFX
 
 @onready var timer : Timer = $Timer
 @onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
@@ -19,6 +20,12 @@ var chosen_target : Vector2
 
 func activate_on_target(t : Control):
 	target = t
+	var splatting : SplatFX = null
+	for c in target.get_children():
+		if c is SplatFX:
+			splatting = c
+	if splatting != null:
+		splatting.dethrone()
 	target.add_child(self)
 	start_pos = target.position
 	chosen_target = options.pick_random() + start_pos
@@ -36,5 +43,10 @@ func _process(delta):
 
 func _on_timer_timeout() -> void:
 	timer.stop()
+	target.position = start_pos
+	self.queue_free()
+
+
+func dethrone():
 	target.position = start_pos
 	self.queue_free()
