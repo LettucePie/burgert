@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://8n3ejah1lcnb"]
 
-[ext_resource type="Texture2D" uid="uid://c0a8tcwo7sn5b" path="res://assets/images/environment/kitchen/Restaurant_2_neon_sign_spritesheet.png" id="2_ir5wq"]
+[ext_resource type="Texture2D" uid="uid://c0a8tcwo7sn5b" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_neon_sign_spritesheet.png" id="2_ir5wq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bkbme"]
 atlas = ExtResource("2_ir5wq")
