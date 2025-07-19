@@ -1,6 +1,8 @@
 extends Node
 class_name MultiLang
 
+signal set_lang(lang)
+
 ## Supported Languages by 639-2 Codes
 ## Ref https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 @export var supported_languages : PackedStringArray = [
@@ -84,6 +86,7 @@ func load_lang(target : String):
 					valid = true
 			if valid:
 				print("Language File has found target lang: ", target)
+				emit_signal("set_lang", target)
 				print("Assigning Fonts\
 				\nlarge: ", target_block["font_large"], \
 				"\nmedium: ", target_block["font_medium"], \

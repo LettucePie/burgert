@@ -207,7 +207,6 @@ _data = {
 [node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang")]
 process_mode = 3
 script = ExtResource("1_j8n80")
-game_version = null
 game_scene = NodePath("Game")
 main_menu = NodePath("MainMenu")
 music = NodePath("Music")
@@ -247,3 +246,4 @@ autoplay = "intro_ramp"
 [connection signal="update_mus_vol" from="MainMenu" to="." method="_on_main_menu_update_mus_vol"]
 [connection signal="update_sfx_vol" from="MainMenu" to="." method="_on_main_menu_update_sfx_vol"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
+[connection signal="set_lang" from="MultiLang" to="." method="_on_multi_lang_set_lang"]

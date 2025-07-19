@@ -11,6 +11,10 @@ class_name Play
 @export var container_scene : PackedScene
 var adopted : bool = false
 
+####
+#### Settings Block
+####
+
 class Settings:
 	var version : int
 	var mus_vol : int
@@ -18,7 +22,7 @@ class Settings:
 	var a_b_swap : bool
 	var language : String
 	
-	var keys : Array = ["version", "mus_vol", "sfx_vol", "a_b_swap"]
+	var keys : Array = ["version", "mus_vol", "sfx_vol", "a_b_swap", "language"]
 	
 	func set_mus_vol(new : int):
 		mus_vol = new
@@ -48,9 +52,129 @@ var settings : Settings
 @onready var default_confirm_events : Array[InputEvent] = InputMap.action_get_events("confirm")
 @onready var default_cancel_events : Array[InputEvent] = InputMap.action_get_events("cancel")
 
+
+func _default_settings():
+	settings = Settings.new()
+	settings.version = game_version
+	settings.set_mus_vol(8)
+	settings.set_sfx_vol(8)
+	settings.set_a_b_swap(false)
+	_save_settings()
+
+
+func _update_settings(old_data, old_version):
+	for i in 3:
+		print("INTEGRATE OLD SETTINGS HERE")
+
+
+func _load_settings():
+	var settings_file = FileAccess.open("user://settings.json", FileAccess.READ)
+	print("Settings File Opened")
+	if settings == null:
+		settings = Settings.new()
+		settings.version = game_version
+	var valid = true
+	while settings_file.get_position() < settings_file.get_length():
+		var json_string = settings_file.get_line()
+		var json = JSON.new()
+		var parse = json.parse(json_string)
+		if not parse == OK:
+			print("JSON Parse Error: ", json.get_error_message(), " in ", \
+					json_string, " at line ", json.get_error_line())
+			continue
+		var data = json.get_data()
+		if data.has("version"):
+			if data["version"] != game_version:
+				valid = false
+		if !valid:
+			print("Settings Load :: Version Mismatch")
+			_update_settings(data, data["version"])
+		for k in settings.keys:
+			if !data.has(k):
+				valid = false
+		if !valid:
+			print("Settings Load :: Keys Missing")
+		if valid:
+			settings.set_mus_vol(data["mus_vol"])
+			settings.set_sfx_vol(data["sfx_vol"])
+			settings.set_a_b_swap(data["a_b_swap"])
+			settings.set_language(data["language"])
+	apply_settings()
+
+
+func _save_settings():
+	print("Saving Settings")
+	var settings_dict : Dictionary = {
+		"version" = game_version,
+		"mus_vol" = settings.get_mus_vol(),
+		"sfx_vol" = settings.get_sfx_vol(),
+		"a_b_swap" = settings.get_a_b_swap()
+	}
+	var settings_file = FileAccess.open("user://settings.json", FileAccess.WRITE)
+	print(FileAccess.get_open_error())
+	var json_string = JSON.stringify(settings_dict)
+	settings_file.store_line(json_string)
+	print("Saved SETTINGS!")
+	apply_settings()
+
+
+func _clear_joypad_inputs():
+	var actions = InputMap.get_actions()
+	var events = []
+	for a in actions:
+		events.append(InputMap.action_get_events(a))
+		InputMap.action_erase_events(a)
+	for i in actions.size():
+		var action = actions[i]
+		var action_events = events[i]
+		for ae in action_events:
+			if ae is InputEventKey:
+				InputMap.action_add_event(action, ae)
+	for a in actions:
+		print(a, " | ", InputMap.action_get_events(a))
+
+
+func apply_settings():
+	print("APPLYING SETTINGS TO GAME")
+	main_menu.update_settings_display(settings)
+	var mus_idx : int = AudioServer.get_bus_index("MUS")
+	var sfx_idx : int = AudioServer.get_bus_index("SFX")
+	var mus_db : float = linear_to_db(float(settings.get_mus_vol()) / 10.0)
+	var sfx_db : float = linear_to_db(float(settings.get_sfx_vol()) / 10.0)
+	AudioServer.set_bus_volume_db(mus_idx, mus_db)
+	AudioServer.set_bus_volume_db(sfx_idx, sfx_db)
+	InputMap.action_erase_events("confirm")
+	InputMap.action_erase_events("cancel")
+	var confirm_target : String = "confirm"
+	var cancel_target : String = "cancel"
+	if settings.get_a_b_swap():
+		confirm_target = "cancel"
+		cancel_target = "confirm"
+	for ie in default_confirm_events:
+		InputMap.action_add_event(confirm_target, ie)
+		if confirm_target == "confirm":
+			InputMap.action_add_event("ui_accept", ie)
+	for ie in default_cancel_events:
+		InputMap.action_add_event(cancel_target, ie)
+		if cancel_target == "confirm":
+			InputMap.action_add_event("ui_accept", ie)
+	multi_lang.load_lang(settings.get_language())
+
+####
+#### End Settings Block
+####
+####
+#### Stats Block
+####
+
 class Stats:
+	var version : int
 	var highest_score : int = 0
 	var times_played : int = 0
+	
+	var keys : Array = [
+		"version", "highest_score", "times_played", "customer_stats"
+	]
 	
 	class CustomerStat:
 		var customer_name : String
@@ -113,7 +237,36 @@ class Stats:
 	func add_times_played() -> void:
 		times_played += 1
 	
-	func get_customerstat(customer_name : String) -> CustomerStat:
+	func set_customer_stats(new : Array[CustomerStat]):
+		customer_stats = new
+	
+	func get_customer_stats() -> Array[CustomerStat]:
+		return customer_stats
+	
+	func set_customer_stats_from_dict(list : Array):
+		customer_stats.clear()
+		for data in list:
+			var new_customer_stat : CustomerStat = CustomerStat.new()
+			new_customer_stat.customer_name = data["customer_name"]
+			new_customer_stat.set_orders_served(data["orders_served"])
+			new_customer_stat.set_fantastic_orders(data["fantastic_orders"])
+			new_customer_stat.set_satisfactory_orders(data["satisfactory_orders"])
+			new_customer_stat.set_disappointing_orders(data["disappointing_orders"])
+			customer_stats.append(new_customer_stat)
+	
+	func get_customer_stats_as_dict() -> Array:
+		var result : Array = []
+		for cs in customer_stats:
+			result.append({
+				"customer_name" : cs.customer_name,
+				"orders_served" : cs.get_orders_served(),
+				"fantastic_orders" : cs.get_fantastic_orders(),
+				"satisfactory_orders" : cs.get_satisfactory_orders(),
+				"disappointing_orders" : cs.get_disappointing_orders()
+			})
+		return result
+	
+	func fetch_customerstat(customer_name : String) -> CustomerStat:
 		var result : CustomerStat = null
 		for cs in customer_stats:
 			if cs.customer_name == customer_name:
@@ -127,29 +280,25 @@ class Stats:
 
 var stats : Stats
 
-func _default_settings():
-	settings = Settings.new()
-	settings.version = game_version
-	settings.set_mus_vol(8)
-	settings.set_sfx_vol(8)
-	settings.set_a_b_swap(false)
+
+func _default_stats():
+	stats = Stats.new()
 	_save_settings()
 
 
-func _update_settings(old_data, old_version):
+func _update_stats(old_data, old_version):
 	for i in 3:
 		print("INTEGRATE OLD SETTINGS HERE")
 
 
-func _load_settings():
-	var settings_file = FileAccess.open("user://settings.json", FileAccess.READ)
-	print("Settings File Opened")
-	if settings == null:
-		settings = Settings.new()
-		settings.version = game_version
+func _load_stats():
+	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.READ)
+	print("Stats File Opened")
+	if stats == null:
+		stats = Stats.new()
 	var valid = true
-	while settings_file.get_position() < settings_file.get_length():
-		var json_string = settings_file.get_line()
+	while stats_file.get_position() < stats_file.get_length():
+		var json_string = stats_file.get_line()
 		var json = JSON.new()
 		var parse = json.parse(json_string)
 		if not parse == OK:
@@ -161,51 +310,38 @@ func _load_settings():
 			if data["version"] != game_version:
 				valid = false
 		if !valid:
-			print("Settings Load :: Version Mismatch")
-			_update_settings(data, data["version"])
-		for k in settings.keys:
+			print("Stats Load :: Version Mismatch")
+			_update_stats(data, data["version"])
+		for k in stats.keys:
 			if !data.has(k):
 				valid = false
 		if !valid:
-			print("Settings Load :: Keys Missing")
+			print("Stats Load :: Keys Missing")
 		if valid:
-			settings.set_mus_vol(data["mus_vol"])
-			settings.set_sfx_vol(data["sfx_vol"])
-			settings.set_a_b_swap(data["a_b_swap"])
-	apply_settings()
+			stats.set_highest_score(data["highest_score"])
+			stats.set_times_played(data["times_played"])
+			stats.set_customer_stats_from_dict(data["customer_stats"])
+	## apply_settings()
 
 
-func _save_settings():
-	print("Saving Settings")
-	var settings_dict : Dictionary = {
+func _save_stats():
+	print("Saving Stats")
+	var stats_dict : Dictionary = {
 		"version" = game_version,
-		"mus_vol" = settings.get_mus_vol(),
-		"sfx_vol" = settings.get_sfx_vol(),
-		"a_b_swap" = settings.get_a_b_swap()
+		"highest_score" = stats.get_highest_score(),
+		"times_played" = stats.get_times_played(),
+		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
-	var settings_file = FileAccess.open("user://settings.json", FileAccess.WRITE)
+	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
 	print(FileAccess.get_open_error())
-	var json_string = JSON.stringify(settings_dict)
-	settings_file.store_line(json_string)
-	print("Saved SETTINGS!")
-	apply_settings()
+	var json_string = JSON.stringify(stats_dict)
+	stats_file.store_line(json_string)
+	print("Saved STATS!")
+	## apply_settings()
 
-
-func _clear_joypad_inputs():
-	var actions = InputMap.get_actions()
-	var events = []
-	for a in actions:
-		events.append(InputMap.action_get_events(a))
-		InputMap.action_erase_events(a)
-	for i in actions.size():
-		var action = actions[i]
-		var action_events = events[i]
-		for ae in action_events:
-			if ae is InputEventKey:
-				InputMap.action_add_event(action, ae)
-	for a in actions:
-		print(a, " | ", InputMap.action_get_events(a))
-
+####
+#### End Stats Block
+####
 
 func _ready():
 	get_tree().paused = true
@@ -214,6 +350,10 @@ func _ready():
 		_load_settings()
 	else:
 		_default_settings()
+	if FileAccess.file_exists("user://burgert.sav"):
+		_load_stats()
+	else:
+		_default_stats
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
 	if OS.has_feature("mobile") and !adopted:
@@ -286,27 +426,7 @@ func _on_main_menu_update_a_b_swap(new_val):
 		_save_settings()
 
 
-func apply_settings():
-	print("APPLYING SETTINGS TO GAME")
-	main_menu.update_settings_display(settings)
-	var mus_idx : int = AudioServer.get_bus_index("MUS")
-	var sfx_idx : int = AudioServer.get_bus_index("SFX")
-	var mus_db : float = linear_to_db(float(settings.get_mus_vol()) / 10.0)
-	var sfx_db : float = linear_to_db(float(settings.get_sfx_vol()) / 10.0)
-	AudioServer.set_bus_volume_db(mus_idx, mus_db)
-	AudioServer.set_bus_volume_db(sfx_idx, sfx_db)
-	InputMap.action_erase_events("confirm")
-	InputMap.action_erase_events("cancel")
-	var confirm_target : String = "confirm"
-	var cancel_target : String = "cancel"
-	if settings.get_a_b_swap():
-		confirm_target = "cancel"
-		cancel_target = "confirm"
-	for ie in default_confirm_events:
-		InputMap.action_add_event(confirm_target, ie)
-		if confirm_target == "confirm":
-			InputMap.action_add_event("ui_accept", ie)
-	for ie in default_cancel_events:
-		InputMap.action_add_event(cancel_target, ie)
-		if cancel_target == "confirm":
-			InputMap.action_add_event("ui_accept", ie)
+func _on_multi_lang_set_lang(lang: String) -> void:
+	if settings != null:
+		settings.set_language(lang)
+		_save_settings()
