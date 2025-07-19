@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsufeogm7hc0l"
-path="res://.godot/imported/customers_wave2_packed.png-478055465e0fb476f4373b85a78b5d5b.ctex"
+uid="uid://dkv3gjwjsfku"
+path="res://.godot/imported/customers_split__20.png-57182bab860db508f378bfb2facbc698.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_wave2_packed.png"
-dest_files=["res://.godot/imported/customers_wave2_packed.png-478055465e0fb476f4373b85a78b5d5b.ctex"]
+source_file="res://assets/images/characters/customers/customers_split__20.png"
+dest_files=["res://.godot/imported/customers_split__20.png-57182bab860db508f378bfb2facbc698.ctex"]
 
 [params]
 

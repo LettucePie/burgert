@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://2rdv7lntg74d"]
 
-[ext_resource type="Texture2D" uid="uid://b555sav40m4ag" path="res://assets/images/characters/customers/customers_wave3_packed.png" id="1_sai6g"]
+[ext_resource type="Texture2D" uid="uid://cmywg3k6lq0oe" path="res://assets/images/characters/customers/customers_packed.png" id="1_tuf6m"]
 
 [resource]
-atlas = ExtResource("1_sai6g")
-region = Rect2(0, 196, 84, 106)
+atlas = ExtResource("1_tuf6m")
+region = Rect2(8, 1896, 84, 106)
