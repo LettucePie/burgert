@@ -79,8 +79,10 @@ class_name CustomerDex
 	but there are other vitamins out there too.\n\nUsually hangs out at the gym \
 	with that other guy..."
 ]
+@export var customer_image_unknown : Texture2D
 
 var current_page : int = 0
+var customer_stats : Array[Play.Stats.CustomerStat] = []
 
 ####
 #### Multi Lang Setters
@@ -102,6 +104,12 @@ func set_customer_descriptions(strings : Array):
 #### End Multi Lang Setters
 ####
 
+func assign_stats(stats : Play.Stats):
+	customer_stats.clear()
+	for _name in customer_names_internal:
+		customer_stats.append(stats.fetch_customerstat(_name))
+
+
 func open_dex():
 	current_page = 0
 	_load_page(0)
@@ -121,9 +129,11 @@ func _load_page(target : int):
 	current_page = target
 	name_label.text = customer_names_display[target]
 	pic_rect.texture = customer_images[target]
-	print("TODO")
-	#var stats : Play.Stats.CustomerStats = 
-	#stats_label.text = 
+	var stats : Play.Stats.CustomerStat = customer_stats[target]
+	stats_label.text = \
+		str(stats.get_fantastic_orders()) + "\n" + \
+		str(stats.get_satisfactory_orders()) + "\n" + \
+		str(stats.get_disappointing_orders())
 	description.text = customer_descriptions[target]
 	description.visible_ratio = 0.0
 	page_label.text = str(target + 1) + "\n--\n" + str(customer_names_internal.size())

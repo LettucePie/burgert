@@ -322,7 +322,7 @@ func _load_stats():
 			stats.set_highest_score(data["highest_score"])
 			stats.set_times_played(data["times_played"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
-	## apply_settings()
+	apply_stats()
 
 
 func _save_stats():
@@ -338,7 +338,12 @@ func _save_stats():
 	var json_string = JSON.stringify(stats_dict)
 	stats_file.store_line(json_string)
 	print("Saved STATS!")
-	## apply_settings()
+	apply_stats()
+
+
+func apply_stats():
+	main_menu.customer_dex.assign_stats(stats)
+
 
 ####
 #### End Stats Block
