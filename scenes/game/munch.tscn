@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://dcf2s60818rbq" path="res://assets/sound/sfx/munch.ogg" id="3_7ki4k"]
 
 [node name="munch" type="Node2D"]
-position = Vector2(539, 162)
 script = ExtResource("1_3f41q")
 
 [node name="left" type="AnimatedSprite2D" parent="."]

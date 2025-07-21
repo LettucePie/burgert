@@ -8,7 +8,9 @@ signal customer_left()
 @export var customers_node : Node2D
 @export var splat : AnimatedSprite2D
 var customers : Array[Customer] = []
+var queue : Array[Customer] = []
 var current_customer : Customer = null
+var next_customer : Customer = null
 var past_customers : Array[Customer]
 
 
@@ -23,13 +25,12 @@ func _ready():
 
 
 func prep_kitchen():
+	print("Prep Kitchen Called")
 	for c in customers:
 		c.hide()
-		c.reset()
 	splat.hide()
 	past_customers.clear()
 	if current_customer != null:
-		current_customer.munch.stop()
 		current_customer.sound_player.stop()
 	current_customer = null
 
@@ -37,7 +38,10 @@ func prep_kitchen():
 func pick_customer() -> PackedStringArray:
 	var result : PackedStringArray = []
 	print("kitchen.pick_customer() Called")
-	print("Current_Customer == ", current_customer)
+	if current_customer != null:
+		print("Current_Customer == ", current_customer.customer_name)
+	else:
+		print("Current_Customer is NULL")
 	## Deliberate which Customer to randomly pick.
 	randomize()
 	if current_customer == null:
@@ -69,7 +73,7 @@ func pick_customer() -> PackedStringArray:
 			current_customer = customers.pick_random()
 	
 	## Pick one of their orders randomly.
-	print("Deliberation Result Current Customer = ", current_customer)
+	print("Deliberation Result Current Customer = ", current_customer.customer_name)
 	current_customer.show()
 	var out : String = "Current_Customer order options:\n"
 	for psa in current_customer.orders:
@@ -80,6 +84,7 @@ func pick_customer() -> PackedStringArray:
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	current_customer.current_customer = true
 	if !current_customer.customer_arrived.is_connected(_on_customer_arrived):
 		current_customer.customer_arrived.connect(_on_customer_arrived)
 	if !current_customer.customer_finished.is_connected(_on_customer_finished):
@@ -102,6 +107,7 @@ func _on_splat_animation_finished():
 
 
 func customer_fed():
+	print("Customer Fed")
 	if current_customer.status == Customer.CUSTOMER_STATE.Waiting:
 		current_customer.set_state(Customer.CUSTOMER_STATE.Munching)
 
@@ -109,7 +115,6 @@ func customer_fed():
 func _on_customer_arrived():
 	print("Kitchen Customer has Arrived")
 	emit_signal("customer_ready")
-
 
 
 func _on_customer_finished():
