@@ -3,8 +3,8 @@ class_name Customer
 
 signal customer_arrived()
 signal customer_served()
+signal customer_leaving()
 signal customer_finished()
-
 
 @export var customer_name : String = "Basic"
 @export var orders : Array[PackedStringArray] = []
@@ -21,6 +21,10 @@ var status : CUSTOMER_STATE = CUSTOMER_STATE.Gone
 var tic : int = 0
 var default_y : float = 0
 var current_customer : bool = false
+var target_feedback_anim : String = "feedback_disappointed"
+var feedback_anims : PackedStringArray = [
+	"feedback_disappointed", "feedback_satisfactory", "feedback_fantastic"
+]
 
 
 func _ready():
@@ -32,7 +36,7 @@ func _ready():
 
 
 func set_state(new_state : CUSTOMER_STATE):
-	print("Customer: set_state: ", new_state)
+	print("Customer ", customer_name, ": set_state: ", new_state)
 	if new_state == CUSTOMER_STATE.Entering \
 	and status == CUSTOMER_STATE.Gone:
 		status = new_state
@@ -51,10 +55,17 @@ func set_state(new_state : CUSTOMER_STATE):
 	and status == CUSTOMER_STATE.Ordering:
 		status = new_state
 		emit_signal("customer_arrived")
-	elif new_state == CUSTOMER_STATE.Munching:
+		anim.play("waiting")
+	elif new_state == CUSTOMER_STATE.Munching \
+	and status == CUSTOMER_STATE.Waiting:
+		status = new_state
 		burger_portal_sprite.hide()
-	elif new_state == CUSTOMER_STATE.Leaving:
-		pass
+		anim.play("munching")
+	elif new_state == CUSTOMER_STATE.Leaving\
+	and status == CUSTOMER_STATE.Munching:
+		status = new_state
+		anim.play("leaving")
+		emit_signal("customer_leaving")
 	elif new_state == CUSTOMER_STATE.Gone \
 	and status == CUSTOMER_STATE.Leaving:
 		status = new_state
@@ -74,6 +85,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			set_state(CUSTOMER_STATE.Queue)
 	if anim_name == "ordering":
 		set_state(CUSTOMER_STATE.Waiting)
+	if anim_name == "munching":
+		anim.play(target_feedback_anim)
+	if feedback_anims.has(anim_name):
+		set_state(CUSTOMER_STATE.Leaving)
+	if anim_name == "leaving":
+		set_state(CUSTOMER_STATE.Gone)
 
 
 func _process(delta: float) -> void:

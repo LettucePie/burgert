@@ -24,6 +24,8 @@ func _ready():
 			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
 			if !child.customer_arrived.is_connected(_on_customer_arrived):
 				child.customer_arrived.connect(_on_customer_arrived)
+			if !child.customer_leaving.is_connected(_on_customer_leaving):
+				child.customer_leaving.connect(_on_customer_leaving)
 			if !child.customer_finished.is_connected(_on_customer_finished):
 				child.customer_finished.connect(_on_customer_finished)
 	prep_kitchen()
@@ -97,12 +99,17 @@ func readying_next_customer() -> PackedStringArray:
 	queue_idx += 1
 	if current_customer != null:
 		current_customer.current_customer = false
-	current_customer = customers[queue[queue_idx]]
+	else:
+		current_customer = customers[queue[queue_idx]]
+	if next_customer != null:
+		current_customer = next_customer
 	next_customer = customers[queue[queue_idx + 1]]
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	if current_customer.status == Customer.CUSTOMER_STATE.Gone:
 		current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	if current_customer.status == Customer.CUSTOMER_STATE.Queue:
+		current_customer.set_state(Customer.CUSTOMER_STATE.Ordering)
 	current_customer.current_customer = true
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
 	and current_customer.status > 0:
@@ -126,10 +133,15 @@ func _on_splat_animation_finished():
 	splat.hide()
 
 
-func customer_fed():
-	print("Customer Fed")
-	if current_customer.status == Customer.CUSTOMER_STATE.Waiting:
-		current_customer.set_state(Customer.CUSTOMER_STATE.Munching)
+func customer_fed(meal_rank : int):
+	print("Customer Fed with Meal Rank: ", meal_rank)
+	var options = [
+		"feedback_disappointed",
+		"feedback_satisfactory",
+		"feedback_fantastic"
+	]
+	current_customer.target_feedback_anim = options[meal_rank - 1]
+	current_customer.set_state(Customer.CUSTOMER_STATE.Munching)
 
 
 func _on_customer_arrived():
@@ -138,6 +150,11 @@ func _on_customer_arrived():
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone \
 	or next_customer.status < Customer.CUSTOMER_STATE.Queue:
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+
+
+func _on_customer_leaving():
+	print("Kitchen: Customer is leaving... queue next!")
+	readying_next_customer()
 
 
 func _on_customer_finished():

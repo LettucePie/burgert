@@ -182,7 +182,7 @@ func assess_submission():
 	if satisfaction_percent > 0.9:
 		rank = 3
 	emit_signal("finished_order", kitchen.current_customer.customer_name, rank)
-	kitchen.customer_fed()
+	kitchen.customer_fed(rank)
 	chef.waiting = true
 	#make_new_order()
 
