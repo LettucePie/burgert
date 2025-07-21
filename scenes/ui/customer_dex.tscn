@@ -136,7 +136,7 @@ anchor_bottom = 0.725
 [node name="stats" type="HBoxContainer" parent="Panel/content/vbox"]
 layout_mode = 2
 
-[node name="stats_label" type="Label" parent="Panel/content/vbox/stats"]
+[node name="stats_label" type="Label" parent="Panel/content/vbox/stats" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Fantastic Orders : 

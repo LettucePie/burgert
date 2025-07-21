@@ -84,7 +84,11 @@ class_name CustomerDex
 	but there are other vitamins out there too.\n\nUsually hangs out at the gym \
 	with that other guy..."
 ]
+var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
+var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..."
+var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
+
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -92,6 +96,12 @@ var customer_stats : Array[Play.Stats.CustomerStat] = []
 ####
 #### Multi Lang Setters
 ####
+
+func set_label_defaults(strings : Array):
+	customer_name_unknown = strings[0]
+	customer_desc_a_unknown = strings[1]
+	customer_desc_b_unknown = strings[2]
+
 
 func set_display_names(strings : Array):
 	customer_names_display.clear()
@@ -138,11 +148,11 @@ func _on_pagebutton_pressed(dir: int) -> void:
 
 func _load_page(target : int):
 	current_page = target
-	name_label.text = "UNKNOWN"
+	name_label.text = customer_name_unknown
 	pic_rect.texture = customer_image_unknown
 	stats_label.text = "0\n0\n0"
-	description_a.text = "Data Unavailable\n - Serve more orders..."
-	description_b.text = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
+	description_a.text = customer_desc_a_unknown
+	description_b.text = customer_desc_b_unknown
 	var stats : Play.Stats.CustomerStat = customer_stats[target]
 	stats_label.text = \
 		str(stats.get_fantastic_orders()) + "\n" + \

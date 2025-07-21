@@ -221,6 +221,13 @@
 				},
 				{
 					"data1": {
+						"data2": "Fantastic Orders : \nSatisfied Orders : \nDisappointed Orders : \n",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/CustomerDex/Panel/content/vbox/stats/stats_label"
+				},
+				{
+					"data1": {
 						"data2": "OVERRIDE_TEXTURE_PATH",
 						"type": "image"
 					},
@@ -533,6 +540,13 @@
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Help/Controls/prev"
+				},
+				{
+					"data1": {
+						"data2": "Fantastic Orders : \nSatisfied Orders : \nDisappointed Orders : \n",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/CustomerDex/Panel/content/vbox/stats/stats_label"
 				},
 				{
 					"data1": {
