@@ -6,12 +6,13 @@ signal customer_left()
 
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
+@export var normy_customers : Array[Customer] = []
 @export var splat : AnimatedSprite2D
 var customers : Array[Customer] = []
-var queue : Array[Customer] = []
+var queue : PackedInt32Array = []
+var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
-var past_customers : Array[Customer]
 
 
 func _ready():
@@ -21,6 +22,10 @@ func _ready():
 		if child is Customer:
 			customers.append(child)
 			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
+			if !child.customer_arrived.is_connected(_on_customer_arrived):
+				child.customer_arrived.connect(_on_customer_arrived)
+			if !child.customer_finished.is_connected(_on_customer_finished):
+				child.customer_finished.connect(_on_customer_finished)
 	prep_kitchen()
 
 
@@ -29,67 +34,82 @@ func prep_kitchen():
 	for c in customers:
 		c.hide()
 	splat.hide()
-	past_customers.clear()
 	if current_customer != null:
 		current_customer.sound_player.stop()
+	queue_idx = -1
 	current_customer = null
+	next_customer = null
+	for c in customers:
+		c.current_customer = false
+		c.status = Customer.CUSTOMER_STATE.Gone
+	_build_queue()
 
 
-func pick_customer() -> PackedStringArray:
-	var result : PackedStringArray = []
-	print("kitchen.pick_customer() Called")
-	if current_customer != null:
-		print("Current_Customer == ", current_customer.customer_name)
-	else:
-		print("Current_Customer is NULL")
-	## Deliberate which Customer to randomly pick.
-	randomize()
-	if current_customer == null:
-		current_customer = customers.pick_random()
-	else:
-		## Cleanup Previous Customer
-		past_customers.append(current_customer)
-		current_customer.hide()
-		#current_customer.set_active(false)
-		if current_customer.consecutive_orders > 1:
-			print(current_customer.customer_name, " Consecutive: ", current_customer.consecutive_orders)
-			var satisfied : bool = true
-			for i in current_customer.consecutive_orders:
-				var index : int = past_customers.size() - (i + 1)
-				if index >= 0:
-					print("Checking index[", index, "] of past_customers.size(): ", past_customers.size())
-					if past_customers[index] != current_customer:
-						satisfied = false
-				else:
-					satisfied = false
-			if satisfied:
-				print("Current Consecutive Customer is satisfied")
-				var altered_list : Array[Customer] = customers.duplicate(true)
-				altered_list.erase(current_customer)
-				current_customer = altered_list.pick_random()
-			else:
-				print("Current Consecutive Customer is NOT YET satisfied")
-		else:
-			current_customer = customers.pick_random()
+func _build_queue():
+	queue.clear()
 	
-	## Pick one of their orders randomly.
-	print("Deliberation Result Current Customer = ", current_customer.customer_name)
-	current_customer.show()
-	var out : String = "Current_Customer order options:\n"
-	for psa in current_customer.orders:
-		for order in psa:
-			out += order + ", "
-		out += "\n"
-	print(out)
+	## Filter through for eligible special customers
+	var eligible_pool : Array[Customer] = []
+	for c in customers:
+		##
+		## REPLACE WITH : IF ELIGIBLE TIME SLOT
+		##
+		if !normy_customers.has(c):
+			eligible_pool.append(c)
+	print("Eligible Unique Customers Size: ", eligible_pool.size())
+	
+	randomize()
+	for i in 30:
+		print("Queue Build, ", i)
+		if randf() <= 0.5:
+			print("Tossing in a normy")
+			if queue.size() > 0:
+				print("Queue Larger than 0")
+				var filter_repeats = []
+				for n in normy_customers:
+					var normy_idx = customers.find(n)
+					var queue_last = queue[queue.size() - 1]
+					if normy_idx != queue_last:
+						print(normy_idx, " doesn't equal ", queue_last)
+						filter_repeats.append(n)
+				print("Filtered Out non-repetitive normies :\n", filter_repeats)
+				queue.append(customers.find(filter_repeats.pick_random()))
+			else:
+				queue.append(customers.find(normy_customers.pick_random()))
+		else:
+			if eligible_pool.size() > 0:
+				print("Tossing in a unique customer")
+				var unique_customer : Customer = eligible_pool.pick_random()
+				var idx = customers.find(unique_customer)
+				if unique_customer.consecutive_orders > 1:
+					for x in unique_customer.consecutive_orders:
+						queue.append(idx)
+						queue.append(customers.find(normy_customers.pick_random()))
+				else:
+					queue.append(idx)
+			else:
+				print("No Unique Customers are eligible...")
+
+
+
+func readying_next_customer() -> PackedStringArray:
+	var result : PackedStringArray = []
+	queue_idx += 1
+	if current_customer != null:
+		current_customer.current_customer = false
+	current_customer = customers[queue[queue_idx]]
+	next_customer = customers[queue[queue_idx + 1]]
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
-	current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	if current_customer.status == Customer.CUSTOMER_STATE.Gone:
+		current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 	current_customer.current_customer = true
-	if !current_customer.customer_arrived.is_connected(_on_customer_arrived):
-		current_customer.customer_arrived.connect(_on_customer_arrived)
-	if !current_customer.customer_finished.is_connected(_on_customer_finished):
-		current_customer.customer_finished.connect(_on_customer_finished)
+	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
+	and current_customer.status > 0:
+		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+
 	#current_customer.play_greeting()
+	print("Current_customer : ", current_customer.customer_name)
 	print("Current_Customer New Order\n\n", result)
 	
 	return result
@@ -115,6 +135,9 @@ func customer_fed():
 func _on_customer_arrived():
 	print("Kitchen Customer has Arrived")
 	emit_signal("customer_ready")
+	if next_customer.status == Customer.CUSTOMER_STATE.Gone \
+	or next_customer.status < Customer.CUSTOMER_STATE.Queue:
+		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 
 
 func _on_customer_finished():

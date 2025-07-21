@@ -181,18 +181,6 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(13, 0)]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("character:z_index")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
-}
 
 [sub_resource type="Animation" id="Animation_mbwxj"]
 resource_name = "enter"
@@ -280,18 +268,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("character:z_index")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-1]
 }
 
 [sub_resource type="Animation" id="Animation_gpfhn"]
@@ -845,18 +821,6 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector2(13, 0)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("character:z_index")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_brol2"]
 resource_name = "queue"
@@ -991,7 +955,6 @@ libraries = {
 
 [node name="character" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.707967, 0.707967, 0.707967, 1)
-z_index = -1
 position = Vector2(462, 189)
 scale = Vector2(5, 5)
 sprite_frames = ExtResource("2_j4wbg")

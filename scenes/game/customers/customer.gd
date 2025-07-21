@@ -36,6 +36,7 @@ func set_state(new_state : CUSTOMER_STATE):
 	if new_state == CUSTOMER_STATE.Entering \
 	and status == CUSTOMER_STATE.Gone:
 		status = new_state
+		#self.show()
 		burger_portal_sprite.hide()
 		anim.play("enter")
 	elif new_state == CUSTOMER_STATE.Queue \
@@ -54,7 +55,9 @@ func set_state(new_state : CUSTOMER_STATE):
 		burger_portal_sprite.hide()
 	elif new_state == CUSTOMER_STATE.Leaving:
 		pass
-	elif new_state == CUSTOMER_STATE.Gone:
+	elif new_state == CUSTOMER_STATE.Gone \
+	and status == CUSTOMER_STATE.Leaving:
+		status = new_state
 		emit_signal("customer_finished")
 
 
@@ -71,3 +74,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			set_state(CUSTOMER_STATE.Queue)
 	if anim_name == "ordering":
 		set_state(CUSTOMER_STATE.Waiting)
+
+
+func _process(delta: float) -> void:
+	z_index = current_customer

@@ -91,7 +91,7 @@ func make_new_order():
 	current_order.clear()
 	#current_order = generate_order(1)
 	#current_order_position = randi_range(0, 3)
-	current_order = kitchen.pick_customer()
+	current_order = kitchen.readying_next_customer()
 	## TODO transition burger portal display from HUD to Kitchen. Keep Order List
 	#kitchen.update_burger_portal()
 	#hud.push_burger_build(current_order, current_order_position)
