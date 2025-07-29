@@ -79,7 +79,7 @@ texture_filter = 1
 script = ExtResource("1_737en")
 customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
-normy_customers = [NodePath("customers/Basic"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
+normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
@@ -739,7 +739,7 @@ position = Vector2(319, 32)
 
 [node name="customers" type="Node2D" parent="."]
 
-[node name="Basic" parent="customers" instance=ExtResource("10_ejulj")]
+[node name="Basic_A" parent="customers" instance=ExtResource("10_ejulj")]
 
 [node name="Basic_B" parent="customers" instance=ExtResource("45_o2d37")]
 

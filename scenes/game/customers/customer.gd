@@ -43,33 +43,40 @@ func set_state(new_state : CUSTOMER_STATE):
 		#self.show()
 		burger_portal_sprite.hide()
 		anim.play("enter")
+		print(customer_name, ": ENTER")
 	elif new_state == CUSTOMER_STATE.Queue \
 	and status == CUSTOMER_STATE.Entering:
 		status = new_state
 		anim.play("queue")
+		print(customer_name, ": QUEUE")
 	elif new_state == CUSTOMER_STATE.Ordering \
 	and status == CUSTOMER_STATE.Queue or status == CUSTOMER_STATE.Entering:
 		status = new_state
 		anim.play("ordering")
+		print(customer_name, ": ORDERING")
 	elif new_state == CUSTOMER_STATE.Waiting \
 	and status == CUSTOMER_STATE.Ordering:
 		status = new_state
 		emit_signal("customer_arrived")
 		anim.play("waiting")
+		print(customer_name, ": WAITING")
 	elif new_state == CUSTOMER_STATE.Munching \
 	and status == CUSTOMER_STATE.Waiting:
 		status = new_state
 		burger_portal_sprite.hide()
 		anim.play("munching")
+		print(customer_name, ": MUNCHING")
 	elif new_state == CUSTOMER_STATE.Leaving\
 	and status == CUSTOMER_STATE.Munching:
 		status = new_state
 		anim.play("leaving")
-		emit_signal("customer_leaving")
+		#emit_signal("customer_leaving")
+		print(customer_name, ": LEAVING")
 	elif new_state == CUSTOMER_STATE.Gone \
 	and status == CUSTOMER_STATE.Leaving:
 		status = new_state
 		emit_signal("customer_finished")
+		print(customer_name, ": GONE")
 
 
 func play_greeting():
