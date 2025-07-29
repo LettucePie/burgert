@@ -70,6 +70,10 @@ func set_state(new_state : CUSTOMER_STATE):
 	and status == CUSTOMER_STATE.Munching:
 		status = new_state
 		anim.play("leaving")
+		## TODO
+		## Investigate how commenting out this one line fixed the whole thing.
+		## This ultimately leads to calling kitchen:readying_next_order()
+		## However customer_finished signal also leads to that point...
 		#emit_signal("customer_leaving")
 		print(customer_name, ": LEAVING")
 	elif new_state == CUSTOMER_STATE.Gone \

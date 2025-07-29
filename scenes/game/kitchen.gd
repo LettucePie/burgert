@@ -95,6 +95,7 @@ func _build_queue():
 
 
 func readying_next_customer() -> PackedStringArray:
+	print("Kitchen: readying_next_customer")
 	var result : PackedStringArray = []
 	queue_idx += 1
 	if current_customer != null:
