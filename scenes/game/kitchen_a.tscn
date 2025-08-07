@@ -87,12 +87,14 @@ splat = NodePath("splat")
 rotating_burger = true
 
 [node name="bg" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("3_m4pdk")
 
 [node name="window_anim" type="AnimatedSprite2D" parent="."]
 process_mode = 3
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_gx61c")
@@ -101,6 +103,7 @@ autoplay = "rainy"
 
 [node name="sign_anim" type="AnimatedSprite2D" parent="."]
 process_mode = 3
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_l5lse")
@@ -108,11 +111,13 @@ animation = &"sign"
 autoplay = "sign"
 
 [node name="wall_stools" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(320, 232)
 scale = Vector2(2, 2)
 texture = ExtResource("6_hsy50")
 
 [node name="stopnpuke" type="Sprite2D" parent="." groups=["lang_image"]]
+z_index = -1
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("7_b5ba6")
@@ -739,6 +744,7 @@ position = Vector2(419, 88)
 position = Vector2(319, 32)
 
 [node name="customers" type="Node2D" parent="."]
+z_index = -1
 
 [node name="Basic_A" parent="customers" instance=ExtResource("10_ejulj")]
 
