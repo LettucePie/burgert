@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm1q64oko5mup"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rf6xg"]
+[ext_resource type="AnimationLibrary" uid="uid://duh0ugvp1ls1y" path="res://assets/animation/customers/emo_animlib.res" id="2_0ie3v"]
+[ext_resource type="SpriteFrames" uid="uid://be3tqdut6e5lp" path="res://assets/images/characters/customers/customer_Emo_spriteframes.tres" id="3_316rr"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_umyo3"]
+viewport_path = NodePath(".")
+
+[node name="Emo" instance=ExtResource("1_rf6xg")]
+customer_name = "Emo"
+orders = Array[PackedStringArray]([PackedStringArray("Lettuce", "Lettuce", "Tomato", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Cheese", "Ketchup", "Bun", "Lettuce"), PackedStringArray("Tomato", "Ketchup", "Tomato", "Ketchup", "Tomato")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_0ie3v")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_316rr")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_umyo3")
