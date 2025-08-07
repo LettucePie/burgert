@@ -47,6 +47,41 @@ func prep_kitchen():
 	_build_queue()
 
 
+func _pick_normy() -> int:
+	var result : int = customers.find(normy_customers.pick_random())
+	if queue.size() > 0:
+		print("Queue Larger than 0")
+		var filter_repeats = []
+		for n in normy_customers:
+			var normy_idx = customers.find(n)
+			var queue_last = queue[queue.size() - 1]
+			if normy_idx != queue_last:
+				#print(normy_idx, " doesn't equal ", queue_last)
+				filter_repeats.append(n)
+		#print("Filtered Out non-repetitive normies :\n", filter_repeats)
+		result = customers.find(filter_repeats.pick_random())
+	return result
+
+
+func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
+	var result : PackedInt32Array = [_pick_normy()]
+	var unique_customer : Customer = pool.pick_random()
+	var idx = customers.find(unique_customer)
+	if idx != queue[queue.size() - 1]:
+		print("Unique Customer is not an immediate repeat.")
+		if unique_customer.consecutive_orders > 1:
+			for x in unique_customer.consecutive_orders:
+				result = [
+					idx,
+					_pick_normy()
+				]
+		else:
+			result = [idx]
+	else:
+		print("Unique Customer is an immediate repeat, resorting to normy.")
+	return result
+
+
 func _build_queue():
 	queue.clear()
 	
@@ -65,32 +100,14 @@ func _build_queue():
 		print("Queue Build, ", i)
 		if randf() <= 0.5:
 			print("Tossing in a normy")
-			if queue.size() > 0:
-				print("Queue Larger than 0")
-				var filter_repeats = []
-				for n in normy_customers:
-					var normy_idx = customers.find(n)
-					var queue_last = queue[queue.size() - 1]
-					if normy_idx != queue_last:
-						print(normy_idx, " doesn't equal ", queue_last)
-						filter_repeats.append(n)
-				print("Filtered Out non-repetitive normies :\n", filter_repeats)
-				queue.append(customers.find(filter_repeats.pick_random()))
-			else:
-				queue.append(customers.find(normy_customers.pick_random()))
+			queue.append(_pick_normy())
 		else:
 			if eligible_pool.size() > 0:
 				print("Tossing in a unique customer")
-				var unique_customer : Customer = eligible_pool.pick_random()
-				var idx = customers.find(unique_customer)
-				if unique_customer.consecutive_orders > 1:
-					for x in unique_customer.consecutive_orders:
-						queue.append(idx)
-						queue.append(customers.find(normy_customers.pick_random()))
-				else:
-					queue.append(idx)
+				queue.append_array(_pick_unique(eligible_pool))
 			else:
 				print("No Unique Customers are eligible...")
+				queue.append(_pick_normy())
 
 
 
