@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://basa4au3y5d08"]
+[gd_scene load_steps=32 format=3 uid="uid://basa4au3y5d08"]
 
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="1_bmtbe"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="2_7ioh0"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dqq7p152luv35" path="res://assets/images/characters/customers/customer_toad_and_buddy_still.png" id="13_snsvl"]
 [ext_resource type="Texture2D" uid="uid://crhdkvxa8ixn0" path="res://assets/images/characters/customers/customer_teddy_still.png" id="18_jhsyy"]
 [ext_resource type="Texture2D" uid="uid://b26wf10jfdm1r" path="res://assets/images/graphics/menu/customerdex/unknown_customer.png" id="20_g2o4g"]
+[ext_resource type="Texture2D" uid="uid://bcnaompom57bb" path="res://assets/images/characters/customers/customer_RAT_still.png" id="20_jw6v6"]
 [ext_resource type="Texture2D" uid="uid://d2p2i73x7xdhi" path="res://assets/images/characters/customers/customer_al_still.png" id="20_y7riq"]
 [ext_resource type="Texture2D" uid="uid://g7cuqrmeh738" path="res://assets/images/characters/customers/customer_emo_still.png" id="23_aig54"]
 [ext_resource type="Texture2D" uid="uid://cny0jvo6jpucg" path="res://assets/images/characters/customers/customer_karen_still.png" id="25_wnp4e"]
@@ -43,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bmtbe")
 script = ExtResource("2_7ioh0")
-customer_images = Array[Texture2D]([ExtResource("4_28jgo"), ExtResource("18_jhsyy"), ExtResource("5_nj4e8"), ExtResource("20_y7riq"), ExtResource("23_aig54"), ExtResource("25_wnp4e"), ExtResource("27_o0kx8"), ExtResource("29_s7jxr"), ExtResource("31_111wa"), ExtResource("33_vq73a"), ExtResource("13_snsvl"), ExtResource("38_jmrbg"), ExtResource("40_38to1"), ExtResource("42_budxh"), ExtResource("44_xiqia"), ExtResource("46_q5jf3"), ExtResource("47_aoal5")])
+customer_images = Array[Texture2D]([ExtResource("4_28jgo"), ExtResource("18_jhsyy"), ExtResource("5_nj4e8"), ExtResource("20_y7riq"), ExtResource("23_aig54"), ExtResource("25_wnp4e"), ExtResource("27_o0kx8"), ExtResource("29_s7jxr"), ExtResource("31_111wa"), ExtResource("33_vq73a"), ExtResource("13_snsvl"), ExtResource("38_jmrbg"), ExtResource("40_38to1"), ExtResource("42_budxh"), ExtResource("44_xiqia"), ExtResource("46_q5jf3"), ExtResource("47_aoal5"), ExtResource("20_jw6v6")])
 customer_image_unknown = ExtResource("20_g2o4g")
 
 [node name="decoypanel" type="Panel" parent="."]
