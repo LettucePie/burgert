@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://d3p26ap1a22j3"]
+
+[ext_resource type="Texture2D" uid="uid://d2p2i73x7xdhi" path="res://assets/images/characters/customers/customer_al_still.png" id="1_svol2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_svol2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

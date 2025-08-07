@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="10_ejulj"]
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="11_q4v5g"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
-[ext_resource type="AudioStream" uid="uid://bwk3kb5winqpd" path="res://assets/sound/sfx/Audio 3.wav" id="13_s6p7b"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
 [ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/sfx/Audio 4.wav" id="15_k3c7l"]
 [ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/sfx/Audio 5.wav" id="17_3g7u0"]
@@ -52,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/environment/kitchen/ingredients/bun_highlight.tres" id="46_bk7km"]
 [ext_resource type="PackedScene" uid="uid://c10sbodrjrfc7" path="res://scenes/game/customers/customer_basic_c.tscn" id="46_uxd32"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/images/environment/kitchen/ingredients/meat.tres" id="47_sn0s0"]
+[ext_resource type="PackedScene" uid="uid://c0spnk3woo3hp" path="res://scenes/game/customers/customer_Al.tscn" id="47_x5ntx"]
 [ext_resource type="PackedScene" uid="uid://dx4lrji86l8dv" path="res://scenes/game/customers/customer_Tommy.tscn" id="47_ywpjo"]
 [ext_resource type="PackedScene" uid="uid://cnrs6gbmo3jko" path="res://scenes/game/customers/customer_RAT.tscn" id="48_5s5hk"]
 [ext_resource type="PackedScene" uid="uid://d2crwu2ludbm7" path="res://scenes/game/customers/customer_Ted.tscn" id="48_gogea"]
@@ -135,43 +135,6 @@ bus = &"SFX"
 
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
-
-[node name="Ted" type="Node2D" parent="customers_update"]
-visible = false
-script = ExtResource("3_488ky")
-customer_name = "Ted"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
-
-[node name="character" type="Sprite2D" parent="customers_update/Ted"]
-position = Vector2(111, 144)
-scale = Vector2(2, 2)
-texture = ExtResource("18_tmapa")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Ted"]
-position = Vector2(246, 93)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Ted/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-flip_h = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Ted"]
-position = Vector2(106, 126)
-stream = ExtResource("13_s6p7b")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Ted"]
-position = Vector2(32, 60)
-
-[node name="Right" type="Marker2D" parent="customers_update/Ted"]
-position = Vector2(176, 60)
-
-[node name="munch" parent="customers_update/Ted" instance=ExtResource("14_rquj2")]
-position = Vector2(105, 136)
 
 [node name="Al" type="Node2D" parent="customers_update"]
 visible = false
@@ -718,9 +681,11 @@ z_index = -1
 
 [node name="Teddy" parent="customers" instance=ExtResource("48_qr62u")]
 
-[node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
-
 [node name="Ted" parent="customers" instance=ExtResource("48_gogea")]
+
+[node name="Al" parent="customers" instance=ExtResource("47_x5ntx")]
+
+[node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
 position = Vector2(320, 240)

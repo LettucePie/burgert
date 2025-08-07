@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0spnk3woo3hp"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_ofe0g"]
+[ext_resource type="AnimationLibrary" uid="uid://6h3qlf0iqxud" path="res://assets/animation/customers/al_animlib.res" id="2_n1yof"]
+[ext_resource type="SpriteFrames" uid="uid://d3p26ap1a22j3" path="res://assets/images/characters/customers/customer_al_spriteframes.tres" id="3_4sv82"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tqk8x"]
+viewport_path = NodePath(".")
+
+[node name="Al" instance=ExtResource("1_ofe0g")]
+customer_name = "Al"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
+consecutive_orders = 2
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_n1yof")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_4sv82")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_tqk8x")
