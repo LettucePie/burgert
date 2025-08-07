@@ -50,7 +50,6 @@ func prep_kitchen():
 func _pick_normy() -> int:
 	var result : int = customers.find(normy_customers.pick_random())
 	if queue.size() > 0:
-		print("Queue Larger than 0")
 		var filter_repeats = []
 		for n in normy_customers:
 			var normy_idx = customers.find(n)
@@ -77,6 +76,7 @@ func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 	if !_check_repeat(idx):
 		print("Unique Customer is not an immediate repeat.")
 		if unique_customer.consecutive_orders > 1:
+			print("Unique Customer has consecutive Orders")
 			for x in unique_customer.consecutive_orders:
 				result = [
 					idx,
@@ -103,7 +103,7 @@ func _build_queue():
 	print("Eligible Unique Customers Size: ", eligible_pool.size())
 	
 	randomize()
-	for i in 30:
+	for i in 38:
 		print("Queue Build, ", i)
 		if randf() <= 0.5:
 			print("Tossing in a normy")
