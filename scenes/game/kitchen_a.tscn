@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=68 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -15,9 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="11_q4v5g"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
-[ext_resource type="AudioStream" uid="uid://r2t0e50mq1p1" path="res://assets/sound/sfx/Audio 4.wav" id="15_k3c7l"]
 [ext_resource type="AudioStream" uid="uid://dkt0tyho73a3t" path="res://assets/sound/sfx/Audio 5.wav" id="17_3g7u0"]
-[ext_resource type="Texture2D" uid="uid://d2p2i73x7xdhi" path="res://assets/images/characters/customers/customer_al_still.png" id="18_tmapa"]
 [ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/sfx/Audio 6.wav" id="19_21giq"]
 [ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/sfx/Audio 7.wav" id="21_8ka0h"]
 [ext_resource type="Texture2D" uid="uid://g7cuqrmeh738" path="res://assets/images/characters/customers/customer_emo_still.png" id="21_ebp4d"]
@@ -135,44 +133,6 @@ bus = &"SFX"
 
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
-
-[node name="Al" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(-476, 59)
-script = ExtResource("3_488ky")
-customer_name = "Al"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
-consecutive_orders = 2
-
-[node name="character" type="Sprite2D" parent="customers_update/Al"]
-position = Vector2(313, 157)
-scale = Vector2(2, 2)
-texture = ExtResource("18_tmapa")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Al"]
-position = Vector2(148, 93)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Al/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Al"]
-position = Vector2(292, 126)
-stream = ExtResource("15_k3c7l")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Al"]
-position = Vector2(176, 156)
-
-[node name="Right" type="Marker2D" parent="customers_update/Al"]
-position = Vector2(412, 160)
-
-[node name="munch" parent="customers_update/Al" instance=ExtResource("14_rquj2")]
-position = Vector2(285, 150)
 
 [node name="Emo" type="Node2D" parent="customers_update"]
 visible = false
