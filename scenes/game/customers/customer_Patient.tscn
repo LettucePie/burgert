@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsmv7q4m57b8h"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_vdork"]
+[ext_resource type="AnimationLibrary" uid="uid://bxt2osgb6ty5p" path="res://assets/animation/customers/patient_animlib.res" id="2_8acbk"]
+[ext_resource type="SpriteFrames" uid="uid://c1fh8vpk5f8xh" path="res://assets/images/characters/customers/customer_Patient_spriteframes.tres" id="3_fcrd6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ykaue"]
+viewport_path = NodePath(".")
+
+[node name="Patient" instance=ExtResource("1_vdork")]
+customer_name = "Patient"
+orders = Array[PackedStringArray]([PackedStringArray("Cheese", "Cheese", "Cheese", "Cheese", "Lettuce"), PackedStringArray("Bun", "Cheese", "Bun Top"), PackedStringArray("Bun", "Cheese", "Meat", "Cheese", "Lettuce", "Cheese", "Tomato", "Cheese", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_8acbk")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_fcrd6")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_ykaue")
