@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=71 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -57,6 +57,7 @@
 [ext_resource type="PackedScene" uid="uid://dx4lrji86l8dv" path="res://scenes/game/customers/customer_Tommy.tscn" id="47_ywpjo"]
 [ext_resource type="PackedScene" uid="uid://cnrs6gbmo3jko" path="res://scenes/game/customers/customer_RAT.tscn" id="48_5s5hk"]
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/images/environment/kitchen/ingredients/meat_highlight.tres" id="48_mixwx"]
+[ext_resource type="PackedScene" uid="uid://bw4eao43mdwok" path="res://scenes/game/customers/customer_teddy.tscn" id="48_qr62u"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/environment/kitchen/ingredients/lettuce.tres" id="49_4b8hj"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight.tres" id="50_n0mmw"]
 [ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/images/environment/kitchen/ingredients/tomato.tres" id="51_483gu"]
@@ -752,6 +753,8 @@ z_index = -1
 [node name="Basic_C" parent="customers" instance=ExtResource("46_uxd32")]
 
 [node name="Tommy" parent="customers" instance=ExtResource("47_ywpjo")]
+
+[node name="Teddy" parent="customers" instance=ExtResource("48_qr62u")]
 
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 

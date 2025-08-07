@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw4eao43mdwok"]
+[gd_scene load_steps=5 format=3 uid="uid://bw4eao43mdwok"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_ma572"]
+[ext_resource type="AnimationLibrary" uid="uid://d1ni27cn363hy" path="res://assets/animation/customers/teddy_animlib.res" id="2_mx3bf"]
+[ext_resource type="SpriteFrames" uid="uid://fxe16wivkkv3" path="res://assets/images/characters/customers/customer_teddy_spriteframes.tres" id="3_7v2bi"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8v420"]
 viewport_path = NodePath(".")
 
 [node name="Teddy" instance=ExtResource("1_ma572")]
 customer_name = "Teddy"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Cheese", "Cheese", "Bun Top"), PackedStringArray("Bun", "Tomato", "Cheese", "Tomato", "Cheese", "Cheese", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_mx3bf")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_7v2bi")
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_8v420")

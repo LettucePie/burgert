@@ -1,3 +1,14 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://fxe16wivkkv3"]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://fxe16wivkkv3"]
+
+[ext_resource type="Texture2D" uid="uid://crhdkvxa8ixn0" path="res://assets/images/characters/customers/customer_teddy_still.png" id="1_kf70f"]
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kf70f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
