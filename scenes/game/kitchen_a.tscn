@@ -136,8 +136,6 @@ bus = &"SFX"
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
 
-[node name="Tommy" parent="customers_update" instance=ExtResource("10_ejulj")]
-
 [node name="Teddy" type="Node2D" parent="customers_update"]
 visible = false
 position = Vector2(-557, 59)
