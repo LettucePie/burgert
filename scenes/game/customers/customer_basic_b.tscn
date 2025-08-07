@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_f5x1l"]
 [ext_resource type="SpriteFrames" uid="uid://dp7ic3f4x35ds" path="res://assets/images/characters/customers/customer_basic_b_spriteframes.tres" id="2_j4wbg"]
-[ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b-lib.res" id="2_qbviu"]
+[ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b_animlib.res" id="2_qbviu"]
 [ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="3_bf5st"]
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="4_a1bv5"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="5_dvl5x"]

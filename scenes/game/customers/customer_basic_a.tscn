@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c8pl8fy2uqcm5"]
 
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_cb4rt"]
-[ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b-lib.res" id="2_h1kl1"]
+[ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b_animlib.res" id="2_h1kl1"]
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="3_05x6d"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="4_2isv5"]
 [ext_resource type="SpriteFrames" uid="uid://bn4fx1emgt6x6" path="res://assets/images/characters/customers/customer_basic_a_spriteframes.tres" id="4_ki675"]

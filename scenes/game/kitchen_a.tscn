@@ -54,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/environment/kitchen/ingredients/bun_highlight.tres" id="46_bk7km"]
 [ext_resource type="PackedScene" uid="uid://c10sbodrjrfc7" path="res://scenes/game/customers/customer_basic_c.tscn" id="46_uxd32"]
 [ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/images/environment/kitchen/ingredients/meat.tres" id="47_sn0s0"]
-[ext_resource type="PackedScene" uid="uid://dx4lrji86l8dv" path="res://scenes/game/customers/customer_Tommy_new.tscn" id="47_ywpjo"]
+[ext_resource type="PackedScene" uid="uid://dx4lrji86l8dv" path="res://scenes/game/customers/customer_Tommy.tscn" id="47_ywpjo"]
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/images/environment/kitchen/ingredients/meat_highlight.tres" id="48_mixwx"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/environment/kitchen/ingredients/lettuce.tres" id="49_4b8hj"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight.tres" id="50_n0mmw"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dx4lrji86l8dv"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rcbdo"]
-[ext_resource type="AnimationLibrary" uid="uid://cmlbs643y6f7i" path="res://assets/animation/customers/tommy_a-lib.res" id="2_untru"]
+[ext_resource type="AnimationLibrary" uid="uid://cmlbs643y6f7i" path="res://assets/animation/customers/tommy_animlib.res" id="2_untru"]
 [ext_resource type="SpriteFrames" uid="uid://7dete00aqa6t" path="res://assets/images/characters/customers/customer_tommy_spriteframes.tres" id="3_ow1f6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_p7jln"]
