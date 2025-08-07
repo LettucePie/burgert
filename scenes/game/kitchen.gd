@@ -77,11 +77,11 @@ func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 		print("Unique Customer is not an immediate repeat.")
 		if unique_customer.consecutive_orders > 1:
 			print("Unique Customer has consecutive Orders")
+			result.clear()
 			for x in unique_customer.consecutive_orders:
-				result = [
-					idx,
-					_pick_normy()
-				]
+				result.append(idx)
+				result.append(_pick_normy())
+			print("Consecutive array: ", result)
 		else:
 			result = [idx]
 	else:
