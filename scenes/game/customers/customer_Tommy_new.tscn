@@ -9,6 +9,7 @@ viewport_path = NodePath("burger_portal")
 
 [node name="Tommy" instance=ExtResource("1_rcbdo")]
 customer_name = "Tommy"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Lettuce", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Lettuce", "Meat", "Bun", "Lettuce", "Bun Top")])
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
