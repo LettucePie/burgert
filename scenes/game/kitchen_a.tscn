@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=66 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -15,10 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="11_q4v5g"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
-[ext_resource type="AudioStream" uid="uid://4ekjk6nk6jww" path="res://assets/sound/sfx/Audio 6.wav" id="19_21giq"]
 [ext_resource type="AudioStream" uid="uid://olh6xmdet67g" path="res://assets/sound/sfx/Audio 7.wav" id="21_8ka0h"]
 [ext_resource type="AudioStream" uid="uid://6awwq0fr8g45" path="res://assets/sound/sfx/Audio 8.wav" id="23_c4ttp"]
-[ext_resource type="Texture2D" uid="uid://cny0jvo6jpucg" path="res://assets/images/characters/customers/customer_karen_still.png" id="23_og10b"]
 [ext_resource type="AudioStream" uid="uid://ci4766rfr1j0l" path="res://assets/sound/sfx/Audio 9.wav" id="25_clbmo"]
 [ext_resource type="Texture2D" uid="uid://dxlt1mwtpdlgc" path="res://assets/images/characters/customers/customer_patient_still.png" id="25_ujeri"]
 [ext_resource type="Texture2D" uid="uid://d2w2qyg4gst2j" path="res://assets/images/characters/customers/customer_mustard_still.png" id="27_1vp6a"]
@@ -38,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://cdt21gfyo12x2" path="res://assets/sound/sfx/Audio 15.wav" id="41_ycyvm"]
 [ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/customer_jimmie_still.png" id="42_whgjs"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_grill.tres" id="42_y6et2"]
+[ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
 [ext_resource type="AudioStream" uid="uid://cxtpbxd1ikh4a" path="res://assets/sound/sfx/Audio 16.wav" id="43_pkjyh"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_alcove.tres" id="43_yb70e"]
 [ext_resource type="PackedScene" uid="uid://cm1q64oko5mup" path="res://scenes/game/customers/customer_Emo.tscn" id="44_1jhgf"]
@@ -132,43 +131,6 @@ bus = &"SFX"
 
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
-
-[node name="Karen" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(-568, 59)
-script = ExtResource("3_488ky")
-customer_name = "Karen"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Tomato", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Tomato", "Ketchup", "Mustard", "Bun Top")])
-
-[node name="character" type="Sprite2D" parent="customers_update/Karen"]
-position = Vector2(450, 169)
-scale = Vector2(2, 2)
-texture = ExtResource("23_og10b")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Karen"]
-position = Vector2(278, 93)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Karen/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Karen"]
-position = Vector2(436, 126)
-stream = ExtResource("19_21giq")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Karen"]
-position = Vector2(372, 140)
-
-[node name="Right" type="Marker2D" parent="customers_update/Karen"]
-position = Vector2(512, 140)
-
-[node name="munch" parent="customers_update/Karen" instance=ExtResource("14_rquj2")]
-position = Vector2(435, 170)
 
 [node name="Patient" type="Node2D" parent="customers_update"]
 visible = false
@@ -608,6 +570,8 @@ z_index = -1
 [node name="Al" parent="customers" instance=ExtResource("47_x5ntx")]
 
 [node name="Emo" parent="customers" instance=ExtResource("44_1jhgf")]
+
+[node name="Karen" parent="customers" instance=ExtResource("43_kfksk")]
 
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 
