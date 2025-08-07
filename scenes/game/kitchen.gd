@@ -63,11 +63,18 @@ func _pick_normy() -> int:
 	return result
 
 
+func _check_repeat(subject : int) -> bool:
+	var result : bool = false
+	if queue.size() > 0:
+		result = queue[queue.size() - 1] == subject
+	return result
+
+
 func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 	var result : PackedInt32Array = [_pick_normy()]
 	var unique_customer : Customer = pool.pick_random()
 	var idx = customers.find(unique_customer)
-	if idx != queue[queue.size() - 1]:
+	if !_check_repeat(idx):
 		print("Unique Customer is not an immediate repeat.")
 		if unique_customer.consecutive_orders > 1:
 			for x in unique_customer.consecutive_orders:
