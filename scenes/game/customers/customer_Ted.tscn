@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2crwu2ludbm7"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_r6gyx"]
+[ext_resource type="AnimationLibrary" uid="uid://nslfgxmcjwl3" path="res://assets/animation/customers/ted_animlib.res" id="2_40bmy"]
+[ext_resource type="SpriteFrames" uid="uid://cf1gddaxdb4f" path="res://assets/images/characters/customers/customer_Ted_spriteframes.tres" id="3_1u2b2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajo77"]
+viewport_path = NodePath(".")
+
+[node name="Ted" instance=ExtResource("1_r6gyx")]
+customer_name = "Ted"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_40bmy")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_1u2b2")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_ajo77")
