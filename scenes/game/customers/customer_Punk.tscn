@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://yy7pwwtvklkk"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_egn53"]
+[ext_resource type="AnimationLibrary" uid="uid://dfjy0svltnjyj" path="res://assets/animation/customers/punk_animlib.res" id="2_sycni"]
+[ext_resource type="SpriteFrames" uid="uid://ckcjomid1tp4s" path="res://assets/images/characters/customers/customer_Punk_spriteframes.tres" id="3_vtoic"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4n10n"]
+viewport_path = NodePath(".")
+
+[node name="Punk" instance=ExtResource("1_egn53")]
+customer_name = "Punk"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Ketchup", "Ketchup", "Bun Top"), PackedStringArray("Cheese", "Ketchup", "Ketchup", "Ketchup", "Cheese"), PackedStringArray("Bun", "Cheese", "Bun", "Ketchup", "Bun", "Cheese", "Bun", "Ketchup", "Bun", "Ketchup", "Bun Top")])
+consecutive_orders = 2
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_sycni")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_vtoic")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_4n10n")
+
+[node name="thought_cloud" parent="burger_portal_view" index="0"]
+flip_h = true

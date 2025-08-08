@@ -20,5 +20,11 @@ libraries = {
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_ow1f6")
 
+[node name="Left" parent="character" index="1"]
+position = Vector2(-30.7143, 0)
+
+[node name="Right" parent="character" index="2"]
+position = Vector2(35, 0)
+
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_p7jln")
