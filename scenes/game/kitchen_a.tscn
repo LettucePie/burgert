@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=58 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -16,18 +16,17 @@
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
 [ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/sfx/Audio 11.wav" id="30_6f0yp"]
+[ext_resource type="PackedScene" uid="uid://bmycphaqf0bvr" path="res://scenes/game/customers/customer_Jimmie.tscn" id="35_qxumj"]
+[ext_resource type="PackedScene" uid="uid://2ps37k82g24j" path="res://scenes/game/customers/customer_Haircut.tscn" id="35_r5nat"]
 [ext_resource type="PackedScene" uid="uid://wtgtif02px0y" path="res://scenes/game/customers/customer_Anxiety.tscn" id="36_vtajj"]
 [ext_resource type="PackedScene" uid="uid://crsb1nqkcsqgm" path="res://scenes/game/customers/customer_Persistant.tscn" id="37_eadds"]
 [ext_resource type="PackedScene" uid="uid://b26ikenjxjc4k" path="res://scenes/game/customers/customer_Toad.tscn" id="38_c6rw0"]
 [ext_resource type="Texture2D" uid="uid://dmvku22ms6kgo" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_floor.png" id="40_5d7jh"]
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2.tres" id="40_arepm"]
-[ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="40_c07en"]
 [ext_resource type="PackedScene" uid="uid://dwc2jks4dayst" path="res://scenes/game/customers/customer_Dancer.tscn" id="40_sx5rb"]
 [ext_resource type="PackedScene" uid="uid://ccpn27ekp35kc" path="res://scenes/game/customers/customer_Mustard.tscn" id="41_46480"]
 [ext_resource type="PackedScene" uid="uid://yy7pwwtvklkk" path="res://scenes/game/customers/customer_Punk.tscn" id="41_geefq"]
-[ext_resource type="AudioStream" uid="uid://cdt21gfyo12x2" path="res://assets/sound/sfx/Audio 15.wav" id="41_ycyvm"]
 [ext_resource type="PackedScene" uid="uid://bsmv7q4m57b8h" path="res://scenes/game/customers/customer_Patient.tscn" id="42_svbmj"]
-[ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/customer_jimmie_still.png" id="42_whgjs"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_grill.tres" id="42_y6et2"]
 [ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
 [ext_resource type="AudioStream" uid="uid://cxtpbxd1ikh4a" path="res://assets/sound/sfx/Audio 16.wav" id="43_pkjyh"]
@@ -124,81 +123,6 @@ bus = &"SFX"
 
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
-
-[node name="Haircut" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(399, 99)
-script = ExtResource("3_488ky")
-customer_name = "Haircut"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Lettuce", "Meat", "Lettuce"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top")])
-
-[node name="character" type="Sprite2D" parent="customers_update/Haircut"]
-position = Vector2(320, 101)
-scale = Vector2(2, 2)
-texture = ExtResource("40_c07en")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Haircut"]
-position = Vector2(182, 23)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Haircut/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Haircut"]
-position = Vector2(324, 126)
-stream = ExtResource("41_ycyvm")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Haircut"]
-position = Vector2(261, 88)
-
-[node name="Right" type="Marker2D" parent="customers_update/Haircut"]
-position = Vector2(381, 88)
-
-[node name="munch" parent="customers_update/Haircut" instance=ExtResource("14_rquj2")]
-position = Vector2(326, 78)
-
-[node name="Jimmie" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(8, 110)
-script = ExtResource("3_488ky")
-customer_name = "Jimmie"
-orders = Array[PackedStringArray]([PackedStringArray("Lettuce"), PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Bun", "Lettuce"), PackedStringArray("Bun", "Meat", "Lettuce", "Bun Top")])
-consecutive_orders = 2
-
-[node name="character" type="Sprite2D" parent="customers_update/Jimmie"]
-position = Vector2(320, 101)
-scale = Vector2(2, 2)
-texture = ExtResource("42_whgjs")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Jimmie"]
-position = Vector2(182, 23)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Jimmie/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Jimmie"]
-position = Vector2(320, 63)
-stream = ExtResource("43_pkjyh")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Jimmie"]
-position = Vector2(261, 88)
-
-[node name="Right" type="Marker2D" parent="customers_update/Jimmie"]
-position = Vector2(381, 88)
-
-[node name="munch" parent="customers_update/Jimmie" instance=ExtResource("14_rquj2")]
-position = Vector2(320, 64)
 
 [node name="MrPink" type="Node2D" parent="customers_update"]
 visible = false
@@ -309,6 +233,10 @@ z_index = -1
 [node name="Persistant" parent="customers" instance=ExtResource("37_eadds")]
 
 [node name="Anxiety" parent="customers" instance=ExtResource("36_vtajj")]
+
+[node name="Haircut" parent="customers" instance=ExtResource("35_r5nat")]
+
+[node name="Jimmie" parent="customers" instance=ExtResource("35_qxumj")]
 
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmycphaqf0bvr"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_dybq8"]
+[ext_resource type="AnimationLibrary" uid="uid://knkofo4mts3u" path="res://assets/animation/customers/jimmie_animlib.res" id="2_4wsg3"]
+[ext_resource type="SpriteFrames" uid="uid://dw3p885dlqutw" path="res://assets/images/characters/customers/customer_Jimmie_spriteframes.tres" id="2_5sth2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4mh3j"]
+viewport_path = NodePath(".")
+
+[node name="Jimmie" instance=ExtResource("1_dybq8")]
+customer_name = "Jimmie"
+orders = Array[PackedStringArray]([PackedStringArray("Lettuce"), PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Bun", "Lettuce"), PackedStringArray("Bun", "Meat", "Lettuce", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_4wsg3")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_5sth2")
+
+[node name="Left" parent="character" index="1"]
+position = Vector2(-30.7143, 0)
+
+[node name="Right" parent="character" index="2"]
+position = Vector2(24.2857, 0)
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_4mh3j")

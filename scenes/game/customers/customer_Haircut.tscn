@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ps37k82g24j"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rit48"]
+[ext_resource type="AnimationLibrary" uid="uid://dy2uihutceyy0" path="res://assets/animation/customers/haircut_animlib.res" id="2_dagw2"]
+[ext_resource type="SpriteFrames" uid="uid://bfeuwt5gm6i5b" path="res://assets/images/characters/customers/customer_Haircut_spriteframes.tres" id="2_mlw1m"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xlpyc"]
+viewport_path = NodePath(".")
+
+[node name="Haircut" instance=ExtResource("1_rit48")]
+customer_name = "Haircut"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Lettuce", "Meat", "Lettuce"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_dagw2")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_mlw1m")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_xlpyc")
+
+[node name="thought_cloud" parent="burger_portal_view" index="0"]
+flip_h = true
