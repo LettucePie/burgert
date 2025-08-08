@@ -8,6 +8,7 @@ signal customer_left()
 @export var customers_node : Node2D
 @export var normy_customers : Array[Customer] = []
 @export var splat : AnimatedSprite2D
+@export var TEST_CUSTOMER : Customer = null
 var customers : Array[Customer] = []
 var queue : PackedInt32Array = []
 var queue_idx : int = 0
@@ -86,6 +87,10 @@ func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 			result = [idx]
 	else:
 		print("Unique Customer is an immediate repeat, resorting to normy.")
+	if OS.has_feature("editor") and TEST_CUSTOMER != null:
+		if !_check_repeat(customers.find(TEST_CUSTOMER)):
+			print("TEST OVERRIDE")
+			result = [customers.find(TEST_CUSTOMER)]
 	return result
 
 
@@ -172,8 +177,8 @@ func customer_fed(meal_rank : int):
 func _on_customer_arrived():
 	print("Kitchen Customer has Arrived")
 	emit_signal("customer_ready")
-	if next_customer.status == Customer.CUSTOMER_STATE.Gone \
-	or next_customer.status < Customer.CUSTOMER_STATE.Queue:
+	if next_customer.status == Customer.CUSTOMER_STATE.Gone:
+		print("Kitchen Setting next Customer to Entering")
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 
 
