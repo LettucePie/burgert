@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=59 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -16,10 +16,9 @@
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
 [ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
 [ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/sfx/Audio 11.wav" id="30_6f0yp"]
-[ext_resource type="AudioStream" uid="uid://b7mlseuejtsff" path="res://assets/sound/sfx/Audio 14.wav" id="34_83rug"]
+[ext_resource type="PackedScene" uid="uid://wtgtif02px0y" path="res://scenes/game/customers/customer_Anxiety.tscn" id="36_vtajj"]
 [ext_resource type="PackedScene" uid="uid://crsb1nqkcsqgm" path="res://scenes/game/customers/customer_Persistant.tscn" id="37_eadds"]
 [ext_resource type="PackedScene" uid="uid://b26ikenjxjc4k" path="res://scenes/game/customers/customer_Toad.tscn" id="38_c6rw0"]
-[ext_resource type="Texture2D" uid="uid://cqrvdvkxolvub" path="res://assets/images/characters/customers/customer_anxiety_still.png" id="38_xb0wa"]
 [ext_resource type="Texture2D" uid="uid://dmvku22ms6kgo" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_floor.png" id="40_5d7jh"]
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2.tres" id="40_arepm"]
 [ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="40_c07en"]
@@ -125,43 +124,6 @@ bus = &"SFX"
 
 [node name="customers_update" type="Node2D" parent="."]
 visible = false
-
-[node name="Anxiety" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(0, 59)
-script = ExtResource("3_488ky")
-customer_name = "Anxiety"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
-
-[node name="character" type="Sprite2D" parent="customers_update/Anxiety"]
-position = Vector2(477, 149)
-scale = Vector2(2, 2)
-texture = ExtResource("38_xb0wa")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Anxiety"]
-position = Vector2(340, 93)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Anxiety/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Anxiety"]
-position = Vector2(480, 126)
-stream = ExtResource("34_83rug")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Anxiety"]
-position = Vector2(420, 124)
-
-[node name="Right" type="Marker2D" parent="customers_update/Anxiety"]
-position = Vector2(540, 124)
-
-[node name="munch" parent="customers_update/Anxiety" instance=ExtResource("14_rquj2")]
-position = Vector2(481, 127)
 
 [node name="Haircut" type="Node2D" parent="customers_update"]
 visible = false
@@ -345,6 +307,8 @@ z_index = -1
 [node name="Toad" parent="customers" instance=ExtResource("38_c6rw0")]
 
 [node name="Persistant" parent="customers" instance=ExtResource("37_eadds")]
+
+[node name="Anxiety" parent="customers" instance=ExtResource("36_vtajj")]
 
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 

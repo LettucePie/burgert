@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://wtgtif02px0y"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_e5txx"]
+[ext_resource type="AnimationLibrary" uid="uid://yvfl5a3183d8" path="res://assets/animation/customers/anxiety_animlib.res" id="2_pa7y8"]
+[ext_resource type="SpriteFrames" uid="uid://carbatkngutoy" path="res://assets/images/characters/customers/customer_Anxiety_spriteframes.tres" id="3_3ojr1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3f58o"]
+viewport_path = NodePath(".")
+
+[node name="Anxiety" instance=ExtResource("1_e5txx")]
+customer_name = "Anxiety"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_pa7y8")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_3ojr1")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_3f58o")
+
+[node name="thought_cloud" parent="burger_portal_view" index="0"]
+flip_h = true
