@@ -1,8 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=52 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
-[ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="3_488ky"]
 [ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/images/environment/kitchen/restaurant_bg/Restuarant_bg_plain.png" id="3_m4pdk"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/images/environment/kitchen/restaurant_bg/kitchen_window_spriteframes.tres" id="4_gx61c"]
@@ -12,10 +11,7 @@
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/images/graphics/missing_burger_frames.tres" id="8_hjo3x"]
 [ext_resource type="AudioStream" uid="uid://b34rn41nkyiii" path="res://assets/sound/sfx/wallsplat_sfx_1.wav" id="9_v7osa"]
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="10_ejulj"]
-[ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="11_q4v5g"]
-[ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="12_vq758"]
-[ext_resource type="PackedScene" uid="uid://e7qictdempjp" path="res://scenes/game/munch.tscn" id="14_rquj2"]
-[ext_resource type="AudioStream" uid="uid://bn2g4t1pa433s" path="res://assets/sound/sfx/Audio 11.wav" id="30_6f0yp"]
+[ext_resource type="PackedScene" uid="uid://swaf5bjjfxgu" path="res://scenes/game/customers/customer_Liam.tscn" id="29_7xrkj"]
 [ext_resource type="PackedScene" uid="uid://bmycphaqf0bvr" path="res://scenes/game/customers/customer_Jimmie.tscn" id="35_qxumj"]
 [ext_resource type="PackedScene" uid="uid://2ps37k82g24j" path="res://scenes/game/customers/customer_Haircut.tscn" id="35_r5nat"]
 [ext_resource type="PackedScene" uid="uid://frnuy6mv5e8m" path="res://scenes/game/customers/customer_MrPink.tscn" id="36_8xhu6"]
@@ -30,12 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://bsmv7q4m57b8h" path="res://scenes/game/customers/customer_Patient.tscn" id="42_svbmj"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_grill.tres" id="42_y6et2"]
 [ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
-[ext_resource type="AudioStream" uid="uid://cxtpbxd1ikh4a" path="res://assets/sound/sfx/Audio 16.wav" id="43_pkjyh"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_alcove.tres" id="43_yb70e"]
 [ext_resource type="PackedScene" uid="uid://cm1q64oko5mup" path="res://scenes/game/customers/customer_Emo.tscn" id="44_1jhgf"]
-[ext_resource type="Texture2D" uid="uid://croqar7nh1iwo" path="res://assets/images/characters/customers/customer_mrpink_still.png" id="44_tyhx0"]
 [ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/images/environment/kitchen/ingredients/bun.tres" id="45_gga11"]
-[ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="45_hjs3n"]
 [ext_resource type="PackedScene" uid="uid://dgdrqg66xl376" path="res://scenes/game/customers/customer_basic_b.tscn" id="45_o2d37"]
 [ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/environment/kitchen/ingredients/bun_highlight.tres" id="46_bk7km"]
 [ext_resource type="PackedScene" uid="uid://c10sbodrjrfc7" path="res://scenes/game/customers/customer_basic_c.tscn" id="46_uxd32"]
@@ -122,84 +115,6 @@ animation = &"splat"
 stream = ExtResource("9_v7osa")
 bus = &"SFX"
 
-[node name="customers_update" type="Node2D" parent="."]
-visible = false
-
-[node name="MrPink" type="Node2D" parent="customers_update"]
-visible = false
-position = Vector2(265, 110)
-script = ExtResource("3_488ky")
-customer_name = "Mr. Pink"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Ketchup", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Meat", "Tomato", "Ketchup", "Meat")])
-
-[node name="character" type="Sprite2D" parent="customers_update/MrPink"]
-position = Vector2(320, 101)
-scale = Vector2(2, 2)
-texture = ExtResource("44_tyhx0")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/MrPink"]
-position = Vector2(182, 23)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/MrPink/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/MrPink"]
-position = Vector2(320, 113)
-stream = ExtResource("43_pkjyh")
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/MrPink"]
-position = Vector2(232, 88)
-
-[node name="Right" type="Marker2D" parent="customers_update/MrPink"]
-position = Vector2(381, 88)
-
-[node name="munch" parent="customers_update/MrPink" instance=ExtResource("14_rquj2")]
-position = Vector2(321, 55)
-
-[node name="Liam" type="Node2D" parent="customers_update"]
-position = Vector2(-435, 110)
-script = ExtResource("3_488ky")
-customer_name = "Macho Liam"
-orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Meat", "Meat")])
-
-[node name="character" type="Sprite2D" parent="customers_update/Liam"]
-position = Vector2(320, 101)
-scale = Vector2(2, 2)
-texture = ExtResource("45_hjs3n")
-
-[node name="burger_portal_view" type="Sprite2D" parent="customers_update/Liam"]
-position = Vector2(452, -19)
-scale = Vector2(0.275879, 0.275879)
-texture = ExtResource("11_q4v5g")
-
-[node name="thought_cloud" type="AnimatedSprite2D" parent="customers_update/Liam/burger_portal_view"]
-position = Vector2(0, -7.24954)
-scale = Vector2(18.8602, 18.8602)
-sprite_frames = ExtResource("12_vq758")
-autoplay = "default"
-flip_h = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="customers_update/Liam"]
-position = Vector2(318, 102)
-stream = ExtResource("30_6f0yp")
-pitch_scale = 0.85
-bus = &"SFX"
-
-[node name="Left" type="Marker2D" parent="customers_update/Liam"]
-position = Vector2(214, 88)
-
-[node name="Right" type="Marker2D" parent="customers_update/Liam"]
-position = Vector2(419, 88)
-
-[node name="munch" parent="customers_update/Liam" instance=ExtResource("14_rquj2")]
-position = Vector2(319, 32)
-
 [node name="customers" type="Node2D" parent="."]
 z_index = -1
 
@@ -240,6 +155,8 @@ z_index = -1
 [node name="Jimmie" parent="customers" instance=ExtResource("35_qxumj")]
 
 [node name="MrPink" parent="customers" instance=ExtResource("36_8xhu6")]
+
+[node name="Liam" parent="customers" instance=ExtResource("29_7xrkj")]
 
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 

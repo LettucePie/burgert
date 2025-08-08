@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cn80shcxkhuwy"]
+
+[ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="1_j68h8"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j68h8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
