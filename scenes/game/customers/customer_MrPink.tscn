@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://frnuy6mv5e8m"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_6jq8h"]
+[ext_resource type="AnimationLibrary" uid="uid://clo7v5auolv1s" path="res://assets/animation/customers/mrpink_animlib.res" id="2_37j1t"]
+[ext_resource type="SpriteFrames" uid="uid://c120e4jd23b7c" path="res://assets/images/characters/customers/customer_MrPink_spriteframes.tres" id="2_ifg5v"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0vgvs"]
+viewport_path = NodePath(".")
+
+[node name="MrPink" instance=ExtResource("1_6jq8h")]
+customer_name = "Mr. Pink"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Ketchup", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Meat", "Tomato", "Ketchup", "Meat")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_37j1t")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_ifg5v")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_0vgvs")
