@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://crsb1nqkcsqgm"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_5j8yp"]
+[ext_resource type="AnimationLibrary" uid="uid://biapfbq37jlfd" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
+[ext_resource type="SpriteFrames" uid="uid://dn7vfn8j4mnuo" path="res://assets/images/characters/customers/customer_persistant_spriteframes.tres" id="3_ouw3e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ip23c"]
+viewport_path = NodePath(".")
+
+[node name="Persistant" instance=ExtResource("1_5j8yp")]
+customer_name = "Persistant"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
+consecutive_orders = 4
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_77amt")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_ouw3e")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_ip23c")
