@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccpn27ekp35kc"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qjl4t"]
+[ext_resource type="AnimationLibrary" uid="uid://ct6ppeqycjnqg" path="res://assets/animation/customers/mustard_animlib.res" id="2_rnubw"]
+[ext_resource type="SpriteFrames" uid="uid://bjposeetvmac7" path="res://assets/images/characters/customers/customer_Mustard_spriteframes.tres" id="3_bc3i5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_34new"]
+viewport_path = NodePath(".")
+
+[node name="Mustard" instance=ExtResource("1_qjl4t")]
+customer_name = "Mustard"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Mustard", "Mustard", "Mustard", "Mustard"), PackedStringArray("Mustard", "Mustard", "Mustard"), PackedStringArray("Bun", "Mustard", "Meat", "Mustard", "Mustard", "Mustard", "Mustard", "Bun", "Mustard")])
+consecutive_orders = 2
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_rnubw")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_bc3i5")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_34new")
