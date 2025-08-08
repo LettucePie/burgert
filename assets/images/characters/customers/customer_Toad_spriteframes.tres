@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dm1tphux6j6mm"]
+
+[ext_resource type="Texture2D" uid="uid://dqq7p152luv35" path="res://assets/images/characters/customers/customer_toad_and_buddy_still.png" id="1_hgt7m"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hgt7m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b26ikenjxjc4k"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_6cvex"]
+[ext_resource type="SpriteFrames" uid="uid://dm1tphux6j6mm" path="res://assets/images/characters/customers/customer_Toad_spriteframes.tres" id="2_5stev"]
+[ext_resource type="AnimationLibrary" uid="uid://dv0ythsrdrr53" path="res://assets/animation/customers/toad_animlib.res" id="2_u8d3v"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mawkp"]
+viewport_path = NodePath(".")
+
+[node name="Toad" instance=ExtResource("1_6cvex")]
+customer_name = "Toad"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top"), PackedStringArray("Meat", "Meat"), PackedStringArray("Cheese", "Cheese"), PackedStringArray("Ketchup", "Mustard"), PackedStringArray("Lettuce", "Tomato")])
+consecutive_orders = 2
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_u8d3v")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_5stev")
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_mawkp")
