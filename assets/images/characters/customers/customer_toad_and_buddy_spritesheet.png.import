@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci73lst0kgxjg"
-path="res://.godot/imported/RAT_spritesheet.png-d444b32fabea199b00f6139d1ab43c47.ctex"
+uid="uid://dnec8ngkw5spd"
+path="res://.godot/imported/customer_toad_and_buddy_spritesheet.png-689ad64e92923678328d07d705a39ec9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/RAT_spritesheet.png"
-dest_files=["res://.godot/imported/RAT_spritesheet.png-d444b32fabea199b00f6139d1ab43c47.ctex"]
+source_file="res://assets/images/characters/customers/customer_toad_and_buddy_spritesheet.png"
+dest_files=["res://.godot/imported/customer_toad_and_buddy_spritesheet.png-689ad64e92923678328d07d705a39ec9.ctex"]
 
 [params]
 
