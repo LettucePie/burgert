@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt2410ejxspie"
-path="res://.godot/imported/customers_split__24.png-bc2cd84dba6a618f72246b73b5040ba6.ctex"
+path="res://.godot/imported/customer_chief_patty_zarkon_still.png-aa6e42198950b1570083c350c1599de1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__24.png"
-dest_files=["res://.godot/imported/customers_split__24.png-bc2cd84dba6a618f72246b73b5040ba6.ctex"]
+source_file="res://assets/images/characters/customers/customer_chief_patty_zarkon_still.png"
+dest_files=["res://.godot/imported/customer_chief_patty_zarkon_still.png-aa6e42198950b1570083c350c1599de1.ctex"]
 
 [params]
 

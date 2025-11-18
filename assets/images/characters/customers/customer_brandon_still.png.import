@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://43mqcc7ke18t"
-path="res://.godot/imported/customers_split__21.png-53239794420846fb402678a6db4d94f6.ctex"
+uid="uid://bfelf6xvhbex3"
+path="res://.godot/imported/customer_brandon_still.png-84065ccbcd5ca76f3972584011f38816.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__21.png"
-dest_files=["res://.godot/imported/customers_split__21.png-53239794420846fb402678a6db4d94f6.ctex"]
+source_file="res://assets/images/characters/customers/customer_brandon_still.png"
+dest_files=["res://.godot/imported/customer_brandon_still.png-84065ccbcd5ca76f3972584011f38816.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfelf6xvhbex3"
-path="res://.godot/imported/customers_split__26.png-5010013b7b2495cf587d1f83c8e27cb1.ctex"
+uid="uid://bivwcupa7xnh1"
+path="res://.godot/imported/customer_shagg_still.png-6a40eddbf11ae4a15f20ca3b14e94590.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__26.png"
-dest_files=["res://.godot/imported/customers_split__26.png-5010013b7b2495cf587d1f83c8e27cb1.ctex"]
+source_file="res://assets/images/characters/customers/customer_shagg_still.png"
+dest_files=["res://.godot/imported/customer_shagg_still.png-6a40eddbf11ae4a15f20ca3b14e94590.ctex"]
 
 [params]
 

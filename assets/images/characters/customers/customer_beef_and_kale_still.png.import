@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bllvpk5oixvd"
-path="res://.godot/imported/customers_split__27.png-00f92eb9006d02f6a512144b38560b81.ctex"
+uid="uid://b7ulnwb8hfwa1"
+path="res://.godot/imported/customer_beef_and_kale_still.png-171752209e771639db163e0d0962e8af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customers_split__27.png"
-dest_files=["res://.godot/imported/customers_split__27.png-00f92eb9006d02f6a512144b38560b81.ctex"]
+source_file="res://assets/images/characters/customers/customer_beef_and_kale_still.png"
+dest_files=["res://.godot/imported/customer_beef_and_kale_still.png-171752209e771639db163e0d0962e8af.ctex"]
 
 [params]
 
