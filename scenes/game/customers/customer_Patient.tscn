@@ -19,6 +19,8 @@ libraries = {
 [node name="character" parent="." index="1"]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_fcrd6")
+autoplay = "idle"
+offset = Vector2(0, -18)
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_ykaue")
