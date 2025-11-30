@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=73 format=3 uid="uid://bfeuwt5gm6i5b"]
+[gd_resource type="SpriteFrames" load_steps=74 format=3 uid="uid://bfeuwt5gm6i5b"]
 
 [ext_resource type="Texture2D" uid="uid://csso6kyd81i7r" path="res://assets/images/characters/customers/customer_haircut_spritesheet.png" id="1_ojeuq"]
+[ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="2_yxxel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h050k"]
 atlas = ExtResource("1_ojeuq")
@@ -324,6 +325,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"chewing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yxxel")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
