@@ -65,7 +65,7 @@ customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
-TEST_CUSTOMER = NodePath("customers/Al")
+TEST_CUSTOMER = NodePath("customers/Emo")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 rotating_burger = true
