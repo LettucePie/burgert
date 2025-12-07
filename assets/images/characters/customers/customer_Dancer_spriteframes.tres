@@ -336,7 +336,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"disappointed",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -368,7 +368,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"fantastic",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
