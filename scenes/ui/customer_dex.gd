@@ -11,12 +11,12 @@ class_name CustomerDex
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
-	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T."
+	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale"
 ]
 @export var customer_names_display : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
-	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T."
+	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale"
 ]
 @export var customer_images : Array[Texture2D]
 @export var customer_descriptions_a : PackedStringArray = [
@@ -40,6 +40,7 @@ class_name CustomerDex
 	"Species: Plorb\nHeight: 6'7\nFavorite Ingredient: Tomato",
 	"Species: Djinn\nHeight: 5'4\nFavorite Ingredient: Meat",
 	"Species: Rat\nHeight: 5'3\nFavorite Ingredient: Cheese",
+	"Species: Plorb\nHeight: 5'0\nFavorite Ingredient: Depends..."
 ]
 @export var customer_descriptions_b : PackedStringArray = [
 	"Can often be seen around the local theater... like all the time. Probably \
@@ -86,6 +87,8 @@ class_name CustomerDex
 	with that other guy...",
 	"Reginald Atly Tigillicuny\n\nConstantly trying to outshine the fame of \
 	his father, he found comfort being the strongest at the gym.",
+	"How a vegetarian and a carnivore share the same stomach is beyond me. \
+	\n\nCool dudes tho... cool dude though?",
 ]
 var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
