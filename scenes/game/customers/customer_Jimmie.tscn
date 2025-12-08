@@ -19,6 +19,8 @@ libraries = {
 [node name="character" parent="." index="1"]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_5sth2")
+autoplay = "idle"
+offset = Vector2(0, -35)
 
 [node name="Left" parent="character" index="1"]
 position = Vector2(-30.7143, 0)
