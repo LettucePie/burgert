@@ -206,3 +206,5 @@ func _on_customer_reorder():
 	print("Kitchen Acknowledges Customer is changing their order")
 	var new_order : PackedStringArray = \
 	current_customer.orders.pick_random().duplicate()
+	emit_signal("customer_reorder", new_order)
+	customer_burger_portal.burger.assemble_burger_build(new_order)

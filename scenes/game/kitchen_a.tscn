@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=59 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://biq41106bohio" path="res://scenes/game/customers/customer_Ronald.tscn" id="36_dbfad"]
 [ext_resource type="PackedScene" uid="uid://wtgtif02px0y" path="res://scenes/game/customers/customer_Anxiety.tscn" id="36_vtajj"]
 [ext_resource type="PackedScene" uid="uid://crsb1nqkcsqgm" path="res://scenes/game/customers/customer_Persistant.tscn" id="37_eadds"]
+[ext_resource type="PackedScene" uid="uid://d24u4su4c1i00" path="res://scenes/game/customers/customer_Shagg.tscn" id="37_pigpx"]
 [ext_resource type="PackedScene" uid="uid://b26ikenjxjc4k" path="res://scenes/game/customers/customer_Toad.tscn" id="38_c6rw0"]
 [ext_resource type="Texture2D" uid="uid://dmvku22ms6kgo" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_floor.png" id="40_5d7jh"]
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2.tres" id="40_arepm"]
@@ -71,7 +72,7 @@ customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
-TEST_CUSTOMER = NodePath("customers/Ronald")
+TEST_CUSTOMER = NodePath("customers/Shagg")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 rotating_burger = true
@@ -178,6 +179,8 @@ z_index = -1
 [node name="Mr_Understood" parent="customers" instance=ExtResource("35_ki3d0")]
 
 [node name="Ronald" parent="customers" instance=ExtResource("36_dbfad")]
+
+[node name="Shagg" parent="customers" instance=ExtResource("37_pigpx")]
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
