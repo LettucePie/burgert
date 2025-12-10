@@ -5,6 +5,8 @@ signal customer_arrived()
 signal customer_served()
 signal customer_leaving()
 signal customer_finished()
+signal customer_reorder()
+signal start_time()
 
 @export var customer_name : String = "Basic"
 @export var orders : Array[PackedStringArray] = []
@@ -96,6 +98,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			set_state(CUSTOMER_STATE.Queue)
 	if anim_name == "ordering":
 		set_state(CUSTOMER_STATE.Waiting)
+		emit_signal("start_time")
 	if anim_name == "munching":
 		anim.play(target_feedback_anim)
 	if feedback_anims.has(anim_name):

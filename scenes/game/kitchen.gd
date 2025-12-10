@@ -3,6 +3,8 @@ class_name Kitchen
 
 signal customer_ready()
 signal customer_left()
+signal customer_reorder(new_order)
+signal start_timer()
 
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
@@ -29,6 +31,10 @@ func _ready():
 				child.customer_leaving.connect(_on_customer_leaving)
 			if !child.customer_finished.is_connected(_on_customer_finished):
 				child.customer_finished.connect(_on_customer_finished)
+			if !child.customer_reorder.is_connected(_on_customer_reorder):
+				child.customer_reorder.connect(_on_customer_reorder)
+			if !child.start_time.is_connected(_start_timer):
+				child.start_time.connect(_start_timer)
 	prep_kitchen()
 
 
@@ -152,6 +158,10 @@ func readying_next_customer() -> PackedStringArray:
 	return result
 
 
+func _start_timer():
+	emit_signal("start_timer")
+
+
 func play_splat(pos : Vector2):
 	splat.position = pos
 	splat.show()
@@ -190,3 +200,9 @@ func _on_customer_leaving():
 func _on_customer_finished():
 	print("Kitchen Acknowledges the Customer is Gone")
 	emit_signal("customer_left")
+
+
+func _on_customer_reorder():
+	print("Kitchen Acknowledges Customer is changing their order")
+	var new_order : PackedStringArray = \
+	current_customer.orders.pick_random().duplicate()

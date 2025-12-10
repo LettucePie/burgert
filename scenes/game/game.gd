@@ -100,6 +100,9 @@ func make_new_order():
 	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()
 	chef.waiting = true
+
+
+func _on_kitchen_a_start_timer() -> void:
 	current_order_start_time = $game_timer.time_left
 
 
@@ -232,6 +235,14 @@ func _on_kitchen_a_customer_ready():
 
 func _on_kitchen_a_customer_left():
 	make_new_order()
+
+
+func _on_kitchen_a_customer_reorder(new_order : PackedStringArray) -> void:
+	print("Current Customer has decided a new order of\n", new_order)
+	current_order.clear()
+	current_order = new_order
+	hud.push_burger_build(current_order)
+	chef.order_size = current_order.size()
 
 
 func _on_hud_gui_pause():

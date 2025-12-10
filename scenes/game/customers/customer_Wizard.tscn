@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btg66ej2b62y2"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
+[ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ya75s"]
+viewport_path = NodePath("burger_portal")
+
+[node name="Wizard" instance=ExtResource("1_kgfpk")]
+customer_name = "Wizard"
+
+[node name="character" parent="." index="1"]
+sprite_frames = ExtResource("2_0bhj5")
+autoplay = "idle"
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_ya75s")

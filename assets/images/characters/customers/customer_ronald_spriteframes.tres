@@ -256,10 +256,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kh8yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r357t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpwtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh8yt")
 }],
-"loop": true,
+"loop": false,
 "name": &"disappointed",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,9 +301,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3i4ek")
 }],
-"loop": true,
+"loop": false,
 "name": &"fantastic",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
