@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=54 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="10_ejulj"]
 [ext_resource type="PackedScene" uid="uid://swaf5bjjfxgu" path="res://scenes/game/customers/customer_Liam.tscn" id="29_7xrkj"]
 [ext_resource type="PackedScene" uid="uid://c7syhn75al8f7" path="res://scenes/game/customers/customer_Beef_and_Kale.tscn" id="31_5u44v"]
+[ext_resource type="PackedScene" uid="uid://bfb1mmcvy0gn0" path="res://scenes/game/customers/customer_Brandon.tscn" id="32_b8h7a"]
 [ext_resource type="PackedScene" uid="uid://bmycphaqf0bvr" path="res://scenes/game/customers/customer_Jimmie.tscn" id="35_qxumj"]
 [ext_resource type="PackedScene" uid="uid://2ps37k82g24j" path="res://scenes/game/customers/customer_Haircut.tscn" id="35_r5nat"]
 [ext_resource type="PackedScene" uid="uid://frnuy6mv5e8m" path="res://scenes/game/customers/customer_MrPink.tscn" id="36_8xhu6"]
@@ -59,14 +60,13 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
 size = Vector2(16, 80)
 
-[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat", "TEST_CUSTOMER")]
+[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat")]
 texture_filter = 1
 script = ExtResource("1_737en")
 customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
-TEST_CUSTOMER = NodePath("customers/Beef_and_Kale")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 rotating_burger = true
@@ -163,6 +163,8 @@ z_index = -1
 [node name="RAT" parent="customers" instance=ExtResource("48_5s5hk")]
 
 [node name="Beef_and_Kale" parent="customers" instance=ExtResource("31_5u44v")]
+
+[node name="Brandon" parent="customers" instance=ExtResource("32_b8h7a")]
 
 [node name="kitchen_floor" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
