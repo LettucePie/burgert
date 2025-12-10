@@ -13,14 +13,14 @@ class_name CustomerDex
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
 	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
 	"Brandon", "Chief Patty Zarkon", "Dale", "Mr. Understood",
-	"Ronald"
+	"Ronald", "Shagg"
 ]
 @export var customer_names_display : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
 	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
 	"Brandon", "Chief Patty Zarkon", "Dale", "Mr. Understood",
-	"Ronald"
+	"Ronald", "Shagg"
 ]
 @export var customer_images : Array[Texture2D]
 @export var customer_descriptions_a : PackedStringArray = [
@@ -49,7 +49,8 @@ class_name CustomerDex
 	"Species: Lima Bean\nHeight: 6'0\nFavorite Ingredient: Discipline",
 	"Species: Bronk\nHeight: 5'3\nFavorite Ingredient: Tomato?",
 	"Species: Goblin\nHeight: 6'9\nFavorite Ingredient: i have no idea",
-	"Species: Rat\nHeight: 5'1\nFavorite Ingredient: Cheese"
+	"Species: Rat\nHeight: 5'1\nFavorite Ingredient: Cheese",
+	"Species: Lima Bean\nHeight: 4'11\nFavorite Ingredient: Bread"
 ]
 @export var customer_descriptions_b : PackedStringArray = [
 	"Can often be seen around the local theater... like all the time. Probably \
@@ -107,7 +108,9 @@ class_name CustomerDex
 	a single stick of gum.",
 	"what?\n...\nno yeah of course but seriously what?\n...\nuhhhhhh",
 	"Ronald Atly Tigillicuny\n\nCEO of Big Cheese, probably somehow owns this \
-	very building. Don't mess it up!"
+	very building. Don't mess it up!",
+	"Somehow the wisest person I've ever talked to. When she's not here, she's \
+	hanging out at the abandoned mall.\nBut really, is she anywhere ever?"
 ]
 var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
