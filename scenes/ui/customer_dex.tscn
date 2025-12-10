@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://basa4au3y5d08"]
+[gd_scene load_steps=36 format=3 uid="uid://basa4au3y5d08"]
 
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="1_bmtbe"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="2_7ioh0"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bfelf6xvhbex3" path="res://assets/images/characters/customers/customer_brandon_still.png" id="22_oricn"]
 [ext_resource type="Texture2D" uid="uid://g7cuqrmeh738" path="res://assets/images/characters/customers/customer_emo_still.png" id="23_aig54"]
 [ext_resource type="Texture2D" uid="uid://dt2410ejxspie" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_still.png" id="23_ipl8v"]
+[ext_resource type="Texture2D" uid="uid://bllvpk5oixvd" path="res://assets/images/characters/customers/customer_dale_still.png" id="24_gt7mk"]
 [ext_resource type="Texture2D" uid="uid://cny0jvo6jpucg" path="res://assets/images/characters/customers/customer_karen_still.png" id="25_wnp4e"]
 [ext_resource type="Texture2D" uid="uid://dxlt1mwtpdlgc" path="res://assets/images/characters/customers/customer_patient_still.png" id="27_o0kx8"]
 [ext_resource type="Texture2D" uid="uid://d2w2qyg4gst2j" path="res://assets/images/characters/customers/customer_mustard_still.png" id="29_s7jxr"]
@@ -47,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bmtbe")
 script = ExtResource("2_7ioh0")
-customer_images = Array[Texture2D]([ExtResource("4_28jgo"), ExtResource("18_jhsyy"), ExtResource("5_nj4e8"), ExtResource("20_y7riq"), ExtResource("23_aig54"), ExtResource("25_wnp4e"), ExtResource("27_o0kx8"), ExtResource("29_s7jxr"), ExtResource("31_111wa"), ExtResource("33_vq73a"), ExtResource("13_snsvl"), ExtResource("38_jmrbg"), ExtResource("40_38to1"), ExtResource("42_budxh"), ExtResource("44_xiqia"), ExtResource("46_q5jf3"), ExtResource("47_aoal5"), ExtResource("20_jw6v6"), ExtResource("21_r0vpi"), ExtResource("22_oricn"), ExtResource("23_ipl8v")])
+customer_images = Array[Texture2D]([ExtResource("4_28jgo"), ExtResource("18_jhsyy"), ExtResource("5_nj4e8"), ExtResource("20_y7riq"), ExtResource("23_aig54"), ExtResource("25_wnp4e"), ExtResource("27_o0kx8"), ExtResource("29_s7jxr"), ExtResource("31_111wa"), ExtResource("33_vq73a"), ExtResource("13_snsvl"), ExtResource("38_jmrbg"), ExtResource("40_38to1"), ExtResource("42_budxh"), ExtResource("44_xiqia"), ExtResource("46_q5jf3"), ExtResource("47_aoal5"), ExtResource("20_jw6v6"), ExtResource("21_r0vpi"), ExtResource("22_oricn"), ExtResource("23_ipl8v"), ExtResource("24_gt7mk")])
 customer_image_unknown = ExtResource("20_g2o4g")
 
 [node name="decoypanel" type="Panel" parent="."]
