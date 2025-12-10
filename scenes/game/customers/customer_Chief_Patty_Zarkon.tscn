@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccna232082j5g"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_u8543"]
+[ext_resource type="AnimationLibrary" uid="uid://ddrhyntsygkjv" path="res://assets/animation/customers/chief_patty_zarkon_animlib.res" id="2_4ru26"]
+[ext_resource type="SpriteFrames" uid="uid://x3a647ak20p1" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_spriteframes.tres" id="3_ithvq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g8lqv"]
+viewport_path = NodePath("burger_portal")
+
+[node name="Chief_Patty_Zarkon" instance=ExtResource("1_u8543")]
+customer_name = "Chief Patty Zarkon"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top")])
+consecutive_orders = 3
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_4ru26")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_ithvq")
+autoplay = "idle"
+offset = Vector2(0, -5)
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_g8lqv")
