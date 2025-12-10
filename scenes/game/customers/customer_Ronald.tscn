@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://biq41106bohio"]
+
+[ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_1hjss"]
+[ext_resource type="AnimationLibrary" uid="uid://beimbege7twt" path="res://assets/animation/customers/ronald_animlib.res" id="2_xrtfd"]
+[ext_resource type="SpriteFrames" uid="uid://30qqs5l5mnm3" path="res://assets/images/characters/customers/customer_ronald_spriteframes.tres" id="3_pq3c2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pbiwr"]
+viewport_path = NodePath("burger_portal")
+
+[node name="Ronald" instance=ExtResource("1_1hjss")]
+customer_name = "Ronald"
+orders = Array[PackedStringArray]([PackedStringArray("Cheese"), PackedStringArray("Lettuce", "Lettuce", "Lettuce", "Tomato", "Cheese")])
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_xrtfd")
+}
+
+[node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_pq3c2")
+autoplay = "idle"
+offset = Vector2(0, -5)
+
+[node name="Right" parent="character" index="2"]
+position = Vector2(35, 0)
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_pbiwr")
+
+[node name="munch" parent="." index="3"]
+scale = Vector2(0.6, 0.6)
