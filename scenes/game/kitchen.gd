@@ -11,6 +11,7 @@ signal start_timer()
 @export var normy_customers : Array[Customer] = []
 @export var splat : AnimatedSprite2D
 @export var TEST_CUSTOMER : Customer = null
+@export var workstations : Array[Workstation] = []
 var customers : Array[Customer] = []
 var queue : PackedInt32Array = []
 var queue_idx : int = 0
@@ -35,6 +36,8 @@ func _ready():
 				child.customer_reorder.connect(_on_customer_reorder)
 			if !child.start_time.is_connected(_start_timer):
 				child.start_time.connect(_start_timer)
+			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
+				child.kitchen_switch.connect(_on_kitchen_switch)
 	prep_kitchen()
 
 
@@ -43,6 +46,7 @@ func prep_kitchen():
 	for c in customers:
 		c.hide()
 	splat.hide()
+	_on_kitchen_switch("burgert")
 	if current_customer != null:
 		current_customer.sound_player.stop()
 	queue_idx = -1
@@ -208,3 +212,9 @@ func _on_customer_reorder():
 	current_customer.orders.pick_random().duplicate()
 	emit_signal("customer_reorder", new_order)
 	customer_burger_portal.burger.assemble_burger_build(new_order)
+
+
+func _on_kitchen_switch(target_kitchen):
+	print("Kitchen Switching to: ", target_kitchen)
+	for w in workstations:
+		w.set_runic(target_kitchen == "runic")

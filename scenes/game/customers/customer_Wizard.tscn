@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://btg66ej2b62y2"]
+[gd_scene load_steps=5 format=3 uid="uid://btg66ej2b62y2"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
 [ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
+[ext_resource type="AnimationLibrary" uid="uid://bmj1p3xkadabu" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ya75s"]
 viewport_path = NodePath("burger_portal")
@@ -9,9 +10,22 @@ viewport_path = NodePath("burger_portal")
 [node name="Wizard" instance=ExtResource("1_kgfpk")]
 customer_name = "Wizard"
 
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": ExtResource("2_8miko")
+}
+
 [node name="character" parent="." index="1"]
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_0bhj5")
 autoplay = "idle"
+offset = Vector2(0, -35)
+
+[node name="Left" parent="character" index="1"]
+position = Vector2(-30.7143, 0)
+
+[node name="Right" parent="character" index="2"]
+position = Vector2(24.2857, 0)
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_ya75s")

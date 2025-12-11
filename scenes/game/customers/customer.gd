@@ -7,6 +7,7 @@ signal customer_leaving()
 signal customer_finished()
 signal customer_reorder()
 signal start_time()
+signal kitchen_switch(target)
 
 @export var customer_name : String = "Basic"
 @export var orders : Array[PackedStringArray] = []
