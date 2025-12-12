@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=54 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
@@ -15,23 +15,44 @@
 [ext_resource type="Texture2D" uid="uid://diwwb3av2ui2a" path="res://assets/images/graphics/orders/order-scribble_lettuce1.png" id="9_hdko1"]
 [ext_resource type="Texture2D" uid="uid://bqjfop30tsydx" path="res://assets/images/graphics/orders/order-scribble_lettuce2.png" id="10_py31f"]
 [ext_resource type="Texture2D" uid="uid://bjnsuumo8bhs5" path="res://assets/images/graphics/orders/order-scribble_lettuce3.png" id="11_2a8pg"]
+[ext_resource type="Texture2D" uid="uid://dohxjmx2q8501" path="res://assets/images/graphics/orders/order-scribble_bun_4.png" id="11_ck27g"]
 [ext_resource type="Texture2D" uid="uid://l7kslmj2pg00" path="res://assets/images/graphics/orders/order-scribble_tomato1.png" id="12_4elof"]
+[ext_resource type="Texture2D" uid="uid://cgj7m3tjpfi5t" path="res://assets/images/graphics/orders/order-scribble_bun_5.png" id="12_tc685"]
 [ext_resource type="Texture2D" uid="uid://bcm3ai7uvsgnr" path="res://assets/images/graphics/orders/order-scribble_tomato2.png" id="13_7216w"]
+[ext_resource type="Texture2D" uid="uid://461sdt818bco" path="res://assets/images/graphics/orders/order-scribble_bun_6.png" id="13_tymmo"]
 [ext_resource type="Texture2D" uid="uid://cspw4nycnaoxf" path="res://assets/images/graphics/orders/order-scribble_tomato3.png" id="14_7vxxc"]
 [ext_resource type="Texture2D" uid="uid://dfp14c7hj4sf" path="res://assets/images/graphics/orders/order-scribble_cheese1.png" id="15_8bl5s"]
 [ext_resource type="Texture2D" uid="uid://dg3xyemudq0ic" path="res://assets/images/graphics/orders/order-scribble_cheese2.png" id="16_gybm6"]
 [ext_resource type="Texture2D" uid="uid://cc326alfiod3n" path="res://assets/images/graphics/orders/order-scribble_cheese3.png" id="17_dme0v"]
+[ext_resource type="Texture2D" uid="uid://cwfax46hwni6c" path="res://assets/images/graphics/orders/order-scribble_meat_4.png" id="17_lwh58"]
+[ext_resource type="Texture2D" uid="uid://63v2j5h375iy" path="res://assets/images/graphics/orders/order-scribble_meat_5.png" id="18_6gesq"]
 [ext_resource type="Texture2D" uid="uid://blw0qq55m0k20" path="res://assets/images/graphics/orders/order-scribble_ketchup1.png" id="18_52t0t"]
+[ext_resource type="Texture2D" uid="uid://dkrchsogr4aci" path="res://assets/images/graphics/orders/order-scribble_meat_6.png" id="19_ng16q"]
 [ext_resource type="Texture2D" uid="uid://dvxa1t08b16qb" path="res://assets/images/graphics/orders/order-scribble_ketchup2.png" id="19_tywnd"]
 [ext_resource type="Texture2D" uid="uid://mwyharsxi8iw" path="res://assets/images/graphics/orders/order-scribble_ketchup3.png" id="20_ya3xl"]
 [ext_resource type="Texture2D" uid="uid://cqctcskcahhau" path="res://assets/images/graphics/orders/order-scribble_mustard1.png" id="21_p5sgu"]
 [ext_resource type="Texture2D" uid="uid://c5ssx5yhrma4o" path="res://assets/images/graphics/orders/order-scribble_mustard2.png" id="22_5n1vg"]
+[ext_resource type="Texture2D" uid="uid://dr3wm4nljry75" path="res://assets/images/graphics/orders/order-scribble_lettuce_4.png" id="23_anc6l"]
 [ext_resource type="Texture2D" uid="uid://ckiwno1pxnat7" path="res://assets/images/graphics/orders/order-scribble_mustard3.png" id="23_shojr"]
+[ext_resource type="Texture2D" uid="uid://dk7l20xbum72n" path="res://assets/images/graphics/orders/order-scribble_lettuce_5.png" id="24_ks8lf"]
+[ext_resource type="Texture2D" uid="uid://ba0lgwvk8dowm" path="res://assets/images/graphics/orders/order-scribble_lettuce_6.png" id="25_5dib1"]
 [ext_resource type="PackedScene" uid="uid://bldfvrixfhcp4" path="res://scenes/ui/scribble-entry.tscn" id="26_dy7st"]
+[ext_resource type="Texture2D" uid="uid://dwjw6h1pmwr3t" path="res://assets/images/graphics/orders/order-scribble_tomato_4.png" id="29_1qopi"]
 [ext_resource type="Texture2D" uid="uid://c4jqebjtv1k6j" path="res://assets/images/graphics/touch_input/pause_button_gui.png" id="29_jwmgn"]
+[ext_resource type="Texture2D" uid="uid://cxi1nfl8opep1" path="res://assets/images/graphics/orders/order-scribble_tomato_5.png" id="30_gfggp"]
 [ext_resource type="Texture2D" uid="uid://c6awwnkoa4uln" path="res://assets/images/graphics/trashing_bar_normal.png" id="30_uwlyk"]
 [ext_resource type="Texture2D" uid="uid://duv4r7hqlyjvq" path="res://assets/images/graphics/trashing_bar_outline.png" id="31_e2bgx"]
+[ext_resource type="Texture2D" uid="uid://ck8nvx22r0t0g" path="res://assets/images/graphics/orders/order-scribble_tomato_6.png" id="31_r4kad"]
 [ext_resource type="Texture2D" uid="uid://bvrdf2pd0d14p" path="res://assets/images/graphics/trashing_bar_fill.png" id="32_1x083"]
+[ext_resource type="Texture2D" uid="uid://dg45o63pjjmtf" path="res://assets/images/graphics/orders/order-scribble_cheese_4.png" id="35_nxo1q"]
+[ext_resource type="Texture2D" uid="uid://nabc4ast3p1r" path="res://assets/images/graphics/orders/order-scribble_cheese_5.png" id="36_mw28n"]
+[ext_resource type="Texture2D" uid="uid://bpc1u11agqde5" path="res://assets/images/graphics/orders/order-scribble_cheese_6.png" id="37_vr7xv"]
+[ext_resource type="Texture2D" uid="uid://r35gs0ga51d1" path="res://assets/images/graphics/orders/order-scribble_ketchup_4.png" id="41_tmtpa"]
+[ext_resource type="Texture2D" uid="uid://sytvun7re263" path="res://assets/images/graphics/orders/order-scribble_ketchup_5.png" id="42_un154"]
+[ext_resource type="Texture2D" uid="uid://dwjaxqcxpcppf" path="res://assets/images/graphics/orders/order-scribble_ketchup_6.png" id="43_k7htd"]
+[ext_resource type="Texture2D" uid="uid://bayt4p2g6n5uv" path="res://assets/images/graphics/orders/order-scribble_mustard_4.png" id="47_p487v"]
+[ext_resource type="Texture2D" uid="uid://60ddisrfyant" path="res://assets/images/graphics/orders/order-scribble_mustard_5.png" id="48_o80mn"]
+[ext_resource type="Texture2D" uid="uid://b3qgqdbi0bmub" path="res://assets/images/graphics/orders/order-scribble_mustard_6.png" id="49_h3kgy"]
 
 [node name="hud" type="Control" groups=["lang_image_array"]]
 layout_mode = 3
@@ -46,13 +67,13 @@ script = ExtResource("2_c4wvn")
 entry_scene = ExtResource("26_dy7st")
 top_tears = Array[Texture2D]([ExtResource("4_toowh"), ExtResource("5_dsbnf")])
 bot_tears = Array[Texture2D]([ExtResource("6_wejp0"), ExtResource("7_jd1ob")])
-bun_scribbles = Array[Texture2D]([ExtResource("3_fxif7"), ExtResource("4_am3kf"), ExtResource("5_slng6")])
-meat_scribbles = Array[Texture2D]([ExtResource("6_nvuwb"), ExtResource("7_s278f"), ExtResource("8_xwki4")])
-lettuce_scribbles = Array[Texture2D]([ExtResource("9_hdko1"), ExtResource("10_py31f"), ExtResource("11_2a8pg")])
-tomato_scribbles = Array[Texture2D]([ExtResource("12_4elof"), ExtResource("13_7216w"), ExtResource("14_7vxxc")])
-cheese_scribbles = Array[Texture2D]([ExtResource("15_8bl5s"), ExtResource("16_gybm6"), ExtResource("17_dme0v")])
-ketchup_scribbles = Array[Texture2D]([ExtResource("18_52t0t"), ExtResource("19_tywnd"), ExtResource("20_ya3xl")])
-mustard_scribbles = Array[Texture2D]([ExtResource("21_p5sgu"), ExtResource("22_5n1vg"), ExtResource("23_shojr")])
+bun_scribbles = Array[Texture2D]([ExtResource("3_fxif7"), ExtResource("4_am3kf"), ExtResource("5_slng6"), ExtResource("11_ck27g"), ExtResource("12_tc685"), ExtResource("13_tymmo")])
+meat_scribbles = Array[Texture2D]([ExtResource("6_nvuwb"), ExtResource("7_s278f"), ExtResource("8_xwki4"), ExtResource("17_lwh58"), ExtResource("18_6gesq"), ExtResource("19_ng16q")])
+lettuce_scribbles = Array[Texture2D]([ExtResource("9_hdko1"), ExtResource("10_py31f"), ExtResource("11_2a8pg"), ExtResource("23_anc6l"), ExtResource("24_ks8lf"), ExtResource("25_5dib1")])
+tomato_scribbles = Array[Texture2D]([ExtResource("12_4elof"), ExtResource("13_7216w"), ExtResource("14_7vxxc"), ExtResource("29_1qopi"), ExtResource("30_gfggp"), ExtResource("31_r4kad")])
+cheese_scribbles = Array[Texture2D]([ExtResource("15_8bl5s"), ExtResource("16_gybm6"), ExtResource("17_dme0v"), ExtResource("35_nxo1q"), ExtResource("36_mw28n"), ExtResource("37_vr7xv")])
+ketchup_scribbles = Array[Texture2D]([ExtResource("18_52t0t"), ExtResource("19_tywnd"), ExtResource("20_ya3xl"), ExtResource("41_tmtpa"), ExtResource("42_un154"), ExtResource("43_k7htd")])
+mustard_scribbles = Array[Texture2D]([ExtResource("21_p5sgu"), ExtResource("22_5n1vg"), ExtResource("23_shojr"), ExtResource("47_p487v"), ExtResource("48_o80mn"), ExtResource("49_h3kgy")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
