@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://btg66ej2b62y2"]
+[gd_scene load_steps=10 format=3 uid="uid://btg66ej2b62y2"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
 [ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
 [ext_resource type="AnimationLibrary" uid="uid://bmj1p3xkadabu" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
+[ext_resource type="SpriteFrames" uid="uid://5rcwrueqq5tw" path="res://assets/images/graphics/teleport_spriteframes.tres" id="4_ituhy"]
+[ext_resource type="Texture2D" uid="uid://2t5nt3pg07ln" path="res://assets/images/graphics/sparkle.png" id="5_ps1n1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ya75s"]
 viewport_path = NodePath("burger_portal")
+
+[sub_resource type="Curve" id="Curve_qdhpt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_itoiu"]
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vo2q4"]
+colors = PackedColorArray(1, 0.784314, 1, 1, 1, 1, 1, 1)
 
 [node name="Wizard" instance=ExtResource("1_kgfpk")]
 customer_name = "Wizard"
@@ -29,3 +43,30 @@ position = Vector2(24.2857, 0)
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_ya75s")
+
+[node name="VFX" type="Node2D" parent="." index="6"]
+visible = false
+
+[node name="TeleportVFX" type="AnimatedSprite2D" parent="VFX" index="0"]
+visible = false
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("4_ituhy")
+animation = &"teleport_in"
+frame = 10
+frame_progress = 1.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="VFX" index="1"]
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 0.34
+randomness = 0.35
+texture = ExtResource("5_ps1n1")
+emission_shape = 1
+emission_sphere_radius = 109.81
+gravity = Vector2(0, 0)
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+orbit_velocity_curve = SubResource("Curve_qdhpt")
+scale_amount_curve = SubResource("Curve_itoiu")
+color_initial_ramp = SubResource("Gradient_vo2q4")
