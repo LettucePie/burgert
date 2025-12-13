@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbuhm68erqo1g"
+path="res://.godot/imported/Full Record Scratch_FOR MENU.wav-cdb712e5b1124250ca5018f959b7ade2.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/Menu/Full Record Scratch_FOR MENU.wav"
+dest_files=["res://.godot/imported/Full Record Scratch_FOR MENU.wav-cdb712e5b1124250ca5018f959b7ade2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

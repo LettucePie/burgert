@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pq7tsuo68bxg"
+path="res://.godot/imported/Slap_1_FOR RECIEPT.wav-924c5959e0709710e268c1476c08be9a.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/Menu/Slap_1_FOR RECIEPT.wav"
+dest_files=["res://.godot/imported/Slap_1_FOR RECIEPT.wav-924c5959e0709710e268c1476c08be9a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
