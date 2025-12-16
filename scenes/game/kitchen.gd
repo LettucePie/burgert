@@ -47,6 +47,8 @@ func prep_kitchen():
 		c.hide()
 	splat.hide()
 	_on_kitchen_switch("burgert")
+	for w in workstations:
+		w.force_hide_magic_pop()
 	if current_customer != null:
 		current_customer.sound_player.stop()
 	queue_idx = -1

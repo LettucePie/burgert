@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=76 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/images/environment/kitchen/ingredients/meat_highlight.tres" id="48_mixwx"]
 [ext_resource type="PackedScene" uid="uid://bw4eao43mdwok" path="res://scenes/game/customers/customer_Teddy.tscn" id="48_qr62u"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/environment/kitchen/ingredients/lettuce.tres" id="49_4b8hj"]
+[ext_resource type="SpriteFrames" uid="uid://disepgi0mwu8m" path="res://assets/images/graphics/magic_pop_spriteframes.tres" id="49_ife6o"]
 [ext_resource type="Texture2D" uid="uid://cppchvwbki2lx" path="res://assets/images/environment/kitchen/ingredients/rune_b.png" id="50_k4kjt"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight.tres" id="50_n0mmw"]
 [ext_resource type="Texture2D" uid="uid://dcju8y6o8xa17" path="res://assets/images/environment/kitchen/ingredients/rune_b_highlight.png" id="51_70wd8"]
@@ -235,13 +236,14 @@ texture = ExtResource("43_yb70e")
 
 [node name="background_2" type="Node2D" parent="."]
 
-[node name="workstation_bun" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="workstation_bun" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(57, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Bun"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_bun"]
 position = Vector2(0, 20)
@@ -281,13 +283,20 @@ self_modulate = Color(1, 0.654902, 0.6, 0.529412)
 z_index = -1
 texture = ExtResource("47_fu480")
 
-[node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop" type="AnimatedSprite2D" parent="background_2/workstation_bun"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(177, 333)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Meat"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_meat"]
 position = Vector2(0, 20)
@@ -327,12 +336,19 @@ self_modulate = Color(0.647059, 0.654902, 1, 0.498039)
 z_index = -1
 texture = ExtResource("51_70wd8")
 
-[node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop2" type="AnimatedSprite2D" parent="background_2/workstation_meat"]
+position = Vector2(0, -19)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(297, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_lettuce"]
 position = Vector2(0, 20)
@@ -371,13 +387,20 @@ self_modulate = Color(0.937255, 0.654902, 1, 0.556863)
 z_index = -1
 texture = ExtResource("55_knf5a")
 
-[node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop3" type="AnimatedSprite2D" parent="background_2/workstation_lettuce"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(393, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Tomato"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_tomato"]
 position = Vector2(0, 20)
@@ -416,13 +439,20 @@ self_modulate = Color(0.513726, 0.882353, 0.435294, 0.572549)
 z_index = -1
 texture = ExtResource("59_blnan")
 
-[node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop4" type="AnimatedSprite2D" parent="background_2/workstation_tomato"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(491, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Cheese"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_cheese"]
 position = Vector2(0, 20)
@@ -461,13 +491,20 @@ self_modulate = Color(0.466667, 0.847059, 0.898039, 0.552941)
 z_index = -1
 texture = ExtResource("63_gmmst")
 
-[node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop5" type="AnimatedSprite2D" parent="background_2/workstation_cheese"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(563, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Ketchup"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_ketchup"]
 position = Vector2(0, 20)
@@ -506,13 +543,20 @@ self_modulate = Color(0.811765, 0.72549, 0.976471, 0.490196)
 z_index = -1
 texture = ExtResource("67_egv5x")
 
-[node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune") groups=["Workstation"]]
+[node name="magic_pop6" type="AnimatedSprite2D" parent="background_2/workstation_ketchup"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
+
+[node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(611, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 ingredient = "Mustard"
 highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
+magic_pop = NodePath("magic_pop7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_mustard"]
 position = Vector2(0, 20)
@@ -550,5 +594,11 @@ texture = ExtResource("69_vjywy")
 self_modulate = Color(0.917647, 0.756863, 0.364706, 0.533333)
 z_index = -1
 texture = ExtResource("70_xgkgw")
+
+[node name="magic_pop7" type="AnimatedSprite2D" parent="background_2/workstation_mustard"]
+position = Vector2(0, -27)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("49_ife6o")
+animation = &"pop"
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]
