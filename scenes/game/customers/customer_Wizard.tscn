@@ -23,6 +23,7 @@ colors = PackedColorArray(1, 0.784314, 1, 1, 1, 1, 1, 1)
 
 [node name="Wizard" instance=ExtResource("1_kgfpk")]
 customer_name = "Wizard"
+orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Lettuce", "Lettuce", "Meat", "Lettuce", "Lettuce"), PackedStringArray("Bun", "Tomato", "Lettuce", "Cheese", "Bun Top")])
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
