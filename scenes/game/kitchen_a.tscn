@@ -82,14 +82,13 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
 size = Vector2(16, 80)
 
-[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat", "TEST_CUSTOMER", "workstations")]
+[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat", "workstations")]
 texture_filter = 1
 script = ExtResource("1_737en")
 customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
-TEST_CUSTOMER = NodePath("customers/Wizard")
 workstations = [NodePath("background_2/workstation_bun"), NodePath("background_2/workstation_meat"), NodePath("background_2/workstation_lettuce"), NodePath("background_2/workstation_tomato"), NodePath("background_2/workstation_cheese"), NodePath("background_2/workstation_ketchup"), NodePath("background_2/workstation_mustard")]
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
