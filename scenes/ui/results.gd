@@ -8,6 +8,11 @@ signal finished_results()
 @onready var score : Label = $Panel/VBoxContainer/entry_3/score
 @onready var finish_button : Button = $Panel/VBoxContainer/finish
 
+@onready var anim_tree : AnimationTree = $AnimationTree
+@onready var anim_play : AnimationPlayer = $AnimationPlayer
+var animating : bool = false
+var animation_step : int = 0
+
 
 func _ready():
 	self.hide()
@@ -23,8 +28,11 @@ func display_results(accuracies : PackedFloat32Array, game_score : int):
 	accuracy.text = str(snapped((accuracy_percent * 100), 0.01)) + "%"
 	score.text = str(game_score)
 	self.show()
+	animating = true
+	animation_step = 0
 	finish_button.grab_focus()
 
 
 func _on_finish_pressed():
-	emit_signal("finished_results")
+	if !animating:
+		emit_signal("finished_results")

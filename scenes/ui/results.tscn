@@ -1,8 +1,275 @@
-[gd_scene load_steps=4 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=11 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
+[ext_resource type="AudioStream" uid="uid://bheo2sfqxamw7" path="res://assets/sound/sfx/alarm-bell.wav" id="3_lwp1g"]
 [ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="3_wqw0x"]
+[ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="5_obtjp"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ofsxh"]
+graph_offset = Vector2(1, 10)
+
+[sub_resource type="Animation" id="Animation_2l3bb"]
+resource_name = "panel_enter"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:offset_left")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-679.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:offset_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:offset_right")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-679.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:offset_bottom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/entry_1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/entry_2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/entry_3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/finish:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Panel/orders_visual:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3dlmw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:offset_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-679.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:offset_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:offset_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-679.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:offset_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/entry_1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/entry_2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/entry_3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/finish:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/orders_visual:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rln7d"]
+resource_name = "alarm"
+length = 1.7
+step = 0.1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_lwp1g")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
+_data = {
+"RESET": SubResource("Animation_3dlmw"),
+"alarm": SubResource("Animation_rln7d"),
+"panel_enter": SubResource("Animation_2l3bb")
+}
 
 [node name="results" type="Control"]
 layout_mode = 3
@@ -14,6 +281,14 @@ grow_vertical = 2
 theme = ExtResource("1_v5lsf")
 script = ExtResource("2_xe4yp")
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ofsxh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_veagq")
+}
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -21,37 +296,40 @@ anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.9
+offset_left = -679.0
+offset_right = -679.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
+[node name="Label" type="Label" parent="Panel" groups=["lang_text"]]
+layout_mode = 2
 anchor_left = 0.1
 anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
-layout_mode = 2
+anchor_right = 0.898828
+anchor_bottom = 0.146875
 text = "Results"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="entry_1" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="entry_1" type="HBoxContainer" parent="Panel"]
+visible = false
 layout_mode = 2
+anchor_left = 0.1
+anchor_top = 0.206771
+anchor_right = 0.898828
+anchor_bottom = 0.282292
 size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_1" groups=["lang_text"]]
+[node name="Label" type="Label" parent="Panel/entry_1" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Orders Finished"
 label_settings = ExtResource("3_wqw0x")
 vertical_alignment = 1
 
-[node name="ordercount" type="Label" parent="Panel/VBoxContainer/entry_1"]
+[node name="ordercount" type="Label" parent="Panel/entry_1"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
@@ -59,18 +337,54 @@ label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="entry_2" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
+[node name="orders_visual" type="HBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.286
+anchor_right = 0.953
+anchor_bottom = 0.378
+offset_left = -0.0160007
+offset_top = 0.175995
+offset_right = 0.0639648
+offset_bottom = -0.152008
+theme_override_constants/separation = -22
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_2" groups=["lang_text"]]
+[node name="TextureRect" type="TextureRect" parent="Panel/orders_visual"]
+layout_mode = 2
+texture = ExtResource("5_obtjp")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/orders_visual"]
+layout_mode = 2
+texture = ExtResource("5_obtjp")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/orders_visual"]
+layout_mode = 2
+texture = ExtResource("5_obtjp")
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/orders_visual"]
+layout_mode = 2
+texture = ExtResource("5_obtjp")
+
+[node name="entry_2" type="HBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 2
+anchor_left = 0.1
+anchor_top = 0.394271
+anchor_right = 0.898828
+anchor_bottom = 0.469792
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel/entry_2" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Order Accuracy"
 label_settings = ExtResource("3_wqw0x")
 vertical_alignment = 1
 
-[node name="accuracy" type="Label" parent="Panel/VBoxContainer/entry_2"]
+[node name="accuracy" type="Label" parent="Panel/entry_2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
@@ -78,18 +392,24 @@ label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="entry_3" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="entry_3" type="HBoxContainer" parent="Panel"]
+visible = false
 layout_mode = 2
+anchor_left = 0.1
+anchor_top = 0.581771
+anchor_right = 0.898828
+anchor_bottom = 0.657292
 size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/entry_3" groups=["lang_text"]]
+[node name="Label" type="Label" parent="Panel/entry_3" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Total Score"
 label_settings = ExtResource("3_wqw0x")
 vertical_alignment = 1
 
-[node name="score" type="Label" parent="Panel/VBoxContainer/entry_3"]
+[node name="score" type="Label" parent="Panel/entry_3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Value"
@@ -97,14 +417,23 @@ label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="finish" type="Button" parent="Panel/VBoxContainer" groups=["lang_text"]]
+[node name="finish" type="Button" parent="Panel" groups=["lang_text"]]
+visible = false
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
+anchor_left = 0.1
+anchor_top = 0.738021
+anchor_right = 0.898828
+anchor_bottom = 0.878646
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 text = "Finish"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Panel/VBoxContainer/finish" to="." method="_on_finish_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[connection signal="pressed" from="Panel/finish" to="." method="_on_finish_pressed"]
