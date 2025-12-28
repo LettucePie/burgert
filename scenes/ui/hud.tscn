@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b3715nb5f0qc3"]
+[gd_scene load_steps=53 format=3 uid="uid://b3715nb5f0qc3"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_fvcjt"]
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="2_c4wvn"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://dg45o63pjjmtf" path="res://assets/images/graphics/orders/order-scribble_cheese_4.png" id="35_nxo1q"]
 [ext_resource type="Texture2D" uid="uid://nabc4ast3p1r" path="res://assets/images/graphics/orders/order-scribble_cheese_5.png" id="36_mw28n"]
 [ext_resource type="Texture2D" uid="uid://bpc1u11agqde5" path="res://assets/images/graphics/orders/order-scribble_cheese_6.png" id="37_vr7xv"]
-[ext_resource type="Texture2D" uid="uid://r35gs0ga51d1" path="res://assets/images/graphics/orders/order-scribble_ketchup_4.png" id="41_tmtpa"]
 [ext_resource type="Texture2D" uid="uid://sytvun7re263" path="res://assets/images/graphics/orders/order-scribble_ketchup_5.png" id="42_un154"]
 [ext_resource type="Texture2D" uid="uid://dwjaxqcxpcppf" path="res://assets/images/graphics/orders/order-scribble_ketchup_6.png" id="43_k7htd"]
 [ext_resource type="Texture2D" uid="uid://bayt4p2g6n5uv" path="res://assets/images/graphics/orders/order-scribble_mustard_4.png" id="47_p487v"]
@@ -72,7 +71,7 @@ meat_scribbles = Array[Texture2D]([ExtResource("6_nvuwb"), ExtResource("7_s278f"
 lettuce_scribbles = Array[Texture2D]([ExtResource("9_hdko1"), ExtResource("10_py31f"), ExtResource("11_2a8pg"), ExtResource("23_anc6l"), ExtResource("24_ks8lf"), ExtResource("25_5dib1")])
 tomato_scribbles = Array[Texture2D]([ExtResource("12_4elof"), ExtResource("13_7216w"), ExtResource("14_7vxxc"), ExtResource("29_1qopi"), ExtResource("30_gfggp"), ExtResource("31_r4kad")])
 cheese_scribbles = Array[Texture2D]([ExtResource("15_8bl5s"), ExtResource("16_gybm6"), ExtResource("17_dme0v"), ExtResource("35_nxo1q"), ExtResource("36_mw28n"), ExtResource("37_vr7xv")])
-ketchup_scribbles = Array[Texture2D]([ExtResource("18_52t0t"), ExtResource("19_tywnd"), ExtResource("20_ya3xl"), ExtResource("41_tmtpa"), ExtResource("42_un154"), ExtResource("43_k7htd")])
+ketchup_scribbles = Array[Texture2D]([ExtResource("18_52t0t"), ExtResource("19_tywnd"), ExtResource("20_ya3xl"), ExtResource("42_un154"), ExtResource("43_k7htd")])
 mustard_scribbles = Array[Texture2D]([ExtResource("21_p5sgu"), ExtResource("22_5n1vg"), ExtResource("23_shojr"), ExtResource("47_p487v"), ExtResource("48_o80mn"), ExtResource("49_h3kgy")])
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
