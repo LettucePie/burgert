@@ -426,7 +426,6 @@ z_index = 1
 
 [node name="results" parent="." instance=ExtResource("8_40o0c")]
 process_mode = 2
-visible = false
 z_index = 2
 
 [node name="game_timer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=16 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
@@ -6,8 +6,26 @@
 [ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="3_wqw0x"]
 [ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="5_obtjp"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_27dms"]
+animation = &"alarm"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n68jq"]
+animation = &"panel_enter"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10l4v"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6x6qn"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ofsxh"]
-graph_offset = Vector2(1, 10)
+states/Start/position = Vector2(92, 100)
+states/alarm/node = SubResource("AnimationNodeAnimation_27dms")
+states/alarm/position = Vector2(213, 100)
+states/panel_enter/node = SubResource("AnimationNodeAnimation_n68jq")
+states/panel_enter/position = Vector2(213, 194)
+transitions = ["Start", "alarm", SubResource("AnimationNodeStateMachineTransition_10l4v"), "alarm", "panel_enter", SubResource("AnimationNodeStateMachineTransition_6x6qn")]
+graph_offset = Vector2(-21, 28)
 
 [sub_resource type="Animation" id="Animation_3dlmw"]
 length = 0.001
@@ -154,6 +172,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_rln7d"]
@@ -352,6 +382,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
 _data = {
@@ -530,4 +572,5 @@ metadata/_edit_use_anchors_ = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="pressed" from="Panel/finish" to="." method="_on_finish_pressed"]
