@@ -8,15 +8,23 @@ signal finished_results()
 @onready var score : Label = $Panel/score
 @onready var finish_button : Button = $Panel/finish
 
+@onready var receipt_sprite : Receipt_FX = $assets/receipt_sprite
+@onready var receipt_tray : HBoxContainer = $Panel/receipt_tray
+
 var stat_order_count : int = 0
 var accuracy_percent : float = 0.0
 var score_total : int = 0
 
-@onready var anim_tree : AnimationTree = $AnimationTree
 @onready var anim_play : AnimationPlayer = $AnimationPlayer
-var anim_state : AnimationNodeStateMachinePlayback
 var animating : bool = false
 var animation_step : int = 0
+var timeline : PackedStringArray = [
+	"alarm",
+	"panel_enter",
+	"orders_enter",
+	"accuracies_enter",
+	"!spawn_receipts",
+]
 
 
 ##TESTING
@@ -30,10 +38,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready():
-	if anim_tree.anim_player != anim_play.get_path():
-		anim_tree.anim_player = anim_play.get_path()
-	anim_state = anim_tree.get("parameters/playback")
 	self.hide()
+
+
+func _physics_process(delta: float) -> void:
+	pass
 
 
 func display_results(accuracies : PackedFloat32Array, game_score : int):
@@ -53,8 +62,8 @@ func display_results(accuracies : PackedFloat32Array, game_score : int):
 	animating = true
 	animation_step = 0
 	finish_button.grab_focus()
-	anim_state.travel("alarm")
-	#anim_play.play("alarm")
+	#anim_state.travel("alarm")
+	anim_play.play("alarm")
 	#anim_tree.trav
 	#anim_tree.
 
@@ -64,7 +73,14 @@ func _on_finish_pressed():
 		emit_signal("finished_results")
 
 
-func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+func _on_animation_finished(anim_name: StringName) -> void:
 	print("Animation Finished: ", anim_name)
-	if anim_name == "alarm":
-		anim_state.travel("panel_enter")
+	var next = animation_step + 1
+	if !timeline[next].contains("!"):
+		print("Playing Animation: ", timeline[next])
+		anim_play.play(timeline[next])
+	animation_step = next
+
+
+func start_spawning_receipts():
+	print("Spawning Receipts")
