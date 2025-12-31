@@ -275,6 +275,134 @@ tracks/21/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Panel/receipt_tray:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 191)]
+}
+
+[sub_resource type="Animation" id="Animation_nfhu4"]
+resource_name = "accuracies_enter"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/accuracylabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/accuracy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/accuracylabel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.164706), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/accuracylabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-213, -21), Vector2(51.2, 151.4), Vector2(51.2, 150), Vector2(51.2, 151.4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/accuracylabel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.322886, 0.0, -0.020944, 0.0523599, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/accuracylabel:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.835, 4.835), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_es4qc")
+}],
+"times": PackedFloat32Array(0.175)
+}
+tracks/6/use_blend = true
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/receipt_tray:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/receipt_tray:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 191)]
+}
 
 [sub_resource type="Animation" id="Animation_rln7d"]
 resource_name = "alarm"
@@ -390,22 +518,10 @@ tracks/5/use_blend = true
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Panel/receipt_tray:visible")
+tracks/6/path = NodePath("Panel/ordercount:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Panel/ordercount:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -585,98 +701,6 @@ tracks/13/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_nfhu4"]
-resource_name = "accuracies_enter"
-length = 0.4
-step = 0.025
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/accuracylabel:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/accuracy:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/accuracylabel:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.164706), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/accuracylabel:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-213, -21), Vector2(51.2, 151.4), Vector2(51.2, 150), Vector2(51.2, 151.4)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/accuracylabel:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.322886, 0.0, -0.020944, 0.0523599, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Panel/accuracylabel:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4.835, 4.835), Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
-}
-tracks/6/type = "audio"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_es4qc")
-}],
-"times": PackedFloat32Array(0.175)
-}
-tracks/6/use_blend = true
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
 _data = {
 "RESET": SubResource("Animation_3dlmw"),
@@ -701,6 +725,7 @@ visible = false
 anchors_preset = 0
 
 [node name="receipt_sprite" type="TextureRect" parent="assets"]
+layout_mode = 0
 offset_left = 86.0
 offset_top = 158.0
 offset_right = 118.0
@@ -743,14 +768,12 @@ metadata/_edit_use_anchors_ = true
 [node name="orderlabel" type="Label" parent="Panel" groups=["lang_text"]]
 visible = false
 layout_mode = 2
-anchor_left = -0.656641
-anchor_top = 0.280208
-anchor_right = -0.262109
-anchor_bottom = 0.355729
-offset_left = 387.4
-offset_top = -28.1998
-offset_right = 387.4
-offset_bottom = -28.1998
+anchor_left = 0.1
+anchor_top = 0.206771
+anchor_right = 0.494532
+anchor_bottom = 0.282292
+offset_left = -1.14441e-05
+offset_right = -1.52588e-05
 size_flags_horizontal = 3
 text = "Orders Finished"
 label_settings = ExtResource("3_wqw0x")
@@ -765,7 +788,6 @@ anchor_top = 0.206771
 anchor_right = 0.896875
 anchor_bottom = 0.282292
 size_flags_horizontal = 3
-text = "Value"
 label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -775,28 +797,21 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.043
-anchor_top = 0.286
-anchor_right = 0.953
-anchor_bottom = 0.378
-offset_left = -0.0160007
-offset_top = 0.175995
-offset_right = 0.0639648
-offset_bottom = -0.152008
+anchor_left = 0.0429688
+anchor_top = 0.497396
+anchor_right = 0.953125
+anchor_bottom = 0.588542
 theme_override_constants/separation = -22
+metadata/_edit_use_anchors_ = true
 
 [node name="accuracylabel" type="Label" parent="Panel" groups=["lang_text"]]
 visible = false
 self_modulate = Color(1, 1, 1, 0.164706)
 layout_mode = 2
-anchor_left = -0.416016
-anchor_top = -0.0546875
-anchor_right = -0.0429687
-anchor_bottom = 0.0208333
-offset_left = 264.2
-offset_top = 172.4
-offset_right = 264.2
-offset_bottom = 172.4
+anchor_left = 0.1
+anchor_top = 0.394271
+anchor_right = 0.473047
+anchor_bottom = 0.469792
 size_flags_horizontal = 3
 text = "Order Accuracy"
 label_settings = ExtResource("3_wqw0x")
@@ -811,7 +826,6 @@ anchor_top = 0.394271
 anchor_right = 0.892578
 anchor_bottom = 0.469792
 size_flags_horizontal = 3
-text = "Value"
 label_settings = ExtResource("3_wqw0x")
 horizontal_alignment = 2
 vertical_alignment = 1

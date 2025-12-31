@@ -10,10 +10,14 @@ signal finished_results()
 
 @onready var receipt_sprite : Receipt_FX = $assets/receipt_sprite
 @onready var receipt_tray : HBoxContainer = $Panel/receipt_tray
+var spawning_receipts : bool = false
+var spawning_receipt_count : int = -1
+var tick : int = 0
 
-var stat_order_count : int = 0
-var accuracy_percent : float = 0.0
-var score_total : int = 0
+var result_accuracies : PackedFloat32Array
+var result_order_count : int = 0
+var result_percent : float = 0.0
+var result_total : int = 0
 
 @onready var anim_play : AnimationPlayer = $AnimationPlayer
 var animating : bool = false
@@ -24,6 +28,7 @@ var timeline : PackedStringArray = [
 	"orders_enter",
 	"accuracies_enter",
 	"!spawn_receipts",
+	"!done"
 ]
 
 
@@ -42,30 +47,54 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
-	pass
+	if spawning_receipts and spawning_receipt_count >= 0:
+		tick += 2
+		if tick > 30:
+			tick = 0
+			var new_receipt : Receipt_FX = receipt_sprite.duplicate()
+			receipt_tray.add_child(new_receipt)
+			new_receipt.play_bop()
+			var temporary_percent : float = 0.0
+			print("step: ", spawning_receipt_count)
+			var index = result_order_count - spawning_receipt_count
+			print("index: ", index)
+			for i in index:
+				print(i, ": ", result_accuracies[i])
+				temporary_percent += result_accuracies[i]
+			temporary_percent /= index
+			print("TempPercent: ", temporary_percent)
+			if index > 0 :
+				order_count.text = str(index)
+				accuracy.text = str(snapped((temporary_percent * 100), 0.01)) + "%"
+			spawning_receipt_count -= 1
+			if spawning_receipt_count < 0:
+				spawning_receipts = false
+				accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
+				next_animation_step()
 
 
 func display_results(accuracies : PackedFloat32Array, game_score : int):
 	#order_count.text = str(accuracies.size())
-	stat_order_count = 0
-	accuracy_percent = 0.0
-	score_total = game_score
+	result_accuracies = accuracies
+	result_total = game_score
+	spawning_receipts = false
+	spawning_receipt_count = -1
 	##
-	stat_order_count = accuracies.size()
+	result_order_count = accuracies.size()
 	for a in accuracies:
 		print("Accuracy: ", a)
-		accuracy_percent += a
-	accuracy_percent /= accuracies.size()
-	accuracy.text = str(snapped((accuracy_percent * 100), 0.01)) + "%"
+		result_percent += a
+	result_percent /= accuracies.size()
+	#order_count.text = str(result_order_count)
+	#accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
+	order_count.text = "-"
+	accuracy.text = "-"
 	score.text = str(game_score)
 	self.show()
 	animating = true
 	animation_step = 0
 	finish_button.grab_focus()
-	#anim_state.travel("alarm")
 	anim_play.play("alarm")
-	#anim_tree.trav
-	#anim_tree.
 
 
 func _on_finish_pressed():
@@ -75,12 +104,23 @@ func _on_finish_pressed():
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	print("Animation Finished: ", anim_name)
+	next_animation_step()
+
+
+func next_animation_step():
 	var next = animation_step + 1
 	if !timeline[next].contains("!"):
 		print("Playing Animation: ", timeline[next])
 		anim_play.play(timeline[next])
+	else:
+		print("Executing Step: ", timeline[next])
+		if timeline[next] == "!spawn_receipts":
+			start_spawning_receipts()
 	animation_step = next
 
 
 func start_spawning_receipts():
 	print("Spawning Receipts")
+	spawning_receipt_count = result_order_count
+	spawning_receipts = true
+	tick = 0
