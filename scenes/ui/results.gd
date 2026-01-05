@@ -13,6 +13,10 @@ signal finished_results()
 var spawning_receipts : bool = false
 var spawning_receipt_count : int = -1
 var tick : int = 0
+@onready var scorelabel : Label = $Panel/scorelabel
+@onready var jitter : JitterDialog = $AudioStreamPlayer/JitterDialog
+var typing_scorelabel : bool = false
+var typing_scorelabel_charcount : int = -1
 
 var result_accuracies : PackedFloat32Array
 var result_order_count : int = 0
@@ -28,6 +32,8 @@ var timeline : PackedStringArray = [
 	"orders_enter",
 	"accuracies_enter",
 	"!spawn_receipts",
+	"score_enter",
+	"register_enter",
 	"!done"
 ]
 
@@ -71,6 +77,13 @@ func _physics_process(delta: float) -> void:
 				spawning_receipts = false
 				accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
 				next_animation_step()
+	if typing_scorelabel:
+		if typing_scorelabel_charcount != scorelabel.visible_characters:
+			typing_scorelabel_charcount = scorelabel.visible_characters
+			if scorelabel.text.right(1) != " ":
+				jitter.jitter()
+			if typing_scorelabel_charcount <= -1:
+				typing_scorelabel = false
 
 
 func display_results(accuracies : PackedFloat32Array, game_score : int):
@@ -79,6 +92,7 @@ func display_results(accuracies : PackedFloat32Array, game_score : int):
 	result_total = game_score
 	spawning_receipts = false
 	spawning_receipt_count = -1
+	typing_scorelabel = false
 	##
 	result_order_count = accuracies.size()
 	for a in accuracies:
@@ -89,7 +103,8 @@ func display_results(accuracies : PackedFloat32Array, game_score : int):
 	#accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
 	order_count.text = "-"
 	accuracy.text = "-"
-	score.text = str(game_score)
+	#score.text = str(game_score)
+	score.text = "-"
 	self.show()
 	animating = true
 	animation_step = 0
@@ -124,3 +139,9 @@ func start_spawning_receipts():
 	spawning_receipt_count = result_order_count
 	spawning_receipts = true
 	tick = 0
+
+
+func start_typing_scorelabel():
+	print("Typing ScoreLabel")
+	typing_scorelabel = true
+	typing_scorelabel_charcount = scorelabel.visible_characters

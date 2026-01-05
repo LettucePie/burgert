@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=19 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/ui/receipt_sprite.gd" id="4_j5aw5"]
 [ext_resource type="AudioStream" uid="uid://pq7tsuo68bxg" path="res://assets/sound/sfx/Menu/Slap_1_FOR RECIEPT.wav" id="5_gqi7n"]
 [ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="5_obtjp"]
+[ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/environment/kitchen/restaurant_fg/register.tres" id="9_rmce4"]
+[ext_resource type="PackedScene" uid="uid://bk20gm57pbltf" path="res://scenes/game/jitter_dialog.tscn" id="10_emy1f"]
 
 [sub_resource type="Animation" id="Animation_3dlmw"]
 length = 0.001
@@ -286,6 +288,66 @@ tracks/22/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(22, 191)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Panel/register:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Panel/scorelabel:visible_ratio")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Panel/register:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(345, 217)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Panel/register:pivot_offset")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 87)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Panel/register:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.200001, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_nfhu4"]
@@ -700,6 +762,126 @@ tracks/13/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Panel/register:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_60mfq"]
+resource_name = "score_enter"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/scorelabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/scorelabel:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_typing_scorelabel"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/score:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bexwu"]
+resource_name = "register_enter"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/register:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/register:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(345, 500), Vector2(345, 191), Vector2(345, 217)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/register:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 87)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/register:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.375, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 1.5), Vector2(0.05, 1.8), Vector2(1.2, 1), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
 _data = {
@@ -707,7 +889,9 @@ _data = {
 "accuracies_enter": SubResource("Animation_nfhu4"),
 "alarm": SubResource("Animation_rln7d"),
 "orders_enter": SubResource("Animation_ctvdk"),
-"panel_enter": SubResource("Animation_2l3bb")
+"panel_enter": SubResource("Animation_2l3bb"),
+"register_enter": SubResource("Animation_bexwu"),
+"score_enter": SubResource("Animation_60mfq")
 }
 
 [node name="results" type="Control"]
@@ -835,22 +1019,24 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 2
 anchor_left = 0.1
-anchor_top = 0.581771
+anchor_top = 0.645833
 anchor_right = 0.38125
-anchor_bottom = 0.657292
+anchor_bottom = 0.721354
 size_flags_horizontal = 3
 text = "Total Score"
 label_settings = ExtResource("3_wqw0x")
 vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 metadata/_edit_use_anchors_ = true
 
 [node name="score" type="Label" parent="Panel"]
 visible = false
 layout_mode = 2
-anchor_left = 0.755859
-anchor_top = 0.581771
-anchor_right = 0.890625
-anchor_bottom = 0.657292
+anchor_left = 0.488281
+anchor_top = 0.653646
+anchor_right = 0.623047
+anchor_bottom = 0.729167
 size_flags_horizontal = 3
 text = "Value"
 label_settings = ExtResource("3_wqw0x")
@@ -874,8 +1060,28 @@ focus_neighbor_bottom = NodePath(".")
 text = "Finish"
 metadata/_edit_use_anchors_ = true
 
+[node name="register" type="TextureRect" parent="Panel"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.837
+anchor_top = 1.0
+anchor_right = 0.837
+anchor_bottom = 1.0
+offset_left = -83.544
+offset_top = -167.0
+offset_right = 83.456
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.200001, 1)
+pivot_offset = Vector2(87, 87)
+texture = ExtResource("9_rmce4")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="JitterDialog" parent="AudioStreamPlayer" instance=ExtResource("10_emy1f")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="pressed" from="Panel/finish" to="." method="_on_finish_pressed"]
