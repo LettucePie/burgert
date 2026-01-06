@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=26 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
@@ -8,8 +8,203 @@
 [ext_resource type="Script" path="res://scenes/ui/receipt_sprite.gd" id="4_j5aw5"]
 [ext_resource type="AudioStream" uid="uid://pq7tsuo68bxg" path="res://assets/sound/sfx/Menu/Slap_1_FOR RECIEPT.wav" id="5_gqi7n"]
 [ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="5_obtjp"]
+[ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="6_oj5gw"]
+[ext_resource type="Script" path="res://scenes/ui/money_sprite.gd" id="7_bahxv"]
+[ext_resource type="AudioStream" uid="uid://db8aetxoj0ve1" path="res://assets/sound/sfx/Menu/Bell_2_FOR MONEY.wav" id="8_3jwev"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/environment/kitchen/restaurant_fg/register.tres" id="9_rmce4"]
 [ext_resource type="PackedScene" uid="uid://bk20gm57pbltf" path="res://scenes/game/jitter_dialog.tscn" id="10_emy1f"]
+
+[sub_resource type="Animation" id="Animation_v7850"]
+resource_name = "add"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(83, -24), Vector2(83, 94)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(1.63, 1.63)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"play_bop"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5tql6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(83, 94)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.63, 1.63)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lb0ta"]
+resource_name = "subtract"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(83, 84)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.6, 1.6), Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"flick_away"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"play_bop"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iee5b"]
+_data = {
+"RESET": SubResource("Animation_5tql6"),
+"add": SubResource("Animation_v7850"),
+"subtract": SubResource("Animation_lb0ta")
+}
 
 [sub_resource type="Animation" id="Animation_3dlmw"]
 length = 0.001
@@ -775,6 +970,59 @@ tracks/14/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_bexwu"]
+resource_name = "register_enter"
+length = 0.4
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/register:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/register:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(345, 500), Vector2(345, 191), Vector2(345, 217)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/register:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 87)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/register:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.375, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 1.5), Vector2(0.05, 1.8), Vector2(1.2, 1), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_60mfq"]
 resource_name = "score_enter"
 length = 0.4
@@ -830,59 +1078,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_bexwu"]
-resource_name = "register_enter"
-length = 0.4
-step = 0.025
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/register:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/register:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.35, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(345, 500), Vector2(345, 191), Vector2(345, 217)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/register:pivot_offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(87, 87)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/register:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.375, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 1.5), Vector2(0.05, 1.8), Vector2(1.2, 1), Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
 _data = {
 "RESET": SubResource("Animation_3dlmw"),
@@ -905,7 +1100,6 @@ theme = ExtResource("1_v5lsf")
 script = ExtResource("2_xe4yp")
 
 [node name="assets" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 
 [node name="receipt_sprite" type="TextureRect" parent="assets"]
@@ -920,6 +1114,20 @@ script = ExtResource("4_j5aw5")
 [node name="bop" type="AudioStreamPlayer2D" parent="assets/receipt_sprite"]
 stream = ExtResource("5_gqi7n")
 bus = &"SFX"
+
+[node name="money_sprite" type="Sprite2D" parent="assets"]
+position = Vector2(83, 94)
+scale = Vector2(1.63, 1.63)
+texture = ExtResource("6_oj5gw")
+script = ExtResource("7_bahxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="assets/money_sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_iee5b")
+}
+
+[node name="bop" type="AudioStreamPlayer2D" parent="assets/money_sprite"]
+stream = ExtResource("8_3jwev")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -956,8 +1164,9 @@ anchor_left = 0.1
 anchor_top = 0.206771
 anchor_right = 0.494532
 anchor_bottom = 0.282292
-offset_left = -1.14441e-05
+offset_top = 3.8147e-05
 offset_right = -1.52588e-05
+offset_bottom = 3.8147e-05
 size_flags_horizontal = 3
 text = "Orders Finished"
 label_settings = ExtResource("3_wqw0x")
@@ -985,6 +1194,10 @@ anchor_left = 0.0429688
 anchor_top = 0.497396
 anchor_right = 0.953125
 anchor_bottom = 0.588542
+offset_left = -2.47955e-05
+offset_top = -6.10352e-05
+offset_right = -3.05176e-05
+offset_bottom = -6.10352e-05
 theme_override_constants/separation = -22
 metadata/_edit_use_anchors_ = true
 
@@ -996,6 +1209,8 @@ anchor_left = 0.1
 anchor_top = 0.394271
 anchor_right = 0.473047
 anchor_bottom = 0.469792
+offset_top = -6.10352e-05
+offset_bottom = -6.10352e-05
 size_flags_horizontal = 3
 text = "Order Accuracy"
 label_settings = ExtResource("3_wqw0x")
@@ -1083,5 +1298,7 @@ bus = &"SFX"
 
 [node name="JitterDialog" parent="AudioStreamPlayer" instance=ExtResource("10_emy1f")]
 
+[connection signal="animation_finished" from="assets/money_sprite/AnimationPlayer" to="assets/money_sprite" method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="assets/money_sprite/bop" to="assets/money_sprite" method="_on_bop_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="pressed" from="Panel/finish" to="." method="_on_finish_pressed"]
