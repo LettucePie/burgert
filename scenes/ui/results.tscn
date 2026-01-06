@@ -1100,6 +1100,7 @@ theme = ExtResource("1_v5lsf")
 script = ExtResource("2_xe4yp")
 
 [node name="assets" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 
 [node name="receipt_sprite" type="TextureRect" parent="assets"]
@@ -1128,6 +1129,8 @@ libraries = {
 
 [node name="bop" type="AudioStreamPlayer2D" parent="assets/money_sprite"]
 stream = ExtResource("8_3jwev")
+volume_db = 18.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -55,6 +55,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready():
 	self.hide()
+	$assets.hide()
 
 
 func _process_receipts() -> void:
