@@ -97,6 +97,9 @@ transform = Transform3D(0.996999, -0.0774151, 2.80242e-07, 0, -3.61999e-06, -1, 
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_s0h8q")
 
+[node name="TitleSign" parent="SubViewport/Node3D/title_sign" index="1"]
+visible = false
+
 [node name="Sprite3D" type="Sprite3D" parent="SubViewport/Node3D/title_sign"]
 transform = Transform3D(0.452684, 0, 0, 0, -1.97874e-08, 0.452684, 0, -0.452684, -1.97874e-08, 0, 0.0674168, -2.94688e-09)
 texture_filter = 0
