@@ -20,11 +20,12 @@ var typing_scorelabel_charcount : int = -1
 @onready var money_sprite : Money_FX = $assets/money_sprite
 @onready var register : TextureRect = $Panel/register
 var counting_money : bool = false
+var counting_score : int = 0
 
 var result_accuracies : PackedFloat32Array
+var result_scores : PackedInt32Array
 var result_order_count : int = 0
 var result_percent : float = 0.0
-var result_scores : PackedInt32Array
 var result_total : int = 0
 
 @onready var anim_play : AnimationPlayer = $AnimationPlayer
@@ -50,7 +51,7 @@ func _input(event: InputEvent) -> void:
 			print("RUNNING TEST")
 			display_results(
 				PackedFloat32Array([0.333, 0.5, 0.1, 1.0, 0.5, 0.67, 0.8, 0.333]), 
-				randi_range(5, 100))
+				PackedInt32Array([6, 12, -4, 20, 11, -9, 5, 1]))
 
 
 func _ready():
@@ -94,28 +95,19 @@ func _process_typing() -> void:
 
 
 func _process_money() -> void:
-	tick += 2
+	tick += 3
 	if tick > 30:
 		tick = 0
 		var new_money : Money_FX = money_sprite.duplicate()
 		register.add_child(new_money)
-		print("Calculate loss or gain")
-		new_money.play_anim("add")
-		var temporary_score : int = 0
-		print("step: ", spawning_receipt_count)
-		var index = result_order_count - spawning_receipt_count
-		print("index: ", index)
-		for i in index:
-			print(i, ": ", result_accuracies[i])
-			#temporary_percent += result_accuracies[i]
-		#temporary_percent /= index
-		#print("TempPercent: ", temporary_percent)
-		if index > 0 :
-			pass
-			#order_count.text = str(index)
-			#accuracy.text = str(snapped((temporary_percent * 100), 0.01)) + "%"
-		spawning_receipt_count -= 1
-		if spawning_receipt_count < 0:
+		if result_scores[spawning_receipt_count] > 0:
+			new_money.play_anim("add")
+		else:
+			new_money.play_anim("subtract")
+		counting_score += result_scores[spawning_receipt_count]
+		score.text = str(counting_score)
+		spawning_receipt_count += 1
+		if spawning_receipt_count >= result_order_count:
 			counting_money = false
 			next_animation_step()
 
@@ -129,14 +121,17 @@ func _physics_process(delta: float) -> void:
 		_process_money()
 
 
-func display_results(accuracies : PackedFloat32Array, game_score : int):
+func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array):
 	#order_count.text = str(accuracies.size())
 	result_accuracies = accuracies
-	result_total = game_score
+	result_scores = scores
+	result_total = 0
 	spawning_receipts = false
 	spawning_receipt_count = -1
 	typing_scorelabel = false
 	counting_money = false
+	for child in receipt_tray.get_children():
+		child.queue_free()
 	for child in register.get_children():
 		child.queue_free()
 	##
@@ -145,12 +140,11 @@ func display_results(accuracies : PackedFloat32Array, game_score : int):
 		print("Accuracy: ", a)
 		result_percent += a
 	result_percent /= accuracies.size()
-	#order_count.text = str(result_order_count)
-	#accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
 	order_count.text = "-"
 	accuracy.text = "-"
-	#score.text = str(game_score)
 	score.text = "-"
+	for val in scores:
+		result_total += val
 	self.show()
 	animating = true
 	animation_step = 0
@@ -197,6 +191,7 @@ func start_typing_scorelabel():
 
 func start_counting_money():
 	print("Counting Money")
-	spawning_receipt_count = result_order_count
+	spawning_receipt_count = 0
+	counting_score = 0
 	counting_money = true
 	tick = 0

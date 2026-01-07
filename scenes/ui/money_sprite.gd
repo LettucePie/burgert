@@ -38,10 +38,10 @@ func flick_away() -> void:
 	var target : Vector2 = self.position
 	var rot : float = self.rotation + (PI / 2)
 	if randi_range(0, 1) > 0:
-		target += Vector2(-20, -20)
+		target += Vector2(-40, -60)
 		rot = self.rotation - (PI / 2)
 	else:
-		target += Vector2(20, -20)
+		target += Vector2(40, -60)
 	var tween : Tween = create_tween()
 	tween.tween_property(self, "position", target, 0.2)
 	tween.set_parallel()

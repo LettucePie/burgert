@@ -28,6 +28,7 @@ var game_started : bool = false
 var current_order : PackedStringArray = []
 var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
+var game_scores : PackedInt32Array = []
 var current_order_start_time : float = 0
 
 
@@ -60,6 +61,7 @@ func _on_chef_chef_ready():
 func start_game():
 	current_score = 0
 	game_accuracies.clear()
+	game_scores.clear()
 	chef.reset_chef()
 	kitchen.prep_kitchen()
 	submit.set_playing(false, 0, 0)
@@ -82,6 +84,7 @@ func stop_game(reset : bool):
 
 
 func adjust_score(arg : int):
+	game_scores.append(arg)
 	current_score += arg
 	hud.set_score(current_score)
 	print("Adding ", arg, " points")
@@ -221,7 +224,7 @@ func _on_game_timer_timeout():
 	chef.submitting_burger = false
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
-	results.display_results(game_accuracies, current_score)
+	results.display_results(game_accuracies, game_scores)
 	emit_signal("game_finished", current_score)
 
 
