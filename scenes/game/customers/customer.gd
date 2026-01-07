@@ -47,6 +47,8 @@ func set_state(new_state : CUSTOMER_STATE):
 		burger_portal_sprite.hide()
 		anim.play("enter")
 		print(customer_name, ": ENTER")
+		if customer_name.contains("Basic"):
+			get_node("character/accessory").shuffle()
 	elif new_state == CUSTOMER_STATE.Queue \
 	and status == CUSTOMER_STATE.Entering:
 		status = new_state

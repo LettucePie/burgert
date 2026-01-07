@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://pbomilklpdfm"]
+
+[ext_resource type="Texture2D" uid="uid://bucu0a65nve13" path="res://assets/images/characters/customers/basic_accessories/customer_basic_beards_spritesheet.png" id="1_42wjd"]
+
+[resource]
+atlas = ExtResource("1_42wjd")
+region = Rect2(0, 384, 48, 48)

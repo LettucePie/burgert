@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8kipvk4lji2c"]
+
+[ext_resource type="Script" path="res://scenes/game/customers/accessory.gd" id="1_hg2oj"]
+[ext_resource type="Texture2D" uid="uid://bt4l84mqfxwio" path="res://assets/images/characters/customers/basic_accessories/customer_basic_hairs_atlastex.tres" id="2_4m05k"]
+[ext_resource type="Texture2D" uid="uid://pbomilklpdfm" path="res://assets/images/characters/customers/basic_accessories/customer_basic_beards_atlastex.tres" id="3_s6tfl"]
+[ext_resource type="Texture2D" uid="uid://bjqq7p7sgws6r" path="res://assets/images/characters/customers/basic_accessories/customer_basic_glasses_atlastex.tres" id="4_fyw8q"]
+
+[node name="accessory" type="Node2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_hg2oj")
+
+[node name="hair" type="Sprite2D" parent="."]
+texture = ExtResource("2_4m05k")
+
+[node name="beard" type="Sprite2D" parent="."]
+texture = ExtResource("3_s6tfl")
+
+[node name="glasses" type="Sprite2D" parent="."]
+texture = ExtResource("4_fyw8q")
