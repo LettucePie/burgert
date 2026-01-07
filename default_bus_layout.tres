@@ -1,4 +1,7 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://ce7cv6nqqm3e8"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://ce7cv6nqqm3e8"]
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_cbyl4"]
+resource_name = "HardLimiter"
 
 [sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_4vmnt"]
 resource_name = "Distortion"
@@ -24,6 +27,8 @@ voice/4/cutoff_hz = 16000.0
 voice/4/pan = 0.0
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_cbyl4")
+bus/0/effect/0/enabled = true
 bus/1/name = &"MUS"
 bus/1/solo = false
 bus/1/mute = false
