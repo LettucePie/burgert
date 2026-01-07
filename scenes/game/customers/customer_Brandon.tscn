@@ -636,20 +636,6 @@ tracks/6/keys = {
 "method": &"play"
 }]
 }
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("character")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"satisfactory", 1.0, false],
-"method": &"play"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_0jach"]
 resource_name = "leaving"
