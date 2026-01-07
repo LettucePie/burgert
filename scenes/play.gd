@@ -172,9 +172,12 @@ class Stats:
 	var version : int
 	var highest_score : int = 0
 	var times_played : int = 0
+	var total_score : int = 0
+	var spent_score : int = 0
 	
 	var keys : Array = [
-		"version", "highest_score", "times_played", "customer_stats"
+		"version", "highest_score", "times_played", "total_score",
+		"spent_score", "customer_stats"
 	]
 	
 	class CustomerStat:
@@ -225,9 +228,26 @@ class Stats:
 	func set_highest_score(new : int):
 		if new > highest_score:
 			highest_score = new
+		if new > 0:
+			total_score += new
 	
 	func get_highest_score() -> int:
 		return highest_score
+	
+	func set_total_score(new : int):
+		total_score = new
+	
+	func get_total_score() -> int:
+		return total_score
+	
+	func set_spent_score(new : int):
+		spent_score = new
+	
+	func get_spent_score() -> int:
+		return spent_score
+	
+	func adjust_spent_score(arg : int):
+		spent_score += arg
 	
 	func set_times_played(new : int):
 		times_played = new
@@ -321,6 +341,8 @@ func _load_stats():
 		if valid:
 			stats.set_highest_score(data["highest_score"])
 			stats.set_times_played(data["times_played"])
+			stats.set_total_score(data["total_score"])
+			stats.set_spent_score(data["spent_score"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	apply_stats()
 
@@ -331,6 +353,8 @@ func _save_stats():
 		"version" = game_version,
 		"highest_score" = stats.get_highest_score(),
 		"times_played" = stats.get_times_played(),
+		"total_score" = stats.get_total_score(),
+		"spent_score" = stats.get_spent_score(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
