@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgdrqg66xl376"]
+[gd_scene load_steps=23 format=3 uid="uid://dgdrqg66xl376"]
 
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_f5x1l"]
 [ext_resource type="SpriteFrames" uid="uid://dp7ic3f4x35ds" path="res://assets/images/characters/customers/customer_basic_b_spriteframes.tres" id="2_j4wbg"]
@@ -14,7 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2.tres" id="7_mu5jh"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_grill.tres" id="8_76axt"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_alcove.tres" id="9_3qbwq"]
+[ext_resource type="Script" path="res://classes/jitter_dialog.gd" id="9_i6wsr"]
+[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="10_4cxvc"]
 [ext_resource type="PackedScene" uid="uid://dw13tjhxgla35" path="res://scenes/game/feedback.tscn" id="10_6cp5h"]
+[ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="11_r6g35"]
+[ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/Voice/Doot_6.wav" id="12_1x6xe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2vhh"]
 atlas = ExtResource("5_whcn6")
@@ -62,6 +66,10 @@ texture = SubResource("AtlasTexture_prh16")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="character"]
 stream = ExtResource("3_bf5st")
 bus = &"SFX"
+
+[node name="JitterDialog" type="Node" parent="character/AudioStreamPlayer2D"]
+script = ExtResource("9_i6wsr")
+jitter_box = Array[AudioStreamWAV]([ExtResource("10_4cxvc"), ExtResource("11_r6g35"), ExtResource("12_1x6xe")])
 
 [node name="Left" type="Marker2D" parent="character"]
 position = Vector2(-13, 0)

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnrs6gbmo3jko"]
+[gd_scene load_steps=8 format=3 uid="uid://cnrs6gbmo3jko"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_0h13p"]
 [ext_resource type="AnimationLibrary" uid="uid://bi0nh1a4o8tc" path="res://assets/animation/customers/rat_animlib.res" id="2_fo4nb"]
 [ext_resource type="SpriteFrames" uid="uid://dgxl0nigslxow" path="res://assets/images/characters/customers/customer_RAT_spriteframes.tres" id="2_j5yxo"]
+[ext_resource type="AudioStream" uid="uid://cqaam4tqmm83w" path="res://assets/sound/sfx/Voice/Doot_13.wav" id="4_o6lgt"]
+[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="5_81nfi"]
+[ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/Voice/Doot_1.wav" id="6_nralc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_va53c"]
 viewport_path = NodePath(".")
@@ -20,6 +23,9 @@ libraries = {
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_j5yxo")
 autoplay = "idle"
+
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_o6lgt"), ExtResource("5_81nfi"), ExtResource("6_nralc")])
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_va53c")

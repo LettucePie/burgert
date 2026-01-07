@@ -1,4 +1,6 @@
-[gd_resource type="AnimationLibrary" load_steps=11 format=3 uid="uid://cmxb5hi3ksa0d"]
+[gd_resource type="AnimationLibrary" load_steps=12 format=3 uid="uid://cmxb5hi3ksa0d"]
+
+[ext_resource type="AudioStream" uid="uid://bnf7je3se2di2" path="res://assets/sound/sfx/Voice/Doot_6_uhh.wav" id="1_v5q8l"]
 
 [sub_resource type="Animation" id="Animation_kcgmy"]
 length = 0.001
@@ -182,6 +184,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(0, -5)]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("character/AudioStreamPlayer2D:volume_db")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_w8nma"]
 resource_name = "enter"
@@ -319,6 +333,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("character/AudioStreamPlayer2D:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_qvqw6"]
@@ -872,12 +898,9 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.633333, 0.766667, 2.53333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.766667, 2.53333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [],
-"method": &"play_greeting"
-}, {
 "args": [&"customer_reorder"],
 "method": &"emit_signal"
 }, {
@@ -908,6 +931,73 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(190, 110)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("character/AudioStreamPlayer2D:volume_db")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5, 0.8, 2.36667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -70.0, 0.0]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("character/AudioStreamPlayer2D/JitterDialog")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.466667, 0.5, 0.766667, 2.5, 2.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [156],
+"method": &"set_interval"
+}, {
+"args": [true],
+"method": &"toggle_jitter"
+}, {
+"args": [false],
+"method": &"toggle_jitter"
+}, {
+"args": [true],
+"method": &"toggle_jitter"
+}, {
+"args": [false],
+"method": &"toggle_jitter"
+}]
+}
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("character/AudioStreamPlayer2D")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_v5q8l")
+}],
+"times": PackedFloat32Array(0.8)
+}
+tracks/12/use_blend = true
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("character/AudioStreamPlayer2D")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.36667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fdsfv"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://wtgtif02px0y"]
+[gd_scene load_steps=8 format=3 uid="uid://wtgtif02px0y"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_e5txx"]
 [ext_resource type="AnimationLibrary" uid="uid://yvfl5a3183d8" path="res://assets/animation/customers/anxiety_animlib.res" id="2_pa7y8"]
 [ext_resource type="SpriteFrames" uid="uid://carbatkngutoy" path="res://assets/images/characters/customers/customer_Anxiety_spriteframes.tres" id="3_3ojr1"]
+[ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/Voice/Doot_16.wav" id="4_c6av7"]
+[ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/Voice/Doot_15.wav" id="5_f52ic"]
+[ext_resource type="AudioStream" uid="uid://cqaam4tqmm83w" path="res://assets/sound/sfx/Voice/Doot_13.wav" id="6_g8hf0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3f58o"]
 viewport_path = NodePath(".")
@@ -21,6 +24,9 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_3ojr1")
 autoplay = "idle"
 offset = Vector2(0, -8)
+
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_c6av7"), ExtResource("5_f52ic"), ExtResource("6_g8hf0")])
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_3f58o")

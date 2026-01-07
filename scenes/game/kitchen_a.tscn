@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=82 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -71,6 +71,7 @@
 [ext_resource type="AudioStream" uid="uid://bsbf1frqdk36h" path="res://assets/sound/sfx/Ingredients/Lettuce.wav" id="60_bkbmp"]
 [ext_resource type="Texture2D" uid="uid://cfplpvpsn7xax" path="res://assets/images/environment/kitchen/ingredients/rune_e.png" id="62_7txvg"]
 [ext_resource type="Texture2D" uid="uid://bdmqixa1v0x3p" path="res://assets/images/environment/kitchen/ingredients/rune_e_highlight.png" id="63_gmmst"]
+[ext_resource type="AudioStream" uid="uid://bh2a0pa0ar268" path="res://assets/sound/sfx/Ingredients/Tomato.wav" id="65_63bxq"]
 [ext_resource type="Texture2D" uid="uid://r0vad3awqn6b" path="res://assets/images/environment/kitchen/ingredients/rune_f.png" id="66_08der"]
 [ext_resource type="Texture2D" uid="uid://c02c1gnb7fte3" path="res://assets/images/environment/kitchen/ingredients/rune_f_highlight.png" id="67_egv5x"]
 [ext_resource type="AudioStream" uid="uid://b44icxh7mvx62" path="res://assets/sound/sfx/Ingredients/Cheese.wav" id="69_f1dyb"]
@@ -462,8 +463,7 @@ sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_tomato"]
-stream = ExtResource("60_bkbmp")
-pitch_scale = 0.5
+stream = ExtResource("65_63bxq")
 bus = &"SFX"
 
 [node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]

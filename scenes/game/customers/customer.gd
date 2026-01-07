@@ -15,9 +15,10 @@ signal kitchen_switch(target)
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @export var burger_portal_sprite : Sprite2D
 @onready var sound_player : AudioStreamPlayer2D = $character/AudioStreamPlayer2D
+@onready var jitter_dialog : JitterDialog = $character/AudioStreamPlayer2D/JitterDialog
 @onready var left_area : Marker2D = $character/Left
 @onready var right_area : Marker2D = $character/Right
-@onready var munch : Munch = $character/munch
+#@onready var munch : Munch = $character/munch
 
 enum CUSTOMER_STATE {Entering, Queue, Ordering, Waiting, Munching, Leaving, Gone}
 var status : CUSTOMER_STATE = CUSTOMER_STATE.Gone
@@ -86,10 +87,6 @@ func set_state(new_state : CUSTOMER_STATE):
 		status = new_state
 		emit_signal("customer_finished")
 		print(customer_name, ": GONE")
-
-
-func play_greeting():
-	sound_player.play()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

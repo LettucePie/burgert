@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bidmanqullgka"]
+[gd_scene load_steps=20 format=3 uid="uid://bidmanqullgka"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qbk6q"]
 [ext_resource type="SpriteFrames" uid="uid://ba3v63s3icpks" path="res://assets/images/characters/customers/customer_mr_understood_spriteframes.tres" id="2_uh2il"]
+[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="3_u80g2"]
+[ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="4_crjuk"]
 [ext_resource type="Texture2D" uid="uid://ob2gmtuj6obl" path="res://assets/images/graphics/question_mark.png" id="4_itjau"]
 
 [sub_resource type="Animation" id="Animation_pabrb"]
@@ -906,55 +908,58 @@ tracks/6/keys = {
 "update": 1,
 "values": []
 }
-tracks/7/type = "method"
+tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath(".")
+tracks/7/path = NodePath("burger_portal_view:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_greeting"
-}]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("burger_portal_view:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("burger_portal_view:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("burger_portal_view:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(170, 110), Vector2(168, 110)]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("burger_portal_view/CPUParticles2D:emitting")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("burger_portal_view/CPUParticles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("character/AudioStreamPlayer2D/JitterDialog")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"toggle_jitter"
+}, {
+"args": [false],
+"method": &"toggle_jitter"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_b17sh"]
@@ -1126,6 +1131,13 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_uh2il")
 autoplay = "idle"
 offset = Vector2(0, -18)
+
+[node name="AudioStreamPlayer2D" parent="character" index="1"]
+stream = ExtResource("3_u80g2")
+bus = &"MrDistorted"
+
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_crjuk"), ExtResource("4_crjuk"), ExtResource("3_u80g2")])
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_conl1")

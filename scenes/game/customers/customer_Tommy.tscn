@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx4lrji86l8dv"]
+[gd_scene load_steps=8 format=3 uid="uid://dx4lrji86l8dv"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rcbdo"]
 [ext_resource type="AnimationLibrary" uid="uid://cmlbs643y6f7i" path="res://assets/animation/customers/tommy_animlib.res" id="2_untru"]
 [ext_resource type="SpriteFrames" uid="uid://7dete00aqa6t" path="res://assets/images/characters/customers/customer_tommy_spriteframes.tres" id="3_ow1f6"]
+[ext_resource type="AudioStream" uid="uid://ba86xs3k5x3b5" path="res://assets/sound/sfx/Voice/Doot_9.wav" id="4_rbq5d"]
+[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="5_drlby"]
+[ext_resource type="AudioStream" uid="uid://cqaam4tqmm83w" path="res://assets/sound/sfx/Voice/Doot_13.wav" id="6_dgbfr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_p7jln"]
 viewport_path = NodePath("burger_portal")
@@ -22,10 +25,13 @@ sprite_frames = ExtResource("3_ow1f6")
 autoplay = "idle"
 offset = Vector2(0, -28)
 
-[node name="Left" parent="character" index="1"]
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_rbq5d"), ExtResource("5_drlby"), ExtResource("6_dgbfr")])
+
+[node name="Left" parent="character" index="2"]
 position = Vector2(-30.7143, 0)
 
-[node name="Right" parent="character" index="2"]
+[node name="Right" parent="character" index="3"]
 position = Vector2(35, 0)
 
 [node name="burger_portal_view" parent="." index="2"]

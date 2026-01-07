@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://btg66ej2b62y2"]
+[gd_scene load_steps=12 format=3 uid="uid://btg66ej2b62y2"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
 [ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
 [ext_resource type="AnimationLibrary" uid="uid://bmj1p3xkadabu" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
+[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_cakh5"]
 [ext_resource type="SpriteFrames" uid="uid://5rcwrueqq5tw" path="res://assets/images/graphics/teleport_spriteframes.tres" id="4_ituhy"]
+[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="5_ex12y"]
 [ext_resource type="Texture2D" uid="uid://2t5nt3pg07ln" path="res://assets/images/graphics/sparkle.png" id="5_ps1n1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ya75s"]
@@ -36,10 +38,13 @@ sprite_frames = ExtResource("2_0bhj5")
 autoplay = "idle"
 offset = Vector2(0, -35)
 
-[node name="Left" parent="character" index="1"]
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_cakh5"), ExtResource("4_cakh5"), ExtResource("5_ex12y")])
+
+[node name="Left" parent="character" index="2"]
 position = Vector2(-30.7143, 0)
 
-[node name="Right" parent="character" index="2"]
+[node name="Right" parent="character" index="3"]
 position = Vector2(24.2857, 0)
 
 [node name="burger_portal_view" parent="." index="2"]
@@ -71,3 +76,6 @@ orbit_velocity_max = 1.0
 orbit_velocity_curve = SubResource("Curve_qdhpt")
 scale_amount_curve = SubResource("Curve_itoiu")
 color_initial_ramp = SubResource("Gradient_vo2q4")
+
+[node name="MagicSFX" type="AudioStreamPlayer2D" parent="VFX" index="2"]
+bus = &"SFX"

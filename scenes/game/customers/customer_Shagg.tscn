@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d24u4su4c1i00"]
+[gd_scene load_steps=6 format=3 uid="uid://d24u4su4c1i00"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_eorj4"]
 [ext_resource type="AnimationLibrary" uid="uid://cmxb5hi3ksa0d" path="res://assets/animation/customers/shagg_animlib.tres" id="2_bnfvj"]
 [ext_resource type="SpriteFrames" uid="uid://bhq4lyp56w3na" path="res://assets/images/characters/customers/customer_shagg_spriteframes.tres" id="2_ouehi"]
+[ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/Voice/Doot_6.wav" id="4_0ddwf"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_uirua"]
 viewport_path = NodePath("burger_portal")
@@ -21,6 +22,9 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_ouehi")
 autoplay = "idle"
 offset = Vector2(0, -5)
+
+[node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
+jitter_box = Array[AudioStreamWAV]([ExtResource("4_0ddwf"), ExtResource("4_0ddwf"), ExtResource("4_0ddwf")])
 
 [node name="burger_portal_view" parent="." index="2"]
 texture = SubResource("ViewportTexture_uirua")

@@ -50,6 +50,7 @@ func prep_kitchen():
 	for w in workstations:
 		w.force_hide_magic_pop()
 	if current_customer != null:
+		current_customer.jitter_dialog.toggle_jitter(false)
 		current_customer.sound_player.stop()
 	queue_idx = -1
 	current_customer = null
