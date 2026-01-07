@@ -22,6 +22,9 @@ sprite_frames = ExtResource("3_pq3c2")
 autoplay = "idle"
 offset = Vector2(0, -5)
 
+[node name="Left" parent="character" index="1"]
+position = Vector2(-38, 0)
+
 [node name="Right" parent="character" index="2"]
 position = Vector2(35, 0)
 
