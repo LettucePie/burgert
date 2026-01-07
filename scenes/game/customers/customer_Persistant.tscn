@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_5j8yp"]
 [ext_resource type="AnimationLibrary" uid="uid://biapfbq37jlfd" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
-[ext_resource type="SpriteFrames" uid="uid://dn7vfn8j4mnuo" path="res://assets/images/characters/customers/customer_persistant_spriteframes.tres" id="3_ouw3e"]
+[ext_resource type="SpriteFrames" uid="uid://dujb4hl83qoxm" path="res://assets/images/characters/customers/customer_persistant_spriteframes_v2.tres" id="3_6pqky"]
 [ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="4_ebmwu"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="5_s0t0m"]
 
@@ -21,7 +21,7 @@ libraries = {
 
 [node name="character" parent="." index="1"]
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("3_ouw3e")
+sprite_frames = ExtResource("3_6pqky")
 autoplay = "idle"
 offset = Vector2(0, -8)
 
