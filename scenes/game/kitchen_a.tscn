@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=81 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://bw4eao43mdwok" path="res://scenes/game/customers/customer_Teddy.tscn" id="48_qr62u"]
 [ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/environment/kitchen/ingredients/lettuce.tres" id="49_4b8hj"]
 [ext_resource type="SpriteFrames" uid="uid://disepgi0mwu8m" path="res://assets/images/graphics/magic_pop_spriteframes.tres" id="49_ife6o"]
+[ext_resource type="AudioStream" uid="uid://e5g3k25ob5cn" path="res://assets/sound/sfx/Ingredients/Bun.wav" id="50_2xqon"]
 [ext_resource type="Texture2D" uid="uid://cppchvwbki2lx" path="res://assets/images/environment/kitchen/ingredients/rune_b.png" id="50_k4kjt"]
 [ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight.tres" id="50_n0mmw"]
 [ext_resource type="Texture2D" uid="uid://dcju8y6o8xa17" path="res://assets/images/environment/kitchen/ingredients/rune_b_highlight.png" id="51_70wd8"]
@@ -61,17 +62,21 @@
 [ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/images/environment/kitchen/ingredients/cheese_highlight.tres" id="54_0rxtm"]
 [ext_resource type="Texture2D" uid="uid://chvgc2kft2iap" path="res://assets/images/environment/kitchen/ingredients/rune_c.png" id="54_gfx2d"]
 [ext_resource type="Texture2D" uid="uid://cje02c0x7a88d" path="res://assets/images/environment/kitchen/ingredients/rune_c_highlight.png" id="55_knf5a"]
+[ext_resource type="AudioStream" uid="uid://dunfrlldr045r" path="res://assets/sound/sfx/Ingredients/Burger.wav" id="55_lgf1h"]
 [ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/images/environment/kitchen/ingredients/ketchup.tres" id="55_v6m6k"]
 [ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/images/environment/kitchen/ingredients/ketchup_highlight.tres" id="56_782jn"]
 [ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/images/environment/kitchen/ingredients/mustard.tres" id="57_w4kew"]
 [ext_resource type="Texture2D" uid="uid://cel65lj2ahan2" path="res://assets/images/environment/kitchen/ingredients/rune_d.png" id="58_ch057"]
 [ext_resource type="Texture2D" uid="uid://hhq33wey6aos" path="res://assets/images/environment/kitchen/ingredients/rune_d_highlight.png" id="59_blnan"]
+[ext_resource type="AudioStream" uid="uid://bsbf1frqdk36h" path="res://assets/sound/sfx/Ingredients/Lettuce.wav" id="60_bkbmp"]
 [ext_resource type="Texture2D" uid="uid://cfplpvpsn7xax" path="res://assets/images/environment/kitchen/ingredients/rune_e.png" id="62_7txvg"]
 [ext_resource type="Texture2D" uid="uid://bdmqixa1v0x3p" path="res://assets/images/environment/kitchen/ingredients/rune_e_highlight.png" id="63_gmmst"]
 [ext_resource type="Texture2D" uid="uid://r0vad3awqn6b" path="res://assets/images/environment/kitchen/ingredients/rune_f.png" id="66_08der"]
 [ext_resource type="Texture2D" uid="uid://c02c1gnb7fte3" path="res://assets/images/environment/kitchen/ingredients/rune_f_highlight.png" id="67_egv5x"]
+[ext_resource type="AudioStream" uid="uid://b44icxh7mvx62" path="res://assets/sound/sfx/Ingredients/Cheese.wav" id="69_f1dyb"]
 [ext_resource type="Texture2D" uid="uid://b8vuxekfn5lcw" path="res://assets/images/environment/kitchen/ingredients/rune_g.png" id="69_vjywy"]
 [ext_resource type="Texture2D" uid="uid://4vrmc0nkg8b6" path="res://assets/images/environment/kitchen/ingredients/rune_g_highlight.png" id="70_xgkgw"]
+[ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="74_wr2g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -288,6 +293,10 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_bun"]
+stream = ExtResource("50_2xqon")
+bus = &"SFX"
+
 [node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(177, 333)
 scale = Vector2(2, 2)
@@ -341,6 +350,10 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_meat"]
+stream = ExtResource("55_lgf1h")
+bus = &"SFX"
+
 [node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(297, 349)
 scale = Vector2(2, 2)
@@ -391,6 +404,10 @@ position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_lettuce"]
+stream = ExtResource("60_bkbmp")
+bus = &"SFX"
 
 [node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(393, 349)
@@ -444,6 +461,11 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_tomato"]
+stream = ExtResource("60_bkbmp")
+pitch_scale = 0.5
+bus = &"SFX"
+
 [node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(491, 349)
 scale = Vector2(2, 2)
@@ -495,6 +517,10 @@ position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_cheese"]
+stream = ExtResource("69_f1dyb")
+bus = &"SFX"
 
 [node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(563, 349)
@@ -548,6 +574,10 @@ scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_ketchup"]
+stream = ExtResource("74_wr2g3")
+bus = &"SFX"
+
 [node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(611, 349)
 scale = Vector2(2, 2)
@@ -599,5 +629,10 @@ position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_mustard"]
+stream = ExtResource("74_wr2g3")
+pitch_scale = 1.2
+bus = &"SFX"
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]

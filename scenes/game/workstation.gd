@@ -5,6 +5,7 @@ class_name Workstation
 @export var ingredient : String = "Lettuce"
 @export var highlight : Sprite2D = null
 @onready var ingredient_sprite : Sprite2D = $ingredient_sprite
+@onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
 var tick : int = 60
 var down : bool = false
 var runic : bool = false
@@ -73,3 +74,7 @@ func _pop_finish():
 
 func force_hide_magic_pop():
 	magic_pop.hide()
+
+
+func pickup_sfx() -> void:
+	sfx.play()

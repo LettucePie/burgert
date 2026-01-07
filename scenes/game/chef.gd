@@ -108,6 +108,7 @@ func process_actions(delta):
 			else:
 				print("Grabbing Ingredient: ", current_station.ingredient)
 				current_burger.add_ingredient(current_station.ingredient)
+			current_station.pickup_sfx()
 	if Input.is_action_just_pressed("up"):
 		if current_burger.ingredients.size() >= order_size \
 		and !submitting_burger:
