@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=28 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://db8aetxoj0ve1" path="res://assets/sound/sfx/Menu/Bell_2_FOR MONEY.wav" id="8_3jwev"]
 [ext_resource type="Texture2D" uid="uid://dcode7kblp41y" path="res://assets/images/environment/kitchen/restaurant_fg/register.tres" id="9_rmce4"]
 [ext_resource type="PackedScene" uid="uid://bk20gm57pbltf" path="res://scenes/game/jitter_dialog.tscn" id="10_emy1f"]
+[ext_resource type="AudioStream" uid="uid://b34rn41nkyiii" path="res://assets/sound/sfx/wallsplat_sfx_1.wav" id="11_klqyp"]
 
 [sub_resource type="Animation" id="Animation_5tql6"]
 length = 0.001
@@ -543,6 +544,42 @@ tracks/27/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.200001, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Panel/finish:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(51, 283)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Panel/finish:size")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, 54)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Panel/register:rotation")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_nfhu4"]
@@ -1078,11 +1115,104 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_y5xyq"]
+resource_name = "finish_enter"
+length = 0.6
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/finish:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/finish:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-361, 290), Vector2(-361, 290), Vector2(51, 290)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/finish:size")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(255, 54), Vector2(600, 54), Vector2(402, 54)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_klqyp")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/register:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.275, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(345, 217), Vector2(469, 206), Vector2(583, 434)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/register:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.275, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/register:pivot_offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.275),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 87)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_veagq"]
 _data = {
 "RESET": SubResource("Animation_3dlmw"),
 "accuracies_enter": SubResource("Animation_nfhu4"),
 "alarm": SubResource("Animation_rln7d"),
+"finish_enter": SubResource("Animation_y5xyq"),
 "orders_enter": SubResource("Animation_ctvdk"),
 "panel_enter": SubResource("Animation_2l3bb"),
 "register_enter": SubResource("Animation_bexwu"),
@@ -1267,9 +1397,12 @@ visible = false
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 anchor_left = 0.1
-anchor_top = 0.738021
-anchor_right = 0.898828
-anchor_bottom = 0.878646
+anchor_top = 0.736979
+anchor_right = 0.885
+anchor_bottom = 0.896
+offset_left = -0.200012
+offset_right = -81.12
+offset_bottom = -7.06403
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")

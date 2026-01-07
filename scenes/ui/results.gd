@@ -40,6 +40,7 @@ var timeline : PackedStringArray = [
 	"score_enter",
 	"register_enter",
 	"!count_money",
+	"finish_enter",
 	"!done"
 ]
 
@@ -95,7 +96,7 @@ func _process_typing() -> void:
 
 
 func _process_money() -> void:
-	tick += 3
+	tick += 4
 	if tick > 30:
 		tick = 0
 		var new_money : Money_FX = money_sprite.duplicate()
@@ -148,7 +149,7 @@ func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array)
 	self.show()
 	animating = true
 	animation_step = 0
-	finish_button.grab_focus()
+	#finish_button.grab_focus()
 	anim_play.play("alarm")
 
 
@@ -173,6 +174,9 @@ func next_animation_step():
 			start_spawning_receipts()
 		if timeline[next] == "!count_money":
 			start_counting_money()
+		if timeline[next] == "!done":
+			finish_button.grab_focus()
+			animating = false
 	animation_step = next
 
 
