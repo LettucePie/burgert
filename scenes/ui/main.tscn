@@ -1,9 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=18 format=3 uid="uid://vrd4yei4hrcp"]
 
-[ext_resource type="Texture2D" uid="uid://be35n4pr04nkx" path="res://icon.svg" id="1_ia1e7"]
+[ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
-[ext_resource type="Texture2D" uid="uid://bsnh03dv0gmim" path="res://publishing/game_icon96x96.png" id="3_igxgd"]
+[ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/customerdex_icon.png" id="3_nw1xn"]
 [ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/credits_icon.png" id="4_mnra0"]
+[ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="4_nb154"]
+[ext_resource type="Texture2D" uid="uid://dso3tex3lg86b" path="res://assets/images/graphics/menu/settings_gear.png" id="5_gxdf3"]
+[ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/help_icon.png" id="6_v0pyw"]
+[ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/jukebox_icon.png" id="7_2wa71"]
+[ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/quit_icon.png" id="8_b1kc7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cajtd"]
 viewport_path = NodePath("SubView_PlayButton")
@@ -136,6 +141,7 @@ size_flags_vertical = 4
 texture_normal = SubResource("ViewportTexture_172x6")
 
 [node name="QuitButton" type="TextureButton" parent="Control/VBoxContainer/RowE"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -244,8 +250,9 @@ size = Vector2i(120, 86)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_PlayButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("1_cd2sv")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_DexButton" type="SubViewport" parent="."]
@@ -259,8 +266,9 @@ size = Vector2i(120, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_DexButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("3_igxgd")
+pixel_size = 0.0745
+texture_filter = 0
+texture = ExtResource("3_nw1xn")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_RecordsButton" type="SubViewport" parent="."]
@@ -274,8 +282,9 @@ size = Vector2i(120, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_RecordsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("4_mnra0")
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("4_nb154")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_OptionsButton" type="SubViewport" parent="."]
@@ -289,8 +298,9 @@ size = Vector2i(86, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_OptionsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("5_gxdf3")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_HelpButton" type="SubViewport" parent="."]
@@ -304,8 +314,9 @@ size = Vector2i(86, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_HelpButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("6_v0pyw")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_JukeButton" type="SubViewport" parent="."]
@@ -319,8 +330,9 @@ size = Vector2i(86, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_JukeButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("7_2wa71")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_CreditsButton" type="SubViewport" parent="."]
@@ -334,8 +346,9 @@ size = Vector2i(120, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_CreditsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("4_mnra0")
 script = ExtResource("2_f6xup")
 
 [node name="SubView_QuitButton" type="SubViewport" parent="."]
@@ -349,6 +362,7 @@ size = Vector2i(120, 64)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
 
 [node name="Sprite3D" type="Sprite3D" parent="SubView_QuitButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.257568)
-texture = ExtResource("1_ia1e7")
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("8_b1kc7")
 script = ExtResource("2_f6xup")

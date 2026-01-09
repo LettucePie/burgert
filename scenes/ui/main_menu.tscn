@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=30 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
@@ -57,6 +57,30 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0h8q"]
 albedo_texture = ExtResource("3_ov1nx")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0bxem"]
+viewport_path = NodePath("SubView_PlayButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kowr7"]
+viewport_path = NodePath("SubView_DexButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mx33a"]
+viewport_path = NodePath("SubView_RecordsButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fed04"]
+viewport_path = NodePath("SubView_OptionsButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hul4s"]
+viewport_path = NodePath("SubView_HelpButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e53ap"]
+viewport_path = NodePath("SubView_JukeButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wpkw5"]
+viewport_path = NodePath("SubView_CreditsButton")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e41cg"]
+viewport_path = NodePath("SubView_QuitButton")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_25xsh"]
 viewport_path = NodePath("SubViewport")
@@ -128,6 +152,30 @@ offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="PlayButton" parent="Main/Control/VBoxContainer/RowB" index="0"]
+texture_normal = SubResource("ViewportTexture_0bxem")
+
+[node name="CustomerDexButton" parent="Main/Control/VBoxContainer/RowC" index="0"]
+texture_normal = SubResource("ViewportTexture_kowr7")
+
+[node name="RecordsButton" parent="Main/Control/VBoxContainer/RowC" index="1"]
+texture_normal = SubResource("ViewportTexture_mx33a")
+
+[node name="OptionsButton" parent="Main/Control/VBoxContainer/RowD" index="0"]
+texture_normal = SubResource("ViewportTexture_fed04")
+
+[node name="HelpButton" parent="Main/Control/VBoxContainer/RowD" index="1"]
+texture_normal = SubResource("ViewportTexture_hul4s")
+
+[node name="JukeboxButton" parent="Main/Control/VBoxContainer/RowD" index="2"]
+texture_normal = SubResource("ViewportTexture_e53ap")
+
+[node name="CreditsButton" parent="Main/Control/VBoxContainer/RowE" index="0"]
+texture_normal = SubResource("ViewportTexture_wpkw5")
+
+[node name="QuitButton" parent="Main/Control/VBoxContainer/RowE" index="1"]
+texture_normal = SubResource("ViewportTexture_e41cg")
 
 [node name="Title" type="TextureRect" parent="Main"]
 texture_filter = 1
