@@ -63,7 +63,10 @@ func option_button_event(but):
 	if but == "options_done" and current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
-		$Main/Options.grab_focus()
+		if menu_style == MENU_STYLE.LIST:
+			$Main/ListMode/Options.grab_focus()
+		else:
+			$Main/GridMode/VBoxContainer/RowD/OptionsButton.grab_focus()
 
 
 func extras_button_event(but):
@@ -85,7 +88,8 @@ func extras_button_event(but):
 	if but == "finish" and current_screen == SCREENS.EXTRAS:
 		anim.play("extras_close")
 		current_screen = SCREENS.MAIN
-		$Main/Extras.grab_focus()
+		if menu_style == MENU_STYLE.LIST:
+			$Main/ListMode/Extras.grab_focus()
 
 
 func help_button_event(but):
@@ -111,14 +115,20 @@ func pause_button_event(but):
 	if but == "quit" and current_screen == SCREENS.PAUSE:
 		anim.play("quit_game")
 		emit_signal("quit_play")
-		$Main/Play.grab_focus()
+		if menu_style == MENU_STYLE.LIST:
+			$Main/ListMode/Play.grab_focus()
+		else:
+			$Main/GridMode/VBoxContainer/RowB/PlayButton.grab_focus()
 
 
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
 	if state == SCREENS.MAIN:
-		$Main/Play.grab_focus()
+		if menu_style == MENU_STYLE.LIST:
+			$Main/ListMode/Play.grab_focus()
+		else:
+			$Main/GridMode/VBoxContainer/RowB/PlayButton.grab_focus()
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:
