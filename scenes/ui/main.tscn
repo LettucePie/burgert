@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=25 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/play_icon.png" id="1_cd2sv"]
+[ext_resource type="Texture2D" uid="uid://dccawlontpv7t" path="res://assets/images/graphics/menu/pointer_hand.png" id="1_f5qsp"]
+[ext_resource type="Script" path="res://scenes/ui/pointer.gd" id="2_1b860"]
 [ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
 [ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/customerdex_icon.png" id="3_nw1xn"]
 [ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/credits_icon.png" id="4_mnra0"]
@@ -17,10 +19,19 @@ viewport_path = NodePath("Subviews/SubView_Title")
 script = ExtResource("1_cbnl0")
 viewport_path_again = NodePath("../Subviews/SubView_Title")
 
+[sub_resource type="Gradient" id="Gradient_mij2h"]
+offsets = PackedFloat32Array(0, 0.997024)
+colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiyvd"]
+gradient = SubResource("Gradient_mij2h")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.452991)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_iyvrb"]
 viewport_path = NodePath("Subviews/SubView_PlayButton")
 script = ExtResource("1_cbnl0")
-viewport_path_again = NodePath("../../../../Subviews/SubView_PlayButton")
+viewport_path_again = NodePath("../../Subviews/SubView_PlayButton")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7e3xm"]
 viewport_path = NodePath("Subviews/SubView_DexButton")
@@ -51,6 +62,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Pointer" type="TextureRect" parent="." node_paths=PackedStringArray("flock")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_f5qsp")
+script = ExtResource("2_1b860")
+flock = [NodePath("../v/Play"), NodePath("../v/h/CustomerDex"), NodePath("../v/h/Records"), NodePath("../v/h/Options"), NodePath("../v/h/Help"), NodePath("../v/h/Jukebox"), NodePath("../v/h/Credits"), NodePath("../v/h/Quit")]
+
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
@@ -65,231 +93,135 @@ texture = SubResource("ViewportTexture_coo2x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ListMode" type="Control" parent="."]
+[node name="shade" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -150.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_jiyvd")
 
-[node name="Play" type="Button" parent="ListMode" groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.048
-anchor_top = 0.502
-anchor_right = 0.769
-anchor_bottom = 0.619
-offset_left = 0.279999
-offset_top = 0.039978
-offset_right = -0.160034
-offset_bottom = -0.119995
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
-focus_previous = NodePath("../Quit")
-text = "Play"
-
-[node name="Options" type="Button" parent="ListMode" groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.08
-anchor_top = 0.627
-anchor_right = 0.8
-anchor_bottom = 0.746
-offset_left = -0.200005
-offset_top = 0.039978
-offset_bottom = -0.0800171
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Play")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Extras")
-focus_next = NodePath("../Extras")
-focus_previous = NodePath("../Play")
-text = "Options"
-
-[node name="Extras" type="Button" parent="ListMode" groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.111
-anchor_top = 0.754
-anchor_right = 0.831
-anchor_bottom = 0.873
-offset_left = -0.0400085
-offset_top = 0.0799866
-offset_right = 0.159973
-offset_bottom = -0.0400085
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Options")
-text = "Extras"
-
-[node name="Quit" type="Button" parent="ListMode" groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.142
-anchor_top = 0.881
-anchor_right = 0.862
-anchor_bottom = 1.0
-offset_left = 0.119995
-offset_top = 0.119995
-offset_right = 0.319946
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Extras")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
-focus_previous = NodePath("../Extras")
-text = "Quit"
-
-[node name="GridMode" type="Control" parent="."]
+[node name="v" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchor_top = 0.323
-anchor_right = 0.42
+anchors_preset = -1
+anchor_top = 0.627
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.0400085
-offset_right = 0.199982
+offset_top = 0.039978
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GridMode"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RowA" type="HBoxContainer" parent="GridMode/VBoxContainer"]
-visible = false
+[node name="Play" type="TextureButton" parent="v"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Panel" type="PanelContainer" parent="GridMode/VBoxContainer/RowA"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="GridMode/VBoxContainer/RowA/Panel"]
-layout_mode = 2
-text = "Current Selection"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Pad" type="ColorRect" parent="GridMode/VBoxContainer/RowA"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-color = Color(1, 1, 1, 0)
-
-[node name="RowB" type="HBoxContainer" parent="GridMode/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PlayButton" type="TextureButton" parent="GridMode/VBoxContainer/RowB"]
-layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../RowC/CustomerDexButton")
+focus_neighbor_left = NodePath("../h/CustomerDex")
 focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../../RowC/RecordsButton")
-focus_neighbor_bottom = NodePath("../../RowC/CustomerDexButton")
+focus_neighbor_right = NodePath("../h/Quit")
+focus_neighbor_bottom = NodePath("../h/Help")
+focus_next = NodePath("../h/Quit")
+focus_previous = NodePath("../h/CustomerDex")
 texture_normal = SubResource("ViewportTexture_iyvrb")
 stretch_mode = 5
 
-[node name="RowC" type="HBoxContainer" parent="GridMode/VBoxContainer"]
+[node name="h" type="HBoxContainer" parent="v"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CustomerDexButton" type="TextureButton" parent="GridMode/VBoxContainer/RowC"]
+[node name="CustomerDex" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../RowD/OptionsButton")
-focus_neighbor_top = NodePath("../../RowB/PlayButton")
-focus_neighbor_right = NodePath("../RecordsButton")
-focus_neighbor_bottom = NodePath("../../RowD/HelpButton")
+focus_neighbor_left = NodePath("../Quit")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Records")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_7e3xm")
+stretch_mode = 5
 
-[node name="RecordsButton" type="TextureButton" parent="GridMode/VBoxContainer/RowC"]
+[node name="Records" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../CustomerDexButton")
-focus_neighbor_top = NodePath("../../RowB/PlayButton")
-focus_neighbor_right = NodePath("../../RowD/JukeboxButton")
-focus_neighbor_bottom = NodePath("../../RowD/HelpButton")
+focus_neighbor_left = NodePath("../CustomerDex")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Options")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_5dktb")
+stretch_mode = 5
 
-[node name="RowD" type="HBoxContainer" parent="GridMode/VBoxContainer"]
+[node name="Options" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="OptionsButton" type="TextureButton" parent="GridMode/VBoxContainer/RowD"]
-layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../RowC/CustomerDexButton")
-focus_neighbor_right = NodePath("../HelpButton")
-focus_neighbor_bottom = NodePath("../../RowE/CreditsButton")
+focus_neighbor_left = NodePath("../Records")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Help")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_jfb44")
+stretch_mode = 5
 
-[node name="HelpButton" type="TextureButton" parent="GridMode/VBoxContainer/RowD"]
+[node name="Help" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../OptionsButton")
-focus_neighbor_top = NodePath("../../RowC/CustomerDexButton")
-focus_neighbor_right = NodePath("../JukeboxButton")
-focus_neighbor_bottom = NodePath("../../RowE/CreditsButton")
+focus_neighbor_left = NodePath("../Options")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Jukebox")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_o4xhg")
+stretch_mode = 5
 
-[node name="JukeboxButton" type="TextureButton" parent="GridMode/VBoxContainer/RowD"]
+[node name="Jukebox" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../HelpButton")
-focus_neighbor_top = NodePath("../../RowC/RecordsButton")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../../RowE/QuitButton")
+focus_neighbor_left = NodePath("../Help")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Credits")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_1kni6")
+stretch_mode = 5
 
-[node name="RowE" type="HBoxContainer" parent="GridMode/VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="v/h"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CreditsButton" type="TextureButton" parent="GridMode/VBoxContainer/RowE"]
-layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../RowD/OptionsButton")
-focus_neighbor_top = NodePath("../../RowD/HelpButton")
-focus_neighbor_right = NodePath("../QuitButton")
+focus_neighbor_left = NodePath("../Jukebox")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../Quit")
 focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_172x6")
+stretch_mode = 5
 
-[node name="QuitButton" type="TextureButton" parent="GridMode/VBoxContainer/RowE"]
+[node name="Quit" type="TextureButton" parent="v/h"]
 texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 2
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../CreditsButton")
-focus_neighbor_top = NodePath("../../RowD/HelpButton")
-focus_neighbor_right = NodePath("../../RowD/JukeboxButton")
+focus_neighbor_left = NodePath("../Credits")
+focus_neighbor_top = NodePath("../../Play")
+focus_neighbor_right = NodePath("../CustomerDex")
 focus_neighbor_bottom = NodePath(".")
 texture_normal = SubResource("ViewportTexture_4s0xn")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="v"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Subviews" type="Node" parent="."]
 
 [node name="SubView_PlayButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(120, 86)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_PlayButton"]
 
@@ -305,7 +237,7 @@ script = ExtResource("2_f6xup")
 [node name="SubView_DexButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(120, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_DexButton"]
 
@@ -325,7 +257,7 @@ fov = 76.0
 [node name="SubView_RecordsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(120, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_RecordsButton"]
 
@@ -345,7 +277,7 @@ fov = 76.0
 [node name="SubView_OptionsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(86, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_OptionsButton"]
 
@@ -365,7 +297,7 @@ fov = 77.0
 [node name="SubView_HelpButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(86, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_HelpButton"]
 
@@ -385,7 +317,7 @@ fov = 77.0
 [node name="SubView_JukeButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(86, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_JukeButton"]
 
@@ -405,7 +337,7 @@ fov = 77.0
 [node name="SubView_CreditsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(120, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_CreditsButton"]
 
@@ -425,7 +357,7 @@ fov = 78.0
 [node name="SubView_QuitButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
 transparent_bg = true
-size = Vector2i(120, 64)
+size = Vector2i(64, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_QuitButton"]
 
@@ -450,7 +382,7 @@ size = Vector2i(640, 480)
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_Title"]
 
 [node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
-transform = Transform3D(0.984808, -0.173648, -1.99831e-09, 0.173112, 0.981769, 0.0784939, -0.0136303, -0.0773014, 0.996915, -0.0294027, 0.336031, 3.46082)
+transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.792844, 0.860624, 3.32185)
 
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
 texture_filter = 0

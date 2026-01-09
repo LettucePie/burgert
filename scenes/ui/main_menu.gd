@@ -8,8 +8,6 @@ signal update_mus_vol(new_val)
 signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
-enum MENU_STYLE {LIST, GRID}
-@export var menu_style : MENU_STYLE = MENU_STYLE.LIST
 @onready var help : Help = $Help
 @onready var customer_dex : CustomerDex = $CustomerDex
 @onready var menu_flair : MenuFlair = $MenuFlair
@@ -20,18 +18,9 @@ var current_screen : SCREENS = SCREENS.MAIN
 
 
 func refocus():
-	if menu_style == MENU_STYLE.LIST:
-		$Main/GridMode.hide()
-		$Main/ListMode.show()
-		$Main/ListMode/Play.call_deferred("grab_focus")
-		if OS.has_feature("web"):
-			$Main/ListMode/Quit.visible = false
-	else:
-		$Main/GridMode.show()
-		$Main/ListMode.hide()
-		$Main/GridMode/VBoxContainer/RowB/PlayButton.call_deferred("grab_focus")
-		if OS.has_feature("web"):
-			$Main/GridMode/VBoxContainer/RowE/QuitButton.visible = false
+	$Main/v/Play.call_deferred("grab_focus")
+	if OS.has_feature("web"):
+		$Main/v/h/Quit.visible = false
 
 
 func _ready():
@@ -63,10 +52,7 @@ func option_button_event(but):
 	if but == "options_done" and current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
-		if menu_style == MENU_STYLE.LIST:
-			$Main/ListMode/Options.grab_focus()
-		else:
-			$Main/GridMode/VBoxContainer/RowD/OptionsButton.grab_focus()
+		$Main/v/h/Options.grab_focus()
 
 
 func extras_button_event(but):
@@ -88,8 +74,7 @@ func extras_button_event(but):
 	if but == "finish" and current_screen == SCREENS.EXTRAS:
 		anim.play("extras_close")
 		current_screen = SCREENS.MAIN
-		if menu_style == MENU_STYLE.LIST:
-			$Main/ListMode/Extras.grab_focus()
+		print("REPLACE EXTRAS SCREEN")
 
 
 func help_button_event(but):
@@ -115,20 +100,14 @@ func pause_button_event(but):
 	if but == "quit" and current_screen == SCREENS.PAUSE:
 		anim.play("quit_game")
 		emit_signal("quit_play")
-		if menu_style == MENU_STYLE.LIST:
-			$Main/ListMode/Play.grab_focus()
-		else:
-			$Main/GridMode/VBoxContainer/RowB/PlayButton.grab_focus()
+		$Main/v/Play.grab_focus()
 
 
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
 	if state == SCREENS.MAIN:
-		if menu_style == MENU_STYLE.LIST:
-			$Main/ListMode/Play.grab_focus()
-		else:
-			$Main/GridMode/VBoxContainer/RowB/PlayButton.grab_focus()
+		$Main/v/Play.grab_focus()
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:
