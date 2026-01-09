@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=21 format=3 uid="uid://vrd4yei4hrcp"]
 
+[ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
 [ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/customerdex_icon.png" id="3_nw1xn"]
@@ -9,9 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/help_icon.png" id="6_v0pyw"]
 [ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/jukebox_icon.png" id="7_2wa71"]
 [ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/quit_icon.png" id="8_b1kc7"]
+[ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cajtd"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_coo2x"]
+viewport_path = NodePath("Subviews/SubView_Title")
+script = ExtResource("1_cbnl0")
+viewport_path_again = NodePath("../Subviews/SubView_Title")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iyvrb"]
 viewport_path = NodePath("Subviews/SubView_PlayButton")
+script = ExtResource("1_cbnl0")
+viewport_path_again = NodePath("../../../../Subviews/SubView_PlayButton")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7e3xm"]
 viewport_path = NodePath("Subviews/SubView_DexButton")
@@ -41,6 +50,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_right = 1.0
+anchor_bottom = 0.629
+offset_left = -0.160004
+offset_bottom = 0.0799866
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_coo2x")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ListMode" type="Control" parent="."]
 layout_mode = 1
@@ -175,7 +198,7 @@ focus_neighbor_left = NodePath("../../RowC/CustomerDexButton")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../../RowC/RecordsButton")
 focus_neighbor_bottom = NodePath("../../RowC/CustomerDexButton")
-texture_normal = SubResource("ViewportTexture_cajtd")
+texture_normal = SubResource("ViewportTexture_iyvrb")
 stretch_mode = 5
 
 [node name="RowC" type="HBoxContainer" parent="GridMode/VBoxContainer"]
@@ -286,14 +309,18 @@ size = Vector2i(120, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_DexButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_DexButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_DexButton/Node3D"]
 pixel_size = 0.0745
 texture_filter = 0
 texture = ExtResource("3_nw1xn")
 script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_DexButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_DexButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 76.0
 
 [node name="SubView_RecordsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -302,14 +329,18 @@ size = Vector2i(120, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_RecordsButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_RecordsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_RecordsButton/Node3D"]
 pixel_size = 0.05
 texture_filter = 0
 texture = ExtResource("4_nb154")
 script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_RecordsButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_RecordsButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 76.0
 
 [node name="SubView_OptionsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -318,14 +349,18 @@ size = Vector2i(86, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_OptionsButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_OptionsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_OptionsButton/Node3D"]
 pixel_size = 0.06
 texture_filter = 0
 texture = ExtResource("5_gxdf3")
 script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_OptionsButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_OptionsButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 77.0
 
 [node name="SubView_HelpButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -334,14 +369,18 @@ size = Vector2i(86, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_HelpButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_HelpButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_HelpButton/Node3D"]
 pixel_size = 0.05
 texture_filter = 0
 texture = ExtResource("6_v0pyw")
 script = ExtResource("2_f6xup")
+
+[node name="Node3D" type="Node3D" parent="Subviews/SubView_HelpButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_HelpButton/Node3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 77.0
 
 [node name="SubView_JukeButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -350,14 +389,18 @@ size = Vector2i(86, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_JukeButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_JukeButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_JukeButton/Node3D"]
 pixel_size = 0.06
 texture_filter = 0
 texture = ExtResource("7_2wa71")
 script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_JukeButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_JukeButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 77.0
 
 [node name="SubView_CreditsButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -366,14 +409,18 @@ size = Vector2i(120, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_CreditsButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_CreditsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_CreditsButton/Node3D"]
 pixel_size = 0.05
 texture_filter = 0
 texture = ExtResource("4_mnra0")
 script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_CreditsButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990268, -0.139173, 0, 0.139173, 0.990268, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_CreditsButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 78.0
 
 [node name="SubView_QuitButton" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -382,11 +429,30 @@ size = Vector2i(120, 64)
 
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_QuitButton"]
 
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_QuitButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
 [node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_QuitButton/Node3D"]
 pixel_size = 0.05
 texture_filter = 0
 texture = ExtResource("8_b1kc7")
+script = ExtResource("2_f6xup")
+
+[node name="CamDoll" type="Node3D" parent="Subviews/SubView_QuitButton/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990268, -0.139173, 0, 0.139173, 0.990268, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_QuitButton/Node3D/CamDoll"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
+fov = 78.0
+
+[node name="SubView_Title" type="SubViewport" parent="Subviews"]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(640, 480)
+
+[node name="Node3D" type="Node3D" parent="Subviews/SubView_Title"]
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
+transform = Transform3D(0.984808, -0.173648, -1.99831e-09, 0.173112, 0.981769, 0.0784939, -0.0136303, -0.0773014, 0.996915, -0.0294027, 0.336031, 3.46082)
+
+[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
+texture_filter = 0
+texture = ExtResource("11_mm0ww")
 script = ExtResource("2_f6xup")
