@@ -8,6 +8,8 @@ signal update_mus_vol(new_val)
 signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
+enum MENU_STYLE {LIST, GRID}
+@export var menu_style : MENU_STYLE = MENU_STYLE.LIST
 @onready var help : Help = $Help
 @onready var customer_dex : CustomerDex = $CustomerDex
 @onready var menu_flair : MenuFlair = $MenuFlair
@@ -18,15 +20,22 @@ var current_screen : SCREENS = SCREENS.MAIN
 
 
 func refocus():
-	$Main/Play.call_deferred("grab_focus")
+	if menu_style == MENU_STYLE.LIST:
+		$Main/GridMode.hide()
+		$Main/ListMode.show()
+		$Main/ListMode/Play.call_deferred("grab_focus")
+		if OS.has_feature("web"):
+			$Main/ListMode/Quit.visible = false
+	else:
+		$Main/GridMode.show()
+		$Main/ListMode.hide()
+		$Main/GridMode/VBoxContainer/RowB/PlayButton.call_deferred("grab_focus")
+		if OS.has_feature("web"):
+			$Main/GridMode/VBoxContainer/RowE/QuitButton.visible = false
 
 
 func _ready():
 	refocus()
-
-
-func _process(delta):
-	$Main/Quit.visible = OS.has_feature("web") == false
 
 
 func main_button_event(but):
