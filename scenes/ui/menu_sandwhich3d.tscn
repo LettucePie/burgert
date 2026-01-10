@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=4 uid="uid://4f2xf3grgr30"]
 
 [ext_resource type="Texture2D" uid="uid://decmh7sfpiy0" path="res://assets/models/burger_Burger_Tex.png" id="1_ir55a"]
-[ext_resource type="Script" path="res://scenes/ui/menu_sandwhich.gd" id="1_ufhmw"]
+[ext_resource type="Script" path="res://scenes/ui/menu_sandwhich3d.gd" id="1_ufhmw"]
 [ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/quit_icon.png" id="2_f2xl6"]
 [ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/credits_icon.png" id="3_k5bco"]
 [ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/jukebox_icon.png" id="4_uhodc"]
@@ -41,6 +41,34 @@ states/Bun/position = Vector2(408, 102)
 states/Play/node = SubResource("AnimationNodeBlendSpace1D_3ganv")
 states/Play/position = Vector2(408, 184)
 transitions = ["Start", "Bun", SubResource("AnimationNodeStateMachineTransition_f2b4k"), "Bun", "Play", SubResource("AnimationNodeStateMachineTransition_fgfd7")]
+
+[sub_resource type="Animation" id="Animation_8o238"]
+resource_name = "BunOff"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sandwhich/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.31565, 0), Vector3(-2.96722, 0.321081, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sandwhich/Top:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 2.53422)]
+}
 
 [sub_resource type="Animation" id="Animation_4vdu1"]
 resource_name = "BunOn"
@@ -167,34 +195,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 1.69123, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_8o238"]
-resource_name = "BunOff"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sandwhich/Top:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.31565, 0), Vector3(-2.96722, 0.321081, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sandwhich/Top:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 2.53422)]
 }
 
 [sub_resource type="Animation" id="Animation_nvi8n"]
@@ -573,7 +573,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b7n1l")
 
-[node name="MenuSandwhich" type="Node3D"]
+[node name="MenuSandwhich3D" type="Node3D"]
 script = ExtResource("1_ufhmw")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
