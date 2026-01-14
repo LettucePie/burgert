@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c11iqp1ppgjwn"]
+
+[ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/office_wall.png" id="1_4hug6"]
+[ext_resource type="Texture2D" uid="uid://cgt38r24rfdjn" path="res://assets/images/graphics/menu/desk.png" id="2_44so2"]
+[ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/office_wall_top.png" id="2_g01w7"]
+
+[sub_resource type="Gradient" id="Gradient_mij2h"]
+offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.0444551, 0, 0, 0, 0.301961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiyvd"]
+gradient = SubResource("Gradient_mij2h")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="office" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wall" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 96.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4hug6")
+
+[node name="top" type="TextureRect" parent="wall"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -480.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_g01w7")
+
+[node name="desk" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_44so2")
+
+[node name="shade" type="TextureRect" parent="desk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_jiyvd")

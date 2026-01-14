@@ -1,5 +1,6 @@
 extends Control
 class_name MainSandwhich
+signal menu_selection(selection)
 
 @onready var stack : Array = $Sandwhich.get_children()
 var current_stack : int = 0
@@ -79,7 +80,7 @@ func _fill_label(idx : int) -> void:
 	if label_tween != null:
 		label_tween.kill()
 	label_tween = create_tween()
-	label_tween.tween_property(label, "visible_ratio", 1.0, 0.4)
+	label_tween.tween_property(label, "visible_ratio", 1.0, label.text.length() * 0.02)
 
 
 func _process(delta: float) -> void:
@@ -90,6 +91,8 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("up") \
 		or Input.is_action_just_pressed("right"):
 			_adjust_stack(1)
+		if Input.is_action_just_pressed("confirm"):
+			emit_signal("menu_selection", stack_labels_internal[current_stack])
 
 
 func go_to_layer(layer_name : String) -> void:

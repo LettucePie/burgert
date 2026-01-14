@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=15 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
 [ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/main.tscn" id="4_6oetw"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
 [ext_resource type="Script" path="res://scenes/ui/menu_flair.gd" id="5_eqawj"]
+[ext_resource type="PackedScene" uid="uid://c11iqp1ppgjwn" path="res://scenes/ui/office.tscn" id="5_ith4j"]
 [ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splatfx.tscn" id="6_a85yp"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
@@ -20,8 +21,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -640.0
-offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b0wja")
@@ -32,11 +31,13 @@ script = ExtResource("5_eqawj")
 splat_vfx = ExtResource("6_a85yp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-reset_on_save = false
 libraries = {
 "": ExtResource("3_lbgav")
 }
 autoplay = "start"
+
+[node name="office" parent="." instance=ExtResource("5_ith4j")]
+layout_mode = 1
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
@@ -49,11 +50,9 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
-visible = false
 layout_mode = 1
 offset_left = -641.0
-offset_right = -1.0
-offset_bottom = 480.0
+offset_right = -641.0
 
 [node name="mus_vol" parent="Options/Panel/VBoxContainer" index="1" node_paths=PackedStringArray("label")]
 label = NodePath("value")
@@ -62,7 +61,6 @@ label = NodePath("value")
 label = NodePath("value")
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
-visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -77,8 +75,7 @@ grow_vertical = 1
 visible = false
 layout_mode = 1
 offset_left = 640.0
-offset_right = 1280.0
-offset_bottom = 480.0
+offset_right = 640.0
 
 [node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
 text = "Art, Sound, Design - Houndfall
@@ -97,19 +94,19 @@ kenney-nl fontss"
 visible = false
 layout_mode = 1
 offset_top = -480.0
-offset_right = 640.0
+offset_bottom = -480.0
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
 visible = false
 layout_mode = 1
 offset_top = -480.0
-offset_right = 640.0
+offset_bottom = -480.0
 
 [node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
 visible = false
 layout_mode = 1
 offset_left = -640.0
-offset_bottom = 480.0
+offset_right = -640.0
 
 [node name="FolderDrop" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -120,10 +117,9 @@ sprite_frames = ExtResource("15_6gf58")
 [node name="CustomerDex" parent="." instance=ExtResource("16_gc8o8")]
 visible = false
 layout_mode = 1
-offset_right = 640.0
-offset_bottom = 480.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
@@ -140,6 +136,7 @@ offset_bottom = 480.0
 [connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
 
+[editable path="office"]
 [editable path="Options"]
 [editable path="Extras"]
 [editable path="Credits"]

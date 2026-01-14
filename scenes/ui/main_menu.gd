@@ -8,6 +8,7 @@ signal update_mus_vol(new_val)
 signal update_sfx_vol(new_val)
 signal update_a_b_swap(new_val)
 
+@onready var main : MainSandwhich = $Main
 @onready var help : Help = $Help
 @onready var customer_dex : CustomerDex = $CustomerDex
 @onready var menu_flair : MenuFlair = $MenuFlair
@@ -18,13 +19,19 @@ var current_screen : SCREENS = SCREENS.MAIN
 
 
 func refocus():
-	$Main/v/Play.call_deferred("grab_focus")
+	main.call_deferred("grab_focus")
+	main.go_to_layer("")
 	if OS.has_feature("web"):
-		$Main/v/h/Quit.visible = false
+		print("Make WEB Version of Sandwhich")
 
 
 func _ready():
 	refocus()
+
+
+func _on_main_menu_selection(selection: String) -> void:
+	if selection == "Play":
+		anim.play("play_start")
 
 
 func main_button_event(but):
@@ -52,7 +59,7 @@ func option_button_event(but):
 	if but == "options_done" and current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		current_screen = SCREENS.MAIN
-		$Main/v/h/Options.grab_focus()
+		main.go_to_layer("Options")
 
 
 func extras_button_event(but):
@@ -100,14 +107,15 @@ func pause_button_event(but):
 	if but == "quit" and current_screen == SCREENS.PAUSE:
 		anim.play("quit_game")
 		emit_signal("quit_play")
-		$Main/v/Play.grab_focus()
+		main.go_to_layer("Play")
 
 
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
 	if state == SCREENS.MAIN:
-		$Main/v/Play.grab_focus()
+		main.grab_focus()
+		main.go_to_layer("Play")
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:
