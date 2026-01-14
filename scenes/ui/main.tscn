@@ -1,83 +1,70 @@
 [gd_scene load_steps=25 format=3 uid="uid://vrd4yei4hrcp"]
 
+[ext_resource type="Texture2D" uid="uid://cgt38r24rfdjn" path="res://assets/images/graphics/menu/desk.png" id="1_51v2h"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/play_icon.png" id="1_cd2sv"]
-[ext_resource type="Texture2D" uid="uid://dccawlontpv7t" path="res://assets/images/graphics/menu/pointer_hand.png" id="1_f5qsp"]
-[ext_resource type="Script" path="res://scenes/ui/pointer.gd" id="2_1b860"]
+[ext_resource type="Script" path="res://scenes/ui/main_sandwhich.gd" id="1_kifg5"]
 [ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
 [ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/customerdex_icon.png" id="3_nw1xn"]
 [ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/credits_icon.png" id="4_mnra0"]
 [ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="4_nb154"]
 [ext_resource type="Texture2D" uid="uid://dso3tex3lg86b" path="res://assets/images/graphics/menu/settings_gear.png" id="5_gxdf3"]
+[ext_resource type="Texture2D" uid="uid://7o8j4g3f2rb7" path="res://assets/images/graphics/menu/plate.png" id="6_qkixa"]
 [ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/help_icon.png" id="6_v0pyw"]
 [ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/jukebox_icon.png" id="7_2wa71"]
+[ext_resource type="Texture2D" uid="uid://p54mxhut7p0i" path="res://assets/images/graphics/menu/menu_sandwhich_bottom_bun.png" id="7_b10ma"]
 [ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/quit_icon.png" id="8_b1kc7"]
+[ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/menu_sandwhich_meat.png" id="9_oagvs"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
+[ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/menu_sandwhich_cheese.png" id="13_hhppr"]
+[ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/menu_sandwhich_tomato.png" id="15_f8xqq"]
+[ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/menu_sandwhich_lettuce.png" id="17_cwois"]
+[ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
+[ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/menu_sandwhich_top_bun.png" id="21_ci52s"]
+
+[sub_resource type="Gradient" id="Gradient_mij2h"]
+offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.0444551, 0, 0, 0, 0.301961, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiyvd"]
+gradient = SubResource("Gradient_mij2h")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_coo2x"]
 viewport_path = NodePath("Subviews/SubView_Title")
 script = ExtResource("1_cbnl0")
 viewport_path_again = NodePath("../Subviews/SubView_Title")
 
-[sub_resource type="Gradient" id="Gradient_mij2h"]
-offsets = PackedFloat32Array(0, 0.997024)
-colors = PackedColorArray(0, 0, 0, 0.54902, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jiyvd"]
-gradient = SubResource("Gradient_mij2h")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0.452991)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_iyvrb"]
-viewport_path = NodePath("Subviews/SubView_PlayButton")
-script = ExtResource("1_cbnl0")
-viewport_path_again = NodePath("../../Subviews/SubView_PlayButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7e3xm"]
-viewport_path = NodePath("Subviews/SubView_DexButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_5dktb"]
-viewport_path = NodePath("Subviews/SubView_RecordsButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_jfb44"]
-viewport_path = NodePath("Subviews/SubView_OptionsButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_o4xhg"]
-viewport_path = NodePath("Subviews/SubView_HelpButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_1kni6"]
-viewport_path = NodePath("Subviews/SubView_JukeButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_172x6"]
-viewport_path = NodePath("Subviews/SubView_CreditsButton")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4s0xn"]
-viewport_path = NodePath("Subviews/SubView_QuitButton")
-
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("label_container", "label") groups=["lang_text_array"]]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kifg5")
+label_container = NodePath("PanelContainer")
+label = NodePath("PanelContainer/Label")
 
-[node name="Pointer" type="TextureRect" parent="." node_paths=PackedStringArray("flock")]
-texture_filter = 1
+[node name="desk" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -32.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_f5qsp")
-script = ExtResource("2_1b860")
-flock = [NodePath("../v/Play"), NodePath("../v/h/CustomerDex"), NodePath("../v/h/Records"), NodePath("../v/h/Options"), NodePath("../v/h/Help"), NodePath("../v/h/Jukebox"), NodePath("../v/h/Credits"), NodePath("../v/h/Quit")]
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_51v2h")
+
+[node name="shade" type="TextureRect" parent="desk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_jiyvd")
 
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
@@ -93,286 +80,7 @@ texture = SubResource("ViewportTexture_coo2x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="shade" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -150.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = SubResource("GradientTexture2D_jiyvd")
-
-[node name="v" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.627
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.039978
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Play" type="TextureButton" parent="v"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../h/CustomerDex")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../h/Quit")
-focus_neighbor_bottom = NodePath("../h/Help")
-focus_next = NodePath("../h/Quit")
-focus_previous = NodePath("../h/CustomerDex")
-texture_normal = SubResource("ViewportTexture_iyvrb")
-stretch_mode = 5
-
-[node name="h" type="HBoxContainer" parent="v"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="CustomerDex" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Quit")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Records")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_7e3xm")
-stretch_mode = 5
-
-[node name="Records" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../CustomerDex")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Options")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_5dktb")
-stretch_mode = 5
-
-[node name="Options" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Records")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Help")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_jfb44")
-stretch_mode = 5
-
-[node name="Help" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Options")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Jukebox")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_o4xhg")
-stretch_mode = 5
-
-[node name="Jukebox" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Help")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Credits")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_1kni6")
-stretch_mode = 5
-
-[node name="Credits" type="TextureButton" parent="v/h"]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Jukebox")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../Quit")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_172x6")
-stretch_mode = 5
-
-[node name="Quit" type="TextureButton" parent="v/h"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-focus_neighbor_left = NodePath("../Credits")
-focus_neighbor_top = NodePath("../../Play")
-focus_neighbor_right = NodePath("../CustomerDex")
-focus_neighbor_bottom = NodePath(".")
-texture_normal = SubResource("ViewportTexture_4s0xn")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="v"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Play"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Subviews" type="Node" parent="."]
-
-[node name="SubView_PlayButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_PlayButton"]
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_PlayButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_PlayButton/Node3D"]
-pixel_size = 0.06
-texture_filter = 0
-texture = ExtResource("1_cd2sv")
-script = ExtResource("2_f6xup")
-
-[node name="SubView_DexButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_DexButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_DexButton/Node3D"]
-pixel_size = 0.0745
-texture_filter = 0
-texture = ExtResource("3_nw1xn")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_DexButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_DexButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 76.0
-
-[node name="SubView_RecordsButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_RecordsButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_RecordsButton/Node3D"]
-pixel_size = 0.05
-texture_filter = 0
-texture = ExtResource("4_nb154")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_RecordsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999391, -0.0348995, 0, 0.0348995, 0.999391, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_RecordsButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 76.0
-
-[node name="SubView_OptionsButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_OptionsButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_OptionsButton/Node3D"]
-pixel_size = 0.06
-texture_filter = 0
-texture = ExtResource("5_gxdf3")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_OptionsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_OptionsButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 77.0
-
-[node name="SubView_HelpButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_HelpButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_HelpButton/Node3D"]
-pixel_size = 0.05
-texture_filter = 0
-texture = ExtResource("6_v0pyw")
-script = ExtResource("2_f6xup")
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_HelpButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_HelpButton/Node3D/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 77.0
-
-[node name="SubView_JukeButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_JukeButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_JukeButton/Node3D"]
-pixel_size = 0.06
-texture_filter = 0
-texture = ExtResource("7_2wa71")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_JukeButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.997564, -0.0697565, 0, 0.0697565, 0.997564, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_JukeButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 77.0
-
-[node name="SubView_CreditsButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_CreditsButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_CreditsButton/Node3D"]
-pixel_size = 0.05
-texture_filter = 0
-texture = ExtResource("4_mnra0")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_CreditsButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.990268, -0.139173, 0, 0.139173, 0.990268, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_CreditsButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 78.0
-
-[node name="SubView_QuitButton" type="SubViewport" parent="Subviews"]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Node3D" type="Node3D" parent="Subviews/SubView_QuitButton"]
-
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_QuitButton/Node3D"]
-pixel_size = 0.05
-texture_filter = 0
-texture = ExtResource("8_b1kc7")
-script = ExtResource("2_f6xup")
-
-[node name="CamDoll" type="Node3D" parent="Subviews/SubView_QuitButton/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.990268, -0.139173, 0, 0.139173, 0.990268, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_QuitButton/Node3D/CamDoll"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17852)
-fov = 78.0
 
 [node name="SubView_Title" type="SubViewport" parent="Subviews"]
 own_world_3d = true
@@ -388,3 +96,103 @@ transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255
 texture_filter = 0
 texture = ExtResource("11_mm0ww")
 script = ExtResource("2_f6xup")
+
+[node name="Plate" type="Sprite2D" parent="."]
+position = Vector2(217, 369)
+scale = Vector2(3.41667, 3.41667)
+texture = ExtResource("6_qkixa")
+
+[node name="Sandwhich" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(217, 369)
+
+[node name="Quit" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_b10ma")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Quit"]
+texture = ExtResource("8_b1kc7")
+
+[node name="Credits" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_oagvs")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Credits"]
+texture = ExtResource("4_mnra0")
+
+[node name="Jukebox" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_b10ma")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Jukebox"]
+self_modulate = Color(0, 0, 0, 0.235294)
+position = Vector2(0.5, 0.5)
+texture = ExtResource("7_2wa71")
+
+[node name="Icon_over" type="Sprite2D" parent="Sandwhich/Jukebox/Icon"]
+position = Vector2(-0.5, -0.5)
+texture = ExtResource("7_2wa71")
+
+[node name="Help" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_oagvs")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Help"]
+texture = ExtResource("6_v0pyw")
+
+[node name="Options" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("13_hhppr")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Options"]
+texture = ExtResource("5_gxdf3")
+
+[node name="Records" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("15_f8xqq")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Records"]
+texture = ExtResource("4_nb154")
+
+[node name="CustomerDex" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("17_cwois")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/CustomerDex"]
+texture = ExtResource("3_nw1xn")
+
+[node name="Play" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("19_1kd2p")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Play"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(0.5, 0.5)
+texture = ExtResource("1_cd2sv")
+
+[node name="Icon_over" type="Sprite2D" parent="Sandwhich/Play/Icon"]
+position = Vector2(-0.5, -0.5)
+texture = ExtResource("1_cd2sv")
+
+[node name="Top" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("21_ci52s")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Top"]
+visible = false
+texture = ExtResource("3_nw1xn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.582812
+anchor_top = 0.785417
+anchor_right = 0.992188
+anchor_bottom = 0.983333
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "label"
+horizontal_alignment = 1
+vertical_alignment = 1
