@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c11iqp1ppgjwn"]
 
 [ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/office_wall.png" id="1_4hug6"]
-[ext_resource type="Texture2D" uid="uid://cgt38r24rfdjn" path="res://assets/images/graphics/menu/desk.png" id="2_44so2"]
 [ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/office_wall_top.png" id="2_g01w7"]
+[ext_resource type="Texture2D" uid="uid://bqutcppi6jf7v" path="res://assets/images/graphics/menu/desk_tiled.png" id="3_nhuvg"]
 
 [sub_resource type="Gradient" id="Gradient_mij2h"]
 offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
@@ -43,14 +43,21 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_g01w7")
 
-[node name="desk" type="TextureRect" parent="."]
+[node name="desk" type="NinePatchRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = -800.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_44so2")
+scale = Vector2(4, 4)
+texture = ExtResource("3_nhuvg")
+axis_stretch_horizontal = 1
 
 [node name="shade" type="TextureRect" parent="desk"]
 layout_mode = 1
