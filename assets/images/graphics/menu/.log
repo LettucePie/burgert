@@ -1,0 +1,198 @@
+/usr/bin/ffmpeg -hide_banner -y -v debug -r 10 -start_number 0 -start_number_range 1 -i /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png -vf palettegen=stats_mode=full:reserve_transparent=1 -y /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png 
+=====================================================
+Splitting the commandline.
+Reading option '-hide_banner' ... matched as option 'hide_banner' (do not show program banner) with argument '1'.
+Reading option '-y' ... matched as option 'y' (overwrite output files) with argument '1'.
+Reading option '-v' ... matched as option 'v' (set logging level) with argument 'debug'.
+Reading option '-r' ... matched as option 'r' (set frame rate (Hz value, fraction or abbreviation)) with argument '10'.
+Reading option '-start_number' ... matched as AVOption 'start_number' with argument '0'.
+Reading option '-start_number_range' ... matched as AVOption 'start_number_range' with argument '1'.
+Reading option '-i' ... matched as output url with argument '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png'.
+Reading option '-vf' ... matched as option 'vf' (set video filters) with argument 'palettegen=stats_mode=full:reserve_transparent=1'.
+Reading option '-y' ... matched as option 'y' (overwrite output files) with argument '1'.
+Reading option '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option hide_banner (do not show program banner) with argument 1.
+Applying option y (overwrite output files) with argument 1.
+Applying option v (set logging level) with argument debug.
+Applying option y (overwrite output files) with argument 1.
+Successfully parsed a group of options.
+Parsing a group of options: input url /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png.
+Applying option r (set frame rate (Hz value, fraction or abbreviation)) with argument 10.
+Successfully parsed a group of options.
+Opening an input file: /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png.
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0000.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 769 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0001.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 808 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0002.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 801 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0003.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 878 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0004.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 791 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0005.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 1125 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0006.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 1949 bytes read, 0 seeks
+[image2 @ 0x5f8216a0c680] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame0007.png' for reading
+[file @ 0x5f8216a10dc0] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x5f8216a18f40] Statistics: 1325 bytes read, 0 seeks
+Input #0, image2, from '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png':
+  Duration: 00:00:00.32, start: 0.000000, bitrate: N/A
+  Stream #0:0, 8, 1/25: Video: png, 1 reference frame, rgba(pc, gbr/unknown/unknown), 160x120 [SAR 11811:11811 DAR 4:3], 0/1, 25 fps, 25 tbr, 25 tbn
+Successfully opened the file.
+Parsing a group of options: output url /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png.
+Applying option vf (set video filters) with argument palettegen=stats_mode=full:reserve_transparent=1.
+Successfully parsed a group of options.
+Opening an output file: /home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png.
+[out#0/image2 @ 0x5f8216a0dc00] No explicit maps, mapping streams automatically...
+[vost#0:0/png @ 0x5f8216a18a80] Created video stream from input stream 0:0
+[AVFilterGraph @ 0x5f8216a0d0c0] Setting 'stats_mode' to value 'full'
+[AVFilterGraph @ 0x5f8216a0d0c0] Setting 'reserve_transparent' to value '1'
+detected 12 logical cores
+Successfully opened the file.
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> png (native))
+Press [q] to stop, [?] for help
+[in#0/image2 @ 0x5f8216a0c580] EOF while reading input
+[in#0/image2 @ 0x5f8216a0c580] Terminating demuxer thread
+[vist#0:0/png @ 0x5f8216a0e300] Decoder thread received EOF packet
+[AVFilterGraph @ 0x5f8216a0d0c0] Setting 'stats_mode' to value 'full'
+[AVFilterGraph @ 0x5f8216a0d0c0] Setting 'reserve_transparent' to value '1'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] Setting 'video_size' to value '160x120'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] Setting 'pix_fmt' to value '26'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] Setting 'time_base' to value '1/10'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] Setting 'pixel_aspect' to value '11811/11811'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] Setting 'frame_rate' to value '10/1'
+[graph 0 input from stream 0:0 @ 0x5f8216ac8f80] w:160 h:120 pixfmt:rgba tb:1/10 fr:10/1 sar:11811/11811
+[format @ 0x5f8216ac9540] Setting 'pix_fmts' to value 'rgb24|rgba|rgb48be|rgba64be|pal8|gray|ya8|gray16be|ya16be|monob'
+[auto_scale_0 @ 0x5f8216aca580] w:iw h:ih flags:'' interl:0
+[Parsed_palettegen_0 @ 0x5f8216a45540] auto-inserting filter 'auto_scale_0' between the filter 'graph 0 input from stream 0:0' and the filter 'Parsed_palettegen_0'
+[auto_scale_1 @ 0x5f8216ad8340] w:iw h:ih flags:'' interl:0
+[format @ 0x5f8216ac9540] auto-inserting filter 'auto_scale_1' between the filter 'Parsed_palettegen_0' and the filter 'format'
+[AVFilterGraph @ 0x5f8216a0d0c0] query_formats: 4 queried, 1 merged, 2 already done, 0 delayed
+[auto_scale_1 @ 0x5f8216ad8340] picking rgba out of 10 ref:bgra alpha:1
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216af5d40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b08d40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b1c0c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b2f440] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b427c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b55b40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b68ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b7c240] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216b8f5c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216ba2940] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216bb5cc0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216bc9040] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216ae6100] [swscaler @ 0x5f8216bdc3c0] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scale_0 @ 0x5f8216aca580] w:160 h:120 fmt:rgba sar:11811/11811 -> w:160 h:120 fmt:bgra sar:1/1 flags:0x00000004
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216bff3c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c12500] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c25640] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c38780] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c4b8c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c5ea00] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c71b40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c84c80] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216c97dc0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216caaf00] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216cbe040] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216cd1180] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216bef740] [swscaler @ 0x5f8216ce42c0] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scale_1 @ 0x5f8216ad8340] w:16 h:16 fmt:bgra sar:1/1 -> w:16 h:16 fmt:rgba sar:1/1 flags:0x00000004
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b427c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b55b40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b68ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216af5d40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b02d00] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b7c240] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b89200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b9c200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216baf200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bc2200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bd5200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216cf7740] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216d04700] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scale_0 @ 0x5f8216aca580] w:160 h:120 fmt:rgba sar:11811/11811 -> w:160 h:120 fmt:bgra sar:1/1 flags:0x00000004
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b1c0c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b55b40] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b68ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216af4f00] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b01ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b7c240] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b89200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b961c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216ba91c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bbc1c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bcf1c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216be21c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216cfd780] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scale_0 @ 0x5f8216aca580] w:160 h:120 fmt:rgba sar:11811/11811 -> w:160 h:120 fmt:bgra sar:1/1 flags:0x00000004
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b1c0c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b68ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b427c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216af4f00] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b01ec0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b7c240] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b89200] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216b961c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216ba91c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bbc1c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216bcf1c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216be21c0] Forcing full internal H chroma due to input having non subsampled chroma
+[swscaler @ 0x5f8216b2f440] [swscaler @ 0x5f8216cfd780] Forcing full internal H chroma due to input having non subsampled chroma
+[auto_scale_0 @ 0x5f8216aca580] w:160 h:120 fmt:rgba sar:11811/11811 -> w:160 h:120 fmt:bgra sar:1/1 flags:0x00000004
+[vist#0:0/png @ 0x5f8216a0e300] Decoder returned EOF, finishing
+[vist#0:0/png @ 0x5f8216a0e300] Terminating decoder thread
+[Parsed_palettegen_0 @ 0x5f8216a45540] 56(+1) colors generated out of 56 colors; ratio=1.000000
+[Parsed_palettegen_0 @ 0x5f8216a45540] Duped color: FF292929
+    Last message repeated 9 times
+Output #0, image2, to '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0, 0, 1/10: Video: png, 1 reference frame, rgba(pc, gbr/unknown/unknown, progressive), 16x16 (0x0) [SAR 1:1 DAR 1:1], 0/1, q=2-31, 200 kb/s, 10 fps, 10 tbn
+    Metadata:
+      encoder         : Lavc60.31.102 png
+frame=    0 fps=0.0 q=0.0 size=       0kB time=N/A bitrate=N/A speed=N/A    [out_0_0 @ 0x5f8216ac93c0] EOF on sink link out_0_0:default.
+No more output streams to write to, finishing.
+[image2 @ 0x5f8216a18440] Opening '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_000001.png' for writing
+[file @ 0x76bad4000e40] Setting default whitelist 'file,crypto,data'
+[AVIOContext @ 0x76bad40424c0] Statistics: 258 bytes written, 0 seeks, 1 writeouts
+[out#0/image2 @ 0x5f8216a0dc00] All streams finished
+[out#0/image2 @ 0x5f8216a0dc00] Terminating muxer thread
+[out#0/image2 @ 0x5f8216a0dc00] Output file #0 (/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png):
+[out#0/image2 @ 0x5f8216a0dc00]   Output stream #0:0 (video): 1 frames encoded; 1 packets muxed (258 bytes); 
+[out#0/image2 @ 0x5f8216a0dc00]   Total: 1 packets (258 bytes) muxed
+[out#0/image2 @ 0x5f8216a0dc00] video:0kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+frame=    1 fps=0.0 q=-0.0 Lsize=N/A time=00:00:00.00 bitrate=N/A speed=   0x    
+[in#0/image2 @ 0x5f8216a0c580] Input file #0 (/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png):
+[in#0/image2 @ 0x5f8216a0c580]   Input stream #0:0 (video): 8 packets read (8446 bytes); 8 frames decoded; 0 decode errors; 
+[in#0/image2 @ 0x5f8216a0c580]   Total: 8 packets (8446 bytes) demuxed
+Input #0, image2, from '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone-frame%04d.png':
+  Duration: 00:00:00.32, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba(pc, gbr/unknown/unknown), 160x120 [SAR 11811:11811 DAR 4:3], 25 fps, 25 tbr, 25 tbn
+Input #1, image2, from '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/KritaTempPalettegen_%06d.png':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: N/A
+  Stream #1:0: Video: png, rgba(pc, gbr/unknown/unknown), 16x16 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Stream mapping:
+  Stream #0:0 (png) -> paletteuse
+  Stream #1:0 (png) -> paletteuse
+  paletteuse:default -> Stream #0:0 (gif)
+Press [q] to stop, [?] for help
+Output #0, gif, to '/home/matthew/Projects/Godot4/burgert/assets/images/graphics/menu/flip-phone_10fps.gif':
+  Metadata:
+    encoder         : Lavf60.16.100
+  Stream #0:0: Video: gif, pal8(pc, gbr/unknown/unknown, progressive), 160x120 [SAR 1:1 DAR 4:3], q=2-31, 200 kb/s, 10 fps, 100 tbn
+    Metadata:
+      encoder         : Lavc60.31.102 gif
+frame=    1 fps=0.0 q=-0.0 size=       0kB time=00:00:00.10 bitrate=   0.0kbits/s speed=3.06x    [out#0/gif @ 0x56ac605ce880] video:5kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.422654%
+frame=    8 fps=0.0 q=-0.0 Lsize=       5kB time=00:00:00.70 bitrate=  54.3kbits/s speed=19.9x    
