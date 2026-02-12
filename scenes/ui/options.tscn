@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
-[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/menu/language_icon.png" id="2_6uhjv"]
+[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/menu/icons/language_icon.png" id="2_6uhjv"]
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="3_e3j2c"]
-[ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone_open.png" id="3_lryte"]
+[ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone_open.png" id="3_lryte"]
 
 [node name="Options" type="Control"]
 texture_filter = 1

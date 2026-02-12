@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bbuhm68erqo1g" path="res://assets/sound/sfx/Menu/Full Record Scratch_FOR MENU.wav" id="4_es4qc"]
 [ext_resource type="Script" path="res://scenes/ui/receipt_sprite.gd" id="4_j5aw5"]
 [ext_resource type="AudioStream" uid="uid://pq7tsuo68bxg" path="res://assets/sound/sfx/Menu/Slap_1_FOR RECIEPT.wav" id="5_gqi7n"]
-[ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/receipt_sprite.png" id="5_obtjp"]
+[ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/icons/receipt_sprite.png" id="5_obtjp"]
 [ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="6_oj5gw"]
 [ext_resource type="Script" path="res://scenes/ui/money_sprite.gd" id="7_bahxv"]
 [ext_resource type="AudioStream" uid="uid://db8aetxoj0ve1" path="res://assets/sound/sfx/Menu/Bell_2_FOR MONEY.wav" id="8_3jwev"]
