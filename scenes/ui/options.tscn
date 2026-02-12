@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dliaynw0s7s52"]
+[gd_scene load_steps=5 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
 [ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/menu/language_icon.png" id="2_6uhjv"]
-[ext_resource type="Theme" uid="uid://oa0oh24wb4nd" path="res://assets/theme/theme_flip-phone.tres" id="3_e3j2c"]
+[ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="3_e3j2c"]
 [ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone_open.png" id="3_lryte"]
-[ext_resource type="Shader" uid="uid://lqmkx1na3og1" path="res://scenes/ui/options.tres" id="5_h6p2h"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7hum"]
-shader = ExtResource("5_h6p2h")
 
 [node name="Options" type="Control"]
 texture_filter = 1
@@ -173,7 +169,6 @@ texture = ExtResource("3_lryte")
 
 [node name="os" type="Control" parent="phone"]
 modulate = Color(1, 1, 1, 0.862745)
-material = SubResource("ShaderMaterial_r7hum")
 layout_mode = 1
 anchor_left = 0.266
 anchor_top = 0.229
