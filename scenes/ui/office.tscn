@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c11iqp1ppgjwn"]
+[gd_scene load_steps=10 format=3 uid="uid://c11iqp1ppgjwn"]
 
 [ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/office_wall.png" id="1_4hug6"]
 [ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/office_wall_top.png" id="2_g01w7"]
 [ext_resource type="Texture2D" uid="uid://bqutcppi6jf7v" path="res://assets/images/graphics/menu/desk_tiled.png" id="3_nhuvg"]
 [ext_resource type="Texture2D" uid="uid://cvsabkif45t4g" path="res://assets/images/graphics/menu/menu_desk/page_scribble_1.png" id="3_ruhce"]
+[ext_resource type="Texture2D" uid="uid://jph7usvp1neh" path="res://assets/images/graphics/menu/menu_desk/menu_desk_packed__12.png" id="5_dgxio"]
+[ext_resource type="Texture2D" uid="uid://bs3ugom2h7kgp" path="res://assets/images/graphics/menu/menu_desk/menu_desk_packed__11.png" id="6_0uc10"]
+[ext_resource type="Texture2D" uid="uid://cvk5do355jxob" path="res://assets/images/graphics/menu/menu_desk/menu_desk_packed__13.png" id="7_ecfps"]
 
 [sub_resource type="Gradient" id="Gradient_mij2h"]
 offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
@@ -55,6 +58,54 @@ rotation = -0.274017
 scale = Vector2(1.555, 1.555)
 texture = ExtResource("3_ruhce")
 
+[node name="Left" type="TextureRect" parent="wall"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = -640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4hug6")
+
+[node name="top" type="TextureRect" parent="wall/Left"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -480.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4hug6")
+
+[node name="Right" type="TextureRect" parent="wall"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4hug6")
+
+[node name="top" type="TextureRect" parent="wall/Right"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -480.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4hug6")
+
 [node name="desk" type="NinePatchRect" parent="."]
 texture_filter = 1
 texture_repeat = 2
@@ -79,3 +130,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_jiyvd")
+
+[node name="left_side_desktop" type="Control" parent="desk"]
+texture_filter = 1
+layout_mode = 1
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_right = 480.16
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="desk/left_side_desktop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_dgxio")
+
+[node name="right_side_desktop" type="Control" parent="desk"]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.160034
+offset_right = 480.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="desk/right_side_desktop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -326.0
+offset_top = 21.0
+offset_right = -326.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_0uc10")
+
+[node name="TextureRect2" type="TextureRect" parent="desk/right_side_desktop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 82.0
+offset_right = 1.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ecfps")
