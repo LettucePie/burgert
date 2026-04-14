@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c11iqp1ppgjwn"]
+[gd_scene load_steps=7 format=3 uid="uid://c11iqp1ppgjwn"]
 
 [ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/office_wall.png" id="1_4hug6"]
 [ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/office_wall_top.png" id="2_g01w7"]
 [ext_resource type="Texture2D" uid="uid://bqutcppi6jf7v" path="res://assets/images/graphics/menu/desk_tiled.png" id="3_nhuvg"]
+[ext_resource type="Texture2D" uid="uid://cvsabkif45t4g" path="res://assets/images/graphics/menu/menu_desk/page_scribble_1.png" id="3_ruhce"]
 
 [sub_resource type="Gradient" id="Gradient_mij2h"]
 offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
@@ -22,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wall" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,6 +44,16 @@ offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_g01w7")
+
+[node name="TextureRect" type="TextureRect" parent="wall"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -89.0
+offset_right = 184.0
+offset_bottom = 31.0
+rotation = -0.274017
+scale = Vector2(1.555, 1.555)
+texture = ExtResource("3_ruhce")
 
 [node name="desk" type="NinePatchRect" parent="."]
 texture_filter = 1

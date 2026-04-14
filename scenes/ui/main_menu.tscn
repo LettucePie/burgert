@@ -35,9 +35,14 @@ libraries = {
 "": ExtResource("3_lbgav")
 }
 autoplay = "start"
+next/quit_game = &"play_stop"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
+
+[node name="desk" parent="office" index="1"]
+offset_top = -177.0
+offset_bottom = -493.0
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1

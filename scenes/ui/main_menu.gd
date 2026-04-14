@@ -106,6 +106,7 @@ func pause_button_event(but):
 		anim.play("pause_close")
 	if but == "quit" and current_screen == SCREENS.PAUSE:
 		anim.play("quit_game")
+		#anim.play("play_stop")
 		emit_signal("quit_play")
 		main.go_to_layer("Play")
 
