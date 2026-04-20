@@ -14,8 +14,21 @@ signal update_a_b_swap(new_val)
 @onready var menu_flair : MenuFlair = $MenuFlair
 @onready var language_selector : LanguageSelector = $LanguageSelector
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, LANG, EXTRAS, HELP, DEX, CREDITS, PAUSE}
+enum SCREENS{MAIN, OPTIONS, LANG, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE}
 var current_screen : SCREENS = SCREENS.MAIN
+var queued_menu : SCREENS = SCREENS.MAIN
+var left_side_screens : Array[SCREENS] = [
+	SCREENS.DEX, SCREENS.RADIO, SCREENS.RECORDS
+]
+var left_side_commands : PackedStringArray = [
+	"Customer-Dex", "Jukebox", "Records"
+]
+var right_side_screens : Array[SCREENS] = [
+	SCREENS.CREDITS, SCREENS.OPTIONS, SCREENS.HELP
+]
+var right_side_commands : PackedStringArray = [
+	"Credits", "Options", "Help"
+]
 
 
 func refocus():
@@ -28,12 +41,42 @@ func refocus():
 func _ready():
 	refocus()
 
+## Why tho?
+## at this point should just use the string as the memory point...
+func screen_string_to_enum(string_in : String) -> SCREENS:
+	var result := SCREENS.MAIN
+	if string_in == "Customer-Dex":
+		result = SCREENS.DEX
+	if string_in == "Jukebox":
+		result = SCREENS.RADIO
+	if string_in == "Records":
+		result = SCREENS.RECORDS
+	if string_in == "Credits":
+		result = SCREENS.CREDITS
+	if string_in == "Options":
+		result = SCREENS.OPTIONS
+	if string_in == "Help":
+		result = SCREENS.HELP
+	return result
+
 
 func _on_main_menu_selection(selection: String) -> void:
-	if selection == "Play":
-		anim.play("play_start")
+	if current_screen == SCREENS.MAIN:
+		if selection == "Play":
+			anim.play("play_start")
+		elif selection == "Quit":
+			print("Quit")
+		elif left_side_commands.has(selection):
+			print("Pan Left: ", selection)
+			queued_menu = screen_string_to_enum(selection)
+			anim.play("desk_pan_left")
+		elif right_side_commands.has(selection):
+			print("Pan Right: ", selection)
+			queued_menu = screen_string_to_enum(selection)
+			anim.play("desk_pan_right")
 
 
+## TODO Migrate to _on_main_menu_selection
 func main_button_event(but):
 	print("Button Pressed: ", but)
 	if but == "play" and current_screen == SCREENS.MAIN:
@@ -42,10 +85,10 @@ func main_button_event(but):
 		anim.play("options_open")
 		current_screen = SCREENS.OPTIONS
 		$Options/Panel/VBoxContainer/mus_vol.grab_focus()
-	if but == "extras" and current_screen == SCREENS.MAIN:
-		anim.play("extras_open")
-		current_screen = SCREENS.EXTRAS
-		$Extras/Panel/VBoxContainer/button_row/howto.grab_focus()
+	#if but == "extras" and current_screen == SCREENS.MAIN:
+		#anim.play("extras_open")
+		#current_screen = SCREENS.EXTRAS
+		#$Extras/Panel/VBoxContainer/button_row/howto.grab_focus()
 	if but == "quit":
 		get_tree().quit()
 
@@ -62,33 +105,33 @@ func option_button_event(but):
 		main.go_to_layer("Options")
 
 
-func extras_button_event(but):
-	print("Button Pressed: ", but)
-	if but == "howto" and current_screen == SCREENS.EXTRAS:
-		anim.play("help_open")
-		current_screen = SCREENS.HELP
-		$Help/Controls/next.grab_focus()
-		help.start_page()
-	if but == "dex" and current_screen == SCREENS.EXTRAS:
-		anim.play("customerdex_open")
-		current_screen = SCREENS.DEX
-		$CustomerDex/controls/done.grab_focus()
-		customer_dex.open_dex()
-	if but == "credits" and current_screen == SCREENS.EXTRAS:
-		anim.play("credits_open")
-		current_screen = SCREENS.CREDITS
-		$Credits/Panel/VBoxContainer/finished.grab_focus()
-	if but == "finish" and current_screen == SCREENS.EXTRAS:
-		anim.play("extras_close")
-		current_screen = SCREENS.MAIN
-		print("REPLACE EXTRAS SCREEN")
+#func extras_button_event(but):
+	#print("Button Pressed: ", but)
+	#if but == "howto" and current_screen == SCREENS.EXTRAS:
+		#anim.play("help_open")
+		#current_screen = SCREENS.HELP
+		#$Help/Controls/next.grab_focus()
+		#help.start_page()
+	#if but == "dex" and current_screen == SCREENS.EXTRAS:
+		#anim.play("customerdex_open")
+		#current_screen = SCREENS.DEX
+		#$CustomerDex/controls/done.grab_focus()
+		#customer_dex.open_dex()
+	#if but == "credits" and current_screen == SCREENS.EXTRAS:
+		#anim.play("credits_open")
+		#current_screen = SCREENS.CREDITS
+		#$Credits/Panel/VBoxContainer/finished.grab_focus()
+	#if but == "finish" and current_screen == SCREENS.EXTRAS:
+		#anim.play("extras_close")
+		#current_screen = SCREENS.MAIN
+		#print("REPLACE EXTRAS SCREEN")
 
 
 func help_button_event(but):
 	print("Button Pressed: ", but)
 	if but == "close_help" and current_screen == SCREENS.HELP:
 		anim.play("help_close")
-		current_screen = SCREENS.EXTRAS
+		#current_screen = SCREENS.EXTRAS
 		$Extras/Panel/VBoxContainer/button_row/howto.grab_focus()
 
 
@@ -96,7 +139,7 @@ func credit_button_event(but):
 	print("Button Pressed: ", but)
 	if but == "credits_done" and current_screen == SCREENS.CREDITS:
 		anim.play("credits_close")
-		current_screen = SCREENS.EXTRAS
+		#current_screen = SCREENS.EXTRAS
 		$Extras/Panel/VBoxContainer/button_row3/credits.grab_focus()
 
 
@@ -111,6 +154,7 @@ func pause_button_event(but):
 		main.go_to_layer("Play")
 
 
+## For instant overriding menu access
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
@@ -125,7 +169,16 @@ func set_state(state : SCREENS):
 		anim.play("pause_open")
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _return_to_desk_center():
+	if current_screen != SCREENS.MAIN:
+		var target_anim := "desk_return_left"
+		if right_side_screens.has(current_screen):
+			target_anim = "desk_return_right"
+		queued_menu = SCREENS.MAIN
+		anim.play(target_anim)
+
+
+func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name == "play_start":
 		print("Starting PLAY")
 		emit_signal("start_play")
@@ -134,6 +187,13 @@ func _on_animation_player_animation_finished(anim_name):
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_close" and current_screen == SCREENS.PAUSE:
 		emit_signal("resume_play")
+	if anim_name.contains("desk_pan") and queued_menu != SCREENS.MAIN:
+		print("Finished Panning, now play bonus animation")
+		current_screen = queued_menu
+		_return_to_desk_center()
+	if anim_name.contains("desk_return") and queued_menu == SCREENS.MAIN:
+		print("Finished Returning to Center Desk")
+		current_screen = queued_menu
 
 
 func _on_mus_vol_update_value(new_val):
@@ -169,5 +229,5 @@ func _on_language_selector_language_selector_finished() -> void:
 func _on_customerdex_done_pressed() -> void:
 	if current_screen == SCREENS.DEX:
 		anim.play("customerdex_close")
-		current_screen = SCREENS.EXTRAS
+		#current_screen = SCREENS.EXTRAS
 		$Extras/Panel/VBoxContainer/button_row2/dex.grab_focus()

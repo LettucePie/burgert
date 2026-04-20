@@ -191,7 +191,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 texture = ExtResource("6_37t1m")
 
-[node name="radio2" type="TextureRect" parent="desk/left_side_desktop"]
+[node name="records" type="TextureRect" parent="desk/left_side_desktop"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
