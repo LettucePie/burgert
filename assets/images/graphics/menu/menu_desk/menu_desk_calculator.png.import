@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgtvuglacopv3"
-path="res://.godot/imported/menu_desk_packed__2.png-70b0899b9bc2b1c9c19f477ba97cb1f0.ctex"
+uid="uid://dc8lntohj67a7"
+path="res://.godot/imported/menu_desk_calculator.png-9ae6787f2ab05e9b97f3e6a981adc49b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/menu_desk_packed__2.png"
-dest_files=["res://.godot/imported/menu_desk_packed__2.png-70b0899b9bc2b1c9c19f477ba97cb1f0.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/menu_desk_calculator.png"
+dest_files=["res://.godot/imported/menu_desk_calculator.png-9ae6787f2ab05e9b97f3e6a981adc49b.ctex"]
 
 [params]
 

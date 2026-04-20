@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c55uer4a01p6y"
-path="res://.godot/imported/menu_desk_packed__8.png-907eac57fcd4177ebcbfbfcb11b4aa43.ctex"
+uid="uid://caup7scsud4tv"
+path="res://.godot/imported/menu_desk_stickynote.png-e5b93f92d5e418d1ad787ec81fd83379.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/menu_desk_packed__8.png"
-dest_files=["res://.godot/imported/menu_desk_packed__8.png-907eac57fcd4177ebcbfbfcb11b4aa43.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/menu_desk_stickynote.png"
+dest_files=["res://.godot/imported/menu_desk_stickynote.png-e5b93f92d5e418d1ad787ec81fd83379.ctex"]
 
 [params]
 
