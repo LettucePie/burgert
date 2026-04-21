@@ -189,8 +189,12 @@ func _on_animation_player_animation_finished(anim_name : String):
 		emit_signal("resume_play")
 	if anim_name.contains("desk_pan") and queued_menu != SCREENS.MAIN:
 		print("Finished Panning, now play bonus animation")
-		current_screen = queued_menu
-		_return_to_desk_center()
+		if queued_menu == SCREENS.DEX:
+			print("Play Dex Screen open.")
+		else:
+			current_screen = queued_menu
+			_return_to_desk_center()
+	
 	if anim_name.contains("desk_return") and queued_menu == SCREENS.MAIN:
 		print("Finished Returning to Center Desk")
 		current_screen = queued_menu
