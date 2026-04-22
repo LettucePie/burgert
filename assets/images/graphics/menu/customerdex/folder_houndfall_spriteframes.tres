@@ -2,6 +2,38 @@
 
 [ext_resource type="Texture2D" uid="uid://cpxijvgt6n8wr" path="res://assets/images/graphics/menu/customerdex/folder_drop_houndfall_sheet.png" id="1_ku61w"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdixd"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(2240, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npoai"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(1920, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv62a"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(1600, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om3vy"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(1280, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0pbg"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(960, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uv4u"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(640, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02ah8"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(320, 240, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0squ"]
+atlas = ExtResource("1_ku61w")
+region = Rect2(0, 240, 320, 240)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t21sp"]
 atlas = ExtResource("1_ku61w")
 region = Rect2(0, 0, 320, 240)
@@ -94,40 +126,37 @@ region = Rect2(2880, 480, 320, 240)
 atlas = ExtResource("1_ku61w")
 region = Rect2(3200, 480, 320, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0squ"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(0, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_02ah8"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(320, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7uv4u"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(640, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c0pbg"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(960, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_om3vy"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(1280, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rv62a"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(1600, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_npoai"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(1920, 240, 320, 240)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdixd"]
-atlas = ExtResource("1_ku61w")
-region = Rect2(2240, 240, 320, 240)
-
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdixd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npoai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv62a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om3vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0pbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uv4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02ah8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0squ")
+}],
+"loop": false,
+"name": &"close",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t21sp")

@@ -191,6 +191,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		print("Finished Panning, now play bonus animation")
 		if queued_menu == SCREENS.DEX:
 			print("Play Dex Screen open.")
+			anim.play("dex_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()
