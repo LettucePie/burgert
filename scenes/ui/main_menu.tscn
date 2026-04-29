@@ -163,6 +163,7 @@ animation = &"open"
 frame = 7
 
 [node name="CustomerDex2" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.917
