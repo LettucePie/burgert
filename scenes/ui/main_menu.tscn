@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="19_arbe5"]
 [ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="20_tlh1p"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="21_8q63w"]
-[ext_resource type="Texture2D" uid="uid://o0moosnkcs4q" path="res://assets/images/graphics/menu/customerdex/calendar_grid.png" id="22_q2224"]
+[ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="22_8rdvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
 atlas = ExtResource("18_53kgq")
@@ -163,11 +163,10 @@ animation = &"open"
 frame = 7
 
 [node name="CustomerDex2" type="Control" parent="."]
-visible = false
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.917
-offset_bottom = -0.160034
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_iqshf")
@@ -207,11 +206,11 @@ anchors_preset = -1
 anchor_left = 0.527
 anchor_top = 0.021
 anchor_right = 0.947
-anchor_bottom = 0.289
+anchor_bottom = 0.535
 offset_left = -0.279999
 offset_top = -0.320002
 offset_right = -0.0800171
-offset_bottom = -1.88
+offset_bottom = -119.96
 
 [node name="name" type="Label" parent="CustomerDex2/VBoxContainer"]
 layout_mode = 2
@@ -275,27 +274,22 @@ from morning until some time in the afternoon."
 label_settings = ExtResource("21_8q63w")
 autowrap_mode = 2
 
+[node name="page_reveal" type="AnimatedSprite2D" parent="CustomerDex2"]
+position = Vector2(325, 338.5)
+scale = Vector2(1.7875, 1.7875)
+sprite_frames = ExtResource("22_8rdvr")
+animation = &"start"
+autoplay = "start"
+
 [node name="description_b" type="Label" parent="CustomerDex2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.098
-anchor_top = 0.298
-anchor_right = 0.934
-anchor_bottom = 0.443
-offset_left = 0.279999
-offset_top = -0.160004
-offset_right = 0.23999
-offset_bottom = 0.439972
+anchor_left = 0.103125
+anchor_top = 0.604167
+anchor_right = 0.920313
+anchor_bottom = 0.79375
 text = "this customer customers"
 label_settings = ExtResource("21_8q63w")
-
-[node name="TextureRect" type="TextureRect" parent="CustomerDex2"]
-layout_mode = 0
-anchor_left = 0.153125
-anchor_top = 0.56087
-anchor_right = 0.870313
-anchor_bottom = 0.934783
-texture = ExtResource("22_q2224")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
