@@ -1,12 +1,12 @@
 extends Control
 class_name CustomerDex
 
-@onready var name_label : Label = $Panel/content/picture_bg/picture_overlay/customer_name
-@onready var pic_rect : TextureRect = $Panel/content/picture_bg/customer_pic
-@onready var stats_label : Label = $Panel/content/vbox/stats/value_label
-@onready var description_a : Label = $Panel/content/vbox/description_a
-@onready var description_b : Label = $Panel/content/vbox/description_b
-@onready var page_label : Label = $Panel/content/pgnum
+@onready var name_label : Label = $VBoxContainer/name
+@onready var pic_rect : TextureRect = $profile
+#@onready var stats_label : Label = 
+@onready var description_a : Label = $VBoxContainer/description_a
+@onready var description_b : Label = $description_b
+@onready var page_label : Label = $pagenum
 
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
@@ -178,14 +178,14 @@ func _load_page(target : int):
 	current_page = target
 	name_label.text = customer_name_unknown
 	pic_rect.texture = customer_image_unknown
-	stats_label.text = "0\n0\n0"
+	#stats_label.text = "0\n0\n0"
 	description_a.text = customer_desc_a_unknown
 	description_b.text = customer_desc_b_unknown
 	var stats : Play.Stats.CustomerStat = customer_stats[target]
-	stats_label.text = \
-		str(stats.get_fantastic_orders()) + "\n" + \
-		str(stats.get_satisfactory_orders()) + "\n" + \
-		str(stats.get_disappointing_orders())
+	#stats_label.text = \
+		#str(stats.get_fantastic_orders()) + "\n" + \
+		#str(stats.get_satisfactory_orders()) + "\n" + \
+		#str(stats.get_disappointing_orders())
 	if stats.get_orders_served() >= 1:
 		pic_rect.texture = customer_images[target]
 	if stats.get_orders_served() >= 5 \

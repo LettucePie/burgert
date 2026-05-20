@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=32 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -11,17 +11,23 @@
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
+[ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="13_skqqd"]
 [ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
 [ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_6gf58"]
 [ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_houndfall_spriteframes.tres" id="15_u6v16"]
 [ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
-[ext_resource type="PackedScene" uid="uid://basa4au3y5d08" path="res://scenes/ui/customer_dex.tscn" id="16_gc8o8"]
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="17_iqshf"]
 [ext_resource type="Texture2D" uid="uid://h1bvo4ac750m" path="res://assets/images/graphics/customer_feedback_happy.png" id="18_53kgq"]
 [ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="19_arbe5"]
 [ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="20_tlh1p"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="21_8q63w"]
 [ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="22_8rdvr"]
+[ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="23_a6gyn"]
+[ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="24_hljgt"]
+[ext_resource type="Texture2D" uid="uid://um58kqim5brh" path="res://assets/images/graphics/menu/customerdex/customerdex_close.png" id="25_wlmhq"]
+[ext_resource type="Texture2D" uid="uid://n1yhonsjg515" path="res://assets/images/graphics/menu/customerdex/customerdex_close_underlined.png" id="26_b7osb"]
+[ext_resource type="Texture2D" uid="uid://dk7508eo7xxbe" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right.png" id="27_6kuda"]
+[ext_resource type="Texture2D" uid="uid://cwa8iu4r5ftml" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right_underlined.png" id="28_7m8tr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
 atlas = ExtResource("18_53kgq")
@@ -30,6 +36,9 @@ region = Rect2(47, 0, 18, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvfok"]
 atlas = ExtResource("20_tlh1p")
 region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bktk8"]
+radius = 20.2966
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
 texture_filter = 1
@@ -56,24 +65,41 @@ next/quit_game = &"play_stop"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_left = -272.0
-offset_top = 264.0
-offset_right = -140.0
-offset_bottom = 361.0
-rotation = 0.603037
+offset_top = 13.0
+offset_bottom = 110.0
+
+[node name="vignette" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_b2u1j")
+
+[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("15_6gf58")
+
+[node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(293, 231)
+scale = Vector2(2.21, 2.21)
+sprite_frames = ExtResource("15_u6v16")
+animation = &"open"
+frame = 7
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -130,39 +156,8 @@ layout_mode = 1
 offset_top = -480.0
 offset_bottom = -480.0
 
-[node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
+[node name="CustomerDex" type="Control" parent="."]
 visible = false
-layout_mode = 1
-offset_left = -640.0
-offset_right = -640.0
-
-[node name="vignette" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("16_b2u1j")
-
-[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(320, 240)
-scale = Vector2(8, 8)
-sprite_frames = ExtResource("15_6gf58")
-
-[node name="CustomerDex" parent="." instance=ExtResource("16_gc8o8")]
-visible = false
-layout_mode = 1
-
-[node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
-position = Vector2(293, 231)
-scale = Vector2(2.21, 2.21)
-sprite_frames = ExtResource("15_u6v16")
-animation = &"open"
-frame = 7
-
-[node name="CustomerDex2" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,8 +165,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_iqshf")
+script = ExtResource("13_skqqd")
 
-[node name="profile" type="TextureRect" parent="CustomerDex2"]
+[node name="profile" type="TextureRect" parent="CustomerDex"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.194
@@ -183,88 +179,88 @@ offset_top = -0.360001
 offset_right = 0.039978
 offset_bottom = 0.440002
 
-[node name="pagenum" type="Label" parent="CustomerDex2"]
+[node name="pagenum" type="Label" parent="CustomerDex"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08
-anchor_top = 0.018
+anchor_top = 0.048
 anchor_right = 0.166
-anchor_bottom = 0.105
+anchor_bottom = 0.173
 offset_left = -0.200005
-offset_top = 0.439999
-offset_right = -0.240005
-offset_bottom = 0.399994
+offset_top = -0.0400009
+offset_right = -0.240013
+offset_bottom = -0.0400009
 text = "1
 -
 30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CustomerDex2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomerDex"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.527
-anchor_top = 0.021
+anchor_top = 0.037
 anchor_right = 0.947
-anchor_bottom = 0.535
+anchor_bottom = 0.552
 offset_left = -0.279999
-offset_top = -0.320002
+offset_top = 0.24
 offset_right = -0.0800171
-offset_bottom = -119.96
+offset_bottom = 0.039978
 
-[node name="name" type="Label" parent="CustomerDex2/VBoxContainer"]
+[node name="name" type="Label" parent="CustomerDex/VBoxContainer"]
 layout_mode = 2
 text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="iconlayer" type="HBoxContainer" parent="CustomerDex2/VBoxContainer"]
+[node name="iconlayer" type="HBoxContainer" parent="CustomerDex/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CustomerDex2/VBoxContainer/iconlayer"]
+[node name="TextureRect" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_lcfjd")
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="CustomerDex2/VBoxContainer/iconlayer"]
+[node name="TextureRect2" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("19_arbe5")
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="CustomerDex2/VBoxContainer/iconlayer"]
+[node name="TextureRect3" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = SubResource("AtlasTexture_hvfok")
 stretch_mode = 5
 
-[node name="statlayer" type="HBoxContainer" parent="CustomerDex2/VBoxContainer"]
+[node name="statlayer" type="HBoxContainer" parent="CustomerDex/VBoxContainer"]
 layout_mode = 2
 
-[node name="fantastic" type="Label" parent="CustomerDex2/VBoxContainer/statlayer"]
-layout_mode = 2
-size_flags_horizontal = 6
-text = "0000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="satisfactory" type="Label" parent="CustomerDex2/VBoxContainer/statlayer"]
+[node name="fantastic" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="disappointed" type="Label" parent="CustomerDex2/VBoxContainer/statlayer"]
+[node name="satisfactory" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "0000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="description_a" type="Label" parent="CustomerDex2/VBoxContainer"]
+[node name="disappointed" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description_a" type="Label" parent="CustomerDex/VBoxContainer"]
 custom_minimum_size = Vector2(269, 100)
 layout_mode = 2
 text = "This Customer Customers
@@ -274,14 +270,24 @@ from morning until some time in the afternoon."
 label_settings = ExtResource("21_8q63w")
 autowrap_mode = 2
 
-[node name="page_reveal" type="AnimatedSprite2D" parent="CustomerDex2"]
+[node name="page_reveal" type="AnimatedSprite2D" parent="CustomerDex"]
 position = Vector2(325, 338.5)
 scale = Vector2(1.7875, 1.7875)
 sprite_frames = ExtResource("22_8rdvr")
 animation = &"start"
 autoplay = "start"
 
-[node name="description_b" type="Label" parent="CustomerDex2"]
+[node name="page_reveal_click" type="Area2D" parent="CustomerDex/page_reveal"]
+collision_layer = 128
+collision_mask = 128
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerDex/page_reveal/page_reveal_click"]
+position = Vector2(135.944, 10.3497)
+shape = SubResource("CircleShape2D_bktk8")
+
+[node name="description_b" type="Label" parent="CustomerDex"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.103125
@@ -292,13 +298,54 @@ text = "this customer customers"
 label_settings = ExtResource("21_8q63w")
 metadata/_edit_use_anchors_ = true
 
+[node name="controls" type="HBoxContainer" parent="CustomerDex"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.833333
+anchor_right = 0.925
+anchor_bottom = 0.979167
+metadata/_edit_use_anchors_ = true
+
+[node name="prev" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("23_a6gyn")
+texture_pressed = ExtResource("24_hljgt")
+texture_hover = ExtResource("24_hljgt")
+texture_focused = ExtResource("24_hljgt")
+stretch_mode = 5
+
+[node name="done" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("25_wlmhq")
+texture_pressed = ExtResource("26_b7osb")
+texture_hover = ExtResource("26_b7osb")
+texture_focused = ExtResource("26_b7osb")
+stretch_mode = 5
+
+[node name="next" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("27_6kuda")
+texture_pressed = ExtResource("28_7m8tr")
+texture_hover = ExtResource("28_7m8tr")
+texture_focused = ExtResource("28_7m8tr")
+stretch_mode = 5
+
+[node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
+visible = false
+layout_mode = 1
+offset_left = -640.0
+offset_right = -640.0
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
-[connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
+[connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 
 [editable path="office"]
 [editable path="Options"]
@@ -307,4 +354,3 @@ metadata/_edit_use_anchors_ = true
 [editable path="Paused"]
 [editable path="Help"]
 [editable path="LanguageSelector"]
-[editable path="CustomerDex"]
