@@ -5,7 +5,7 @@ signal menu_selection(selection)
 @onready var stack : Array = $Sandwhich.get_children()
 var current_stack : int = 0
 var stack_max : int = 8
-var active : bool = true
+@export var active : bool = true
 @export var label_container : PanelContainer
 @export var label : Label
 var label_tween : Tween = null
