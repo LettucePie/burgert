@@ -7,6 +7,7 @@ class_name CustomerDex
 @onready var description_a : Label = $VBoxContainer/description_a
 @onready var description_b : Label = $description_b
 @onready var page_label : Label = $pagenum
+@onready var page_reveal : AnimatedSprite2D = $page_reveal
 
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
@@ -120,6 +121,7 @@ var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or 
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
+var page_reveal_flipped : bool = false
 
 ####
 #### Multi Lang Setters
@@ -205,3 +207,13 @@ func _load_page(target : int):
 func _physics_process(delta: float) -> void:
 	if description_b.visible_ratio < 1.0:
 		description_b.visible_ratio += 0.018
+
+
+func _on_page_reveal_button_pressed() -> void:
+	print("Revealing Page")
+	if page_reveal_flipped:
+		page_reveal_flipped = false
+		page_reveal.play("hide")
+	else:
+		page_reveal_flipped = true
+		page_reveal.play("reveal")

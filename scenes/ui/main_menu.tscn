@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="20_tlh1p"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="21_8q63w"]
 [ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="22_8rdvr"]
+[ext_resource type="Texture2D" uid="uid://c7mty3oepjq04" path="res://assets/images/graphics/menu/customerdex/page_corner_marker.png" id="22_vbjx8"]
 [ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="23_a6gyn"]
 [ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="24_hljgt"]
 [ext_resource type="Texture2D" uid="uid://um58kqim5brh" path="res://assets/images/graphics/menu/customerdex/customerdex_close.png" id="25_wlmhq"]
@@ -36,9 +37,6 @@ region = Rect2(47, 0, 18, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvfok"]
 atlas = ExtResource("20_tlh1p")
 region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bktk8"]
-radius = 20.2966
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
 texture_filter = 1
@@ -65,17 +63,21 @@ next/quit_game = &"play_stop"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_left = 0.0
+offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_top = 13.0
-offset_bottom = 110.0
+offset_left = -272.0
+offset_top = 264.0
+offset_right = -140.0
+offset_bottom = 361.0
+rotation = 0.603037
 
 [node name="vignette" type="TextureRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +93,6 @@ scale = Vector2(8, 8)
 sprite_frames = ExtResource("15_6gf58")
 
 [node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
@@ -100,6 +101,8 @@ frame = 7
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -277,15 +280,21 @@ sprite_frames = ExtResource("22_8rdvr")
 animation = &"start"
 autoplay = "start"
 
-[node name="page_reveal_click" type="Area2D" parent="CustomerDex/page_reveal"]
-collision_layer = 128
-collision_mask = 128
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerDex/page_reveal/page_reveal_click"]
-position = Vector2(135.944, 10.3497)
-shape = SubResource("CircleShape2D_bktk8")
+[node name="page_reveal_button" type="TextureButton" parent="CustomerDex"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.845312
+anchor_top = 0.704167
+anchor_right = 0.960938
+anchor_bottom = 0.858333
+focus_neighbor_left = NodePath("../controls/prev")
+focus_neighbor_right = NodePath("../controls/next")
+focus_neighbor_bottom = NodePath("../controls/done")
+texture_pressed = ExtResource("22_vbjx8")
+texture_hover = ExtResource("22_vbjx8")
+texture_focused = ExtResource("22_vbjx8")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="description_b" type="Label" parent="CustomerDex"]
 layout_mode = 1
@@ -309,6 +318,8 @@ metadata/_edit_use_anchors_ = true
 [node name="prev" type="TextureButton" parent="CustomerDex/controls"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../page_reveal_button")
+focus_neighbor_right = NodePath("../done")
 texture_normal = ExtResource("23_a6gyn")
 texture_pressed = ExtResource("24_hljgt")
 texture_hover = ExtResource("24_hljgt")
@@ -318,6 +329,9 @@ stretch_mode = 5
 [node name="done" type="TextureButton" parent="CustomerDex/controls"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../prev")
+focus_neighbor_top = NodePath("../../page_reveal_button")
+focus_neighbor_right = NodePath("../next")
 texture_normal = ExtResource("25_wlmhq")
 texture_pressed = ExtResource("26_b7osb")
 texture_hover = ExtResource("26_b7osb")
@@ -327,6 +341,8 @@ stretch_mode = 5
 [node name="next" type="TextureButton" parent="CustomerDex/controls"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../done")
+focus_neighbor_top = NodePath("../../page_reveal_button")
 texture_normal = ExtResource("27_6kuda")
 texture_pressed = ExtResource("28_7m8tr")
 texture_hover = ExtResource("28_7m8tr")
@@ -344,7 +360,10 @@ offset_right = -640.0
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
+[connection signal="pressed" from="CustomerDex/page_reveal_button" to="CustomerDex" method="_on_page_reveal_button_pressed"]
+[connection signal="pressed" from="CustomerDex/controls/prev" to="CustomerDex" method="_on_pagebutton_pressed" binds= [-1]]
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
+[connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
 [connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 
 [editable path="office"]
