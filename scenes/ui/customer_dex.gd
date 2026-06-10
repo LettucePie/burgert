@@ -4,6 +4,9 @@ class_name CustomerDex
 @onready var name_label : Label = $VBoxContainer/name
 @onready var pic_rect : TextureRect = $profile
 #@onready var stats_label : Label = 
+@onready var fantastic_label : Label = $VBoxContainer/statlayer/fantastic
+@onready var satisfactory_label : Label = $VBoxContainer/statlayer/satisfactory
+@onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
 @onready var description_a : Label = $VBoxContainer/description_a
 @onready var description_b : Label = $description_b
 @onready var page_label : Label = $pagenum
@@ -181,13 +184,15 @@ func _load_page(target : int):
 	name_label.text = customer_name_unknown
 	pic_rect.texture = customer_image_unknown
 	#stats_label.text = "0\n0\n0"
+	fantastic_label.text = "0"
+	satisfactory_label.text = "0"
+	disappointed_label.text = "0"
 	description_a.text = customer_desc_a_unknown
 	description_b.text = customer_desc_b_unknown
-	var stats : Play.Stats.CustomerStat = customer_stats[target]
-	#stats_label.text = \
-		#str(stats.get_fantastic_orders()) + "\n" + \
-		#str(stats.get_satisfactory_orders()) + "\n" + \
-		#str(stats.get_disappointing_orders())
+	var stats : Play.Stats.CustomerStat = customer_stats[target]	
+	fantastic_label.text = str(stats.get_fantastic_orders())
+	satisfactory_label.text = str(stats.get_satisfactory_orders())
+	disappointed_label.text = str(stats.get_disappointing_orders())
 	if stats.get_orders_served() >= 1:
 		pic_rect.texture = customer_images[target]
 	if stats.get_orders_served() >= 5 \
