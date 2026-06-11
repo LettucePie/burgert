@@ -2,8 +2,7 @@ extends Control
 class_name CustomerDex
 
 @onready var name_label : Label = $VBoxContainer/name
-@onready var pic_rect : TextureRect = $profile
-#@onready var stats_label : Label = 
+@onready var pic_rect : TextureRect = $crop/profile
 @onready var fantastic_label : Label = $VBoxContainer/statlayer/fantastic
 @onready var satisfactory_label : Label = $VBoxContainer/statlayer/satisfactory
 @onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
