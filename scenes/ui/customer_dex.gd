@@ -8,6 +8,8 @@ class_name CustomerDex
 @onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
 @onready var description_a : Label = $VBoxContainer/description_a
 @onready var description_b : Label = $description_b
+@onready var schedule : TextureRect = $schedule
+@onready var schedule_results_container : HBoxContainer = $schedule/results
 @onready var page_label : Label = $pagenum
 @onready var page_reveal : AnimatedSprite2D = $page_reveal
 
@@ -124,6 +126,7 @@ var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
 var page_reveal_flipped : bool = false
+@onready var result_slots : Array = schedule_results_container.get_children()
 
 ####
 #### Multi Lang Setters
@@ -166,6 +169,10 @@ func assign_stats(stats : Play.Stats):
 func open_dex():
 	current_page = 0
 	_load_page(0)
+	page_reveal.play("start")
+	description_b.show()
+	schedule.hide()
+	page_reveal_flipped = false
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
@@ -218,6 +225,15 @@ func _on_page_reveal_button_pressed() -> void:
 	if page_reveal_flipped:
 		page_reveal_flipped = false
 		page_reveal.play("hide")
+		schedule.hide()
 	else:
 		page_reveal_flipped = true
 		page_reveal.play("reveal")
+		description_b.hide()
+
+
+func _on_page_reveal_animation_finished() -> void:
+	if page_reveal.animation == "hide":
+		description_b.show()
+	elif page_reveal.animation == "reveal":
+		schedule.show()

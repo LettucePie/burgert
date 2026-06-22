@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dw8tplecv7rf6"]
+
+[ext_resource type="Texture2D" uid="uid://dyqgv8otncxfx" path="res://assets/images/graphics/menu/customerdex/calendar_timeslot_results.png" id="1_tfw48"]
+
+[resource]
+atlas = ExtResource("1_tfw48")
+region = Rect2(0, 0, 16, 32)
