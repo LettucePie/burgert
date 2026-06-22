@@ -68,7 +68,8 @@ func within_range(w : Time.Weekday, t : int) -> bool:
 		and (ts.weekday_b == w and t < ts.time_b):
 			result = true
 		elif midnight:
-			if (t >= ts.time_a or t < ts.time_b) \
-			and (w == ts.weekday_a or w == ts.weekday_b):
+			if (w == ts.weekday_a and t >= ts.time_a) \
+			or (w == ts.weekday_b and t < ts.time_b):
 				result = true
+				print("Within Range: Midnight TimeSlot")
 	return result

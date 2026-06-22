@@ -115,6 +115,7 @@ func _build_queue():
 	## Filter through for eligible special customers
 	var eligible_pool : Array[Customer] = []
 	var time = Time.get_datetime_dict_from_system(false)
+	print("Kitchen DateTime: ", time.weekday, " : ", time.hour)
 	for c in customers:
 		if c.schedule.within_range(time.weekday, time.hour) \
 		and !normy_customers.has(c):
