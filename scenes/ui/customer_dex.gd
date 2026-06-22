@@ -125,8 +125,10 @@ var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or 
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
+var customer_schedules : Array[Schedule] = []
 var page_reveal_flipped : bool = false
 @onready var result_slots : Array = schedule_results_container.get_children()
+var registered_timeslots : PackedInt32Array = []
 
 ####
 #### Multi Lang Setters
@@ -162,8 +164,17 @@ func set_customer_descriptions_b(strings : Array):
 
 func assign_stats(stats : Play.Stats):
 	customer_stats.clear()
+	registered_timeslots = stats.get_timeslots_played()
 	for _name in customer_names_internal:
 		customer_stats.append(stats.fetch_customerstat(_name))
+
+
+func extract_schedules(customers : Array[Customer]):
+	customer_schedules.clear()
+	for _name in customer_names_internal:
+		for c : Customer in customers:
+			if c.customer_name == _name:
+				customer_schedules.append(c.schedule)
 
 
 func open_dex():
@@ -213,6 +224,19 @@ func _load_page(target : int):
 		description_b.text = customer_descriptions_b[target]
 	description_b.visible_ratio = 0.0
 	page_label.text = str(target + 1) + "\n--\n" + str(customer_names_internal.size())
+	var timeslot_idx = 1
+	for timeslot_result : TimeSlot_Result in result_slots:
+		timeslot_result.set_result(0)
+		if registered_timeslots.has(timeslot_idx):
+			var schedule : Schedule = customer_schedules[target]
+			if schedule.times.has(timeslot_idx):
+				if stats.get_orders_served() > 0:
+					timeslot_result.set_result(3)
+				else:
+					timeslot_result.set_result(2)
+			else:
+				timeslot_result.set_result(1)
+		timeslot_idx += 1
 
 
 func _physics_process(delta: float) -> void:

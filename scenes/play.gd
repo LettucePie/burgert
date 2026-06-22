@@ -181,6 +181,8 @@ class Stats:
 		"spent_score", "timeslots_played", "customer_stats"
 	]
 	
+	var customers_in_kitchen : Array[Customer] = []
+	
 	class CustomerStat:
 		var customer_name : String
 		var orders_served : int
@@ -355,6 +357,7 @@ func _load_stats():
 			stats.set_spent_score(data["spent_score"])
 			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
+	stats.customers_in_kitchen = game_scene.kitchen.customers
 	apply_stats()
 
 
@@ -403,6 +406,7 @@ func _ready():
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
 	multi_lang.call_deferred("introduce_language_selector", main_menu.language_selector)
+	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 
 
 func _process(delta):
