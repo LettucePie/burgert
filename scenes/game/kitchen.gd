@@ -114,10 +114,11 @@ func _build_queue():
 	
 	## Filter through for eligible special customers
 	var eligible_pool : Array[Customer] = []
-	var time = Time.get_datetime_dict_from_system(false)
-	print("Kitchen DateTime: ", time.weekday, " : ", time.hour)
+	#var time = Time.get_datetime_dict_from_system(false)
+	#print("Kitchen DateTime: ", time.weekday, " : ", time.hour)
+	var timeslot_idx : int = Schedule.new().get_current_timeslot()
 	for c in customers:
-		if c.schedule.within_range(time.weekday, time.hour) \
+		if (c.schedule.times.has(timeslot_idx) or c.schedule.times.has(0)) \
 		and !normy_customers.has(c):
 			eligible_pool.append(c)
 		#if !normy_customers.has(c):

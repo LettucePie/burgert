@@ -95,6 +95,8 @@ next/quit_game = &"play_stop"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
+offset_left = 754.0
+offset_right = 754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
@@ -557,15 +559,15 @@ script = ExtResource("52_j3ae5")
 [node name="TextureRect" type="TextureRect" parent="CustomerDex/schedule"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0152964
 anchor_top = 0.382979
-anchor_right = 0.120459
+anchor_right = 0.137667
 anchor_bottom = 0.489362
 texture = ExtResource("53_8d10h")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.120459
@@ -577,6 +579,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect3" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.225621
@@ -588,6 +591,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect4" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.330784
@@ -599,6 +603,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect5" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.435946
@@ -610,6 +615,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect6" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.541109
@@ -621,6 +627,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect7" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.646271
@@ -632,6 +639,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect8" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.751434
@@ -643,6 +651,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect9" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.856596

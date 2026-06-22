@@ -174,6 +174,7 @@ class Stats:
 	var times_played : int = 0
 	var total_score : int = 0
 	var spent_score : int = 0
+	var timeslots_played : PackedInt32Array = []
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",

@@ -71,5 +71,25 @@ func within_range(w : Time.Weekday, t : int) -> bool:
 			if (w == ts.weekday_a and t >= ts.time_a) \
 			or (w == ts.weekday_b and t < ts.time_b):
 				result = true
-				print("Within Range: Midnight TimeSlot")
+	return result
+
+
+func get_current_timeslot() -> int:
+	var result = -1
+	
+	var time = Time.get_datetime_dict_from_system(false)
+	var w = time.weekday
+	var t = time.hour
+	for i in time_chart.size():
+		if i > 0:
+			var ts : TimeSlot = time_chart[i]
+			var midnight : bool = ts.weekday_a != ts.weekday_b
+			if (ts.weekday_a == w and t >= ts.time_a) \
+			and (ts.weekday_b == w and t < ts.time_b):
+				result = i
+			elif midnight:
+				if (w == ts.weekday_a and t >= ts.time_a) \
+				or (w == ts.weekday_b and t < ts.time_b):
+					result = i
+	
 	return result
