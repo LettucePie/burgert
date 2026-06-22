@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://crsb1nqkcsqgm"]
+[gd_scene load_steps=9 format=3 uid="uid://crsb1nqkcsqgm"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_5j8yp"]
 [ext_resource type="AnimationLibrary" uid="uid://biapfbq37jlfd" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_wwbqo"]
 [ext_resource type="SpriteFrames" uid="uid://dujb4hl83qoxm" path="res://assets/images/characters/customers/customer_persistant_spriteframes_v2.tres" id="3_6pqky"]
 [ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="4_ebmwu"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="5_s0t0m"]
+
+[sub_resource type="Resource" id="Resource_4nf1n"]
+script = ExtResource("2_wwbqo")
+times = Array[int]([0])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ip23c"]
 viewport_path = NodePath(".")
@@ -13,6 +18,7 @@ viewport_path = NodePath(".")
 customer_name = "Persistant"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
 consecutive_orders = 4
+schedule = SubResource("Resource_4nf1n")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -63,12 +63,12 @@ func within_range(w : Time.Weekday, t : int) -> bool:
 	var result : bool = false
 	for ti in times:
 		var ts : TimeSlot = time_chart[ti]
-		var midnight : bool = ts.range_a.weekday != ts.range_b.weekday
-		if (ts.range_a.weekday == w and t >= ts.range_a.hour) \
-		and (ts.range_b.weekday == w and t < ts.range_b.hour):
+		var midnight : bool = ts.weekday_a != ts.weekday_b
+		if (ts.weekday_a == w and t >= ts.time_a) \
+		and (ts.weekday_b == w and t < ts.time_b):
 			result = true
 		elif midnight:
-			if (t >= ts.range_a.hour or t < ts.range_b.hour) \
-			and (w == ts.range_a.weekday or w == ts.range_b.weekday):
+			if (t >= ts.time_a or t < ts.time_b) \
+			and (w == ts.weekday_a or w == ts.weekday_b):
 				result = true
 	return result
