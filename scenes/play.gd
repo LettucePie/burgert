@@ -178,7 +178,7 @@ class Stats:
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
-		"spent_score", "customer_stats"
+		"spent_score", "timeslots_played", "customer_stats"
 	]
 	
 	class CustomerStat:
@@ -258,6 +258,15 @@ class Stats:
 	
 	func add_times_played() -> void:
 		times_played += 1
+	
+	func set_timeslots_played(new : Array) -> void:
+		timeslots_played = new
+	
+	func get_timeslots_played() -> PackedInt32Array:
+		return timeslots_played
+	
+	func add_timeslot_played(timeslot_idx : int) -> void:
+		timeslots_played.append(timeslot_idx)
 	
 	func set_customer_stats(new : Array[CustomerStat]):
 		customer_stats = new
@@ -344,6 +353,7 @@ func _load_stats():
 			stats.set_times_played(data["times_played"])
 			stats.set_total_score(data["total_score"])
 			stats.set_spent_score(data["spent_score"])
+			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	apply_stats()
 
@@ -356,6 +366,7 @@ func _save_stats():
 		"times_played" = stats.get_times_played(),
 		"total_score" = stats.get_total_score(),
 		"spent_score" = stats.get_spent_score(),
+		"timeslots_played" = stats.get_timeslots_played(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
@@ -421,6 +432,7 @@ func _on_game_game_finished(final_score : int):
 	get_tree().paused = true
 	stats.add_times_played()
 	stats.set_highest_score(final_score)
+	stats.add_timeslot_played(game_scene.kitchen.kitchen_timeslot)
 	_save_stats()
 	#music.set_state(Music.STATE.MENU)
 

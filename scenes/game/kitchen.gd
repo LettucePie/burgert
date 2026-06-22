@@ -17,6 +17,7 @@ var queue : PackedInt32Array = []
 var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
+var kitchen_timeslot : int = 0
 
 
 func _ready():
@@ -114,15 +115,11 @@ func _build_queue():
 	
 	## Filter through for eligible special customers
 	var eligible_pool : Array[Customer] = []
-	#var time = Time.get_datetime_dict_from_system(false)
-	#print("Kitchen DateTime: ", time.weekday, " : ", time.hour)
-	var timeslot_idx : int = Schedule.new().get_current_timeslot()
+	kitchen_timeslot = Schedule.new().get_current_timeslot()
 	for c in customers:
-		if (c.schedule.times.has(timeslot_idx) or c.schedule.times.has(0)) \
+		if (c.schedule.times.has(kitchen_timeslot) or c.schedule.times.has(0)) \
 		and !normy_customers.has(c):
 			eligible_pool.append(c)
-		#if !normy_customers.has(c):
-			#eligible_pool.append(c)
 	print("Eligible Unique Customers Size: ", eligible_pool.size())
 	for e in eligible_pool:
 		print(e.customer_name)
