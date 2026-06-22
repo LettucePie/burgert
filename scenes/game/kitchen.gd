@@ -112,12 +112,12 @@ func _build_queue():
 	
 	## Filter through for eligible special customers
 	var eligible_pool : Array[Customer] = []
+	var time = Time.get_datetime_dict_from_system(false)
 	for c in customers:
-		##
-		## REPLACE WITH : IF ELIGIBLE TIME SLOT
-		##
-		if !normy_customers.has(c):
+		if c.schedule.within_range(time.weekday, time.hour):
 			eligible_pool.append(c)
+		#if !normy_customers.has(c):
+			#eligible_pool.append(c)
 	print("Eligible Unique Customers Size: ", eligible_pool.size())
 	
 	randomize()

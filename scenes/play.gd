@@ -374,7 +374,6 @@ func apply_stats():
 ####
 
 func _ready():
-	print(Time.get_datetime_dict_from_system(false))
 	get_tree().paused = true
 	game_scene.stop_game(false)
 	if FileAccess.file_exists("user://settings.json"):
