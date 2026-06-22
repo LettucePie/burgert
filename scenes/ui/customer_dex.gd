@@ -188,7 +188,7 @@ func _load_page(target : int):
 	disappointed_label.text = "0"
 	description_a.text = customer_desc_a_unknown
 	description_b.text = customer_desc_b_unknown
-	var stats : Play.Stats.CustomerStat = customer_stats[target]	
+	var stats : Play.Stats.CustomerStat = customer_stats[target]
 	fantastic_label.text = str(stats.get_fantastic_orders())
 	satisfactory_label.text = str(stats.get_satisfactory_orders())
 	disappointed_label.text = str(stats.get_disappointing_orders())

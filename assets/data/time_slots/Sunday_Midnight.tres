@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TimeSlot" load_steps=5 format=3 uid="uid://crmo3omg5511n"]
+
+[ext_resource type="Script" path="res://classes/DateTimeMarker.gd" id="1_dr068"]
+[ext_resource type="Script" path="res://classes/TimeSlot.gd" id="1_hwgen"]
+
+[sub_resource type="Resource" id="Resource_ae3ca"]
+script = ExtResource("1_dr068")
+weekday = 0
+hour = 22
+
+[sub_resource type="Resource" id="Resource_g06ol"]
+script = ExtResource("1_dr068")
+weekday = 1
+hour = 4
+
+[resource]
+script = ExtResource("1_hwgen")
+range_a = SubResource("Resource_ae3ca")
+range_b = SubResource("Resource_g06ol")
