@@ -66,6 +66,7 @@ func _on_main_menu_selection(selection: String) -> void:
 			anim.play("play_start")
 		elif selection == "Quit":
 			print("Quit")
+			get_tree().quit()
 		elif left_side_commands.has(selection):
 			print("Pan Left: ", selection)
 			queued_menu = screen_string_to_enum(selection)
