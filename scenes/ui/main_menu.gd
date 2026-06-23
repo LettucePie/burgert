@@ -193,6 +193,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 		if queued_menu == SCREENS.DEX:
 			print("Play Dex Screen open.")
 			anim.play("dex_open")
+		elif queued_menu == SCREENS.RECORDS:
+			print("Play Records Open")
+			anim.play("records_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()

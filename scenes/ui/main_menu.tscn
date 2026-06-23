@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=67 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 [ext_resource type="Texture2D" uid="uid://7uxig8seyr6t" path="res://assets/images/graphics/menu/customerdex/paper_clip.png" id="9_a5f4b"]
+[ext_resource type="Texture2D" uid="uid://bstdix143gyp4" path="res://assets/images/graphics/menu/records/wallet_large_back_only.png" id="10_jgkut"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
+[ext_resource type="Texture2D" uid="uid://x6mf0lujestv" path="res://assets/images/graphics/menu/records/wallet_large_page_only.png" id="11_p3hdu"]
+[ext_resource type="Texture2D" uid="uid://morw8mi5hbxl" path="res://assets/images/graphics/menu/records/wallet_large_front_only.png" id="12_lu3tl"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="13_skqqd"]
 [ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
@@ -96,15 +99,22 @@ next/dex_close = &"desk_return_left"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_left = 0.0
+offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 242.0
+offset_top = 264.0
 offset_right = -140.0
-offset_bottom = 339.0
+offset_bottom = 361.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 94.0
+offset_bottom = 171.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -133,8 +143,22 @@ visible = false
 z_index = 1
 texture = ExtResource("9_a5f4b")
 
+[node name="Wallet" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(299, 616)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_jgkut")
+
+[node name="Wallet_Page" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("11_p3hdu")
+
+[node name="Wallet_Front" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("12_lu3tl")
+
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -705,6 +729,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 645.0
+offset_right = 645.0
 grow_horizontal = 2
 grow_vertical = 2
 
