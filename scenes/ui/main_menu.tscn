@@ -90,13 +90,12 @@ libraries = {
 }
 autoplay = "start"
 next/quit_game = &"play_stop"
+next/dex_close = &"desk_return_left"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
-offset_left = 754.0
-offset_right = 754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
@@ -108,7 +107,6 @@ offset_left = -272.0
 offset_top = 264.0
 offset_right = -140.0
 offset_bottom = 361.0
-rotation = 0.603037
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -129,10 +127,10 @@ sprite_frames = ExtResource("15_6gf58")
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
-animation = &"open"
-frame = 7
+animation = &"drop"
 
 [node name="Paperclip" type="Sprite2D" parent="FolderDropHoundfall"]
+visible = false
 z_index = 1
 texture = ExtResource("9_a5f4b")
 

@@ -199,6 +199,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name.contains("desk_return") and queued_menu == SCREENS.MAIN:
 		print("Finished Returning to Center Desk")
 		current_screen = queued_menu
+	
+	if anim_name == "dex_open":
+		current_screen = SCREENS.DEX
 
 
 func _on_mus_vol_update_value(new_val):
@@ -232,7 +235,7 @@ func _on_language_selector_language_selector_finished() -> void:
 
 
 func _on_customerdex_done_pressed() -> void:
+	print("Close CustomerDex")
 	if current_screen == SCREENS.DEX:
-		anim.play("customerdex_close")
-		#current_screen = SCREENS.EXTRAS
-		$Extras/Panel/VBoxContainer/button_row2/dex.grab_focus()
+		anim.play("dex_close")
+		queued_menu = SCREENS.MAIN
