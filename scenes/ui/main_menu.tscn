@@ -95,18 +95,18 @@ next/dex_close = &"desk_return_left"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_top = -177.0
+offset_bottom = -493.0
+
+[node name="shade" parent="office/desk" index="0"]
+visible = false
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 264.0
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 361.0
+offset_bottom = 339.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -124,6 +124,7 @@ scale = Vector2(8, 8)
 sprite_frames = ExtResource("15_6gf58")
 
 [node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
@@ -136,8 +137,6 @@ texture = ExtResource("9_a5f4b")
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -713,6 +712,8 @@ offset_right = -640.0
 [connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
 [connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="animation_finished" from="CustomerDex/page_reveal" to="CustomerDex" method="_on_page_reveal_animation_finished"]
 [connection signal="pressed" from="CustomerDex/page_reveal_button" to="CustomerDex" method="_on_page_reveal_button_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/prev" to="CustomerDex" method="_on_pagebutton_pressed" binds= [-1]]
