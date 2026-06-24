@@ -199,3 +199,10 @@ func _on_options_finished_pressed() -> void:
 	if current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
 		queued_menu = SCREENS.MAIN
+
+
+func _on_help_close_pressed() -> void:
+	print("Closing Help...")
+	if current_screen == SCREENS.HELP:
+		anim.play("help_close")
+		queued_menu = SCREENS.MAIN

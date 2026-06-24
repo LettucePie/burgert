@@ -100,6 +100,7 @@ next/quit_game = &"play_stop"
 next/dex_close = &"desk_return_left"
 next/records_close = &"desk_return_left"
 next/options_close = &"desk_return_right"
+next/help_close = &"desk_return_right"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
@@ -873,6 +874,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
+[connection signal="pressed" from="Help/Controls/close" to="." method="_on_help_close_pressed"]
 [connection signal="animation_finished" from="CustomerDex/page_reveal" to="CustomerDex" method="_on_page_reveal_animation_finished"]
 [connection signal="pressed" from="CustomerDex/page_reveal_button" to="CustomerDex" method="_on_page_reveal_button_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/prev" to="CustomerDex" method="_on_pagebutton_pressed" binds= [-1]]
