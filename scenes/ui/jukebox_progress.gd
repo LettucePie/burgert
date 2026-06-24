@@ -21,8 +21,10 @@ func reset_progress() -> void:
 
 
 func set_progress(arg : int) -> void:
-	progress = arg
-	display_progress()
+	if progress != arg:
+		print("JukeBox Set Progress")
+		progress = arg
+		display_progress()
 
 
 func display_progress() -> void:

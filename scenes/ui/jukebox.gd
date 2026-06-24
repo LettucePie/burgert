@@ -144,15 +144,20 @@ func _update_player() -> void:
 
 func _update_progress() -> void:
 	var max : float = player.stream.get_length()
-	current_playback = player.get_playback_position()
+	if OS.has_feature("web"):
+		current_playback += AudioServer.get_time_since_last_mix()
+	else:
+		current_playback = player.get_playback_position() + AudioServer.get_time_since_last_mix()
 	var progress : float = current_playback / max
 	var current_digitized : int = ceili(progress * 28)
+	## HTML seems to fail to retrieve current_playback multiple times?
+	print("max: ", max, " current_playback: ", current_playback, " progress: ", progress, " current_digitized: ", current_digitized)
 	jukebox_progress.set_progress(current_digitized)
 	if max - current_playback <= 0.1:
 		_on_player_finished()
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if player.playing:
 		_update_progress()
 
