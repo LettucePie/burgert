@@ -104,3 +104,12 @@ func go_to_layer(layer_name : String) -> void:
 		direction = 1
 	for i in difference:
 		_adjust_stack(direction)
+
+
+func _on_panel_container_gui_input(event: InputEvent) -> void:
+	pass
+	#if event is InputEventMouseButton:
+		#if event.is_released():
+			#print("Touch")
+			#print(event.relative)
+			##emit_signal("menu_selection", stack_labels_internal[current_stack])

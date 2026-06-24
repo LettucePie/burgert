@@ -169,6 +169,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 		elif queued_menu == SCREENS.RADIO:
 			print("Play Radio Open")
 			anim.play("radio_open")
+		elif queued_menu == SCREENS.CREDITS:
+			print("Play Credits Open")
+			anim.play("credits_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()
@@ -187,6 +190,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.HELP
 	if anim_name == "radio_open":
 		current_screen = SCREENS.RADIO
+	if anim_name == "credits_open":
+		current_screen = SCREENS.CREDITS
 
 
 func _on_customerdex_done_pressed() -> void:
@@ -223,3 +228,10 @@ func _on_jukebox_stop_pressed() -> void:
 		anim.play("radio_close")
 		queued_menu = SCREENS.MAIN
 		emit_signal("bgm_pause", false)
+
+
+func _on_credits_close_credits() -> void:
+	print("Closing Credits...")
+	if current_screen == SCREENS.CREDITS:
+		anim.play("credits_close")
+		queued_menu = SCREENS.MAIN

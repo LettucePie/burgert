@@ -103,35 +103,23 @@ next/records_close = &"desk_return_left"
 next/options_close = &"desk_return_right"
 next/help_close = &"desk_return_right"
 next/radio_close = &"desk_return_left"
+next/credits_close = &"desk_return_right"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 264.0
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 361.0
-
-[node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = -212.0
-offset_bottom = -101.0
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 94.0
-offset_bottom = 171.0
+offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
 offset_left = 2.00006
-offset_top = 52.0
-offset_bottom = 154.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -188,8 +176,6 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -208,22 +194,10 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
+visible = false
 layout_mode = 1
-offset_left = 640.0
-offset_right = 640.0
-
-[node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
-text = "Art, Sound, Design - Houndfall
-Art, Programming, Design - lettucepie
-
-Made in
-Godot 4.2.2 & 4.3
-Aseprite
-Krita
-LMMS
-
-third-party assets
-kenney-nl fontss"
+offset_top = 600.0
+offset_bottom = 600.0
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
@@ -889,6 +863,7 @@ visible = false
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
 [connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
+[connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="pressed" from="Help/Controls/close" to="." method="_on_help_close_pressed"]
