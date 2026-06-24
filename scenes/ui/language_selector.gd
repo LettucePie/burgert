@@ -51,3 +51,10 @@ func focus_top():
 	print("Focusing on First Entry in Language Options")
 	language_options.front().grab_focus()
 	scroll.scroll_vertical = 0
+
+
+func _on_scroll_container_gui_input(event: InputEvent) -> void:
+	#print(event)
+	if event is InputEventMouseMotion:
+		if event.pressure > 0.02 and event.relative != Vector2.ZERO:
+			scroll.scroll_vertical -= event.relative.y

@@ -187,6 +187,7 @@ vertical_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="phone/language/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="phone/language/VBoxContainer/ScrollContainer"]
 layout_mode = 2
@@ -210,3 +211,5 @@ text = "English"
 [connection signal="pressed" from="phone/main/vcont1/set_lang" to="." method="_on_set_lang_pressed"]
 [connection signal="pressed" from="phone/main/vcont1/finished" to="." method="_on_finished_pressed"]
 [connection signal="language_selector_finished" from="phone/language" to="." method="_on_language_language_selector_finished"]
+[connection signal="gui_input" from="phone/language/VBoxContainer/ScrollContainer" to="phone/language" method="_on_scroll_container_gui_input"]
+[connection signal="gui_input" from="phone/language/VBoxContainer/ScrollContainer/VBoxContainer/entry" to="phone/language" method="_on_scroll_container_gui_input"]
