@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://7uxig8seyr6t" path="res://assets/images/graphics/menu/customerdex/paper_clip.png" id="9_a5f4b"]
 [ext_resource type="Texture2D" uid="uid://bstdix143gyp4" path="res://assets/images/graphics/menu/records/wallet_large_back_only.png" id="10_jgkut"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
+[ext_resource type="SpriteFrames" uid="uid://be4fkvlcv5vud" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-sequence/flip-phone_spriteframes.tres" id="10_uqvdc"]
 [ext_resource type="Texture2D" uid="uid://x6mf0lujestv" path="res://assets/images/graphics/menu/records/wallet_large_page_only.png" id="11_p3hdu"]
 [ext_resource type="Texture2D" uid="uid://morw8mi5hbxl" path="res://assets/images/graphics/menu/records/wallet_large_front_only.png" id="12_lu3tl"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="13_skqqd"]
-[ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
 [ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_6gf58"]
 [ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_houndfall_spriteframes.tres" id="15_u6v16"]
 [ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
@@ -103,23 +103,17 @@ next/records_close = &"desk_return_left"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
-offset_left = 754.0
-offset_right = 754.0
+offset_left = -754.0
+offset_right = -754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_left = -1280.0
+offset_right = -1440.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_top = 45.5
 offset_bottom = 142.5
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_left = 35.0
-offset_top = 460.0
-offset_right = 188.0
-offset_bottom = 537.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -148,6 +142,13 @@ visible = false
 z_index = 1
 texture = ExtResource("9_a5f4b")
 
+[node name="FlipPhone" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("10_uqvdc")
+animation = &"open"
+
 [node name="Wallet" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(299, 616)
@@ -168,10 +169,6 @@ offset_bottom = 480.0
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
 layout_mode = 1
-offset_left = -641.0
-offset_right = -641.0
-
-[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" groups=["splat"]]
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
 visible = false
@@ -730,6 +727,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 645.0
+offset_right = 645.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("63_smrq3")
@@ -852,17 +851,8 @@ label_settings = ExtResource("65_ai2h5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
-visible = false
-layout_mode = 1
-offset_left = -640.0
-offset_right = -640.0
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
-[connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
-[connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
-[connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="animation_finished" from="CustomerDex/page_reveal" to="CustomerDex" method="_on_page_reveal_animation_finished"]
@@ -871,7 +861,6 @@ offset_right = -640.0
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
-[connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 
 [editable path="office"]
 [editable path="Options"]
@@ -879,4 +868,3 @@ offset_right = -640.0
 [editable path="Credits"]
 [editable path="Paused"]
 [editable path="Help"]
-[editable path="LanguageSelector"]

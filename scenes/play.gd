@@ -137,7 +137,8 @@ func _clear_joypad_inputs():
 
 func apply_settings():
 	print("APPLYING SETTINGS TO GAME")
-	main_menu.update_settings_display(settings)
+	main_menu.options.set_host(self)
+	main_menu.options.apply_settings()
 	var mus_idx : int = AudioServer.get_bus_index("MUS")
 	var sfx_idx : int = AudioServer.get_bus_index("SFX")
 	var mus_db : float = linear_to_db(float(settings.get_mus_vol()) / 10.0)
@@ -406,7 +407,7 @@ func _ready():
 		var container : GameContainer = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
-	multi_lang.call_deferred("introduce_language_selector", main_menu.language_selector)
+	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 
 
@@ -471,19 +472,19 @@ func _on_game_game_over():
 	_on_main_menu_quit_play()
 
 
-func _on_main_menu_update_mus_vol(new_val):
+func options_update_mus_vol(new_val):
 	if settings != null:
 		settings.set_mus_vol(new_val)
 		_save_settings()
 
 
-func _on_main_menu_update_sfx_vol(new_val):
+func options_update_sfx_vol(new_val):
 	if settings != null:
 		settings.set_sfx_vol(new_val)
 		_save_settings()
 
 
-func _on_main_menu_update_a_b_swap(new_val):
+func options_update_a_b_swap(new_val):
 	if settings != null:
 		settings.set_a_b_swap(new_val)
 		_save_settings()

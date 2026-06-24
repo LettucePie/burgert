@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name SliderInput
 
 signal update_value(new_val)
 
@@ -9,7 +10,7 @@ signal update_value(new_val)
 @onready var label_label : Label = $Label
 @onready var value_label : Label = $value
 var label_color_default : Color = "00000071"
-var label_color_highlight : Color = "3b3b3bab"
+var label_color_highlight : Color = "cfcfcfe3"
 var value : int = 10
 var focused : bool = false
 

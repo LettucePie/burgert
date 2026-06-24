@@ -3,9 +3,8 @@ class_name LanguageSelector
 
 signal language_selector_finished()
 
-@onready var scroll : ScrollContainer = $Panel/H1/Scroll
+@onready var scroll : ScrollContainer = $VBoxContainer/ScrollContainer
 @export var directory : Control
-@export var touch_interface : Control
 @export var entry_original : Button
 
 var language_options : Array = []
@@ -52,15 +51,3 @@ func focus_top():
 	print("Focusing on First Entry in Language Options")
 	language_options.front().grab_focus()
 	scroll.scroll_vertical = 0
-
-
-func _on_visibility_changed() -> void:
-	if is_node_ready():
-		touch_interface.hide()
-		if get_window().get_child(0) is GameContainer:
-			touch_interface.show()
-
-
-func _on_scroll_pressed(dir: int) -> void:
-	print("Scroll Button Pressed: ", dir)
-	scroll.scroll_vertical += 24 * dir
