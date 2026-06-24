@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=69 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -64,6 +64,8 @@
 [ext_resource type="Script" path="res://classes/TimeSlot_Result.gd" id="52_j3ae5"]
 [ext_resource type="Texture2D" uid="uid://c56pp6moconxw" path="res://assets/images/graphics/menu/customerdex/timeslot_daynight_indicator_01.png" id="53_8d10h"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="60_8impe"]
+[ext_resource type="Script" path="res://scenes/ui/records.gd" id="63_smrq3"]
+[ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="65_ai2h5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
 atlas = ExtResource("18_53kgq")
@@ -99,22 +101,15 @@ next/dex_close = &"desk_return_left"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 264.0
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 361.0
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 94.0
-offset_bottom = 171.0
+offset_bottom = 339.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -157,8 +152,6 @@ texture = ExtResource("12_lu3tl")
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -733,6 +726,7 @@ offset_left = 645.0
 offset_right = 645.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("63_smrq3")
 
 [node name="TextureRect" type="TextureRect" parent="Records"]
 layout_mode = 1
@@ -750,13 +744,107 @@ texture = ExtResource("60_8impe")
 [node name="VBoxContainer" type="VBoxContainer" parent="Records/TextureRect"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.015
 anchor_top = 0.187
-anchor_right = 1.0
+anchor_right = 0.981
 anchor_bottom = 0.802
+offset_left = 0.245
 offset_top = 0.319992
+offset_right = -0.177032
 offset_bottom = -0.280029
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="total_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/total_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "total score:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/total_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highest_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/highest_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "highest score:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/highest_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spent_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/spent_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "score points spent:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/spent_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="times_played" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/times_played" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "times played:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/times_played"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="burgers_served" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/burgers_served" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "burgers served:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/burgers_served"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
 visible = false

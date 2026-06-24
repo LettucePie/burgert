@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://m0m0xt1h6qbw"]
+
+[ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="1_4f7im"]
+
+[resource]
+font = ExtResource("1_4f7im")
+font_size = 38
+font_color = Color(0.466181, 0.466181, 0.466181, 1)
+outline_size = 1
+outline_color = Color(0.190762, 0.190762, 0.190762, 1)
+shadow_color = Color(0.0962047, 0.0962048, 0.0962047, 0.709804)

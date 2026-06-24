@@ -382,6 +382,7 @@ func _save_stats():
 
 func apply_stats():
 	main_menu.customer_dex.assign_stats(stats)
+	main_menu.records.assign_stats(stats)
 
 
 ####

@@ -11,6 +11,7 @@ signal update_a_b_swap(new_val)
 @onready var main : MainSandwhich = $Main
 @onready var help : Help = $Help
 @onready var customer_dex : CustomerDex = $CustomerDex
+@onready var records : Records = $Records
 @onready var menu_flair : MenuFlair = $MenuFlair
 @onready var language_selector : LanguageSelector = $LanguageSelector
 @export var anim : AnimationPlayer
