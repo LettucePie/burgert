@@ -438,6 +438,8 @@ ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="track_time" type="Timer" parent="."]
+
 [connection signal="finished" from="Player" to="." method="_on_player_finished"]
 [connection signal="pressed" from="controls/prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="controls/play" to="." method="_on_play_pressed"]
@@ -449,3 +451,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="drag_ended" from="jukebox_vol/HSlider" to="jukebox_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
 [connection signal="pressed" from="loop" to="." method="_on_loop_pressed"]
 [connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="timeout" from="track_time" to="." method="_on_player_finished"]

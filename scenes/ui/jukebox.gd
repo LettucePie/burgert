@@ -17,6 +17,7 @@ var play_order : Array = []
 @onready var track_label : Label = $screen/track_title
 @onready var jukebox_progress : JukeboxProgress = $screen/progress
 @onready var jukebox_vol : SliderInputIconOnly = $jukebox_vol
+@onready var track_timer : Timer = $track_time
 ##
 ##
 @onready var play_button : TextureButton = $controls/play
@@ -111,8 +112,13 @@ func _on_play_pressed() -> void:
 	#_update_player()
 	if player.playing:
 		player.stop()
+		track_timer.paused = true
 	else:
 		player.play(current_playback)
+		if track_timer.paused:
+			track_timer.paused = false
+		else:
+			track_timer.start()
 	_update_play_button()
 
 
@@ -127,8 +133,9 @@ func _on_next_pressed() -> void:
 func _on_stop_pressed() -> void:
 	print("Stop Pressed")
 	player.stop()
-	current_playback = 0
-	_update_progress()
+	track_timer.stop()
+	#_update_progress()
+	#current_playback = 0
 	emit_signal("stop_pressed")
 
 
@@ -136,6 +143,8 @@ func _update_player() -> void:
 	var idx : int = play_order[current_track]
 	player.stream = track_files[idx]
 	track_label.text = str(idx + 1) + " - " + track_titles[idx]
+	track_timer.wait_time = track_files[idx].get_length()
+	track_timer.paused = false
 	current_playback = 0
 	_update_play_button()
 	_update_loop_button()
@@ -144,14 +153,9 @@ func _update_player() -> void:
 
 func _update_progress() -> void:
 	var max : float = player.stream.get_length()
-	if OS.has_feature("web"):
-		current_playback += AudioServer.get_time_since_last_mix()
-	else:
-		current_playback = player.get_playback_position() + AudioServer.get_time_since_last_mix()
+	current_playback = max - track_timer.time_left
 	var progress : float = current_playback / max
 	var current_digitized : int = ceili(progress * 28)
-	## HTML seems to fail to retrieve current_playback multiple times?
-	print("max: ", max, " current_playback: ", current_playback, " progress: ", progress, " current_digitized: ", current_digitized)
 	jukebox_progress.set_progress(current_digitized)
 	if max - current_playback <= 0.1:
 		_on_player_finished()
@@ -186,13 +190,16 @@ func _on_shuffle_pressed() -> void:
 
 
 func _on_player_finished() -> void:
+	track_timer.stop()
 	if looping:
 		player.stop()
 		current_playback = 0.0
 		_update_player()
 		player.play()
+		track_timer.start()
 		_update_play_button()
 	else:
 		_on_next_pressed()
 		player.play()
+		track_timer.start()
 		_update_play_button()
