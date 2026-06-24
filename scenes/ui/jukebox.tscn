@@ -1,0 +1,458 @@
+[gd_scene load_steps=37 format=3 uid="uid://cecupkfcj6mv6"]
+
+[ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
+[ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
+[ext_resource type="Script" path="res://scenes/ui/jukebox.gd" id="1_neq0u"]
+[ext_resource type="Texture2D" uid="uid://bni83pynxgrf6" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_screen_highlight.png" id="2_p112t"]
+[ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/Break.mp3" id="2_wqnbt"]
+[ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/Burgert_1.mp3" id="3_4hri6"]
+[ext_resource type="Texture2D" uid="uid://co88beb78awff" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_prev.png" id="4_1sh5r"]
+[ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/Burgert_2.mp3" id="4_jkq1a"]
+[ext_resource type="Texture2D" uid="uid://riu5lawcp2qv" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_prev_highlight.png" id="5_14nkq"]
+[ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="5_a8jnt"]
+[ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="6_l6u7h"]
+[ext_resource type="Texture2D" uid="uid://2jcxgeuwmv6t" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_play.png" id="6_o6sof"]
+[ext_resource type="Texture2D" uid="uid://je4e1v5uwrw7" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_play_highlight.png" id="7_8n35s"]
+[ext_resource type="AudioStream" uid="uid://dptl24wk12no1" path="res://assets/sound/music/alphabetaprimenumber.mp3" id="7_cwvch"]
+[ext_resource type="Texture2D" uid="uid://dqah1gfq6xxyx" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next.png" id="8_cp1ba"]
+[ext_resource type="Texture2D" uid="uid://d7mb2cqghx4g" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next_highlight.png" id="9_0tscs"]
+[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="9_2r6gh"]
+[ext_resource type="Texture2D" uid="uid://dr1wrfgypdwrq" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_stop.png" id="10_ihcm3"]
+[ext_resource type="Script" path="res://scenes/ui/jukebox_progress.gd" id="10_ojght"]
+[ext_resource type="Texture2D" uid="uid://clju57seol6lk" path="res://assets/images/graphics/menu/jukebox/progress_tick.png" id="11_bggy7"]
+[ext_resource type="Texture2D" uid="uid://nxnkg4ip4yo8" path="res://assets/images/graphics/menu/jukebox/progress_start.png" id="11_qey5o"]
+[ext_resource type="Texture2D" uid="uid://bbq8tysl1qg07" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_stop_hightlight.png" id="11_vk1tq"]
+[ext_resource type="Texture2D" uid="uid://f7k2rcvfwyv7" path="res://assets/images/graphics/menu/jukebox/progress_tracking.png" id="12_j1or8"]
+[ext_resource type="Texture2D" uid="uid://dw1kglau86lgn" path="res://assets/images/graphics/menu/jukebox/progress_finish.png" id="13_3t4jb"]
+[ext_resource type="Script" path="res://scenes/ui/slider_input_icon_only.gd" id="24_4aqjp"]
+[ext_resource type="Texture2D" uid="uid://i0tnh4sv8u1o" path="res://assets/images/graphics/menu/jukebox/volsprite_low.png" id="25_8juar"]
+[ext_resource type="Texture2D" uid="uid://cfhfvul2344mw" path="res://assets/images/graphics/menu/jukebox/volsprite_knob.png" id="26_sgid2"]
+[ext_resource type="Texture2D" uid="uid://cqet1pfw1t16o" path="res://assets/images/graphics/menu/jukebox/volsprite_high.png" id="26_te2ip"]
+[ext_resource type="Texture2D" uid="uid://dsd3rd2glfq10" path="res://assets/images/graphics/menu/jukebox/volsprite_knob_highlight.png" id="27_8aqgf"]
+[ext_resource type="Texture2D" uid="uid://462mxd31g6v5" path="res://assets/images/graphics/menu/jukebox/loop_off.png" id="30_fmri3"]
+[ext_resource type="Texture2D" uid="uid://cukr7wago3rt2" path="res://assets/images/graphics/menu/jukebox/loop_on_hover.png" id="31_l35ev"]
+[ext_resource type="Texture2D" uid="uid://b2pwitc4g01eg" path="res://assets/images/graphics/menu/jukebox/loop_off_hover.png" id="32_0tcnn"]
+[ext_resource type="Texture2D" uid="uid://dlseyfvlyl63b" path="res://assets/images/graphics/menu/jukebox/shuffle_off.png" id="33_shvqd"]
+[ext_resource type="Texture2D" uid="uid://xk6p4ju5vpgy" path="res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png" id="34_tqhcu"]
+[ext_resource type="Texture2D" uid="uid://uf075h0rlgig" path="res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png" id="35_ajqae"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1a24a"]
+font = ExtResource("9_2r6gh")
+font_size = 32
+font_color = Color(0.247059, 1, 0.243137, 0.678431)
+outline_color = Color(0.247059, 1, 0.243137, 1)
+shadow_color = Color(0.490196, 1, 0.521569, 1)
+
+[node name="Jukebox" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h1ud8")
+script = ExtResource("1_neq0u")
+track_files = Array[AudioStreamMP3]([ExtResource("2_wqnbt"), ExtResource("3_4hri6"), ExtResource("4_jkq1a"), ExtResource("5_a8jnt"), ExtResource("6_l6u7h"), ExtResource("7_cwvch")])
+
+[node name="Player" type="AudioStreamPlayer" parent="."]
+
+[node name="RadioBase" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a0fdn")
+expand_mode = 1
+
+[node name="screen" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.01875
+anchor_top = 0.258333
+anchor_right = 0.98125
+anchor_bottom = 0.508333
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="track_title" type="Label" parent="screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0113636
+anchor_top = 0.0666667
+anchor_right = 0.993506
+anchor_bottom = 0.475
+grow_horizontal = 2
+grow_vertical = 2
+text = "01 - track title"
+label_settings = SubResource("LabelSettings_1a24a")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="progress" type="HBoxContainer" parent="screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00487013
+anchor_right = 0.99513
+anchor_bottom = 0.133333
+grow_horizontal = 2
+script = ExtResource("10_ojght")
+tracking_texture = ExtResource("12_j1or8")
+tick_texture = ExtResource("11_bggy7")
+metadata/_edit_use_anchors_ = true
+
+[node name="start" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("11_qey5o")
+expand_mode = 2
+
+[node name="tick_01" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_02" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_03" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_04" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_05" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_06" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_07" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_08" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_09" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_10" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_11" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_12" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_13" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_14" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_15" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_16" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_17" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_18" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_19" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_20" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_21" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_22" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_23" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_24" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_25" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_26" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_27" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="tick_28" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("12_j1or8")
+expand_mode = 2
+
+[node name="finish" type="TextureRect" parent="screen/progress"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("13_3t4jb")
+expand_mode = 2
+
+[node name="screen_highlight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p112t")
+
+[node name="controls" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.5875
+anchor_right = 0.96875
+anchor_bottom = 0.839583
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="prev" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../play")
+focus_neighbor_bottom = NodePath("../../loop")
+texture_normal = ExtResource("4_1sh5r")
+texture_pressed = ExtResource("5_14nkq")
+texture_hover = ExtResource("5_14nkq")
+texture_focused = ExtResource("5_14nkq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="play" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../prev")
+focus_neighbor_right = NodePath("../next")
+focus_neighbor_bottom = NodePath("../../stop")
+texture_normal = ExtResource("6_o6sof")
+texture_pressed = ExtResource("7_8n35s")
+texture_hover = ExtResource("7_8n35s")
+texture_focused = ExtResource("7_8n35s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="next" type="TextureButton" parent="controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../play")
+focus_neighbor_bottom = NodePath("../../jukebox_vol")
+texture_normal = ExtResource("8_cp1ba")
+texture_pressed = ExtResource("9_0tscs")
+texture_hover = ExtResource("9_0tscs")
+texture_focused = ExtResource("9_0tscs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="stop" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.827
+anchor_right = 0.575
+anchor_bottom = 1.0
+offset_top = 0.039978
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../controls/play")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("10_ihcm3")
+texture_pressed = ExtResource("11_vk1tq")
+texture_hover = ExtResource("11_vk1tq")
+texture_focused = ExtResource("11_vk1tq")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="jukebox_vol" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+anchor_left = 0.628125
+anchor_top = 0.86875
+anchor_right = 0.971875
+anchor_bottom = 0.935417
+size_flags_vertical = 6
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../controls/next")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../stop")
+focus_mode = 2
+script = ExtResource("24_4aqjp")
+normal_tex = ExtResource("26_sgid2")
+highlight_tex = ExtResource("27_8aqgf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="TextureRect" parent="jukebox_vol"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("25_8juar")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSlider" type="HSlider" parent="jukebox_vol"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.27
+focus_mode = 0
+theme = ExtResource("1_h1ud8")
+max_value = 10.0
+value = 10.0
+
+[node name="value" type="TextureRect" parent="jukebox_vol"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("26_te2ip")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="loop" type="TextureButton" parent="."]
+layout_mode = 0
+anchor_left = 0.0765625
+anchor_top = 0.8625
+anchor_right = 0.176563
+anchor_bottom = 0.945833
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../controls/prev")
+focus_neighbor_right = NodePath("../shuffle")
+focus_neighbor_bottom = NodePath("../stop")
+texture_normal = ExtResource("30_fmri3")
+texture_pressed = ExtResource("31_l35ev")
+texture_hover = ExtResource("32_0tcnn")
+texture_focused = ExtResource("32_0tcnn")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="shuffle" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.189063
+anchor_top = 0.8625
+anchor_right = 0.289062
+anchor_bottom = 0.945833
+focus_neighbor_left = NodePath("../loop")
+focus_neighbor_top = NodePath("../controls/prev")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../stop")
+texture_normal = ExtResource("33_shvqd")
+texture_pressed = ExtResource("34_tqhcu")
+texture_hover = ExtResource("35_ajqae")
+texture_focused = ExtResource("35_ajqae")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="Player" to="." method="_on_player_finished"]
+[connection signal="pressed" from="controls/prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="controls/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="controls/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
+[connection signal="focus_entered" from="jukebox_vol" to="jukebox_vol" method="_on_focus_entered"]
+[connection signal="focus_exited" from="jukebox_vol" to="jukebox_vol" method="_on_focus_exited"]
+[connection signal="update_value" from="jukebox_vol" to="." method="_on_jukebox_vol_update_value"]
+[connection signal="drag_ended" from="jukebox_vol/HSlider" to="jukebox_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
+[connection signal="pressed" from="loop" to="." method="_on_loop_pressed"]
+[connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]

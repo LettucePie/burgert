@@ -1,65 +1,81 @@
-[gd_scene load_steps=22 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=71 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
-[ext_resource type="PackedScene" uid="uid://da7tf25yafkur" path="res://assets/models/title_sign.glb" id="2_pv64k"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
-[ext_resource type="Texture2D" uid="uid://b54623rsxjkyh" path="res://assets/images/graphics/brushmetal_texture.png" id="3_ov1nx"]
 [ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/main.tscn" id="4_6oetw"]
-[ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="4_oua5h"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
 [ext_resource type="Script" path="res://scenes/ui/menu_flair.gd" id="5_eqawj"]
+[ext_resource type="PackedScene" uid="uid://c11iqp1ppgjwn" path="res://scenes/ui/office.tscn" id="5_ith4j"]
 [ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splatfx.tscn" id="6_a85yp"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
+[ext_resource type="Texture2D" uid="uid://7uxig8seyr6t" path="res://assets/images/graphics/menu/customerdex/paper_clip.png" id="9_a5f4b"]
+[ext_resource type="Texture2D" uid="uid://bstdix143gyp4" path="res://assets/images/graphics/menu/records/wallet_large_back_only.png" id="10_jgkut"]
 [ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
+[ext_resource type="SpriteFrames" uid="uid://be4fkvlcv5vud" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-sequence/flip-phone_spriteframes.tres" id="10_uqvdc"]
+[ext_resource type="Texture2D" uid="uid://x6mf0lujestv" path="res://assets/images/graphics/menu/records/wallet_large_page_only.png" id="11_p3hdu"]
+[ext_resource type="Texture2D" uid="uid://morw8mi5hbxl" path="res://assets/images/graphics/menu/records/wallet_large_front_only.png" id="12_lu3tl"]
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
-[ext_resource type="PackedScene" uid="uid://seucfpsgfcnf" path="res://scenes/ui/language_selector.tscn" id="14_3fnfm"]
+[ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="13_skqqd"]
+[ext_resource type="SpriteFrames" uid="uid://dtqko8io3vl8e" path="res://assets/images/graphics/menu/help/help_book_spriteframes.tres" id="14_2s4yh"]
 [ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_6gf58"]
-[ext_resource type="PackedScene" uid="uid://basa4au3y5d08" path="res://scenes/ui/customer_dex.tscn" id="16_gc8o8"]
+[ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_houndfall_spriteframes.tres" id="15_u6v16"]
+[ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
+[ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="17_iqshf"]
+[ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/characters/customers/customer_tommy_still.png" id="17_lf1bt"]
+[ext_resource type="Texture2D" uid="uid://h1bvo4ac750m" path="res://assets/images/graphics/customer_feedback_happy.png" id="18_53kgq"]
+[ext_resource type="Texture2D" uid="uid://crhdkvxa8ixn0" path="res://assets/images/characters/customers/customer_teddy_still.png" id="18_nlobw"]
+[ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="19_arbe5"]
+[ext_resource type="Texture2D" uid="uid://cg0yvqwq3r3wb" path="res://assets/images/characters/customers/customer_ted_still.png" id="19_qfkm0"]
+[ext_resource type="Texture2D" uid="uid://d2p2i73x7xdhi" path="res://assets/images/characters/customers/customer_al_still.png" id="20_jcpf5"]
+[ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="20_tlh1p"]
+[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="21_8q63w"]
+[ext_resource type="Texture2D" uid="uid://g7cuqrmeh738" path="res://assets/images/characters/customers/customer_emo_still.png" id="21_gaxuw"]
+[ext_resource type="Texture2D" uid="uid://cny0jvo6jpucg" path="res://assets/images/characters/customers/customer_karen_still.png" id="22_2cl4i"]
+[ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="22_8rdvr"]
+[ext_resource type="Texture2D" uid="uid://c7mty3oepjq04" path="res://assets/images/graphics/menu/customerdex/page_corner_marker.png" id="22_vbjx8"]
+[ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="23_a6gyn"]
+[ext_resource type="Texture2D" uid="uid://dxlt1mwtpdlgc" path="res://assets/images/characters/customers/customer_patient_still.png" id="23_p7mv6"]
+[ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="24_hljgt"]
+[ext_resource type="Texture2D" uid="uid://d2w2qyg4gst2j" path="res://assets/images/characters/customers/customer_mustard_still.png" id="24_myxcq"]
+[ext_resource type="Texture2D" uid="uid://um58kqim5brh" path="res://assets/images/graphics/menu/customerdex/customerdex_close.png" id="25_wlmhq"]
+[ext_resource type="Texture2D" uid="uid://p6m7b8sqepi1" path="res://assets/images/characters/customers/customer_dancer_still.png" id="25_ydldf"]
+[ext_resource type="Texture2D" uid="uid://dtcuxkfwf2cti" path="res://assets/images/characters/customers/customer_punk_still.png" id="26_7bir2"]
+[ext_resource type="Texture2D" uid="uid://n1yhonsjg515" path="res://assets/images/graphics/menu/customerdex/customerdex_close_underlined.png" id="26_b7osb"]
+[ext_resource type="Texture2D" uid="uid://dk7508eo7xxbe" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right.png" id="27_6kuda"]
+[ext_resource type="Texture2D" uid="uid://dqq7p152luv35" path="res://assets/images/characters/customers/customer_toad_and_buddy_still.png" id="27_vhudc"]
+[ext_resource type="Texture2D" uid="uid://cwa8iu4r5ftml" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right_underlined.png" id="28_7m8tr"]
+[ext_resource type="Texture2D" uid="uid://1jbkgwvlsnoo" path="res://assets/images/characters/customers/customer_persistant_still.png" id="28_tycmq"]
+[ext_resource type="Texture2D" uid="uid://cqrvdvkxolvub" path="res://assets/images/characters/customers/customer_anxiety_still.png" id="29_m8qxe"]
+[ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="30_tcn2y"]
+[ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/customer_jimmie_still.png" id="31_54cwo"]
+[ext_resource type="Texture2D" uid="uid://croqar7nh1iwo" path="res://assets/images/characters/customers/customer_mrpink_still.png" id="32_lmrre"]
+[ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="33_j0do6"]
+[ext_resource type="Texture2D" uid="uid://bcnaompom57bb" path="res://assets/images/characters/customers/customer_RAT_still.png" id="34_4y82p"]
+[ext_resource type="Texture2D" uid="uid://b7ulnwb8hfwa1" path="res://assets/images/characters/customers/customer_beef_and_kale_still.png" id="35_swiqc"]
+[ext_resource type="Texture2D" uid="uid://bfelf6xvhbex3" path="res://assets/images/characters/customers/customer_brandon_still.png" id="36_iojvp"]
+[ext_resource type="Texture2D" uid="uid://dt2410ejxspie" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_still.png" id="37_2t86x"]
+[ext_resource type="Texture2D" uid="uid://bllvpk5oixvd" path="res://assets/images/characters/customers/customer_dale_still.png" id="38_n4m8h"]
+[ext_resource type="Texture2D" uid="uid://dyrui1jgjmhly" path="res://assets/images/characters/customers/customer_mr_understood_still.png" id="39_2bn1i"]
+[ext_resource type="Texture2D" uid="uid://43mqcc7ke18t" path="res://assets/images/characters/customers/customer_ronald_still.png" id="40_d4bm4"]
+[ext_resource type="Texture2D" uid="uid://bivwcupa7xnh1" path="res://assets/images/characters/customers/customer_shagg_still.png" id="41_wfgio"]
+[ext_resource type="Texture2D" uid="uid://b26wf10jfdm1r" path="res://assets/images/graphics/menu/customerdex/unknown_customer.png" id="42_imtnm"]
+[ext_resource type="Texture2D" uid="uid://d3gm4wlo68idb" path="res://assets/images/graphics/menu/customerdex/calendar_grid_2.png" id="50_34jfi"]
+[ext_resource type="Texture2D" uid="uid://dw8tplecv7rf6" path="res://assets/images/graphics/menu/customerdex/timeslot_result_unmapped.tres" id="51_62nd4"]
+[ext_resource type="Script" path="res://classes/TimeSlot_Result.gd" id="52_j3ae5"]
+[ext_resource type="Texture2D" uid="uid://c56pp6moconxw" path="res://assets/images/graphics/menu/customerdex/timeslot_daynight_indicator_01.png" id="53_8d10h"]
+[ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="60_8impe"]
+[ext_resource type="Script" path="res://scenes/ui/records.gd" id="63_smrq3"]
+[ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="65_ai2h5"]
+[ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
-[sub_resource type="Animation" id="Animation_crl3l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("title_sign:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.5708, -0.0774926, 0)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
+atlas = ExtResource("18_53kgq")
+region = Rect2(47, 0, 18, 16)
 
-[sub_resource type="Animation" id="Animation_23ruw"]
-resource_name = "wobble"
-length = 8.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("title_sign:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3, 2.4, 3.8, 6.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, -0.149487, 0), Vector3(1.5708, 0.0444623, 0), Vector3(1.5708, -0.0774926, 0), Vector3(1.5708, 0.0206812, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcemy"]
-_data = {
-"RESET": SubResource("Animation_crl3l"),
-"wobble": SubResource("Animation_23ruw")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0h8q"]
-albedo_texture = ExtResource("3_ov1nx")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_25xsh"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvfok"]
+atlas = ExtResource("20_tlh1p")
+region = Rect2(32, 0, 16, 16)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
 texture_filter = 1
@@ -67,90 +83,103 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -640.0
-offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b0wja")
 anim = NodePath("AnimationPlayer")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-own_world_3d = true
-transparent_bg = true
-size = Vector2i(640, 480)
-
-[node name="Node3D" type="Node3D" parent="SubViewport"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Node3D"]
-libraries = {
-"": SubResource("AnimationLibrary_rcemy")
-}
-autoplay = "wobble"
-
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
-transform = Transform3D(0.986309, -0.0445649, 0.15877, 0.010031, 0.977222, 0.211981, -0.1646, -0.207486, 0.964291, 0.484856, 0.332375, 1.35827)
-
-[node name="title_sign" parent="SubViewport/Node3D" instance=ExtResource("2_pv64k")]
-transform = Transform3D(0.996999, -0.0774151, 2.80242e-07, 0, -3.61999e-06, -1, 0.0774151, 0.996999, -3.60913e-06, 0, 0, -0.0674168)
-
-[node name="Sign" parent="SubViewport/Node3D/title_sign" index="0"]
-visible = false
-surface_material_override/0 = SubResource("StandardMaterial3D_s0h8q")
-
-[node name="Sprite3D" type="Sprite3D" parent="SubViewport/Node3D/title_sign"]
-transform = Transform3D(0.452684, 0, 0, 0, -1.97874e-08, 0.452684, 0, -0.452684, -1.97874e-08, 0, 0.0674168, -2.94688e-09)
-texture_filter = 0
-texture = ExtResource("4_oua5h")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
-transform = Transform3D(0.779972, 0.459367, 0.425, -0.537899, 0.839194, 0.0801133, -0.319856, -0.291093, 0.901641, 0, 0, 1.09039)
 
 [node name="MenuFlair" type="Node" parent="."]
 script = ExtResource("5_eqawj")
 splat_vfx = ExtResource("6_a85yp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-reset_on_save = false
 libraries = {
 "": ExtResource("3_lbgav")
 }
 autoplay = "start"
+next/quit_game = &"play_stop"
+next/dex_close = &"desk_return_left"
+next/records_close = &"desk_return_left"
+next/options_close = &"desk_return_right"
+next/help_close = &"desk_return_right"
+next/radio_close = &"desk_return_left"
+next/credits_close = &"desk_return_right"
+
+[node name="office" parent="." instance=ExtResource("5_ith4j")]
+layout_mode = 1
+
+[node name="desk" parent="office" index="2"]
+offset_top = -176.0
+offset_bottom = -492.0
+
+[node name="folder" parent="office/desk/left_side_desktop" index="0"]
+offset_left = -272.0
+offset_top = 242.0
+offset_right = -140.0
+offset_bottom = 339.0
+
+[node name="help" parent="office/desk/right_side_desktop" index="2"]
+offset_left = 2.00006
+
+[node name="vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_b2u1j")
+
+[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(8, 8)
+sprite_frames = ExtResource("15_6gf58")
+
+[node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(293, 231)
+scale = Vector2(2.21, 2.21)
+sprite_frames = ExtResource("15_u6v16")
+animation = &"flip"
+
+[node name="Paperclip" type="Sprite2D" parent="FolderDropHoundfall"]
+visible = false
+z_index = 1
+texture = ExtResource("9_a5f4b")
+
+[node name="FlipPhone" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("10_uqvdc")
+animation = &"open"
+
+[node name="Wallet" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(299, 616)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_jgkut")
+
+[node name="Wallet_Page" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("11_p3hdu")
+
+[node name="Wallet_Front" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("12_lu3tl")
+
+[node name="Book" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(316, 677)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("14_2s4yh")
+animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 640.0
-offset_bottom = 480.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="Title" type="TextureRect" parent="Main"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_right = 1.0
-anchor_bottom = 0.483
-offset_bottom = 0.159988
-grow_horizontal = 0
-texture = SubResource("ViewportTexture_25xsh")
-expand_mode = 1
-stretch_mode = 6
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
 layout_mode = 1
-offset_left = -641.0
-offset_right = -1.0
-offset_bottom = 480.0
-
-[node name="mus_vol" parent="Options/Panel/VBoxContainer" index="1" node_paths=PackedStringArray("label")]
-label = NodePath("value")
-
-[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" node_paths=PackedStringArray("label") groups=["splat"]]
-label = NodePath("value")
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
 visible = false
@@ -167,80 +196,689 @@ grow_vertical = 1
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
 visible = false
 layout_mode = 1
-offset_left = 640.0
-offset_right = 1280.0
-offset_bottom = 480.0
-
-[node name="Label2" parent="Credits/Panel/VBoxContainer" index="1"]
-text = "Art, Sound, Design - Houndfall
-Art, Programming, Design - lettucepie
-
-Made in
-Godot 4.2.2 & 4.3
-Aseprite
-Krita
-LMMS
-
-third-party assets
-kenney-nl fontss"
+offset_top = 600.0
+offset_bottom = 600.0
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
 layout_mode = 1
 offset_top = -480.0
-offset_right = 640.0
+offset_bottom = -480.0
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
-visible = false
 layout_mode = 1
 offset_top = -480.0
-offset_right = 640.0
+offset_bottom = -480.0
 
-[node name="LanguageSelector" parent="." instance=ExtResource("14_3fnfm")]
+[node name="CustomerDex" type="Control" parent="."]
 visible = false
 layout_mode = 1
-offset_left = -640.0
-offset_bottom = 480.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_iqshf")
+script = ExtResource("13_skqqd")
+customer_images = Array[Texture2D]([ExtResource("17_lf1bt"), ExtResource("18_nlobw"), ExtResource("19_qfkm0"), ExtResource("20_jcpf5"), ExtResource("21_gaxuw"), ExtResource("22_2cl4i"), ExtResource("23_p7mv6"), ExtResource("24_myxcq"), ExtResource("25_ydldf"), ExtResource("26_7bir2"), ExtResource("27_vhudc"), ExtResource("28_tycmq"), ExtResource("29_m8qxe"), ExtResource("30_tcn2y"), ExtResource("31_54cwo"), ExtResource("32_lmrre"), ExtResource("33_j0do6"), ExtResource("34_4y82p"), ExtResource("35_swiqc"), ExtResource("36_iojvp"), ExtResource("37_2t86x"), ExtResource("38_n4m8h"), ExtResource("39_2bn1i"), ExtResource("40_d4bm4"), ExtResource("41_wfgio")])
+customer_image_unknown = ExtResource("42_imtnm")
 
-[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(320, 240)
-scale = Vector2(8, 8)
-sprite_frames = ExtResource("15_6gf58")
+[node name="crop" type="ColorRect" parent="CustomerDex"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.058
+anchor_right = 0.492
+anchor_bottom = 0.371
+offset_left = -0.160004
+offset_top = 0.16
+offset_right = 0.119995
+offset_bottom = -0.0800171
+color = Color(0.294118, 0.423529, 0.352941, 1)
 
-[node name="CustomerDex" parent="." instance=ExtResource("16_gc8o8")]
+[node name="profile" type="TextureRect" parent="CustomerDex/crop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.047
+anchor_right = 1.0
+anchor_bottom = 1.32
+offset_top = -0.0500002
+offset_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_m8qxe")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="pagenum" type="Label" parent="CustomerDex"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.048
+anchor_right = 0.166
+anchor_bottom = 0.173
+offset_left = -0.200005
+offset_top = -0.0400009
+offset_right = -0.240013
+offset_bottom = -0.0400009
+text = "1
+-
+30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomerDex"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.527
+anchor_top = 0.037
+anchor_right = 0.947
+anchor_bottom = 0.552
+offset_left = -0.279999
+offset_top = 0.24
+offset_right = -0.0800171
+offset_bottom = 0.039978
+
+[node name="name" type="Label" parent="CustomerDex/VBoxContainer"]
+layout_mode = 2
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="iconlayer" type="HBoxContainer" parent="CustomerDex/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_lcfjd")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("19_arbe5")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CustomerDex/VBoxContainer/iconlayer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_hvfok")
+stretch_mode = 5
+
+[node name="statlayer" type="HBoxContainer" parent="CustomerDex/VBoxContainer"]
+layout_mode = 2
+
+[node name="fantastic" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="satisfactory" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="disappointed" type="Label" parent="CustomerDex/VBoxContainer/statlayer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description_a" type="Label" parent="CustomerDex/VBoxContainer"]
+custom_minimum_size = Vector2(269, 100)
+layout_mode = 2
+text = "This Customer Customers
+they really really do
+they customer until they customer
+from morning until some time in the afternoon."
+label_settings = ExtResource("21_8q63w")
+autowrap_mode = 2
+
+[node name="page_reveal" type="AnimatedSprite2D" parent="CustomerDex"]
+position = Vector2(325, 338.5)
+scale = Vector2(1.7875, 1.7875)
+sprite_frames = ExtResource("22_8rdvr")
+animation = &"reveal"
+autoplay = "start"
+frame = 3
+
+[node name="page_reveal_button" type="TextureButton" parent="CustomerDex"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.845312
+anchor_top = 0.704167
+anchor_right = 0.960938
+anchor_bottom = 0.858333
+focus_neighbor_left = NodePath("../controls/prev")
+focus_neighbor_right = NodePath("../controls/next")
+focus_neighbor_bottom = NodePath("../controls/done")
+texture_pressed = ExtResource("22_vbjx8")
+texture_hover = ExtResource("22_vbjx8")
+texture_focused = ExtResource("22_vbjx8")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="description_b" type="Label" parent="CustomerDex"]
 visible = false
 layout_mode = 1
-offset_right = 640.0
-offset_bottom = 480.0
+anchors_preset = -1
+anchor_left = 0.103125
+anchor_top = 0.604167
+anchor_right = 0.920313
+anchor_bottom = 0.79375
+text = "this customer customers"
+label_settings = ExtResource("21_8q63w")
+metadata/_edit_use_anchors_ = true
+
+[node name="schedule" type="TextureRect" parent="CustomerDex"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.103125
+anchor_top = 0.604167
+anchor_right = 0.920313
+anchor_bottom = 0.79375
+texture = ExtResource("50_34jfi")
+metadata/_edit_use_anchors_ = true
+
+[node name="results" type="HBoxContainer" parent="CustomerDex/schedule"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.977
+anchor_bottom = 1.0
+offset_top = 1.50008
+offset_right = 0.0286865
+offset_bottom = 0.000152588
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="01" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="02" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="03" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="04" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="05" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="06" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="07" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="08" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="09" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="10" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="11" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="12" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="13" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="14" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="15" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="16" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="17" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="18" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="19" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="20" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="21" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="22" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="23" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="24" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="25" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="26" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="27" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="28" type="TextureRect" parent="CustomerDex/schedule/results"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("51_62nd4")
+script = ExtResource("52_j3ae5")
+
+[node name="TextureRect" type="TextureRect" parent="CustomerDex/schedule"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.382979
+anchor_right = 0.137667
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.120459
+anchor_top = 0.382979
+anchor_right = 0.225621
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.225621
+anchor_top = 0.382979
+anchor_right = 0.330784
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.330784
+anchor_top = 0.382979
+anchor_right = 0.435946
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.435946
+anchor_top = 0.382979
+anchor_right = 0.541109
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect6" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.541109
+anchor_top = 0.382979
+anchor_right = 0.646271
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect7" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646271
+anchor_top = 0.382979
+anchor_right = 0.751434
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect8" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.751434
+anchor_top = 0.382979
+anchor_right = 0.856596
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect9" type="TextureRect" parent="CustomerDex/schedule"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.856596
+anchor_top = 0.382979
+anchor_right = 0.961758
+anchor_bottom = 0.489362
+texture = ExtResource("53_8d10h")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="controls" type="HBoxContainer" parent="CustomerDex"]
+layout_mode = 0
+anchor_left = 0.1
+anchor_top = 0.833333
+anchor_right = 0.925
+anchor_bottom = 0.979167
+metadata/_edit_use_anchors_ = true
+
+[node name="prev" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../page_reveal_button")
+focus_neighbor_right = NodePath("../done")
+texture_normal = ExtResource("23_a6gyn")
+texture_pressed = ExtResource("24_hljgt")
+texture_hover = ExtResource("24_hljgt")
+texture_focused = ExtResource("24_hljgt")
+stretch_mode = 5
+
+[node name="done" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../prev")
+focus_neighbor_top = NodePath("../../page_reveal_button")
+focus_neighbor_right = NodePath("../next")
+texture_normal = ExtResource("25_wlmhq")
+texture_pressed = ExtResource("26_b7osb")
+texture_hover = ExtResource("26_b7osb")
+texture_focused = ExtResource("26_b7osb")
+stretch_mode = 5
+
+[node name="next" type="TextureButton" parent="CustomerDex/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../done")
+focus_neighbor_top = NodePath("../../page_reveal_button")
+texture_normal = ExtResource("27_6kuda")
+texture_pressed = ExtResource("28_7m8tr")
+texture_hover = ExtResource("28_7m8tr")
+texture_focused = ExtResource("28_7m8tr")
+stretch_mode = 5
+
+[node name="Records" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 645.0
+offset_right = 645.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("63_smrq3")
+
+[node name="TextureRect" type="TextureRect" parent="Records"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -80.0
+offset_right = -59.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("60_8impe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Records/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.187
+anchor_right = 0.981
+anchor_bottom = 0.802
+offset_left = 0.0479984
+offset_top = 0.319992
+offset_right = -0.177002
+offset_bottom = -0.279968
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="total_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/total_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "total score:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/total_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highest_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/highest_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "highest score:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/highest_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spent_score" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/spent_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "score points spent:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/spent_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="times_played" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/times_played" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "times played:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/times_played"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="burgers_served" type="HBoxContainer" parent="Records/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="Records/TextureRect/VBoxContainer/burgers_served" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "burgers served:"
+label_settings = ExtResource("65_ai2h5")
+
+[node name="value" type="Label" parent="Records/TextureRect/VBoxContainer/burgers_served"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("65_ai2h5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = 209.0
+offset_top = 87.0
+offset_right = -201.0
+offset_bottom = -293.0
+
+[node name="track_title" parent="Jukebox/screen" index="0"]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="pressed" from="Main/Play" to="." method="main_button_event" binds= ["play"]]
-[connection signal="pressed" from="Main/Options" to="." method="main_button_event" binds= ["options"]]
-[connection signal="pressed" from="Main/Extras" to="." method="main_button_event" binds= ["extras"]]
-[connection signal="pressed" from="Main/Quit" to="." method="main_button_event" binds= ["quit"]]
-[connection signal="update_value" from="Options/Panel/VBoxContainer/mus_vol" to="." method="_on_mus_vol_update_value"]
-[connection signal="update_value" from="Options/Panel/VBoxContainer/sfx_vol" to="." method="_on_sfx_vol_update_value"]
-[connection signal="toggled" from="Options/Panel/VBoxContainer/swap_confirm" to="." method="_on_swap_confirm_toggled"]
-[connection signal="pressed" from="Options/Panel/VBoxContainer/set_lang" to="." method="option_button_event" binds= ["lang_select"]]
-[connection signal="pressed" from="Options/Panel/VBoxContainer/finished" to="." method="option_button_event" binds= ["options_done"]]
-[connection signal="pressed" from="Extras/Panel/VBoxContainer/button_row/howto" to="." method="extras_button_event" binds= ["howto"]]
-[connection signal="pressed" from="Extras/Panel/VBoxContainer/button_row2/dex" to="." method="extras_button_event" binds= ["dex"]]
-[connection signal="pressed" from="Extras/Panel/VBoxContainer/button_row3/credits" to="." method="extras_button_event" binds= ["credits"]]
-[connection signal="pressed" from="Extras/Panel/VBoxContainer/finish" to="." method="extras_button_event" binds= ["finish"]]
-[connection signal="pressed" from="Credits/Panel/VBoxContainer/finished" to="." method="credit_button_event" binds= ["credits_done"]]
+[connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
+[connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
+[connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
-[connection signal="pressed" from="Help/Controls/close" to="." method="help_button_event" binds= ["close_help"]]
-[connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
+[connection signal="pressed" from="Help/Controls/close" to="." method="_on_help_close_pressed"]
+[connection signal="animation_finished" from="CustomerDex/page_reveal" to="CustomerDex" method="_on_page_reveal_animation_finished"]
+[connection signal="pressed" from="CustomerDex/page_reveal_button" to="CustomerDex" method="_on_page_reveal_button_pressed"]
+[connection signal="pressed" from="CustomerDex/controls/prev" to="CustomerDex" method="_on_pagebutton_pressed" binds= [-1]]
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
+[connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
+[connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
+[connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
 
-[editable path="SubViewport/Node3D/title_sign"]
-[editable path="Main"]
+[editable path="office"]
 [editable path="Options"]
 [editable path="Extras"]
 [editable path="Credits"]
 [editable path="Paused"]
 [editable path="Help"]
-[editable path="LanguageSelector"]
-[editable path="CustomerDex"]
+[editable path="Jukebox"]

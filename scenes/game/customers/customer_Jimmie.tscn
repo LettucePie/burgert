@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmycphaqf0bvr"]
+[gd_scene load_steps=8 format=3 uid="uid://bmycphaqf0bvr"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_dybq8"]
 [ext_resource type="AnimationLibrary" uid="uid://knkofo4mts3u" path="res://assets/animation/customers/jimmie_animlib.res" id="2_4wsg3"]
 [ext_resource type="SpriteFrames" uid="uid://dw3p885dlqutw" path="res://assets/images/characters/customers/customer_Jimmie_spriteframes.tres" id="2_5sth2"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_454j0"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_6dce2"]
+
+[sub_resource type="Resource" id="Resource_qgbg3"]
+script = ExtResource("2_454j0")
+times = Array[int]([0])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4mh3j"]
 viewport_path = NodePath(".")
@@ -11,6 +16,7 @@ viewport_path = NodePath(".")
 [node name="Jimmie" instance=ExtResource("1_dybq8")]
 customer_name = "Jimmie"
 orders = Array[PackedStringArray]([PackedStringArray("Lettuce"), PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Bun", "Lettuce"), PackedStringArray("Bun", "Meat", "Lettuce", "Bun Top")])
+schedule = SubResource("Resource_qgbg3")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

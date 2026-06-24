@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://j0vyfdprpqgb"]
+
+[ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="1_waj2h"]
+[ext_resource type="StyleBox" uid="uid://do15hyo23q5de" path="res://assets/theme/styleboxes/flip-phone_stylebox_focus.tres" id="1_xmb3s"]
+[ext_resource type="StyleBox" uid="uid://cpk46y2ets7iu" path="res://assets/theme/styleboxes/flip-phone-stylebox_normal.tres" id="2_k5otm"]
+[ext_resource type="Texture2D" uid="uid://btbkca36er1r0" path="res://assets/images/graphics/menu/flip-phone-os/toggle_on.png" id="3_g0cnw"]
+[ext_resource type="Texture2D" uid="uid://bccoka7inukfn" path="res://assets/images/graphics/menu/flip-phone-os/grabber_handle_sprite.png" id="3_xjbyu"]
+[ext_resource type="Texture2D" uid="uid://88dyxhbnmn8s" path="res://assets/images/graphics/menu/flip-phone-os/toggle_disabled_on.png" id="4_pu0ya"]
+[ext_resource type="Texture2D" uid="uid://bx2wmf42wutiw" path="res://assets/images/graphics/menu/flip-phone-os/toggle_off.png" id="5_xcuuc"]
+[ext_resource type="Texture2D" uid="uid://baivj5j0fc46s" path="res://assets/images/graphics/menu/flip-phone-os/toggle_disabled_off.png" id="6_mpalg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcgxg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rqoc"]
+bg_color = Color(0.246035, 0.51198, 0.27451, 1)
+corner_detail = 1
+expand_margin_top = 13.0
+expand_margin_bottom = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftjc3"]
+bg_color = Color(0.148119, 0.327851, 0.167384, 1)
+expand_margin_top = 14.0
+expand_margin_bottom = 14.0
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_waj2h")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 0.443137)
+Button/colors/font_focus_color = Color(0.813258, 0.813258, 0.813258, 0.890196)
+Button/colors/font_hover_color = Color(0.811765, 0.811765, 0.811765, 0.890196)
+Button/styles/disabled = SubResource("StyleBoxEmpty_fcgxg")
+Button/styles/focus = ExtResource("1_xmb3s")
+Button/styles/hover = ExtResource("1_xmb3s")
+Button/styles/hover_pressed = ExtResource("2_k5otm")
+Button/styles/normal = ExtResource("2_k5otm")
+Button/styles/pressed = ExtResource("2_k5otm")
+CheckButton/icons/checked = ExtResource("3_g0cnw")
+CheckButton/icons/checked_disabled = ExtResource("4_pu0ya")
+CheckButton/icons/unchecked = ExtResource("5_xcuuc")
+CheckButton/icons/unchecked_disabled = ExtResource("6_mpalg")
+HSlider/icons/grabber = ExtResource("3_xjbyu")
+HSlider/icons/grabber_highlight = ExtResource("3_xjbyu")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_8rqoc")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ftjc3")
+Label/colors/font_color = Color(0, 0, 0, 0.443137)

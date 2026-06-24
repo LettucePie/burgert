@@ -1,12 +1,17 @@
 extends Control
 class_name CustomerDex
 
-@onready var name_label : Label = $Panel/content/picture_bg/picture_overlay/customer_name
-@onready var pic_rect : TextureRect = $Panel/content/picture_bg/customer_pic
-@onready var stats_label : Label = $Panel/content/vbox/stats/value_label
-@onready var description_a : Label = $Panel/content/vbox/description_a
-@onready var description_b : Label = $Panel/content/vbox/description_b
-@onready var page_label : Label = $Panel/content/pgnum
+@onready var name_label : Label = $VBoxContainer/name
+@onready var pic_rect : TextureRect = $crop/profile
+@onready var fantastic_label : Label = $VBoxContainer/statlayer/fantastic
+@onready var satisfactory_label : Label = $VBoxContainer/statlayer/satisfactory
+@onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
+@onready var description_a : Label = $VBoxContainer/description_a
+@onready var description_b : Label = $description_b
+@onready var schedule : TextureRect = $schedule
+@onready var schedule_results_container : HBoxContainer = $schedule/results
+@onready var page_label : Label = $pagenum
+@onready var page_reveal : AnimatedSprite2D = $page_reveal
 
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
@@ -120,6 +125,10 @@ var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or 
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
+var customer_schedules : Array[Schedule] = []
+var page_reveal_flipped : bool = false
+@onready var result_slots : Array = schedule_results_container.get_children()
+var registered_timeslots : PackedInt32Array = []
 
 ####
 #### Multi Lang Setters
@@ -155,13 +164,26 @@ func set_customer_descriptions_b(strings : Array):
 
 func assign_stats(stats : Play.Stats):
 	customer_stats.clear()
+	registered_timeslots = stats.get_timeslots_played()
 	for _name in customer_names_internal:
 		customer_stats.append(stats.fetch_customerstat(_name))
+
+
+func extract_schedules(customers : Array[Customer]):
+	customer_schedules.clear()
+	for _name in customer_names_internal:
+		for c : Customer in customers:
+			if c.customer_name == _name:
+				customer_schedules.append(c.schedule)
 
 
 func open_dex():
 	current_page = 0
 	_load_page(0)
+	page_reveal.play("start")
+	description_b.show()
+	schedule.hide()
+	page_reveal_flipped = false
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
@@ -178,14 +200,16 @@ func _load_page(target : int):
 	current_page = target
 	name_label.text = customer_name_unknown
 	pic_rect.texture = customer_image_unknown
-	stats_label.text = "0\n0\n0"
+	#stats_label.text = "0\n0\n0"
+	fantastic_label.text = "0"
+	satisfactory_label.text = "0"
+	disappointed_label.text = "0"
 	description_a.text = customer_desc_a_unknown
 	description_b.text = customer_desc_b_unknown
 	var stats : Play.Stats.CustomerStat = customer_stats[target]
-	stats_label.text = \
-		str(stats.get_fantastic_orders()) + "\n" + \
-		str(stats.get_satisfactory_orders()) + "\n" + \
-		str(stats.get_disappointing_orders())
+	fantastic_label.text = str(stats.get_fantastic_orders())
+	satisfactory_label.text = str(stats.get_satisfactory_orders())
+	disappointed_label.text = str(stats.get_disappointing_orders())
 	if stats.get_orders_served() >= 1:
 		pic_rect.texture = customer_images[target]
 	if stats.get_orders_served() >= 5 \
@@ -200,8 +224,40 @@ func _load_page(target : int):
 		description_b.text = customer_descriptions_b[target]
 	description_b.visible_ratio = 0.0
 	page_label.text = str(target + 1) + "\n--\n" + str(customer_names_internal.size())
+	var timeslot_idx = 1
+	for timeslot_result : TimeSlot_Result in result_slots:
+		timeslot_result.set_result(0)
+		if registered_timeslots.has(timeslot_idx):
+			var schedule : Schedule = customer_schedules[target]
+			if schedule.times.has(timeslot_idx):
+				if stats.get_orders_served() > 0:
+					timeslot_result.set_result(3)
+				else:
+					timeslot_result.set_result(2)
+			else:
+				timeslot_result.set_result(1)
+		timeslot_idx += 1
 
 
 func _physics_process(delta: float) -> void:
 	if description_b.visible_ratio < 1.0:
 		description_b.visible_ratio += 0.018
+
+
+func _on_page_reveal_button_pressed() -> void:
+	print("Revealing Page")
+	if page_reveal_flipped:
+		page_reveal_flipped = false
+		page_reveal.play("hide")
+		schedule.hide()
+	else:
+		page_reveal_flipped = true
+		page_reveal.play("reveal")
+		description_b.hide()
+
+
+func _on_page_reveal_animation_finished() -> void:
+	if page_reveal.animation == "hide":
+		description_b.show()
+	elif page_reveal.animation == "reveal":
+		schedule.show()

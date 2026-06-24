@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://swaf5bjjfxgu"]
+[gd_scene load_steps=8 format=3 uid="uid://swaf5bjjfxgu"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_vfpqv"]
+[ext_resource type="Resource" uid="uid://118kimpb6sm6" path="res://assets/data/schedules/liam_schedule.tres" id="2_hfj5y"]
 [ext_resource type="SpriteFrames" uid="uid://cn80shcxkhuwy" path="res://assets/images/characters/customers/customer_Liam_spriteframes.tres" id="2_t6lo6"]
 [ext_resource type="AnimationLibrary" uid="uid://b3tti5m237x8y" path="res://assets/animation/customers/liam_animlib.res" id="2_wcd30"]
 [ext_resource type="AudioStream" uid="uid://d0fv242kxkyfh" path="res://assets/sound/sfx/Voice/Doot_5.wav" id="4_45bu8"]
@@ -12,6 +13,7 @@ viewport_path = NodePath(".")
 [node name="Liam" instance=ExtResource("1_vfpqv")]
 customer_name = "Macho Liam"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Meat", "Meat")])
+schedule = ExtResource("2_hfj5y")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

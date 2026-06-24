@@ -1,83 +1,170 @@
-[gd_scene format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=22 format=3 uid="uid://vrd4yei4hrcp"]
 
-[node name="Main" type="Control"]
+[ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
+[ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
+[ext_resource type="Script" path="res://scenes/ui/main_sandwhich.gd" id="1_kifg5"]
+[ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
+[ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/icons/customerdex_icon.png" id="3_nw1xn"]
+[ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/icons/credits_icon.png" id="4_mnra0"]
+[ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/icons/receipt_sprite.png" id="4_nb154"]
+[ext_resource type="Texture2D" uid="uid://dso3tex3lg86b" path="res://assets/images/graphics/menu/icons/settings_gear.png" id="5_gxdf3"]
+[ext_resource type="Texture2D" uid="uid://7o8j4g3f2rb7" path="res://assets/images/graphics/menu/plate.png" id="6_qkixa"]
+[ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/icons/help_icon.png" id="6_v0pyw"]
+[ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/icons/jukebox_icon.png" id="7_2wa71"]
+[ext_resource type="Texture2D" uid="uid://p54mxhut7p0i" path="res://assets/images/graphics/menu/main/menu_sandwhich_bottom_bun.png" id="7_b10ma"]
+[ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/icons/quit_icon.png" id="8_b1kc7"]
+[ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/main/menu_sandwhich_meat.png" id="9_oagvs"]
+[ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
+[ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
+[ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
+[ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
+[ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
+[ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_coo2x"]
+viewport_path = NodePath("Subviews/SubView_Title")
+script = ExtResource("1_cbnl0")
+viewport_path_again = NodePath("../Subviews/SubView_Title")
+
+[node name="Main" type="Control" node_paths=PackedStringArray("label_container", "label") groups=["lang_text_array"]]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kifg5")
+label_container = NodePath("PanelContainer")
+label = NodePath("PanelContainer/Label")
 
-[node name="Play" type="Button" parent="." groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.048
-anchor_top = 0.502
-anchor_right = 0.769
-anchor_bottom = 0.619
-offset_left = 0.279999
-offset_top = 0.039978
-offset_right = -0.160034
-offset_bottom = -0.119995
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Options")
-focus_next = NodePath("../Options")
-focus_previous = NodePath("../Quit")
-text = "Play"
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_right = 1.0
+anchor_bottom = 0.629
+offset_left = -0.160004
+offset_bottom = 0.0799866
+grow_horizontal = 0
+texture = SubResource("ViewportTexture_coo2x")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Options" type="Button" parent="." groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.08
-anchor_top = 0.627
-anchor_right = 0.8
-anchor_bottom = 0.746
-offset_left = -0.200005
-offset_top = 0.039978
-offset_bottom = -0.0800171
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Play")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Extras")
-focus_next = NodePath("../Extras")
-focus_previous = NodePath("../Play")
-text = "Options"
+[node name="Subviews" type="Node" parent="."]
 
-[node name="Extras" type="Button" parent="." groups=["lang_text", "splat"]]
-layout_mode = 2
-anchor_left = 0.111
-anchor_top = 0.754
-anchor_right = 0.831
-anchor_bottom = 0.873
-offset_left = -0.0400085
-offset_top = 0.0799866
-offset_right = 0.159973
-offset_bottom = -0.0400085
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Options")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Options")
-text = "Extras"
+[node name="SubView_Title" type="SubViewport" parent="Subviews"]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(640, 480)
 
-[node name="Quit" type="Button" parent="." groups=["lang_text", "splat"]]
+[node name="Node3D" type="Node3D" parent="Subviews/SubView_Title"]
+
+[node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
+transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.792844, 0.860624, 3.32185)
+
+[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
+texture_filter = 0
+texture = ExtResource("11_mm0ww")
+script = ExtResource("2_f6xup")
+
+[node name="Plate" type="Sprite2D" parent="."]
+position = Vector2(217, 369)
+scale = Vector2(3.41667, 3.41667)
+texture = ExtResource("6_qkixa")
+
+[node name="Sandwhich" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(217, 369)
+
+[node name="Quit" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_b10ma")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Quit"]
+texture = ExtResource("8_b1kc7")
+
+[node name="Credits" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_oagvs")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Credits"]
+texture = ExtResource("4_mnra0")
+
+[node name="Jukebox" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_b10ma")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Jukebox"]
+self_modulate = Color(0, 0, 0, 0.235294)
+position = Vector2(0.5, 0.5)
+texture = ExtResource("7_2wa71")
+
+[node name="Icon_over" type="Sprite2D" parent="Sandwhich/Jukebox/Icon"]
+position = Vector2(-0.5, -0.5)
+texture = ExtResource("7_2wa71")
+
+[node name="Help" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_oagvs")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Help"]
+texture = ExtResource("6_v0pyw")
+
+[node name="Options" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("13_hhppr")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Options"]
+texture = ExtResource("5_gxdf3")
+
+[node name="Records" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("15_f8xqq")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Records"]
+texture = ExtResource("4_nb154")
+
+[node name="CustomerDex" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("17_cwois")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/CustomerDex"]
+texture = ExtResource("3_nw1xn")
+
+[node name="Play" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("19_1kd2p")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Play"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(0.5, 0.5)
+texture = ExtResource("1_cd2sv")
+
+[node name="Icon_over" type="Sprite2D" parent="Sandwhich/Play/Icon"]
+position = Vector2(-0.5, -0.5)
+texture = ExtResource("1_cd2sv")
+
+[node name="Top" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("21_ci52s")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Top"]
+visible = false
+texture = ExtResource("3_nw1xn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.582812
+anchor_top = 0.785417
+anchor_right = 0.992188
+anchor_bottom = 0.983333
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
-anchor_left = 0.142
-anchor_top = 0.881
-anchor_right = 0.862
-anchor_bottom = 1.0
-offset_left = 0.119995
-offset_top = 0.119995
-offset_right = 0.319946
-size_flags_vertical = 3
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../Extras")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../Play")
-focus_next = NodePath("../Play")
-focus_previous = NodePath("../Extras")
-text = "Quit"
+text = "label"
+horizontal_alignment = 1
+vertical_alignment = 1

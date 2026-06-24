@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0spnk3woo3hp"]
+[gd_scene load_steps=10 format=3 uid="uid://c0spnk3woo3hp"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_ofe0g"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_dp7vp"]
 [ext_resource type="AnimationLibrary" uid="uid://6h3qlf0iqxud" path="res://assets/animation/customers/al_animlib.res" id="2_n1yof"]
 [ext_resource type="SpriteFrames" uid="uid://d3p26ap1a22j3" path="res://assets/images/characters/customers/customer_al_spriteframes.tres" id="3_4sv82"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_gcaxs"]
 [ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/Voice/Doot_6.wav" id="5_a42cq"]
 [ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="6_l0iel"]
+
+[sub_resource type="Resource" id="Resource_f8bpj"]
+script = ExtResource("2_dp7vp")
+times = Array[int]([2, 6, 10, 14, 18, 22, 26])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tqk8x"]
 viewport_path = NodePath(".")
@@ -14,6 +19,7 @@ viewport_path = NodePath(".")
 customer_name = "Al"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Mustard", "Bun Top")])
 consecutive_orders = 2
+schedule = SubResource("Resource_f8bpj")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

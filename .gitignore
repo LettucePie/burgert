@@ -3,3 +3,6 @@
 exports/linux
 exports/macos
 exports/windows
+
+# Where are these files coming from?
+*.uid

@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsmv7q4m57b8h"]
+[gd_scene load_steps=10 format=3 uid="uid://bsmv7q4m57b8h"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_vdork"]
 [ext_resource type="AnimationLibrary" uid="uid://bxt2osgb6ty5p" path="res://assets/animation/customers/patient_animlib.res" id="2_8acbk"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_yvgsl"]
 [ext_resource type="SpriteFrames" uid="uid://c1fh8vpk5f8xh" path="res://assets/images/characters/customers/customer_Patient_spriteframes.tres" id="3_fcrd6"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_2gsaq"]
 [ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/Voice/Doot_16.wav" id="5_veran"]
 [ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/Voice/Doot_1.wav" id="6_ap5ag"]
+
+[sub_resource type="Resource" id="Resource_lalwx"]
+script = ExtResource("2_yvgsl")
+times = Array[int]([3, 7, 15, 19, 23, 27])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ykaue"]
 viewport_path = NodePath(".")
@@ -13,6 +18,7 @@ viewport_path = NodePath(".")
 [node name="Patient" instance=ExtResource("1_vdork")]
 customer_name = "Patient"
 orders = Array[PackedStringArray]([PackedStringArray("Cheese", "Cheese", "Cheese", "Cheese", "Lettuce"), PackedStringArray("Bun", "Cheese", "Bun Top"), PackedStringArray("Bun", "Cheese", "Meat", "Cheese", "Lettuce", "Cheese", "Tomato", "Cheese", "Bun Top")])
+schedule = SubResource("Resource_lalwx")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

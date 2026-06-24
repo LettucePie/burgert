@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://b26ikenjxjc4k"]
+[gd_scene load_steps=9 format=3 uid="uid://b26ikenjxjc4k"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_6cvex"]
 [ext_resource type="SpriteFrames" uid="uid://dm1tphux6j6mm" path="res://assets/images/characters/customers/customer_Toad_spriteframes.tres" id="2_5stev"]
 [ext_resource type="AnimationLibrary" uid="uid://dv0ythsrdrr53" path="res://assets/animation/customers/toad_animlib.res" id="2_u8d3v"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_yu2go"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="5_gs74w"]
 [ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="6_r3i6d"]
+
+[sub_resource type="Resource" id="Resource_140mf"]
+script = ExtResource("2_yu2go")
+times = Array[int]([5, 13, 21])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mawkp"]
 viewport_path = NodePath(".")
@@ -13,6 +18,7 @@ viewport_path = NodePath(".")
 customer_name = "Toad"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top"), PackedStringArray("Meat", "Meat"), PackedStringArray("Cheese", "Cheese"), PackedStringArray("Ketchup", "Mustard"), PackedStringArray("Lettuce", "Tomato")])
 consecutive_orders = 2
+schedule = SubResource("Resource_140mf")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

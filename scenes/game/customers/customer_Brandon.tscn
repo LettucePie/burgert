@@ -1,10 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfb1mmcvy0gn0"]
+[gd_scene load_steps=20 format=3 uid="uid://bfb1mmcvy0gn0"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_f3ox2"]
 [ext_resource type="SpriteFrames" uid="uid://cbgxmv8q24lld" path="res://assets/images/characters/customers/customer_brandon_spriteframes.tres" id="2_gyl4l"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_hrl5g"]
 [ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="3_45cqo"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_x3r8s"]
 [ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="5_f0efv"]
+
+[sub_resource type="Resource" id="Resource_rmye0"]
+script = ExtResource("2_hrl5g")
+times = Array[int]([3, 4, 11, 12, 19, 20, 21, 22])
 
 [sub_resource type="Animation" id="Animation_s81vx"]
 length = 0.001
@@ -1063,6 +1068,7 @@ viewport_path = NodePath("burger_portal")
 [node name="Brandon" instance=ExtResource("1_f3ox2")]
 customer_name = "Brandon"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Cheese", "Cheese"), PackedStringArray("Cheese", "Tomato", "Cheese")])
+schedule = SubResource("Resource_rmye0")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -137,7 +137,8 @@ func _clear_joypad_inputs():
 
 func apply_settings():
 	print("APPLYING SETTINGS TO GAME")
-	main_menu.update_settings_display(settings)
+	main_menu.options.set_host(self)
+	main_menu.options.apply_settings()
 	var mus_idx : int = AudioServer.get_bus_index("MUS")
 	var sfx_idx : int = AudioServer.get_bus_index("SFX")
 	var mus_db : float = linear_to_db(float(settings.get_mus_vol()) / 10.0)
@@ -172,10 +173,16 @@ class Stats:
 	var version : int
 	var highest_score : int = 0
 	var times_played : int = 0
+	var total_score : int = 0
+	var spent_score : int = 0
+	var timeslots_played : PackedInt32Array = []
 	
 	var keys : Array = [
-		"version", "highest_score", "times_played", "customer_stats"
+		"version", "highest_score", "times_played", "total_score",
+		"spent_score", "timeslots_played", "customer_stats"
 	]
+	
+	var customers_in_kitchen : Array[Customer] = []
 	
 	class CustomerStat:
 		var customer_name : String
@@ -225,9 +232,26 @@ class Stats:
 	func set_highest_score(new : int):
 		if new > highest_score:
 			highest_score = new
+		if new > 0:
+			total_score += new
 	
 	func get_highest_score() -> int:
 		return highest_score
+	
+	func set_total_score(new : int):
+		total_score = new
+	
+	func get_total_score() -> int:
+		return total_score
+	
+	func set_spent_score(new : int):
+		spent_score = new
+	
+	func get_spent_score() -> int:
+		return spent_score
+	
+	func adjust_spent_score(arg : int):
+		spent_score += arg
 	
 	func set_times_played(new : int):
 		times_played = new
@@ -237,6 +261,15 @@ class Stats:
 	
 	func add_times_played() -> void:
 		times_played += 1
+	
+	func set_timeslots_played(new : Array) -> void:
+		timeslots_played = new
+	
+	func get_timeslots_played() -> PackedInt32Array:
+		return timeslots_played
+	
+	func add_timeslot_played(timeslot_idx : int) -> void:
+		timeslots_played.append(timeslot_idx)
 	
 	func set_customer_stats(new : Array[CustomerStat]):
 		customer_stats = new
@@ -321,7 +354,11 @@ func _load_stats():
 		if valid:
 			stats.set_highest_score(data["highest_score"])
 			stats.set_times_played(data["times_played"])
+			stats.set_total_score(data["total_score"])
+			stats.set_spent_score(data["spent_score"])
+			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
+	stats.customers_in_kitchen = game_scene.kitchen.customers
 	apply_stats()
 
 
@@ -331,6 +368,9 @@ func _save_stats():
 		"version" = game_version,
 		"highest_score" = stats.get_highest_score(),
 		"times_played" = stats.get_times_played(),
+		"total_score" = stats.get_total_score(),
+		"spent_score" = stats.get_spent_score(),
+		"timeslots_played" = stats.get_timeslots_played(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
@@ -343,6 +383,7 @@ func _save_stats():
 
 func apply_stats():
 	main_menu.customer_dex.assign_stats(stats)
+	main_menu.records.assign_stats(stats)
 
 
 ####
@@ -366,7 +407,8 @@ func _ready():
 		var container : GameContainer = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
-	multi_lang.call_deferred("introduce_language_selector", main_menu.language_selector)
+	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
+	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 
 
 func _process(delta):
@@ -396,6 +438,7 @@ func _on_game_game_finished(final_score : int):
 	get_tree().paused = true
 	stats.add_times_played()
 	stats.set_highest_score(final_score)
+	stats.add_timeslot_played(game_scene.kitchen.kitchen_timeslot)
 	_save_stats()
 	#music.set_state(Music.STATE.MENU)
 
@@ -429,19 +472,19 @@ func _on_game_game_over():
 	_on_main_menu_quit_play()
 
 
-func _on_main_menu_update_mus_vol(new_val):
+func options_update_mus_vol(new_val):
 	if settings != null:
 		settings.set_mus_vol(new_val)
 		_save_settings()
 
 
-func _on_main_menu_update_sfx_vol(new_val):
+func options_update_sfx_vol(new_val):
 	if settings != null:
 		settings.set_sfx_vol(new_val)
 		_save_settings()
 
 
-func _on_main_menu_update_a_b_swap(new_val):
+func options_update_a_b_swap(new_val):
 	if settings != null:
 		settings.set_a_b_swap(new_val)
 		_save_settings()
@@ -451,3 +494,12 @@ func _on_multi_lang_set_lang(lang: String) -> void:
 	if settings != null:
 		settings.set_language(lang)
 		_save_settings()
+
+
+func _on_main_menu_bgm_pause(pause: bool) -> void:
+	print("main menu bgm signal recieved")
+	if pause:
+		music.anim.play("pause_play")
+	else:
+		music.anim.play("resume_play")
+		music.play(music.playback_time)

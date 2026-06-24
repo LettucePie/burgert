@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b8731t3xvuull"]
+
+[ext_resource type="Texture2D" uid="uid://dccawlontpv7t" path="res://assets/images/graphics/menu/icons/pointer_hand.png" id="1_0v4pn"]
+
+[resource]
+texture = ExtResource("1_0v4pn")

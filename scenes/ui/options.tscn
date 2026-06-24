@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dliaynw0s7s52"]
+[gd_scene load_steps=7 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
-[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/menu/language_icon.png" id="2_6uhjv"]
+[ext_resource type="Script" path="res://scenes/ui/options.gd" id="1_iywii"]
+[ext_resource type="Texture2D" uid="uid://cwb3eu5ts21am" path="res://assets/images/graphics/menu/icons/language_icon.png" id="2_6uhjv"]
+[ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="3_e3j2c"]
+[ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone_open.png" id="3_lryte"]
+[ext_resource type="Script" path="res://scenes/ui/language_selector.gd" id="5_bio1n"]
 
 [node name="Options" type="Control"]
 texture_filter = 1
@@ -11,58 +15,78 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iywii")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="phone" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_e3j2c")
+texture = ExtResource("3_lryte")
+
+[node name="main" type="Control" parent="phone"]
+visible = false
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 1
+anchor_left = 0.266
+anchor_top = 0.229
+anchor_right = 0.731
+anchor_bottom = 0.977
+offset_left = -0.240005
+offset_top = 0.0799942
+offset_right = 0.160004
+offset_bottom = 0.039978
+
+[node name="splash" type="TextureRect" parent="phone/main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vcont1" type="VBoxContainer" parent="phone/main"]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = -80.0
-offset_bottom = -40.0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = -4.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer" groups=["lang_text"]]
+[node name="Label" type="Label" parent="phone/main/vcont1"]
+use_parent_material = true
 layout_mode = 2
-size_flags_vertical = 6
-text = "OPTIONS"
+text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mus_vol" type="HBoxContainer" parent="Panel/VBoxContainer" node_paths=PackedStringArray("slider", "label", "marker") groups=["splat"]]
+[node name="mus_vol" type="HBoxContainer" parent="phone/main/vcont1"]
+use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../finished")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../sfx_vol")
 focus_mode = 2
 script = ExtResource("1_1ag3e")
-slider = NodePath("HSlider")
-label = NodePath("Label")
-marker = NodePath("../mus_marker")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/mus_vol" groups=["lang_text"]]
+[node name="Label" type="Label" parent="phone/main/vcont1/mus_vol" groups=["lang_text"]]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
 text = "MUSIC VOL"
 
-[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/mus_vol"]
+[node name="HSlider" type="HSlider" parent="phone/main/vcont1/mus_vol"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
@@ -70,7 +94,8 @@ focus_mode = 0
 max_value = 10.0
 value = 10.0
 
-[node name="value" type="Label" parent="Panel/VBoxContainer/mus_vol"]
+[node name="value" type="Label" parent="phone/main/vcont1/mus_vol"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.38
@@ -78,32 +103,24 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="mus_marker" type="ColorRect" parent="Panel/VBoxContainer" groups=["splat"]]
-visible = false
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-color = Color(0.67451, 0.196078, 0.196078, 1)
-
-[node name="sfx_vol" type="HBoxContainer" parent="Panel/VBoxContainer" node_paths=PackedStringArray("slider", "label", "marker")]
+[node name="sfx_vol" type="HBoxContainer" parent="phone/main/vcont1"]
+use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../mus_vol")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../swap_confirm")
 focus_mode = 2
 script = ExtResource("1_1ag3e")
-slider = NodePath("HSlider")
-label = NodePath("Label")
-marker = NodePath("../sfx_marker")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/sfx_vol" groups=["lang_text"]]
+[node name="Label" type="Label" parent="phone/main/vcont1/sfx_vol" groups=["lang_text"]]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
 text = "SFX Vol"
 
-[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/sfx_vol"]
+[node name="HSlider" type="HSlider" parent="phone/main/vcont1/sfx_vol"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.62
@@ -111,7 +128,8 @@ focus_mode = 0
 max_value = 10.0
 value = 10.0
 
-[node name="value" type="Label" parent="Panel/VBoxContainer/sfx_vol"]
+[node name="value" type="Label" parent="phone/main/vcont1/sfx_vol"]
+use_parent_material = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.38
@@ -119,44 +137,79 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="sfx_marker" type="ColorRect" parent="Panel/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-color = Color(0.67451, 0.196078, 0.196078, 1)
-
-[node name="swap_confirm" type="CheckButton" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
+[node name="swap_confirm" type="CheckButton" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
-focus_neighbor_left = NodePath("../sfx_vol")
-focus_neighbor_top = NodePath("../sfx_vol")
-focus_neighbor_right = NodePath("../set_lang")
-focus_neighbor_bottom = NodePath("../set_lang")
 text = "Swap A-B"
 
-[node name="set_lang" type="Button" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
+[node name="set_lang" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../swap_confirm")
-focus_neighbor_top = NodePath("../swap_confirm")
-focus_neighbor_right = NodePath("../finished")
-focus_neighbor_bottom = NodePath("../finished")
 text = "Language"
 icon = ExtResource("2_6uhjv")
 
-[node name="finished" type="Button" parent="Panel/VBoxContainer" groups=["lang_text", "splat"]]
+[node name="finished" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../set_lang")
-focus_neighbor_top = NodePath("../set_lang")
-focus_neighbor_right = NodePath("../mus_vol")
-focus_neighbor_bottom = NodePath("../mus_vol")
 text = "Done"
 
-[connection signal="focus_entered" from="Panel/VBoxContainer/mus_vol" to="Panel/VBoxContainer/mus_vol" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Panel/VBoxContainer/mus_vol" to="Panel/VBoxContainer/mus_vol" method="_on_focus_exited"]
-[connection signal="drag_ended" from="Panel/VBoxContainer/mus_vol/HSlider" to="Panel/VBoxContainer/mus_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
-[connection signal="focus_entered" from="Panel/VBoxContainer/sfx_vol" to="Panel/VBoxContainer/sfx_vol" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Panel/VBoxContainer/sfx_vol" to="Panel/VBoxContainer/sfx_vol" method="_on_focus_exited"]
-[connection signal="drag_ended" from="Panel/VBoxContainer/sfx_vol/HSlider" to="Panel/VBoxContainer/sfx_vol" method="_on_volslider_drag_ended" binds= ["sfx"]]
+[node name="language" type="Control" parent="phone" node_paths=PackedStringArray("directory", "entry_original")]
+layout_mode = 1
+anchor_left = 0.269
+anchor_top = 0.233
+anchor_right = 0.731
+anchor_bottom = 0.975
+offset_left = -0.160019
+offset_top = 0.159996
+offset_right = 0.160004
+script = ExtResource("5_bio1n")
+directory = NodePath("VBoxContainer/ScrollContainer/VBoxContainer")
+entry_original = NodePath("VBoxContainer/ScrollContainer/VBoxContainer/entry")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="phone/language"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="phone/language/VBoxContainer" groups=["lang_text"]]
+layout_mode = 2
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="phone/language/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="phone/language/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="entry" type="Button" parent="phone/language/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+text = "English"
+
+[connection signal="focus_entered" from="phone/main/vcont1/mus_vol" to="phone/main/vcont1/mus_vol" method="_on_focus_entered"]
+[connection signal="focus_exited" from="phone/main/vcont1/mus_vol" to="phone/main/vcont1/mus_vol" method="_on_focus_exited"]
+[connection signal="update_value" from="phone/main/vcont1/mus_vol" to="." method="_on_mus_vol_update_value"]
+[connection signal="drag_ended" from="phone/main/vcont1/mus_vol/HSlider" to="phone/main/vcont1/mus_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
+[connection signal="focus_entered" from="phone/main/vcont1/sfx_vol" to="phone/main/vcont1/sfx_vol" method="_on_focus_entered"]
+[connection signal="focus_exited" from="phone/main/vcont1/sfx_vol" to="phone/main/vcont1/sfx_vol" method="_on_focus_exited"]
+[connection signal="update_value" from="phone/main/vcont1/sfx_vol" to="." method="_on_sfx_vol_update_value"]
+[connection signal="drag_ended" from="phone/main/vcont1/sfx_vol/HSlider" to="phone/main/vcont1/sfx_vol" method="_on_volslider_drag_ended" binds= ["sfx"]]
+[connection signal="toggled" from="phone/main/vcont1/swap_confirm" to="." method="_on_swap_confirm_toggled"]
+[connection signal="pressed" from="phone/main/vcont1/set_lang" to="." method="_on_set_lang_pressed"]
+[connection signal="pressed" from="phone/main/vcont1/finished" to="." method="_on_finished_pressed"]
+[connection signal="language_selector_finished" from="phone/language" to="." method="_on_language_language_selector_finished"]
+[connection signal="gui_input" from="phone/language/VBoxContainer/ScrollContainer" to="phone/language" method="_on_scroll_container_gui_input"]
+[connection signal="gui_input" from="phone/language/VBoxContainer/ScrollContainer/VBoxContainer/entry" to="phone/language" method="_on_scroll_container_gui_input"]

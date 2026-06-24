@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://yy7pwwtvklkk"]
+[gd_scene load_steps=9 format=3 uid="uid://yy7pwwtvklkk"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_egn53"]
 [ext_resource type="AnimationLibrary" uid="uid://dfjy0svltnjyj" path="res://assets/animation/customers/punk_animlib.res" id="2_sycni"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_wtpcx"]
 [ext_resource type="SpriteFrames" uid="uid://ckcjomid1tp4s" path="res://assets/images/characters/customers/customer_Punk_spriteframes.tres" id="3_vtoic"]
 [ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="4_pj5f5"]
 [ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="5_pohgv"]
+
+[sub_resource type="Resource" id="Resource_fkluu"]
+script = ExtResource("2_wtpcx")
+times = Array[int]([4, 5, 8, 9, 12, 13, 16, 17, 20, 21])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4n10n"]
 viewport_path = NodePath(".")
@@ -13,6 +18,7 @@ viewport_path = NodePath(".")
 customer_name = "Punk"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Ketchup", "Ketchup", "Bun Top"), PackedStringArray("Cheese", "Ketchup", "Ketchup", "Ketchup", "Cheese"), PackedStringArray("Bun", "Cheese", "Bun", "Ketchup", "Bun", "Cheese", "Bun", "Ketchup", "Bun", "Ketchup", "Bun Top")])
 consecutive_orders = 2
+schedule = SubResource("Resource_fkluu")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

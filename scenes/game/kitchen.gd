@@ -17,6 +17,7 @@ var queue : PackedInt32Array = []
 var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
+var kitchen_timeslot : int = 0
 
 
 func _ready():
@@ -39,6 +40,8 @@ func _ready():
 			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
 				child.kitchen_switch.connect(_on_kitchen_switch)
 	prep_kitchen()
+	## TEST
+	_schedule_number_crunching()
 
 
 func prep_kitchen():
@@ -112,13 +115,14 @@ func _build_queue():
 	
 	## Filter through for eligible special customers
 	var eligible_pool : Array[Customer] = []
+	kitchen_timeslot = Schedule.new().get_current_timeslot()
 	for c in customers:
-		##
-		## REPLACE WITH : IF ELIGIBLE TIME SLOT
-		##
-		if !normy_customers.has(c):
+		if (c.schedule.times.has(kitchen_timeslot) or c.schedule.times.has(0)) \
+		and !normy_customers.has(c):
 			eligible_pool.append(c)
 	print("Eligible Unique Customers Size: ", eligible_pool.size())
+	for e in eligible_pool:
+		print(e.customer_name)
 	
 	randomize()
 	for i in 38:
@@ -221,3 +225,27 @@ func _on_kitchen_switch(target_kitchen):
 	print("Kitchen Switching to: ", target_kitchen)
 	for w in workstations:
 		w.set_runic(target_kitchen == "runic")
+
+
+func _schedule_number_crunching() -> void:
+	print("Charting out spread of customers per timeslot")
+	var pool : Array = []
+	for c in customers:
+		if !normy_customers.has(c):
+			for ti in c.schedule.times:
+				pool.append(ti)
+	var weekdays : PackedStringArray = [
+		"Sunday_ ", "Monday_ ", "Tuesday_ ", "Wednesday_ ", 
+		"Thursday_ ", "Friday_ ", "Saturday_ "
+	]
+	var times : PackedStringArray = [
+		"Morning", "Noon", "Afternoon", "Midnight"
+	]
+	var time_slots_readable : PackedStringArray = [
+		"Any"
+	]
+	for w in weekdays:
+		for t in times:
+			time_slots_readable.append(w + t)
+	for i in time_slots_readable.size():
+		print(time_slots_readable[i], " : ", pool.count(i))

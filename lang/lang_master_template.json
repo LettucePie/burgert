@@ -28,105 +28,77 @@
 						"data2": "Results",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/Label"
 				},
 				{
 					"data1": {
 						"data2": "Orders Finished",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+					"path": "/root/Play/Game/results/Panel/orderlabel"
 				},
 				{
 					"data1": {
 						"data2": "Order Accuracy",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+					"path": "/root/Play/Game/results/Panel/accuracylabel"
 				},
 				{
 					"data1": {
 						"data2": "Total Score",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+					"path": "/root/Play/Game/results/Panel/scorelabel"
 				},
 				{
 					"data1": {
 						"data2": "Finish",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "Play",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Play"
-				},
-				{
-					"data1": {
-						"data2": "Options",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Options"
-				},
-				{
-					"data1": {
-						"data2": "Extras",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Extras"
-				},
-				{
-					"data1": {
-						"data2": "Quit",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Quit"
-				},
-				{
-					"data1": {
-						"data2": "OPTIONS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/finish"
 				},
 				{
 					"data1": {
 						"data2": "MUSIC VOL",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mus_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "SFX Vol",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/sfx_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "Swap A-B",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
 				},
 				{
 					"data1": {
 						"data2": "Language",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/set_lang"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/set_lang"
 				},
 				{
 					"data1": {
 						"data2": "Done",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/finished"
+				},
+				{
+					"data1": {
+						"data2": "Language",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/language/VBoxContainer/title"
 				},
 				{
 					"data1": {
@@ -221,10 +193,38 @@
 				},
 				{
 					"data1": {
-						"data2": "Fantastic Orders : \nSatisfied Orders : \nDisappointed Orders : \n",
+						"data2": "total score:",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex/Panel/content/vbox/stats/stats_label"
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "highest score:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/highest_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "score points spent:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "times played:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/times_played/stat"
+				},
+				{
+					"data1": {
+						"data2": "burgers served:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
 				},
 				{
 					"data1": {
@@ -232,6 +232,27 @@
 						"type": "image"
 					},
 					"path": "/root/Play/Game/kitchen_a/stopnpuke"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/left_side_desktop/folder"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/stickynote"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/help"
 				},
 				{
 					"data1": {
@@ -287,7 +308,7 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/Help"
+					"path": "/root/Play/MainMenu/Main"
 				},
 				{
 					"data1": {
@@ -315,7 +336,7 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex"
+					"path": "/root/Play/MainMenu/Help"
 				}
 			],
 			"font_large": 0,
@@ -350,105 +371,77 @@
 						"data2": "Results",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/Label"
 				},
 				{
 					"data1": {
 						"data2": "Orders Finished",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+					"path": "/root/Play/Game/results/Panel/orderlabel"
 				},
 				{
 					"data1": {
 						"data2": "Order Accuracy",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+					"path": "/root/Play/Game/results/Panel/accuracylabel"
 				},
 				{
 					"data1": {
 						"data2": "Total Score",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+					"path": "/root/Play/Game/results/Panel/scorelabel"
 				},
 				{
 					"data1": {
 						"data2": "Finish",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "Play",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Play"
-				},
-				{
-					"data1": {
-						"data2": "Options",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Options"
-				},
-				{
-					"data1": {
-						"data2": "Extras",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Extras"
-				},
-				{
-					"data1": {
-						"data2": "Quit",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Quit"
-				},
-				{
-					"data1": {
-						"data2": "OPTIONS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/finish"
 				},
 				{
 					"data1": {
 						"data2": "MUSIC VOL",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mus_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "SFX Vol",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/sfx_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "Swap A-B",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
 				},
 				{
 					"data1": {
 						"data2": "Language",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/set_lang"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/set_lang"
 				},
 				{
 					"data1": {
 						"data2": "Done",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/finished"
+				},
+				{
+					"data1": {
+						"data2": "Language",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/language/VBoxContainer/title"
 				},
 				{
 					"data1": {
@@ -543,10 +536,38 @@
 				},
 				{
 					"data1": {
-						"data2": "Fantastic Orders : \nSatisfied Orders : \nDisappointed Orders : \n",
+						"data2": "total score:",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex/Panel/content/vbox/stats/stats_label"
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "highest score:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/highest_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "score points spent:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "times played:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/times_played/stat"
+				},
+				{
+					"data1": {
+						"data2": "burgers served:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
 				},
 				{
 					"data1": {
@@ -554,6 +575,27 @@
 						"type": "image"
 					},
 					"path": "/root/Play/Game/kitchen_a/stopnpuke"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/left_side_desktop/folder"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/stickynote"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/help"
 				},
 				{
 					"data1": {
@@ -609,7 +651,7 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/Help"
+					"path": "/root/Play/MainMenu/Main"
 				},
 				{
 					"data1": {
@@ -637,7 +679,7 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex"
+					"path": "/root/Play/MainMenu/Help"
 				}
 			],
 			"font_large": 0,

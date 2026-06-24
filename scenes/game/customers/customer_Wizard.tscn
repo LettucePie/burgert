@@ -1,12 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://btg66ej2b62y2"]
+[gd_scene load_steps=14 format=3 uid="uid://btg66ej2b62y2"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
 [ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
 [ext_resource type="AnimationLibrary" uid="uid://bmj1p3xkadabu" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_ukjuv"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_cakh5"]
 [ext_resource type="SpriteFrames" uid="uid://5rcwrueqq5tw" path="res://assets/images/graphics/teleport_spriteframes.tres" id="4_ituhy"]
 [ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="5_ex12y"]
 [ext_resource type="Texture2D" uid="uid://2t5nt3pg07ln" path="res://assets/images/graphics/sparkle.png" id="5_ps1n1"]
+
+[sub_resource type="Resource" id="Resource_y3wik"]
+script = ExtResource("2_ukjuv")
+times = Array[int]([4, 28])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ya75s"]
 viewport_path = NodePath("burger_portal")
@@ -26,6 +31,7 @@ colors = PackedColorArray(1, 0.784314, 1, 1, 1, 1, 1, 1)
 [node name="Wizard" instance=ExtResource("1_kgfpk")]
 customer_name = "Wizard"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Lettuce", "Lettuce", "Meat", "Lettuce", "Lettuce"), PackedStringArray("Bun", "Tomato", "Lettuce", "Cheese", "Bun Top")])
+schedule = SubResource("Resource_y3wik")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

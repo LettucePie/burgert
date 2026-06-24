@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d2q6iq8cwc67v"]
+
+[ext_resource type="Texture2D" uid="uid://cfhfvul2344mw" path="res://assets/images/graphics/menu/jukebox/volsprite_knob.png" id="1_7kw0f"]
+[ext_resource type="Texture2D" uid="uid://dsd3rd2glfq10" path="res://assets/images/graphics/menu/jukebox/volsprite_knob_highlight.png" id="2_iv6b3"]
+[ext_resource type="StyleBox" uid="uid://dedgudn6mdk0h" path="res://assets/theme/styleboxes/jukebox_slider_flat.tres" id="2_nugik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnb8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjm8t"]
+
+[resource]
+HSlider/icons/grabber = ExtResource("1_7kw0f")
+HSlider/icons/grabber_disabled = ExtResource("1_7kw0f")
+HSlider/icons/grabber_highlight = ExtResource("2_iv6b3")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_lnb8l")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_mjm8t")
+HSlider/styles/slider = ExtResource("2_nugik")

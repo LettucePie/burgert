@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgdrqg66xl376"]
+[gd_scene load_steps=25 format=3 uid="uid://dgdrqg66xl376"]
 
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_f5x1l"]
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_6f8jk"]
 [ext_resource type="SpriteFrames" uid="uid://dp7ic3f4x35ds" path="res://assets/images/characters/customers/customer_basic_b_spriteframes.tres" id="2_j4wbg"]
 [ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b_animlib.res" id="2_qbviu"]
 [ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="3_bf5st"]
@@ -20,6 +21,10 @@
 [ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="11_r6g35"]
 [ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/Voice/Doot_6.wav" id="12_1x6xe"]
 
+[sub_resource type="Resource" id="Resource_6glnp"]
+script = ExtResource("2_6f8jk")
+times = Array[int]([0])
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2vhh"]
 atlas = ExtResource("5_whcn6")
 region = Rect2(0, 0, 48, 48)
@@ -38,6 +43,7 @@ script = ExtResource("1_f5x1l")
 customer_name = "Basic_B"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top")])
 burger_portal_sprite = NodePath("burger_portal_view")
+schedule = SubResource("Resource_6glnp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
