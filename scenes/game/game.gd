@@ -230,7 +230,6 @@ func _on_game_timer_timeout():
 
 func _on_results_finished_results():
 	emit_signal("game_over")
-	
 
 
 func _on_kitchen_a_customer_ready():
@@ -250,6 +249,7 @@ func _on_kitchen_a_customer_reorder(new_order : PackedStringArray) -> void:
 
 
 func _on_hud_gui_pause():
+	print("Pause Button GUI")
 	if game_started:
 		emit_signal("game_paused")
 
