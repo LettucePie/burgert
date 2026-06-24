@@ -207,6 +207,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 	
 	if anim_name == "dex_open":
 		current_screen = SCREENS.DEX
+	if anim_name == "records_open":
+		current_screen = SCREENS.RECORDS
 
 
 func _on_mus_vol_update_value(new_val):
@@ -243,4 +245,11 @@ func _on_customerdex_done_pressed() -> void:
 	print("Close CustomerDex")
 	if current_screen == SCREENS.DEX:
 		anim.play("dex_close")
+		queued_menu = SCREENS.MAIN
+
+
+func _on_records_close_records() -> void:
+	print("Closing Records...")
+	if current_screen == SCREENS.RECORDS:
+		anim.play("records_close")
 		queued_menu = SCREENS.MAIN

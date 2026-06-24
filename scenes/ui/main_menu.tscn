@@ -97,19 +97,27 @@ libraries = {
 autoplay = "start"
 next/quit_game = &"play_stop"
 next/dex_close = &"desk_return_left"
+next/records_close = &"desk_return_left"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_left = 0.0
+offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 242.0
+offset_top = 264.0
 offset_right = -140.0
-offset_bottom = 339.0
+offset_bottom = 361.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 94.0
+offset_bottom = 171.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -152,6 +160,8 @@ texture = ExtResource("12_lu3tl")
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -864,6 +874,7 @@ offset_right = -640.0
 [connection signal="pressed" from="CustomerDex/controls/prev" to="CustomerDex" method="_on_pagebutton_pressed" binds= [-1]]
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
+[connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
 [connection signal="language_selector_finished" from="LanguageSelector" to="." method="_on_language_selector_language_selector_finished"]
 
 [editable path="office"]
