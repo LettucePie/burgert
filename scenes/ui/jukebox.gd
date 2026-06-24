@@ -1,15 +1,19 @@
 extends Control
 class_name Jukebox
 
+signal stop_pressed()
+
 @export var track_files : Array[AudioStreamMP3] = []
 @export var track_titles : PackedStringArray = [
 	"break", "burgert 1", "burgert 2", "burgert 3", "BurgerFlippin'", "alphabetprimenumber"
 ]
 var current_track : int = 0
 var current_playback : float = 0
+var current_volume : int = 5
 @onready var player : AudioStreamPlayer = $Player
 @onready var track_label : Label = $screen/track_title
 @onready var jukebox_progress : JukeboxProgress = $screen/progress
+@onready var jukebox_vol : SliderInputIconOnly = $jukebox_vol
 ##
 ##
 @onready var play_button : TextureButton = $controls/play
@@ -23,8 +27,9 @@ func ready_jukebox() -> void:
 	player.stop()
 	current_track = 0
 	_update_player()
-	_update_play_button()
 	play_button.grab_focus()
+	jukebox_vol.value = current_volume
+	jukebox_vol.update_vals(true)
 
 
 func _ready() -> void:
@@ -72,12 +77,15 @@ func _on_next_pressed() -> void:
 
 func _on_stop_pressed() -> void:
 	print("Stop Pressed")
+	player.stop()
+	emit_signal("stop_pressed")
 
 
 func _update_player() -> void:
 	player.stream = track_files[current_track]
 	track_label.text = str(current_track + 1) + " - " + track_titles[current_track]
 	current_playback = 0
+	_update_play_button()
 
 
 func _update_progress() -> void:
@@ -91,3 +99,7 @@ func _update_progress() -> void:
 func _process(delta: float) -> void:
 	if player.playing:
 		_update_progress()
+
+
+func _on_jukebox_vol_update_value(new_val: Variant) -> void:
+	player.volume_db = linear_to_db(new_val / 10.0)
