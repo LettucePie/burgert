@@ -436,6 +436,7 @@ texture_focused = ExtResource("35_ajqae")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[connection signal="finished" from="Player" to="." method="_on_player_finished"]
 [connection signal="pressed" from="controls/prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="controls/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="controls/next" to="." method="_on_next_pressed"]

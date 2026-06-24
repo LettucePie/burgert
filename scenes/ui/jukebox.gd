@@ -146,6 +146,8 @@ func _update_progress() -> void:
 	var progress : float = current_playback / max
 	var current_digitized : int = ceili(progress * 28)
 	jukebox_progress.set_progress(current_digitized)
+	if max - current_playback <= 0.1:
+		_on_player_finished()
 
 
 func _process(delta: float) -> void:
@@ -174,3 +176,14 @@ func _on_shuffle_pressed() -> void:
 		shuffling = true
 	_update_shuffle_button()
 	_build_play_order(shuffling)
+
+
+func _on_player_finished() -> void:
+	if looping:
+		_on_next_pressed()
+		player.play()
+		_update_play_button()
+	else:
+		player.stop()
+		current_playback = 0.0
+		_update_player()
