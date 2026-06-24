@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=29 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -12,6 +12,15 @@
 [ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="7_m0cnl"]
 [ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="10_dvsmx"]
 [ext_resource type="PackedScene" uid="uid://bve20nkqnnssv" path="res://lang/multi_lang.tscn" id="12_78ged"]
+[ext_resource type="Script" path="res://scenes/fonts.gd" id="13_yh4ju"]
+[ext_resource type="FontVariation" uid="uid://bn04ewryf11gi" path="res://assets/theme/fonts/theme_a_default_font.tres" id="14_ourml"]
+[ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="15_crhnc"]
+[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="16_ux3pj"]
+[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="17_jy0cg"]
+[ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="18_y3ieu"]
+[ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="19_t53yn"]
+[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="20_06v27"]
+[ext_resource type="LabelSettings" uid="uid://b2ffas5rp8twc" path="res://assets/theme/fonts/jukebox_labelsettings.tres" id="21_qbr2j"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -235,6 +244,13 @@ libraries = {
 autoplay = "intro_ramp"
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
+supported_languages = ["eng"]
+supported_languages_named = ["English"]
+
+[node name="Fonts" type="Node" parent="."]
+script = ExtResource("13_yh4ju")
+fonts = Array[FontVariation]([ExtResource("14_ourml"), ExtResource("15_crhnc"), ExtResource("16_ux3pj")])
+labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"), ExtResource("19_t53yn"), ExtResource("20_06v27"), ExtResource("21_qbr2j")])
 
 [connection signal="finished_order" from="Game" to="." method="_on_game_finished_order"]
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]

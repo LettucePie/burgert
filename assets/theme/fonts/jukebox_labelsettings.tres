@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b2ffas5rp8twc"]
+
+[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="1_e7v23"]
+
+[resource]
+font = ExtResource("1_e7v23")
+font_size = 32
+font_color = Color(0.247059, 1, 0.243137, 0.678431)
+outline_color = Color(0.247059, 1, 0.243137, 1)
+shadow_color = Color(0.490196, 1, 0.521569, 1)

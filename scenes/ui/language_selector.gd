@@ -11,7 +11,8 @@ var language_options : Array = []
 
 
 func _ready():
-	directory.remove_child(entry_original)
+	pass
+	#directory.remove_child(entry_original)
 
 
 func populate_list(languages : PackedStringArray, callback : Callable):
@@ -41,6 +42,7 @@ func populate_list(languages : PackedStringArray, callback : Callable):
 			lo.set_focus_neighbor(SIDE_BOTTOM, next_lo.get_path())
 			lo.set_focus_neighbor(SIDE_LEFT, self.get_path())
 			lo.set_focus_neighbor(SIDE_RIGHT, self.get_path())
+	directory.remove_child(entry_original)
 
 
 func language_selected():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cecupkfcj6mv6"]
+[gd_scene load_steps=36 format=3 uid="uid://cecupkfcj6mv6"]
 
 [ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
 [ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dptl24wk12no1" path="res://assets/sound/music/alphabetaprimenumber.mp3" id="7_cwvch"]
 [ext_resource type="Texture2D" uid="uid://dqah1gfq6xxyx" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next.png" id="8_cp1ba"]
 [ext_resource type="Texture2D" uid="uid://d7mb2cqghx4g" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next_highlight.png" id="9_0tscs"]
-[ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="9_2r6gh"]
+[ext_resource type="LabelSettings" uid="uid://b2ffas5rp8twc" path="res://assets/theme/fonts/jukebox_labelsettings.tres" id="10_8imxg"]
 [ext_resource type="Texture2D" uid="uid://dr1wrfgypdwrq" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_stop.png" id="10_ihcm3"]
 [ext_resource type="Script" path="res://scenes/ui/jukebox_progress.gd" id="10_ojght"]
 [ext_resource type="Texture2D" uid="uid://clju57seol6lk" path="res://assets/images/graphics/menu/jukebox/progress_tick.png" id="11_bggy7"]
@@ -35,13 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://dlseyfvlyl63b" path="res://assets/images/graphics/menu/jukebox/shuffle_off.png" id="33_shvqd"]
 [ext_resource type="Texture2D" uid="uid://xk6p4ju5vpgy" path="res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png" id="34_tqhcu"]
 [ext_resource type="Texture2D" uid="uid://uf075h0rlgig" path="res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png" id="35_ajqae"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_1a24a"]
-font = ExtResource("9_2r6gh")
-font_size = 32
-font_color = Color(0.247059, 1, 0.243137, 0.678431)
-outline_color = Color(0.247059, 1, 0.243137, 1)
-shadow_color = Color(0.490196, 1, 0.521569, 1)
 
 [node name="Jukebox" type="Control"]
 texture_filter = 1
@@ -87,7 +80,7 @@ anchor_bottom = 0.475
 grow_horizontal = 2
 grow_vertical = 2
 text = "01 - track title"
-label_settings = SubResource("LabelSettings_1a24a")
+label_settings = ExtResource("10_8imxg")
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
