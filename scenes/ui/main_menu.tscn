@@ -98,13 +98,12 @@ autoplay = "start"
 next/quit_game = &"play_stop"
 next/dex_close = &"desk_return_left"
 next/records_close = &"desk_return_left"
+next/options_close = &"desk_return_right"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
-offset_left = -754.0
-offset_right = -754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
@@ -112,8 +111,14 @@ offset_left = -1280.0
 offset_right = -1440.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_top = 45.5
-offset_bottom = 142.5
+offset_left = -272.0
+offset_top = 264.0
+offset_right = -140.0
+offset_bottom = 361.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 94.0
+offset_bottom = 171.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -131,7 +136,6 @@ scale = Vector2(8, 8)
 sprite_frames = ExtResource("15_6gf58")
 
 [node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
@@ -853,6 +857,7 @@ vertical_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
+[connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="animation_finished" from="CustomerDex/page_reveal" to="CustomerDex" method="_on_page_reveal_animation_finished"]

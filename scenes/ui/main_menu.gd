@@ -187,3 +187,10 @@ func _on_records_close_records() -> void:
 	if current_screen == SCREENS.RECORDS:
 		anim.play("records_close")
 		queued_menu = SCREENS.MAIN
+
+
+func _on_options_finished_pressed() -> void:
+	print("Closing Options...")
+	if current_screen == SCREENS.OPTIONS:
+		anim.play("options_close")
+		queued_menu = SCREENS.MAIN
