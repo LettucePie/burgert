@@ -10,6 +10,7 @@ signal quit_play()
 @onready var options : Options = $Options
 @onready var customer_dex : CustomerDex = $CustomerDex
 @onready var records : Records = $Records
+@onready var jukebox : Jukebox = $Jukebox
 @onready var menu_flair : MenuFlair = $MenuFlair
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE}

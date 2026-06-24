@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=71 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -67,6 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="60_8impe"]
 [ext_resource type="Script" path="res://scenes/ui/records.gd" id="63_smrq3"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="65_ai2h5"]
+[ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
 atlas = ExtResource("18_53kgq")
@@ -105,27 +106,16 @@ next/help_close = &"desk_return_right"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = -1280.0
-offset_right = -1440.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_left = -272.0
-offset_top = 264.0
-offset_right = -140.0
-offset_bottom = 361.0
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 94.0
-offset_bottom = 171.0
+offset_top = 45.5
+offset_bottom = 142.5
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00006
-offset_top = 52.0
-offset_bottom = 154.0
+offset_left = 2.00003
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -182,12 +172,12 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
 layout_mode = 1
+offset_left = -641.0
+offset_right = -641.0
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
 visible = false
@@ -868,6 +858,10 @@ text = "0"
 label_settings = ExtResource("65_ai2h5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
+visible = false
+layout_mode = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
