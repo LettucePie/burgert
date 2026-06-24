@@ -180,10 +180,12 @@ func _on_shuffle_pressed() -> void:
 
 func _on_player_finished() -> void:
 	if looping:
-		_on_next_pressed()
-		player.play()
-		_update_play_button()
-	else:
 		player.stop()
 		current_playback = 0.0
 		_update_player()
+		player.play()
+		_update_play_button()
+	else:
+		_on_next_pressed()
+		player.play()
+		_update_play_button()
