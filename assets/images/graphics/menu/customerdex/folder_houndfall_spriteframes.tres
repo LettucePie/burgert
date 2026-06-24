@@ -234,7 +234,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"flip",
-"speed": 10.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -159,6 +159,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 		elif queued_menu == SCREENS.OPTIONS:
 			print("Play Options Open")
 			anim.play("options_open")
+		elif queued_menu == SCREENS.HELP:
+			print("Play Help Open")
+			anim.play("help_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()
@@ -173,6 +176,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.RECORDS
 	if anim_name == "options_open":
 		current_screen = SCREENS.OPTIONS
+	if anim_name == "help_open":
+		current_screen = SCREENS.HELP
 
 
 func _on_customerdex_done_pressed() -> void:
