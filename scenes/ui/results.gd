@@ -156,11 +156,13 @@ func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array)
 func _on_finish_pressed():
 	if !animating:
 		emit_signal("finished_results")
+		anim_play.play("panel_exit")
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	print("Animation Finished: ", anim_name)
-	next_animation_step()
+	if anim_name != "panel_exit":
+		next_animation_step()
 
 
 func next_animation_step():

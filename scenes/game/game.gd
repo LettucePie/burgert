@@ -230,6 +230,7 @@ func _on_game_timer_timeout():
 
 func _on_results_finished_results():
 	emit_signal("game_over")
+	
 
 
 func _on_kitchen_a_customer_ready():

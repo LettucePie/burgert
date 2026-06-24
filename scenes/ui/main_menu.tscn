@@ -103,6 +103,8 @@ next/records_close = &"desk_return_left"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
+offset_left = 754.0
+offset_right = 754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
@@ -110,14 +112,14 @@ offset_left = 0.0
 offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_left = -272.0
-offset_top = 264.0
-offset_right = -140.0
-offset_bottom = 361.0
+offset_top = 45.5
+offset_bottom = 142.5
 
 [node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 94.0
-offset_bottom = 171.0
+offset_left = 35.0
+offset_top = 460.0
+offset_right = 188.0
+offset_bottom = 537.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -169,11 +171,7 @@ layout_mode = 1
 offset_left = -641.0
 offset_right = -641.0
 
-[node name="mus_vol" parent="Options/Panel/VBoxContainer" index="1" node_paths=PackedStringArray("label")]
-label = NodePath("value")
-
-[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" node_paths=PackedStringArray("label") groups=["splat"]]
-label = NodePath("value")
+[node name="sfx_vol" parent="Options/Panel/VBoxContainer" index="3" groups=["splat"]]
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
 visible = false
@@ -732,8 +730,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 645.0
-offset_right = 645.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("63_smrq3")
