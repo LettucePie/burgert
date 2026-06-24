@@ -4,6 +4,7 @@ class_name MainMenu
 signal start_play()
 signal resume_play()
 signal quit_play()
+signal bgm_pause(pause : bool)
 
 @onready var main : MainSandwhich = $Main
 @onready var help : Help = $Help
@@ -74,6 +75,8 @@ func _on_main_menu_selection(selection: String) -> void:
 			print("Pan Right: ", selection)
 			queued_menu = screen_string_to_enum(selection)
 			anim.play("desk_pan_right")
+		if queued_menu == SCREENS.RADIO:
+			emit_signal("bgm_pause", true)
 
 
 ## TODO Migrate to _on_main_menu_selection
@@ -163,6 +166,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 		elif queued_menu == SCREENS.HELP:
 			print("Play Help Open")
 			anim.play("help_open")
+		elif queued_menu == SCREENS.RADIO:
+			print("Play Radio Open")
+			anim.play("radio_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()
@@ -179,6 +185,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.OPTIONS
 	if anim_name == "help_open":
 		current_screen = SCREENS.HELP
+	if anim_name == "radio_open":
+		current_screen = SCREENS.RADIO
 
 
 func _on_customerdex_done_pressed() -> void:
@@ -207,3 +215,11 @@ func _on_help_close_pressed() -> void:
 	if current_screen == SCREENS.HELP:
 		anim.play("help_close")
 		queued_menu = SCREENS.MAIN
+
+
+func _on_jukebox_stop_pressed() -> void:
+	print("Closing Radio... or Jukebox... or whatever i cannot decide on")
+	if current_screen == SCREENS.RADIO:
+		anim.play("radio_close")
+		queued_menu = SCREENS.MAIN
+		emit_signal("bgm_pause", false)

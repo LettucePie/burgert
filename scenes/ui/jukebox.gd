@@ -127,6 +127,8 @@ func _on_next_pressed() -> void:
 func _on_stop_pressed() -> void:
 	print("Stop Pressed")
 	player.stop()
+	current_playback = 0
+	_update_progress()
 	emit_signal("stop_pressed")
 
 

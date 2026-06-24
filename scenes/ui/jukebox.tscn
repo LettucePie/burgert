@@ -65,6 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a0fdn")
+expand_mode = 1
 
 [node name="screen" type="Control" parent="."]
 layout_mode = 1
@@ -311,6 +312,7 @@ texture_normal = ExtResource("4_1sh5r")
 texture_pressed = ExtResource("5_14nkq")
 texture_hover = ExtResource("5_14nkq")
 texture_focused = ExtResource("5_14nkq")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="play" type="TextureButton" parent="controls"]
@@ -323,6 +325,7 @@ texture_normal = ExtResource("6_o6sof")
 texture_pressed = ExtResource("7_8n35s")
 texture_hover = ExtResource("7_8n35s")
 texture_focused = ExtResource("7_8n35s")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="next" type="TextureButton" parent="controls"]
@@ -334,6 +337,7 @@ texture_normal = ExtResource("8_cp1ba")
 texture_pressed = ExtResource("9_0tscs")
 texture_hover = ExtResource("9_0tscs")
 texture_focused = ExtResource("9_0tscs")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="stop" type="TextureButton" parent="."]
@@ -355,6 +359,7 @@ texture_normal = ExtResource("10_ihcm3")
 texture_pressed = ExtResource("11_vk1tq")
 texture_hover = ExtResource("11_vk1tq")
 texture_focused = ExtResource("11_vk1tq")
+ignore_texture_size = true
 stretch_mode = 5
 
 [node name="jukebox_vol" type="HBoxContainer" parent="."]
@@ -381,6 +386,7 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
 texture = ExtResource("25_8juar")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="HSlider" type="HSlider" parent="jukebox_vol"]
@@ -399,6 +405,7 @@ layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
 texture = ExtResource("26_te2ip")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="loop" type="TextureButton" parent="."]
@@ -415,6 +422,7 @@ texture_normal = ExtResource("30_fmri3")
 texture_pressed = ExtResource("31_l35ev")
 texture_hover = ExtResource("32_0tcnn")
 texture_focused = ExtResource("32_0tcnn")
+ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
@@ -433,6 +441,7 @@ texture_normal = ExtResource("33_shvqd")
 texture_pressed = ExtResource("34_tqhcu")
 texture_hover = ExtResource("35_ajqae")
 texture_focused = ExtResource("35_ajqae")
+ignore_texture_size = true
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 

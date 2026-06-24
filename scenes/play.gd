@@ -494,3 +494,12 @@ func _on_multi_lang_set_lang(lang: String) -> void:
 	if settings != null:
 		settings.set_language(lang)
 		_save_settings()
+
+
+func _on_main_menu_bgm_pause(pause: bool) -> void:
+	print("main menu bgm signal recieved")
+	if pause:
+		music.anim.play("pause_play")
+	else:
+		music.anim.play("resume_play")
+		music.play(music.playback_time)

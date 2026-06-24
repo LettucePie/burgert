@@ -102,20 +102,32 @@ next/dex_close = &"desk_return_left"
 next/records_close = &"desk_return_left"
 next/options_close = &"desk_return_right"
 next/help_close = &"desk_return_right"
+next/radio_close = &"desk_return_left"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_left = 0.0
+offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_top = 45.5
-offset_bottom = 142.5
+offset_left = -272.0
+offset_top = 264.0
+offset_right = -140.0
+offset_bottom = 361.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 94.0
+offset_bottom = 171.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00003
+offset_left = 2.0
+offset_top = 52.0
+offset_bottom = 154.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -172,12 +184,12 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
 layout_mode = 1
-offset_left = -641.0
-offset_right = -641.0
 
 [node name="Extras" parent="." instance=ExtResource("10_s32gi")]
 visible = false
@@ -861,7 +873,15 @@ vertical_alignment = 1
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
+offset_left = 209.0
+offset_top = 87.0
+offset_right = -201.0
+offset_bottom = -293.0
+
+[node name="track_title" parent="Jukebox/screen" index="0"]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
@@ -875,6 +895,7 @@ layout_mode = 1
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
+[connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
 
 [editable path="office"]
 [editable path="Options"]
@@ -882,3 +903,4 @@ layout_mode = 1
 [editable path="Credits"]
 [editable path="Paused"]
 [editable path="Help"]
+[editable path="Jukebox"]
