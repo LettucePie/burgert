@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cecupkfcj6mv6"]
+[gd_scene load_steps=37 format=3 uid="uid://cecupkfcj6mv6"]
 
 [ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
 [ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
@@ -29,6 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://cfhfvul2344mw" path="res://assets/images/graphics/menu/jukebox/volsprite_knob.png" id="26_sgid2"]
 [ext_resource type="Texture2D" uid="uid://cqet1pfw1t16o" path="res://assets/images/graphics/menu/jukebox/volsprite_high.png" id="26_te2ip"]
 [ext_resource type="Texture2D" uid="uid://dsd3rd2glfq10" path="res://assets/images/graphics/menu/jukebox/volsprite_knob_highlight.png" id="27_8aqgf"]
+[ext_resource type="Texture2D" uid="uid://462mxd31g6v5" path="res://assets/images/graphics/menu/jukebox/loop_off.png" id="30_fmri3"]
+[ext_resource type="Texture2D" uid="uid://cukr7wago3rt2" path="res://assets/images/graphics/menu/jukebox/loop_on_hover.png" id="31_l35ev"]
+[ext_resource type="Texture2D" uid="uid://b2pwitc4g01eg" path="res://assets/images/graphics/menu/jukebox/loop_off_hover.png" id="32_0tcnn"]
+[ext_resource type="Texture2D" uid="uid://dlseyfvlyl63b" path="res://assets/images/graphics/menu/jukebox/shuffle_off.png" id="33_shvqd"]
+[ext_resource type="Texture2D" uid="uid://xk6p4ju5vpgy" path="res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png" id="34_tqhcu"]
+[ext_resource type="Texture2D" uid="uid://uf075h0rlgig" path="res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png" id="35_ajqae"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1a24a"]
 font = ExtResource("9_2r6gh")
@@ -300,7 +306,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../play")
-focus_neighbor_bottom = NodePath("../../stop")
+focus_neighbor_bottom = NodePath("../../loop")
 texture_normal = ExtResource("4_1sh5r")
 texture_pressed = ExtResource("5_14nkq")
 texture_hover = ExtResource("5_14nkq")
@@ -395,6 +401,41 @@ size_flags_vertical = 5
 texture = ExtResource("26_te2ip")
 stretch_mode = 5
 
+[node name="loop" type="TextureButton" parent="."]
+layout_mode = 0
+anchor_left = 0.0765625
+anchor_top = 0.8625
+anchor_right = 0.176563
+anchor_bottom = 0.945833
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../controls/prev")
+focus_neighbor_right = NodePath("../shuffle")
+focus_neighbor_bottom = NodePath("../stop")
+texture_normal = ExtResource("30_fmri3")
+texture_pressed = ExtResource("31_l35ev")
+texture_hover = ExtResource("32_0tcnn")
+texture_focused = ExtResource("32_0tcnn")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="shuffle" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.189063
+anchor_top = 0.8625
+anchor_right = 0.289062
+anchor_bottom = 0.945833
+focus_neighbor_left = NodePath("../loop")
+focus_neighbor_top = NodePath("../controls/prev")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../stop")
+texture_normal = ExtResource("33_shvqd")
+texture_pressed = ExtResource("34_tqhcu")
+texture_hover = ExtResource("35_ajqae")
+texture_focused = ExtResource("35_ajqae")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="controls/prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="controls/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="controls/next" to="." method="_on_next_pressed"]
@@ -403,3 +444,5 @@ stretch_mode = 5
 [connection signal="focus_exited" from="jukebox_vol" to="jukebox_vol" method="_on_focus_exited"]
 [connection signal="update_value" from="jukebox_vol" to="." method="_on_jukebox_vol_update_value"]
 [connection signal="drag_ended" from="jukebox_vol/HSlider" to="jukebox_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
+[connection signal="pressed" from="loop" to="." method="_on_loop_pressed"]
+[connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]

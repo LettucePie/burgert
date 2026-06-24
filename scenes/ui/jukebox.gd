@@ -10,6 +10,9 @@ signal stop_pressed()
 var current_track : int = 0
 var current_playback : float = 0
 var current_volume : int = 5
+var looping : bool = false
+var shuffling : bool = false
+var play_order : Array = []
 @onready var player : AudioStreamPlayer = $Player
 @onready var track_label : Label = $screen/track_title
 @onready var jukebox_progress : JukeboxProgress = $screen/progress
@@ -21,11 +24,25 @@ var current_volume : int = 5
 @onready var play_highlight_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/jukebox_interface_play_highlight.png")
 @onready var pause_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/jukebox_interface_pause.png")
 @onready var pause_highlight_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/jukebox_interface_pause_highlight.png")
+@onready var loop_button : TextureButton = $loop
+@onready var loop_on_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/loop_on.png")
+@onready var loop_on_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/loop_on_hover.png")
+@onready var loop_off_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/loop_off.png")
+@onready var loop_off_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/loop_off_hover.png")
+@onready var shuffle_button : TextureButton = $shuffle
+@onready var shuffle_on_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_on.png")
+@onready var shuffle_on_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png")
+@onready var shuffle_off_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off.png")
+@onready var shuffle_off_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png")
+
 
 
 func ready_jukebox() -> void:
 	player.stop()
 	current_track = 0
+	looping = false
+	shuffling = false
+	_build_play_order(shuffling)
 	_update_player()
 	play_button.grab_focus()
 	jukebox_vol.value = current_volume
@@ -35,6 +52,14 @@ func ready_jukebox() -> void:
 func _ready() -> void:
 	if get_window().get_child(0) == self:
 		ready_jukebox()
+
+
+func _build_play_order(shuffled : bool):
+	play_order = []
+	for i in track_files.size():
+		play_order.append(i)
+	if shuffled:
+		play_order.shuffle()
 
 
 func _on_prev_pressed() -> void:
@@ -55,6 +80,30 @@ func _update_play_button() -> void:
 	play_button.texture_pressed = highlight
 	play_button.texture_hover = highlight
 	play_button.texture_focused = highlight
+
+
+func _update_loop_button() -> void:
+	var normal : Texture = loop_off_texture
+	var highlight : Texture = loop_off_highlight
+	if looping:
+		normal = loop_on_texture
+		highlight = loop_on_highlight
+	loop_button.texture_normal = normal
+	loop_button.texture_pressed = highlight
+	loop_button.texture_hover = highlight
+	loop_button.texture_focused = highlight
+
+
+func _update_shuffle_button() -> void:
+	var normal : Texture = shuffle_off_texture
+	var highlight : Texture = shuffle_off_highlight
+	if shuffling:
+		normal = shuffle_on_texture
+		highlight = shuffle_on_highlight
+	shuffle_button.texture_normal = normal
+	shuffle_button.texture_pressed = highlight
+	shuffle_button.texture_hover = highlight
+	shuffle_button.texture_focused = highlight
 
 
 func _on_play_pressed() -> void:
@@ -82,10 +131,13 @@ func _on_stop_pressed() -> void:
 
 
 func _update_player() -> void:
-	player.stream = track_files[current_track]
-	track_label.text = str(current_track + 1) + " - " + track_titles[current_track]
+	var idx : int = play_order[current_track]
+	player.stream = track_files[idx]
+	track_label.text = str(idx + 1) + " - " + track_titles[idx]
 	current_playback = 0
 	_update_play_button()
+	_update_loop_button()
+	_update_shuffle_button()
 
 
 func _update_progress() -> void:
@@ -103,3 +155,22 @@ func _process(delta: float) -> void:
 
 func _on_jukebox_vol_update_value(new_val: Variant) -> void:
 	player.volume_db = linear_to_db(new_val / 10.0)
+
+
+func _on_loop_pressed() -> void:
+	if looping:
+		looping = false
+	else:
+		looping = true
+	_update_loop_button()
+
+
+func _on_shuffle_pressed() -> void:
+	if shuffling:
+		shuffling = false
+		if play_order.size() > 0:
+			current_track = play_order[current_track]
+	else:
+		shuffling = true
+	_update_shuffle_button()
+	_build_play_order(shuffling)
