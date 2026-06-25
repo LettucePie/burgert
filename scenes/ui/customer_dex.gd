@@ -123,7 +123,9 @@ var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..
 var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
 @export var folder : AnimatedSprite2D = null
 var focused_button : TextureButton = null
-@onready var render_sprite : Sprite2D = $render_flip
+@export var render_sheet_a : Sprite2D
+@export var render_sheet_b : Sprite2D
+@onready var sheet_animator : AnimationPlayer = $sheet_animator
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -186,7 +188,12 @@ func open_dex():
 	description_b.show()
 	schedule.hide()
 	page_reveal_flipped = false
-	render_sprite.hide()
+	sheet_animator.play("hide")
+
+
+func _throw_sheet() -> void:
+	var texture : Texture2D = get_window().get_texture()
+	
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
@@ -198,6 +205,7 @@ func _on_pagebutton_pressed(dir: int) -> void:
 		new_val = customer_names_internal.size() - 1
 	_load_page(new_val)
 	if folder != null:
+		_throw_sheet()
 		self.hide()
 		if dir > 0:
 			folder.play("next_customer")
