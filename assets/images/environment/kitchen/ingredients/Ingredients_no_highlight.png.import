@@ -3,27 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjywpkb1kee7g"
-path.s3tc="res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.s3tc.ctex"
-path.etc2="res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.etc2.ctex"
+path="res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/images/environment/kitchen/ingredients/Ingredients_no_highlight.png"
-dest_files=["res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.s3tc.ctex", "res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.etc2.ctex"]
+dest_files=["res://.godot/imported/Ingredients_no_highlight.png-154c5bf3296b00ad90f0c0ad47fdead5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
