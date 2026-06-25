@@ -191,9 +191,19 @@ func open_dex():
 	sheet_animator.play("hide")
 
 
-func _throw_sheet() -> void:
-	var texture : Texture2D = get_window().get_texture()
-	
+func _move_sheet(dir : int) -> void:
+	var dynamic_texture : Texture2D = get_window().get_texture()
+	var image : Image = dynamic_texture.get_image()
+	var texture : ImageTexture = ImageTexture.create_from_image(image)
+	if render_sheet_a != null and render_sheet_b != null:
+		var out : String = "throw_"
+		if dir > 0:
+			render_sheet_b.texture = texture
+		else:
+			render_sheet_a.texture = texture
+			out = "fetch_"
+		out += str(randi_range(1, 4))
+		sheet_animator.play(out)
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
@@ -203,16 +213,8 @@ func _on_pagebutton_pressed(dir: int) -> void:
 		new_val = 0
 	elif new_val < 0:
 		new_val = customer_names_internal.size() - 1
+	_move_sheet(dir)
 	_load_page(new_val)
-	if folder != null:
-		_throw_sheet()
-		self.hide()
-		if dir > 0:
-			folder.play("next_customer")
-			focused_button = $controls/next
-		else:
-			folder.play("prev_customer")
-			focused_button = $controls/prev
 
 
 func _load_page(target : int):
@@ -284,8 +286,9 @@ func _on_page_reveal_animation_finished() -> void:
 
 func _on_folder_drop_houndfall_animation_finished() -> void:
 	if folder.animation.contains("customer"):
-		self.show()
-		if focused_button == null:
-			$controls/next.grab_focus()
-		else:
-			focused_button.grab_focus()
+		pass
+		#self.show()
+		#if focused_button == null:
+			#$controls/next.grab_focus()
+		#else:
+			#focused_button.grab_focus()
