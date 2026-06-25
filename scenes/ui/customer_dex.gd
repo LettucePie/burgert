@@ -121,7 +121,7 @@ var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
 var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..."
 var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
-
+@export var folder : AnimatedSprite2D = null
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -194,6 +194,8 @@ func _on_pagebutton_pressed(dir: int) -> void:
 	elif new_val < 0:
 		new_val = customer_names_internal.size() - 1
 	_load_page(new_val)
+	if folder != null:
+		folder.play("flip")
 
 
 func _load_page(target : int):

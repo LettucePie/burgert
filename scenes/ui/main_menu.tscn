@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=70 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/help.tscn" id="13_rpgj1"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="13_skqqd"]
 [ext_resource type="SpriteFrames" uid="uid://dtqko8io3vl8e" path="res://assets/images/graphics/menu/help/help_book_spriteframes.tres" id="14_2s4yh"]
-[ext_resource type="SpriteFrames" uid="uid://0dd7ao1claul" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_6gf58"]
 [ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_houndfall_spriteframes.tres" id="15_u6v16"]
 [ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="17_iqshf"]
@@ -108,18 +107,35 @@ next/credits_close = &"desk_return_right"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_left = 0.0
+offset_right = -160.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 242.0
+offset_top = 264.0
 offset_right = -140.0
-offset_bottom = 339.0
+offset_bottom = 361.0
+
+[node name="radio" parent="office/desk/left_side_desktop" index="1"]
+offset_top = -212.0
+offset_bottom = -101.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 94.0
+offset_bottom = 171.0
+
+[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
+offset_top = 144.0
+offset_bottom = 190.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.0
+offset_left = 2.00006
+offset_top = 52.0
+offset_bottom = 154.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -130,18 +146,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_b2u1j")
 
-[node name="FolderDrop" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(320, 240)
-scale = Vector2(8, 8)
-sprite_frames = ExtResource("15_6gf58")
-
 [node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
-animation = &"flip"
+animation = &"prev_customer"
 
 [node name="Paperclip" type="Sprite2D" parent="FolderDropHoundfall"]
 visible = false
@@ -176,6 +185,8 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -210,7 +221,7 @@ layout_mode = 1
 offset_top = -480.0
 offset_bottom = -480.0
 
-[node name="CustomerDex" type="Control" parent="."]
+[node name="CustomerDex" type="Control" parent="." node_paths=PackedStringArray("folder")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -222,6 +233,7 @@ theme = ExtResource("17_iqshf")
 script = ExtResource("13_skqqd")
 customer_images = Array[Texture2D]([ExtResource("17_lf1bt"), ExtResource("18_nlobw"), ExtResource("19_qfkm0"), ExtResource("20_jcpf5"), ExtResource("21_gaxuw"), ExtResource("22_2cl4i"), ExtResource("23_p7mv6"), ExtResource("24_myxcq"), ExtResource("25_ydldf"), ExtResource("26_7bir2"), ExtResource("27_vhudc"), ExtResource("28_tycmq"), ExtResource("29_m8qxe"), ExtResource("30_tcn2y"), ExtResource("31_54cwo"), ExtResource("32_lmrre"), ExtResource("33_j0do6"), ExtResource("34_4y82p"), ExtResource("35_swiqc"), ExtResource("36_iojvp"), ExtResource("37_2t86x"), ExtResource("38_n4m8h"), ExtResource("39_2bn1i"), ExtResource("40_d4bm4"), ExtResource("41_wfgio")])
 customer_image_unknown = ExtResource("42_imtnm")
+folder = NodePath("../FolderDropHoundfall")
 
 [node name="crop" type="ColorRect" parent="CustomerDex"]
 clip_children = 1
