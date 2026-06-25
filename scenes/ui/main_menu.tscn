@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=71 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://c56pp6moconxw" path="res://assets/images/graphics/menu/customerdex/timeslot_daynight_indicator_01.png" id="53_8d10h"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="60_8impe"]
 [ext_resource type="Script" path="res://scenes/ui/records.gd" id="63_smrq3"]
+[ext_resource type="Texture2D" uid="uid://dwdldo33mgn76" path="res://assets/models/textures/page_render_test.png" id="64_avxcg"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="65_ai2h5"]
 [ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
@@ -730,6 +731,11 @@ texture_hover = ExtResource("28_7m8tr")
 texture_focused = ExtResource("28_7m8tr")
 stretch_mode = 5
 
+[node name="render_flip" type="Sprite2D" parent="CustomerDex"]
+visible = false
+position = Vector2(320, 240)
+texture = ExtResource("64_avxcg")
+
 [node name="Records" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -873,6 +879,7 @@ offset_bottom = -293.0
 visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="FolderDropHoundfall" to="CustomerDex" method="_on_folder_drop_houndfall_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
 [connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
 [connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]

@@ -122,6 +122,8 @@ var customer_name_unknown : String = "UNKNOWN"
 var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..."
 var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
 @export var folder : AnimatedSprite2D = null
+var focused_button : TextureButton = null
+@onready var render_sprite : Sprite2D = $render_flip
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -184,6 +186,7 @@ func open_dex():
 	description_b.show()
 	schedule.hide()
 	page_reveal_flipped = false
+	render_sprite.hide()
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
@@ -195,7 +198,13 @@ func _on_pagebutton_pressed(dir: int) -> void:
 		new_val = customer_names_internal.size() - 1
 	_load_page(new_val)
 	if folder != null:
-		folder.play("flip")
+		self.hide()
+		if dir > 0:
+			folder.play("next_customer")
+			focused_button = $controls/next
+		else:
+			folder.play("prev_customer")
+			focused_button = $controls/prev
 
 
 func _load_page(target : int):
@@ -263,3 +272,12 @@ func _on_page_reveal_animation_finished() -> void:
 		description_b.show()
 	elif page_reveal.animation == "reveal":
 		schedule.show()
+
+
+func _on_folder_drop_houndfall_animation_finished() -> void:
+	if folder.animation.contains("customer"):
+		self.show()
+		if focused_button == null:
+			$controls/next.grab_focus()
+		else:
+			focused_button.grab_focus()
