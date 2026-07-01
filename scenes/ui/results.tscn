@@ -1483,10 +1483,9 @@ anchor_left = 0.1
 anchor_top = 0.206771
 anchor_right = 0.494532
 anchor_bottom = 0.282292
-offset_left = -385.2
-offset_top = 35.5999
-offset_right = -385.2
-offset_bottom = 35.5999
+offset_top = 3.8147e-05
+offset_right = -1.52588e-05
+offset_bottom = 3.8147e-05
 size_flags_horizontal = 3
 text = "Orders Finished"
 label_settings = ExtResource("3_wqw0x")
@@ -1618,6 +1617,7 @@ pivot_offset = Vector2(87, 87)
 texture = ExtResource("9_rmce4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="JitterDialog" parent="AudioStreamPlayer" instance=ExtResource("10_emy1f")]

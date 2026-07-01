@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2ps37k82g24j"]
+[gd_scene load_steps=8 format=3 uid="uid://2ps37k82g24j"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rit48"]
-[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_8o13g"]
 [ext_resource type="AnimationLibrary" uid="uid://dy2uihutceyy0" path="res://assets/animation/customers/haircut_animlib.res" id="2_dagw2"]
 [ext_resource type="SpriteFrames" uid="uid://bfeuwt5gm6i5b" path="res://assets/images/characters/customers/customer_Haircut_spriteframes.tres" id="2_mlw1m"]
+[ext_resource type="Resource" uid="uid://wdjvwwkqwcty" path="res://assets/data/schedules/Haircut_schedule.tres" id="2_yhl0v"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_4p3yu"]
 [ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="5_ff8jr"]
-
-[sub_resource type="Resource" id="Resource_kk0ie"]
-script = ExtResource("2_8o13g")
-times = Array[int]([7, 11, 25, 26, 4])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xlpyc"]
 viewport_path = NodePath(".")
@@ -17,7 +13,7 @@ viewport_path = NodePath(".")
 [node name="Haircut" instance=ExtResource("1_rit48")]
 customer_name = "Haircut"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Bun Top"), PackedStringArray("Lettuce", "Meat", "Lettuce"), PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top")])
-schedule = SubResource("Resource_kk0ie")
+schedule = ExtResource("2_yhl0v")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

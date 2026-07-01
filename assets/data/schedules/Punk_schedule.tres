@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Schedule" load_steps=2 format=3 uid="uid://ioe6lg52qj3d"]
+
+[ext_resource type="Script" path="res://classes/Schedule.gd" id="1_2bmwt"]
+
+[resource]
+script = ExtResource("1_2bmwt")
+times = Array[int]([4, 5, 8, 9, 12, 13, 16, 17, 20, 21])
