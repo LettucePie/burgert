@@ -163,7 +163,7 @@ func assess_submission():
 			correct_placements += 1
 	var burger_score : int = (correct_ingredients + correct_placements) - wrong_ingredients
 	var finish_time : float = current_order_start_time - $game_timer.time_left
-	var deadline : float = 6 + (current_order.size() * 1.33)
+	var deadline : float = 6 + (current_order.size() * 1.45)
 	var time_performance = inverse_lerp(0, deadline, finish_time)
 	var time_percent = order_point_time_curve.sample(time_performance)
 	var time_score := roundf((current_order.size() - wrong_ingredients) * time_percent)
