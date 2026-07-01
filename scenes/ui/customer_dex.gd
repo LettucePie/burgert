@@ -264,7 +264,7 @@ func _load_page(target : int):
 			current_day = true
 			missed_day = current_day_timeslot < current_timeslot
 	print("current_timeslot: ", current_timeslot, "\ncurrent_daygroup: ", current_daygroup, "\ncurrent_time: ", current_time, "\ncurrent_day: ", current_day)
-	if current_time:
+	if current_time or customer_schedule.times.has(0):
 		schedule_text += customer_schedule_descriptions[0]
 	elif current_day and !missed_day:
 		schedule_text += customer_schedule_descriptions[1]
