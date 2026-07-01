@@ -8,8 +8,7 @@ class_name CustomerDex
 @onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
 @onready var description_a : Label = $VBoxContainer/description_a
 @onready var description_b : Label = $description_b
-@onready var schedule : TextureRect = $schedule
-@onready var schedule_results_container : HBoxContainer = $schedule/results
+@onready var schedule : Label = $schedule
 @onready var page_label : Label = $pagenum
 @onready var page_reveal : AnimatedSprite2D = $page_reveal
 
@@ -117,6 +116,13 @@ class_name CustomerDex
 	"Somehow the wisest person I've ever talked to. When she's not here, she's \
 	hanging out at the abandoned mall.\nBut really, is she anywhere ever?"
 ]
+@export var customer_schedule_title : String = "SCHEDULE\n\n"
+@export var customer_schedule_descriptions : PackedStringArray = [
+	"In the area right now!",
+	"Could visit today...",
+	"We missed them, perhaps tomorrow.",
+	"Nowhere to be seen today."
+]
 var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
 var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..."
@@ -131,7 +137,6 @@ var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
 var customer_schedules : Array[Schedule] = []
 var page_reveal_flipped : bool = false
-@onready var result_slots : Array = schedule_results_container.get_children()
 var registered_timeslots : PackedInt32Array = []
 
 ####
@@ -245,19 +250,29 @@ func _load_page(target : int):
 		description_b.text = customer_descriptions_b[target]
 	description_b.visible_ratio = 0.0
 	page_label.text = str(target + 1) + "\n--\n" + str(customer_names_internal.size())
-	var timeslot_idx = 1
-	for timeslot_result : TimeSlot_Result in result_slots:
-		timeslot_result.set_result(0)
-		if registered_timeslots.has(timeslot_idx):
-			var schedule : Schedule = customer_schedules[target]
-			if schedule.times.has(timeslot_idx):
-				if stats.get_orders_served() > 0:
-					timeslot_result.set_result(3)
-				else:
-					timeslot_result.set_result(2)
-			else:
-				timeslot_result.set_result(1)
-		timeslot_idx += 1
+	var schedule_text : String = customer_schedule_title
+	var customer_schedule : Schedule = customer_schedules[target]
+	var current_timeslot : int = customer_schedule.get_current_timeslot()
+	var current_daygroup : Array = customer_schedule.get_current_day_group()
+	var current_time : bool = customer_schedule.times.has(current_timeslot)
+	var current_day : bool = false
+	var missed_day : bool = false
+	for current_day_timeslot in current_daygroup:
+		if customer_schedule.times.has(current_day_timeslot):
+			print("Time Slot Found: ", current_day_timeslot)
+			print(customer_schedule.times)
+			current_day = true
+			missed_day = current_day_timeslot < current_timeslot
+	print("current_timeslot: ", current_timeslot, "\ncurrent_daygroup: ", current_daygroup, "\ncurrent_time: ", current_time, "\ncurrent_day: ", current_day)
+	if current_time:
+		schedule_text += customer_schedule_descriptions[0]
+	elif current_day and !missed_day:
+		schedule_text += customer_schedule_descriptions[1]
+	elif current_day and missed_day:
+		schedule_text += customer_schedule_descriptions[2]
+	else:
+		schedule_text += customer_schedule_descriptions[3]
+	schedule.text = schedule_text
 
 
 func _physics_process(delta: float) -> void:

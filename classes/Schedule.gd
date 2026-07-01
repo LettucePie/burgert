@@ -46,6 +46,16 @@ var time_chart : Array[TimeSlot] = [
 	TimeSlot.new(6, 22, 0, 4),
 ]
 
+var same_day_groups : Array = [
+	[1, 2, 3, 4],     ## SUNDAY
+	[5, 6, 7, 8],     ## MONDAY
+	[9, 10, 11, 12],  ## TUESDAY
+	[13, 14, 15, 16], ## WEDNESDAY
+	[17, 18, 19, 20], ## THURSDAY
+	[21, 22, 23, 24], ## FRIDAY
+	[25, 26, 27, 28]  ## SATURDAY
+]
+
 enum TIMES {
 	ANY,
 	SUNDAY_MORNING, SUNDAY_NOON, SUNDAY_AFTERNOON, SUNDAY_MIDNIGHT,
@@ -91,5 +101,14 @@ func get_current_timeslot() -> int:
 				if (w == ts.weekday_a and t >= ts.time_a) \
 				or (w == ts.weekday_b and t < ts.time_b):
 					result = i
+	
+	return result
+
+
+func get_current_day_group() -> Array:
+	var result : Array = same_day_groups[0]
+	
+	var time = Time.get_datetime_dict_from_system(false)
+	result = same_day_groups[time.weekday]
 	
 	return result

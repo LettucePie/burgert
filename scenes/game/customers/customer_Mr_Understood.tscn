@@ -1,15 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bidmanqullgka"]
+[gd_scene load_steps=21 format=3 uid="uid://bidmanqullgka"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qbk6q"]
-[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_b2e76"]
+[ext_resource type="Resource" uid="uid://bai8pcqbfibw5" path="res://assets/data/schedules/Mr_Understood_schedule.tres" id="2_0yedi"]
 [ext_resource type="SpriteFrames" uid="uid://ba3v63s3icpks" path="res://assets/images/characters/customers/customer_mr_understood_spriteframes.tres" id="2_uh2il"]
 [ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="3_u80g2"]
 [ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="4_crjuk"]
 [ext_resource type="Texture2D" uid="uid://ob2gmtuj6obl" path="res://assets/images/graphics/question_mark.png" id="4_itjau"]
-
-[sub_resource type="Resource" id="Resource_jw080"]
-script = ExtResource("2_b2e76")
-times = Array[int]([17, 18, 21, 22, 27])
 
 [sub_resource type="Animation" id="Animation_pabrb"]
 length = 0.001
@@ -1111,7 +1107,7 @@ colors = PackedColorArray(1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1)
 [node name="Mr_Understood" instance=ExtResource("1_qbk6q")]
 customer_name = "Mr. Understood"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Cheese", "Ketchup", "Bun Top"), PackedStringArray("Bun", "Meat", "Ketchup", "Bun Top")])
-schedule = SubResource("Resource_jw080")
+schedule = ExtResource("2_0yedi")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -1,16 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://wtgtif02px0y"]
+[gd_scene load_steps=9 format=3 uid="uid://wtgtif02px0y"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_e5txx"]
+[ext_resource type="Resource" uid="uid://bi3e7t0oidmbr" path="res://assets/data/schedules/Anxiety_schedule.tres" id="2_36swa"]
 [ext_resource type="AnimationLibrary" uid="uid://yvfl5a3183d8" path="res://assets/animation/customers/anxiety_animlib.res" id="2_pa7y8"]
-[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_sfwq2"]
 [ext_resource type="SpriteFrames" uid="uid://carbatkngutoy" path="res://assets/images/characters/customers/customer_Anxiety_spriteframes.tres" id="3_3ojr1"]
 [ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/Voice/Doot_16.wav" id="4_c6av7"]
 [ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/Voice/Doot_15.wav" id="5_f52ic"]
 [ext_resource type="AudioStream" uid="uid://cqaam4tqmm83w" path="res://assets/sound/sfx/Voice/Doot_13.wav" id="6_g8hf0"]
-
-[sub_resource type="Resource" id="Resource_pibav"]
-script = ExtResource("2_sfwq2")
-times = Array[int]([3, 7, 11, 15, 19, 27])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3f58o"]
 viewport_path = NodePath(".")
@@ -18,7 +14,7 @@ viewport_path = NodePath(".")
 [node name="Anxiety" instance=ExtResource("1_e5txx")]
 customer_name = "Anxiety"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Bun Top")])
-schedule = SubResource("Resource_pibav")
+schedule = ExtResource("2_36swa")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

@@ -8,9 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="5_b56sa"]
 [ext_resource type="AudioStream" uid="uid://ba86xs3k5x3b5" path="res://assets/sound/sfx/Voice/Doot_9.wav" id="6_ded2p"]
 
-[sub_resource type="Resource" id="Resource_fq77d"]
+[sub_resource type="Resource" id="Resource_0ehkm"]
 script = ExtResource("2_4dqmd")
-times = Array[int]([1, 5, 9, 13, 17, 21, 25])
+times = Array[int]([5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 24, 25, 26, 27, 28])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ajo77"]
 viewport_path = NodePath(".")
@@ -18,7 +18,7 @@ viewport_path = NodePath(".")
 [node name="Ted" instance=ExtResource("1_r6gyx")]
 customer_name = "Ted"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Meat", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Bun", "Meat", "Bun Top")])
-schedule = SubResource("Resource_fq77d")
+schedule = SubResource("Resource_0ehkm")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

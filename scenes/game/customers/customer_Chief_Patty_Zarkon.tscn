@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccna232082j5g"]
+[gd_scene load_steps=8 format=3 uid="uid://ccna232082j5g"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_u8543"]
-[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_3ei28"]
 [ext_resource type="AnimationLibrary" uid="uid://ddrhyntsygkjv" path="res://assets/animation/customers/chief_patty_zarkon_animlib.res" id="2_4ru26"]
+[ext_resource type="Resource" uid="uid://xlxjvc5jm6hl" path="res://assets/data/schedules/Chief_Patty_Zarkon_schedule.tres" id="2_v4j6c"]
 [ext_resource type="SpriteFrames" uid="uid://x3a647ak20p1" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_spriteframes.tres" id="3_ithvq"]
 [ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/Voice/Doot_7.wav" id="4_gdvlt"]
 [ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="5_tpa5x"]
-
-[sub_resource type="Resource" id="Resource_mkait"]
-script = ExtResource("2_3ei28")
-times = Array[int]([6, 9, 13, 17, 21])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g8lqv"]
 viewport_path = NodePath("burger_portal")
@@ -18,7 +14,7 @@ viewport_path = NodePath("burger_portal")
 customer_name = "Chief Patty Zarkon"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Ketchup", "Mustard", "Bun Top"), PackedStringArray("Bun", "Meat", "Bun", "Meat", "Cheese", "Ketchup", "Mustard", "Bun Top")])
 consecutive_orders = 3
-schedule = SubResource("Resource_mkait")
+schedule = ExtResource("2_v4j6c")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {

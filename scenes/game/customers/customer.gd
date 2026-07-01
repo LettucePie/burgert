@@ -14,7 +14,7 @@ signal kitchen_switch(target)
 @export var consecutive_orders : int = 1
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @export var burger_portal_sprite : Sprite2D
-@export var schedule : Schedule
+@export var schedule : Schedule = null
 @onready var sound_player : AudioStreamPlayer2D = $character/AudioStreamPlayer2D
 @onready var jitter_dialog : JitterDialog = $character/AudioStreamPlayer2D/JitterDialog
 @onready var left_area : Marker2D = $character/Left

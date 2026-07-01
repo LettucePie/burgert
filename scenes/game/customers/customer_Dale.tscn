@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfmgljhh1cyke"]
+[gd_scene load_steps=8 format=3 uid="uid://cfmgljhh1cyke"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_hclqd"]
-[ext_resource type="Script" path="res://classes/Schedule.gd" id="2_45sin"]
+[ext_resource type="Resource" uid="uid://3t7kfxh6jge4" path="res://assets/data/schedules/Dale_schedule.tres" id="2_85uy5"]
 [ext_resource type="AnimationLibrary" uid="uid://dnkm0ke1nypr3" path="res://assets/animation/customers/dale_animlib.res" id="2_aeini"]
 [ext_resource type="SpriteFrames" uid="uid://d3k3ls7siphk6" path="res://assets/images/characters/customers/customer_dale_spriteframes.tres" id="3_4exvb"]
 [ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/Voice/Doot_1.wav" id="4_g83na"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="5_1bfpt"]
-
-[sub_resource type="Resource" id="Resource_jao2p"]
-script = ExtResource("2_45sin")
-times = Array[int]([2, 3, 26, 27, 16])
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_86ljq"]
 viewport_path = NodePath("burger_portal")
@@ -17,7 +13,7 @@ viewport_path = NodePath("burger_portal")
 [node name="Dale" instance=ExtResource("1_hclqd")]
 customer_name = "Dale"
 orders = Array[PackedStringArray]([PackedStringArray("Tomato", "Bun", "Meat", "Cheese", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Tomato", "Meat", "Cheese", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Tomato", "Cheese", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Tomato", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Tomato", "Bun Top"), PackedStringArray("Bun", "Meat", "Cheese", "Lettuce", "Bun", "Tomato")])
-schedule = SubResource("Resource_jao2p")
+schedule = ExtResource("2_85uy5")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
