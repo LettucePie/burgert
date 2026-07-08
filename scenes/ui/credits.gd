@@ -12,3 +12,9 @@ func _process(delta: float) -> void:
 		or Input.is_action_just_released("confirm"):
 			print("Close Credits")
 			emit_signal("close_credits")
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if !event.pressed:
+			emit_signal("close_credits")

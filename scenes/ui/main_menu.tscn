@@ -1471,6 +1471,7 @@ visible = false
 [connection signal="pressed" from="CustomerDex/controls/done" to="." method="_on_customerdex_done_pressed"]
 [connection signal="pressed" from="CustomerDex/controls/next" to="CustomerDex" method="_on_pagebutton_pressed" binds= [1]]
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
+[connection signal="gui_input" from="Records" to="Records" method="_on_gui_input"]
 [connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
 
 [editable path="office"]

@@ -35,3 +35,9 @@ func _process(delta: float) -> void:
 		or Input.is_action_just_released("confirm"):
 			print("Close Records")
 			emit_signal("close_records")
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if !event.pressed:
+			emit_signal("close_records")
