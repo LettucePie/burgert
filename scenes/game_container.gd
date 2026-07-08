@@ -37,6 +37,8 @@ func _process(delta):
 	time_elapsed = time_elapsed / 1000
 	var progress : float = time_elapsed / touch_gui_lifetime
 	var curve_percent : float = touch_gui_lifetime_curve.sample(progress)
+	if !play.game_scene.game_started:
+		curve_percent = 0
 	touch_controls.modulate.a = curve_percent
 
 
