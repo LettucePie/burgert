@@ -168,3 +168,6 @@ layout_mode = 2
 text = "label"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="PanelContainer" to="." method="_on_panel_container_gui_input"]

@@ -32,6 +32,12 @@ var stack_labels_translated : PackedStringArray = [
 	""
 ]
 
+##
+## Input Stuff
+##
+
+var flicked : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_stack = stack.size() - 1
@@ -107,9 +113,21 @@ func go_to_layer(layer_name : String) -> void:
 
 
 func _on_panel_container_gui_input(event: InputEvent) -> void:
-	pass
-	#if event is InputEventMouseButton:
-		#if event.is_released():
-			#print("Touch")
-			#print(event.relative)
-			##emit_signal("menu_selection", stack_labels_internal[current_stack])
+	if event is InputEventScreenTouch:
+		if !event.pressed:
+			emit_signal("menu_selection", stack_labels_internal[current_stack])
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		if event.index == 0 and !event.pressed:
+			flicked = false
+	if event is InputEventScreenDrag:
+		if event.index == 0 and !flicked:
+			if event.relative.y > 1:
+				_adjust_stack(-1)
+				flicked = true
+			elif event.relative.y < -1:
+				_adjust_stack(1)
+				flicked = true
+			
