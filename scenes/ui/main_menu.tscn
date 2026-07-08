@@ -939,6 +939,8 @@ next/credits_close = &"desk_return_right"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
+offset_left = 754.0
+offset_right = 754.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
@@ -964,7 +966,7 @@ offset_top = 144.0
 offset_bottom = 190.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00006
+offset_left = 2.0
 offset_top = 52.0
 offset_bottom = 154.0
 
@@ -1063,10 +1065,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -710.0
-offset_top = 405.0
-offset_right = -710.0
-offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.595157

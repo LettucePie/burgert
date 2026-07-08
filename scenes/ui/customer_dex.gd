@@ -132,6 +132,7 @@ var focused_button : TextureButton = null
 @export var render_sheet_a : Sprite2D
 @export var render_sheet_b : Sprite2D
 @onready var sheet_animator : AnimationPlayer = $sheet_animator
+@onready var current_viewport : Viewport = get_window()
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -186,6 +187,10 @@ func extract_schedules(customers : Array[Customer]):
 				customer_schedules.append(c.schedule)
 
 
+func assign_viewport(vp : Viewport) -> void:
+	current_viewport = vp
+
+
 func open_dex():
 	current_page = 0
 	_load_page(0)
@@ -197,7 +202,7 @@ func open_dex():
 
 
 func _move_sheet(dir : int) -> void:
-	var dynamic_texture : Texture2D = get_window().get_texture()
+	var dynamic_texture : Texture2D = current_viewport.get_texture()
 	var image : Image = dynamic_texture.get_image()
 	var texture : ImageTexture = ImageTexture.create_from_image(image)
 	if render_sheet_a != null and render_sheet_b != null:

@@ -9,6 +9,7 @@ class_name Play
 ##-----------
 @export var audio_bus : AudioBusLayout
 @export var container_scene : PackedScene
+var container : GameContainer = null
 var adopted : bool = false
 
 ####
@@ -404,9 +405,10 @@ func _ready():
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
 	if OS.has_feature("mobile") and !adopted:
-		var container : GameContainer = container_scene.instantiate()
+		container = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
+		main_menu.customer_dex.assign_viewport(container.portal)
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 
