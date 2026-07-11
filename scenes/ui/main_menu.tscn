@@ -938,37 +938,18 @@ next/credits_close = &"desk_return_right"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
-[node name="wall" parent="office" index="0"]
-offset_left = 754.0
-offset_right = 754.0
-scale = Vector2(1.2, 1.2)
-
 [node name="desk" parent="office" index="2"]
-offset_left = 0.0
-offset_right = -160.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 264.0
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 361.0
-
-[node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = -212.0
-offset_bottom = -101.0
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 94.0
-offset_bottom = 171.0
-
-[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 144.0
-offset_bottom = 190.0
+offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.0
-offset_top = 52.0
-offset_bottom = 154.0
+offset_left = 2.00006
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -1018,8 +999,6 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
-offset_top = 480.0
-offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -1065,6 +1044,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -710.0
+offset_top = 405.0
+offset_right = -710.0
+offset_bottom = 405.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.595157
