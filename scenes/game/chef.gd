@@ -34,6 +34,7 @@ var charging_rate : float = 1.0
 var charging_rate_min : float = 1.0
 var charging_rate_max : float = 2.0
 var charging_speed : float = 5.0
+@onready var quick_throw_threshold : float = ((charging_rate_max - charging_rate_min) / 2) + charging_rate_min
 
 
 # Called when the node enters the scene tree for the first time.
@@ -158,6 +159,7 @@ func process_submission(delta):
 		anim_tree.set('parameters/Charging_L/TimeScale/scale', charging_rate)
 		anim_tree.set('parameters/Charging_R/TimeScale/scale', charging_rate)
 	if Input.is_action_just_pressed("up") \
+	or (Input.is_action_just_released("up") and charging_rate > quick_throw_threshold) \
 	or Input.is_action_just_pressed("confirm"):
 		print("Send Burger")
 		emit_signal("submit_burger")

@@ -65,6 +65,7 @@ func start_game():
 	chef.reset_chef()
 	kitchen.prep_kitchen()
 	submit.set_playing(false, 0, 0)
+	submit.assign_chef(chef)
 	results.hide()
 	$AnimationPlayer.play("play_transition")
 

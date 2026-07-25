@@ -1,11 +1,12 @@
 extends Node2D
 class_name Submit
 
-const SPEED = 700
+const SPEED = 600
 @export var x_min : float = 10
 @export var x_max : float = 630
 @onready var target : Node2D = $crosshair
 @onready var line : Line2D = $Line2D
+var chef : Chef = null
 
 
 var playing : bool = false
@@ -17,10 +18,17 @@ func _ready():
 	self.hide()
 
 
+func assign_chef(arg : Chef) -> void:
+	chef = arg
+
+
 func _physics_process(delta):
 	if playing:
 		var new_pos = target.position.x
-		new_pos += (SPEED * delta) * travel
+		var altered_speed = SPEED
+		if chef != null:
+			altered_speed *= chef.charging_rate
+		new_pos += (altered_speed * delta) * travel
 		new_pos = clamp(new_pos, x_min, x_max)
 		target.position.x = new_pos
 		if new_pos >= x_max:
