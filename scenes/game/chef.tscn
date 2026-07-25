@@ -1141,7 +1141,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 script = ExtResource("3_fq8hn")
 viewport_path_again = NodePath("../burger_portal")
 
@@ -1155,6 +1155,8 @@ tree_root = ExtResource("2_ny6ao")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
+parameters/Charging_L/TimeScale/scale = 1.0
+parameters/Charging_R/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -1167,7 +1169,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
 animation = &"Idle_Plate_R"
 autoplay = "Idle_L"
-frame = 4
+frame = 3
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
@@ -1175,7 +1177,7 @@ frame = 4
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-64, -39)
+position = Vector2(-65, -36)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_sys53")
 

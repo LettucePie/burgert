@@ -30,6 +30,10 @@ var submitting_burger : bool = false
 var trashing : bool = false
 var trashing_ticks : int = 60
 var waiting : bool = true
+var charging_rate : float = 1.0
+var charging_rate_min : float = 1.0
+var charging_rate_max : float = 2.0
+var charging_speed : float = 5.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -113,6 +117,7 @@ func process_actions(delta):
 		if current_burger.ingredients.size() >= order_size \
 		and !submitting_burger:
 			submitting_burger = true
+			charging_rate = charging_rate_min
 			print("Enter Throw Stance")
 			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
@@ -136,11 +141,28 @@ func process_actions(delta):
 
 
 func process_submission(delta):
+	if Input.is_action_pressed("up"):
+		charging_rate = clampf(
+			charging_rate + charging_speed * delta, 
+			charging_rate_min,
+			charging_rate_max
+		)
+		print("Charging Rate: ", charging_rate)
+	else:
+		charging_rate = clampf(
+			charging_rate - charging_speed * delta,
+			charging_rate_min,
+			charging_rate_max
+		)
+	if state_machine.get_current_node().contains("Charging"):
+		anim_tree.set('parameters/Charging_L/TimeScale/scale', charging_rate)
+		anim_tree.set('parameters/Charging_R/TimeScale/scale', charging_rate)
 	if Input.is_action_just_pressed("up") \
 	or Input.is_action_just_pressed("confirm"):
 		print("Send Burger")
 		emit_signal("submit_burger")
 		state_machine.travel("Throw_" + direction)
+		charging_rate = charging_rate_min
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
