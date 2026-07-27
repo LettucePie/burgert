@@ -169,6 +169,11 @@ func assess_submission():
 	var time_percent = order_point_time_curve.sample(time_performance)
 	var time_score := roundf((current_order.size() - wrong_ingredients) * time_percent)
 	var satisfaction_percent : float = float(time_score) / float(current_order.size())
+	var charge_throw : float = lerpf(1.0, 2.0, 
+		inverse_lerp(
+		chef.charging_rate_min, chef.charging_rate_max, 
+		chef.charging_rate
+		))
 	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
 	"\ncorrect_placements: ", correct_placements,
 	"\nfinish_time: ", finish_time,
@@ -178,8 +183,9 @@ func assess_submission():
 	"\ntime_score: ", time_score,
 	"\nburger_score: ", burger_score,
 	"\nsubmission_total: ", burger_score + time_score,
-	"\nsatisfaction_percent: ", satisfaction_percent)
-	submission_total = burger_score + time_score
+	"\nsatisfaction_percent: ", satisfaction_percent, 
+	"\ncharge_throw: ", charge_throw)
+	submission_total = (burger_score + time_score) * charge_throw
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)

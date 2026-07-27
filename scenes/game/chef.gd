@@ -148,7 +148,6 @@ func process_submission(delta):
 			charging_rate_min,
 			charging_rate_max
 		)
-		print("Charging Rate: ", charging_rate)
 	else:
 		charging_rate = clampf(
 			charging_rate - charging_speed * delta,
