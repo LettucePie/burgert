@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=85 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
 [ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/images/environment/kitchen/restaurant_bg/kitchen_window_spriteframes.tres" id="4_gx61c"]
 [ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/images/environment/kitchen/restaurant_bg/kitchen_sign_spriteframes.tres" id="5_l5lse"]
+[ext_resource type="Texture2D" uid="uid://bxydn1v4n65po" path="res://assets/images/environment/kitchen/restaurant_bg/restaurant_bg_windowframe.png" id="5_v7g7i"]
 [ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stools.png" id="6_hsy50"]
 [ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stopnpuke_sign.png" id="7_b5ba6"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/images/graphics/missing_burger_frames.tres" id="8_hjo3x"]
@@ -116,6 +117,9 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_gx61c")
 animation = &"rainy"
 autoplay = "rainy"
+
+[node name="window_frame" type="Sprite2D" parent="window_anim"]
+texture = ExtResource("5_v7g7i")
 
 [node name="sign_anim" type="AnimatedSprite2D" parent="."]
 process_mode = 3
