@@ -1,6 +1,8 @@
 extends Control
 class_name CustomerDex
 
+signal close_customerdex
+
 @onready var name_label : Label = $VBoxContainer/name
 @onready var pic_rect : TextureRect = $crop/profile
 @onready var fantastic_label : Label = $VBoxContainer/statlayer/fantastic
@@ -304,11 +306,5 @@ func _on_page_reveal_animation_finished() -> void:
 		schedule.show()
 
 
-func _on_folder_drop_houndfall_animation_finished() -> void:
-	if folder.animation.contains("customer"):
-		pass
-		#self.show()
-		#if focused_button == null:
-			#$controls/next.grab_focus()
-		#else:
-			#focused_button.grab_focus()
+func _on_done_pressed() -> void:
+	emit_signal("close_customerdex")

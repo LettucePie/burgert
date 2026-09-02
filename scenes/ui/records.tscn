@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=3 uid="uid://74a6r632y6fd"]
+
+[ext_resource type="Script" path="res://scenes/ui/records.gd" id="1_k638m"]
+[ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
+[ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="3_hs6ma"]
+
+[node name="Records" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 645.0
+offset_right = 645.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k638m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -80.0
+offset_right = -59.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ruo3y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.187
+anchor_right = 0.981
+anchor_bottom = 0.802
+offset_left = 0.0479984
+offset_top = 0.319992
+offset_right = -0.177002
+offset_bottom = -0.279968
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="total_score" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="TextureRect/VBoxContainer/total_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "gross earnings:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="TextureRect/VBoxContainer/total_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="highest_score" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="TextureRect/VBoxContainer/highest_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "highest score:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="TextureRect/VBoxContainer/highest_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spent_score" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="TextureRect/VBoxContainer/spent_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "cash:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="TextureRect/VBoxContainer/spent_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="times_played" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="TextureRect/VBoxContainer/times_played" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "times played:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="TextureRect/VBoxContainer/times_played"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="burgers_served" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="TextureRect/VBoxContainer/burgers_served" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "burgers served:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="TextureRect/VBoxContainer/burgers_served"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -194,7 +194,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.CREDITS
 
 
-func _on_customerdex_done_pressed() -> void:
+func _on_customer_dex_close_customerdex() -> void:
 	print("Close CustomerDex")
 	if current_screen == SCREENS.DEX:
 		anim.play("dex_close")

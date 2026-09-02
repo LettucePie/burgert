@@ -19,9 +19,9 @@ func _ready() -> void:
 
 func assign_stats(stats : Play.Stats) -> void:
 	#loaded_stats = stats
-	total_score.text = str(stats.total_score)
-	highest_score.text = str(stats.highest_score)
-	spent_score.text = str(stats.spent_score)
+	total_score.text = "$" + str(stats.total_score)
+	highest_score.text = "$" + str(stats.highest_score)
+	spent_score.text = "$" + str(stats.total_score - stats.spent_score)
 	times_played.text = str(stats.times_played)
 	var total : int = 0
 	for cs in stats.customer_stats:
