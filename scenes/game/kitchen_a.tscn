@@ -39,48 +39,48 @@
 [ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_alcove.tres" id="43_yb70e"]
 [ext_resource type="PackedScene" uid="uid://cm1q64oko5mup" path="res://scenes/game/customers/customer_Emo.tscn" id="44_1jhgf"]
-[ext_resource type="Texture2D" uid="uid://q1ab3x30ngjg" path="res://assets/images/environment/kitchen/ingredients/bun.tres" id="45_gga11"]
 [ext_resource type="PackedScene" uid="uid://dgdrqg66xl376" path="res://scenes/game/customers/customer_basic_b.tscn" id="45_o2d37"]
 [ext_resource type="Texture2D" uid="uid://jfx0q6ekhayi" path="res://assets/images/environment/kitchen/ingredients/rune_a.png" id="45_opf6f"]
-[ext_resource type="Texture2D" uid="uid://glehc4nentpm" path="res://assets/images/environment/kitchen/ingredients/bun_highlight.tres" id="46_bk7km"]
 [ext_resource type="Script" path="res://scenes/game/rune.gd" id="46_ha3fw"]
 [ext_resource type="PackedScene" uid="uid://c10sbodrjrfc7" path="res://scenes/game/customers/customer_basic_c.tscn" id="46_uxd32"]
 [ext_resource type="Texture2D" uid="uid://dn1oadcxytxp" path="res://assets/images/environment/kitchen/ingredients/rune_a_highlight.png" id="47_fu480"]
-[ext_resource type="Texture2D" uid="uid://bro1j5oa72kh5" path="res://assets/images/environment/kitchen/ingredients/meat.tres" id="47_sn0s0"]
+[ext_resource type="Texture2D" uid="uid://dwpx3n3f4qipn" path="res://assets/images/environment/kitchen/ingredients/bun_32x32.png" id="47_lkabf"]
 [ext_resource type="PackedScene" uid="uid://c0spnk3woo3hp" path="res://scenes/game/customers/customer_Al.tscn" id="47_x5ntx"]
 [ext_resource type="PackedScene" uid="uid://dx4lrji86l8dv" path="res://scenes/game/customers/customer_Tommy.tscn" id="47_ywpjo"]
 [ext_resource type="PackedScene" uid="uid://cnrs6gbmo3jko" path="res://scenes/game/customers/customer_RAT.tscn" id="48_5s5hk"]
+[ext_resource type="Texture2D" uid="uid://b6nu7371at36s" path="res://assets/images/environment/kitchen/ingredients/bun_highlight_32x32.png" id="48_7lnh6"]
 [ext_resource type="PackedScene" uid="uid://d2crwu2ludbm7" path="res://scenes/game/customers/customer_Ted.tscn" id="48_gogea"]
-[ext_resource type="Texture2D" uid="uid://bk1h8kijlmou1" path="res://assets/images/environment/kitchen/ingredients/meat_highlight.tres" id="48_mixwx"]
 [ext_resource type="PackedScene" uid="uid://bw4eao43mdwok" path="res://scenes/game/customers/customer_Teddy.tscn" id="48_qr62u"]
-[ext_resource type="Texture2D" uid="uid://1k21cq24s2qa" path="res://assets/images/environment/kitchen/ingredients/lettuce.tres" id="49_4b8hj"]
 [ext_resource type="SpriteFrames" uid="uid://disepgi0mwu8m" path="res://assets/images/graphics/magic_pop_spriteframes.tres" id="49_ife6o"]
 [ext_resource type="AudioStream" uid="uid://e5g3k25ob5cn" path="res://assets/sound/sfx/Ingredients/Bun.wav" id="50_2xqon"]
 [ext_resource type="Texture2D" uid="uid://cppchvwbki2lx" path="res://assets/images/environment/kitchen/ingredients/rune_b.png" id="50_k4kjt"]
-[ext_resource type="Texture2D" uid="uid://drwvtemey5k00" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight.tres" id="50_n0mmw"]
 [ext_resource type="Texture2D" uid="uid://dcju8y6o8xa17" path="res://assets/images/environment/kitchen/ingredients/rune_b_highlight.png" id="51_70wd8"]
-[ext_resource type="Texture2D" uid="uid://oyhvth8irtnn" path="res://assets/images/environment/kitchen/ingredients/tomato.tres" id="51_483gu"]
-[ext_resource type="Texture2D" uid="uid://nrvg88xgp6gg" path="res://assets/images/environment/kitchen/ingredients/tomato_highlight.tres" id="52_qpg1h"]
-[ext_resource type="Texture2D" uid="uid://cr7wjm6r4vxtf" path="res://assets/images/environment/kitchen/ingredients/cheese.tres" id="53_0tmef"]
-[ext_resource type="Texture2D" uid="uid://c3slng3wgpjjd" path="res://assets/images/environment/kitchen/ingredients/cheese_highlight.tres" id="54_0rxtm"]
 [ext_resource type="Texture2D" uid="uid://chvgc2kft2iap" path="res://assets/images/environment/kitchen/ingredients/rune_c.png" id="54_gfx2d"]
+[ext_resource type="Texture2D" uid="uid://b5utbgf2lk3rq" path="res://assets/images/environment/kitchen/ingredients/meat_32x32.png" id="54_r7lev"]
+[ext_resource type="Texture2D" uid="uid://dk8ilbnme5tre" path="res://assets/images/environment/kitchen/ingredients/burger_highlight_32x32.png" id="55_2nqn7"]
 [ext_resource type="Texture2D" uid="uid://cje02c0x7a88d" path="res://assets/images/environment/kitchen/ingredients/rune_c_highlight.png" id="55_knf5a"]
 [ext_resource type="AudioStream" uid="uid://dunfrlldr045r" path="res://assets/sound/sfx/Ingredients/Burger.wav" id="55_lgf1h"]
-[ext_resource type="Texture2D" uid="uid://g6e2epnrvqkg" path="res://assets/images/environment/kitchen/ingredients/ketchup.tres" id="55_v6m6k"]
-[ext_resource type="Texture2D" uid="uid://byv5ky3daq3ph" path="res://assets/images/environment/kitchen/ingredients/ketchup_highlight.tres" id="56_782jn"]
-[ext_resource type="Texture2D" uid="uid://cjpq22nblldqw" path="res://assets/images/environment/kitchen/ingredients/mustard.tres" id="57_w4kew"]
 [ext_resource type="Texture2D" uid="uid://cel65lj2ahan2" path="res://assets/images/environment/kitchen/ingredients/rune_d.png" id="58_ch057"]
+[ext_resource type="Texture2D" uid="uid://bqvdhpe7ywqcp" path="res://assets/images/environment/kitchen/ingredients/lettuce_32x32.png" id="59_2xfov"]
 [ext_resource type="Texture2D" uid="uid://hhq33wey6aos" path="res://assets/images/environment/kitchen/ingredients/rune_d_highlight.png" id="59_blnan"]
 [ext_resource type="AudioStream" uid="uid://bsbf1frqdk36h" path="res://assets/sound/sfx/Ingredients/Lettuce.wav" id="60_bkbmp"]
+[ext_resource type="Texture2D" uid="uid://dcecx7y32fekj" path="res://assets/images/environment/kitchen/ingredients/lettuce_highlight_32x32.png" id="60_pa20j"]
 [ext_resource type="Texture2D" uid="uid://cfplpvpsn7xax" path="res://assets/images/environment/kitchen/ingredients/rune_e.png" id="62_7txvg"]
 [ext_resource type="Texture2D" uid="uid://bdmqixa1v0x3p" path="res://assets/images/environment/kitchen/ingredients/rune_e_highlight.png" id="63_gmmst"]
+[ext_resource type="Texture2D" uid="uid://dnlssc16wqvl5" path="res://assets/images/environment/kitchen/ingredients/tomato_32x32.png" id="64_jfehx"]
 [ext_resource type="AudioStream" uid="uid://bh2a0pa0ar268" path="res://assets/sound/sfx/Ingredients/Tomato.wav" id="65_63bxq"]
+[ext_resource type="Texture2D" uid="uid://drjwf3gotuw8" path="res://assets/images/environment/kitchen/ingredients/tomato_highlight_32x32.png" id="65_ddh21"]
 [ext_resource type="Texture2D" uid="uid://r0vad3awqn6b" path="res://assets/images/environment/kitchen/ingredients/rune_f.png" id="66_08der"]
 [ext_resource type="Texture2D" uid="uid://c02c1gnb7fte3" path="res://assets/images/environment/kitchen/ingredients/rune_f_highlight.png" id="67_egv5x"]
 [ext_resource type="AudioStream" uid="uid://b44icxh7mvx62" path="res://assets/sound/sfx/Ingredients/Cheese.wav" id="69_f1dyb"]
 [ext_resource type="Texture2D" uid="uid://b8vuxekfn5lcw" path="res://assets/images/environment/kitchen/ingredients/rune_g.png" id="69_vjywy"]
+[ext_resource type="Texture2D" uid="uid://bm44cyfpp77a7" path="res://assets/images/environment/kitchen/ingredients/cheese_32x32.png" id="69_x7x8n"]
+[ext_resource type="Texture2D" uid="uid://byto3do00c2c1" path="res://assets/images/environment/kitchen/ingredients/cheese_highlight_32x32.png" id="70_5ak6r"]
 [ext_resource type="Texture2D" uid="uid://4vrmc0nkg8b6" path="res://assets/images/environment/kitchen/ingredients/rune_g_highlight.png" id="70_xgkgw"]
+[ext_resource type="Texture2D" uid="uid://cwt4u0xbhuo10" path="res://assets/images/environment/kitchen/ingredients/ketchup_32x32.png" id="74_366g6"]
 [ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="74_wr2g3"]
+[ext_resource type="Texture2D" uid="uid://b23so3dpsa7oq" path="res://assets/images/environment/kitchen/ingredients/bottle_highlight_32x32.png" id="75_2suva"]
+[ext_resource type="Texture2D" uid="uid://k7myalpdanah" path="res://assets/images/environment/kitchen/ingredients/mustard_32x32.png" id="79_bvf5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -98,7 +98,7 @@ customer_burger_portal = NodePath("burger_portal")
 customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
-workstations = [NodePath("background_2/workstation_bun"), NodePath("background_2/workstation_meat"), NodePath("background_2/workstation_lettuce"), NodePath("background_2/workstation_tomato"), NodePath("background_2/workstation_cheese"), NodePath("background_2/workstation_ketchup"), NodePath("background_2/workstation_mustard")]
+workstations = [NodePath("foreground/workstation_bun"), NodePath("foreground/workstation_meat"), NodePath("foreground/workstation_lettuce"), NodePath("foreground/workstation_tomato"), NodePath("foreground/workstation_cheese"), NodePath("foreground/workstation_ketchup"), NodePath("foreground/workstation_mustard")]
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 rotating_burger = true
@@ -226,36 +226,36 @@ position = Vector2(320, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("41_mvpk1")
 
-[node name="background_1" type="Node2D" parent="."]
+[node name="background" type="Node2D" parent="."]
 
-[node name="counter" type="Sprite2D" parent="background_1"]
+[node name="counter" type="Sprite2D" parent="background"]
 position = Vector2(320, 327.5)
 scale = Vector2(2, 2.21154)
 texture = ExtResource("40_arepm")
 
-[node name="grill" type="Sprite2D" parent="background_1"]
+[node name="grill" type="Sprite2D" parent="background"]
 position = Vector2(178, 305.25)
 scale = Vector2(1.72857, 1.72857)
 texture = ExtResource("42_y6et2")
 
-[node name="alcove" type="Sprite2D" parent="background_1"]
+[node name="alcove" type="Sprite2D" parent="background"]
 position = Vector2(296.079, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("43_yb70e")
 
-[node name="alcove2" type="Sprite2D" parent="background_1"]
+[node name="alcove2" type="Sprite2D" parent="background"]
 position = Vector2(392, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("43_yb70e")
 
-[node name="alcove3" type="Sprite2D" parent="background_1"]
+[node name="alcove3" type="Sprite2D" parent="background"]
 position = Vector2(490, 305.25)
 scale = Vector2(2.57481, 1.72857)
 texture = ExtResource("43_yb70e")
 
-[node name="background_2" type="Node2D" parent="."]
+[node name="foreground" type="Node2D" parent="."]
 
-[node name="workstation_bun" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_bun" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(57, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -264,20 +264,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_bun"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_bun"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_bun"]
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_bun"]
 position = Vector2(0, -26)
-scale = Vector2(2, 2)
-texture = ExtResource("45_gga11")
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("47_lkabf")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_bun/ingredient_sprite"]
-position = Vector2(0, -1)
-texture = ExtResource("46_bk7km")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_bun/ingredient_sprite"]
+texture = ExtResource("48_7lnh6")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_bun" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_bun" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0.5, -26.5)
@@ -287,32 +286,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_bun/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_bun/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("47_fu480")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_bun/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_bun/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.556863)
 z_index = -1
 texture = ExtResource("45_opf6f")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_bun/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_bun/rune_sprite"]
 self_modulate = Color(1, 0.654902, 0.6, 0.529412)
 z_index = -1
 texture = ExtResource("47_fu480")
 
-[node name="magic_pop" type="AnimatedSprite2D" parent="background_2/workstation_bun"]
+[node name="magic_pop" type="AnimatedSprite2D" parent="foreground/workstation_bun"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_bun"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_bun"]
 stream = ExtResource("50_2xqon")
 bus = &"SFX"
 
-[node name="workstation_meat" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_meat" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(177, 333)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -321,20 +320,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_meat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_meat"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_meat"]
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_meat"]
 position = Vector2(0, -16)
-scale = Vector2(1.6875, 1.6875)
-texture = ExtResource("47_sn0s0")
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("54_r7lev")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_meat/ingredient_sprite"]
-position = Vector2(0, -2.37037)
-texture = ExtResource("48_mixwx")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_meat/ingredient_sprite"]
+texture = ExtResource("55_2nqn7")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_meat" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_meat" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -18.5)
@@ -344,32 +342,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_meat/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_meat/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("51_70wd8")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_meat/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_meat/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.556863)
 z_index = -1
 texture = ExtResource("50_k4kjt")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_meat/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_meat/rune_sprite"]
 self_modulate = Color(0.647059, 0.654902, 1, 0.498039)
 z_index = -1
 texture = ExtResource("51_70wd8")
 
-[node name="magic_pop2" type="AnimatedSprite2D" parent="background_2/workstation_meat"]
+[node name="magic_pop2" type="AnimatedSprite2D" parent="foreground/workstation_meat"]
 position = Vector2(0, -19)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_meat"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_meat"]
 stream = ExtResource("55_lgf1h")
 bus = &"SFX"
 
-[node name="workstation_lettuce" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_lettuce" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(297, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -377,19 +375,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_lettuce"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_lettuce"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_lettuce"]
-position = Vector2(0, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("49_4b8hj")
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_lettuce"]
+position = Vector2(0, -22)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("59_2xfov")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_lettuce/ingredient_sprite"]
-texture = ExtResource("50_n0mmw")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_lettuce/ingredient_sprite"]
+texture = ExtResource("60_pa20j")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_lettuce" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_lettuce" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -26.5)
@@ -399,32 +397,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_lettuce/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_lettuce/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("55_knf5a")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_lettuce/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_lettuce/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.541176)
 z_index = -1
 texture = ExtResource("54_gfx2d")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_lettuce/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_lettuce/rune_sprite"]
 self_modulate = Color(0.937255, 0.654902, 1, 0.556863)
 z_index = -1
 texture = ExtResource("55_knf5a")
 
-[node name="magic_pop3" type="AnimatedSprite2D" parent="background_2/workstation_lettuce"]
+[node name="magic_pop3" type="AnimatedSprite2D" parent="foreground/workstation_lettuce"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_lettuce"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_lettuce"]
 stream = ExtResource("60_bkbmp")
 bus = &"SFX"
 
-[node name="workstation_tomato" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_tomato" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(393, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -433,19 +431,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_tomato"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_tomato"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_tomato"]
-position = Vector2(0, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("51_483gu")
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_tomato"]
+position = Vector2(0, -24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("64_jfehx")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_tomato/ingredient_sprite"]
-texture = ExtResource("52_qpg1h")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_tomato/ingredient_sprite"]
+texture = ExtResource("65_ddh21")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_tomato" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_tomato" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -26.5)
@@ -455,32 +453,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_tomato/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_tomato/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("59_blnan")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_tomato/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_tomato/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.572549)
 z_index = -1
 texture = ExtResource("58_ch057")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_tomato/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_tomato/rune_sprite"]
 self_modulate = Color(0.513726, 0.882353, 0.435294, 0.572549)
 z_index = -1
 texture = ExtResource("59_blnan")
 
-[node name="magic_pop4" type="AnimatedSprite2D" parent="background_2/workstation_tomato"]
+[node name="magic_pop4" type="AnimatedSprite2D" parent="foreground/workstation_tomato"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_tomato"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_tomato"]
 stream = ExtResource("65_63bxq")
 bus = &"SFX"
 
-[node name="workstation_cheese" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_cheese" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(491, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -489,19 +487,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_cheese"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_cheese"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_dt4bo")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_cheese"]
-position = Vector2(0, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("53_0tmef")
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_cheese"]
+position = Vector2(0, -24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("69_x7x8n")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_cheese/ingredient_sprite"]
-texture = ExtResource("54_0rxtm")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_cheese/ingredient_sprite"]
+texture = ExtResource("70_5ak6r")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_cheese" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_cheese" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -26.5)
@@ -511,32 +509,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_cheese/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_cheese/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("63_gmmst")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_cheese/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_cheese/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.533333)
 z_index = -1
 texture = ExtResource("62_7txvg")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_cheese/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_cheese/rune_sprite"]
 self_modulate = Color(0.466667, 0.847059, 0.898039, 0.552941)
 z_index = -1
 texture = ExtResource("63_gmmst")
 
-[node name="magic_pop5" type="AnimatedSprite2D" parent="background_2/workstation_cheese"]
+[node name="magic_pop5" type="AnimatedSprite2D" parent="foreground/workstation_cheese"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_cheese"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_cheese"]
 stream = ExtResource("69_f1dyb")
 bus = &"SFX"
 
-[node name="workstation_ketchup" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_ketchup" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(563, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -545,19 +543,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_ketchup"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_ketchup"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_l3xul")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_ketchup"]
-position = Vector2(0, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("55_v6m6k")
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_ketchup"]
+position = Vector2(0, -24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("74_366g6")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_ketchup/ingredient_sprite"]
-texture = ExtResource("56_782jn")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_ketchup/ingredient_sprite"]
+texture = ExtResource("75_2suva")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_ketchup" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_ketchup" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -26.5)
@@ -567,32 +565,32 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_ketchup/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_ketchup/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("67_egv5x")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_ketchup/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_ketchup/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.529412)
 z_index = -1
 texture = ExtResource("66_08der")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_ketchup/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_ketchup/rune_sprite"]
 self_modulate = Color(0.811765, 0.72549, 0.976471, 0.490196)
 z_index = -1
 texture = ExtResource("67_egv5x")
 
-[node name="magic_pop6" type="AnimatedSprite2D" parent="background_2/workstation_ketchup"]
+[node name="magic_pop6" type="AnimatedSprite2D" parent="foreground/workstation_ketchup"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_ketchup"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_ketchup"]
 stream = ExtResource("74_wr2g3")
 bus = &"SFX"
 
-[node name="workstation_mustard" type="Area2D" parent="background_2" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_mustard" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
 position = Vector2(611, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -601,19 +599,19 @@ highlight = NodePath("ingredient_sprite/highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background_2/workstation_mustard"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_mustard"]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_62g6r")
 
-[node name="ingredient_sprite" type="Sprite2D" parent="background_2/workstation_mustard"]
-position = Vector2(0, -28)
-scale = Vector2(2, 2)
-texture = ExtResource("57_w4kew")
+[node name="ingredient_sprite" type="Sprite2D" parent="foreground/workstation_mustard"]
+position = Vector2(0, -24)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("79_bvf5i")
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_mustard/ingredient_sprite"]
-texture = ExtResource("56_782jn")
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_mustard/ingredient_sprite"]
+texture = ExtResource("75_2suva")
 
-[node name="rune_sprite" type="Sprite2D" parent="background_2/workstation_mustard" node_paths=PackedStringArray("highlight", "auras")]
+[node name="rune_sprite" type="Sprite2D" parent="foreground/workstation_mustard" node_paths=PackedStringArray("highlight", "auras")]
 visible = false
 z_index = 1
 position = Vector2(0, -26.5)
@@ -623,28 +621,28 @@ script = ExtResource("46_ha3fw")
 highlight = NodePath("highlight")
 auras = [NodePath("rune_sprite_aura1"), NodePath("rune_sprite_aura2")]
 
-[node name="highlight" type="Sprite2D" parent="background_2/workstation_mustard/rune_sprite"]
+[node name="highlight" type="Sprite2D" parent="foreground/workstation_mustard/rune_sprite"]
 z_index = -1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("70_xgkgw")
 
-[node name="rune_sprite_aura1" type="Sprite2D" parent="background_2/workstation_mustard/rune_sprite"]
+[node name="rune_sprite_aura1" type="Sprite2D" parent="foreground/workstation_mustard/rune_sprite"]
 self_modulate = Color(0.568627, 0.568627, 0.568627, 0.588235)
 z_index = -1
 texture = ExtResource("69_vjywy")
 
-[node name="rune_sprite_aura2" type="Sprite2D" parent="background_2/workstation_mustard/rune_sprite"]
+[node name="rune_sprite_aura2" type="Sprite2D" parent="foreground/workstation_mustard/rune_sprite"]
 self_modulate = Color(0.917647, 0.756863, 0.364706, 0.533333)
 z_index = -1
 texture = ExtResource("70_xgkgw")
 
-[node name="magic_pop7" type="AnimatedSprite2D" parent="background_2/workstation_mustard"]
+[node name="magic_pop7" type="AnimatedSprite2D" parent="foreground/workstation_mustard"]
 position = Vector2(0, -27)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("49_ife6o")
 animation = &"pop"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="background_2/workstation_mustard"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="foreground/workstation_mustard"]
 stream = ExtResource("74_wr2g3")
 pitch_scale = 1.2
 bus = &"SFX"

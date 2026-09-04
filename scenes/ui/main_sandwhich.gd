@@ -73,7 +73,7 @@ func _adjust_stack(arg : int):
 	if arg < 0 and current_stack != 0:
 		_tween_layer_out(layer)
 		current_stack += arg
-		sfx.stream = sandwich_sfx[randi_range(6, 8)]
+		sfx.stream = sandwich_sfx[randi_range(6, 9)]
 		sfx.play()
 	elif arg > 0 and current_stack != stack_max:
 		current_stack += arg

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=33 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/main/menu_sandwhich_meat.png" id="9_oagvs"]
 [ext_resource type="AudioStream" uid="uid://dj570bpntnit7" path="res://assets/sound/sfx/fwip_3.wav" id="10_bquch"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
+[ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/Menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
 [ext_resource type="Texture2D" uid="uid://cpnajomy8w28t" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="11_qtn2x"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
@@ -47,9 +48,10 @@ grow_vertical = 2
 script = ExtResource("1_kifg5")
 label_container = NodePath("PanelContainer")
 label = NodePath("PanelContainer/Label")
-sandwich_sfx = Array[AudioStreamWAV]([ExtResource("2_f8rkd"), ExtResource("3_71vga"), ExtResource("4_dr0rr"), ExtResource("5_ph245"), ExtResource("6_2wyia"), ExtResource("7_513fl"), ExtResource("8_ypvyd"), ExtResource("9_mpmpj"), ExtResource("10_bquch")])
+sandwich_sfx = Array[AudioStreamWAV]([ExtResource("2_f8rkd"), ExtResource("3_71vga"), ExtResource("4_dr0rr"), ExtResource("5_ph245"), ExtResource("6_2wyia"), ExtResource("7_513fl"), ExtResource("8_ypvyd"), ExtResource("9_mpmpj"), ExtResource("10_bquch"), ExtResource("11_ncpqt")])
 
 [node name="sandwich_sfx" type="AudioStreamPlayer" parent="."]
+volume_db = -4.0
 bus = &"SFX"
 
 [node name="Title" type="TextureRect" parent="."]
