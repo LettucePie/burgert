@@ -1,19 +1,28 @@
-[gd_scene load_steps=23 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=32 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/main_sandwhich.gd" id="1_kifg5"]
 [ext_resource type="Script" path="res://scenes/ui/wobble_sprite.gd" id="2_f6xup"]
+[ext_resource type="AudioStream" uid="uid://e5g3k25ob5cn" path="res://assets/sound/sfx/Ingredients/Bun.wav" id="2_f8rkd"]
+[ext_resource type="AudioStream" uid="uid://dunfrlldr045r" path="res://assets/sound/sfx/Ingredients/Burger.wav" id="3_71vga"]
 [ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/icons/customerdex_icon.png" id="3_nw1xn"]
+[ext_resource type="AudioStream" uid="uid://b44icxh7mvx62" path="res://assets/sound/sfx/Ingredients/Cheese.wav" id="4_dr0rr"]
 [ext_resource type="Texture2D" uid="uid://dktqsnyumjq34" path="res://assets/images/graphics/menu/icons/credits_icon.png" id="4_mnra0"]
 [ext_resource type="Texture2D" uid="uid://o6b7fbyfqep" path="res://assets/images/graphics/menu/icons/receipt_sprite.png" id="4_nb154"]
 [ext_resource type="Texture2D" uid="uid://dso3tex3lg86b" path="res://assets/images/graphics/menu/icons/settings_gear.png" id="5_gxdf3"]
+[ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="5_ph245"]
+[ext_resource type="AudioStream" uid="uid://bsbf1frqdk36h" path="res://assets/sound/sfx/Ingredients/Lettuce.wav" id="6_2wyia"]
 [ext_resource type="Texture2D" uid="uid://7o8j4g3f2rb7" path="res://assets/images/graphics/menu/plate.png" id="6_qkixa"]
 [ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/icons/help_icon.png" id="6_v0pyw"]
 [ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/icons/jukebox_icon.png" id="7_2wa71"]
+[ext_resource type="AudioStream" uid="uid://bh2a0pa0ar268" path="res://assets/sound/sfx/Ingredients/Tomato.wav" id="7_513fl"]
 [ext_resource type="Texture2D" uid="uid://p54mxhut7p0i" path="res://assets/images/graphics/menu/main/menu_sandwhich_bottom_bun.png" id="7_b10ma"]
 [ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/icons/quit_icon.png" id="8_b1kc7"]
+[ext_resource type="AudioStream" uid="uid://dibwyxx3teyf4" path="res://assets/sound/sfx/fwip_1.wav" id="8_ypvyd"]
+[ext_resource type="AudioStream" uid="uid://d1n05cqdgvndd" path="res://assets/sound/sfx/fwip_2.wav" id="9_mpmpj"]
 [ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/main/menu_sandwhich_meat.png" id="9_oagvs"]
+[ext_resource type="AudioStream" uid="uid://dj570bpntnit7" path="res://assets/sound/sfx/fwip_3.wav" id="10_bquch"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
 [ext_resource type="Texture2D" uid="uid://cpnajomy8w28t" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="11_qtn2x"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
@@ -38,6 +47,10 @@ grow_vertical = 2
 script = ExtResource("1_kifg5")
 label_container = NodePath("PanelContainer")
 label = NodePath("PanelContainer/Label")
+sandwich_sfx = Array[AudioStreamWAV]([ExtResource("2_f8rkd"), ExtResource("3_71vga"), ExtResource("4_dr0rr"), ExtResource("5_ph245"), ExtResource("6_2wyia"), ExtResource("7_513fl"), ExtResource("8_ypvyd"), ExtResource("9_mpmpj"), ExtResource("10_bquch")])
+
+[node name="sandwich_sfx" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
@@ -89,6 +102,7 @@ texture = ExtResource("8_b1kc7")
 [node name="Credits" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("9_oagvs")
+metadata/sfx_id = 1
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Credits"]
 texture = ExtResource("4_mnra0")
@@ -96,6 +110,7 @@ texture = ExtResource("4_mnra0")
 [node name="Shop" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("13_hhppr")
+metadata/sfx_id = 2
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Shop" groups=["lang_image"]]
 texture = ExtResource("11_qtn2x")
@@ -103,6 +118,7 @@ texture = ExtResource("11_qtn2x")
 [node name="Jukebox" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("7_b10ma")
+metadata/sfx_id = 0
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Jukebox"]
 self_modulate = Color(0, 0, 0, 0.235294)
@@ -116,6 +132,7 @@ texture = ExtResource("7_2wa71")
 [node name="Help" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("9_oagvs")
+metadata/sfx_id = 1
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Help"]
 texture = ExtResource("6_v0pyw")
@@ -123,6 +140,7 @@ texture = ExtResource("6_v0pyw")
 [node name="Options" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("13_hhppr")
+metadata/sfx_id = 2
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Options"]
 texture = ExtResource("5_gxdf3")
@@ -130,6 +148,7 @@ texture = ExtResource("5_gxdf3")
 [node name="Records" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("15_f8xqq")
+metadata/sfx_id = 5
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Records"]
 texture = ExtResource("4_nb154")
@@ -137,6 +156,7 @@ texture = ExtResource("4_nb154")
 [node name="CustomerDex" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("17_cwois")
+metadata/sfx_id = 4
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/CustomerDex"]
 texture = ExtResource("3_nw1xn")
@@ -144,6 +164,7 @@ texture = ExtResource("3_nw1xn")
 [node name="Play" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("19_1kd2p")
+metadata/sfx_id = 3
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Play"]
 self_modulate = Color(0, 0, 0, 1)
@@ -157,6 +178,7 @@ texture = ExtResource("1_cd2sv")
 [node name="Top" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
 texture = ExtResource("21_ci52s")
+metadata/sfx_id = 0
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Top"]
 visible = false

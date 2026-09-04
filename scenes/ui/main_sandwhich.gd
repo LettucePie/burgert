@@ -33,6 +33,8 @@ var stack_labels_translated : PackedStringArray = [
 	"Play",
 	""
 ]
+@onready var sfx : AudioStreamPlayer = $sandwich_sfx
+@export var sandwich_sfx : Array[AudioStreamWAV]
 
 ##
 ## Input Stuff
@@ -71,9 +73,13 @@ func _adjust_stack(arg : int):
 	if arg < 0 and current_stack != 0:
 		_tween_layer_out(layer)
 		current_stack += arg
+		sfx.stream = sandwich_sfx[randi_range(6, 8)]
+		sfx.play()
 	elif arg > 0 and current_stack != stack_max:
 		current_stack += arg
 		layer = stack[current_stack]
+		sfx.stream = sandwich_sfx[layer.get_meta("sfx_id", 0)]
+		sfx.play()
 		_tween_layer_in(layer)
 	_fill_label(current_stack)
 

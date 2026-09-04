@@ -67,14 +67,8 @@ offset_top = 242.0
 offset_right = -140.0
 offset_bottom = 339.0
 
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_left = 35.0
-offset_top = 438.0
-offset_right = 188.0
-offset_bottom = 515.0
-
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00003
+offset_left = 2.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -175,8 +169,6 @@ texture = ExtResource("64_avxcg")
 [node name="Records" parent="." instance=ExtResource("22_v8q47")]
 visible = false
 layout_mode = 1
-offset_left = 0.0
-offset_right = 0.0
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
