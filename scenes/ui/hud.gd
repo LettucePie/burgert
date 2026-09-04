@@ -6,6 +6,9 @@ signal gui_pause()
 var order_shown : bool = false
 var timer : Timer = null
 
+@onready var time : Label = $stats/frame/time
+@onready var score : Label = $stats/frame/score
+
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
 @onready var top_tear : TextureRect = $order/VBoxContainer/top
 @onready var bot_tear : TextureRect = $order/VBoxContainer/bot
@@ -120,7 +123,7 @@ func push_burger_build(build : PackedStringArray):
 
 
 func set_score(arg : int):
-	$VBoxContainer/score.text = "SCORE " + str(arg)
+	score.text = str(arg)
 
 
 func set_timer(t : Timer):
@@ -146,7 +149,7 @@ func _physics_process(delta):
 	if order_shown:
 		process_scrolling(delta)
 	if timer != null:
-		$VBoxContainer/time.text = "TIME - " + str(floor(timer.time_left))
+		time.text = str(floor(timer.time_left))
 
 
 func _on_pause_pressed():
