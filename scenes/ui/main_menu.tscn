@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=25 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
 [ext_resource type="PackedScene" uid="uid://c6bktnv8pckdn" path="res://scenes/ui/customer_dex.tscn" id="21_lcswv"]
 [ext_resource type="PackedScene" uid="uid://74a6r632y6fd" path="res://scenes/ui/records.tscn" id="22_v8q47"]
+[ext_resource type="PackedScene" uid="uid://dn7wrk0xcx8d" path="res://scenes/ui/shop.tscn" id="24_peheo"]
 [ext_resource type="Texture2D" uid="uid://dwdldo33mgn76" path="res://assets/models/textures/page_render_test.png" id="64_avxcg"]
 [ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
@@ -51,6 +52,7 @@ next/options_close = &"desk_return_right"
 next/help_close = &"desk_return_right"
 next/radio_close = &"desk_return_left"
 next/credits_close = &"desk_return_right"
+next/shop_close = &"desk_return_left"
 
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
@@ -78,6 +80,7 @@ grow_vertical = 2
 texture = ExtResource("16_b2u1j")
 
 [node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(293, 231)
 scale = Vector2(2.21, 2.21)
 sprite_frames = ExtResource("15_u6v16")
@@ -179,9 +182,13 @@ offset_bottom = -293.0
 [node name="track_title" parent="Jukebox/screen" index="0"]
 visible = false
 
+[node name="Shop" parent="." instance=ExtResource("24_peheo")]
+visible = false
+layout_mode = 1
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
-[connection signal="pressed" from="Options/phone/main/vcont1/finished" to="." method="_on_options_finished_pressed"]
+[connection signal="close_options" from="Options" to="." method="_on_options_close_options"]
 [connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
 [connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
@@ -189,9 +196,9 @@ visible = false
 [connection signal="close_customerdex" from="CustomerDex" to="." method="_on_customer_dex_close_customerdex"]
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
 [connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
+[connection signal="close_shop" from="Shop" to="." method="_on_shop_close_shop"]
 
 [editable path="office"]
-[editable path="Options"]
 [editable path="Extras"]
 [editable path="Credits"]
 [editable path="Paused"]

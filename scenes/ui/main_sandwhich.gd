@@ -4,7 +4,7 @@ signal menu_selection(selection)
 
 @onready var stack : Array = $Sandwhich.get_children()
 var current_stack : int = 0
-var stack_max : int = 8
+var stack_max : int = 9
 @export var active : bool = true
 @export var label_container : PanelContainer
 @export var label : Label
@@ -12,6 +12,7 @@ var label_tween : Tween = null
 var stack_labels_internal : PackedStringArray = [
 	"Quit",
 	"Credits",
+	"Shop",
 	"Jukebox",
 	"Help",
 	"Options",
@@ -23,6 +24,7 @@ var stack_labels_internal : PackedStringArray = [
 var stack_labels_translated : PackedStringArray = [
 	"Quit",
 	"Credits",
+	"Shop",
 	"Jukebox",
 	"Help",
 	"Options",

@@ -74,7 +74,9 @@ use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../sfx_vol")
 focus_mode = 2
 script = ExtResource("1_1ag3e")
 
@@ -108,7 +110,9 @@ use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../mus_vol")
 focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../swap_confirm")
 focus_mode = 2
 script = ExtResource("1_1ag3e")
 
@@ -142,12 +146,16 @@ use_parent_material = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../sfx_vol")
+focus_neighbor_bottom = NodePath("../set_lang")
 text = "Swap A-B"
 
 [node name="set_lang" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../swap_confirm")
+focus_neighbor_bottom = NodePath("../finished")
 text = "Language"
 icon = ExtResource("2_6uhjv")
 
@@ -155,6 +163,8 @@ icon = ExtResource("2_6uhjv")
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../set_lang")
+focus_neighbor_bottom = NodePath(".")
 text = "Done"
 
 [node name="language" type="Control" parent="phone" node_paths=PackedStringArray("directory", "entry_original")]

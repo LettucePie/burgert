@@ -1,6 +1,7 @@
 extends Control
 class_name Options
 
+signal close_options
 
 ##
 ##
@@ -69,7 +70,8 @@ func _on_set_lang_pressed() -> void:
 
 
 func _on_finished_pressed() -> void:
-	pass # Replace with function body.
+	print("Sending Close Options...")
+	emit_signal("close_options")
 
 
 func _on_language_language_selector_finished() -> void:

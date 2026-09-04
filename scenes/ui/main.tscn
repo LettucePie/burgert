@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=23 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="1_cbnl0"]
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dapdrar1tyih0" path="res://assets/images/graphics/menu/icons/quit_icon.png" id="8_b1kc7"]
 [ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/main/menu_sandwhich_meat.png" id="9_oagvs"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
+[ext_resource type="Texture2D" uid="uid://cpnajomy8w28t" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="11_qtn2x"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
@@ -91,6 +92,13 @@ texture = ExtResource("9_oagvs")
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Credits"]
 texture = ExtResource("4_mnra0")
+
+[node name="Shop" type="Sprite2D" parent="Sandwhich"]
+scale = Vector2(4, 4)
+texture = ExtResource("13_hhppr")
+
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Shop" groups=["lang_image"]]
+texture = ExtResource("11_qtn2x")
 
 [node name="Jukebox" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)

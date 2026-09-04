@@ -14,14 +14,14 @@ signal bgm_pause(pause : bool)
 @onready var jukebox : Jukebox = $Jukebox
 @onready var menu_flair : MenuFlair = $MenuFlair
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE}
+enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE, SHOP}
 var current_screen : SCREENS = SCREENS.MAIN
 var queued_menu : SCREENS = SCREENS.MAIN
 var left_side_screens : Array[SCREENS] = [
 	SCREENS.DEX, SCREENS.RADIO, SCREENS.RECORDS
 ]
 var left_side_commands : PackedStringArray = [
-	"Customer-Dex", "Jukebox", "Records"
+	"Customer-Dex", "Jukebox", "Records", "Shop"
 ]
 var right_side_screens : Array[SCREENS] = [
 	SCREENS.CREDITS, SCREENS.OPTIONS, SCREENS.HELP
@@ -57,6 +57,8 @@ func screen_string_to_enum(string_in : String) -> SCREENS:
 		result = SCREENS.OPTIONS
 	if string_in == "Help":
 		result = SCREENS.HELP
+	if string_in == "Shop":
+		result = SCREENS.SHOP
 	return result
 
 
@@ -120,6 +122,7 @@ func pause_button_event(but):
 
 
 ## For instant overriding menu access
+## TODO Expand this
 func set_state(state : SCREENS):
 	anim.play("start")
 	current_screen = state
@@ -172,6 +175,9 @@ func _on_animation_player_animation_finished(anim_name : String):
 		elif queued_menu == SCREENS.CREDITS:
 			print("Play Credits Open")
 			anim.play("credits_open")
+		elif queued_menu == SCREENS.SHOP:
+			print("Play Shop Open")
+			anim.play("shop_open")
 		else:
 			current_screen = queued_menu
 			_return_to_desk_center()
@@ -192,6 +198,8 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.RADIO
 	if anim_name == "credits_open":
 		current_screen = SCREENS.CREDITS
+	if anim_name == "shop_open":
+		current_screen = SCREENS.SHOP
 
 
 func _on_customer_dex_close_customerdex() -> void:
@@ -208,7 +216,7 @@ func _on_records_close_records() -> void:
 		queued_menu = SCREENS.MAIN
 
 
-func _on_options_finished_pressed() -> void:
+func _on_options_close_options() -> void:
 	print("Closing Options...")
 	if current_screen == SCREENS.OPTIONS:
 		anim.play("options_close")
@@ -234,4 +242,11 @@ func _on_credits_close_credits() -> void:
 	print("Closing Credits...")
 	if current_screen == SCREENS.CREDITS:
 		anim.play("credits_close")
+		queued_menu = SCREENS.MAIN
+
+
+func _on_shop_close_shop() -> void:
+	print("Closing Shop...")
+	if current_screen == SCREENS.SHOP:
+		anim.play("shop_close")
 		queued_menu = SCREENS.MAIN

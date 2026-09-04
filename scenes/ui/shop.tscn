@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn7wrk0xcx8d"]
+
+[ext_resource type="Script" path="res://scenes/ui/shop.gd" id="1_n1ick"]
+[ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="2_1msfh"]
+[ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone_open.png" id="3_3yfhm"]
+
+[node name="Shop" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n1ick")
+
+[node name="phone" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1msfh")
+texture = ExtResource("3_3yfhm")
+
+[node name="main" type="Control" parent="phone"]
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 1
+anchor_left = 0.266
+anchor_top = 0.229
+anchor_right = 0.731
+anchor_bottom = 0.977
+offset_left = -0.240005
+offset_top = 0.0799942
+offset_right = 0.160004
+offset_bottom = 0.039978
+
+[node name="splash" type="TextureRect" parent="phone/main"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vcont1" type="VBoxContainer" parent="phone/main"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = -4.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="phone/main/vcont1"]
+use_parent_material = true
+layout_mode = 2
+text = "Glorbazon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="entry1" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Entry"
+
+[node name="entry2" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Entry"
+
+[node name="entry3" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Entry"
+
+[node name="finished" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Done"
+
+[connection signal="pressed" from="phone/main/vcont1/finished" to="." method="_on_finished_pressed"]
