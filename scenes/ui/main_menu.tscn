@@ -57,9 +57,17 @@ next/shop_close = &"desk_return_left"
 [node name="office" parent="." instance=ExtResource("5_ith4j")]
 layout_mode = 1
 
+[node name="wall" parent="office" index="0"]
+offset_top = 7.62939e-06
+offset_bottom = 0.0
+scale = Vector2(1.2, 1.2)
+
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_top = -177.0
+offset_bottom = -493.0
+
+[node name="shade" parent="office/desk" index="0"]
+visible = false
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
@@ -68,7 +76,7 @@ offset_right = -140.0
 offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.0
+offset_left = 1.99994
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1

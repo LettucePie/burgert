@@ -96,8 +96,11 @@ func _process_typing() -> void:
 
 
 func _process_money() -> void:
+	if spawning_receipt_count == 0:
+		counting_money = false
+		next_animation_step()
 	tick += 4
-	if tick > 30:
+	if tick > 30 and counting_money:
 		tick = 0
 		var new_money : Money_FX = money_sprite.duplicate()
 		register.add_child(new_money)

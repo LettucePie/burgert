@@ -47,6 +47,8 @@ func _physics_process(delta):
 		if hud.order_shown:
 			chef.active = true
 			hud.show_order(false)
+	if Input.is_key_pressed(KEY_F2) and OS.has_feature("editor"):
+		$game_timer.start(5)
 
 
 func _on_chef_chef_ready():
