@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://ce7cv6nqqm3e8"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://ce7cv6nqqm3e8"]
 
 [sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_cbyl4"]
 resource_name = "HardLimiter"
@@ -25,6 +25,10 @@ voice/4/depth_ms = 0.0
 voice/4/level_db = 0.0
 voice/4/cutoff_hz = 16000.0
 voice/4/pan = 0.0
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_jm2jq"]
+resource_name = "SpectrumAnalyzer"
+fft_size = 1
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_cbyl4")
@@ -57,3 +61,5 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_jm2jq")
+bus/4/effect/0/enabled = true

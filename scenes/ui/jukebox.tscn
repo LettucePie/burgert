@@ -49,6 +49,7 @@ script = ExtResource("1_neq0u")
 track_files = Array[AudioStreamMP3]([ExtResource("2_wqnbt"), ExtResource("3_4hri6"), ExtResource("4_jkq1a"), ExtResource("5_a8jnt"), ExtResource("6_l6u7h"), ExtResource("7_cwvch")])
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
+bus = &"Jukebox"
 
 [node name="RadioBase" type="TextureRect" parent="."]
 layout_mode = 1
@@ -275,6 +276,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("13_3t4jb")
 expand_mode = 2
+
+[node name="spectrum_sliders" type="HBoxContainer" parent="screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.95
+offset_top = -1.0
+offset_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="slider1" type="VSlider" parent="screen/spectrum_sliders"]
+layout_mode = 2
+size_flags_horizontal = 6
+value = 25.0
+
+[node name="slider2" type="VSlider" parent="screen/spectrum_sliders"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="slider3" type="VSlider" parent="screen/spectrum_sliders"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="slider4" type="VSlider" parent="screen/spectrum_sliders"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="slider5" type="VSlider" parent="screen/spectrum_sliders"]
+layout_mode = 2
+size_flags_horizontal = 6
 
 [node name="screen_highlight" type="TextureRect" parent="."]
 layout_mode = 1
