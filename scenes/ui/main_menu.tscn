@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=26 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c6bktnv8pckdn" path="res://scenes/ui/customer_dex.tscn" id="21_lcswv"]
 [ext_resource type="PackedScene" uid="uid://74a6r632y6fd" path="res://scenes/ui/records.tscn" id="22_v8q47"]
 [ext_resource type="PackedScene" uid="uid://dn7wrk0xcx8d" path="res://scenes/ui/shop.tscn" id="24_peheo"]
+[ext_resource type="PackedScene" uid="uid://usn8lcjjp3ml" path="res://scenes/ui/announce.tscn" id="25_l0m7e"]
 [ext_resource type="Texture2D" uid="uid://dwdldo33mgn76" path="res://assets/models/textures/page_render_test.png" id="64_avxcg"]
 [ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
@@ -58,16 +59,11 @@ next/shop_close = &"desk_return_left"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
-offset_top = 7.62939e-06
-offset_bottom = 0.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
-offset_top = -177.0
-offset_bottom = -493.0
-
-[node name="shade" parent="office/desk" index="0"]
-visible = false
+offset_top = 582.0
+offset_bottom = 201.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
@@ -76,7 +72,7 @@ offset_right = -140.0
 offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 1.99994
+offset_left = 2.00006
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -127,6 +123,8 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -191,6 +189,10 @@ offset_bottom = -293.0
 visible = false
 
 [node name="Shop" parent="." instance=ExtResource("24_peheo")]
+visible = false
+layout_mode = 1
+
+[node name="Announce" parent="." instance=ExtResource("25_l0m7e")]
 visible = false
 layout_mode = 1
 

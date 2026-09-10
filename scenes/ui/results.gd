@@ -96,7 +96,8 @@ func _process_typing() -> void:
 
 
 func _process_money() -> void:
-	if spawning_receipt_count == 0:
+	print("Processing Money")
+	if result_scores.size() == 0:
 		counting_money = false
 		next_animation_step()
 	tick += 4

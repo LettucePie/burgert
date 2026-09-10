@@ -13,6 +13,7 @@ signal bgm_pause(pause : bool)
 @onready var records : Records = $Records
 @onready var jukebox : Jukebox = $Jukebox
 @onready var menu_flair : MenuFlair = $MenuFlair
+@onready var announce : Announce = $Announce
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE, SHOP}
 var current_screen : SCREENS = SCREENS.MAIN
@@ -149,6 +150,7 @@ func _return_to_desk_center():
 func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name == "play_start":
 		print("Starting PLAY")
+		print("TODO, Put announcement here")
 		emit_signal("start_play")
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_open" and current_screen == SCREENS.PAUSE:
