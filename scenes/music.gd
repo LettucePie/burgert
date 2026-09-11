@@ -76,12 +76,13 @@ func _on_audio_timer_timeout() -> void:
 
 func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 	var song_library_idx : int = all_songs.find(song)
+	print("Editing: ", playlist, " with song: ", song_library_idx, ": ", song.title, " ADD: ", add_remove)
 	if playlist == "work":
 		if play_playlist.has(song_library_idx) and !add_remove:
 			play_playlist.remove_at(play_playlist.find(song_library_idx))
 		elif !play_playlist.has(song_library_idx) and add_remove:
 			play_playlist.append(song_library_idx)
-	if playlist == "main":
+	if playlist == "menu":
 		if main_playlist.has(song_library_idx) and !add_remove:
 			main_playlist.remove_at(main_playlist.find(song_library_idx))
 		elif !main_playlist.has(song_library_idx) and add_remove:
