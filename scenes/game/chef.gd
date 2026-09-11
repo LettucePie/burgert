@@ -91,9 +91,9 @@ func process_movement(delta):
 		move_vec.x += 1
 		state_machine.travel("Run_R")
 		_update_direction("R")
-	if !state_machine.get_current_node().contains("Swing"):
-		position.x += move_vec.x * MOVE_SPEED
-		position.x = clamp(position.x, 0, 640)
+	#if !state_machine.get_current_node().contains("Swing"):
+	position.x += move_vec.x * MOVE_SPEED
+	position.x = clamp(position.x, 0, 640)
 	if move_vec != Vector2.ZERO:
 		assess_closest_station()
 		anim_tree.set("parameters/conditions/idle_L", false)

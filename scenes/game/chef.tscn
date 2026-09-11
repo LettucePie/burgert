@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://cf702r7mdbxyi" path="res://assets/animation/chef_animtree_no_spin.tres" id="2_ny6ao"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bbbgfyoa6ge00" path="res://assets/animation/chef_animtree_spin_2.tres" id="2_gn2r5"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="2_nyvt1"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
 [ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
@@ -1151,7 +1151,7 @@ script = ExtResource("1_qyhq5")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 reset_on_save = false
-tree_root = ExtResource("2_ny6ao")
+tree_root = ExtResource("2_gn2r5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
@@ -1169,7 +1169,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
 animation = &"Idle_Plate_R"
 autoplay = "Idle_L"
-frame = 2
+frame = 4
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
@@ -1177,7 +1177,7 @@ frame = 2
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-67, -34)
+position = Vector2(-64, -39)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_sys53")
 
