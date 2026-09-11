@@ -178,10 +178,15 @@ class Stats:
 	var spent_score : int = 0
 	var timeslots_played : PackedInt32Array = []
 	var songs_owned : PackedInt32Array = []
+	var play_playlist : PackedInt32Array = []
+	var main_playlist : PackedInt32Array = []
+	var jukebox_playlist : PackedInt32Array = []
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
-		"spent_score", "timeslots_played", "songs_owned", "customer_stats"
+		"spent_score", "timeslots_played", 
+		"songs_owned", "play_playlist", "main_playlist", "jukebox_playlist",
+		"customer_stats"
 	]
 	
 	var customers_in_kitchen : Array[Customer] = []
@@ -280,7 +285,26 @@ class Stats:
 		return songs_owned
 	
 	func add_song_owned(song_idx : int) -> void:
-		songs_owned.append(song_idx)
+		if !songs_owned.has(song_idx):
+			songs_owned.append(song_idx)
+	
+	func set_play_playlist(new : Array) -> void:
+		play_playlist = new
+	
+	func get_play_playlist() -> PackedInt32Array:
+		return play_playlist
+	
+	func set_main_playlist(new : Array) -> void:
+		main_playlist = new
+	
+	func get_main_playlist() -> PackedInt32Array:
+		return main_playlist
+	
+	func set_jukebox_playlist(new : Array) -> void:
+		jukebox_playlist = new
+	
+	func get_jukebox_playlist() -> PackedInt32Array:
+		return jukebox_playlist
 	
 	func set_customer_stats(new : Array[CustomerStat]):
 		customer_stats = new
@@ -329,12 +353,15 @@ var stats : Stats
 func _default_stats():
 	stats = Stats.new()
 	stats.set_songs_owned([2, 3, 5, 8, 11, 12])
+	stats.set_play_playlist([3, 5, 11])
+	stats.set_main_playlist([2, 8, 12])
+	stats.set_jukebox_playlist([2, 3, 5, 8, 11, 12])
 	_save_stats()
 
 
 func _update_stats(old_data, old_version):
-	for i in 3:
-		print("INTEGRATE OLD SETTINGS HERE")
+	if old_version == 1:
+		print("migrate old data to new data, save, reload")
 
 
 func _load_stats():
@@ -370,6 +397,9 @@ func _load_stats():
 			stats.set_spent_score(data["spent_score"])
 			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_songs_owned(data["songs_owned"])
+			stats.set_play_playlist(data["play_playlist"])
+			stats.set_main_playlist(data["main_playlist"])
+			stats.set_jukebox_playlist(data["jukebox_playlist"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	stats.customers_in_kitchen = game_scene.kitchen.customers
 	apply_stats()
@@ -385,6 +415,9 @@ func _save_stats():
 		"spent_score" = stats.get_spent_score(),
 		"timeslots_played" = stats.get_timeslots_played(),
 		"songs_owned" = stats.get_songs_owned(),
+		"play_playlist" = stats.get_play_playlist(),
+		"main_playlist" = stats.get_main_playlist(),
+		"jukebox_playlist" = stats.get_jukebox_playlist(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
@@ -399,6 +432,9 @@ func apply_stats():
 	main_menu.customer_dex.assign_stats(stats)
 	main_menu.records.assign_stats(stats)
 	music.owned_songs = stats.get_songs_owned()
+	music.play_playlist = stats.get_play_playlist()
+	music.main_playlist = stats.get_main_playlist()
+	music.jukebox_playlist = stats.get_jukebox_playlist()
 
 
 ####
@@ -521,3 +557,13 @@ func _on_main_menu_bgm_pause(pause: bool) -> void:
 	else:
 		music.anim.play("resume_play")
 		music.play(music.playback_time)
+
+
+func _on_music_purchased_song(song: Song) -> void:
+	stats.add_song_owned(music.all_songs.find(song))
+	stats.adjust_spent_score(song.store_cost)
+	_save_stats()
+
+
+func _on_music_updated_playlists() -> void:
+	_save_stats()

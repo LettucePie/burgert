@@ -259,5 +259,7 @@ labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"),
 [connection signal="resume_play" from="MainMenu" to="." method="_on_main_menu_resume_play"]
 [connection signal="start_play" from="MainMenu" to="." method="_on_main_menu_start_play"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
+[connection signal="purchased_song" from="Music" to="." method="_on_music_purchased_song"]
+[connection signal="updated_playlists" from="Music" to="." method="_on_music_updated_playlists"]
 [connection signal="timeout" from="Music/audio_timer" to="Music" method="_on_audio_timer_timeout"]
 [connection signal="set_lang" from="MultiLang" to="." method="_on_multi_lang_set_lang"]

@@ -26,6 +26,7 @@ var primary_branch : MENU_BRANCH = MENU_BRANCH.MAIN
 var submenu_branch : int = -1
 
 var current_song_idx : int = 0
+var current_song : Song = null
 var editing_playlist_name : String = "name"
 var editing_playlist : PackedInt32Array = []
 
@@ -122,24 +123,24 @@ func _prev_next_song(dir : int) -> void:
 
 
 func _render_song(idx : int) -> void:
-	var song : Song = music_library.all_songs[idx]
+	current_song = music_library.all_songs[idx]
 	if submenu_branch == 1:
-		$phone/main/menu_1_1/song_label.text = song.title + "\n" + song.artist
+		$phone/main/menu_1_1/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_1/purchase.show()
-		$phone/main/menu_1_1/purchase.text = "$49"
+		$phone/main/menu_1_1/purchase.text = "$" + str(current_song.store_cost)
 		$phone/main/menu_1_1/owned.hide()
 		if music_library.owned_songs.has(idx):
 			$phone/main/menu_1_1/purchase.hide()
 			$phone/main/menu_1_1/owned.show()
 	if submenu_branch == 3:
 		var owned_idx : int = music_library.owned_songs[idx]
-		song = music_library.all_songs[owned_idx]
-		$phone/main/menu_1_3/song_label.text = song.title + "\n" + song.artist
+		current_song = music_library.all_songs[owned_idx]
+		$phone/main/menu_1_3/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(owned_idx)
 
 
 func _on_purchase_pressed() -> void:
-	pass # Replace with function body.
+	print("Purchasing Current Song")
 
 
 func _on_preview_pressed() -> void:
@@ -147,8 +148,9 @@ func _on_preview_pressed() -> void:
 
 
 func _on_toggle_pressed() -> void:
-	pass # Replace with function body.
-	
+	var toggle : bool = $phone/main/menu_1_3/toggle.button_pressed
+	music_library.playlist_edit(editing_playlist_name, current_song, toggle)
+	_playlist_load(editing_playlist_name)
 
 
 func _playlist_load(playlist_name: String) -> void:
@@ -170,4 +172,3 @@ func _focusing_my_brains_out(path: String) -> void:
 	if target.get_parent().visible:
 		target.grab_focus()
 		print("path: ", path, " FOCUS")
-		

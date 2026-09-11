@@ -1,6 +1,8 @@
 extends AudioStreamPlayer
 class_name Music
 
+signal purchased_song(song)
+signal updated_playlists()
 
 @export var all_songs : Array[Song] = []
 var owned_songs : PackedInt32Array = [2, 3, 5, 8, 11, 12]
@@ -70,3 +72,24 @@ func _on_audio_timer_timeout() -> void:
 	if current_song.crossfade:
 		print("MUSIC: fade_out")
 		anim.play("fade_out")
+
+
+func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
+	var song_library_idx : int = all_songs.find(song)
+	if playlist == "work":
+		if play_playlist.has(song_library_idx) and !add_remove:
+			play_playlist.remove_at(play_playlist.find(song_library_idx))
+		elif !play_playlist.has(song_library_idx) and add_remove:
+			play_playlist.append(song_library_idx)
+	if playlist == "main":
+		if main_playlist.has(song_library_idx) and !add_remove:
+			main_playlist.remove_at(main_playlist.find(song_library_idx))
+		elif !main_playlist.has(song_library_idx) and add_remove:
+			main_playlist.append(song_library_idx)
+	if playlist == "jukebox":
+		if jukebox_playlist.has(song_library_idx) and !add_remove:
+			jukebox_playlist.remove_at(jukebox_playlist.find(song_library_idx))
+		elif !jukebox_playlist.has(song_library_idx) and add_remove:
+			jukebox_playlist.append(song_library_idx)
+	print("SAVE PLAYLIST")
+	emit_signal("updated_playlists")
