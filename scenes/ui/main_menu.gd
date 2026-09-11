@@ -12,6 +12,7 @@ signal bgm_pause(pause : bool)
 @onready var customer_dex : CustomerDex = $CustomerDex
 @onready var records : Records = $Records
 @onready var jukebox : Jukebox = $Jukebox
+@onready var shop : Shop = $Shop
 @onready var menu_flair : MenuFlair = $MenuFlair
 @onready var announce : Announce = $Announce
 @export var anim : AnimationPlayer

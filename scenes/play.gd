@@ -426,6 +426,7 @@ func _ready():
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 	main_menu.jukebox.music_library = music
+	main_menu.shop.music_library = music
 
 
 func _process(delta):

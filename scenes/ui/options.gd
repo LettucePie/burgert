@@ -80,3 +80,22 @@ func _on_language_language_selector_finished() -> void:
 		language_selector.hide()
 		showing_lang = false
 		language_button.grab_focus()
+
+
+func _tween_center() -> void:
+	self.position = Vector2(0, randf_range(0.1, 1.2))
+	self.rotation = randf_range(-0.01, 0.01)
+	var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", Vector2.ZERO, 0.2)
+	tween.set_parallel()
+	tween.tween_property(self, "rotation", 0.0, 0.1)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("up") \
+	or Input.is_action_just_pressed("down") \
+	or Input.is_action_just_pressed("left") \
+	or Input.is_action_just_pressed("right") \
+	or Input.is_action_just_pressed("confirm") \
+	or Input.is_action_just_pressed("cancel"):
+		_tween_center()

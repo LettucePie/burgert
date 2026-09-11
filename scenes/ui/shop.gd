@@ -5,9 +5,10 @@ signal close_shop()
 
 var connected : bool = false
 var connect_stage : int = 0
+var music_library : Music = null
 
 @onready var main : Control = $phone/main
-@onready var finished : Button = $phone/main/vcont1/finished
+@onready var finished : Button = $phone/main/menu_0_0/finished
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var connection_label : Label = $phone/connection/label
 @export var connection_messages : PackedStringArray = [
@@ -16,8 +17,37 @@ var connect_stage : int = 0
 	"welcome to\n\nGLORBAZON"
 ]
 
-#func _ready() -> void:
-	#open_shop()
+var menus : Array[VBoxContainer] = []
+@onready var intro_menu : VBoxContainer = $phone/main/menu_0_0
+enum MENU_BRANCH {MAIN, MUSIC, DECOR, CLOTHING}
+enum MUSIC_BRANCH {MAIN, STORE, PLAYLIST, EDITOR}
+
+var primary_branch : MENU_BRANCH = MENU_BRANCH.MAIN
+var submenu_branch : int = -1
+
+var current_song_idx : int = 0
+var editing_playlist_name : String = "name"
+var editing_playlist : PackedInt32Array = []
+
+###
+### Multi-Lang
+###
+func set_glorbazon_sequence(strings : Array):
+	connection_messages.clear()
+	for s in strings:
+		if s is String:
+			connection_messages.append(s)
+###
+###
+###
+
+
+func _ready() -> void:
+	menus.clear()
+	for child in main.get_children():
+		if child.name.contains("menu"):
+			menus.append(child)
+
 
 func open_shop():
 	connected = false
@@ -25,6 +55,7 @@ func open_shop():
 	anim.play("connect")
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	anim.play("connected")
+	load_in_menu(0, 0)
 	#main.show()
 	#finished.grab_focus()
 
@@ -57,3 +88,80 @@ func _process(delta: float) -> void:
 	or Input.is_action_just_pressed("confirm") \
 	or Input.is_action_just_pressed("cancel"):
 		_tween_center()
+
+
+func load_in_menu(main_idx : int, branch_idx : int) -> void:
+	print("Loading Menu: ", main_idx, "_", branch_idx)
+	primary_branch = 0
+	submenu_branch = 0
+	for menu in menus:
+		menu.hide()
+		if menu.name == "menu_" + str(main_idx) + "_" + str(branch_idx):
+			menu.show()
+			menu.grab_focus()
+			primary_branch = main_idx
+			submenu_branch = branch_idx
+	if primary_branch == 0:
+		intro_menu.show()
+	if primary_branch == 1:
+		if submenu_branch == 1 or submenu_branch == 3:
+			_render_song(current_song_idx)
+
+
+func _prev_next_song(dir : int) -> void:
+	current_song_idx += dir
+	if current_song_idx < 0:
+		current_song_idx = music_library.all_songs.size() - 1
+	elif current_song_idx > music_library.all_songs.size() - 1:
+		current_song_idx = 0
+	_render_song(current_song_idx)
+
+
+func _render_song(idx : int) -> void:
+	var song : Song = music_library.all_songs[idx]
+	if submenu_branch == 1:
+		$phone/main/menu_1_1/song_label.text = song.title + "\n" + song.artist
+		$phone/main/menu_1_1/purchase.show()
+		$phone/main/menu_1_1/purchase.text = "$49"
+		$phone/main/menu_1_1/owned.hide()
+		if music_library.owned_songs.has(idx):
+			$phone/main/menu_1_1/purchase.hide()
+			$phone/main/menu_1_1/owned.show()
+	if submenu_branch == 3:
+		$phone/main/menu_1_3/song_label.text = song.title + "\n" + song.artist
+		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(idx)
+
+
+func _on_purchase_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_preview_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_toggle_pressed() -> void:
+	pass # Replace with function body.
+	
+
+
+func _playlist_load(playlist_name: String) -> void:
+	print("Playlist Load")
+	if playlist_name == "work":
+		$phone/main/menu_1_3/playlist_label.text = $phone/main/menu_1_2/work_playlist.text
+		editing_playlist = music_library.play_playlist.duplicate()
+	if playlist_name == "menu":
+		$phone/main/menu_1_3/playlist_label.text = $phone/main/menu_1_2/main_playlist.text
+		editing_playlist = music_library.main_playlist.duplicate()
+	if playlist_name == "jukebox":
+		$phone/main/menu_1_3/playlist_label.text = $phone/main/menu_1_2/jukebox_playlist.text
+		editing_playlist = music_library.jukebox_playlist.duplicate()
+	editing_playlist_name = playlist_name
+
+
+func _focusing_my_brains_out(path: String) -> void:
+	var target : Control = get_node(path)
+	if target.get_parent().visible:
+		target.grab_focus()
+		print("path: ", path, " FOCUS")
+		

@@ -280,58 +280,260 @@ offset_top = 0.0799942
 offset_right = 0.160004
 offset_bottom = 0.039978
 
-[node name="splash" type="TextureRect" parent="phone/main"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="vcont1" type="VBoxContainer" parent="phone/main"]
+[node name="Label" type="Label" parent="phone/main"]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 10.0
-offset_right = -4.0
-offset_bottom = -10.0
+anchor_bottom = 0.084
+offset_bottom = -0.156
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="phone/main/vcont1"]
-use_parent_material = true
-layout_mode = 2
 text = "Glorbazon"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="entry1" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+[node name="menu_0_0" type="VBoxContainer" parent="phone/main"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.095
+anchor_right = 0.993
+anchor_bottom = 0.972
+offset_left = 0.126
+offset_top = -0.105
+offset_right = 0.0859985
+offset_bottom = 0.052002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="music" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Entry"
+text = "Music"
 
-[node name="entry2" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+[node name="decor" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Entry"
+text = "Decor"
 
-[node name="entry3" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+[node name="clothing" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Entry"
+text = "Clothing"
 
-[node name="finished" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
+[node name="finished" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Done"
+
+[node name="menu_1_0" type="VBoxContainer" parent="phone/main"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.095
+anchor_right = 0.993
+anchor_bottom = 0.972
+offset_left = 0.126
+offset_top = -0.105
+offset_right = 0.0859985
+offset_bottom = 0.052002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="music_store" type="Button" parent="phone/main/menu_1_0" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Store"
+
+[node name="playlists" type="Button" parent="phone/main/menu_1_0" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Playlists"
+
+[node name="return" type="Button" parent="phone/main/menu_1_0" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "--- Return ---"
+
+[node name="menu_1_1" type="VBoxContainer" parent="phone/main"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.095
+anchor_right = 0.993
+anchor_bottom = 0.972
+offset_left = 0.126
+offset_top = -0.105
+offset_right = 0.0859985
+offset_bottom = 0.052002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="song_label" type="Label" parent="phone/main/menu_1_1"]
+layout_mode = 2
+text = "song
+artist"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="purchase" type="Button" parent="phone/main/menu_1_1"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Purchase"
+
+[node name="owned" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+disabled = true
+text = "Owned"
+
+[node name="preview" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Preview"
+
+[node name="prev_next" type="HBoxContainer" parent="phone/main/menu_1_1"]
+layout_mode = 2
+
+[node name="prev" type="Button" parent="phone/main/menu_1_1/prev_next"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "< --"
+
+[node name="next" type="Button" parent="phone/main/menu_1_1/prev_next"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-- >"
+
+[node name="return" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "--- Return ---"
+
+[node name="menu_1_2" type="VBoxContainer" parent="phone/main"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.095
+anchor_right = 0.993
+anchor_bottom = 0.972
+offset_left = 0.126
+offset_top = -0.105
+offset_right = 0.0859985
+offset_bottom = 0.052002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playlist_label" type="Label" parent="phone/main/menu_1_2" groups=["lang_text"]]
+layout_mode = 2
+text = "My Playlists"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="work_playlist" type="Button" parent="phone/main/menu_1_2" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "work playlist :|"
+
+[node name="main_playlist" type="Button" parent="phone/main/menu_1_2" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "office time :("
+
+[node name="jukebox_playlist" type="Button" parent="phone/main/menu_1_2" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "me time :)"
+
+[node name="return" type="Button" parent="phone/main/menu_1_2" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "--- Return ---"
+
+[node name="menu_1_3" type="VBoxContainer" parent="phone/main"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.095
+anchor_right = 0.993
+anchor_bottom = 0.972
+offset_left = 0.126
+offset_top = -0.105
+offset_right = 0.0859985
+offset_bottom = 0.052002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="playlist_label" type="Label" parent="phone/main/menu_1_3"]
+layout_mode = 2
+text = "-- Playlist --"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="song_label" type="Label" parent="phone/main/menu_1_3"]
+layout_mode = 2
+text = "song
+artist"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="toggle" type="CheckButton" parent="phone/main/menu_1_3" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Toggle"
+
+[node name="preview" type="Button" parent="phone/main/menu_1_3" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Preview"
+
+[node name="prev_next" type="HBoxContainer" parent="phone/main/menu_1_3"]
+layout_mode = 2
+
+[node name="prev" type="Button" parent="phone/main/menu_1_3/prev_next"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "< --"
+
+[node name="next" type="Button" parent="phone/main/menu_1_3/prev_next"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-- >"
+
+[node name="return" type="Button" parent="phone/main/menu_1_3" groups=["lang_text"]]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "--- Return ---"
 
 [node name="connection" type="Control" parent="phone"]
 modulate = Color(1, 1, 1, 0.862745)
@@ -368,4 +570,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="phone/main/vcont1/finished" to="." method="_on_finished_pressed"]
+[connection signal="visibility_changed" from="phone/main/menu_0_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_0_0/finished"]]
+[connection signal="pressed" from="phone/main/menu_0_0/music" to="." method="load_in_menu" binds= [1, 0]]
+[connection signal="pressed" from="phone/main/menu_0_0/decor" to="." method="load_in_menu" binds= [2, 0]]
+[connection signal="pressed" from="phone/main/menu_0_0/clothing" to="." method="load_in_menu" binds= [3, 0]]
+[connection signal="pressed" from="phone/main/menu_0_0/finished" to="." method="_on_finished_pressed"]
+[connection signal="visibility_changed" from="phone/main/menu_1_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_0/music_store"]]
+[connection signal="pressed" from="phone/main/menu_1_0/music_store" to="." method="load_in_menu" binds= [1, 1]]
+[connection signal="pressed" from="phone/main/menu_1_0/playlists" to="." method="load_in_menu" binds= [1, 2]]
+[connection signal="pressed" from="phone/main/menu_1_0/return" to="." method="load_in_menu" binds= [0, 0]]
+[connection signal="visibility_changed" from="phone/main/menu_1_1" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_1/return"]]
+[connection signal="pressed" from="phone/main/menu_1_1/purchase" to="." method="_on_purchase_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_1/owned" to="." method="_on_purchase_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_1/preview" to="." method="_on_preview_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_1/prev_next/prev" to="." method="_prev_next_song" binds= [-1]]
+[connection signal="pressed" from="phone/main/menu_1_1/prev_next/next" to="." method="_prev_next_song" binds= [1]]
+[connection signal="pressed" from="phone/main/menu_1_1/return" to="." method="load_in_menu" binds= [1, 0]]
+[connection signal="visibility_changed" from="phone/main/menu_1_2" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_2/work_playlist"]]
+[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="_playlist_load" binds= ["work"]]
+[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="_playlist_load" binds= ["menu"]]
+[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="_playlist_load" binds= ["jukebox"]]
+[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/return" to="." method="load_in_menu" binds= [1, 0]]
+[connection signal="visibility_changed" from="phone/main/menu_1_3" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_3/return"]]
+[connection signal="pressed" from="phone/main/menu_1_3/toggle" to="." method="_on_toggle_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_3/prev_next/prev" to="." method="_prev_next_song" binds= [-1]]
+[connection signal="pressed" from="phone/main/menu_1_3/prev_next/next" to="." method="_prev_next_song" binds= [1]]
+[connection signal="pressed" from="phone/main/menu_1_3/return" to="." method="load_in_menu" binds= [1, 2]]
