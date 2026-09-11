@@ -72,15 +72,17 @@ func set_day_message() -> void:
 	day_label.text = day[day_idx]
 	var message_idx = announce_slots[timeslot % 4].pick_random()
 	message_label.text = announce_messages[message_idx]
-	
-	var announce_style : String = "_" + str(randi_range(0, 1))
+	self.show()
+	var announce_style : String = "_" + str(randi_range(0, 2))
 	anim.play("announce" + announce_style)
+	print("Current Timeslot: ", timeslot)
 
 
 func _ready() -> void:
-	set_day_message()
+	pass
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	print("ANNOUNCE FINISHED")
 	emit_signal("announce_finish")
+	self.hide()

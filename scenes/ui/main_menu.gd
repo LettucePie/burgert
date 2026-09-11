@@ -148,11 +148,6 @@ func _return_to_desk_center():
 
 
 func _on_animation_player_animation_finished(anim_name : String):
-	if anim_name == "play_start":
-		print("Starting PLAY")
-		print("TODO, Put announcement here")
-		emit_signal("start_play")
-		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_open" and current_screen == SCREENS.PAUSE:
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
 	if anim_name == "pause_close" and current_screen == SCREENS.PAUSE:
@@ -202,6 +197,13 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.CREDITS
 	if anim_name == "shop_open":
 		current_screen = SCREENS.SHOP
+
+
+func _on_announce_announce_finish() -> void:
+	print("Starting Play")
+	self.hide()
+	emit_signal("start_play")
+	$Paused/Panel/VBoxContainer/resume.grab_focus()
 
 
 func _on_customer_dex_close_customerdex() -> void:

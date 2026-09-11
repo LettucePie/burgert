@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bwcuvfqq66eaf"]
+
+[ext_resource type="FontVariation" uid="uid://2skrhjp2q77a" path="res://assets/theme/fonts/announce_message_1_fontvariation.tres" id="1_bi2a6"]
+
+[resource]
+font = ExtResource("1_bi2a6")
+font_size = 54
+shadow_color = Color(0, 0, 0, 0.47451)
