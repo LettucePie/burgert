@@ -6,7 +6,7 @@ class_name Music
 var owned_songs : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 var main_playlist : PackedInt32Array = [2, 8, 12]
 var play_playlist : PackedInt32Array = [3, 5, 11]
-var jukebox_playlist : PackedInt32Array = []
+var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 
 @onready var anim : AnimationPlayer = $anim
 enum STATE {MENU, PLAY, PAUSE}

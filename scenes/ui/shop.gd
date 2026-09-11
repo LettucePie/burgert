@@ -105,14 +105,18 @@ func load_in_menu(main_idx : int, branch_idx : int) -> void:
 		intro_menu.show()
 	if primary_branch == 1:
 		if submenu_branch == 1 or submenu_branch == 3:
+			current_song_idx = 0
 			_render_song(current_song_idx)
 
 
 func _prev_next_song(dir : int) -> void:
 	current_song_idx += dir
+	var library_max : int = music_library.all_songs.size() - 1
+	if submenu_branch == 3:
+		library_max = music_library.owned_songs.size() - 1
 	if current_song_idx < 0:
-		current_song_idx = music_library.all_songs.size() - 1
-	elif current_song_idx > music_library.all_songs.size() - 1:
+		current_song_idx = library_max
+	elif current_song_idx > library_max:
 		current_song_idx = 0
 	_render_song(current_song_idx)
 
@@ -128,8 +132,10 @@ func _render_song(idx : int) -> void:
 			$phone/main/menu_1_1/purchase.hide()
 			$phone/main/menu_1_1/owned.show()
 	if submenu_branch == 3:
+		var owned_idx : int = music_library.owned_songs[idx]
+		song = music_library.all_songs[owned_idx]
 		$phone/main/menu_1_3/song_label.text = song.title + "\n" + song.artist
-		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(idx)
+		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(owned_idx)
 
 
 func _on_purchase_pressed() -> void:
