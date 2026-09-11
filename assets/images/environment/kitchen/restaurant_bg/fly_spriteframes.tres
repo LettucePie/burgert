@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cube2vyexgvdu"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://cube2vyexgvdu"]
 
 [ext_resource type="Texture2D" uid="uid://bd0fvdfhi6wyf" path="res://assets/images/environment/kitchen/restaurant_bg/fly_spritesheet.png" id="1_4v4ly"]
 
@@ -38,10 +38,6 @@ region = Rect2(2366, 0, 338, 240)
 atlas = ExtResource("1_4v4ly")
 region = Rect2(2704, 0, 338, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngc8o"]
-atlas = ExtResource("1_4v4ly")
-region = Rect2(3042, 0, 338, 240)
-
 [resource]
 animations = [{
 "frames": [{
@@ -71,9 +67,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qjuth")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ngc8o")
 }, {
 "duration": 1.0,
 "texture": null

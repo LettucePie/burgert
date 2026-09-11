@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=86 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_v2_alcove.tres" id="43_yb70e"]
 [ext_resource type="PackedScene" uid="uid://cm1q64oko5mup" path="res://scenes/game/customers/customer_Emo.tscn" id="44_1jhgf"]
+[ext_resource type="Texture2D" uid="uid://ctxu1fik5xxpo" path="res://assets/images/environment/kitchen/restaurant_fg/counter_glass_shield.png" id="44_1r70g"]
 [ext_resource type="PackedScene" uid="uid://dgdrqg66xl376" path="res://scenes/game/customers/customer_basic_b.tscn" id="45_o2d37"]
 [ext_resource type="Texture2D" uid="uid://jfx0q6ekhayi" path="res://assets/images/environment/kitchen/ingredients/rune_a.png" id="45_opf6f"]
 [ext_resource type="Script" path="res://scenes/game/rune.gd" id="46_ha3fw"]
@@ -156,8 +157,7 @@ bus = &"SFX"
 position = Vector2(320, 227)
 scale = Vector2(1.8875, 1.8875)
 sprite_frames = ExtResource("10_8tahq")
-frame = 2
-frame_progress = 0.708291
+frame = 9
 script = ExtResource("11_vxrt6")
 
 [node name="customers" type="Node2D" parent="."]
@@ -232,6 +232,11 @@ texture = ExtResource("41_mvpk1")
 position = Vector2(320, 327.5)
 scale = Vector2(2, 2.21154)
 texture = ExtResource("40_arepm")
+
+[node name="counter_glass" type="Sprite2D" parent="background"]
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("44_1r70g")
 
 [node name="grill" type="Sprite2D" parent="background"]
 position = Vector2(178, 305.25)
