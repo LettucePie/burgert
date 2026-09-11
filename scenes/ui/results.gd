@@ -64,25 +64,28 @@ func _process_receipts() -> void:
 	tick += 2
 	if tick > 30:
 		tick = 0
-		var new_receipt : Receipt_FX = receipt_sprite.duplicate()
-		receipt_tray.add_child(new_receipt)
-		new_receipt.play_bop()
+		if spawning_receipt_count > 0:
+			var new_receipt : Receipt_FX = receipt_sprite.duplicate()
+			receipt_tray.add_child(new_receipt)
+			new_receipt.play_bop()
 		var temporary_percent : float = 0.0
-		print("step: ", spawning_receipt_count)
 		var index = result_order_count - spawning_receipt_count
-		print("index: ", index)
 		for i in index:
 			print(i, ": ", result_accuracies[i])
 			temporary_percent += result_accuracies[i]
 		temporary_percent /= index
 		print("TempPercent: ", temporary_percent)
-		if index > 0 :
-			order_count.text = str(index)
+		if index >= 0 :
+			order_count.text = str(index + 1)
 			accuracy.text = str(snapped((temporary_percent * 100), 0.01)) + "%"
 		spawning_receipt_count -= 1
-		if spawning_receipt_count < 0:
+		if spawning_receipt_count <= 0:
 			spawning_receipts = false
-			accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
+			if result_accuracies.size() > 0:
+				accuracy.text = str(snapped((result_percent * 100), 0.01)) + "%"
+			else:
+				order_count.text = "0"
+				accuracy.text = "0.0%"
 			next_animation_step()
 
 
@@ -98,6 +101,7 @@ func _process_typing() -> void:
 func _process_money() -> void:
 	print("Processing Money")
 	if result_scores.size() == 0:
+		score.text = "$0"
 		counting_money = false
 		next_animation_step()
 	tick += 4
@@ -110,7 +114,7 @@ func _process_money() -> void:
 		else:
 			new_money.play_anim("subtract")
 		counting_score += result_scores[spawning_receipt_count]
-		score.text = str(counting_score)
+		score.text = "$" + str(counting_score)
 		spawning_receipt_count += 1
 		if spawning_receipt_count >= result_order_count:
 			counting_money = false
