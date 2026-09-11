@@ -14,6 +14,7 @@ var current_state : STATE = STATE.MENU
 var current_song : Song = null
 
 var playback_time : float = -0
+var timer_remaining : float = 0
 @onready var audio_timer : Timer = $audio_timer
 
 
@@ -27,6 +28,8 @@ func set_state(new_state : STATE):
 		if current_state == STATE.PAUSE:
 			if playback_time >= 0:
 				play(playback_time)
+			if timer_remaining >= 0:
+				audio_timer.start(timer_remaining)
 			anim.play("resume_play")
 	if new_state == STATE.PAUSE:
 		if current_state == STATE.PLAY:
@@ -57,6 +60,8 @@ func _on_finished():
 
 func capture_playback_time():
 	playback_time = get_playback_position()
+	timer_remaining = audio_timer.time_left
+	audio_timer.stop()
 	stop()
 
 
