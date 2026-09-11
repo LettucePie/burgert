@@ -62,11 +62,11 @@ func prep_kitchen():
 	for c in customers:
 		c.current_customer = false
 		c.status = Customer.CUSTOMER_STATE.Gone
-	if customers.size() > 0:
-		var timeslot_idx : int = customers.front().schedule.get_current_timeslot()
-		var times_str = ["night", "morning", "noon", "afternoon", "night"]
-		print(times_str[timeslot_idx % 4])
-		window.animation = times_str[timeslot_idx % 4]
+	var schedule : Schedule = Schedule.new()
+	var timeslot_idx : int = schedule.get_current_timeslot()
+	var times_str = ["night", "morning", "noon", "afternoon", "night"]
+	print(times_str[timeslot_idx % 4])
+	window.animation = times_str[timeslot_idx % 4]
 	_build_queue()
 
 

@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://usn8lcjjp3ml"]
+[gd_scene load_steps=6 format=3 uid="uid://usn8lcjjp3ml"]
 
 [ext_resource type="Script" path="res://scenes/ui/announce.gd" id="1_je7xc"]
+[ext_resource type="LabelSettings" uid="uid://btfxqtydi0n2b" path="res://assets/theme/fonts/announce_day_labelsettings.tres" id="2_mmy0a"]
+[ext_resource type="LabelSettings" uid="uid://ogb7fclka7d6" path="res://assets/theme/fonts/announce_message_labelsettings.tres" id="3_y2bpd"]
+
+[sub_resource type="Animation" id="Animation_dg1dj"]
+resource_name = "announce_0"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v0bg"]
+_data = {
+"announce_0": SubResource("Animation_dg1dj")
+}
 
 [node name="Announce" type="Control" groups=["lang_text_array"]]
 layout_mode = 3
@@ -13,17 +24,33 @@ script = ExtResource("1_je7xc")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4v0bg")
+}
 
-[node name="Label" type="Label" parent="."]
+[node name="Day" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.494048
+grow_horizontal = 2
+grow_vertical = 2
+text = "THURSDAY"
+label_settings = ExtResource("2_mmy0a")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -9.0
-offset_bottom = 9.0
+anchor_bottom = 0.863095
 grow_horizontal = 2
 grow_vertical = 2
 text = "MIDNIGHT VIBES"
+label_settings = ExtResource("3_y2bpd")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
