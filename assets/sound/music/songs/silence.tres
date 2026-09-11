@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://c7a4t3aet4xor"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_hlpk8"]
+[ext_resource type="AudioStream" uid="uid://cenyayu2lx5tc" path="res://assets/sound/music/silence.mp3" id="2_d8ykx"]
+
+[resource]
+script = ExtResource("1_hlpk8")
+track = ExtResource("2_d8ykx")
+title = "silence"
+artist = "world"
+crossfade = true
+store_cost = 1

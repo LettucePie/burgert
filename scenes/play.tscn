@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=46 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://drmg6kf4v0q1t" path="res://assets/sound/music/songs/Burgert_16.tres" id="25_t1eki"]
 [ext_resource type="Resource" uid="uid://df78lawteqr38" path="res://assets/sound/music/songs/Burgert_17.tres" id="26_jbiup"]
 [ext_resource type="Resource" uid="uid://cmw44uy4xphgf" path="res://assets/sound/music/songs/Burgert_18.tres" id="27_hujx7"]
+[ext_resource type="Resource" uid="uid://c7a4t3aet4xor" path="res://assets/sound/music/songs/silence.tres" id="27_k5wvn"]
 [ext_resource type="Resource" uid="uid://b5o7uraf54eyy" path="res://assets/sound/music/songs/DireDocksIndeed.tres" id="28_ii6f5"]
 [ext_resource type="Resource" uid="uid://d1p4c5l4fy5dk" path="res://assets/sound/music/songs/FourtyOneAM.tres" id="29_s60c4"]
 [ext_resource type="Resource" uid="uid://dduwexcxehkg5" path="res://assets/sound/music/songs/Ghost whistle.tres" id="30_5tl2m"]
@@ -232,6 +233,7 @@ autoplay = true
 bus = &"MUS"
 script = ExtResource("4_8x8kb")
 all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m")])
+silent_song = ExtResource("27_k5wvn")
 
 [node name="anim" type="AnimationPlayer" parent="Music"]
 libraries = {

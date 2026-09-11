@@ -9,6 +9,7 @@ var owned_songs : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 var main_playlist : PackedInt32Array = [2, 8, 12]
 var play_playlist : PackedInt32Array = [3, 5, 11]
 var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
+@export var silent_song : Song
 
 @onready var anim : AnimationPlayer = $anim
 enum STATE {MENU, PLAY, PAUSE}
@@ -42,11 +43,11 @@ func set_state(new_state : STATE):
 
 func set_track_random():
 	print("MUSIC: set_track_random")
-	var matched_song : Song = all_songs.front()
-	if current_state == STATE.MENU:
+	var matched_song : Song = silent_song
+	if current_state == STATE.MENU and main_playlist.size() > 0:
 		var idx = main_playlist[randi_range(0, main_playlist.size() - 1)]
 		matched_song = all_songs[idx]
-	if current_state == STATE.PLAY:
+	if current_state == STATE.PLAY and play_playlist.size() > 0:
 		var idx = play_playlist[randi_range(0, play_playlist.size() - 1)]
 		matched_song = all_songs[idx]
 	stream = matched_song.track

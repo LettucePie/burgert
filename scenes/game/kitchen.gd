@@ -41,8 +41,6 @@ func _ready():
 			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
 				child.kitchen_switch.connect(_on_kitchen_switch)
 	prep_kitchen()
-	## TEST
-	_schedule_number_crunching()
 
 
 func prep_kitchen():
