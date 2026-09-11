@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cqod5hbqdvjx6"]
+
+[ext_resource type="FontFile" uid="uid://cx8yc8iwhrr32" path="res://third-party/kenney-nl/fonts/Kenney Pixel.ttf" id="1_ss14k"]
+
+[resource]
+base_font = ExtResource("1_ss14k")
+variation_embolden = 0.5
+variation_transform = Transform2D(0.92, 0.335, 0, 1.18, 0, 0)

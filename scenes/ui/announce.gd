@@ -1,9 +1,12 @@
 extends Control
 class_name Announce
 
+signal announce_finish()
+
 @onready var schedule : Schedule = Schedule.new()
-@onready var day_label : Label = $Day
-@onready var message_label : Label = $Message
+@onready var day_label : Label = $Control/Day
+@onready var message_label : Label = $Control/Message
+@onready var anim : AnimationPlayer = $AnimationPlayer
 
 var day : PackedStringArray = [
 	"SUNDAY",
@@ -69,7 +72,15 @@ func set_day_message() -> void:
 	day_label.text = day[day_idx]
 	var message_idx = announce_slots[timeslot % 4].pick_random()
 	message_label.text = announce_messages[message_idx]
+	
+	var announce_style : String = "_" + str(randi_range(0, 1))
+	anim.play("announce" + announce_style)
 
 
 func _ready() -> void:
 	set_day_message()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	print("ANNOUNCE FINISHED")
+	emit_signal("announce_finish")

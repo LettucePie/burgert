@@ -1,8 +1,13 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ogb7fclka7d6"]
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://ogb7fclka7d6"]
 
-[ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="1_x8kk1"]
+[ext_resource type="FontFile" uid="uid://cx8yc8iwhrr32" path="res://third-party/kenney-nl/fonts/Kenney Pixel.ttf" id="1_428ar"]
+
+[sub_resource type="FontVariation" id="FontVariation_301bc"]
+base_font = ExtResource("1_428ar")
+variation_embolden = 0.5
+variation_transform = Transform2D(0.92, 0.335, 0, 1.18, 0, 0)
 
 [resource]
-font = ExtResource("1_x8kk1")
-font_size = 38
+font = SubResource("FontVariation_301bc")
+font_size = 54
 shadow_color = Color(0, 0, 0, 0.47451)
