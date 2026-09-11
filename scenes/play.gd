@@ -462,6 +462,7 @@ func _ready():
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 	main_menu.jukebox.music_library = music
+	main_menu.shop.wallet = stats
 	main_menu.shop.music_library = music
 
 
@@ -560,6 +561,7 @@ func _on_main_menu_bgm_pause(pause: bool) -> void:
 
 
 func _on_music_purchased_song(song: Song) -> void:
+	print("ADDING SONG TO OWNED SONGS")
 	stats.add_song_owned(music.all_songs.find(song))
 	stats.adjust_spent_score(song.store_cost)
 	_save_stats()

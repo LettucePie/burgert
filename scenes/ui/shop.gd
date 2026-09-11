@@ -5,6 +5,7 @@ signal close_shop()
 
 var connected : bool = false
 var connect_stage : int = 0
+var wallet : Play.Stats
 var music_library : Music = null
 
 @onready var main : Control = $phone/main
@@ -141,6 +142,14 @@ func _render_song(idx : int) -> void:
 
 func _on_purchase_pressed() -> void:
 	print("Purchasing Current Song")
+	if wallet.total_score - wallet.spent_score > current_song.store_cost:
+		print("We can Afford")
+		## TODO animation for purchases
+		music_library.purchased_song_from_shop(current_song)
+		_render_song(current_song_idx)
+		$phone/main/menu_1_1/owned.grab_focus()
+	else:
+		print("We Poor")
 
 
 func _on_preview_pressed() -> void:

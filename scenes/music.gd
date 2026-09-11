@@ -75,6 +75,13 @@ func _on_audio_timer_timeout() -> void:
 		anim.play("fade_out")
 
 
+func purchased_song_from_shop(song : Song) -> void:
+	print("Music: purchasing song: ", song.title)
+	var idx : int = all_songs.find(song)
+	jukebox_playlist.append(idx)
+	emit_signal("purchased_song", song)
+
+
 func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 	var song_library_idx : int = all_songs.find(song)
 	print("Editing: ", playlist, " with song: ", song_library_idx, ": ", song.title, " ADD: ", add_remove)
