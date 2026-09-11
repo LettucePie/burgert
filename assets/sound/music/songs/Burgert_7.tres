@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://65b37ek6lht0"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_o7juo"]
+[ext_resource type="AudioStream" uid="uid://c6tv5aa12lkkf" path="res://assets/sound/music/tracks/Burgert_7_Funky simple drums.mp3" id="2_ilpmi"]
+
+[resource]
+script = ExtResource("1_o7juo")
+track = ExtResource("2_ilpmi")
+title = "why am i wet?"
+artist = "yerr"

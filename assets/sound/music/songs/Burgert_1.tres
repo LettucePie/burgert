@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://dig0tan7qitst"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_uc7b1"]
+[ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/tracks/Burgert_1.mp3" id="2_kdpxo"]
+
+[resource]
+script = ExtResource("1_uc7b1")
+track = ExtResource("2_kdpxo")
+title = "Rippin on Jon"
+artist = "SC00T3R"

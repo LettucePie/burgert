@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://cmw44uy4xphgf"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_3tg0j"]
+[ext_resource type="AudioStream" uid="uid://ct5y2wje06jg3" path="res://assets/sound/music/tracks/Burgert_18.mp3" id="2_vyk2n"]
+
+[resource]
+script = ExtResource("1_3tg0j")
+track = ExtResource("2_vyk2n")
+title = "YOU WON $100000 !!!"
+artist = "Unknown"

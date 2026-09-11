@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://p7hiuxcjvc1k"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_4dfrr"]
+[ext_resource type="AudioStream" uid="uid://dptl24wk12no1" path="res://assets/sound/music/tracks/alphabetaprimenumber.mp3" id="2_3irnd"]
+
+[resource]
+script = ExtResource("1_4dfrr")
+track = ExtResource("2_3irnd")
+title = "alphabetaprimenumber"
+artist = "artie77"

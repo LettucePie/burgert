@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=49 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -6,21 +6,41 @@
 [ext_resource type="AudioBusLayout" uid="uid://ce7cv6nqqm3e8" path="res://default_bus_layout.tres" id="2_tutvg"]
 [ext_resource type="PackedScene" uid="uid://rsgcpc7pk037" path="res://scenes/game_container.tscn" id="3_7qtb8"]
 [ext_resource type="Script" path="res://scenes/music.gd" id="4_8x8kb"]
-[ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/Break.mp3" id="4_o7inx"]
-[ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/Burgert_1.mp3" id="5_lvl06"]
-[ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/Burgert_2.mp3" id="6_qxwcy"]
-[ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/Burgert_3.mp3" id="7_m0cnl"]
-[ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/BurgerFlippin'.mp3" id="10_dvsmx"]
+[ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/tracks/Break.mp3" id="4_o7inx"]
+[ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/tracks/Burgert_1.mp3" id="5_lvl06"]
+[ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/tracks/Burgert_2.mp3" id="6_qxwcy"]
+[ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/tracks/Burgert_3.mp3" id="7_m0cnl"]
+[ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/tracks/BurgerFlippin'.mp3" id="10_dvsmx"]
 [ext_resource type="PackedScene" uid="uid://bve20nkqnnssv" path="res://lang/multi_lang.tscn" id="12_78ged"]
+[ext_resource type="Script" path="res://classes/song.gd" id="12_geyru"]
+[ext_resource type="Resource" uid="uid://p7hiuxcjvc1k" path="res://assets/sound/music/songs/alphabetaprimenumber.tres" id="13_erjm2"]
 [ext_resource type="Script" path="res://scenes/fonts.gd" id="13_yh4ju"]
 [ext_resource type="FontVariation" uid="uid://bn04ewryf11gi" path="res://assets/theme/fonts/theme_a_default_font.tres" id="14_ourml"]
+[ext_resource type="Resource" uid="uid://5ij5cldxlwd8" path="res://assets/sound/music/songs/AreWeTogether.tres" id="14_xwnau"]
+[ext_resource type="Resource" uid="uid://c7d7iv8w7ydgl" path="res://assets/sound/music/songs/Break.tres" id="15_bgt7c"]
 [ext_resource type="FontVariation" uid="uid://br6lmypqjl3yv" path="res://assets/theme/fonts/theme_a_medium_font.tres" id="15_crhnc"]
+[ext_resource type="Resource" uid="uid://uqlxa5kuy5dg" path="res://assets/sound/music/songs/BurgerFlippin'.tres" id="16_o6avh"]
 [ext_resource type="FontVariation" uid="uid://c12bdxjmsfbpe" path="res://assets/theme/fonts/theme_a_small_font.tres" id="16_ux3pj"]
+[ext_resource type="Resource" uid="uid://dig0tan7qitst" path="res://assets/sound/music/songs/Burgert_1.tres" id="17_6thr3"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="17_jy0cg"]
+[ext_resource type="Resource" uid="uid://p50h627fhx5t" path="res://assets/sound/music/songs/Burgert_2.tres" id="18_g0cvq"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="18_y3ieu"]
+[ext_resource type="Resource" uid="uid://cq0sb2sbahh5i" path="res://assets/sound/music/songs/Burgert_3.tres" id="19_d53c1"]
 [ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="19_t53yn"]
 [ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="20_06v27"]
+[ext_resource type="Resource" uid="uid://8ej0xwxdq2oi" path="res://assets/sound/music/songs/Burgert_6.tres" id="20_fv7jx"]
 [ext_resource type="LabelSettings" uid="uid://b2ffas5rp8twc" path="res://assets/theme/fonts/jukebox_labelsettings.tres" id="21_qbr2j"]
+[ext_resource type="Resource" uid="uid://65b37ek6lht0" path="res://assets/sound/music/songs/Burgert_7.tres" id="21_ythsf"]
+[ext_resource type="Resource" uid="uid://2iatkvjv2nrp" path="res://assets/sound/music/songs/Burgert_9.tres" id="22_cfytl"]
+[ext_resource type="Resource" uid="uid://ceucgqq5nxev5" path="res://assets/sound/music/songs/Burgert_10.tres" id="23_0q2nb"]
+[ext_resource type="Resource" uid="uid://brke3y7eghkup" path="res://assets/sound/music/songs/Burgert_14.tres" id="24_ro22o"]
+[ext_resource type="Resource" uid="uid://drmg6kf4v0q1t" path="res://assets/sound/music/songs/Burgert_16.tres" id="25_t1eki"]
+[ext_resource type="Resource" uid="uid://df78lawteqr38" path="res://assets/sound/music/songs/Burgert_17.tres" id="26_jbiup"]
+[ext_resource type="Resource" uid="uid://cmw44uy4xphgf" path="res://assets/sound/music/songs/Burgert_18.tres" id="27_hujx7"]
+[ext_resource type="Resource" uid="uid://b5o7uraf54eyy" path="res://assets/sound/music/songs/DireDocksIndeed.tres" id="28_ii6f5"]
+[ext_resource type="Resource" uid="uid://d1p4c5l4fy5dk" path="res://assets/sound/music/songs/FourtyOneAM.tres" id="29_s60c4"]
+[ext_resource type="Resource" uid="uid://dduwexcxehkg5" path="res://assets/sound/music/songs/Ghost whistle.tres" id="30_5tl2m"]
+[ext_resource type="Resource" uid="uid://bkr8hybtqvi8i" path="res://assets/sound/music/songs/Hap-apple-pie.tres" id="31_jjs2m"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -236,6 +256,7 @@ bus = &"MUS"
 script = ExtResource("4_8x8kb")
 menu = ExtResource("4_o7inx")
 tracks = Array[AudioStreamMP3]([ExtResource("5_lvl06"), ExtResource("6_qxwcy"), ExtResource("7_m0cnl"), ExtResource("10_dvsmx")])
+all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m")])
 
 [node name="anim" type="AnimationPlayer" parent="Music"]
 libraries = {

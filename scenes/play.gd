@@ -177,10 +177,11 @@ class Stats:
 	var total_score : int = 0
 	var spent_score : int = 0
 	var timeslots_played : PackedInt32Array = []
+	var songs_owned : PackedInt32Array = []
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
-		"spent_score", "timeslots_played", "customer_stats"
+		"spent_score", "timeslots_played", "songs_owned", "customer_stats"
 	]
 	
 	var customers_in_kitchen : Array[Customer] = []
@@ -272,6 +273,15 @@ class Stats:
 	func add_timeslot_played(timeslot_idx : int) -> void:
 		timeslots_played.append(timeslot_idx)
 	
+	func set_songs_owned(new : Array) -> void:
+		songs_owned = new
+	
+	func get_songs_owned() -> PackedInt32Array:
+		return songs_owned
+	
+	func add_song_owned(song_idx : int) -> void:
+		songs_owned.append(song_idx)
+	
 	func set_customer_stats(new : Array[CustomerStat]):
 		customer_stats = new
 	
@@ -318,6 +328,7 @@ var stats : Stats
 
 func _default_stats():
 	stats = Stats.new()
+	stats.set_songs_owned([2, 3, 5, 8, 11, 12])
 	_save_stats()
 
 
@@ -358,6 +369,7 @@ func _load_stats():
 			stats.set_total_score(data["total_score"])
 			stats.set_spent_score(data["spent_score"])
 			stats.set_timeslots_played(data["timeslots_played"])
+			stats.set_songs_owned(data["songs_owned"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	stats.customers_in_kitchen = game_scene.kitchen.customers
 	apply_stats()
@@ -372,6 +384,7 @@ func _save_stats():
 		"total_score" = stats.get_total_score(),
 		"spent_score" = stats.get_spent_score(),
 		"timeslots_played" = stats.get_timeslots_played(),
+		"songs_owned" = stats.get_songs_owned(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
@@ -385,6 +398,7 @@ func _save_stats():
 func apply_stats():
 	main_menu.customer_dex.assign_stats(stats)
 	main_menu.records.assign_stats(stats)
+	music.owned_songs = stats.get_songs_owned()
 
 
 ####
@@ -411,6 +425,7 @@ func _ready():
 		main_menu.customer_dex.assign_viewport(container.portal)
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
+	main_menu.jukebox.music_library = music
 
 
 func _process(delta):

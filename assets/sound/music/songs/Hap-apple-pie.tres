@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://bkr8hybtqvi8i"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_3dpvd"]
+[ext_resource type="AudioStream" uid="uid://c4qpcx1ihasst" path="res://assets/sound/music/tracks/Hap-apple-pie.mp3" id="2_tx40i"]
+
+[resource]
+script = ExtResource("1_3dpvd")
+track = ExtResource("2_tx40i")
+title = "Salutations"
+artist = "artie77"

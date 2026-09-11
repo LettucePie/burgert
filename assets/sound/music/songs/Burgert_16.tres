@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://drmg6kf4v0q1t"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_cqtw5"]
+[ext_resource type="AudioStream" uid="uid://bqpc200mgpnq4" path="res://assets/sound/music/tracks/burgert_16.mp3" id="2_fy5ua"]
+
+[resource]
+script = ExtResource("1_cqtw5")
+track = ExtResource("2_fy5ua")
+title = "cool-trick-cat"
+artist = "SC00T3R"

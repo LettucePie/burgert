@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://c7d7iv8w7ydgl"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_8unqn"]
+[ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/tracks/Break.mp3" id="2_yxb55"]
+
+[resource]
+script = ExtResource("1_8unqn")
+track = ExtResource("2_yxb55")
+title = "gonna break"
+artist = "yerr"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://d1p4c5l4fy5dk"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_62t4x"]
+[ext_resource type="AudioStream" uid="uid://d2e1pqk6xujpm" path="res://assets/sound/music/tracks/FourtyOneAM.mp3" id="2_m44bm"]
+
+[resource]
+script = ExtResource("1_62t4x")
+track = ExtResource("2_m44bm")
+title = "how did we get here"
+artist = "yerr"

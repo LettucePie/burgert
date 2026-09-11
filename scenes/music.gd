@@ -4,6 +4,11 @@ class_name Music
 
 @export var menu : AudioStreamMP3
 @export var tracks : Array[AudioStreamMP3]
+@export var all_songs : Array[Song] = []
+var owned_songs : PackedInt32Array = [2, 3, 5, 8, 11, 12]
+var main_playlist : PackedInt32Array = [2, 8, 12]
+var play_playlist : PackedInt32Array = [3, 5, 11]
+var jukebox_playlist : PackedInt32Array = []
 @onready var anim : AnimationPlayer = $anim
 
 enum STATE {MENU, PLAY, PAUSE}

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://brke3y7eghkup"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_ekg72"]
+[ext_resource type="AudioStream" uid="uid://cs4osu6ru7rlt" path="res://assets/sound/music/tracks/Burgert_14.mp3" id="2_g270k"]
+
+[resource]
+script = ExtResource("1_ekg72")
+track = ExtResource("2_g270k")
+title = "hoping. dreaming."
+artist = "artie77"

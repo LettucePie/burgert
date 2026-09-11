@@ -7,6 +7,7 @@ signal stop_pressed()
 @export var track_titles : PackedStringArray = [
 	"break", "burgert 1", "burgert 2", "burgert 3", "BurgerFlippin'", "alphabetprimenumber"
 ]
+var music_library : Music = null
 var current_track : int = 0
 var current_playback : float = 0
 var current_volume : int = 5

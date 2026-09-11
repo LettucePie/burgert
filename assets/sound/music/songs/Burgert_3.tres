@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://cq0sb2sbahh5i"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_hwqti"]
+[ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/tracks/Burgert_3.mp3" id="2_ipken"]
+
+[resource]
+script = ExtResource("1_hwqti")
+track = ExtResource("2_ipken")
+title = "Drip of Bees"
+artist = "tomato&smoke"

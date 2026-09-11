@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://uqlxa5kuy5dg"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_p18wf"]
+[ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/tracks/BurgerFlippin'.mp3" id="2_fk8dn"]
+
+[resource]
+script = ExtResource("1_p18wf")
+track = ExtResource("2_fk8dn")
+title = "BURGER - flippin"
+artist = "artie77"
