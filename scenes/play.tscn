@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=45 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -6,11 +6,6 @@
 [ext_resource type="AudioBusLayout" uid="uid://ce7cv6nqqm3e8" path="res://default_bus_layout.tres" id="2_tutvg"]
 [ext_resource type="PackedScene" uid="uid://rsgcpc7pk037" path="res://scenes/game_container.tscn" id="3_7qtb8"]
 [ext_resource type="Script" path="res://scenes/music.gd" id="4_8x8kb"]
-[ext_resource type="AudioStream" uid="uid://bvlhxcpuhn12y" path="res://assets/sound/music/tracks/Break.mp3" id="4_o7inx"]
-[ext_resource type="AudioStream" uid="uid://blmlsy2dvv2qx" path="res://assets/sound/music/tracks/Burgert_1.mp3" id="5_lvl06"]
-[ext_resource type="AudioStream" uid="uid://c4tvuuio6igkn" path="res://assets/sound/music/tracks/Burgert_2.mp3" id="6_qxwcy"]
-[ext_resource type="AudioStream" uid="uid://c7i3xcx3mouph" path="res://assets/sound/music/tracks/Burgert_3.mp3" id="7_m0cnl"]
-[ext_resource type="AudioStream" uid="uid://cvufsi4qrv22w" path="res://assets/sound/music/tracks/BurgerFlippin'.mp3" id="10_dvsmx"]
 [ext_resource type="PackedScene" uid="uid://bve20nkqnnssv" path="res://lang/multi_lang.tscn" id="12_78ged"]
 [ext_resource type="Script" path="res://classes/song.gd" id="12_geyru"]
 [ext_resource type="Resource" uid="uid://p7hiuxcjvc1k" path="res://assets/sound/music/songs/alphabetaprimenumber.tres" id="13_erjm2"]
@@ -47,38 +42,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:stream")
+tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_o7inx")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-80.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_f03kv"]
@@ -87,38 +58,28 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:stream")
+tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_o7inx")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-80.0, 0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [{
+"args": [],
+"method": &"set_track_random"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_x2kpy"]
@@ -223,9 +184,26 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_riyjy"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -40.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ve64"]
 _data = {
 "RESET": SubResource("Animation_ffduw"),
+"fade_out": SubResource("Animation_riyjy"),
 "intro_ramp": SubResource("Animation_f03kv"),
 "pause_play": SubResource("Animation_x2kpy"),
 "queue_next": SubResource("Animation_ebfph"),
@@ -249,13 +227,10 @@ container_scene = ExtResource("3_7qtb8")
 process_mode = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_o7inx")
 volume_db = -80.0
 autoplay = true
 bus = &"MUS"
 script = ExtResource("4_8x8kb")
-menu = ExtResource("4_o7inx")
-tracks = Array[AudioStreamMP3]([ExtResource("5_lvl06"), ExtResource("6_qxwcy"), ExtResource("7_m0cnl"), ExtResource("10_dvsmx")])
 all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m")])
 
 [node name="anim" type="AnimationPlayer" parent="Music"]
@@ -263,6 +238,8 @@ libraries = {
 "": SubResource("AnimationLibrary_2ve64")
 }
 autoplay = "intro_ramp"
+
+[node name="audio_timer" type="Timer" parent="Music"]
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
 supported_languages = ["eng"]
@@ -282,4 +259,5 @@ labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"),
 [connection signal="resume_play" from="MainMenu" to="." method="_on_main_menu_resume_play"]
 [connection signal="start_play" from="MainMenu" to="." method="_on_main_menu_start_play"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
+[connection signal="timeout" from="Music/audio_timer" to="Music" method="_on_audio_timer_timeout"]
 [connection signal="set_lang" from="MultiLang" to="." method="_on_multi_lang_set_lang"]
