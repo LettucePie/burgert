@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=23 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bbbgfyoa6ge00" path="res://assets/animation/chef_animtree_spin_2.tres" id="2_gn2r5"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="2_nyvt1"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
-[ext_resource type="Script" path="res://classes/ViewportTextureSmart.gd" id="3_fq8hn"]
 
 [sub_resource type="Animation" id="Animation_e27pi"]
 resource_name = "Charging_L"
@@ -799,7 +798,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(70, -39), Vector2(81, -40), Vector2(68, -36), Vector2(64, -35), Vector2(60, -35), Vector2(60, -36), Vector2(-65, -39)]
+"values": [Vector2(70, -39), Vector2(81, -40), Vector2(68, -36), Vector2(64, -35), Vector2(60, -35), Vector2(60, -36), Vector2(60, -36)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -847,7 +846,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 0]
+"values": [0, 1, 2, 3, 4, 5, 5]
 }
 
 [sub_resource type="Animation" id="Animation_dwxh2"]
@@ -863,8 +862,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-74, -40), Vector2(-14, -43), Vector2(76, -37), Vector2(74, -35), Vector2(79, -35), Vector2(77, -39), Vector2(76, -39)]
+"update": 0,
+"values": [Vector2(-74, -40), Vector2(-14, -43), Vector2(76, -37), Vector2(74, -35), Vector2(79, -35), Vector2(77, -39), Vector2(77, -39)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -912,7 +911,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 0]
+"values": [0, 1, 2, 3, 4, 5, 5]
 }
 
 [sub_resource type="Animation" id="Animation_pdxxp"]
@@ -1140,10 +1139,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_btgba"]
 radius = 46.5296
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sys53"]
-viewport_path = NodePath(".")
-script = ExtResource("3_fq8hn")
-viewport_path_again = NodePath("../burger_portal")
+[sub_resource type="ViewportTexture" id="ViewportTexture_yjpo2"]
+viewport_path = NodePath("burger_portal")
 
 [node name="chef" type="Node2D"]
 texture_filter = 1
@@ -1179,7 +1176,7 @@ shape = SubResource("CircleShape2D_btgba")
 [node name="burger_sprite" type="Sprite2D" parent="."]
 position = Vector2(-64, -39)
 scale = Vector2(0.380859, 0.380859)
-texture = SubResource("ViewportTexture_sys53")
+texture = SubResource("ViewportTexture_yjpo2")
 
 [node name="burger_portal" parent="." instance=ExtResource("3_3owfg")]
 
