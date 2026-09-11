@@ -236,6 +236,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(320, 240)
 script = ExtResource("1_n1ick")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -253,6 +254,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_1msfh")
 texture = ExtResource("3_3yfhm")
+
+[node name="ColorRect" type="ColorRect" parent="phone"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.175
+anchor_top = 1.0
+anchor_right = 0.825
+anchor_bottom = 1.252
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.290166, 0.290166, 0.290166, 1)
 
 [node name="main" type="Control" parent="phone"]
 visible = false

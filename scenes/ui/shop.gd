@@ -16,7 +16,8 @@ var connect_stage : int = 0
 	"welcome to\n\nGLORBAZON"
 ]
 
-
+#func _ready() -> void:
+	#open_shop()
 
 func open_shop():
 	connected = false
@@ -38,3 +39,21 @@ func update_connection_stage():
 
 func _on_finished_pressed() -> void:
 	emit_signal("close_shop")
+
+
+func _tween_center() -> void:
+	self.position = Vector2(0, randf_range(2, 4))
+	self.rotation = randf_range(-0.03, 0.03)
+	var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", Vector2.ZERO, 0.2)
+	tween.set_parallel()
+	tween.tween_property(self, "rotation", 0.0, 0.1)
+	
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("up") \
+	or Input.is_action_just_pressed("down") \
+	or Input.is_action_just_pressed("confirm") \
+	or Input.is_action_just_pressed("cancel"):
+		_tween_center()
