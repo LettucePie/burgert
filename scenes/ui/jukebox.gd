@@ -3,10 +3,6 @@ class_name Jukebox
 
 signal stop_pressed()
 
-@export var track_files : Array[AudioStreamMP3] = []
-@export var track_titles : PackedStringArray = [
-	"break", "burgert 1", "burgert 2", "burgert 3", "BurgerFlippin'", "alphabetprimenumber"
-]
 var music_library : Music = null
 var current_track : int = 0
 var current_playback : float = 0
@@ -77,8 +73,8 @@ func _ready() -> void:
 
 func _build_play_order(shuffled : bool):
 	play_order = []
-	for i in track_files.size():
-		play_order.append(i)
+	for idx in music_library.jukebox_playlist:
+		play_order.append(idx)
 	if shuffled:
 		play_order.shuffle()
 
@@ -86,7 +82,7 @@ func _build_play_order(shuffled : bool):
 func _on_prev_pressed() -> void:
 	current_track -= 1
 	if current_track < 0:
-		current_track = track_files.size() - 1
+		current_track = music_library.jukebox_playlist.size() - 1
 	_update_player()
 	jukebox_progress.reset_progress()
 
@@ -144,7 +140,7 @@ func _on_play_pressed() -> void:
 
 func _on_next_pressed() -> void:
 	current_track += 1
-	if current_track > track_files.size() - 1:
+	if current_track > music_library.jukebox_playlist.size() - 1:
 		current_track = 0
 	_update_player()
 	jukebox_progress.reset_progress()
@@ -161,9 +157,13 @@ func _on_stop_pressed() -> void:
 
 func _update_player() -> void:
 	var idx : int = play_order[current_track]
-	player.stream = track_files[idx]
-	track_label.text = str(idx + 1) + " - " + track_titles[idx]
-	track_timer.wait_time = track_files[idx].get_length()
+	var song : Song = music_library.all_songs[idx]
+	player.stream = song.track
+	var title_out : String = song.artist + " - " + song.title
+	track_label.text = str(current_track + 1) + " - " + title_out
+	if shuffling:
+		track_label.text = title_out
+	track_timer.wait_time = song.track.get_length()
 	track_timer.paused = false
 	current_playback = 0
 	_update_play_button()
