@@ -3,16 +3,16 @@ class_name CustomerDex
 
 signal close_customerdex
 
-@onready var name_label : Label = $VBoxContainer/name
-@onready var pic_rect : TextureRect = $crop/profile
-@onready var fantastic_label : Label = $VBoxContainer/statlayer/fantastic
-@onready var satisfactory_label : Label = $VBoxContainer/statlayer/satisfactory
-@onready var disappointed_label : Label = $VBoxContainer/statlayer/disappointed
-@onready var description_a : Label = $VBoxContainer/description_a
-@onready var description_b : Label = $description_b
-@onready var schedule : Label = $schedule
-@onready var page_label : Label = $pagenum
-@onready var page_reveal : AnimatedSprite2D = $page_reveal
+@onready var name_label : Label = $Control/VBoxContainer/name
+@onready var pic_rect : TextureRect = $Control/crop/profile
+@onready var fantastic_label : Label = $Control/VBoxContainer/statlayer/fantastic
+@onready var satisfactory_label : Label = $Control/VBoxContainer/statlayer/satisfactory
+@onready var disappointed_label : Label = $Control/VBoxContainer/statlayer/disappointed
+@onready var description_a : Label = $Control/VBoxContainer/description_a
+@onready var description_b : Label = $Control/description_b
+@onready var schedule : Label = $Control/schedule
+@onready var page_label : Label = $Control/pagenum
+@onready var page_reveal : AnimatedSprite2D = $Control/page_reveal
 
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
@@ -129,7 +129,6 @@ var customer_name_unknown : String = "UNKNOWN"
 @export var customer_image_unknown : Texture2D
 var customer_desc_a_unknown : String = "Data Unavailable\n - Serve more orders..."
 var customer_desc_b_unknown : String = "Description Unavailable\n - Serve 10 or more Fantastic Orders"
-@export var folder : AnimatedSprite2D = null
 var focused_button : TextureButton = null
 @export var render_sheet_a : Sprite2D
 @export var render_sheet_b : Sprite2D
@@ -308,3 +307,8 @@ func _on_page_reveal_animation_finished() -> void:
 
 func _on_done_pressed() -> void:
 	emit_signal("close_customerdex")
+
+
+func _on_visibility_changed() -> void:
+	if visible:
+		$Control/controls/next.grab_focus()

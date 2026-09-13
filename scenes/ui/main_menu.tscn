@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=25 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://74a6r632y6fd" path="res://scenes/ui/records.tscn" id="22_v8q47"]
 [ext_resource type="PackedScene" uid="uid://dn7wrk0xcx8d" path="res://scenes/ui/shop.tscn" id="24_peheo"]
 [ext_resource type="PackedScene" uid="uid://usn8lcjjp3ml" path="res://scenes/ui/announce.tscn" id="25_l0m7e"]
-[ext_resource type="Texture2D" uid="uid://dwdldo33mgn76" path="res://assets/models/textures/page_render_test.png" id="64_avxcg"]
 [ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/jukebox.tscn" id="68_21bnj"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
@@ -69,26 +68,26 @@ offset_bottom = -493.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 502.0
+offset_top = 534.5
 offset_right = -140.0
-offset_bottom = 599.0
+offset_bottom = 631.5
 
 [node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = 26.0
-offset_bottom = 137.0
+offset_top = 58.5
+offset_bottom = 169.5
 
 [node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 332.0
-offset_bottom = 409.0
+offset_top = 364.5
+offset_bottom = 441.5
 
 [node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 382.0
-offset_bottom = 428.0
+offset_top = 414.5
+offset_bottom = 460.5
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
 offset_left = 1.99969
-offset_top = 290.0
-offset_bottom = 392.0
+offset_top = 322.5
+offset_bottom = 424.5
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -173,18 +172,9 @@ layout_mode = 1
 offset_top = -480.0
 offset_bottom = -480.0
 
-[node name="render_sheet_a" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(320, 240)
-texture = ExtResource("64_avxcg")
-
 [node name="CustomerDex" parent="." instance=ExtResource("21_lcswv")]
-layout_mode = 1
-
-[node name="render_sheet_b" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(320, 240)
-texture = ExtResource("64_avxcg")
+layout_mode = 1
 
 [node name="Records" parent="." instance=ExtResource("22_v8q47")]
 visible = false
