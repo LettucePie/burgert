@@ -92,10 +92,12 @@ func _tween_center() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("up") \
+	if (Input.is_action_just_pressed("up") \
 	or Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("left") \
 	or Input.is_action_just_pressed("right") \
 	or Input.is_action_just_pressed("confirm") \
-	or Input.is_action_just_pressed("cancel"):
+	or Input.is_action_just_pressed("cancel")) \
+	and visible:
 		_tween_center()
+		$tone_player.play_random()

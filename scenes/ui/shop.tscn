@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn7wrk0xcx8d"]
+[gd_scene load_steps=19 format=3 uid="uid://dn7wrk0xcx8d"]
 
 [ext_resource type="Script" path="res://scenes/ui/shop.gd" id="1_n1ick"]
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="2_1msfh"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bmkk3shy68xwm" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim1.png" id="4_xdb1f"]
 [ext_resource type="Texture2D" uid="uid://o7in3gomv7kk" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim4.png" id="5_yqcts"]
 [ext_resource type="Texture2D" uid="uid://bmosfn61lpb4f" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim5.png" id="6_7xf6y"]
+[ext_resource type="PackedScene" uid="uid://0qx6xx5d5jsi" path="res://scenes/ui/sfx_host.tscn" id="9_ma7yp"]
+[ext_resource type="AudioStream" uid="uid://u2j4theurdwi" path="res://assets/sound/sfx/flip-phone/tone1.wav" id="10_yx6ol"]
+[ext_resource type="AudioStream" uid="uid://clmh18518ogg5" path="res://assets/sound/sfx/flip-phone/tone2.wav" id="11_u4xeh"]
+[ext_resource type="AudioStream" uid="uid://cp57olcjx7h1k" path="res://assets/sound/sfx/flip-phone/tone3.wav" id="12_07w4k"]
+[ext_resource type="AudioStream" uid="uid://djqoaqwbpva2w" path="res://assets/sound/sfx/flip-phone/tone4.wav" id="13_gv5tv"]
+[ext_resource type="AudioStream" uid="uid://btq7cldh02c53" path="res://assets/sound/sfx/flip-phone/tone5.wav" id="14_njif8"]
 
 [sub_resource type="Animation" id="Animation_c1yjd"]
 length = 0.001
@@ -570,6 +576,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="sfx_host" parent="." instance=ExtResource("9_ma7yp")]
+library = Array[AudioStreamWAV]([ExtResource("10_yx6ol"), ExtResource("11_u4xeh"), ExtResource("12_07w4k"), ExtResource("13_gv5tv"), ExtResource("14_njif8")])
+
 [connection signal="visibility_changed" from="phone/main/menu_0_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_0_0/finished"]]
 [connection signal="pressed" from="phone/main/menu_0_0/music" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="pressed" from="phone/main/menu_0_0/decor" to="." method="load_in_menu" binds= [2, 0]]
@@ -587,12 +596,12 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="phone/main/menu_1_1/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_1/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_2" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_2/work_playlist"]]
-[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="_playlist_load" binds= ["work"]]
-[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="_playlist_load" binds= ["menu"]]
-[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="_playlist_load" binds= ["jukebox"]]
+[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_3" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_3/return"]]
 [connection signal="pressed" from="phone/main/menu_1_3/toggle" to="." method="_on_toggle_pressed"]

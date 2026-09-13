@@ -85,11 +85,13 @@ func _tween_center() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("up") \
+	if (Input.is_action_just_pressed("up") \
 	or Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("confirm") \
-	or Input.is_action_just_pressed("cancel"):
+	or Input.is_action_just_pressed("cancel")) \
+	and visible:
 		_tween_center()
+		$sfx_host.play_random()
 
 
 func load_in_menu(main_idx : int, branch_idx : int) -> void:

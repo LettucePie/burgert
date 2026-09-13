@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bsmv7q4m57b8h"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_vdork"]
-[ext_resource type="AnimationLibrary" uid="uid://bxt2osgb6ty5p" path="res://assets/animation/customers/patient_animlib.res" id="2_8acbk"]
+[ext_resource type="AnimationLibrary" path="res://assets/animation/customers/patient_animlib.res" id="2_8acbk"]
 [ext_resource type="Resource" uid="uid://8ptls1ps6g7t" path="res://assets/data/schedules/Patient_schedule.tres" id="2_ey8hi"]
 [ext_resource type="SpriteFrames" uid="uid://c1fh8vpk5f8xh" path="res://assets/images/characters/customers/customer_Patient_spriteframes.tres" id="3_fcrd6"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_2gsaq"]

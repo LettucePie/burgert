@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dliaynw0s7s52"]
+[gd_scene load_steps=13 format=3 uid="uid://dliaynw0s7s52"]
 
 [ext_resource type="Script" path="res://scenes/ui/slider_input.gd" id="1_1ag3e"]
 [ext_resource type="Script" path="res://scenes/ui/options.gd" id="1_iywii"]
@@ -6,6 +6,12 @@
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="3_e3j2c"]
 [ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone_open.png" id="3_lryte"]
 [ext_resource type="Script" path="res://scenes/ui/language_selector.gd" id="5_bio1n"]
+[ext_resource type="PackedScene" uid="uid://0qx6xx5d5jsi" path="res://scenes/ui/sfx_host.tscn" id="7_xf4qn"]
+[ext_resource type="AudioStream" uid="uid://u2j4theurdwi" path="res://assets/sound/sfx/flip-phone/tone1.wav" id="8_iq13k"]
+[ext_resource type="AudioStream" uid="uid://clmh18518ogg5" path="res://assets/sound/sfx/flip-phone/tone2.wav" id="9_mqfak"]
+[ext_resource type="AudioStream" uid="uid://cp57olcjx7h1k" path="res://assets/sound/sfx/flip-phone/tone3.wav" id="10_r44ff"]
+[ext_resource type="AudioStream" uid="uid://djqoaqwbpva2w" path="res://assets/sound/sfx/flip-phone/tone4.wav" id="11_ycv17"]
+[ext_resource type="AudioStream" uid="uid://btq7cldh02c53" path="res://assets/sound/sfx/flip-phone/tone5.wav" id="12_o5x0v"]
 
 [node name="Options" type="Control"]
 texture_filter = 1
@@ -219,6 +225,9 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 text = "English"
+
+[node name="tone_player" parent="." instance=ExtResource("7_xf4qn")]
+library = Array[AudioStreamWAV]([ExtResource("8_iq13k"), ExtResource("9_mqfak"), ExtResource("10_r44ff"), ExtResource("11_ycv17"), ExtResource("12_o5x0v")])
 
 [connection signal="focus_entered" from="phone/main/vcont1/mus_vol" to="phone/main/vcont1/mus_vol" method="_on_focus_entered"]
 [connection signal="focus_exited" from="phone/main/vcont1/mus_vol" to="phone/main/vcont1/mus_vol" method="_on_focus_exited"]
