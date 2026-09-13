@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://crsb1nqkcsqgm"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_5j8yp"]
-[ext_resource type="AnimationLibrary" uid="uid://biapfbq37jlfd" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
+[ext_resource type="AnimationLibrary" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
 [ext_resource type="Resource" uid="uid://ccxwq72l36kgn" path="res://assets/data/schedules/Persistant_schedule.tres" id="2_ei0vr"]
 [ext_resource type="SpriteFrames" uid="uid://dujb4hl83qoxm" path="res://assets/images/characters/customers/customer_persistant_spriteframes_v2.tres" id="3_6pqky"]
 [ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="4_ebmwu"]
@@ -13,7 +13,7 @@ viewport_path = NodePath(".")
 [node name="Persistant" instance=ExtResource("1_5j8yp")]
 customer_name = "Persistant"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Bun Top")])
-consecutive_orders = 4
+consecutive_orders = 3
 schedule = ExtResource("2_ei0vr")
 
 [node name="AnimationPlayer" parent="." index="0"]
