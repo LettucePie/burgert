@@ -27,8 +27,10 @@ var ingredient_offsets : PackedInt32Array = [
 	1
 ]
 var start_pos : Vector2 = Vector2.ZERO
+var arch_pos : Vector2 = Vector2.ZERO
 var target_pos : Vector2 = Vector2.ZERO
-var speed : float = 18
+var speed : float = 0.05
+var journey : float = 0.0
 
 
 func build_burger(ingredients : PackedStringArray) -> void:
@@ -46,21 +48,36 @@ func build_burger(ingredients : PackedStringArray) -> void:
 
 func set_target(target : Vector2, speed_mult : float) -> void:
 	start_pos = self.position
-	speed = speed + (6 * (speed_mult - 0.99))
-	print("THROW BURGER SPEED: ", speed, " speed mult: ", speed_mult)
 	target_pos = target
+	arch_pos = start_pos.lerp(target_pos, 0.5)
+	#print("DISTANCE: ", start_pos.distance_squared_to(arch_pos))
+	speed = lerpf(0.05, 0.09, inverse_lerp(90000, 8400, start_pos.distance_squared_to(arch_pos)))
+	var offset : float = lerpf(0.0, 124, 
+	inverse_lerp(0, 640, absf(start_pos.x - target_pos.x)))
+	arch_pos.y -= offset
+	speed = speed + (0.08 * (speed_mult - 0.99))
+	print("THROW BURGER SPEED: ", speed, " speed mult: ", speed_mult)
 	throw_sfx.play()
-	#look_at(target)
-	#rotate(PI / 4)
 
 
-func _process(delta: float) -> void:
+func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vector2:
+	var result : Vector2 = Vector2.ZERO
+	var q0 = p0.lerp(p1, t)
+	var q1 = p1.lerp(p2, t)
+	result = q0.lerp(q1, t)
+	return result
+
+
+func _physics_process(delta: float) -> void:
 	if target_pos != Vector2.ZERO:
+		journey += speed
 		var pos : Vector2 = position
-		pos = pos.move_toward(target_pos, speed)
+		pos = _quadratic_bezier(start_pos, arch_pos, target_pos, journey)
+		#pos = pos.move_toward(target_pos, speed)
 		#pos = pos.lerp(target_pos, 0.12 * speed)
 		position = pos
-		if pos.distance_squared_to(target_pos) < 0.25:
+		#if pos.distance_squared_to(target_pos) < 0.25:
+		if journey >= 1.0:
 			print("Burger Throw reached Target")
 			emit_signal("reached_target", target_pos)
 			queue_free()
