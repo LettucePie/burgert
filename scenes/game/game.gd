@@ -25,6 +25,7 @@ var game_started : bool = false
 	"Cheese", "Mustard", "Ketchup"
 ]
 
+
 var current_order : PackedStringArray = []
 var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
