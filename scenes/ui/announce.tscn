@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://usn8lcjjp3ml"]
+[gd_scene load_steps=27 format=3 uid="uid://usn8lcjjp3ml"]
 
 [ext_resource type="Script" path="res://scenes/ui/announce.gd" id="1_je7xc"]
 [ext_resource type="LabelSettings" uid="uid://btfxqtydi0n2b" path="res://assets/theme/fonts/announce_day_labelsettings.tres" id="2_mmy0a"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://cjrx203ylout1" path="res://third-party/opengameart.org/typewrite/click64.wav" id="8_jtguk"]
 [ext_resource type="AudioStream" uid="uid://bgln5p6nniw5y" path="res://third-party/opengameart.org/typewrite/click85.wav" id="9_el8ti"]
 [ext_resource type="AudioStream" uid="uid://bn7lt6v1f20tr" path="res://third-party/opengameart.org/fireball.wav" id="10_k4cm6"]
+[ext_resource type="AudioStream" uid="uid://dia3kp00j65g5" path="res://assets/sound/sfx/throw_1.wav" id="12_nd8g6"]
+[ext_resource type="AudioStream" uid="uid://cemwghsevvjut" path="res://assets/sound/sfx/announce/impact.wav" id="13_f1fxm"]
 [ext_resource type="AudioStream" uid="uid://cniqex75671fq" path="res://third-party/opengameart.org/fireball_reversed.wav" id="14_kya6c"]
 
 [sub_resource type="Animation" id="Animation_k1xdu"]
@@ -626,6 +628,44 @@ tracks/14/keys = {
 "update": 1,
 "values": [null]
 }
+tracks/15/type = "audio"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Control/Day/day_audio")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"clips": [{
+"end_offset": 0.4,
+"start_offset": 0.0622,
+"stream": ExtResource("12_nd8g6")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0574,
+"stream": ExtResource("12_nd8g6")
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0574,
+"stream": ExtResource("12_nd8g6")
+}],
+"times": PackedFloat32Array(0, 0.2, 0.433333)
+}
+tracks/15/use_blend = true
+tracks/16/type = "audio"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Control/Message/message_audio")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_f1fxm")
+}],
+"times": PackedFloat32Array(1.2)
+}
+tracks/16/use_blend = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_86don"]
 seed = 1
