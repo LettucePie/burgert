@@ -146,6 +146,7 @@ func apply_settings():
 	var sfx_db : float = linear_to_db(float(settings.get_sfx_vol()) / 10.0)
 	AudioServer.set_bus_volume_db(mus_idx, mus_db)
 	AudioServer.set_bus_volume_db(sfx_idx, sfx_db)
+	music.max_volume_db = mus_db
 	InputMap.action_erase_events("confirm")
 	InputMap.action_erase_events("cancel")
 	var confirm_target : String = "confirm"

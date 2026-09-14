@@ -12,6 +12,8 @@ var music_library : Music = null
 @onready var finished : Button = $phone/main/menu_0_0/finished
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var connection_label : Label = $phone/connection/label
+@onready var preview_music : AudioStreamPlayer2D = $preview_music
+@onready var preview_timer : Timer = $preview_music/Timer
 @export var connection_messages : PackedStringArray = [
 	"connecting",
 	"connected!",
@@ -25,7 +27,7 @@ enum MUSIC_BRANCH {MAIN, STORE, PLAYLIST, EDITOR}
 
 var primary_branch : MENU_BRANCH = MENU_BRANCH.MAIN
 var submenu_branch : int = -1
-
+var current_menu : Control = null
 var current_song_idx : int = 0
 var current_song : Song = null
 var editing_playlist_name : String = "name"
@@ -155,7 +157,12 @@ func _on_purchase_pressed() -> void:
 
 
 func _on_preview_pressed() -> void:
-	pass # Replace with function body.
+	music_library.set_state(Music.STATE.PREVIEW)
+	await get_tree().create_timer(1.0).timeout
+	preview_music.stream = current_song.track
+	preview_music.play(10.0)
+	preview_timer.start(10.0)
+	
 
 
 func _on_toggle_pressed() -> void:
@@ -181,5 +188,12 @@ func _playlist_load(playlist_name: String) -> void:
 func _focusing_my_brains_out(path: String) -> void:
 	var target : Control = get_node(path)
 	if target.get_parent().visible:
+		current_menu = target.get_parent()
 		target.grab_focus()
 		print("path: ", path, " FOCUS")
+
+
+func _on_preview_timer_timeout() -> void:
+	preview_timer.stop()
+	preview_music.stop()
+	music_library.set_state(Music.STATE.PLAY)

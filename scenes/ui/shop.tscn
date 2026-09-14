@@ -324,13 +324,17 @@ text = "Music"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Decor"
+disabled = true
+text = "Decor
+** COMING SOON **"
 
 [node name="clothing" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "Clothing"
+disabled = true
+text = "Clothing
+** COMING SOON **"
 
 [node name="finished" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
 use_parent_material = true
@@ -579,6 +583,11 @@ metadata/_edit_use_anchors_ = true
 [node name="sfx_host" parent="." instance=ExtResource("9_ma7yp")]
 library = Array[AudioStreamWAV]([ExtResource("10_yx6ol"), ExtResource("11_u4xeh"), ExtResource("12_07w4k"), ExtResource("13_gv5tv"), ExtResource("14_njif8")])
 
+[node name="preview_music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(322, 59)
+
+[node name="Timer" type="Timer" parent="preview_music"]
+
 [connection signal="visibility_changed" from="phone/main/menu_0_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_0_0/finished"]]
 [connection signal="pressed" from="phone/main/menu_0_0/music" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="pressed" from="phone/main/menu_0_0/decor" to="." method="load_in_menu" binds= [2, 0]]
@@ -608,3 +617,4 @@ library = Array[AudioStreamWAV]([ExtResource("10_yx6ol"), ExtResource("11_u4xeh"
 [connection signal="pressed" from="phone/main/menu_1_3/prev_next/prev" to="." method="_prev_next_song" binds= [-1]]
 [connection signal="pressed" from="phone/main/menu_1_3/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_3/return" to="." method="load_in_menu" binds= [1, 2]]
+[connection signal="timeout" from="preview_music/Timer" to="." method="_on_preview_timer_timeout"]
