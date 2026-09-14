@@ -70,11 +70,15 @@ func _process_receipts() -> void:
 			new_receipt.play_bop()
 		var temporary_percent : float = 0.0
 		var index = result_order_count - spawning_receipt_count
-		for i in index:
-			print(i, ": ", result_accuracies[i])
-			temporary_percent += result_accuracies[i]
-		temporary_percent /= index
+		if index == 0:
+			temporary_percent += result_accuracies[index]
+		else:
+			for i in index:
+				print(i, ": ", result_accuracies[i])
+				temporary_percent += result_accuracies[i]
+			temporary_percent /= index
 		print("TempPercent: ", temporary_percent)
+		print("TempPercent Styled: ", snapped((temporary_percent * 100), 0.01))
 		if index >= 0 :
 			order_count.text = str(index + 1)
 			accuracy.text = str(snapped((temporary_percent * 100), 0.01)) + "%"
@@ -133,6 +137,7 @@ func _physics_process(delta: float) -> void:
 func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array):
 	#order_count.text = str(accuracies.size())
 	result_accuracies = accuracies
+	result_percent = 0.0
 	result_scores = scores
 	result_total = 0
 	spawning_receipts = false
