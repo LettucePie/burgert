@@ -1,6 +1,8 @@
 extends Node2D
 class_name Burger2D
 
+signal reached_target(target)
+
 @onready var plate : Sprite2D = $plate
 @export var ingredient_textures : Array[Texture2D] = []
 var ingredient_table : PackedStringArray = [
@@ -17,11 +19,11 @@ var ingredient_offsets : PackedInt32Array = [
 	4,
 	7,
 	4,
-	3,
-	3,
-	3,
 	2,
-	2
+	2,
+	2,
+	1,
+	1
 ]
 var target_pos : Vector2 = Vector2.ZERO
 
@@ -52,4 +54,5 @@ func _process(delta: float) -> void:
 		position = pos
 		if pos.distance_squared_to(target_pos) < 0.25:
 			print("Burger Throw reached Target")
+			emit_signal("reached_target", target_pos)
 			queue_free()

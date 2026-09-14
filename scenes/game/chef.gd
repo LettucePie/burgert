@@ -53,6 +53,7 @@ func reset_chef():
 	submitting_burger = false
 	active = false
 	waiting = true
+	burger_sprite.show()
 
 
 func set_station(ws : Workstation):

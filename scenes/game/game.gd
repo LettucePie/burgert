@@ -219,21 +219,27 @@ func _throw_burger_2d_at(target : Vector2) -> void:
 		burger_2d = null
 	burger_2d = burger_2d_scene.instantiate()
 	self.add_child(burger_2d)
+	burger_2d.reached_target.connect(_on_burger_2d_reached_target)
 	burger_2d.build_burger(chef.current_burger.ingredients.duplicate())
 	burger_2d.position = chef.burger_sprite.global_position
 	burger_2d.set_target(target)
 
 
-func _on_chef_submit_burger():
+func _on_burger_2d_reached_target(target) -> void:
 	if submit.check_customer(kitchen.current_customer):
 		print("Successful Throw")
 		assess_submission()
 	else:
 		print("Failed Throw")
 		kitchen.play_splat(submit.get_target_position())
-	_throw_burger_2d_at(submit.get_target_position())
 	chef.current_burger.refresh_plate()
+	chef.burger_sprite.show()
 	chef.submitting_burger = false
+
+
+func _on_chef_submit_burger():
+	_throw_burger_2d_at(submit.get_target_position())
+	chef.burger_sprite.hide()
 	submit.set_playing(false, 0, 0)
 
 
