@@ -16,12 +16,12 @@ const OFFSET_MULTI = 0.12
 @onready var plate : Node3D = $plate
 @onready var ingredients_node : Node3D = $plate/ingredients
 @onready var main_cam : Camera3D = $CameraMain
-@onready var screencap_cam : Camera3D = $CameraScreenshot
 
 var ingredient_meshes : Array[Ingredient3D] = []
 var ingredients : PackedStringArray = []
 var offset_y : float = 0
 var rotate_plate : bool = false
+
 
 func refresh_plate():
 	ingredients.clear()
@@ -29,7 +29,6 @@ func refresh_plate():
 	for c in ingredients_node.get_children():
 		c.queue_free()
 	offset_y = 0
-	screencap_cam.hide()
 	main_cam.show()
 	main_cam.make_current()
 

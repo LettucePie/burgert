@@ -4,7 +4,6 @@ class_name Game
 signal game_paused()
 signal game_finished(final_score : int)
 signal game_over()
-
 signal finished_order(customer_name : String, satisfaction_rank : int)
 
 @export var kitchen : Kitchen
@@ -14,7 +13,6 @@ signal finished_order(customer_name : String, satisfaction_rank : int)
 @export var results : Results
 @export var order_point_time_curve : Curve
 var game_started : bool = false
-
 @onready var bases : PackedStringArray = [
 	"Meat", "Bun Bottom", "Cheese"
 ]
@@ -24,13 +22,14 @@ var game_started : bool = false
 @onready var finishes : PackedStringArray = [
 	"Cheese", "Mustard", "Ketchup"
 ]
-
+@export var burger_2d_scene : PackedScene
 
 var current_order : PackedStringArray = []
 var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
 var game_scores : PackedInt32Array = []
 var current_order_start_time : float = 0
+var burger_2d : Burger2D = null
 
 
 func _physics_process(delta):
@@ -214,6 +213,17 @@ func _on_chef_cancel_burger_submission():
 	submit.set_playing(false, 0, 0)
 
 
+func _throw_burger_2d_at(target : Vector2) -> void:
+	if burger_2d != null:
+		burger_2d.queue_free()
+		burger_2d = null
+	burger_2d = burger_2d_scene.instantiate()
+	self.add_child(burger_2d)
+	burger_2d.build_burger(chef.current_burger.ingredients.duplicate())
+	burger_2d.position = chef.burger_sprite.global_position
+	burger_2d.set_target(target)
+
+
 func _on_chef_submit_burger():
 	if submit.check_customer(kitchen.current_customer):
 		print("Successful Throw")
@@ -221,7 +231,7 @@ func _on_chef_submit_burger():
 	else:
 		print("Failed Throw")
 		kitchen.play_splat(submit.get_target_position())
-	chef.throw_burger_at(submit.get_target_position())
+	_throw_burger_2d_at(submit.get_target_position())
 	chef.current_burger.refresh_plate()
 	chef.submitting_burger = false
 	submit.set_playing(false, 0, 0)

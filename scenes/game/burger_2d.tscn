@@ -1,0 +1,21 @@
+[gd_scene load_steps=11 format=3 uid="uid://jox1qe2o6uhn"]
+
+[ext_resource type="Script" path="res://scenes/game/burger_2d.gd" id="1_0w0pa"]
+[ext_resource type="Texture2D" uid="uid://bcevrngscphil" path="res://assets/images/environment/kitchen/ingredients/burger_2d_plate.png" id="2_0acwv"]
+[ext_resource type="Texture2D" uid="uid://dip8l3rhcxtwi" path="res://assets/images/environment/kitchen/ingredients/burger_2d_bun_bottom.png" id="2_4ffsm"]
+[ext_resource type="Texture2D" uid="uid://c8ep0wbt2inmp" path="res://assets/images/environment/kitchen/ingredients/burger_2d_bun_top.png" id="3_qw4dx"]
+[ext_resource type="Texture2D" uid="uid://b7ixrmnsfjc76" path="res://assets/images/environment/kitchen/ingredients/burger_2d_meat.png" id="4_v3wu0"]
+[ext_resource type="Texture2D" uid="uid://cmbpwpsbo3j2u" path="res://assets/images/environment/kitchen/ingredients/burger_2d_cheese.png" id="5_q1eas"]
+[ext_resource type="Texture2D" uid="uid://d1w6paoywsu4a" path="res://assets/images/environment/kitchen/ingredients/burger_2d_lettuce.png" id="6_p2i32"]
+[ext_resource type="Texture2D" uid="uid://d4fwb5easwkfc" path="res://assets/images/environment/kitchen/ingredients/burger_2d_tomato.png" id="7_p7v1t"]
+[ext_resource type="Texture2D" uid="uid://xteh201fiflh" path="res://assets/images/environment/kitchen/ingredients/burger_2d_ketchup.png" id="8_l5d5f"]
+[ext_resource type="Texture2D" uid="uid://clil2yskemf6i" path="res://assets/images/environment/kitchen/ingredients/burger_2d_mustard.png" id="9_fgtwy"]
+
+[node name="burger_2D" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_0w0pa")
+ingredient_textures = Array[Texture2D]([ExtResource("2_4ffsm"), ExtResource("3_qw4dx"), ExtResource("4_v3wu0"), ExtResource("5_q1eas"), ExtResource("6_p2i32"), ExtResource("7_p7v1t"), ExtResource("8_l5d5f"), ExtResource("9_fgtwy")])
+
+[node name="plate" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_0acwv")

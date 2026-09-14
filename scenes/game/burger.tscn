@@ -13,12 +13,6 @@ transform = Transform3D(1, 0, 0, 0, 0.891268, 0.453477, 0, -0.453477, 0.891268, 
 projection = 1
 size = 5.20847
 
-[node name="CameraScreenshot" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08625, 3.8916)
-visible = false
-projection = 1
-size = 5.20847
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.97226, 0.108963, 0.206973, -0.233904, 0.452924, 0.860319, 0, -0.884866, 0.465846, 0, 0, 0)
 

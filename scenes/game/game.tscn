@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://drcc15jq33yol"]
+[gd_scene load_steps=17 format=3 uid="uid://drcc15jq33yol"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_ebpk4"]
 [ext_resource type="PackedScene" uid="uid://cb2lak3w8b1s8" path="res://scenes/game/kitchen_a.tscn" id="1_xsld7"]
 [ext_resource type="PackedScene" uid="uid://ddp4wjcafmrbj" path="res://scenes/game/chef.tscn" id="2_go7ox"]
+[ext_resource type="PackedScene" uid="uid://jox1qe2o6uhn" path="res://scenes/game/burger_2d.tscn" id="2_hb6cp"]
 [ext_resource type="Script" path="res://scenes/game/submit.gd" id="3_8i30r"]
 [ext_resource type="Texture2D" uid="uid://diy084d1dycgc" path="res://assets/images/graphics/crosshair.png" id="3_de6vf"]
 [ext_resource type="PackedScene" uid="uid://b3715nb5f0qc3" path="res://scenes/ui/hud.tscn" id="3_wdtco"]
@@ -388,6 +389,7 @@ chef = NodePath("chef")
 submit = NodePath("submit")
 results = NodePath("results")
 order_point_time_curve = SubResource("Curve_qcuyr")
+burger_2d_scene = ExtResource("2_hb6cp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
