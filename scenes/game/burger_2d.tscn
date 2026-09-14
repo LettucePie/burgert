@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jox1qe2o6uhn"]
+[gd_scene load_steps=12 format=3 uid="uid://jox1qe2o6uhn"]
 
 [ext_resource type="Script" path="res://scenes/game/burger_2d.gd" id="1_0w0pa"]
 [ext_resource type="Texture2D" uid="uid://bcevrngscphil" path="res://assets/images/environment/kitchen/ingredients/burger_2d_plate.png" id="2_0acwv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d4fwb5easwkfc" path="res://assets/images/environment/kitchen/ingredients/burger_2d_tomato.png" id="7_p7v1t"]
 [ext_resource type="Texture2D" uid="uid://xteh201fiflh" path="res://assets/images/environment/kitchen/ingredients/burger_2d_ketchup.png" id="8_l5d5f"]
 [ext_resource type="Texture2D" uid="uid://clil2yskemf6i" path="res://assets/images/environment/kitchen/ingredients/burger_2d_mustard.png" id="9_fgtwy"]
+[ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/throw_2.wav" id="11_t4jm8"]
 
 [node name="burger_2D" type="Node2D"]
 texture_filter = 1
@@ -19,3 +20,8 @@ ingredient_textures = Array[Texture2D]([ExtResource("2_4ffsm"), ExtResource("3_q
 [node name="plate" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_0acwv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_t4jm8")
+volume_db = 4.0
+bus = &"SFX"

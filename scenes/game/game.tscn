@@ -434,9 +434,6 @@ z_index = 2
 process_mode = 1
 wait_time = 120.0
 
-[node name="feedback_sfx" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
-
 [connection signal="customer_left" from="kitchen_a" to="." method="_on_kitchen_a_customer_left"]
 [connection signal="customer_ready" from="kitchen_a" to="." method="_on_kitchen_a_customer_ready"]
 [connection signal="customer_reorder" from="kitchen_a" to="." method="_on_kitchen_a_customer_reorder"]

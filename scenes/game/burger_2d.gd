@@ -4,6 +4,7 @@ class_name Burger2D
 signal reached_target(target)
 
 @onready var plate : Sprite2D = $plate
+@onready var throw_sfx : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var ingredient_textures : Array[Texture2D] = []
 var ingredient_table : PackedStringArray = [
 	"Bun",
@@ -25,7 +26,9 @@ var ingredient_offsets : PackedInt32Array = [
 	1,
 	1
 ]
+var start_pos : Vector2 = Vector2.ZERO
 var target_pos : Vector2 = Vector2.ZERO
+var speed : float = 18
 
 
 func build_burger(ingredients : PackedStringArray) -> void:
@@ -41,8 +44,12 @@ func build_burger(ingredients : PackedStringArray) -> void:
 	plate.position = Vector2(0, total_offset)
 
 
-func set_target(target : Vector2) -> void:
+func set_target(target : Vector2, speed_mult : float) -> void:
+	start_pos = self.position
+	speed = speed + (6 * (speed_mult - 0.99))
+	print("THROW BURGER SPEED: ", speed, " speed mult: ", speed_mult)
 	target_pos = target
+	throw_sfx.play()
 	#look_at(target)
 	#rotate(PI / 4)
 
@@ -50,7 +57,8 @@ func set_target(target : Vector2) -> void:
 func _process(delta: float) -> void:
 	if target_pos != Vector2.ZERO:
 		var pos : Vector2 = position
-		pos = pos.lerp(target_pos, 0.12)
+		pos = pos.move_toward(target_pos, speed)
+		#pos = pos.lerp(target_pos, 0.12 * speed)
 		position = pos
 		if pos.distance_squared_to(target_pos) < 0.25:
 			print("Burger Throw reached Target")

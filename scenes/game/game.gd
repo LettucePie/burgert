@@ -29,6 +29,7 @@ var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
 var game_scores : PackedInt32Array = []
 var current_order_start_time : float = 0
+var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
 
 
@@ -174,7 +175,7 @@ func assess_submission():
 	var charge_throw : float = lerpf(1.0, 2.0, 
 		inverse_lerp(
 		chef.charging_rate_min, chef.charging_rate_max, 
-		chef.charging_rate
+		current_order_charging_rate
 		))
 	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
 	"\ncorrect_placements: ", correct_placements,
@@ -222,7 +223,7 @@ func _throw_burger_2d_at(target : Vector2) -> void:
 	burger_2d.reached_target.connect(_on_burger_2d_reached_target)
 	burger_2d.build_burger(chef.current_burger.ingredients.duplicate())
 	burger_2d.position = chef.burger_sprite.global_position
-	burger_2d.set_target(target)
+	burger_2d.set_target(target, current_order_charging_rate)
 
 
 func _on_burger_2d_reached_target(target) -> void:
@@ -238,6 +239,7 @@ func _on_burger_2d_reached_target(target) -> void:
 
 
 func _on_chef_submit_burger():
+	current_order_charging_rate = chef.charging_rate
 	_throw_burger_2d_at(submit.get_target_position())
 	chef.burger_sprite.hide()
 	submit.set_playing(false, 0, 0)
