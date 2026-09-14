@@ -15,6 +15,8 @@ const OFFSET_MULTI = 0.12
 @export var ingredient3d_scene : PackedScene
 @onready var plate : Node3D = $plate
 @onready var ingredients_node : Node3D = $plate/ingredients
+@onready var main_cam : Camera3D = $CameraMain
+@onready var screencap_cam : Camera3D = $CameraScreenshot
 
 var ingredient_meshes : Array[Ingredient3D] = []
 var ingredients : PackedStringArray = []
@@ -27,6 +29,9 @@ func refresh_plate():
 	for c in ingredients_node.get_children():
 		c.queue_free()
 	offset_y = 0
+	screencap_cam.hide()
+	main_cam.show()
+	main_cam.make_current()
 
 
 func calculate_next_offset(ingredient_name : String):
@@ -53,11 +58,10 @@ func assemble_burger_build(build : PackedStringArray):
 		add_ingredient(b)
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	refresh_plate()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta):
 	if rotate_plate:
 		plate.rotate_y(PI * delta)

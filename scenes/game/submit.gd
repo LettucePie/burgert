@@ -36,7 +36,7 @@ func _physics_process(delta):
 		elif new_pos <= x_min:
 			travel = 1
 		var points : PackedVector2Array = [
-			Vector2(start_pos_x, 328), Vector2(new_pos, $crosshair.position.y)
+			Vector2(start_pos_x, 328), Vector2(new_pos, target.position.y)
 		]
 		line.points = points
 
@@ -53,3 +53,11 @@ func set_playing(tf : bool, start_pos : float, travel_dir : int):
 func check_customer(customer : Customer) -> bool:
 	return target.global_position.x >= customer.left_area.global_position.x \
 	and target.global_position.x < customer.right_area.global_position.x
+
+
+func get_target_position() -> Vector2:
+	var result : Vector2 = Vector2.ZERO
+	
+	result = target.position
+	
+	return result

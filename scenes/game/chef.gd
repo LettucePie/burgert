@@ -35,7 +35,8 @@ var charging_rate_min : float = 1.0
 var charging_rate_max : float = 2.0
 var charging_speed : float = 5.0
 @onready var quick_throw_threshold : float = ((charging_rate_max - charging_rate_min) / 2) + charging_rate_min
-
+var burger_throw_sprite : Sprite2D = null
+var burger_throw_target : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -172,6 +173,14 @@ func process_submission(delta):
 		state_machine.travel("Idle_" + direction)
 
 
+func throw_burger_at(target_vec : Vector2) -> void:
+	print("Throwing Burger")
+	burger_throw_sprite = Sprite2D.new()
+	self.add_child(burger_throw_sprite)
+	burger_throw_sprite.texture = burger_portal.return_burger_screenshot()
+	burger_throw_target = target_vec
+
+
 func _physics_process(delta):
 	if active:
 		if !submitting_burger:
@@ -180,6 +189,16 @@ func _physics_process(delta):
 				process_actions(delta)
 		else:
 			process_submission(delta)
+		if burger_throw_target != Vector2.ZERO:
+			burger_throw_sprite.look_at(burger_throw_target)
+			var pos : Vector2 = burger_throw_sprite.position
+			pos = pos.lerp(burger_throw_target, 0.12)
+			burger_throw_sprite.position = pos
+			if pos.distance_squared_to(burger_throw_target) < 0.25:
+				print("Burger Throw reached Target")
+				burger_throw_sprite.queue_free()
+				burger_throw_sprite = null
+				burger_throw_target = Vector2.ZERO
 
 
 func _on_area_2d_area_entered(area):

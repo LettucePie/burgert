@@ -8,8 +8,14 @@
 script = ExtResource("1_rgq5u")
 ingredient3d_scene = ExtResource("2_ypink")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraMain" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891268, 0.453477, 0, -0.453477, 0.891268, 0, 3.64789, 3.8916)
+projection = 1
+size = 5.20847
+
+[node name="CameraScreenshot" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08625, 3.8916)
+visible = false
 projection = 1
 size = 5.20847
 
