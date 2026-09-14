@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_ut6g4"]
 [ext_resource type="Script" path="res://classes/Schedule.gd" id="2_b173g"]
 [ext_resource type="SpriteFrames" uid="uid://cgkt6004rbtka" path="res://assets/images/characters/customers/customer_basic_c_spriteframes.tres" id="2_kw0gu"]
-[ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Audio 1.wav" id="3_0g26r"]
+[ext_resource type="AudioStream" uid="uid://dtxtu4v6ifhgt" path="res://assets/sound/sfx/Voice/Voice_Old/Audio 1.wav" id="3_0g26r"]
 [ext_resource type="Script" path="res://scenes/game/customers/accessory.gd" id="3_s8sp4"]
 [ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="4_d3crn"]
 [ext_resource type="Texture2D" uid="uid://cxn3ebnua63vm" path="res://assets/images/characters/customers/basic_accessories/customer_basic_hairs_spritesheet.png" id="4_ympub"]

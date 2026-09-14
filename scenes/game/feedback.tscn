@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scenes/game/feedback.gd" id="1_11ygg"]
 [ext_resource type="Texture2D" uid="uid://h1bvo4ac750m" path="res://assets/images/graphics/customer_feedback_happy.png" id="1_d1mwy"]
 [ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="2_f6jfo"]
-[ext_resource type="AudioStream" uid="uid://ca0bd7f7l1ijw" path="res://assets/sound/sfx/feedback_good_amplified.wav" id="2_ofamo"]
-[ext_resource type="AudioStream" uid="uid://dgrqdy2lmfd8g" path="res://assets/sound/sfx/feedback_okay_amplified.wav" id="3_613mu"]
-[ext_resource type="AudioStream" uid="uid://b36rfalt5jb4" path="res://assets/sound/sfx/feedback_bad_amplified.wav" id="4_3u5p8"]
+[ext_resource type="AudioStream" uid="uid://ca0bd7f7l1ijw" path="res://assets/sound/sfx/feedback/feedback_good_amplified.wav" id="2_ofamo"]
+[ext_resource type="AudioStream" uid="uid://dgrqdy2lmfd8g" path="res://assets/sound/sfx/feedback/feedback_okay_amplified.wav" id="3_613mu"]
+[ext_resource type="AudioStream" uid="uid://b36rfalt5jb4" path="res://assets/sound/sfx/feedback/feedback_bad_amplified.wav" id="4_3u5p8"]
 [ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="4_60ux6"]
 
 [sub_resource type="Animation" id="Animation_yvqag"]

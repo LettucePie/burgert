@@ -8,6 +8,15 @@ signal announce_finish()
 @onready var message_label : Label = $Control/Message
 @onready var anim : AnimationPlayer = $AnimationPlayer
 
+@onready var day_audio : AudioStreamPlayer2D = $Control/Day/day_audio
+@onready var message_audio : AudioStreamPlayer2D = $Control/Message/message_audio
+@export var typewriter_sounds : Array[AudioStreamWAV] = []
+@export var burn_sound : AudioStreamWAV = null
+
+var current_announcement : int = -1
+var day_character_visible : int = -1
+var message_character_visible : int = -1
+
 var day : PackedStringArray = [
 	"SUNDAY",
 	"MONDAY",
@@ -73,7 +82,8 @@ func set_day_message() -> void:
 	var message_idx = announce_slots[timeslot % 4].pick_random()
 	message_label.text = announce_messages[message_idx]
 	self.show()
-	var announce_style : String = "_" + str(randi_range(0, 2))
+	current_announcement = randi_range(0, 2)
+	var announce_style : String = "_" + str(current_announcement)
 	anim.play("announce" + announce_style)
 	print("Current Timeslot: ", timeslot)
 
@@ -82,7 +92,25 @@ func _ready() -> void:
 	pass
 
 
+func _announcement_sfx() -> void:
+	if current_announcement == 0: ## Typewriter Announcement
+		if day_label.visible_characters != day_character_visible:
+			day_audio.stream = typewriter_sounds.pick_random()
+			day_audio.play()
+			day_character_visible = day_label.visible_characters
+		if message_label.visible_characters != message_character_visible:
+			message_audio.stream = typewriter_sounds.pick_random()
+			message_audio.play()
+			message_character_visible = message_label.visible_characters
+
+
+func _process(delta: float) -> void:
+	if anim.is_playing():
+		_announcement_sfx()
+
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	print("ANNOUNCE FINISHED")
+	current_announcement = -1
 	emit_signal("announce_finish")
 	self.hide()

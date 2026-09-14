@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk20gm57pbltf"]
 
 [ext_resource type="Script" path="res://classes/jitter_dialog.gd" id="1_s3wo5"]
-[ext_resource type="AudioStream" uid="uid://bwdhasi7xaxtw" path="res://assets/sound/sfx/menu_splat_1.wav" id="2_6r1kw"]
+[ext_resource type="AudioStream" uid="uid://bwdhasi7xaxtw" path="res://assets/sound/sfx/Menu/menu_splat_1.wav" id="2_6r1kw"]
 [ext_resource type="AudioStream" uid="uid://cqplb2yjhi74q" path="res://assets/sound/sfx/Menu/Bell_1.wav" id="3_wnrc2"]
 
 [node name="JitterDialog" type="Node"]

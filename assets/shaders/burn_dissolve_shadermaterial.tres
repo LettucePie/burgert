@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cwidbds3ieort"]
 
-[ext_resource type="Shader" path="res://assets/shaders/burn_dissolve.gdshader" id="1_7ml3f"]
+[ext_resource type="Shader" path="res://third-party/godotshaders.com/burn_dissolve.gdshader" id="1_7ml3f"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_86don"]
 seed = 1
