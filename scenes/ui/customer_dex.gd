@@ -134,6 +134,8 @@ var focused_button : TextureButton = null
 @export var render_sheet_b : Sprite2D
 @onready var sheet_animator : AnimationPlayer = $sheet_animator
 @onready var current_viewport : Viewport = get_window()
+@export var sheet_ingredients : Array[Texture2D] = []
+@onready var sheet_ingredient : Sprite2D = $sheet_ingredient
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -210,10 +212,10 @@ func _move_sheet(dir : int) -> void:
 		var out : String = "throw_"
 		if dir > 0:
 			render_sheet_b.texture = texture
+			out += str(randi_range(1, 6))
 		else:
 			render_sheet_a.texture = texture
-			out = "fetch_"
-		out += str(randi_range(1, 4))
+			out = "fetch_" + str(randi_range(1, 4))
 		sheet_animator.play(out)
 
 
@@ -312,3 +314,8 @@ func _on_done_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if visible:
 		$Control/controls/next.grab_focus()
+
+
+func set_random_sheet_ingredient() -> void:
+	sheet_ingredient.texture = sheet_ingredients.pick_random()
+	sheet_ingredient.rotation = randf_range(0, PI * 2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c6bktnv8pckdn"]
+[gd_scene load_steps=52 format=3 uid="uid://c6bktnv8pckdn"]
 
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="1_nrhih"]
 [ext_resource type="Script" path="res://scenes/ui/customer_dex.gd" id="2_wglwc"]
@@ -29,11 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://bivwcupa7xnh1" path="res://assets/images/characters/customers/customer_shagg_still.png" id="27_f26yv"]
 [ext_resource type="Texture2D" uid="uid://b26wf10jfdm1r" path="res://assets/images/graphics/menu/customerdex/unknown_customer.png" id="28_1cxe3"]
 [ext_resource type="Texture2D" uid="uid://disshwxxg8iad" path="res://assets/images/graphics/menu/customerdex/sheet_bg.png" id="29_koi7n"]
+[ext_resource type="Texture2D" uid="uid://l51vd7587ye8" path="res://assets/images/graphics/menu/customerdex/customerdex_tomato_1.png" id="29_sg0mg"]
+[ext_resource type="Texture2D" uid="uid://cjrbu8cm2lypp" path="res://assets/images/graphics/menu/customerdex/customerdex_tomato_2.png" id="30_1kg2y"]
 [ext_resource type="Texture2D" uid="uid://h1bvo4ac750m" path="res://assets/images/graphics/customer_feedback_happy.png" id="30_b2p22"]
 [ext_resource type="Texture2D" uid="uid://dwdldo33mgn76" path="res://assets/models/textures/page_render_test.png" id="30_icr5p"]
+[ext_resource type="Texture2D" uid="uid://5052mfflb44p" path="res://assets/images/graphics/menu/customerdex/customerdex_lettuce_1.png" id="31_3gwsv"]
 [ext_resource type="Texture2D" uid="uid://dgk35orvkcg18" path="res://assets/images/graphics/money.png" id="31_mgx1g"]
 [ext_resource type="Texture2D" uid="uid://ctre5kjihgolk" path="res://assets/images/graphics/customer_feedback_upset.png" id="32_lta2c"]
+[ext_resource type="Texture2D" uid="uid://bmx7bqw7wgxgq" path="res://assets/images/graphics/menu/customerdex/customerdex_lettuce_2.png" id="32_rnxse"]
+[ext_resource type="Texture2D" uid="uid://da5px5y886t8h" path="res://assets/images/graphics/menu/customerdex/customerdex_cheese_1.png" id="33_od62q"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="33_sd6y5"]
+[ext_resource type="Texture2D" uid="uid://c6hqkrewc5umh" path="res://assets/images/graphics/menu/customerdex/customerdex_cheese_2.png" id="34_gtknb"]
 [ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="34_i5vm5"]
 [ext_resource type="Texture2D" uid="uid://c7mty3oepjq04" path="res://assets/images/graphics/menu/customerdex/page_corner_marker.png" id="35_v8xod"]
 [ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="36_nk078"]
@@ -65,6 +71,7 @@ customer_images = Array[Texture2D]([ExtResource("3_ax81m"), ExtResource("4_vuwwj
 customer_image_unknown = ExtResource("28_1cxe3")
 render_sheet_a = NodePath("render_sheet_a")
 render_sheet_b = NodePath("render_sheet_b")
+sheet_ingredients = Array[Texture2D]([ExtResource("29_sg0mg"), ExtResource("30_1kg2y"), ExtResource("31_3gwsv"), ExtResource("32_rnxse"), ExtResource("33_od62q"), ExtResource("34_gtknb")])
 
 [node name="render_sheet_a" type="Sprite2D" parent="."]
 visible = false
@@ -314,6 +321,13 @@ texture_pressed = ExtResource("41_ywawu")
 texture_hover = ExtResource("41_ywawu")
 texture_focused = ExtResource("41_ywawu")
 stretch_mode = 5
+
+[node name="sheet_ingredient" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(406, 182)
+rotation = -0.460767
+scale = Vector2(3, 3)
+texture = ExtResource("29_sg0mg")
 
 [node name="render_sheet_b" type="Sprite2D" parent="."]
 visible = false
