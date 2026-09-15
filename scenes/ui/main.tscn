@@ -25,11 +25,11 @@
 [ext_resource type="AudioStream" uid="uid://dj570bpntnit7" path="res://assets/sound/sfx/Menu/fwip_3.wav" id="10_bquch"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
 [ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/Menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
-[ext_resource type="Texture2D" uid="uid://cpnajomy8w28t" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="11_qtn2x"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
+[ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon_2.png" id="21_4lms7"]
 [ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_coo2x"]
@@ -115,7 +115,7 @@ texture = ExtResource("13_hhppr")
 metadata/sfx_id = 2
 
 [node name="Icon" type="Sprite2D" parent="Sandwhich/Shop" groups=["lang_image"]]
-texture = ExtResource("11_qtn2x")
+texture = ExtResource("21_4lms7")
 
 [node name="Jukebox" type="Sprite2D" parent="Sandwhich"]
 scale = Vector2(4, 4)
