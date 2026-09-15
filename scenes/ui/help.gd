@@ -40,6 +40,16 @@ var guide_names : PackedStringArray = [
 	"guide_results",
 	"guide_customerdex"
 ]
+var guide_scales : PackedVector2Array = [
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(1.42, 1.42),
+	Vector2(0.715, 0.715)
+]
 var button_replace_codes : PackedStringArray = [
 	"$LEFT",
 	"$RIGHT",
@@ -125,6 +135,7 @@ func _load_page(num : int):
 	current_page = num
 	title.text = titles[current_page]
 	page.text = _convert_page_buttons(pages[current_page])
+	guide.scale = guide_scales[current_page]
 	guide.play(guide_names[current_page])
 	close_but.hide()
 	prev_but.show()

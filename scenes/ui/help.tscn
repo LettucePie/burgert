@@ -60,9 +60,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="animated_guide" type="AnimatedSprite2D" parent="InfoPanel/Panel"]
 position = Vector2(128.667, 99)
-scale = Vector2(0.352083, 0.352083)
+scale = Vector2(0.715, 0.715)
 sprite_frames = ExtResource("3_gm58d")
-animation = &"guide_1"
+animation = &"guide_customerdex"
 speed_scale = 2.0
 
 [node name="Controls" type="HBoxContainer" parent="."]
