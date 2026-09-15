@@ -419,6 +419,13 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Preview"
 
+[node name="stop" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
+visible = false
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Stop"
+
 [node name="prev_next" type="HBoxContainer" parent="phone/main/menu_1_1"]
 layout_mode = 2
 
@@ -526,6 +533,13 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Preview"
 
+[node name="stop" type="Button" parent="phone/main/menu_1_3" groups=["lang_text"]]
+visible = false
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Stop"
+
 [node name="prev_next" type="HBoxContainer" parent="phone/main/menu_1_3"]
 layout_mode = 2
 
@@ -601,6 +615,7 @@ position = Vector2(322, 59)
 [connection signal="pressed" from="phone/main/menu_1_1/purchase" to="." method="_on_purchase_pressed"]
 [connection signal="pressed" from="phone/main/menu_1_1/owned" to="." method="_on_purchase_pressed"]
 [connection signal="pressed" from="phone/main/menu_1_1/preview" to="." method="_on_preview_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_1/stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="phone/main/menu_1_1/prev_next/prev" to="." method="_prev_next_song" binds= [-1]]
 [connection signal="pressed" from="phone/main/menu_1_1/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_1/return" to="." method="load_in_menu" binds= [1, 0]]
@@ -614,6 +629,8 @@ position = Vector2(322, 59)
 [connection signal="pressed" from="phone/main/menu_1_2/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_3" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_3/return"]]
 [connection signal="pressed" from="phone/main/menu_1_3/toggle" to="." method="_on_toggle_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_3/preview" to="." method="_on_preview_pressed"]
+[connection signal="pressed" from="phone/main/menu_1_3/stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="phone/main/menu_1_3/prev_next/prev" to="." method="_prev_next_song" binds= [-1]]
 [connection signal="pressed" from="phone/main/menu_1_3/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_3/return" to="." method="load_in_menu" binds= [1, 2]]

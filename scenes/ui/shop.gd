@@ -132,6 +132,10 @@ func _render_song(idx : int) -> void:
 	if submenu_branch == 1:
 		$phone/main/menu_1_1/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_1/purchase.show()
+		$phone/main/menu_1_1/preview.show()
+		$phone/main/menu_1_1/stop.hide()
+		$phone/main/menu_1_1/prev_next.show()
+		$phone/main/menu_1_1/return.show()
 		$phone/main/menu_1_1/purchase.text = "$" + str(current_song.store_cost)
 		$phone/main/menu_1_1/owned.hide()
 		if music_library.owned_songs.has(idx):
@@ -142,6 +146,10 @@ func _render_song(idx : int) -> void:
 		current_song = music_library.all_songs[owned_idx]
 		$phone/main/menu_1_3/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(owned_idx)
+		$phone/main/menu_1_3/preview.show()
+		$phone/main/menu_1_3/stop.hide()
+		$phone/main/menu_1_3/prev_next.show()
+		$phone/main/menu_1_3/return.show()
 
 
 func _on_purchase_pressed() -> void:
@@ -158,11 +166,37 @@ func _on_purchase_pressed() -> void:
 
 func _on_preview_pressed() -> void:
 	music_library.set_state(Music.STATE.PREVIEW)
+	if primary_branch == 1:
+		if submenu_branch == 1:
+			$phone/main/menu_1_1/purchase.hide()
+			$phone/main/menu_1_1/owned.hide()
+			$phone/main/menu_1_1/preview.hide()
+			$phone/main/menu_1_1/prev_next.hide()
+			$phone/main/menu_1_1/return.hide()
+			$phone/main/menu_1_1/stop.show()
+			$phone/main/menu_1_1/stop.grab_focus()
+		elif submenu_branch == 3:
+			$phone/main/menu_1_3/toggle.hide()
+			$phone/main/menu_1_3/preview.hide()
+			$phone/main/menu_1_3/prev_next.hide()
+			$phone/main/menu_1_3/return.hide()
+			$phone/main/menu_1_3/stop.show()
+			$phone/main/menu_1_3/stop.grab_focus()
 	await get_tree().create_timer(1.0).timeout
 	preview_music.stream = current_song.track
 	preview_music.play(10.0)
 	preview_timer.start(10.0)
-	
+
+
+func _on_stop_pressed() -> void:
+	preview_music.stop()
+	preview_timer.stop()
+	_render_song(current_song_idx)
+	if submenu_branch == 1:
+		$phone/main/menu_1_1/preview.grab_focus()
+	elif submenu_branch == 3:
+		$phone/main/menu_1_3/preview.grab_focus()
+	music_library.set_state(Music.STATE.PLAY)
 
 
 func _on_toggle_pressed() -> void:
@@ -194,6 +228,4 @@ func _focusing_my_brains_out(path: String) -> void:
 
 
 func _on_preview_timer_timeout() -> void:
-	preview_timer.stop()
-	preview_music.stop()
-	music_library.set_state(Music.STATE.PLAY)
+	_on_stop_pressed()
