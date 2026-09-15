@@ -12,7 +12,7 @@ var music_library : Music = null
 @onready var finished : Button = $phone/main/menu_0_0/finished
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var connection_label : Label = $phone/connection/label
-@onready var preview_music : AudioStreamPlayer2D = $preview_music
+@onready var preview_music : AudioStreamPlayer = $preview_music
 @onready var preview_timer : Timer = $preview_music/Timer
 @export var connection_messages : PackedStringArray = [
 	"connecting",

@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://ce7cv6nqqm3e8"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://ce7cv6nqqm3e8"]
 
 [sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_cbyl4"]
 resource_name = "HardLimiter"
@@ -29,6 +29,21 @@ voice/4/pan = 0.0
 [sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_jm2jq"]
 resource_name = "SpectrumAnalyzer"
 fft_size = 1
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_anub1"]
+resource_name = "Distortion"
+mode = 2
+pre_gain = 5.0
+keep_hf_hz = 20500.0
+drive = 0.8
+post_gain = -5.0
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_bmknk"]
+resource_name = "Reverb"
+room_size = 0.0
+damping = 0.0
+spread = 0.0
+wet = 0.0
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_cbyl4")
@@ -63,3 +78,13 @@ bus/4/volume_db = 0.0
 bus/4/send = &"Master"
 bus/4/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_jm2jq")
 bus/4/effect/0/enabled = true
+bus/5/name = &"FlipPhone"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"MUS"
+bus/5/effect/0/effect = SubResource("AudioEffectDistortion_anub1")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectReverb_bmknk")
+bus/5/effect/1/enabled = true

@@ -597,8 +597,10 @@ metadata/_edit_use_anchors_ = true
 [node name="sfx_host" parent="." instance=ExtResource("9_ma7yp")]
 library = Array[AudioStreamWAV]([ExtResource("10_yx6ol"), ExtResource("11_u4xeh"), ExtResource("12_07w4k"), ExtResource("13_gv5tv"), ExtResource("14_njif8")])
 
-[node name="preview_music" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(322, 59)
+[node name="preview_music" type="AudioStreamPlayer" parent="."]
+volume_db = -3.0
+mix_target = 2
+bus = &"FlipPhone"
 
 [node name="Timer" type="Timer" parent="preview_music"]
 
