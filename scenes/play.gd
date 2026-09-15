@@ -478,6 +478,11 @@ func _input(event):
 		adopted = true
 
 
+func _on_main_menu_prepare_kitchen() -> void:
+	music.anim.play("pause_play")
+	game_scene.kitchen.prep_kitchen()
+
+
 func _on_main_menu_start_play():
 	get_tree().paused = false
 	game_scene.start_game()

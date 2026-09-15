@@ -1,6 +1,7 @@
 extends Control
 class_name MainMenu
 
+signal prepare_kitchen()
 signal start_play()
 signal resume_play()
 signal quit_play()
@@ -68,6 +69,7 @@ func _on_main_menu_selection(selection: String) -> void:
 	if current_screen == SCREENS.MAIN:
 		if selection == "Play":
 			anim.play("play_start")
+			emit_signal("prepare_kitchen")
 		elif selection == "Quit":
 			print("Quit")
 			get_tree().quit()

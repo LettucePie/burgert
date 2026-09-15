@@ -19,6 +19,7 @@ var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
 var kitchen_timeslot : int = 0
+var kitchen_prepped : bool = false
 
 
 func _ready():
@@ -40,7 +41,7 @@ func _ready():
 				child.start_time.connect(_start_timer)
 			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
 				child.kitchen_switch.connect(_on_kitchen_switch)
-	prep_kitchen()
+	#prep_kitchen()
 
 
 func prep_kitchen():
@@ -65,6 +66,7 @@ func prep_kitchen():
 	var times_str = ["night", "morning", "noon", "afternoon", "night"]
 	print(times_str[timeslot_idx % 4])
 	window.animation = times_str[timeslot_idx % 4]
+	kitchen_prepped = true
 	_build_queue()
 
 
@@ -175,6 +177,7 @@ func readying_next_customer() -> PackedStringArray:
 
 func _start_timer():
 	emit_signal("start_timer")
+	kitchen_prepped = false
 
 
 func play_splat(pos : Vector2):

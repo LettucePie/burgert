@@ -66,7 +66,8 @@ func start_game():
 	game_accuracies.clear()
 	game_scores.clear()
 	chef.reset_chef()
-	kitchen.prep_kitchen()
+	if !kitchen.kitchen_prepped:
+		kitchen.prep_kitchen()
 	submit.set_playing(false, 0, 0)
 	submit.assign_chef(chef)
 	results.hide()

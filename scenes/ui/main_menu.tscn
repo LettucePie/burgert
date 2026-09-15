@@ -68,26 +68,26 @@ offset_bottom = -493.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 567.0
+offset_top = 339.5
 offset_right = -140.0
-offset_bottom = 664.0
+offset_bottom = 436.5
 
 [node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = 91.0
-offset_bottom = 202.0
+offset_top = -136.5
+offset_bottom = -25.5
 
 [node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 397.0
-offset_bottom = 474.0
+offset_top = 169.5
+offset_bottom = 246.5
 
 [node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 447.0
-offset_bottom = 493.0
+offset_top = 219.5
+offset_bottom = 265.5
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 1.99969
-offset_top = 355.0
-offset_bottom = 457.0
+offset_left = 2.00006
+offset_top = 127.5
+offset_bottom = 229.5
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1

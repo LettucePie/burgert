@@ -257,6 +257,7 @@ labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"),
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
 [connection signal="game_paused" from="Game" to="." method="_on_game_game_paused"]
 [connection signal="bgm_pause" from="MainMenu" to="." method="_on_main_menu_bgm_pause"]
+[connection signal="prepare_kitchen" from="MainMenu" to="." method="_on_main_menu_prepare_kitchen"]
 [connection signal="quit_play" from="MainMenu" to="." method="_on_main_menu_quit_play"]
 [connection signal="resume_play" from="MainMenu" to="." method="_on_main_menu_resume_play"]
 [connection signal="start_play" from="MainMenu" to="." method="_on_main_menu_start_play"]
