@@ -105,11 +105,19 @@ func _convert_page_buttons(text_in : String) -> String:
 	
 	for idx in button_replace_codes.size():
 		if text_in.contains(button_replace_codes[idx]):
-			var bbimg : String = "[img=16x16]"
-			bbimg += control_pad_paths[idx]
+			print("REPLACE: ", button_replace_codes[idx])
+			var bbimg : String = "[img=24x24]"
+			var paths : PackedStringArray = keyboard_paths
+			if input_mode == 1:
+				paths = control_pad_paths
+			elif input_mode == 2:
+				paths = touchscreen_paths
+			bbimg += paths[idx]
 			bbimg += "[/img]"
-			result.replace(button_replace_codes[idx], bbimg)
+			print(bbimg)
+			result = result.replace(button_replace_codes[idx], bbimg)
 	
+	print(result)
 	return result
 
 

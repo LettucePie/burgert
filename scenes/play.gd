@@ -490,6 +490,14 @@ func _input(event):
 		var container : GameContainer = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
+		main_menu.help.input_mode = 2
+	if event is InputEventKey:
+		if OS.has_feature("portmaster"):
+			main_menu.help.input_mode = 1
+		else:
+			main_menu.help.input_mode = 0
+	if event is InputEventJoypadButton:
+		main_menu.help.input_mode = 1
 
 
 func _on_main_menu_prepare_kitchen() -> void:
