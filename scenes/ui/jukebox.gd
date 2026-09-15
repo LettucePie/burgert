@@ -51,6 +51,7 @@ var balancer_weights : PackedFloat32Array = [
 var spectrum_data : PackedVector2Array = []
 var visual_data : PackedFloat32Array = [0.0, 0.0, 0.0, 0.0, 0.0]
 @onready var spectrum_sliders : Array = $screen/spectrum_sliders.get_children()
+var largest_value : float = 0.0
 
 
 func ready_jukebox() -> void:
@@ -200,11 +201,15 @@ func _calculate_visualizer_data() -> void:
 		if raw_value < visual_data[idx]:
 			lerp_speed = 0.35
 		visual_data[idx] = lerpf(visual_data[idx], raw_value, lerp_speed)
+		#print(visual_data[idx])
+		#if visual_data[idx] > largest_value:
+			#largest_value = visual_data[idx]
+			#print(largest_value)
 
 
 func _draw_visualizer() -> void:
 	for idx in spectrum_data.size():
-		spectrum_sliders[idx].value = visual_data[idx]
+		spectrum_sliders[idx].update_value(visual_data[idx])
 
 
 func _physics_process(delta: float) -> void:

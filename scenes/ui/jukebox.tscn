@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cecupkfcj6mv6"]
+[gd_scene load_steps=47 format=3 uid="uid://cecupkfcj6mv6"]
 
 [ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
 [ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
@@ -11,11 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://dqah1gfq6xxyx" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next.png" id="8_cp1ba"]
 [ext_resource type="Texture2D" uid="uid://d7mb2cqghx4g" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_next_highlight.png" id="9_0tscs"]
 [ext_resource type="LabelSettings" uid="uid://b2ffas5rp8twc" path="res://assets/theme/fonts/jukebox_labelsettings.tres" id="10_8imxg"]
+[ext_resource type="Script" path="res://scenes/ui/spectrum_bar.gd" id="10_g5a2f"]
 [ext_resource type="Texture2D" uid="uid://dr1wrfgypdwrq" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_stop.png" id="10_ihcm3"]
 [ext_resource type="Script" path="res://scenes/ui/jukebox_progress.gd" id="10_ojght"]
 [ext_resource type="Texture2D" uid="uid://clju57seol6lk" path="res://assets/images/graphics/menu/jukebox/progress_tick.png" id="11_bggy7"]
 [ext_resource type="Texture2D" uid="uid://nxnkg4ip4yo8" path="res://assets/images/graphics/menu/jukebox/progress_start.png" id="11_qey5o"]
 [ext_resource type="Texture2D" uid="uid://bbq8tysl1qg07" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_stop_hightlight.png" id="11_vk1tq"]
+[ext_resource type="Texture2D" uid="uid://5k4ky3j1uwy1" path="res://assets/images/graphics/menu/jukebox/spectrum_bar.png" id="11_xq1dl"]
 [ext_resource type="Texture2D" uid="uid://f7k2rcvfwyv7" path="res://assets/images/graphics/menu/jukebox/progress_tracking.png" id="12_j1or8"]
 [ext_resource type="Texture2D" uid="uid://dw1kglau86lgn" path="res://assets/images/graphics/menu/jukebox/progress_finish.png" id="13_3t4jb"]
 [ext_resource type="Script" path="res://scenes/ui/slider_input_icon_only.gd" id="24_4aqjp"]
@@ -29,6 +31,497 @@
 [ext_resource type="Texture2D" uid="uid://dlseyfvlyl63b" path="res://assets/images/graphics/menu/jukebox/shuffle_off.png" id="33_shvqd"]
 [ext_resource type="Texture2D" uid="uid://xk6p4ju5vpgy" path="res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png" id="34_tqhcu"]
 [ext_resource type="Texture2D" uid="uid://uf075h0rlgig" path="res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png" id="35_ajqae"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n5cri"]
+animation = &"step0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g3lms"]
+animation = &"step5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7mu27"]
+animation = &"step1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2j0bv"]
+animation = &"step2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sr8uv"]
+animation = &"step3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1cvtf"]
+animation = &"step4"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_fvlng"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_n5cri")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_g3lms")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_7mu27")
+blend_point_2/pos = 0.2
+blend_point_3/node = SubResource("AnimationNodeAnimation_2j0bv")
+blend_point_3/pos = 0.4
+blend_point_4/node = SubResource("AnimationNodeAnimation_sr8uv")
+blend_point_4/pos = 0.6
+blend_point_5/node = SubResource("AnimationNodeAnimation_1cvtf")
+blend_point_5/pos = 0.8
+min_space = 0.0
+
+[sub_resource type="Animation" id="Animation_5cu2w"]
+resource_name = "step0"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dynet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y7x77"]
+resource_name = "step1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lwua7"]
+resource_name = "step2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g4qkr"]
+resource_name = "step3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2o4w8"]
+resource_name = "step4"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g8u4i"]
+resource_name = "step5"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bar_1:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bar_2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bar_3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bar_4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bar_5:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ia2gg"]
+_data = {
+"RESET": SubResource("Animation_dynet"),
+"step0": SubResource("Animation_5cu2w"),
+"step1": SubResource("Animation_y7x77"),
+"step2": SubResource("Animation_lwua7"),
+"step3": SubResource("Animation_g4qkr"),
+"step4": SubResource("Animation_2o4w8"),
+"step5": SubResource("Animation_g8u4i")
+}
 
 [node name="Jukebox" type="Control"]
 texture_filter = 1
@@ -271,37 +764,228 @@ texture = ExtResource("13_3t4jb")
 expand_mode = 2
 
 [node name="spectrum_sliders" type="HBoxContainer" parent="screen"]
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.95
-offset_top = -1.0
-offset_bottom = -1.52588e-05
+anchor_left = 0.246753
+anchor_top = 0.483335
+anchor_right = 0.753247
+anchor_bottom = 0.950001
+offset_right = 3.05176e-05
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="slider1" type="VSlider" parent="screen/spectrum_sliders"]
+[node name="spectrum_bar_1" type="VBoxContainer" parent="screen/spectrum_sliders"]
+modulate = Color(0.325353, 1, 0.333165, 1)
 layout_mode = 2
 size_flags_horizontal = 6
-value = 25.0
+alignment = 2
+script = ExtResource("10_g5a2f")
 
-[node name="slider2" type="VSlider" parent="screen/spectrum_sliders"]
+[node name="bar_1" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_2" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_3" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_4" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_5" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="AnimationTree" type="AnimationTree" parent="screen/spectrum_sliders/spectrum_bar_1"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_fvlng")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.136286
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/spectrum_sliders/spectrum_bar_1"]
+libraries = {
+"": SubResource("AnimationLibrary_ia2gg")
+}
+
+[node name="spectrum_bar_2" type="VBoxContainer" parent="screen/spectrum_sliders"]
+modulate = Color(0.325353, 1, 0.333165, 1)
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 2
+script = ExtResource("10_g5a2f")
 
-[node name="slider3" type="VSlider" parent="screen/spectrum_sliders"]
+[node name="bar_1" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_2" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_3" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_4" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_5" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="AnimationTree" type="AnimationTree" parent="screen/spectrum_sliders/spectrum_bar_2"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_fvlng")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.136286
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/spectrum_sliders/spectrum_bar_2"]
+libraries = {
+"": SubResource("AnimationLibrary_ia2gg")
+}
+
+[node name="spectrum_bar_3" type="VBoxContainer" parent="screen/spectrum_sliders"]
+modulate = Color(0.325353, 1, 0.333165, 1)
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 2
+script = ExtResource("10_g5a2f")
 
-[node name="slider4" type="VSlider" parent="screen/spectrum_sliders"]
+[node name="bar_1" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_2" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_3" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_4" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_5" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="AnimationTree" type="AnimationTree" parent="screen/spectrum_sliders/spectrum_bar_3"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_fvlng")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.136286
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/spectrum_sliders/spectrum_bar_3"]
+libraries = {
+"": SubResource("AnimationLibrary_ia2gg")
+}
+
+[node name="spectrum_bar_4" type="VBoxContainer" parent="screen/spectrum_sliders"]
+modulate = Color(0.325353, 1, 0.333165, 1)
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 2
+script = ExtResource("10_g5a2f")
 
-[node name="slider5" type="VSlider" parent="screen/spectrum_sliders"]
+[node name="bar_1" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_2" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_3" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_4" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_5" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="AnimationTree" type="AnimationTree" parent="screen/spectrum_sliders/spectrum_bar_4"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_fvlng")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.136286
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/spectrum_sliders/spectrum_bar_4"]
+libraries = {
+"": SubResource("AnimationLibrary_ia2gg")
+}
+
+[node name="spectrum_bar_5" type="VBoxContainer" parent="screen/spectrum_sliders"]
+modulate = Color(0.325353, 1, 0.333165, 1)
 layout_mode = 2
 size_flags_horizontal = 6
+alignment = 2
+script = ExtResource("10_g5a2f")
+
+[node name="bar_1" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_2" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_3" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_4" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="bar_5" type="TextureRect" parent="screen/spectrum_sliders/spectrum_bar_5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("11_xq1dl")
+
+[node name="AnimationTree" type="AnimationTree" parent="screen/spectrum_sliders/spectrum_bar_5"]
+tree_root = SubResource("AnimationNodeBlendSpace1D_fvlng")
+anim_player = NodePath("../AnimationPlayer")
+parameters/blend_position = -0.136286
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="screen/spectrum_sliders/spectrum_bar_5"]
+libraries = {
+"": SubResource("AnimationLibrary_ia2gg")
+}
 
 [node name="screen_highlight" type="TextureRect" parent="."]
 layout_mode = 1
