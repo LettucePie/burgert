@@ -145,6 +145,7 @@ func _render_song(idx : int) -> void:
 		var owned_idx : int = music_library.owned_songs[idx]
 		current_song = music_library.all_songs[owned_idx]
 		$phone/main/menu_1_3/song_label.text = current_song.title + "\n" + current_song.artist
+		$phone/main/menu_1_3/toggle.show()
 		$phone/main/menu_1_3/toggle.button_pressed = editing_playlist.has(owned_idx)
 		$phone/main/menu_1_3/preview.show()
 		$phone/main/menu_1_3/stop.hide()
