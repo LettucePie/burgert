@@ -102,6 +102,7 @@ splat = NodePath("splat")
 workstations = [NodePath("foreground/workstation_bun"), NodePath("foreground/workstation_meat"), NodePath("foreground/workstation_lettuce"), NodePath("foreground/workstation_tomato"), NodePath("foreground/workstation_cheese"), NodePath("foreground/workstation_ketchup"), NodePath("foreground/workstation_mustard")]
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
+mode_customer = true
 rotating_burger = true
 
 [node name="bg" type="Sprite2D" parent="."]

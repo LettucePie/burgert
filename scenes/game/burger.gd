@@ -1,5 +1,6 @@
 extends Node3D
 class_name Burger
+signal ingredients_updated()
 
 const OFFSET_MULTI = 0.12
 @onready var offset_4 : PackedStringArray = [
@@ -31,6 +32,7 @@ func refresh_plate():
 	offset_y = 0
 	main_cam.show()
 	main_cam.make_current()
+	emit_signal("ingredients_updated")
 
 
 func calculate_next_offset(ingredient_name : String):
@@ -49,6 +51,7 @@ func add_ingredient(ingredient_name : String):
 	ingredient_meshes.append(new_ingredient3d)
 	ingredients.append(ingredient_name)
 	calculate_next_offset(ingredient_name)
+	emit_signal("ingredients_updated")
 
 
 func assemble_burger_build(build : PackedStringArray):

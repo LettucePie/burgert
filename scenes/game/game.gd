@@ -31,6 +31,7 @@ var game_scores : PackedInt32Array = []
 var current_order_start_time : float = 0
 var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
+var burger_mode_3d : bool = true
 
 
 func _physics_process(delta):
@@ -66,8 +67,10 @@ func start_game():
 	game_accuracies.clear()
 	game_scores.clear()
 	chef.reset_chef()
+	chef.burger_portal.set_mode_3D(burger_mode_3d)
 	if !kitchen.kitchen_prepped:
 		kitchen.prep_kitchen()
+	kitchen.customer_burger_portal.set_mode_3D(burger_mode_3d)
 	submit.set_playing(false, 0, 0)
 	submit.assign_chef(chef)
 	results.hide()

@@ -36,13 +36,12 @@ var charging_rate_min : float = 1.0
 var charging_rate_max : float = 2.0
 var charging_speed : float = 5.0
 @onready var quick_throw_threshold : float = ((charging_rate_max - charging_rate_min) / 2) + charging_rate_min
-var burger_throw_sprite : Sprite2D = null
-var burger_throw_target : Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	burger_sprite.texture.viewport_path = "burger_portal"
 	anim_tree.set("parameters/conditions/idle_R", true)
+	#burger_portal.set_mode_3D(false)
 
 
 func reset_chef():

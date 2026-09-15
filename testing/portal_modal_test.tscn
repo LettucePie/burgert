@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bia5o1iscidnt"]
+
+[ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="1_45h2q"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hj380"]
+viewport_path = NodePath(".")
+
+[node name="portal_modal_test" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 79)
+texture = SubResource("ViewportTexture_hj380")
+
+[node name="burger_portal" parent="." instance=ExtResource("1_45h2q")]
+mode_3D = false

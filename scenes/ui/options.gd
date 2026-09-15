@@ -12,6 +12,7 @@ signal close_options
 @onready var mus_vol : SliderInput = $phone/main/vcont1/mus_vol
 @onready var sfx_vol : SliderInput = $phone/main/vcont1/sfx_vol
 @onready var swap_confirm : Button = $phone/main/vcont1/swap_confirm
+@onready var mode_3d : Button = $phone/main/vcont1/mode_3D
 @onready var language_button : Button = $phone/main/vcont1/set_lang
 ##
 ##
@@ -38,6 +39,7 @@ func apply_settings() -> void:
 	sfx_vol.value = settings_host.settings.get_sfx_vol()
 	sfx_vol.update_vals(false)
 	swap_confirm.button_pressed = settings_host.settings.get_a_b_swap()
+	mode_3d.button_pressed = settings_host.settings.get_mode_3d()
 
 
 func open_options():
@@ -59,6 +61,11 @@ func _on_sfx_vol_update_value(new_val: Variant) -> void:
 func _on_swap_confirm_toggled(toggled_on: bool) -> void:
 	if settings_host != null:
 		settings_host.options_update_a_b_swap(toggled_on)
+
+
+func _on_mode_3d_toggled(toggled_on: bool) -> void:
+	if settings_host != null:
+		settings_host.options_update_mode_3d(toggled_on)
 
 
 func _on_set_lang_pressed() -> void:

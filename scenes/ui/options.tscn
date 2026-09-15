@@ -164,14 +164,23 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_vertical = 6
 focus_neighbor_top = NodePath("../sfx_vol")
-focus_neighbor_bottom = NodePath("../set_lang")
+focus_neighbor_bottom = NodePath("../mode_3D")
 text = "Swap A-B"
+
+[node name="mode_3D" type="CheckButton" parent="phone/main/vcont1" groups=["lang_text"]]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 6
+focus_neighbor_top = NodePath("../swap_confirm")
+focus_neighbor_bottom = NodePath("../set_lang")
+text = "3D Burgers"
 
 [node name="set_lang" type="Button" parent="phone/main/vcont1" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../swap_confirm")
+focus_neighbor_top = NodePath("../mode_3D")
 focus_neighbor_bottom = NodePath("../finished")
 text = "Language"
 icon = ExtResource("2_6uhjv")
@@ -238,6 +247,7 @@ library = Array[AudioStreamWAV]([ExtResource("8_iq13k"), ExtResource("9_mqfak"),
 [connection signal="update_value" from="phone/main/vcont1/sfx_vol" to="." method="_on_sfx_vol_update_value"]
 [connection signal="drag_ended" from="phone/main/vcont1/sfx_vol/HSlider" to="phone/main/vcont1/sfx_vol" method="_on_volslider_drag_ended" binds= ["sfx"]]
 [connection signal="toggled" from="phone/main/vcont1/swap_confirm" to="." method="_on_swap_confirm_toggled"]
+[connection signal="toggled" from="phone/main/vcont1/mode_3D" to="." method="_on_mode_3d_toggled"]
 [connection signal="pressed" from="phone/main/vcont1/set_lang" to="." method="_on_set_lang_pressed"]
 [connection signal="pressed" from="phone/main/vcont1/finished" to="." method="_on_finished_pressed"]
 [connection signal="language_selector_finished" from="phone/language" to="." method="_on_language_language_selector_finished"]

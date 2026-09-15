@@ -41,7 +41,7 @@ func _ready():
 				child.start_time.connect(_start_timer)
 			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
 				child.kitchen_switch.connect(_on_kitchen_switch)
-	#prep_kitchen()
+	customer_burger_portal.set_mode_customer(true)
 
 
 func prep_kitchen():

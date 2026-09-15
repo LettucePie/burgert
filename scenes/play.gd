@@ -21,9 +21,10 @@ class Settings:
 	var mus_vol : int
 	var sfx_vol : int
 	var a_b_swap : bool
+	var mode_3d : bool
 	var language : String
 	
-	var keys : Array = ["version", "mus_vol", "sfx_vol", "a_b_swap", "language"]
+	var keys : Array = ["version", "mus_vol", "sfx_vol", "a_b_swap", "mode_3d", "language"]
 	
 	func set_mus_vol(new : int):
 		mus_vol = new
@@ -43,6 +44,12 @@ class Settings:
 	func get_a_b_swap() -> bool:
 		return a_b_swap
 	
+	func set_mode_3d(new : bool):
+		mode_3d = new
+	
+	func get_mode_3d() -> bool:
+		return mode_3d
+	
 	func set_language(new : String):
 		language = new
 	
@@ -60,6 +67,10 @@ func _default_settings():
 	settings.set_mus_vol(8)
 	settings.set_sfx_vol(8)
 	settings.set_a_b_swap(false)
+	if OS.has_feature("portmaster"):
+		settings.set_mode_3d(false)
+	else:
+		settings.set_mode_3d(true)
 	_save_settings()
 
 
@@ -99,6 +110,7 @@ func _load_settings():
 			settings.set_mus_vol(data["mus_vol"])
 			settings.set_sfx_vol(data["sfx_vol"])
 			settings.set_a_b_swap(data["a_b_swap"])
+			settings.set_mode_3d(data["mode_3d"])
 			settings.set_language(data["language"])
 	apply_settings()
 
@@ -110,6 +122,7 @@ func _save_settings():
 		"mus_vol" = settings.get_mus_vol(),
 		"sfx_vol" = settings.get_sfx_vol(),
 		"a_b_swap" = settings.get_a_b_swap(),
+		"mode_3d" = settings.get_mode_3d(),
 		"language" = settings.get_language()
 	}
 	var settings_file = FileAccess.open("user://settings.json", FileAccess.WRITE)
@@ -154,6 +167,7 @@ func apply_settings():
 	if settings.get_a_b_swap():
 		confirm_target = "cancel"
 		cancel_target = "confirm"
+	game_scene.burger_mode_3d = settings.get_mode_3d()
 	for ie in default_confirm_events:
 		InputMap.action_add_event(confirm_target, ie)
 		if confirm_target == "confirm":
@@ -548,6 +562,12 @@ func options_update_sfx_vol(new_val):
 func options_update_a_b_swap(new_val):
 	if settings != null:
 		settings.set_a_b_swap(new_val)
+		_save_settings()
+
+
+func options_update_mode_3d(new_val):
+	if settings != null:
+		settings.set_mode_3d(new_val)
 		_save_settings()
 
 

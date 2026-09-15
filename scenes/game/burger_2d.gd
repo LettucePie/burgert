@@ -34,6 +34,8 @@ var journey : float = 0.0
 
 
 func build_burger(ingredients : PackedStringArray) -> void:
+	for child in plate.get_children():
+		child.queue_free()
 	var total_offset : int = 0
 	for ingredient in ingredients:
 		var new_sprite : Sprite2D = Sprite2D.new()
@@ -43,7 +45,7 @@ func build_burger(ingredients : PackedStringArray) -> void:
 		plate.add_child(new_sprite)
 		new_sprite.position = Vector2(0, total_offset * -1)
 		new_sprite.flip_h = bool(randi_range(0, 1))
-	plate.position = Vector2(0, total_offset)
+	#plate.position = Vector2(0, total_offset)
 
 
 func set_target(target : Vector2, speed_mult : float) -> void:

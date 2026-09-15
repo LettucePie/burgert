@@ -18,7 +18,7 @@ script = ExtResource("1_0w0pa")
 ingredient_textures = Array[Texture2D]([ExtResource("2_4ffsm"), ExtResource("3_qw4dx"), ExtResource("4_v3wu0"), ExtResource("5_q1eas"), ExtResource("6_p2i32"), ExtResource("7_p7v1t"), ExtResource("8_l5d5f"), ExtResource("9_fgtwy")])
 
 [node name="plate" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(2.25, 2.25)
 texture = ExtResource("2_0acwv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
