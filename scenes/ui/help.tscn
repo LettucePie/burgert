@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0ugadc4ilb6n"]
 
 [ext_resource type="Script" path="res://scenes/ui/help.gd" id="1_ik1ax"]
-[ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="2_t1yeq"]
+[ext_resource type="SpriteFrames" uid="uid://bb15vl3md5u26" path="res://assets/images/sequences/guide_frames.tres" id="3_gm58d"]
 
 [node name="Help" type="Control" groups=["lang_text_array"]]
 texture_filter = 1
@@ -23,31 +23,47 @@ anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InfoPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.1
-anchor_right = 0.95
-anchor_bottom = 0.9
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="title" type="Label" parent="InfoPanel/VBoxContainer"]
+[node name="title" type="Label" parent="InfoPanel"]
 layout_mode = 2
+anchor_left = 0.0503472
+anchor_top = 0.0444444
+anchor_right = 0.949653
+anchor_bottom = 0.136111
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.1
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="page" type="Label" parent="InfoPanel/VBoxContainer"]
+[node name="page" type="RichTextLabel" parent="InfoPanel"]
 layout_mode = 2
+anchor_left = 0.0503472
+anchor_top = 0.680556
+anchor_right = 0.949653
+anchor_bottom = 0.933333
+offset_top = -1.52588e-05
 size_flags_vertical = 3
+bbcode_enabled = true
 text = "Title"
-label_settings = ExtResource("2_t1yeq")
-horizontal_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="InfoPanel"]
+layout_mode = 0
+anchor_left = 0.279514
+anchor_top = 0.122222
+anchor_right = 0.725694
+anchor_bottom = 0.672222
+offset_bottom = 1.52588e-05
+metadata/_edit_use_anchors_ = true
+
+[node name="animated_guide" type="AnimatedSprite2D" parent="InfoPanel/Panel"]
+position = Vector2(128.667, 99)
+scale = Vector2(0.352083, 0.352083)
+sprite_frames = ExtResource("3_gm58d")
+animation = &"guide_1"
+speed_scale = 2.0
 
 [node name="Controls" type="HBoxContainer" parent="."]
 layout_mode = 1
