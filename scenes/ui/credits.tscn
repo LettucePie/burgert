@@ -62,8 +62,10 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.32
-text = "Art, Sound, Design - Houndfall
-Art, Programming, Design - lettucepie
+text = "-- Houndfall --
+Sprites, Animation, Character Design, Gameplay Design, Music, SFX
+-- LettucePie --
+Sprites, Animation, Gameplay Design, UIX, SFX, Programming
 
 Made in
 Godot 4.3
