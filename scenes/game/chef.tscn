@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=24 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bbbgfyoa6ge00" path="res://assets/animation/chef_animtree_spin_2.tres" id="2_gn2r5"]
+[ext_resource type="AudioStream" uid="uid://cpkwwxbbwpfd6" path="res://assets/sound/sfx/trash.wav" id="2_k12rg"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="2_nyvt1"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="3_3owfg"]
 
@@ -1205,6 +1206,7 @@ viewport_path = NodePath(".")
 [node name="chef" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_qyhq5")
+trash_sfx = ExtResource("2_k12rg")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 reset_on_save = false
@@ -1226,7 +1228,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
 animation = &"Idle_Plate_R"
 autoplay = "Idle_L"
-frame = 5
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
@@ -1234,7 +1236,7 @@ frame = 5
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-63, -37)
+position = Vector2(-63, -36)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_yjpo2")
 
@@ -1245,6 +1247,11 @@ position = Vector2(0, 16)
 
 [node name="left_pos" type="Marker2D" parent="."]
 position = Vector2(0, 16)
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k12rg")
+volume_db = 3.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

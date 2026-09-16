@@ -21,6 +21,8 @@ const MOVE_SPEED = 10
 @onready var grab_area : CollisionShape2D = $Area2D/CollisionShape2D
 @onready var grab_left : Vector2 = $left_pos.position
 @onready var grab_right : Vector2 = $right_pos.position
+@onready var sfx : AudioStreamPlayer2D = $sfx
+@export var trash_sfx : AudioStreamWAV = null
 
 var active : bool = true
 var stations : Array[Workstation]
@@ -136,6 +138,8 @@ func process_actions(delta):
 		if trashing_ticks <= 0:
 			trashing = false
 			print("Trashing Burger")
+			sfx.stream = trash_sfx
+			sfx.play()
 			current_burger.refresh_plate()
 			emit_signal("trashing_stopped")
 	if Input.is_action_just_released("cancel") and trashing:
