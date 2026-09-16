@@ -261,8 +261,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$phone/main.show()
 		$phone/purchase.hide()
 		load_in_menu(primary_branch, submenu_branch)
-		_render_song(current_song_idx)
-		if anim_name == "success":
-			$phone/main/menu_1_1/owned.grab_focus()
-		else:
-			$phone/main/menu_1_1/purchase.grab_focus()
+		if primary_branch == 1 and submenu_branch == 1:
+			_render_song(current_song_idx)
+			if anim_name == "success":
+				$phone/main/menu_1_1/owned.grab_focus()
+			else:
+				$phone/main/menu_1_1/purchase.grab_focus()
