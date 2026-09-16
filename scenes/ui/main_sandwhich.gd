@@ -6,6 +6,7 @@ signal menu_selection(selection)
 var current_stack : int = 0
 var stack_max : int = 9
 @export var active : bool = true
+var flicked : bool = true
 @export var label_container : PanelContainer
 @export var label : Label
 var label_tween : Tween = null
@@ -37,10 +38,17 @@ var stack_labels_translated : PackedStringArray = [
 @export var sandwich_sfx : Array[AudioStreamWAV]
 
 ##
-## Input Stuff
+## Multi-Lang
+##
+func set_main_menu_stack_labels(new : Array) -> void:
+	stack_labels_translated.clear()
+	for s in new:
+		if s is String:
+			stack_labels_translated.append(s)
+##
+##
 ##
 
-var flicked : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

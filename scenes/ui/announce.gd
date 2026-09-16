@@ -53,14 +53,13 @@ var announce_messages : PackedStringArray = [
 ]
 
 ##
-## Multi Lang
+## Multi-Lang
 ##
 func set_day(strings : Array) -> void:
 	day.clear()
 	for s in strings:
 		if s is String:
 			day.append(s)
-
 
 func set_announce_messages(strings : Array) -> void:
 	announce_messages.clear()

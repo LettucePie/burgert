@@ -1,17 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://8g4xevkrdylk"]
+[gd_scene load_steps=22 format=3 uid="uid://8g4xevkrdylk"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_b0wja"]
 [ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
 [ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/main.tscn" id="4_6oetw"]
 [ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/options.tscn" id="5_5is6g"]
-[ext_resource type="Script" path="res://scenes/ui/menu_flair.gd" id="5_eqawj"]
 [ext_resource type="PackedScene" uid="uid://c11iqp1ppgjwn" path="res://scenes/ui/office.tscn" id="5_ith4j"]
-[ext_resource type="PackedScene" uid="uid://scqqlikbqc8q" path="res://scenes/ui/vfx/splatfx.tscn" id="6_a85yp"]
 [ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/credits.tscn" id="6_vr17i"]
 [ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
 [ext_resource type="Texture2D" uid="uid://7uxig8seyr6t" path="res://assets/images/graphics/menu/customerdex/paper_clip.png" id="9_a5f4b"]
 [ext_resource type="Texture2D" uid="uid://bstdix143gyp4" path="res://assets/images/graphics/menu/records/wallet_large_back_only.png" id="10_jgkut"]
-[ext_resource type="PackedScene" uid="uid://bu0o3jigw2qy7" path="res://scenes/ui/extras.tscn" id="10_s32gi"]
 [ext_resource type="SpriteFrames" uid="uid://be4fkvlcv5vud" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-sequence/flip-phone_spriteframes.tres" id="10_uqvdc"]
 [ext_resource type="Texture2D" uid="uid://x6mf0lujestv" path="res://assets/images/graphics/menu/records/wallet_large_page_only.png" id="11_p3hdu"]
 [ext_resource type="Texture2D" uid="uid://morw8mi5hbxl" path="res://assets/images/graphics/menu/records/wallet_large_front_only.png" id="12_lu3tl"]
@@ -36,10 +33,6 @@ grow_vertical = 2
 script = ExtResource("1_b0wja")
 anim = NodePath("AnimationPlayer")
 
-[node name="MenuFlair" type="Node" parent="."]
-script = ExtResource("5_eqawj")
-splat_vfx = ExtResource("6_a85yp")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": ExtResource("3_lbgav")
@@ -58,36 +51,32 @@ next/shop_close = &"desk_return_left"
 layout_mode = 1
 
 [node name="wall" parent="office" index="0"]
-offset_top = 7.62939e-06
-offset_bottom = 0.0
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
-offset_top = -177.0
-offset_bottom = -493.0
+offset_top = -176.0
+offset_bottom = -492.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
-offset_left = -272.0
-offset_top = 339.5
-offset_right = -140.0
-offset_bottom = 436.5
+offset_top = 45.5
+offset_bottom = 142.5
 
 [node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = -136.5
-offset_bottom = -25.5
+offset_top = -169.0
+offset_bottom = -58.0
 
 [node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 169.5
-offset_bottom = 246.5
+offset_top = 137.0
+offset_bottom = 214.0
 
 [node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 219.5
-offset_bottom = 265.5
+offset_top = 187.0
+offset_bottom = 233.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00006
-offset_top = 127.5
-offset_bottom = 229.5
+offset_left = 2.0
+offset_top = 95.0
+offset_bottom = 197.0
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -142,24 +131,14 @@ layout_mode = 1
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
 layout_mode = 1
-
-[node name="Extras" parent="." instance=ExtResource("10_s32gi")]
-visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 640.0
-offset_right = 1280.0
-offset_bottom = 480.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = -641.0
+offset_right = -641.0
 
 [node name="Credits" parent="." instance=ExtResource("6_vr17i")]
 visible = false
 layout_mode = 1
-offset_top = 600.0
-offset_bottom = 600.0
+offset_left = 640.0
+offset_right = 640.0
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
@@ -214,7 +193,6 @@ layout_mode = 1
 [connection signal="announce_finish" from="Announce" to="." method="_on_announce_announce_finish"]
 
 [editable path="office"]
-[editable path="Extras"]
 [editable path="Credits"]
 [editable path="Paused"]
 [editable path="Help"]

@@ -64,7 +64,7 @@ signal close_customerdex
 	"Extemely lonely and worried about what others think. This dude won't come \
 	to the counter unless we've made eye-contact at least 5 times.",
 	"Always a good time with Ted. This dude's so freakin funny. Clever too. \
-	I wish I could orchestrate jokes the way he does.\n\nShame about the \
+	I wish I could orchestrate jokes the way he does.\nShame about the \
 	depression.",
 	"Local handy-man. Probably has fixed everything in here at one point... \
 	except for his meal.",
@@ -87,7 +87,7 @@ signal close_customerdex
 	it. Just let me make your sandwhich for you. It's my whole job. I'm not \
 	a grocery store!",
 	"Just order a triple. I can do that. Nothing bad will happen. You will get \
-	the same amount of food, and be on your way to continue deliveries.\n\n\
+	the same amount of food, and be on your way to continue deliveries.\n\
 	oh wait... you're just wasting your time here aren't you...",
 	"Bread Crumbs\nWhen people don't have time to feed fishes at the pond... the \
 	fish, find a way.",
@@ -99,21 +99,21 @@ signal close_customerdex
 	"Extremely physically slow. Works at the therapy center, so I'm guessing \
 	he has trained himself to be this slow and balanced.",
 	"Will not stop pestering me about protein intake. I'm sure it's important \
-	but there are other vitamins out there too.\n\nUsually hangs out at the gym \
+	but there are other vitamins out there too.\nUsually hangs out at the gym \
 	with that other guy...",
-	"Reginald Atly Tigillicuny\n\nConstantly trying to outshine the fame of \
+	"Reginald Atly Tigillicuny\nConstantly trying to outshine the fame of \
 	his father, he found comfort being the strongest at the gym.",
 	"How a vegetarian and a carnivore share the same stomach is beyond me. \
-	\n\nCool dudes tho... cool dude though?",
+	\nCool dudes tho... cool dude though?",
 	"I still don't know if I'm giving this dude what they asked for, impossible \
 	to understand them. Sounds like they're swallowing their own nose.\
-	\n\ncompletely toasted...",
+	\ncompletely toasted...",
 	"Sir is strict.\nSir is punctual.\nSir likes a good burger.",
 	"Classy fella, somehow always smells like leather. Seen him get in a full \
 	fight over someone cutting in line at the grocery store. He was only buying \
 	a single stick of gum.",
-	"what?\n...\nno yeah of course but seriously what?\n...\nuhhhhhh",
-	"Ronald Atly Tigillicuny\n\nCEO of Big Cheese, probably somehow owns this \
+	"what?...\nno yeah of course but seriously what?...\nuhhhhhh",
+	"Ronald Atly Tigillicuny\nCEO of Big Cheese, probably somehow owns this \
 	very building. Don't mess it up!",
 	"Somehow the wisest person I've ever talked to. When she's not here, she's \
 	hanging out at the abandoned mall.\nBut really, is she anywhere ever?"
@@ -146,12 +146,10 @@ var registered_timeslots : PackedInt32Array = []
 ####
 #### Multi Lang Setters
 ####
-
 func set_label_defaults(strings : Array):
 	customer_name_unknown = strings[0]
 	customer_desc_a_unknown = strings[1]
 	customer_desc_b_unknown = strings[2]
-
 
 func set_display_names(strings : Array):
 	customer_names_display.clear()
@@ -171,6 +169,17 @@ func set_customer_descriptions_b(strings : Array):
 		if s is String:
 			customer_descriptions_b.append(s)
 
+func set_customer_schedule_title(strings : Array):
+	customer_schedule_title = ""
+	for s in strings:
+		if s is String:
+			customer_schedule_title = s
+
+func set_customer_schedule_descriptions(strings : Array):
+	customer_schedule_descriptions.clear()
+	for s in strings:
+		if s is String:
+			customer_schedule_descriptions.append(s)
 ####
 #### End Multi Lang Setters
 ####
