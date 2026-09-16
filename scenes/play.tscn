@@ -244,8 +244,6 @@ autoplay = "intro_ramp"
 [node name="audio_timer" type="Timer" parent="Music"]
 
 [node name="MultiLang" parent="." instance=ExtResource("12_78ged")]
-supported_languages = ["eng"]
-supported_languages_named = ["English"]
 
 [node name="Fonts" type="Node" parent="."]
 script = ExtResource("13_yh4ju")

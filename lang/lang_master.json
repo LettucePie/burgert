@@ -4,20 +4,6 @@
 			"eng": [
 				{
 					"data1": {
-						"data2": "time",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/time"
-				},
-				{
-					"data1": {
-						"data2": "score",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/score"
-				},
-				{
-					"data1": {
 						"data2": "trashing",
 						"type": "text"
 					},
@@ -28,147 +14,105 @@
 						"data2": "Results",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/Label"
 				},
 				{
 					"data1": {
 						"data2": "Orders Finished",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+					"path": "/root/Play/Game/results/Panel/orderlabel"
 				},
 				{
 					"data1": {
 						"data2": "Order Accuracy",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+					"path": "/root/Play/Game/results/Panel/accuracylabel"
 				},
 				{
 					"data1": {
 						"data2": "Total Score",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+					"path": "/root/Play/Game/results/Panel/scorelabel"
 				},
 				{
 					"data1": {
 						"data2": "Finish",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
+					"path": "/root/Play/Game/results/Panel/finish"
 				},
 				{
 					"data1": {
-						"data2": "Play",
+						"data2": "Settings",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Main/Play"
-				},
-				{
-					"data1": {
-						"data2": "Options",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Options"
-				},
-				{
-					"data1": {
-						"data2": "Extras",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Extras"
-				},
-				{
-					"data1": {
-						"data2": "Quit",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Quit"
-				},
-				{
-					"data1": {
-						"data2": "OPTIONS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/Label"
 				},
 				{
 					"data1": {
 						"data2": "MUSIC VOL",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mus_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "SFX Vol",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/sfx_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "Swap A-B",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "3D Burgers",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mode_3D"
+				},
+				{
+					"data1": {
+						"data2": "Language",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/set_lang"
 				},
 				{
 					"data1": {
 						"data2": "Done",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/finished"
 				},
 				{
 					"data1": {
-						"data2": "Help",
+						"data2": "Language",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
-				},
-				{
-					"data1": {
-						"data2": "CUSTOMER-DEX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
+					"path": "/root/Play/MainMenu/Options/phone/language/VBoxContainer/title"
 				},
 				{
 					"data1": {
 						"data2": "CREDITS",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label"
 				},
 				{
 					"data1": {
-						"data2": "RETURN",
+						"data2": "-- Houndfall --\nSprites, Animation, Character Design, Gameplay Design, Music, SFX\n-- LettucePie --\nSprites, Animation, Gameplay Design, UIX, SFX, Programming\n\nMade in\nGodot 4.3\nAseprite\nKrita\nLMMS\n\n-- third-party assets --\nkenney-nl (kenney.nl) : fonts\nOwlishMedia (opengameart.org) : sfx\ndiligentcircle (opengameart.org) : sfx\nmreliptik (godotshaders.com) : shader",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "CREDITS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
-				},
-				{
-					"data1": {
-						"data2": "Art, Sound, Design - Houndfall\nArt, Programming, Design - lettucepie\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
-				},
-				{
-					"data1": {
-						"data2": "Done",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label2"
 				},
 				{
 					"data1": {
@@ -193,31 +137,250 @@
 				},
 				{
 					"data1": {
-						"data2": "res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stopnpuke_sign.png",
+						"data2": "Close",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/close"
+				},
+				{
+					"data1": {
+						"data2": "Next",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/next"
+				},
+				{
+					"data1": {
+						"data2": "Previous",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/prev"
+				},
+				{
+					"data1": {
+						"data2": "gross earnings:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "highest score:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/highest_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "cash:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "times played:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/times_played/stat"
+				},
+				{
+					"data1": {
+						"data2": "burgers served:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
+				},
+				{
+					"data1": {
+						"data2": "Music",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/music"
+				},
+				{
+					"data1": {
+						"data2": "Decor\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/decor"
+				},
+				{
+					"data1": {
+						"data2": "Clothing\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/clothing"
+				},
+				{
+					"data1": {
+						"data2": "Done",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/finished"
+				},
+				{
+					"data1": {
+						"data2": "Store",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/music_store"
+				},
+				{
+					"data1": {
+						"data2": "Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/playlists"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/return"
+				},
+				{
+					"data1": {
+						"data2": "Owned",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/owned"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/return"
+				},
+				{
+					"data1": {
+						"data2": "My Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/playlist_label"
+				},
+				{
+					"data1": {
+						"data2": "work playlist :|",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/work_playlist"
+				},
+				{
+					"data1": {
+						"data2": "office time :(",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/main_playlist"
+				},
+				{
+					"data1": {
+						"data2": "me time :)",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/jukebox_playlist"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/return"
+				},
+				{
+					"data1": {
+						"data2": "Toggle",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/toggle"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/return"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
 						"type": "image"
 					},
 					"path": "/root/Play/Game/kitchen_a/stopnpuke"
 				},
 				{
 					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/left_side_desktop/folder"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/stickynote"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/help"
+				},
+				{
+					"data1": {
 						"data2": [
 							[
-								"res://assets/images/graphics/orders/order-scribble_bun1.png",
-								"res://assets/images/graphics/orders/order-scribble_bun2.png",
-								"res://assets/images/graphics/orders/order-scribble_bun3.png"
+								"OVERRIDE_MULTIPLE_TEXTURE_PATHS"
 							],
 							[
-								"res://assets/images/graphics/orders/order-scribble_meat1.png",
-								"res://assets/images/graphics/orders/order-scribble_meat2.png",
-								"res://assets/images/graphics/orders/order-scribble_meat3.png"
+								"OVERRIDE_MULTIPLE_TEXTURE_PATHS"
+							],
+							[
+								"..."
 							]
 						],
 						"setter": [
 							[
-								"set_bun_scribbles"
+								"OVERRIDE_SETTER_METHOD"
 							],
 							[
-								"set_meat_scribbles"
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
 							]
 						],
 						"type": "image_host"
@@ -228,26 +391,52 @@
 					"data1": {
 						"data2": [
 							[
-								"Goal",
-								"Controls",
-								"Making The Order",
-								"Submitting The Order",
-								"Scoring Points"
+								"OVERRIDE_MULTIPLE_STRINGS"
 							],
 							[
-								"Make the orders for the Customers as quick and accurate as you can. Then throw them their meal and start up the next order. You get 2 minutes!",
-								"Movement - Left and Right\nGrab Ingredients - A (Z on Keyboard)\nRestart - Hold B (X on Keyboard)\nCheck the Order Receipt - Y (C on Keyboard)\nSubmit Order Mode - Up",
-								"Start by Checking the Order or just use the model in the thought cloud. Then simply gather the ingredients in that order and send it away. Customers have preferred orders, so you can develop a pattern over time.",
-								"You cannot submit an order until it has the same amount of Ingredients as what the customer is ordering. Once that's set you enter \"Throwing Mode\" with the Submit button. Then when the reticle is over the customer press the submit button again or the primary Confirm button.",
-								"Points are calculated by how many of the desired Ingredients are on the order, as well as how they are sequenced. Then that score is scaled by how long it took to submit it. Send an order that's completely wrong, and you may lose points."
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
 							]
 						],
 						"setter": [
 							[
-								"set_titles"
+								"OVERRIDE_SETTER_METHOD"
 							],
 							[
-								"set_pages"
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Main"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
 							]
 						],
 						"type": "text_host"
@@ -280,29 +469,43 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex"
+					"path": "/root/Play/MainMenu/Shop"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Announce"
 				}
 			],
 			"font_large": 0,
 			"font_medium": 0,
-			"font_small": 0
+			"font_small": 1
 		},
 		{
 			"example": [
-				{
-					"data1": {
-						"data2": "time-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/time"
-				},
-				{
-					"data1": {
-						"data2": "score-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/score"
-				},
 				{
 					"data1": {
 						"data2": "trashing-EX",
@@ -315,147 +518,105 @@
 						"data2": "Results-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/Label"
+					"path": "/root/Play/Game/results/Panel/Label"
 				},
 				{
 					"data1": {
 						"data2": "Orders Finished-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_1/Label"
+					"path": "/root/Play/Game/results/Panel/orderlabel"
 				},
 				{
 					"data1": {
 						"data2": "Order Accuracy-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_2/Label"
+					"path": "/root/Play/Game/results/Panel/accuracylabel"
 				},
 				{
 					"data1": {
 						"data2": "Total Score-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/entry_3/Label"
+					"path": "/root/Play/Game/results/Panel/scorelabel"
 				},
 				{
 					"data1": {
 						"data2": "Finish-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/Game/results/Panel/VBoxContainer/finish"
+					"path": "/root/Play/Game/results/Panel/finish"
 				},
 				{
 					"data1": {
-						"data2": "Play-EX",
+						"data2": "Settings-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Main/Play"
-				},
-				{
-					"data1": {
-						"data2": "Options-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Options"
-				},
-				{
-					"data1": {
-						"data2": "Extras-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Extras"
-				},
-				{
-					"data1": {
-						"data2": "Quit-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Main/Quit"
-				},
-				{
-					"data1": {
-						"data2": "OPTIONS-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/Label"
 				},
 				{
 					"data1": {
 						"data2": "MUSIC VOL-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/mus_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mus_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "SFX Vol-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/sfx_vol/Label"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/sfx_vol/Label"
 				},
 				{
 					"data1": {
 						"data2": "Swap A-B-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/swap_confirm"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "3D Burgers-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mode_3D"
+				},
+				{
+					"data1": {
+						"data2": "Language-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/set_lang"
 				},
 				{
 					"data1": {
 						"data2": "Done-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Options/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/finished"
 				},
 				{
 					"data1": {
-						"data2": "Help-EX",
+						"data2": "Language-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
-				},
-				{
-					"data1": {
-						"data2": "CUSTOMER-DEX-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
+					"path": "/root/Play/MainMenu/Options/phone/language/VBoxContainer/title"
 				},
 				{
 					"data1": {
 						"data2": "CREDITS-EX",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label"
 				},
 				{
 					"data1": {
-						"data2": "RETURN-EX",
+						"data2": "-- Houndfall-EX --\nSprites, Animation, Character Design, Gameplay Design, Music, SFX\n-- LettucePie-EX --\nSprites, Animation, Gameplay Design, UIX, SFX, Programming\n\nMade in\nGodot 4.3\nAseprite\nKrita\nLMMS\n\n-- third-party assets --\nkenney-nl (kenney.nl) : fonts\nOwlishMedia (opengameart.org) : sfx\ndiligentcircle (opengameart.org) : sfx\nmreliptik (godotshaders.com) : shader",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "CREDITS-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
-				},
-				{
-					"data1": {
-						"data2": "Art, Sound, Design - Houndfall-EX\nArt, Programming, Design - lettucepie-EX\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
-				},
-				{
-					"data1": {
-						"data2": "Done-EX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label2"
 				},
 				{
 					"data1": {
@@ -480,10 +641,227 @@
 				},
 				{
 					"data1": {
+						"data2": "Close-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/close"
+				},
+				{
+					"data1": {
+						"data2": "Next-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/next"
+				},
+				{
+					"data1": {
+						"data2": "Previous-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Help/Controls/prev"
+				},
+				{
+					"data1": {
+						"data2": "gross earnings-EX:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "highest score-EX:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/highest_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "cash-EX:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
+				},
+				{
+					"data1": {
+						"data2": "times played-EX:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/times_played/stat"
+				},
+				{
+					"data1": {
+						"data2": "burgers served-EX:",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
+				},
+				{
+					"data1": {
+						"data2": "Music-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/music"
+				},
+				{
+					"data1": {
+						"data2": "Decor-EX\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/decor"
+				},
+				{
+					"data1": {
+						"data2": "Clothing-EX\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/clothing"
+				},
+				{
+					"data1": {
+						"data2": "Done-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/finished"
+				},
+				{
+					"data1": {
+						"data2": "Store-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/music_store"
+				},
+				{
+					"data1": {
+						"data2": "Playlists-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/playlists"
+				},
+				{
+					"data1": {
+						"data2": "--- Return-EX ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/return"
+				},
+				{
+					"data1": {
+						"data2": "Owned-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/owned"
+				},
+				{
+					"data1": {
+						"data2": "Preview-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return-EX ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/return"
+				},
+				{
+					"data1": {
+						"data2": "My Playlists-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/playlist_label"
+				},
+				{
+					"data1": {
+						"data2": "work-EX playlist :|",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/work_playlist"
+				},
+				{
+					"data1": {
+						"data2": "office-EX time :(",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/main_playlist"
+				},
+				{
+					"data1": {
+						"data2": "me-EX time :)",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/jukebox_playlist"
+				},
+				{
+					"data1": {
+						"data2": "--- Return-EX ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/return"
+				},
+				{
+					"data1": {
+						"data2": "Toggle-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/toggle"
+				},
+				{
+					"data1": {
+						"data2": "Preview-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop-EX",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return-EX ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/return"
+				},
+				{
+					"data1": {
 						"data2": "res://lang/example/Restaurant_stopnpuke_sign_example.png",
 						"type": "image"
 					},
 					"path": "/root/Play/Game/kitchen_a/stopnpuke"
+				},
+				{
+					"data1": {
+						"data2": "res://lang/example/menu_desk_folder_example.png",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/left_side_desktop/folder"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/stickynote"
+				},
+				{
+					"data1": {
+						"data2": "OVERRIDE_TEXTURE_PATH",
+						"type": "image"
+					},
+					"path": "/root/Play/MainMenu/office/desk/right_side_desktop/help"
 				},
 				{
 					"data1": {
@@ -497,6 +875,10 @@
 								"res://lang/example/order-scribble_meat1_example.png",
 								"res://lang/example/order-scribble_meat2_example.png",
 								"res://lang/example/order-scribble_meat3_example.png"
+							],
+							[
+								"res://lang/example/order-scribble_cheese1_example.png",
+								"res://lang/example/order-scribble_cheese2_example.png"
 							]
 						],
 						"setter": [
@@ -505,6 +887,9 @@
 							],
 							[
 								"set_meat_scribbles"
+							],
+							[
+								"set_cheese_scribbles"
 							]
 						],
 						"type": "image_host"
@@ -515,26 +900,49 @@
 					"data1": {
 						"data2": [
 							[
-								"Goal-EX",
-								"Controls-EX",
-								"Making The Order-EX",
-								"Submitting The Order-EX",
-								"Scoring Points-EX"
-							],
-							[
-								"Make the orders-EX for the Customers as quick and accurate as you can. Then throw them their meal and start up the next order. You get 2 minutes!",
-								"Movement - Left and Right\nGrab Ingredients - A (Z on Keyboard)\nRestart - Hold B (X on Keyboard)\nCheck the Order-EX Receipt - Y (C on Keyboard)\nSubmit Order Mode - Up",
-								"Start by Checking the Order-EX or just use the model in the thought cloud. Then simply gather the ingredients in that order and send it away. Customers have preferred orders, so you can develop a pattern over time.",
-								"You cannot submit an order-EX until it has the same amount of Ingredients as what the customer is ordering. Once that's set you enter \"Throwing Mode\" with the Submit button. Then when the reticle is over the customer press the submit button again or the primary Confirm button.",
-								"Points are calculated by how many of the desired Ingredients are on the order-EX, as well as how they are sequenced. Then that score is scaled by how long it took to submit it. Send an order that's completely wrong, and you may lose points."
+								"Quit-EX",
+								"Credits-EX",
+								"Shop-EX",
+								"Jukebox-EX",
+								"Help-EX",
+								"Options-EX",
+								"Records-EX",
+								"Customer-Dex-EX",
+								"Play-EX",
+								"-EX"
 							]
 						],
 						"setter": [
 							[
-								"set_titles"
+								"set_main_menu_stack_labels"
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Main"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
 							],
 							[
-								"set_pages"
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
 							]
 						],
 						"type": "text_host"
@@ -567,7 +975,35 @@
 						],
 						"type": "text_host"
 					},
-					"path": "/root/Play/MainMenu/CustomerDex"
+					"path": "/root/Play/MainMenu/Shop"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Announce"
 				}
 			],
 			"font_large": 0,

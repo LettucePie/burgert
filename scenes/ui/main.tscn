@@ -114,7 +114,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("13_hhppr")
 metadata/sfx_id = 2
 
-[node name="Icon" type="Sprite2D" parent="Sandwhich/Shop" groups=["lang_image"]]
+[node name="Icon" type="Sprite2D" parent="Sandwhich/Shop"]
 texture = ExtResource("21_4lms7")
 
 [node name="Jukebox" type="Sprite2D" parent="Sandwhich"]

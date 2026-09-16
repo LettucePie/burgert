@@ -76,7 +76,6 @@ func load_lang(target : String):
 		var data = json.get_data()
 		if data.has("languages"):
 			print("Language File at: ", lang_master, " is valid")
-			#print("has eng: ", data.has("eng"))
 			## Filter for datablock containing target
 			var target_block = data["languages"][0]
 			var valid = false

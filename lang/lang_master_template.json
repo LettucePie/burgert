@@ -4,20 +4,6 @@
 			"eng": [
 				{
 					"data1": {
-						"data2": "time",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/time"
-				},
-				{
-					"data1": {
-						"data2": "score",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/score"
-				},
-				{
-					"data1": {
 						"data2": "trashing",
 						"type": "text"
 					},
@@ -60,6 +46,13 @@
 				},
 				{
 					"data1": {
+						"data2": "Settings",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/Label"
+				},
+				{
+					"data1": {
 						"data2": "MUSIC VOL",
 						"type": "text"
 					},
@@ -78,6 +71,13 @@
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "3D Burgers",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mode_3D"
 				},
 				{
 					"data1": {
@@ -102,52 +102,17 @@
 				},
 				{
 					"data1": {
-						"data2": "Help",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
-				},
-				{
-					"data1": {
-						"data2": "CUSTOMER-DEX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
-				},
-				{
-					"data1": {
 						"data2": "CREDITS",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label"
 				},
 				{
 					"data1": {
-						"data2": "RETURN",
+						"data2": "-- Houndfall --\nSprites, Animation, Character Design, Gameplay Design, Music, SFX\n-- LettucePie --\nSprites, Animation, Gameplay Design, UIX, SFX, Programming\n\nMade in\nGodot 4.3\nAseprite\nKrita\nLMMS\n\n-- third-party assets --\nkenney-nl (kenney.nl) : fonts\nOwlishMedia (opengameart.org) : sfx\ndiligentcircle (opengameart.org) : sfx\nmreliptik (godotshaders.com) : shader",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "CREDITS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
-				},
-				{
-					"data1": {
-						"data2": "Art, Sound, Design - Houndfall\nArt, Programming, Design - lettucepie\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
-				},
-				{
-					"data1": {
-						"data2": "Done",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label2"
 				},
 				{
 					"data1": {
@@ -193,7 +158,7 @@
 				},
 				{
 					"data1": {
-						"data2": "total score:",
+						"data2": "gross earnings:",
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
@@ -207,7 +172,7 @@
 				},
 				{
 					"data1": {
-						"data2": "score points spent:",
+						"data2": "cash:",
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
@@ -225,6 +190,146 @@
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
+				},
+				{
+					"data1": {
+						"data2": "Music",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/music"
+				},
+				{
+					"data1": {
+						"data2": "Decor\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/decor"
+				},
+				{
+					"data1": {
+						"data2": "Clothing\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/clothing"
+				},
+				{
+					"data1": {
+						"data2": "Done",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/finished"
+				},
+				{
+					"data1": {
+						"data2": "Store",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/music_store"
+				},
+				{
+					"data1": {
+						"data2": "Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/playlists"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/return"
+				},
+				{
+					"data1": {
+						"data2": "Owned",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/owned"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/return"
+				},
+				{
+					"data1": {
+						"data2": "My Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/playlist_label"
+				},
+				{
+					"data1": {
+						"data2": "work playlist :|",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/work_playlist"
+				},
+				{
+					"data1": {
+						"data2": "office time :(",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/main_playlist"
+				},
+				{
+					"data1": {
+						"data2": "me time :)",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/jukebox_playlist"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/return"
+				},
+				{
+					"data1": {
+						"data2": "Toggle",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/toggle"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/return"
 				},
 				{
 					"data1": {
@@ -337,6 +442,62 @@
 						"type": "text_host"
 					},
 					"path": "/root/Play/MainMenu/Help"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Shop"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Announce"
 				}
 			],
 			"font_large": 0,
@@ -347,20 +508,6 @@
 			"example": [
 				{
 					"data1": {
-						"data2": "time",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/time"
-				},
-				{
-					"data1": {
-						"data2": "score",
-						"type": "text"
-					},
-					"path": "/root/Play/Game/hud/VBoxContainer/score"
-				},
-				{
-					"data1": {
 						"data2": "trashing",
 						"type": "text"
 					},
@@ -403,6 +550,13 @@
 				},
 				{
 					"data1": {
+						"data2": "Settings",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/Label"
+				},
+				{
+					"data1": {
 						"data2": "MUSIC VOL",
 						"type": "text"
 					},
@@ -421,6 +575,13 @@
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/swap_confirm"
+				},
+				{
+					"data1": {
+						"data2": "3D Burgers",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Options/phone/main/vcont1/mode_3D"
 				},
 				{
 					"data1": {
@@ -445,52 +606,17 @@
 				},
 				{
 					"data1": {
-						"data2": "Help",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row/howto"
-				},
-				{
-					"data1": {
-						"data2": "CUSTOMER-DEX",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row2/dex"
-				},
-				{
-					"data1": {
 						"data2": "CREDITS",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/button_row3/credits"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label"
 				},
 				{
 					"data1": {
-						"data2": "RETURN",
+						"data2": "-- Houndfall --\nSprites, Animation, Character Design, Gameplay Design, Music, SFX\n-- LettucePie --\nSprites, Animation, Gameplay Design, UIX, SFX, Programming\n\nMade in\nGodot 4.3\nAseprite\nKrita\nLMMS\n\n-- third-party assets --\nkenney-nl (kenney.nl) : fonts\nOwlishMedia (opengameart.org) : sfx\ndiligentcircle (opengameart.org) : sfx\nmreliptik (godotshaders.com) : shader",
 						"type": "text"
 					},
-					"path": "/root/Play/MainMenu/Extras/Panel/VBoxContainer/finish"
-				},
-				{
-					"data1": {
-						"data2": "CREDITS",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label"
-				},
-				{
-					"data1": {
-						"data2": "Art, Sound, Design - Houndfall\nArt, Programming, Design - lettucepie\n\nMade in\nGodot 4.2.2 & 4.3\nAseprite\nKrita\nLMMS\n\nthird-party assets\nkenney-nl fontss",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/Label2"
-				},
-				{
-					"data1": {
-						"data2": "Done",
-						"type": "text"
-					},
-					"path": "/root/Play/MainMenu/Credits/Panel/VBoxContainer/finished"
+					"path": "/root/Play/MainMenu/Credits/paper/VBoxContainer/Label2"
 				},
 				{
 					"data1": {
@@ -536,7 +662,7 @@
 				},
 				{
 					"data1": {
-						"data2": "total score:",
+						"data2": "gross earnings:",
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/total_score/stat"
@@ -550,7 +676,7 @@
 				},
 				{
 					"data1": {
-						"data2": "score points spent:",
+						"data2": "cash:",
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/spent_score/stat"
@@ -568,6 +694,146 @@
 						"type": "text"
 					},
 					"path": "/root/Play/MainMenu/Records/TextureRect/VBoxContainer/burgers_served/stat"
+				},
+				{
+					"data1": {
+						"data2": "Music",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/music"
+				},
+				{
+					"data1": {
+						"data2": "Decor\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/decor"
+				},
+				{
+					"data1": {
+						"data2": "Clothing\n** COMING SOON **",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/clothing"
+				},
+				{
+					"data1": {
+						"data2": "Done",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_0_0/finished"
+				},
+				{
+					"data1": {
+						"data2": "Store",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/music_store"
+				},
+				{
+					"data1": {
+						"data2": "Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/playlists"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_0/return"
+				},
+				{
+					"data1": {
+						"data2": "Owned",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/owned"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_1/return"
+				},
+				{
+					"data1": {
+						"data2": "My Playlists",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/playlist_label"
+				},
+				{
+					"data1": {
+						"data2": "work playlist :|",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/work_playlist"
+				},
+				{
+					"data1": {
+						"data2": "office time :(",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/main_playlist"
+				},
+				{
+					"data1": {
+						"data2": "me time :)",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/jukebox_playlist"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_2/return"
+				},
+				{
+					"data1": {
+						"data2": "Toggle",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/toggle"
+				},
+				{
+					"data1": {
+						"data2": "Preview",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/preview"
+				},
+				{
+					"data1": {
+						"data2": "Stop",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/stop"
+				},
+				{
+					"data1": {
+						"data2": "--- Return ---",
+						"type": "text"
+					},
+					"path": "/root/Play/MainMenu/Shop/phone/main/menu_1_3/return"
 				},
 				{
 					"data1": {
@@ -680,6 +946,62 @@
 						"type": "text_host"
 					},
 					"path": "/root/Play/MainMenu/Help"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Shop"
+				},
+				{
+					"data1": {
+						"data2": [
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"OVERRIDE_MULTIPLE_STRINGS"
+							],
+							[
+								"..."
+							]
+						],
+						"setter": [
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"OVERRIDE_SETTER_METHOD"
+							],
+							[
+								"..."
+							]
+						],
+						"type": "text_host"
+					},
+					"path": "/root/Play/MainMenu/Announce"
 				}
 			],
 			"font_large": 0,
