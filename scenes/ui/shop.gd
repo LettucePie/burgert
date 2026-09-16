@@ -19,6 +19,11 @@ var music_library : Music = null
 	"connected!",
 	"welcome to\n\nGLORBAZON"
 ]
+@export var purchase_messages : PackedStringArray = [
+	"purchasing...",
+	"success!",
+	"uh oh...\ntoo poor."
+]
 
 var menus : Array[VBoxContainer] = []
 @onready var intro_menu : VBoxContainer = $phone/main/menu_0_0
@@ -41,6 +46,12 @@ func set_glorbazon_sequence(strings : Array):
 	for s in strings:
 		if s is String:
 			connection_messages.append(s)
+
+func set_purchasing_sequence(strings : Array):
+	purchase_messages.clear()
+	for s in strings:
+		if s is String:
+			purchase_messages.append(s)
 ###
 ###
 ###
@@ -157,14 +168,19 @@ func _render_song(idx : int) -> void:
 
 func _on_purchase_pressed() -> void:
 	print("Purchasing Current Song")
+	anim.play("purchasing")
+	$empty_nothing.grab_focus()
+	$phone/purchase/label.text = purchase_messages[0]
+	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	if wallet.total_score - wallet.spent_score > current_song.store_cost:
 		print("We can Afford")
-		## TODO animation for purchases
+		anim.play("success")
+		$phone/purchase/label.text = purchase_messages[1]
 		music_library.purchased_song_from_shop(current_song)
-		_render_song(current_song_idx)
-		$phone/main/menu_1_1/owned.grab_focus()
 	else:
 		print("We Poor")
+		anim.play("fail")
+		$phone/purchase/label.text = purchase_messages[2]
 
 
 func _on_preview_pressed() -> void:
@@ -237,3 +253,16 @@ func _focusing_my_brains_out(path: String) -> void:
 
 func _on_preview_timer_timeout() -> void:
 	_on_stop_pressed()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	print("AnimationFinished: ", anim_name)
+	if anim_name == "success" or anim_name == "fail":
+		$phone/main.show()
+		$phone/purchase.hide()
+		load_in_menu(primary_branch, submenu_branch)
+		_render_song(current_song_idx)
+		if anim_name == "success":
+			$phone/main/menu_1_1/owned.grab_focus()
+		else:
+			$phone/main/menu_1_1/purchase.grab_focus()

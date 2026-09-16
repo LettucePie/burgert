@@ -1,19 +1,34 @@
-[gd_scene load_steps=19 format=3 uid="uid://dn7wrk0xcx8d"]
+[gd_scene load_steps=37 format=3 uid="uid://dn7wrk0xcx8d"]
 
 [ext_resource type="Script" path="res://scenes/ui/shop.gd" id="1_n1ick"]
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="2_1msfh"]
 [ext_resource type="Texture2D" uid="uid://vbgx0nhm37os" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone_open.png" id="3_3yfhm"]
+[ext_resource type="Texture2D" uid="uid://bnup1g5y3qy8f" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_loading1.png" id="3_fqhny"]
 [ext_resource type="Texture2D" uid="uid://b06wxm4e0k5ub" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim2.png" id="3_k0pc5"]
 [ext_resource type="Texture2D" uid="uid://vwfhnrrks23h" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim3.png" id="4_pdupp"]
 [ext_resource type="Texture2D" uid="uid://bmkk3shy68xwm" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim1.png" id="4_xdb1f"]
 [ext_resource type="Texture2D" uid="uid://o7in3gomv7kk" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim4.png" id="5_yqcts"]
 [ext_resource type="Texture2D" uid="uid://bmosfn61lpb4f" path="res://assets/images/graphics/menu/flip-phone-os/signal_anim5.png" id="6_7xf6y"]
+[ext_resource type="Texture2D" uid="uid://08byv1hywf6w" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_loading2.png" id="8_quwvs"]
+[ext_resource type="Texture2D" uid="uid://d02yhgh1ymsj8" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_loading3.png" id="9_lejbx"]
 [ext_resource type="PackedScene" uid="uid://0qx6xx5d5jsi" path="res://scenes/ui/sfx_host.tscn" id="9_ma7yp"]
+[ext_resource type="Texture2D" uid="uid://c8ffdy6f5328i" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_loading4.png" id="10_orgu5"]
 [ext_resource type="AudioStream" uid="uid://u2j4theurdwi" path="res://assets/sound/sfx/flip-phone/tone1.wav" id="10_yx6ol"]
+[ext_resource type="Texture2D" uid="uid://f5myprvrhts3" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_loading5.png" id="11_3k7ox"]
 [ext_resource type="AudioStream" uid="uid://clmh18518ogg5" path="res://assets/sound/sfx/flip-phone/tone2.wav" id="11_u4xeh"]
 [ext_resource type="AudioStream" uid="uid://cp57olcjx7h1k" path="res://assets/sound/sfx/flip-phone/tone3.wav" id="12_07w4k"]
+[ext_resource type="Texture2D" uid="uid://dto1ct10p0hfi" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success1.png" id="12_q0r13"]
 [ext_resource type="AudioStream" uid="uid://djqoaqwbpva2w" path="res://assets/sound/sfx/flip-phone/tone4.wav" id="13_gv5tv"]
+[ext_resource type="Texture2D" uid="uid://bxuobyxeil6ts" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success2.png" id="13_ygqel"]
+[ext_resource type="Texture2D" uid="uid://8g0dkcv3k2uw" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success3.png" id="14_073qr"]
 [ext_resource type="AudioStream" uid="uid://btq7cldh02c53" path="res://assets/sound/sfx/flip-phone/tone5.wav" id="14_njif8"]
+[ext_resource type="Texture2D" uid="uid://l37u1mh57n3l" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success4.png" id="15_t74oo"]
+[ext_resource type="Texture2D" uid="uid://inucy5e627d" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success5.png" id="16_8oop3"]
+[ext_resource type="Texture2D" uid="uid://dpt8t7xplfcul" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_success6.png" id="17_vn6h1"]
+[ext_resource type="Texture2D" uid="uid://bkykwj13lky8h" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_fail1.png" id="18_dhhr2"]
+[ext_resource type="AudioStream" uid="uid://d1hw2nn3rn4as" path="res://assets/sound/sfx/flip-phone/tone9.wav" id="18_m0pvg"]
+[ext_resource type="Texture2D" uid="uid://vivqq54x63dy" path="res://assets/images/graphics/menu/flip-phone-os/glorbazon_purchase_fail2.png" id="19_v6ff0"]
+[ext_resource type="AudioStream" uid="uid://bw2r7a6vw4kes" path="res://assets/sound/sfx/flip-phone/tone7.wav" id="20_fgqmp"]
 
 [sub_resource type="Animation" id="Animation_c1yjd"]
 length = 0.001
@@ -76,6 +91,42 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("phone/purchase:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("phone/purchase/img:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fqhny")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("phone/purchase/label:visible_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_vkuj3"]
@@ -141,6 +192,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("phone/purchase:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_l7xpq"]
@@ -227,11 +290,285 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_cha2d"]
+resource_name = "purchasing"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone/main:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("phone/purchase:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phone/purchase/img:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_fqhny"), ExtResource("8_quwvs"), ExtResource("9_lejbx"), ExtResource("10_orgu5"), ExtResource("11_3k7ox")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/purchase/label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("phone/purchase/img:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("phone/connection:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y0mue"]
+resource_name = "success"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone/main:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("phone/purchase:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phone/purchase/img:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_q0r13"), ExtResource("13_ygqel"), ExtResource("14_073qr"), ExtResource("15_t74oo"), ExtResource("16_8oop3"), ExtResource("17_vn6h1"), ExtResource("16_8oop3"), ExtResource("17_vn6h1"), ExtResource("16_8oop3"), ExtResource("17_vn6h1"), ExtResource("16_8oop3"), ExtResource("17_vn6h1"), ExtResource("16_8oop3")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/purchase/label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("phone/purchase/img:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("phone/connection:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("sfx_host")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.152,
+"start_offset": 0.0388,
+"stream": ExtResource("18_m0pvg")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.031,
+"stream": ExtResource("11_u4xeh")
+}, {
+"end_offset": 0.3907,
+"start_offset": 0.0442,
+"stream": ExtResource("20_fgqmp")
+}],
+"times": PackedFloat32Array(0.0333333, 0.1, 0.166667)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_8vhg6"]
+resource_name = "fail"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone/main:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("phone/purchase:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phone/purchase/img:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2"), ExtResource("19_v6ff0"), ExtResource("18_dhhr2")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/purchase/label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("phone/purchase/img:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("phone/connection:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("sfx_host")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0285,
+"stream": ExtResource("14_njif8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0305,
+"stream": ExtResource("14_njif8")
+}],
+"times": PackedFloat32Array(0.0666667, 0.166667)
+}
+tracks/6/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ke2r"]
 _data = {
 "RESET": SubResource("Animation_c1yjd"),
 "connect": SubResource("Animation_vkuj3"),
-"connected": SubResource("Animation_l7xpq")
+"connected": SubResource("Animation_l7xpq"),
+"fail": SubResource("Animation_8vhg6"),
+"purchasing": SubResource("Animation_cha2d"),
+"success": SubResource("Animation_y0mue")
 }
 
 [node name="Shop" type="Control" groups=["lang_text_array"]]
@@ -594,6 +931,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="purchase" type="Control" parent="phone"]
+visible = false
+modulate = Color(1, 1, 1, 0.862745)
+layout_mode = 1
+anchor_left = 0.266
+anchor_top = 0.229
+anchor_right = 0.731
+anchor_bottom = 0.977
+offset_left = -0.240005
+offset_top = 0.0799942
+offset_right = 0.160004
+offset_bottom = 0.039978
+
+[node name="img" type="TextureRect" parent="phone/purchase"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.457
+offset_bottom = -0.0629883
+grow_horizontal = 2
+texture = ExtResource("3_fqhny")
+stretch_mode = 5
+
+[node name="label" type="Label" parent="phone/purchase"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.534819
+anchor_right = 1.0
+anchor_bottom = 0.78273
+grow_horizontal = 2
+grow_vertical = 0
+text = "purchasing"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="sfx_host" parent="." instance=ExtResource("9_ma7yp")]
 library = Array[AudioStreamWAV]([ExtResource("10_yx6ol"), ExtResource("11_u4xeh"), ExtResource("12_07w4k"), ExtResource("13_gv5tv"), ExtResource("14_njif8")])
 
@@ -614,6 +987,7 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="visibility_changed" from="phone/main/menu_0_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_0_0/finished"]]
 [connection signal="pressed" from="phone/main/menu_0_0/music" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="pressed" from="phone/main/menu_0_0/decor" to="." method="load_in_menu" binds= [2, 0]]

@@ -291,7 +291,8 @@ class Stats:
 		return timeslots_played
 	
 	func add_timeslot_played(timeslot_idx : int) -> void:
-		timeslots_played.append(timeslot_idx)
+		if !timeslots_played.has(timeslot_idx):
+			timeslots_played.append(timeslot_idx)
 	
 	func set_songs_owned(new : Array) -> void:
 		songs_owned = new
