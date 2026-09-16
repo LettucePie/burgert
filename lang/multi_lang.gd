@@ -111,7 +111,8 @@ func load_lang(target : String):
 					if n["data1"]["type"] == "text":
 						node.text = n["data1"]["data2"]
 					if n["data1"]["type"] == "image":
-						node.texture = load(n["data1"]["data2"])
+						if n["data1"]["data2"] != "OVERRIDE_TEXTURE_PATH":
+							node.texture = load(n["data1"]["data2"])
 					if n["data1"]["type"] == "image_host":
 						for ix in n["data1"]["data2"].size():
 							var setter = n["data1"]["setter"][ix][0]
