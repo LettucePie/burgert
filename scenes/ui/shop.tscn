@@ -604,6 +604,16 @@ bus = &"FlipPhone"
 
 [node name="Timer" type="Timer" parent="preview_music"]
 
+[node name="empty_nothing" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+
 [connection signal="visibility_changed" from="phone/main/menu_0_0" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_0_0/finished"]]
 [connection signal="pressed" from="phone/main/menu_0_0/music" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="pressed" from="phone/main/menu_0_0/decor" to="." method="load_in_menu" binds= [2, 0]]
@@ -622,12 +632,12 @@ bus = &"FlipPhone"
 [connection signal="pressed" from="phone/main/menu_1_1/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_1/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_2" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_2/work_playlist"]]
-[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="_playlist_load" binds= ["work"]]
 [connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
-[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="_playlist_load" binds= ["menu"]]
+[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="_playlist_load" binds= ["work"]]
 [connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
-[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="_playlist_load" binds= ["jukebox"]]
+[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="_playlist_load" binds= ["menu"]]
 [connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="_playlist_load" binds= ["jukebox"]]
 [connection signal="pressed" from="phone/main/menu_1_2/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_3" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_3/return"]]
 [connection signal="pressed" from="phone/main/menu_1_3/toggle" to="." method="_on_toggle_pressed"]

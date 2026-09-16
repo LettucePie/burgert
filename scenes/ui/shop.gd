@@ -47,6 +47,7 @@ func set_glorbazon_sequence(strings : Array):
 
 
 func _ready() -> void:
+	$empty_nothing.hide()
 	menus.clear()
 	for child in main.get_children():
 		if child.name.contains("menu"):
@@ -74,6 +75,7 @@ func update_connection_stage():
 
 func _on_finished_pressed() -> void:
 	emit_signal("close_shop")
+	$empty_nothing.grab_focus()
 
 
 func _tween_center() -> void:
@@ -183,10 +185,15 @@ func _on_preview_pressed() -> void:
 			$phone/main/menu_1_3/return.hide()
 			$phone/main/menu_1_3/stop.show()
 			$phone/main/menu_1_3/stop.grab_focus()
+	$empty_nothing.grab_focus()
 	await get_tree().create_timer(1.0).timeout
 	preview_music.stream = current_song.track
 	preview_music.play(10.0)
 	preview_timer.start(10.0)
+	if submenu_branch == 1:
+		$phone/main/menu_1_1/stop.grab_focus()
+	elif submenu_branch == 3:
+		$phone/main/menu_1_3/stop.grab_focus()
 
 
 func _on_stop_pressed() -> void:
