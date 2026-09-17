@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_ofe0g"]
 [ext_resource type="Resource" uid="uid://mj566lioto35" path="res://assets/data/schedules/Al_schedule.tres" id="2_f1w3v"]
-[ext_resource type="AnimationLibrary" uid="uid://6h3qlf0iqxud" path="res://assets/animation/customers/al_animlib.res" id="2_n1yof"]
+[ext_resource type="AnimationLibrary" uid="uid://10ayqgphfrjg" path="res://assets/animation/customers/al_animlib.tres" id="2_itoqf"]
 [ext_resource type="SpriteFrames" uid="uid://d3p26ap1a22j3" path="res://assets/images/characters/customers/customer_al_spriteframes.tres" id="3_4sv82"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_gcaxs"]
 [ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/Voice/Doot_6.wav" id="5_a42cq"]
@@ -19,7 +19,7 @@ schedule = ExtResource("2_f1w3v")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": ExtResource("2_n1yof")
+"": ExtResource("2_itoqf")
 }
 
 [node name="character" parent="." index="1"]

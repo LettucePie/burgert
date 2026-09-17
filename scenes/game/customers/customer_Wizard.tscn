@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_kgfpk"]
 [ext_resource type="SpriteFrames" uid="uid://dpctrxg0se4m0" path="res://assets/images/characters/customers/customer_wizard_spriteframes.tres" id="2_0bhj5"]
-[ext_resource type="AnimationLibrary" uid="uid://bmj1p3xkadabu" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
+[ext_resource type="AnimationLibrary" path="res://assets/animation/customers/wizard_animlib.res" id="2_8miko"]
 [ext_resource type="Resource" uid="uid://dhvx4b4oxlli0" path="res://assets/data/schedules/Wizard_schedule.tres" id="2_tikf5"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_cakh5"]
 [ext_resource type="SpriteFrames" uid="uid://5rcwrueqq5tw" path="res://assets/images/graphics/teleport_spriteframes.tres" id="4_ituhy"]

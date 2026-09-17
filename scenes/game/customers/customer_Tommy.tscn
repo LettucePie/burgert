@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rcbdo"]
 [ext_resource type="Resource" uid="uid://dhbssucihe18x" path="res://assets/data/schedules/Tommy_schedule.tres" id="2_f533q"]
-[ext_resource type="AnimationLibrary" uid="uid://cmlbs643y6f7i" path="res://assets/animation/customers/tommy_animlib.res" id="2_untru"]
+[ext_resource type="AnimationLibrary" uid="uid://ba2cq4fythr5c" path="res://assets/animation/customers/tommy_animlib.tres" id="3_ejivd"]
 [ext_resource type="SpriteFrames" uid="uid://7dete00aqa6t" path="res://assets/images/characters/customers/customer_tommy_spriteframes.tres" id="3_ow1f6"]
 [ext_resource type="AudioStream" uid="uid://ba86xs3k5x3b5" path="res://assets/sound/sfx/Voice/Doot_9.wav" id="4_rbq5d"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="5_drlby"]
@@ -18,7 +18,7 @@ schedule = ExtResource("2_f533q")
 
 [node name="AnimationPlayer" parent="." index="0"]
 libraries = {
-"": ExtResource("2_untru")
+"": ExtResource("3_ejivd")
 }
 
 [node name="character" parent="." index="1"]
