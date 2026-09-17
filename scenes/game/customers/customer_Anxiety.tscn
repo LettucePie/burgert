@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_e5txx"]
 [ext_resource type="Resource" uid="uid://bi3e7t0oidmbr" path="res://assets/data/schedules/Anxiety_schedule.tres" id="2_36swa"]
-[ext_resource type="AnimationLibrary" uid="uid://yvfl5a3183d8" path="res://assets/animation/customers/anxiety_animlib.res" id="2_pa7y8"]
+[ext_resource type="AnimationLibrary" path="res://assets/animation/customers/anxiety_animlib.res" id="2_pa7y8"]
 [ext_resource type="SpriteFrames" uid="uid://carbatkngutoy" path="res://assets/images/characters/customers/customer_Anxiety_spriteframes.tres" id="3_3ojr1"]
 [ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/Voice/Doot_16.wav" id="4_c6av7"]
 [ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/Voice/Doot_15.wav" id="5_f52ic"]

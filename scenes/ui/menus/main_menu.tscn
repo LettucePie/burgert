@@ -1,0 +1,201 @@
+[gd_scene load_steps=22 format=3 uid="uid://8g4xevkrdylk"]
+
+[ext_resource type="Script" path="res://scenes/ui/menus/main_menu.gd" id="1_b0wja"]
+[ext_resource type="AnimationLibrary" uid="uid://bvsa0rldbwyg3" path="res://assets/animation/main_menu_animation_lib.res" id="3_lbgav"]
+[ext_resource type="PackedScene" uid="uid://vrd4yei4hrcp" path="res://scenes/ui/menus/main.tscn" id="4_6oetw"]
+[ext_resource type="PackedScene" uid="uid://dliaynw0s7s52" path="res://scenes/ui/menus/options.tscn" id="5_5is6g"]
+[ext_resource type="PackedScene" uid="uid://c11iqp1ppgjwn" path="res://scenes/ui/menus/office.tscn" id="5_ith4j"]
+[ext_resource type="PackedScene" uid="uid://chbckskdwg1q5" path="res://scenes/ui/menus/credits.tscn" id="6_vr17i"]
+[ext_resource type="PackedScene" uid="uid://bu852obctwpqd" path="res://scenes/ui/paused.tscn" id="7_i4os7"]
+[ext_resource type="Texture2D" uid="uid://7uxig8seyr6t" path="res://assets/images/graphics/menu/customerdex/paper_clip.png" id="9_a5f4b"]
+[ext_resource type="Texture2D" uid="uid://bstdix143gyp4" path="res://assets/images/graphics/menu/records/wallet_large_back_only.png" id="10_jgkut"]
+[ext_resource type="SpriteFrames" uid="uid://be4fkvlcv5vud" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-sequence/flip-phone_spriteframes.tres" id="10_uqvdc"]
+[ext_resource type="Texture2D" uid="uid://x6mf0lujestv" path="res://assets/images/graphics/menu/records/wallet_large_page_only.png" id="11_p3hdu"]
+[ext_resource type="Texture2D" uid="uid://morw8mi5hbxl" path="res://assets/images/graphics/menu/records/wallet_large_front_only.png" id="12_lu3tl"]
+[ext_resource type="PackedScene" uid="uid://d0ugadc4ilb6n" path="res://scenes/ui/menus/help.tscn" id="13_rpgj1"]
+[ext_resource type="SpriteFrames" uid="uid://dtqko8io3vl8e" path="res://assets/images/graphics/menu/help/help_book_spriteframes.tres" id="14_2s4yh"]
+[ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="15_u6v16"]
+[ext_resource type="Texture2D" uid="uid://jwctvgwo07iy" path="res://assets/images/graphics/menu/vignette.png" id="16_b2u1j"]
+[ext_resource type="PackedScene" uid="uid://c6bktnv8pckdn" path="res://scenes/ui/menus/customer_dex.tscn" id="21_lcswv"]
+[ext_resource type="PackedScene" uid="uid://74a6r632y6fd" path="res://scenes/ui/menus/records.tscn" id="22_v8q47"]
+[ext_resource type="PackedScene" uid="uid://dn7wrk0xcx8d" path="res://scenes/ui/menus/shop.tscn" id="24_peheo"]
+[ext_resource type="PackedScene" uid="uid://usn8lcjjp3ml" path="res://scenes/ui/vfx/announce.tscn" id="25_l0m7e"]
+[ext_resource type="PackedScene" uid="uid://cecupkfcj6mv6" path="res://scenes/ui/menus/jukebox.tscn" id="68_21bnj"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("anim")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0wja")
+anim = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("3_lbgav")
+}
+autoplay = "start"
+next/quit_game = &"play_stop"
+next/dex_close = &"desk_return_left"
+next/records_close = &"desk_return_left"
+next/options_close = &"desk_return_right"
+next/help_close = &"desk_return_right"
+next/radio_close = &"desk_return_left"
+next/credits_close = &"desk_return_right"
+next/shop_close = &"desk_return_left"
+
+[node name="office" parent="." instance=ExtResource("5_ith4j")]
+layout_mode = 1
+
+[node name="wall" parent="office" index="0"]
+scale = Vector2(1.2, 1.2)
+
+[node name="desk" parent="office" index="2"]
+offset_top = -176.0
+offset_bottom = -492.0
+
+[node name="folder" parent="office/desk/left_side_desktop" index="0"]
+offset_top = 110.5
+offset_bottom = 207.5
+
+[node name="radio" parent="office/desk/left_side_desktop" index="1"]
+offset_top = -104.0
+offset_bottom = 7.0
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 202.0
+offset_bottom = 279.0
+
+[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
+offset_top = 252.0
+offset_bottom = 298.0
+
+[node name="help" parent="office/desk/right_side_desktop" index="2"]
+offset_left = 2.0
+offset_top = 160.0
+offset_bottom = 262.0
+
+[node name="vignette" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_b2u1j")
+
+[node name="FolderDropHoundfall" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(293, 231)
+scale = Vector2(2.21, 2.21)
+sprite_frames = ExtResource("15_u6v16")
+animation = &"prev_customer"
+
+[node name="Paperclip" type="Sprite2D" parent="FolderDropHoundfall"]
+visible = false
+z_index = 1
+texture = ExtResource("9_a5f4b")
+
+[node name="FlipPhone" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("10_uqvdc")
+animation = &"open"
+
+[node name="Wallet" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(299, 616)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_jgkut")
+
+[node name="Wallet_Page" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("11_p3hdu")
+
+[node name="Wallet_Front" type="Sprite2D" parent="Wallet"]
+texture = ExtResource("12_lu3tl")
+
+[node name="Book" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(316, 677)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("14_2s4yh")
+animation = &"open"
+
+[node name="Main" parent="." instance=ExtResource("4_6oetw")]
+layout_mode = 1
+
+[node name="Options" parent="." instance=ExtResource("5_5is6g")]
+visible = false
+layout_mode = 1
+offset_left = -641.0
+offset_right = -641.0
+
+[node name="Credits" parent="." instance=ExtResource("6_vr17i")]
+visible = false
+layout_mode = 1
+offset_left = 640.0
+offset_right = 640.0
+
+[node name="Paused" parent="." instance=ExtResource("7_i4os7")]
+visible = false
+layout_mode = 1
+offset_top = -480.0
+offset_bottom = -480.0
+
+[node name="Help" parent="." instance=ExtResource("13_rpgj1")]
+layout_mode = 1
+offset_top = -480.0
+offset_bottom = -480.0
+
+[node name="CustomerDex" parent="." instance=ExtResource("21_lcswv")]
+visible = false
+layout_mode = 1
+
+[node name="Records" parent="." instance=ExtResource("22_v8q47")]
+visible = false
+layout_mode = 1
+
+[node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_left = 209.0
+offset_top = 87.0
+offset_right = -201.0
+offset_bottom = -293.0
+
+[node name="track_title" parent="Jukebox/screen" index="0"]
+visible = false
+
+[node name="Shop" parent="." instance=ExtResource("24_peheo")]
+visible = false
+layout_mode = 1
+
+[node name="Announce" parent="." instance=ExtResource("25_l0m7e")]
+visible = false
+layout_mode = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
+[connection signal="close_options" from="Options" to="." method="_on_options_close_options"]
+[connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
+[connection signal="pressed" from="Help/Controls/close" to="." method="_on_help_close_pressed"]
+[connection signal="close_customerdex" from="CustomerDex" to="." method="_on_customer_dex_close_customerdex"]
+[connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
+[connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
+[connection signal="close_shop" from="Shop" to="." method="_on_shop_close_shop"]
+[connection signal="announce_finish" from="Announce" to="." method="_on_announce_announce_finish"]
+
+[editable path="office"]
+[editable path="Credits"]
+[editable path="Paused"]
+[editable path="Help"]
+[editable path="CustomerDex"]
+[editable path="Records"]
+[editable path="Jukebox"]

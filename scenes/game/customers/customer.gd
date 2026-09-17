@@ -49,6 +49,8 @@ func set_state(new_state : CUSTOMER_STATE):
 		anim.play("enter")
 		if customer_name.contains("Basic"):
 			get_node("character/accessory").shuffle()
+		else:
+			get_node("character/accessory").hide()
 	elif new_state == CUSTOMER_STATE.Queue \
 	and status == CUSTOMER_STATE.Entering:
 		status = new_state
