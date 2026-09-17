@@ -72,8 +72,6 @@ func open_shop():
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	anim.play("connected")
 	load_in_menu(0, 0)
-	#main.show()
-	#finished.grab_focus()
 
 
 func update_connection_stage():

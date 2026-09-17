@@ -658,6 +658,7 @@ size_flags_vertical = 3
 text = "Music"
 
 [node name="decor" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
+visible = false
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -666,6 +667,7 @@ text = "Decor
 ** COMING SOON **"
 
 [node name="clothing" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
+visible = false
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -1006,12 +1008,12 @@ focus_neighbor_bottom = NodePath(".")
 [connection signal="pressed" from="phone/main/menu_1_1/prev_next/next" to="." method="_prev_next_song" binds= [1]]
 [connection signal="pressed" from="phone/main/menu_1_1/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_2" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_2/work_playlist"]]
-[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="_playlist_load" binds= ["work"]]
-[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/work_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="_playlist_load" binds= ["menu"]]
-[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
+[connection signal="pressed" from="phone/main/menu_1_2/main_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="_playlist_load" binds= ["jukebox"]]
+[connection signal="pressed" from="phone/main/menu_1_2/jukebox_playlist" to="." method="load_in_menu" binds= [1, 3]]
 [connection signal="pressed" from="phone/main/menu_1_2/return" to="." method="load_in_menu" binds= [1, 0]]
 [connection signal="visibility_changed" from="phone/main/menu_1_3" to="." method="_focusing_my_brains_out" binds= ["phone/main/menu_1_3/return"]]
 [connection signal="pressed" from="phone/main/menu_1_3/toggle" to="." method="_on_toggle_pressed"]
