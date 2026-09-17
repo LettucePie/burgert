@@ -10,7 +10,6 @@ signal start_timer()
 @export var customers_node : Node2D
 @export var normy_customers : Array[Customer] = []
 @export var splat : AnimatedSprite2D
-@export var TEST_CUSTOMER : Customer = null
 @export var workstations : Array[Workstation] = []
 @onready var window : AnimatedSprite2D = $window_anim
 var customers : Array[Customer] = []
@@ -45,7 +44,6 @@ func _ready():
 
 
 func prep_kitchen():
-	print("Prep Kitchen Called")
 	for c in customers:
 		c.hide()
 	splat.hide()
@@ -64,7 +62,6 @@ func prep_kitchen():
 	var schedule : Schedule = Schedule.new()
 	var timeslot_idx : int = schedule.get_current_timeslot()
 	var times_str = ["night", "morning", "noon", "afternoon", "night"]
-	print(times_str[timeslot_idx % 4])
 	window.animation = times_str[timeslot_idx % 4]
 	kitchen_prepped = true
 	_build_queue()
@@ -78,9 +75,7 @@ func _pick_normy() -> int:
 			var normy_idx = customers.find(n)
 			var queue_last = queue[queue.size() - 1]
 			if normy_idx != queue_last:
-				#print(normy_idx, " doesn't equal ", queue_last)
 				filter_repeats.append(n)
-		#print("Filtered Out non-repetitive normies :\n", filter_repeats)
 		result = customers.find(filter_repeats.pick_random())
 	return result
 
@@ -97,22 +92,13 @@ func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 	var unique_customer : Customer = pool.pick_random()
 	var idx = customers.find(unique_customer)
 	if !_check_repeat(idx):
-		print("Unique Customer is not an immediate repeat.")
 		if unique_customer.consecutive_orders > 1:
-			print("Unique Customer has consecutive Orders")
 			result.clear()
 			for x in unique_customer.consecutive_orders:
 				result.append(idx)
 				result.append(_pick_normy())
-			print("Consecutive array: ", result)
 		else:
 			result = [idx]
-	else:
-		print("Unique Customer is an immediate repeat, resorting to normy.")
-	if OS.has_feature("editor") and TEST_CUSTOMER != null:
-		if !_check_repeat(customers.find(TEST_CUSTOMER)):
-			print("TEST OVERRIDE")
-			result = [customers.find(TEST_CUSTOMER)]
 	return result
 
 
@@ -126,28 +112,20 @@ func _build_queue():
 		if (c.schedule.times.has(kitchen_timeslot) or c.schedule.times.has(0)) \
 		and !normy_customers.has(c):
 			eligible_pool.append(c)
-	print("Eligible Unique Customers Size: ", eligible_pool.size())
-	for e in eligible_pool:
-		print(e.customer_name)
 	
 	randomize()
 	for i in 38:
-		print("Queue Build, ", i)
 		if randf() <= 0.5:
-			print("Tossing in a normy")
 			queue.append(_pick_normy())
 		else:
 			if eligible_pool.size() > 0:
-				print("Tossing in a unique customer")
 				queue.append_array(_pick_unique(eligible_pool))
 			else:
-				print("No Unique Customers are eligible...")
 				queue.append(_pick_normy())
 
 
 
 func readying_next_customer() -> PackedStringArray:
-	print("Kitchen: readying_next_customer")
 	var result : PackedStringArray = []
 	queue_idx += 1
 	if current_customer != null:
@@ -167,10 +145,6 @@ func readying_next_customer() -> PackedStringArray:
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
 	and current_customer.status > 0:
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
-
-	#current_customer.play_greeting()
-	print("Current_customer : ", current_customer.customer_name)
-	print("Current_Customer New Order\n\n", result)
 	
 	return result
 
@@ -192,7 +166,6 @@ func _on_splat_animation_finished():
 
 
 func customer_fed(meal_rank : int):
-	print("Customer Fed with Meal Rank: ", meal_rank)
 	var options = [
 		"feedback_disappointed",
 		"feedback_satisfactory",
@@ -203,25 +176,20 @@ func customer_fed(meal_rank : int):
 
 
 func _on_customer_arrived():
-	print("Kitchen Customer has Arrived")
 	emit_signal("customer_ready")
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone:
-		print("Kitchen Setting next Customer to Entering")
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 
 
 func _on_customer_leaving():
-	print("Kitchen: Customer is leaving... queue next!")
 	readying_next_customer()
 
 
 func _on_customer_finished():
-	print("Kitchen Acknowledges the Customer is Gone")
 	emit_signal("customer_left")
 
 
 func _on_customer_reorder():
-	print("Kitchen Acknowledges Customer is changing their order")
 	var new_order : PackedStringArray = \
 	current_customer.orders.pick_random().duplicate()
 	emit_signal("customer_reorder", new_order)
@@ -229,30 +197,5 @@ func _on_customer_reorder():
 
 
 func _on_kitchen_switch(target_kitchen):
-	print("Kitchen Switching to: ", target_kitchen)
 	for w in workstations:
 		w.set_runic(target_kitchen == "runic")
-
-
-func _schedule_number_crunching() -> void:
-	print("Charting out spread of customers per timeslot")
-	var pool : Array = []
-	for c in customers:
-		if !normy_customers.has(c):
-			for ti in c.schedule.times:
-				pool.append(ti)
-	var weekdays : PackedStringArray = [
-		"Sunday_ ", "Monday_ ", "Tuesday_ ", "Wednesday_ ", 
-		"Thursday_ ", "Friday_ ", "Saturday_ "
-	]
-	var times : PackedStringArray = [
-		"Morning", "Noon", "Afternoon", "Midnight"
-	]
-	var time_slots_readable : PackedStringArray = [
-		"Any"
-	]
-	for w in weekdays:
-		for t in times:
-			time_slots_readable.append(w + t)
-	for i in time_slots_readable.size():
-		print(time_slots_readable[i], " : ", pool.count(i))

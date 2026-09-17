@@ -115,7 +115,6 @@ func _convert_page_buttons(text_in : String) -> String:
 	
 	for idx in button_replace_codes.size():
 		if text_in.contains(button_replace_codes[idx]):
-			print("REPLACE: ", button_replace_codes[idx])
 			var bbimg : String = "[img=24x24]"
 			var paths : PackedStringArray = keyboard_paths
 			if input_mode == 1:
@@ -124,10 +123,8 @@ func _convert_page_buttons(text_in : String) -> String:
 				paths = touchscreen_paths
 			bbimg += paths[idx]
 			bbimg += "[/img]"
-			print(bbimg)
 			result = result.replace(button_replace_codes[idx], bbimg)
 	
-	print(result)
 	return result
 
 
@@ -167,7 +164,6 @@ func _load_page(num : int):
 
 
 func _turn_page(dir : int):
-	print("Turning Page: ", dir)
 	if current_page + dir < titles.size() \
 	and current_page + dir >= 0:
 		_load_page(current_page + dir)

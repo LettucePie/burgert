@@ -24,7 +24,6 @@ var timer_remaining : float = 0
 func set_state(new_state : STATE):
 	if new_state == STATE.MENU:
 		anim.play("intro_ramp")
-		print("MUSIC: intro_ramp")
 	if new_state == STATE.PLAY:
 		if current_state == STATE.MENU:
 			anim.play("start_play")
@@ -45,7 +44,6 @@ func set_state(new_state : STATE):
 
 
 func set_track_random():
-	print("MUSIC: set_track_random")
 	var matched_song : Song = silent_song
 	if current_state == STATE.MENU and main_playlist.size() > 0:
 		var idx = main_playlist[randi_range(0, main_playlist.size() - 1)]
@@ -61,7 +59,6 @@ func set_track_random():
 
 func _on_finished():
 	anim.play("queue_next")
-	print("MUSIC: queue_next")
 
 
 func capture_playback_time():
@@ -74,12 +71,10 @@ func capture_playback_time():
 func _on_audio_timer_timeout() -> void:
 	audio_timer.stop()
 	if current_song.crossfade:
-		print("MUSIC: fade_out")
 		anim.play("fade_out")
 
 
 func purchased_song_from_shop(song : Song) -> void:
-	print("Music: purchasing song: ", song.title)
 	var idx : int = all_songs.find(song)
 	jukebox_playlist.append(idx)
 	emit_signal("purchased_song", song)
@@ -87,7 +82,6 @@ func purchased_song_from_shop(song : Song) -> void:
 
 func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 	var song_library_idx : int = all_songs.find(song)
-	print("Editing: ", playlist, " with song: ", song_library_idx, ": ", song.title, " ADD: ", add_remove)
 	if playlist == "work":
 		if play_playlist.has(song_library_idx) and !add_remove:
 			play_playlist.remove_at(play_playlist.find(song_library_idx))
@@ -103,5 +97,4 @@ func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 			jukebox_playlist.remove_at(jukebox_playlist.find(song_library_idx))
 		elif !jukebox_playlist.has(song_library_idx) and add_remove:
 			jukebox_playlist.append(song_library_idx)
-	print("SAVE PLAYLIST")
 	emit_signal("updated_playlists")

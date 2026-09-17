@@ -125,7 +125,6 @@ func _update_shuffle_button() -> void:
 
 
 func _on_play_pressed() -> void:
-	print("Play Pressed")
 	#_update_player()
 	if player.playing:
 		player.stop()
@@ -148,7 +147,6 @@ func _on_next_pressed() -> void:
 
 
 func _on_stop_pressed() -> void:
-	print("Stop Pressed")
 	player.stop()
 	track_timer.stop()
 	#_update_progress()
@@ -201,10 +199,6 @@ func _calculate_visualizer_data() -> void:
 		if raw_value < visual_data[idx]:
 			lerp_speed = 0.35
 		visual_data[idx] = lerpf(visual_data[idx], raw_value, lerp_speed)
-		#print(visual_data[idx])
-		#if visual_data[idx] > largest_value:
-			#largest_value = visual_data[idx]
-			#print(largest_value)
 
 
 func _draw_visualizer() -> void:

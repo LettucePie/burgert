@@ -229,7 +229,6 @@ func _move_sheet(dir : int) -> void:
 
 
 func _on_pagebutton_pressed(dir: int) -> void:
-	print("CustomerDex PageButton: ", dir)
 	var new_val = current_page + dir
 	if new_val > customer_names_internal.size() - 1:
 		new_val = 0
@@ -276,11 +275,8 @@ func _load_page(target : int):
 	var missed_day : bool = false
 	for current_day_timeslot in current_daygroup:
 		if customer_schedule.times.has(current_day_timeslot):
-			print("Time Slot Found: ", current_day_timeslot)
-			print(customer_schedule.times)
 			current_day = true
 			missed_day = current_day_timeslot < current_timeslot
-	print("current_timeslot: ", current_timeslot, "\ncurrent_daygroup: ", current_daygroup, "\ncurrent_time: ", current_time, "\ncurrent_day: ", current_day)
 	if current_time or customer_schedule.times.has(0):
 		schedule_text += customer_schedule_descriptions[0]
 	elif current_day and !missed_day:
@@ -298,7 +294,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_page_reveal_button_pressed() -> void:
-	print("Revealing Page")
 	if page_reveal_flipped:
 		page_reveal_flipped = false
 		page_reveal.play("hide")

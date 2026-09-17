@@ -31,10 +31,8 @@ func _process(delta):
 		value_label.add_theme_color_override("font_color", label_color_highlight)
 		var previous = value
 		if Input.is_action_just_pressed("left"):
-			print("Slider Left")
 			value -= 1
 		elif Input.is_action_just_pressed("right"):
-			print("Slider Right")
 			value += 1
 		if value != previous:
 			if value < 0: value = 0

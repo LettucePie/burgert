@@ -36,7 +36,6 @@ var burger_mode_3d : bool = true
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu") and game_started:
-		print("PAUSE")
 		emit_signal("game_paused")
 	if Input.is_action_just_pressed("special1") and game_started:
 		if chef.active:
@@ -78,12 +77,10 @@ func start_game():
 
 
 func stop_game(reset : bool):
-	print("Game_ stop_game Called")
 	if reset:
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)
 		kitchen.prep_kitchen()
-		print("Returning to Menu Mode")
 		$AnimationPlayer.play("menu_transition")
 	results.hide()
 	game_started = false
@@ -95,20 +92,13 @@ func adjust_score(arg : int):
 	game_scores.append(arg)
 	current_score += arg
 	hud.set_score(current_score)
-	print("Adding ", arg, " points")
 
 
 func make_new_order():
 	current_order.clear()
-	#current_order = generate_order(1)
-	#current_order_position = randi_range(0, 3)
 	current_order = kitchen.readying_next_customer()
-	## TODO transition burger portal display from HUD to Kitchen. Keep Order List
-	#kitchen.update_burger_portal()
-	#hud.push_burger_build(current_order, current_order_position)
 	hud.push_burger_build(current_order)
 	chef.order_size = current_order.size()
-	print("TODO replace with throw-away burger anim + function")
 	chef.current_burger.refresh_plate()
 	chef.waiting = true
 
@@ -161,7 +151,6 @@ func assess_submission():
 		var b = "invalid"
 		if submission.size() >= i + 1:
 			b = submission[i]
-		print("[",i,"]: ", a, " | ", b)
 		if current_order.has(b) and correct_ingredient_storage.has(b):
 			correct_ingredients += 1
 			correct_ingredient_storage.remove_at(correct_ingredient_storage.find(b))
@@ -181,17 +170,6 @@ func assess_submission():
 		chef.charging_rate_min, chef.charging_rate_max, 
 		current_order_charging_rate
 		))
-	print("SCORE Asessment: \ncorrect_ingredients: ", correct_ingredients, 
-	"\ncorrect_placements: ", correct_placements,
-	"\nfinish_time: ", finish_time,
-	"\ndeadline: ", deadline,
-	"\ntime_performance: ", time_performance,
-	"\ntime_percent: ", time_percent,
-	"\ntime_score: ", time_score,
-	"\nburger_score: ", burger_score,
-	"\nsubmission_total: ", burger_score + time_score,
-	"\nsatisfaction_percent: ", satisfaction_percent, 
-	"\ncharge_throw: ", charge_throw)
 	submission_total = (burger_score + time_score) * charge_throw
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
@@ -204,7 +182,6 @@ func assess_submission():
 	emit_signal("finished_order", kitchen.current_customer.customer_name, rank)
 	kitchen.customer_fed(rank)
 	chef.waiting = true
-	#make_new_order()
 
 
 func _on_chef_start_burger_submission():
@@ -232,10 +209,8 @@ func _throw_burger_2d_at(target : Vector2) -> void:
 
 func _on_burger_2d_reached_target(target) -> void:
 	if submit.check_customer(kitchen.current_customer):
-		print("Successful Throw")
 		assess_submission()
 	else:
-		print("Failed Throw")
 		kitchen.play_splat(submit.get_target_position())
 	chef.current_burger.refresh_plate()
 	chef.burger_sprite.show()
@@ -250,7 +225,6 @@ func _on_chef_submit_burger():
 
 
 func _on_game_timer_timeout():
-	print("GAME TIMER FINISH")
 	$game_timer.stop()
 	game_started = false
 	chef.active = false
@@ -274,7 +248,6 @@ func _on_kitchen_a_customer_left():
 
 
 func _on_kitchen_a_customer_reorder(new_order : PackedStringArray) -> void:
-	print("Current Customer has decided a new order of\n", new_order)
 	current_order.clear()
 	current_order = new_order
 	hud.push_burger_build(current_order)
@@ -282,7 +255,6 @@ func _on_kitchen_a_customer_reorder(new_order : PackedStringArray) -> void:
 
 
 func _on_hud_gui_pause():
-	print("Pause Button GUI")
 	if game_started:
 		emit_signal("game_paused")
 

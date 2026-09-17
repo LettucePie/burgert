@@ -76,7 +76,6 @@ func _tween_layer_out(obj : Sprite2D):
 
 
 func _adjust_stack(arg : int):
-	print("Adjusting Stack from: ", current_stack, " by: ", arg)
 	var layer : Sprite2D = stack[current_stack]
 	if arg < 0 and current_stack != 0:
 		_tween_layer_out(layer)
@@ -121,7 +120,6 @@ func go_to_layer(layer_name : String) -> void:
 	var target_idx = stack_labels_internal.find(layer_name)
 	var difference : int = abs(current_stack - target_idx)
 	var direction : int = -1
-	print("Going to Layer: ", layer_name, " at idx: ", target_idx)
 	if target_idx > current_stack:
 		direction = 1
 	for i in difference:

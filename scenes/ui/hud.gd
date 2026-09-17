@@ -157,7 +157,6 @@ func _on_pause_pressed():
 
 
 func _on_order_gui_input(event: InputEvent) -> void:
-	print(event)
 	if event is InputEventMouseMotion:
 		$order.scroll_vertical -= event.relative.y
 
@@ -168,7 +167,6 @@ func start_trashing():
 
 
 func update_trashing(val):
-	print("Trashing NewVal: ", val)
 	trash_bar.value = val
 
 

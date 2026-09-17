@@ -112,10 +112,8 @@ func process_actions(delta):
 		and current_burger.ingredients.size() < order_size:
 			if current_station.ingredient == "Bun" \
 			and current_burger.ingredients.size() == order_size - 1:
-				print("Grabbing Top Bun")
 				current_burger.add_ingredient("Bun Top")
 			else:
-				print("Grabbing Ingredient: ", current_station.ingredient)
 				current_burger.add_ingredient(current_station.ingredient)
 			current_station.pickup_sfx()
 	if Input.is_action_just_pressed("up"):
@@ -123,7 +121,6 @@ func process_actions(delta):
 		and !submitting_burger:
 			submitting_burger = true
 			charging_rate = charging_rate_min
-			print("Enter Throw Stance")
 			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
 	if Input.is_action_pressed("cancel") \
@@ -133,11 +130,9 @@ func process_actions(delta):
 			trashing_ticks = 60
 			emit_signal("trashing_start")
 		trashing_ticks -= 2
-		print(trashing_ticks)
 		emit_signal("trashing_progress", abs(float((trashing_ticks - 60) / float(60))))
 		if trashing_ticks <= 0:
 			trashing = false
-			print("Trashing Burger")
 			sfx.stream = trash_sfx
 			sfx.play()
 			current_burger.refresh_plate()
@@ -166,14 +161,12 @@ func process_submission(delta):
 	if Input.is_action_just_pressed("up") \
 	or (Input.is_action_just_released("up") and charging_rate > quick_throw_threshold) \
 	or Input.is_action_just_pressed("confirm"):
-		print("Send Burger")
 		emit_signal("submit_burger")
 		state_machine.travel("Throw_" + direction)
 		charging_rate = charging_rate_min
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
-		print("Cancel Throw")
 		emit_signal("cancel_burger_submission")
 		state_machine.travel("Idle_" + direction)
 
@@ -206,7 +199,6 @@ func intro_animation_override():
 
 
 func intro_animation_finished():
-	print("Intro Finished")
 	anim_tree.active = true
 	emit_signal("chef_ready")
 	active = true

@@ -33,7 +33,6 @@ func set_host(host : Play) -> void:
 
 
 func apply_settings() -> void:
-	print("Updating Settings Display")
 	mus_vol.value = settings_host.settings.get_mus_vol()
 	mus_vol.update_vals(false)
 	sfx_vol.value = settings_host.settings.get_sfx_vol()
@@ -77,7 +76,6 @@ func _on_set_lang_pressed() -> void:
 
 
 func _on_finished_pressed() -> void:
-	print("Sending Close Options...")
 	emit_signal("close_options")
 
 

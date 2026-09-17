@@ -11,7 +11,6 @@ var last_touch_time : int = 0
 
 
 func adopt(game : Play, root : Window):
-	print("Game Container adopting Play/Game: ", game, " with root of: ", root)
 	play = game
 	var mus_progress : float = game.music.get_playback_position()
 	root.remove_child(game)
@@ -65,14 +64,11 @@ func rescale():
 	var y = get_window().size.y
 	var multis = [x / w, y / h]
 	var scale_factor = multis.min()
-	print("SCALE FACTOR: ", scale_factor)
 	if scale_factor == 0 and x >= 320 and y >= 240:
-		#render.size = Vector2(320, 240)
 		render.scale = Vector2(0.5, 0.5)
 		render.position = Vector2.ZERO
 	else:
 		render.scale = Vector2(scale_factor, scale_factor)
-		#render.size = Vector2(w * scale_factor, h * scale_factor)
 		render.position.x = (x / 2) - ((w * scale_factor) / 2)
 		render.position.y = (y / 2) - ((h * scale_factor) / 2)
 

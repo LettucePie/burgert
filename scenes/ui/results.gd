@@ -45,16 +45,6 @@ var timeline : PackedStringArray = [
 ]
 
 
-##TESTING
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_SPACE and OS.has_feature("editor"):
-			print("RUNNING TEST")
-			display_results(
-				PackedFloat32Array([0.333, 0.5, 0.1, 1.0, 0.5, 0.67, 0.8, 0.333]), 
-				PackedInt32Array([6, 12, -4, 20, 11, -9, 5, 1]))
-
-
 func _ready():
 	self.hide()
 	$assets.hide()
@@ -74,11 +64,8 @@ func _process_receipts() -> void:
 			temporary_percent += result_accuracies[index]
 		else:
 			for i in index:
-				print(i, ": ", result_accuracies[i])
 				temporary_percent += result_accuracies[i]
 			temporary_percent /= index
-		print("TempPercent: ", temporary_percent)
-		print("TempPercent Styled: ", snapped((temporary_percent * 100), 0.01))
 		if index >= 0 :
 			order_count.text = str(index + 1)
 			accuracy.text = str(snapped((temporary_percent * 100), 0.01)) + "%"
@@ -103,7 +90,6 @@ func _process_typing() -> void:
 
 
 func _process_money() -> void:
-	print("Processing Money")
 	if result_scores.size() == 0:
 		score.text = "$0"
 		counting_money = false
@@ -151,7 +137,6 @@ func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array)
 	##
 	result_order_count = accuracies.size()
 	for a in accuracies:
-		print("Accuracy: ", a)
 		result_percent += a
 	result_percent /= accuracies.size()
 	order_count.text = "-"
@@ -173,7 +158,6 @@ func _on_finish_pressed():
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
-	print("Animation Finished: ", anim_name)
 	if anim_name != "panel_exit":
 		next_animation_step()
 
@@ -181,10 +165,8 @@ func _on_animation_finished(anim_name: StringName) -> void:
 func next_animation_step():
 	var next = animation_step + 1
 	if !timeline[next].contains("!"):
-		print("Playing Animation: ", timeline[next])
 		anim_play.play(timeline[next])
 	else:
-		print("Executing Step: ", timeline[next])
 		if timeline[next] == "!spawn_receipts":
 			start_spawning_receipts()
 		if timeline[next] == "!count_money":
@@ -196,20 +178,17 @@ func next_animation_step():
 
 
 func start_spawning_receipts():
-	print("Spawning Receipts")
 	spawning_receipt_count = result_order_count
 	spawning_receipts = true
 	tick = 0
 
 
 func start_typing_scorelabel():
-	print("Typing ScoreLabel")
 	typing_scorelabel = true
 	typing_scorelabel_charcount = scorelabel.visible_characters
 
 
 func start_counting_money():
-	print("Counting Money")
 	spawning_receipt_count = 0
 	counting_score = 0
 	counting_money = true

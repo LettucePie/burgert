@@ -22,7 +22,6 @@ func _on_resized():
 		b.position = Vector2.ZERO
 		b.position.x = frame.size.x / 2
 		b.position.x -= (64 * b.scale.x) / 2
-		print(b.position, " | ", b.scale)
 
 
 func _on_update_size_timeout():

@@ -41,57 +41,43 @@ func _ready():
 
 
 func set_state(new_state : CUSTOMER_STATE):
-	print("Customer ", customer_name, ": set_state: ", new_state)
 	if new_state == CUSTOMER_STATE.Entering \
 	and status == CUSTOMER_STATE.Gone:
 		status = new_state
 		#self.show()
 		burger_portal_sprite.hide()
 		anim.play("enter")
-		print(customer_name, ": ENTER")
 		if customer_name.contains("Basic"):
 			get_node("character/accessory").shuffle()
 	elif new_state == CUSTOMER_STATE.Queue \
 	and status == CUSTOMER_STATE.Entering:
 		status = new_state
 		anim.play("queue")
-		print(customer_name, ": QUEUE")
 	elif new_state == CUSTOMER_STATE.Ordering \
 	and status == CUSTOMER_STATE.Queue or status == CUSTOMER_STATE.Entering:
 		status = new_state
 		anim.play("ordering")
-		print(customer_name, ": ORDERING")
 	elif new_state == CUSTOMER_STATE.Waiting \
 	and status == CUSTOMER_STATE.Ordering:
 		status = new_state
 		emit_signal("customer_arrived")
 		anim.play("waiting")
-		print(customer_name, ": WAITING")
 	elif new_state == CUSTOMER_STATE.Munching \
 	and status == CUSTOMER_STATE.Waiting:
 		status = new_state
 		burger_portal_sprite.hide()
 		anim.play("munching")
-		print(customer_name, ": MUNCHING")
 	elif new_state == CUSTOMER_STATE.Leaving\
 	and status == CUSTOMER_STATE.Munching:
 		status = new_state
 		anim.play("leaving")
-		## TODO
-		## Investigate how commenting out this one line fixed the whole thing.
-		## This ultimately leads to calling kitchen:readying_next_order()
-		## However customer_finished signal also leads to that point...
-		#emit_signal("customer_leaving")
-		print(customer_name, ": LEAVING")
 	elif new_state == CUSTOMER_STATE.Gone \
 	and status == CUSTOMER_STATE.Leaving:
 		status = new_state
 		emit_signal("customer_finished")
-		print(customer_name, ": GONE")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print(customer_name, ": finished anim: ", anim_name)
 	if anim_name == "enter":
 		if current_customer:
 			set_state(CUSTOMER_STATE.Ordering)

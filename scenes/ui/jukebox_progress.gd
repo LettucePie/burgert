@@ -11,7 +11,6 @@ func _ready() -> void:
 	for c in get_children():
 		if c.name.contains("tick_"):
 			tick_boxes.append(c)
-	#print(tick_boxes)
 	reset_progress()
 
 
@@ -22,7 +21,6 @@ func reset_progress() -> void:
 
 func set_progress(arg : int) -> void:
 	if progress != arg:
-		print("JukeBox Set Progress")
 		progress = arg
 		display_progress()
 

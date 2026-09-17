@@ -110,7 +110,6 @@ func _process(delta: float) -> void:
 
 
 func load_in_menu(main_idx : int, branch_idx : int) -> void:
-	print("Loading Menu: ", main_idx, "_", branch_idx)
 	primary_branch = 0
 	submenu_branch = 0
 	for menu in menus:
@@ -167,18 +166,15 @@ func _render_song(idx : int) -> void:
 
 
 func _on_purchase_pressed() -> void:
-	print("Purchasing Current Song")
 	anim.play("purchasing")
 	$empty_nothing.grab_focus()
 	$phone/purchase/label.text = purchase_messages[0]
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	if wallet.total_score - wallet.spent_score > current_song.store_cost:
-		print("We can Afford")
 		anim.play("success")
 		$phone/purchase/label.text = purchase_messages[1]
 		music_library.purchased_song_from_shop(current_song)
 	else:
-		print("We Poor")
 		anim.play("fail")
 		$phone/purchase/label.text = purchase_messages[2]
 
@@ -230,7 +226,6 @@ func _on_toggle_pressed() -> void:
 
 
 func _playlist_load(playlist_name: String) -> void:
-	print("Playlist Load")
 	if playlist_name == "work":
 		$phone/main/menu_1_3/playlist_label.text = $phone/main/menu_1_2/work_playlist.text
 		editing_playlist = music_library.play_playlist.duplicate()
@@ -248,7 +243,6 @@ func _focusing_my_brains_out(path: String) -> void:
 	if target.get_parent().visible:
 		current_menu = target.get_parent()
 		target.grab_focus()
-		print("path: ", path, " FOCUS")
 
 
 func _on_preview_timer_timeout() -> void:
@@ -256,7 +250,6 @@ func _on_preview_timer_timeout() -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print("AnimationFinished: ", anim_name)
 	if anim_name == "success" or anim_name == "fail":
 		$phone/main.show()
 		$phone/purchase.hide()

@@ -62,6 +62,7 @@ var settings : Settings
 
 
 func _default_settings():
+	print("Loading Default Settings")
 	settings = Settings.new()
 	settings.version = game_version
 	settings.set_mus_vol(8)
@@ -545,7 +546,6 @@ func _on_main_menu_resume_play():
 
 
 func _on_main_menu_quit_play():
-	print("Main Menu Quit Play")
 	game_scene.stop_game(true)
 	music.set_state(Music.STATE.MENU)
 	get_tree().paused = true
@@ -587,7 +587,6 @@ func _on_multi_lang_set_lang(lang: String) -> void:
 
 
 func _on_main_menu_bgm_pause(pause: bool) -> void:
-	print("main menu bgm signal recieved")
 	if pause:
 		music.anim.play("pause_play")
 	else:
@@ -596,7 +595,6 @@ func _on_main_menu_bgm_pause(pause: bool) -> void:
 
 
 func _on_music_purchased_song(song: Song) -> void:
-	print("ADDING SONG TO OWNED SONGS")
 	stats.add_song_owned(music.all_songs.find(song))
 	stats.adjust_spent_score(song.store_cost)
 	_save_stats()

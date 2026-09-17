@@ -84,7 +84,6 @@ func set_day_message() -> void:
 	current_announcement = randi_range(0, 2)
 	var announce_style : String = "_" + str(current_announcement)
 	anim.play("announce" + announce_style)
-	print("Current Timeslot: ", timeslot)
 
 
 func _ready() -> void:
@@ -109,7 +108,6 @@ func _process(delta: float) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print("ANNOUNCE FINISHED")
 	current_announcement = -1
 	emit_signal("announce_finish")
 	self.hide()

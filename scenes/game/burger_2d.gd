@@ -52,13 +52,11 @@ func set_target(target : Vector2, speed_mult : float) -> void:
 	start_pos = self.position
 	target_pos = target
 	arch_pos = start_pos.lerp(target_pos, 0.5)
-	#print("DISTANCE: ", start_pos.distance_squared_to(arch_pos))
 	speed = lerpf(0.05, 0.09, inverse_lerp(90000, 8400, start_pos.distance_squared_to(arch_pos)))
-	var offset : float = lerpf(0.0, 124, 
+	var offset : float = lerpf(0.0, 144, 
 	inverse_lerp(0, 640, absf(start_pos.x - target_pos.x)))
 	arch_pos.y -= offset
 	speed = speed + (0.08 * (speed_mult - 0.99))
-	print("THROW BURGER SPEED: ", speed, " speed mult: ", speed_mult)
 	throw_sfx.play()
 
 
@@ -75,11 +73,7 @@ func _physics_process(delta: float) -> void:
 		journey += speed
 		var pos : Vector2 = position
 		pos = _quadratic_bezier(start_pos, arch_pos, target_pos, journey)
-		#pos = pos.move_toward(target_pos, speed)
-		#pos = pos.lerp(target_pos, 0.12 * speed)
 		position = pos
-		#if pos.distance_squared_to(target_pos) < 0.25:
 		if journey >= 1.0:
-			print("Burger Throw reached Target")
 			emit_signal("reached_target", target_pos)
 			queue_free()
