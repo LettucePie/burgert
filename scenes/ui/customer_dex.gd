@@ -81,7 +81,7 @@ signal close_customerdex
 	anyway... still it's unnerving.",
 	"One of my favorites. She's in and out, has simple requests, and manages \
 	to make an enchanting breeze as she dances out the door.",
-	"Ketchup\nI try to be an honest chef. I make food how the people want it, \
+	"I try to be an honest chef. I make food how the people want it, \
 	it makes me happy. This dude though, this dude is a freak.",
 	"I think they're trying to make their own sandwhich somewhere, I don't get \
 	it. Just let me make your sandwhich for you. It's my whole job. I'm not \
@@ -89,7 +89,7 @@ signal close_customerdex
 	"Just order a triple. I can do that. Nothing bad will happen. You will get \
 	the same amount of food, and be on your way to continue deliveries.\n\
 	oh wait... you're just wasting your time here aren't you...",
-	"Bread Crumbs\nWhen people don't have time to feed fishes at the pond... the \
+	"When people don't have time to feed fishes at the pond... the \
 	fish, find a way.",
 	"He's about to go on a date... I know it. He gets a haircut, then comes \
 	here to eat just before meeting up with is date. I'm guessing he is worried \

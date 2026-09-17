@@ -500,6 +500,11 @@ func _input(event):
 			main_menu.help.input_mode = 0
 	if event is InputEventJoypadButton:
 		main_menu.help.input_mode = 1
+	if event is InputEventKey and OS.has_feature("editor"):
+		if event.keycode == KEY_F1 and event.is_pressed():
+			for customer in game_scene.kitchen.customers:
+				for i in 10:
+					_on_game_finished_order(customer.customer_name, 3)
 
 
 func _on_main_menu_prepare_kitchen() -> void:
