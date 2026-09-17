@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3cqcj40gn7y"
-path="res://.godot/imported/shop_icon.png-371bf37b37bfbec0d30ddf8b35801c14.ctex"
+uid="uid://xejed67y0vhp"
+path="res://.godot/imported/register.png-de7925063b7f9800754b64cfd6bd7179.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/icons/shop_icon.png"
-dest_files=["res://.godot/imported/shop_icon.png-371bf37b37bfbec0d30ddf8b35801c14.ctex"]
+source_file="res://assets/images/environment/kitchen/restaurant_fg/register.png"
+dest_files=["res://.godot/imported/register.png-de7925063b7f9800754b64cfd6bd7179.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

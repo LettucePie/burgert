@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://c11iqp1ppgjwn"]
 
-[ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/office_wall.png" id="1_4hug6"]
-[ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/office_wall_top.png" id="2_g01w7"]
-[ext_resource type="Texture2D" uid="uid://bqutcppi6jf7v" path="res://assets/images/graphics/menu/desk_tiled.png" id="3_nhuvg"]
+[ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/menu_desk/office_wall.png" id="1_4hug6"]
+[ext_resource type="Texture2D" uid="uid://b4es0h43cy1pv" path="res://assets/images/graphics/menu/menu_desk/office_wall_top.png" id="2_g01w7"]
+[ext_resource type="Texture2D" uid="uid://bqutcppi6jf7v" path="res://assets/images/graphics/menu/menu_desk/desk_tiled.png" id="3_nhuvg"]
 [ext_resource type="Texture2D" uid="uid://cvsabkif45t4g" path="res://assets/images/graphics/menu/menu_desk/page_scribble_1.png" id="3_ruhce"]
 [ext_resource type="Texture2D" uid="uid://7vcu1nqmf33b" path="res://assets/images/graphics/menu/menu_desk/menu_desk_windowtrim.png" id="4_hq5f2"]
 [ext_resource type="Texture2D" uid="uid://djnjjot1slux2" path="res://assets/images/graphics/menu/menu_desk/menu_desk_folder.png" id="5_43y5r"]

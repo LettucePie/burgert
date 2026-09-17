@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dso3tex3lg86b" path="res://assets/images/graphics/menu/icons/settings_gear.png" id="5_gxdf3"]
 [ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="5_ph245"]
 [ext_resource type="AudioStream" uid="uid://bsbf1frqdk36h" path="res://assets/sound/sfx/Ingredients/Lettuce.wav" id="6_2wyia"]
-[ext_resource type="Texture2D" uid="uid://7o8j4g3f2rb7" path="res://assets/images/graphics/menu/plate.png" id="6_qkixa"]
+[ext_resource type="Texture2D" uid="uid://7o8j4g3f2rb7" path="res://assets/images/graphics/menu/menu_desk/plate.png" id="6_qkixa"]
 [ext_resource type="Texture2D" uid="uid://dpy4km1saxqnp" path="res://assets/images/graphics/menu/icons/help_icon.png" id="6_v0pyw"]
 [ext_resource type="Texture2D" uid="uid://bom5y1u07lnpo" path="res://assets/images/graphics/menu/icons/jukebox_icon.png" id="7_2wa71"]
 [ext_resource type="AudioStream" uid="uid://bh2a0pa0ar268" path="res://assets/sound/sfx/Ingredients/Tomato.wav" id="7_513fl"]
@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
-[ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon_2.png" id="21_4lms7"]
+[ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="21_4lms7"]
 [ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_coo2x"]

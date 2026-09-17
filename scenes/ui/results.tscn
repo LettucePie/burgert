@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://db8aetxoj0ve1" path="res://assets/sound/sfx/Menu/Bell_2_FOR MONEY.wav" id="8_3jwev"]
 [ext_resource type="PackedScene" uid="uid://bk20gm57pbltf" path="res://scenes/game/jitter_dialog.tscn" id="10_emy1f"]
 [ext_resource type="AudioStream" uid="uid://b34rn41nkyiii" path="res://assets/sound/sfx/wallsplat_sfx_1.wav" id="11_klqyp"]
-[ext_resource type="Texture2D" uid="uid://cdwl5nc6us7kb" path="res://assets/images/environment/kitchen/restaurant_fg/register_v2_nocord.png" id="14_ax7eq"]
+[ext_resource type="Texture2D" uid="uid://cdwl5nc6us7kb" path="res://assets/images/environment/kitchen/restaurant_fg/register_nocord.png" id="14_ax7eq"]
 
 [sub_resource type="Animation" id="Animation_5tql6"]
 length = 0.001
