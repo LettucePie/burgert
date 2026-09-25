@@ -32,22 +32,34 @@ var current_order_start_time : float = 0
 var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
 var burger_mode_3d : bool = true
+var chef_idle : bool = false
 
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu") and game_started:
+		hud.show_order(false)
 		emit_signal("game_paused")
 	if Input.is_action_just_pressed("special1") and game_started:
-		if chef.active:
-			chef.active = false
-			hud.show_order(true)
-		else:
-			chef.active = true
-			hud.show_order(false)
-	if Input.is_action_just_pressed("cancel") and game_started:
 		if hud.order_shown:
-			chef.active = true
 			hud.show_order(false)
+		else:
+			hud.show_order(true)
+		#if chef.active:
+			#chef.active = false
+			#hud.show_order(true)
+		#else:
+			#chef.active = true
+			#hud.show_order(false)
+	if Input.is_action_just_pressed("cancel") and game_started:
+		pass
+		#if hud.order_shown:
+			#chef.active = true
+			#hud.show_order(false)
+	if chef.idle_counter > 60:
+		if !submit.playing and hud.order_dithered:
+			hud.dither_order(false)
+	elif !hud.order_dithered:
+		hud.dither_order(true)
 	if Input.is_key_pressed(KEY_F2) and OS.has_feature("editor"):
 		$game_timer.start(5)
 
@@ -257,6 +269,7 @@ func _on_kitchen_a_customer_reorder(new_order : PackedStringArray) -> void:
 func _on_hud_gui_pause():
 	if game_started:
 		emit_signal("game_paused")
+		hud.show_order(false)
 
 
 func _on_chef_trashing_start() -> void:

@@ -8,3 +8,5 @@ script = ExtResource("1_3tg0j")
 track = ExtResource("2_vyk2n")
 title = "YOU WON $100000 !!!"
 artist = "Unknown"
+crossfade = true
+store_cost = 49

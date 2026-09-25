@@ -8,3 +8,5 @@ script = ExtResource("1_ekg72")
 track = ExtResource("2_g270k")
 title = "hoping. dreaming."
 artist = "artie77"
+crossfade = true
+store_cost = 49

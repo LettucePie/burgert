@@ -4,6 +4,9 @@ class_name HUD
 signal gui_pause()
 
 var order_shown : bool = false
+var order_dithered : bool = false
+var order_dither_buffer : int = 60
+@export var dithered_color : Color
 var timer : Timer = null
 
 @onready var time : Label = $stats/frame/time
@@ -116,6 +119,13 @@ func _build_order(build):
 func show_order(tf : bool):
 	order_shown = tf
 	$order.visible = tf
+	if tf:
+		order_dither_buffer = 10
+	dither_order(false)
+
+
+func dither_order(tf : bool):
+	order_dithered = tf
 
 
 func push_burger_build(build : PackedStringArray):
@@ -148,6 +158,12 @@ func process_scrolling(delta):
 func _physics_process(delta):
 	if order_shown:
 		process_scrolling(delta)
+		if order_dithered and order_dither_buffer <= 0:
+			$order.modulate = $order.modulate.lerp(dithered_color, 0.2)
+		else:
+			$order.modulate = $order.modulate.lerp(Color.WHITE, 0.2)
+		if order_dither_buffer > 0:
+			order_dither_buffer -= 1
 	if timer != null:
 		time.text = str(floor(timer.time_left))
 

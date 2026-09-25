@@ -8,6 +8,7 @@ signal chef_ready()
 signal trashing_start()
 signal trashing_progress(val)
 signal trashing_stopped()
+#signal chef_idle(tf)
 
 const MOVE_SPEED = 10
 @onready var burger_portal : BurgerPortal = $burger_portal
@@ -25,6 +26,7 @@ const MOVE_SPEED = 10
 @export var trash_sfx : AudioStreamWAV = null
 
 var active : bool = true
+var idle_counter : int = 0
 var stations : Array[Workstation]
 var current_station : Workstation = null
 var direction : String = "L"
@@ -102,6 +104,7 @@ func process_movement(delta):
 		assess_closest_station()
 		anim_tree.set("parameters/conditions/idle_L", false)
 		anim_tree.set("parameters/conditions/idle_R", false)
+		idle_counter = 0
 	else:
 		anim_tree.set("parameters/conditions/idle_" + direction, true)
 
@@ -116,6 +119,7 @@ func process_actions(delta):
 			else:
 				current_burger.add_ingredient(current_station.ingredient)
 			current_station.pickup_sfx()
+			idle_counter = 0
 	if Input.is_action_just_pressed("up"):
 		if current_burger.ingredients.size() >= order_size \
 		and !submitting_burger:
@@ -123,6 +127,7 @@ func process_actions(delta):
 			charging_rate = charging_rate_min
 			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
+			idle_counter = 0
 	if Input.is_action_pressed("cancel") \
 	and current_burger.ingredients.size() > 0:
 		if !trashing:
@@ -137,6 +142,7 @@ func process_actions(delta):
 			sfx.play()
 			current_burger.refresh_plate()
 			emit_signal("trashing_stopped")
+		idle_counter = 0
 	if Input.is_action_just_released("cancel") and trashing:
 		trashing = false
 		emit_signal("trashing_stopped")
@@ -164,6 +170,7 @@ func process_submission(delta):
 		emit_signal("submit_burger")
 		state_machine.travel("Throw_" + direction)
 		charging_rate = charging_rate_min
+		idle_counter = 0
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
@@ -173,12 +180,17 @@ func process_submission(delta):
 
 func _physics_process(delta):
 	if active:
+		idle_counter += 1
 		if !submitting_burger:
 			process_movement(delta)
 			if !waiting:
 				process_actions(delta)
 		else:
 			process_submission(delta)
+		#if idle_counter >= 60:
+			#emit_signal("chef_idle", true)
+		#if idle_counter <= 0:
+			#emit_signal("chef_idle", false)
 
 
 func _on_area_2d_area_entered(area):
