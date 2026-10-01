@@ -65,9 +65,8 @@ blend_point_5/node = SubResource("AnimationNodeAnimation_1cvtf")
 blend_point_5/pos = 0.8
 min_space = 0.0
 
-[sub_resource type="Animation" id="Animation_5cu2w"]
-resource_name = "step0"
-length = 0.1
+[sub_resource type="Animation" id="Animation_dynet"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,8 +128,9 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_dynet"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_5cu2w"]
+resource_name = "step0"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
