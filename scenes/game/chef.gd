@@ -139,6 +139,7 @@ func process_actions(delta):
 		if trashing_ticks <= 0:
 			trashing = false
 			sfx.stream = trash_sfx
+			state_machine.travel("Trash_" + direction)
 			sfx.play()
 			current_burger.refresh_plate()
 			emit_signal("trashing_stopped")
