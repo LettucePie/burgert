@@ -54,7 +54,7 @@ func reset_chef():
 	_update_direction("R")
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
-	active = false
+	set_active(false)
 	waiting = true
 	burger_sprite.show()
 
@@ -214,4 +214,8 @@ func intro_animation_override():
 func intro_animation_finished():
 	anim_tree.active = true
 	emit_signal("chef_ready")
-	active = true
+	set_active(true)
+
+
+func set_active(tf : bool):
+	active = tf

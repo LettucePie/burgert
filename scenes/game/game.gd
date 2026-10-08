@@ -44,17 +44,8 @@ func _physics_process(delta):
 			hud.show_order(false)
 		else:
 			hud.show_order(true)
-		#if chef.active:
-			#chef.active = false
-			#hud.show_order(true)
-		#else:
-			#chef.active = true
-			#hud.show_order(false)
 	if Input.is_action_just_pressed("cancel") and game_started:
 		pass
-		#if hud.order_shown:
-			#chef.active = true
-			#hud.show_order(false)
 	if chef.idle_counter > 60:
 		if !submit.playing and hud.order_dithered:
 			hud.dither_order(false)
@@ -239,7 +230,7 @@ func _on_chef_submit_burger():
 func _on_game_timer_timeout():
 	$game_timer.stop()
 	game_started = false
-	chef.active = false
+	chef.set_active(false)
 	chef.submitting_burger = false
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
