@@ -44,9 +44,10 @@ func _physics_process(delta):
 			hud.show_order(false)
 		else:
 			hud.show_order(true)
+			chef.idle_counter = 36
 	if Input.is_action_just_pressed("cancel") and game_started:
 		pass
-	if chef.idle_counter > 60:
+	if chef.idle_counter > 35:
 		if !submit.playing and hud.order_dithered:
 			hud.dither_order(false)
 	elif !hud.order_dithered:
