@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=54 format=3 uid="uid://bbbgfyoa6ge00"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=60 format=3 uid="uid://bbbgfyoa6ge00"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3jyrr"]
 animation = &"Charging_L"
@@ -37,6 +37,12 @@ animation = &"Idle_L"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0xtc"]
 animation = &"Idle_R"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c1ydq"]
+animation = &"Jump_L"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6r0mu"]
+animation = &"Jump_R"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ax3on"]
 animation = &"Run_L"
@@ -161,36 +167,56 @@ advance_condition = &"idle_R"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r1ui7"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j37xw"]
+advance_mode = 2
+advance_condition = &"post_game"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uwwth"]
+advance_mode = 2
+advance_condition = &"post_game"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_682kw"]
+advance_mode = 2
+advance_condition = &"post_game"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t3iu0"]
+advance_mode = 2
+advance_condition = &"post_game"
+
 [resource]
 states/Charging_L/node = SubResource("AnimationNodeBlendTree_t76b2")
-states/Charging_L/position = Vector2(685, -133)
+states/Charging_L/position = Vector2(685, -216)
 states/Charging_R/node = SubResource("AnimationNodeBlendTree_shyoj")
 states/Charging_R/position = Vector2(685, 331)
 states/Chargup_L/node = SubResource("AnimationNodeAnimation_8kcc6")
-states/Chargup_L/position = Vector2(510, -133)
+states/Chargup_L/position = Vector2(510, -216)
 states/Chargup_R/node = SubResource("AnimationNodeAnimation_auogh")
 states/Chargup_R/position = Vector2(510, 331)
-states/End/position = Vector2(1024, 154)
+states/End/position = Vector2(1269, 154)
 states/Idle_L/node = SubResource("AnimationNodeAnimation_qhn51")
-states/Idle_L/position = Vector2(578, 32)
+states/Idle_L/position = Vector2(578, -51)
 states/Idle_R/node = SubResource("AnimationNodeAnimation_a0xtc")
 states/Idle_R/position = Vector2(578, 154)
+states/Jump_L/node = SubResource("AnimationNodeAnimation_c1ydq")
+states/Jump_L/position = Vector2(685, 6)
+states/Jump_R/node = SubResource("AnimationNodeAnimation_6r0mu")
+states/Jump_R/position = Vector2(685, 93)
 states/Run_L/node = SubResource("AnimationNodeAnimation_ax3on")
-states/Run_L/position = Vector2(414, -16)
+states/Run_L/position = Vector2(414, -99)
 states/Run_R/node = SubResource("AnimationNodeAnimation_j7etc")
 states/Run_R/position = Vector2(414, 197)
-states/Start/position = Vector2(933, 154)
+states/Start/position = Vector2(1178, 154)
 states/Swing_L/node = SubResource("AnimationNodeAnimation_66kwm")
-states/Swing_L/position = Vector2(266, 32)
+states/Swing_L/position = Vector2(266, -51)
 states/Swing_R/node = SubResource("AnimationNodeAnimation_fea1q")
 states/Swing_R/position = Vector2(266, 154)
 states/Throw_L/node = SubResource("AnimationNodeAnimation_lxi8j")
-states/Throw_L/position = Vector2(685, -30)
+states/Throw_L/position = Vector2(685, -113)
 states/Throw_R/node = SubResource("AnimationNodeAnimation_ht0x7")
 states/Throw_R/position = Vector2(685, 237)
 states/Trash_L/node = SubResource("AnimationNodeAnimation_15ho6")
-states/Trash_L/position = Vector2(333, -133)
+states/Trash_L/position = Vector2(333, -216)
 states/Trash_R/node = SubResource("AnimationNodeAnimation_w761i")
 states/Trash_R/position = Vector2(333, 331)
-transitions = ["Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c"), "Run_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_evovq"), "Idle_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_wb3lj"), "Throw_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_fs48m"), "Run_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_id870"), "Idle_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_66gqr"), "Throw_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_0ky21"), "Chargup_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_v54ij"), "Chargup_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_3rtjc"), "Idle_R", "Run_L", SubResource("AnimationNodeStateMachineTransition_qo58x"), "Idle_L", "Run_R", SubResource("AnimationNodeStateMachineTransition_7cuok"), "Chargup_L", "Charging_L", SubResource("AnimationNodeStateMachineTransition_umdt1"), "Charging_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_gvua5"), "Charging_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_wxax6"), "Chargup_R", "Charging_R", SubResource("AnimationNodeStateMachineTransition_wjjyu"), "Charging_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_owp7f"), "Charging_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_5d6xb"), "Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_w5k3e"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_57lsf"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_h8pp5"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_ipmb1"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3nbpo"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_4v6sk"), "Trash_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_5gv2x"), "Trash_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_82sks"), "Idle_R", "Trash_R", SubResource("AnimationNodeStateMachineTransition_gnwhn"), "Run_R", "Trash_R", SubResource("AnimationNodeStateMachineTransition_hg8rn"), "Run_L", "Trash_L", SubResource("AnimationNodeStateMachineTransition_vry22"), "Idle_L", "Trash_L", SubResource("AnimationNodeStateMachineTransition_r1ui7")]
-graph_offset = Vector2(-193, 137)
+transitions = ["Start", "Idle_R", SubResource("AnimationNodeStateMachineTransition_atlst"), "Run_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_u7hov"), "Run_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_ovb8p"), "Run_L", "Idle_R", SubResource("AnimationNodeStateMachineTransition_haref"), "Run_R", "Idle_L", SubResource("AnimationNodeStateMachineTransition_g4tsn"), "Idle_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_nau1a"), "Idle_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_jhl4c"), "Run_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_evovq"), "Idle_L", "Chargup_L", SubResource("AnimationNodeStateMachineTransition_wb3lj"), "Throw_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_fs48m"), "Run_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_id870"), "Idle_R", "Chargup_R", SubResource("AnimationNodeStateMachineTransition_66gqr"), "Throw_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_0ky21"), "Chargup_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_v54ij"), "Chargup_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_3rtjc"), "Idle_R", "Run_L", SubResource("AnimationNodeStateMachineTransition_qo58x"), "Idle_L", "Run_R", SubResource("AnimationNodeStateMachineTransition_7cuok"), "Chargup_L", "Charging_L", SubResource("AnimationNodeStateMachineTransition_umdt1"), "Charging_L", "Throw_L", SubResource("AnimationNodeStateMachineTransition_gvua5"), "Charging_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_wxax6"), "Chargup_R", "Charging_R", SubResource("AnimationNodeStateMachineTransition_wjjyu"), "Charging_R", "Throw_R", SubResource("AnimationNodeStateMachineTransition_owp7f"), "Charging_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_5d6xb"), "Swing_L", "Run_L", SubResource("AnimationNodeStateMachineTransition_w5k3e"), "Run_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_57lsf"), "Swing_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_h8pp5"), "Swing_R", "Swing_L", SubResource("AnimationNodeStateMachineTransition_ipmb1"), "Swing_R", "Run_R", SubResource("AnimationNodeStateMachineTransition_3nbpo"), "Run_L", "Swing_R", SubResource("AnimationNodeStateMachineTransition_4v6sk"), "Trash_L", "Idle_L", SubResource("AnimationNodeStateMachineTransition_5gv2x"), "Trash_R", "Idle_R", SubResource("AnimationNodeStateMachineTransition_82sks"), "Idle_R", "Trash_R", SubResource("AnimationNodeStateMachineTransition_gnwhn"), "Run_R", "Trash_R", SubResource("AnimationNodeStateMachineTransition_hg8rn"), "Run_L", "Trash_L", SubResource("AnimationNodeStateMachineTransition_vry22"), "Idle_L", "Trash_L", SubResource("AnimationNodeStateMachineTransition_r1ui7"), "Idle_R", "Jump_R", SubResource("AnimationNodeStateMachineTransition_j37xw"), "Idle_L", "Jump_L", SubResource("AnimationNodeStateMachineTransition_uwwth"), "Run_R", "Jump_R", SubResource("AnimationNodeStateMachineTransition_682kw"), "Run_L", "Jump_L", SubResource("AnimationNodeStateMachineTransition_t3iu0")]
+graph_offset = Vector2(7, -190)

@@ -8,6 +8,8 @@ signal chef_ready()
 signal trashing_start()
 signal trashing_progress(val)
 signal trashing_stopped()
+signal grabbed_results_door(obj)
+signal closed_results_door()
 #signal chef_idle(tf)
 
 const MOVE_SPEED = 10
@@ -40,6 +42,7 @@ var charging_rate_min : float = 1.0
 var charging_rate_max : float = 2.0
 var charging_speed : float = 5.0
 @onready var quick_throw_threshold : float = ((charging_rate_max - charging_rate_min) / 2) + charging_rate_min
+var post_game : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,14 +52,17 @@ func _ready():
 
 
 func reset_chef():
+	set_post_game(false)
 	current_burger.refresh_plate()
 	self.position.x = -100
 	_update_direction("R")
+	anim_tree.set("parameters/conditions/post_game", false)
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
 	set_active(false)
 	waiting = true
 	burger_sprite.show()
+	idle_counter = 0
 
 
 func set_station(ws : Workstation):
@@ -219,3 +225,51 @@ func intro_animation_finished():
 
 func set_active(tf : bool):
 	active = tf
+
+
+func set_post_game(tf : bool) -> void:
+	post_game = tf
+	if tf:
+		process_mode = PROCESS_MODE_WHEN_PAUSED
+		z_index = 3
+		anim_tree.set("parameters/conditions/post_game", true)
+		state_machine.travel("Jump_" + direction)
+	else:
+		process_mode = PROCESS_MODE_INHERIT
+		z_index = 0
+
+
+func jump_tween() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(self, "position", Vector2(position.x, 20.0), 0.75)
+	tween.tween_callback(emit_signal.bind("grabbed_results_door", self))
+
+
+func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vector2:
+	var result : Vector2 = Vector2.ZERO
+	var q0 = p0.lerp(p1, t)
+	var q1 = p1.lerp(p2, t)
+	result = q0.lerp(q1, t)
+	return result
+
+
+func _tween_a_geddon(tt, hm, st, p0, p1, p2, r) -> void:
+	if st.time_left <= 0.01:
+		position = p2
+	else:
+		var tween = create_tween()
+		tween.tween_property(self, "position", _quadratic_bezier(p0, p1, p2, 1.0 - (st.time_left / tt)), r)
+		tween.tween_callback(_tween_a_geddon.bind(tt, hm, st, p0, p1, p2, r))
+
+
+func bounce_to_corner() -> void:
+	var time_total : float = 0.4
+	time_total = lerpf(0.1, 0.55, position.x / 640.0)
+	var height_max : float = 160.0
+	height_max = lerpf(200.0, 160.0, position.x / 640.0)
+	var timer : SceneTreeTimer = get_tree().create_timer(time_total)
+	var p0 : Vector2 = self.position
+	var p2 : Vector2 = Vector2(20.0, 380)
+	var p1 : Vector2 = p0.lerp(p2, 0.5)
+	p1.y = height_max
+	_tween_a_geddon(time_total, height_max, timer, p0, p1, p2, 0.01)

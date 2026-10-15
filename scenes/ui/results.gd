@@ -28,6 +28,10 @@ var result_order_count : int = 0
 var result_percent : float = 0.0
 var result_total : int = 0
 
+var holding_chef : bool = false
+var held_chef : Chef = null
+var chef_y_offset : float = 0.0
+
 @onready var anim_play : AnimationPlayer = $AnimationPlayer
 var animating : bool = false
 var animation_step : int = 0
@@ -61,7 +65,10 @@ func _process_receipts() -> void:
 		var temporary_percent : float = 0.0
 		var index = result_order_count - spawning_receipt_count
 		if index == 0:
-			temporary_percent += result_accuracies[index]
+			if result_accuracies.size() > 0:
+				temporary_percent += result_accuracies[index]
+			else:
+				temporary_percent += 0.0
 		else:
 			for i in index:
 				temporary_percent += result_accuracies[i]
@@ -118,6 +125,8 @@ func _physics_process(delta: float) -> void:
 		_process_typing()
 	if counting_money and spawning_receipt_count >= 0:
 		_process_money()
+	if holding_chef:
+		held_chef.position = Vector2(held_chef.position.x, $shutterdoor.position.y + chef_y_offset)
 
 
 func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array):
@@ -160,6 +169,8 @@ func _on_finish_pressed():
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name != "panel_exit":
 		next_animation_step()
+	held_chef = null
+	holding_chef = false
 
 
 func next_animation_step():
@@ -193,3 +204,15 @@ func start_counting_money():
 	counting_score = 0
 	counting_money = true
 	tick = 0
+
+
+func _on_chef_grabbed_results_door(chef : Chef) -> void:
+	holding_chef = true
+	held_chef = chef
+	chef_y_offset = chef.position.y - $shutterdoor.position.y
+
+
+func let_chef_go() -> void:
+	holding_chef = false
+	held_chef.bounce_to_corner()
+	held_chef = null

@@ -232,6 +232,7 @@ func _on_game_timer_timeout():
 	$game_timer.stop()
 	game_started = false
 	chef.set_active(false)
+	chef.set_post_game(true)
 	chef.submitting_burger = false
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)

@@ -383,13 +383,13 @@ _data = {
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit", "results")]
 process_mode = 1
 script = ExtResource("1_ebpk4")
+order_point_time_curve = SubResource("Curve_qcuyr")
+burger_2d_scene = ExtResource("2_hb6cp")
 kitchen = NodePath("kitchen_a")
 hud = NodePath("hud")
 chef = NodePath("chef")
 submit = NodePath("submit")
 results = NodePath("results")
-order_point_time_curve = SubResource("Curve_qcuyr")
-burger_2d_scene = ExtResource("2_hb6cp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -440,6 +440,7 @@ wait_time = 120.0
 [connection signal="start_timer" from="kitchen_a" to="." method="_on_kitchen_a_start_timer"]
 [connection signal="cancel_burger_submission" from="chef" to="." method="_on_chef_cancel_burger_submission"]
 [connection signal="chef_ready" from="chef" to="." method="_on_chef_chef_ready"]
+[connection signal="grabbed_results_door" from="chef" to="results" method="_on_chef_grabbed_results_door"]
 [connection signal="start_burger_submission" from="chef" to="." method="_on_chef_start_burger_submission"]
 [connection signal="submit_burger" from="chef" to="." method="_on_chef_submit_burger"]
 [connection signal="trashing_progress" from="chef" to="." method="_on_chef_trashing_progress"]

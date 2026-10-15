@@ -725,7 +725,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_rln7d"]
 resource_name = "alarm"
-length = 1.7
+length = 2.5
 step = 0.1
 tracks/0/type = "audio"
 tracks/0/imported = false
@@ -773,10 +773,24 @@ tracks/3/path = NodePath("shutterdoor:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.3, 1.7),
+"times": PackedFloat32Array(1.3, 2.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, -483), Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"let_chef_go"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_y5xyq"]
@@ -1542,6 +1556,7 @@ libraries = {
 }
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
