@@ -535,6 +535,9 @@ func _on_game_game_finished(final_score : int):
 
 func _on_game_finished_order(customer_name: String, satisfaction_rank: int) -> void:
 	var customer_stats : Stats.CustomerStat = stats.fetch_customerstat(customer_name)
+	if customer_stats.get_orders_served() <= 0 and !customer_name.contains("Basic"):
+		main_menu.printer.printer_queue.append(customer_name)
+		game_scene.results.printer_queued = true
 	customer_stats.add_orders_served()
 	if satisfaction_rank == 1:
 		customer_stats.add_disappointing_orders()

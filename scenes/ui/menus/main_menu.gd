@@ -16,8 +16,9 @@ signal bgm_pause(pause : bool)
 @onready var shop : Shop = $Shop
 @onready var menu_flair : MenuFlair = $MenuFlair
 @onready var announce : Announce = $Announce
+@onready var printer : RegularPrinter = $RegularPrinter
 @export var anim : AnimationPlayer
-enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE, SHOP}
+enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE, SHOP, PRINTER}
 var current_screen : SCREENS = SCREENS.MAIN
 var queued_menu : SCREENS = SCREENS.MAIN
 var left_side_screens : Array[SCREENS] = [
@@ -43,6 +44,7 @@ func refocus():
 
 func _ready():
 	refocus()
+	printer._assign_customer_dex(customer_dex)
 
 ## Why tho?
 ## at this point should just use the string as the memory point...
@@ -62,6 +64,8 @@ func screen_string_to_enum(string_in : String) -> SCREENS:
 		result = SCREENS.HELP
 	if string_in == "Shop":
 		result = SCREENS.SHOP
+	if string_in == "Printer":
+		result = SCREENS.PRINTER
 	return result
 
 
@@ -69,6 +73,7 @@ func _on_main_menu_selection(selection: String) -> void:
 	if current_screen == SCREENS.MAIN:
 		if selection == "Play":
 			anim.play("play_start")
+			printer.printer_queue.clear()
 			emit_signal("prepare_kitchen")
 		elif selection == "Quit":
 			get_tree().quit()
@@ -184,6 +189,15 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.CREDITS
 	if anim_name == "shop_open":
 		current_screen = SCREENS.SHOP
+	if anim_name == "print_close":
+		current_screen = SCREENS.MAIN
+	
+	if anim_name == "quit_game":
+		if printer.printer_queue.size() <= 0:
+			anim.play("play_stop")
+		else:
+			current_screen = SCREENS.PRINTER
+			anim.play("print_open")
 
 
 func _on_announce_announce_finish() -> void:
@@ -232,4 +246,10 @@ func _on_credits_close_credits() -> void:
 func _on_shop_close_shop() -> void:
 	if current_screen == SCREENS.SHOP:
 		anim.play("shop_close")
+		queued_menu = SCREENS.MAIN
+
+
+func _on_regular_printer_printer_finished() -> void:
+	if current_screen == SCREENS.PRINTER:
+		anim.play("print_close")
 		queued_menu = SCREENS.MAIN

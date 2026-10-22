@@ -33,6 +33,7 @@ var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
 var burger_mode_3d : bool = true
 var chef_idle : bool = false
+#var first_time_customers : PackedStringArray = []
 
 
 func _physics_process(delta):
@@ -77,6 +78,7 @@ func start_game():
 	submit.set_playing(false, 0, 0)
 	submit.assign_chef(chef)
 	results.hide()
+	results.printer_queued = false
 	$AnimationPlayer.play("play_transition")
 
 

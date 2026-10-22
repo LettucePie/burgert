@@ -21,6 +21,7 @@ var typing_scorelabel_charcount : int = -1
 @onready var register : TextureRect = $Panel/register
 var counting_money : bool = false
 var counting_score : int = 0
+var printer_queued : bool = false
 
 var result_accuracies : PackedFloat32Array
 var result_scores : PackedInt32Array
