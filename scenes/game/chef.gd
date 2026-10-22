@@ -194,6 +194,9 @@ func _physics_process(delta):
 				process_actions(delta)
 		else:
 			process_submission(delta)
+		if idle_counter >= 1200:
+			state_machine.travel("Idle_Sting_" + direction)
+			idle_counter = 35
 		#if idle_counter >= 60:
 			#emit_signal("chef_idle", true)
 		#if idle_counter <= 0:

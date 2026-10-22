@@ -383,13 +383,13 @@ _data = {
 [node name="Game" type="Node" node_paths=PackedStringArray("kitchen", "hud", "chef", "submit", "results")]
 process_mode = 1
 script = ExtResource("1_ebpk4")
-order_point_time_curve = SubResource("Curve_qcuyr")
-burger_2d_scene = ExtResource("2_hb6cp")
 kitchen = NodePath("kitchen_a")
 hud = NodePath("hud")
 chef = NodePath("chef")
 submit = NodePath("submit")
 results = NodePath("results")
+order_point_time_curve = SubResource("Curve_qcuyr")
+burger_2d_scene = ExtResource("2_hb6cp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
