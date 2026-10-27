@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://m6bxbm4udcdw"]
+[gd_scene load_steps=33 format=3 uid="uid://m6bxbm4udcdw"]
 
 [ext_resource type="Theme" uid="uid://cwt3w4hm8o87b" path="res://assets/theme/theme_a.tres" id="1_v5lsf"]
 [ext_resource type="Script" path="res://scenes/ui/results.gd" id="2_xe4yp"]
@@ -13,7 +13,9 @@
 [ext_resource type="Script" path="res://scenes/ui/vfx/money_sprite.gd" id="7_bahxv"]
 [ext_resource type="AudioStream" uid="uid://db8aetxoj0ve1" path="res://assets/sound/sfx/Menu/Bell_2_FOR MONEY.wav" id="8_3jwev"]
 [ext_resource type="PackedScene" uid="uid://bk20gm57pbltf" path="res://scenes/game/customers/jitter_dialog.tscn" id="10_emy1f"]
+[ext_resource type="Texture2D" uid="uid://c7kp5k617uqxx" path="res://assets/images/graphics/hud/regular_customer_tip_popup.png" id="10_ks6b6"]
 [ext_resource type="AudioStream" uid="uid://b34rn41nkyiii" path="res://assets/sound/sfx/wallsplat_sfx_1.wav" id="11_klqyp"]
+[ext_resource type="AudioStream" uid="uid://cjhucbsdomsk3" path="res://assets/sound/sfx/feedback/feedback_good.wav" id="11_yh44y"]
 [ext_resource type="Texture2D" uid="uid://cdwl5nc6us7kb" path="res://assets/images/environment/kitchen/restaurant_fg/register_nocord.png" id="14_ax7eq"]
 
 [sub_resource type="Animation" id="Animation_5tql6"]
@@ -104,7 +106,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(1.63, 1.63)]
+"values": [Vector2(0.2, 0.2), Vector2(2.5, 2.5)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -113,7 +115,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [true],
@@ -207,6 +209,10 @@ _data = {
 "add": SubResource("Animation_v7850"),
 "subtract": SubResource("Animation_lb0ta")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0yuh"]
+atlas = ExtResource("10_ks6b6")
+region = Rect2(246, 6, 18, 16)
 
 [sub_resource type="Animation" id="Animation_3dlmw"]
 length = 0.001
@@ -1510,8 +1516,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -483.0
-offset_bottom = -483.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_6hv8a")
@@ -1547,6 +1551,22 @@ libraries = {
 
 [node name="bop" type="AudioStreamPlayer2D" parent="assets/money_sprite"]
 stream = ExtResource("8_3jwev")
+volume_db = 18.0
+bus = &"SFX"
+
+[node name="tip_sprite" type="Sprite2D" parent="assets"]
+position = Vector2(83, 94)
+scale = Vector2(1.63, 1.63)
+texture = SubResource("AtlasTexture_j0yuh")
+script = ExtResource("7_bahxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="assets/tip_sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_iee5b")
+}
+
+[node name="bop" type="AudioStreamPlayer2D" parent="assets/tip_sprite"]
+stream = ExtResource("11_yh44y")
 volume_db = 18.0
 bus = &"SFX"
 
@@ -1586,10 +1606,10 @@ anchor_left = 0.1
 anchor_top = 0.206771
 anchor_right = 0.494532
 anchor_bottom = 0.282292
-offset_left = 0.575996
-offset_top = 3.05176e-05
-offset_right = 0.575974
-offset_bottom = 3.05176e-05
+offset_left = -384.624
+offset_top = 35.5999
+offset_right = -384.624
+offset_bottom = 35.5999
 size_flags_horizontal = 3
 text = "Orders Finished"
 label_settings = ExtResource("3_wqw0x")
@@ -1617,10 +1637,10 @@ anchor_left = 0.0429688
 anchor_top = 0.497396
 anchor_right = 0.953125
 anchor_bottom = 0.588542
-offset_left = 0.247473
-offset_top = -7.62939e-05
-offset_right = 0.247467
-offset_bottom = -7.62939e-05
+offset_left = -2.47955e-05
+offset_top = -6.10352e-05
+offset_right = -3.05176e-05
+offset_bottom = -6.10352e-05
 theme_override_constants/separation = -22
 metadata/_edit_use_anchors_ = true
 
@@ -1632,10 +1652,9 @@ anchor_left = 0.1
 anchor_top = 0.394271
 anchor_right = 0.473047
 anchor_bottom = 0.469792
-offset_left = 0.575996
-offset_top = -7.62939e-05
-offset_right = 2.72467
-offset_bottom = -7.62939e-05
+offset_top = -6.10352e-05
+offset_right = 2.14899
+offset_bottom = -6.10352e-05
 size_flags_horizontal = 3
 text = "Order Accuracy"
 label_settings = ExtResource("3_wqw0x")
@@ -1692,10 +1711,10 @@ anchor_left = 0.1
 anchor_top = 0.736979
 anchor_right = 0.885
 anchor_bottom = 0.896
-offset_left = 0.375996
-offset_top = 3.05176e-05
-offset_right = -76.0224
-offset_bottom = -7.06403
+offset_left = -411.624
+offset_top = 7.00003
+offset_right = -554.022
+offset_bottom = -0.0640259
 size_flags_vertical = 6
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -1731,5 +1750,7 @@ bus = &"SFX"
 
 [connection signal="animation_finished" from="assets/money_sprite/AnimationPlayer" to="assets/money_sprite" method="_on_animation_player_animation_finished"]
 [connection signal="finished" from="assets/money_sprite/bop" to="assets/money_sprite" method="_on_bop_finished"]
+[connection signal="animation_finished" from="assets/tip_sprite/AnimationPlayer" to="assets/tip_sprite" method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="assets/tip_sprite/bop" to="assets/tip_sprite" method="_on_bop_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="pressed" from="Panel/finish" to="." method="_on_finish_pressed"]

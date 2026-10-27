@@ -18,14 +18,19 @@ var tick : int = 0
 var typing_scorelabel : bool = false
 var typing_scorelabel_charcount : int = -1
 @onready var money_sprite : Money_FX = $assets/money_sprite
+@onready var tip_sprite : Money_FX = $assets/tip_sprite
 @onready var register : TextureRect = $Panel/register
 var counting_money : bool = false
 var counting_score : int = 0
+var counting_tips : bool = false
+var counting_tips_amount : int = 0
 var printer_queued : bool = false
 
 var result_accuracies : PackedFloat32Array
 var result_scores : PackedInt32Array
+var result_tips : PackedInt32Array
 var result_order_count : int = 0
+var result_tip_count : int = 0
 var result_percent : float = 0.0
 var result_total : int = 0
 
@@ -45,6 +50,7 @@ var timeline : PackedStringArray = [
 	"score_enter",
 	"register_enter",
 	"!count_money",
+	"!count_tips",
 	"finish_enter",
 	"!done"
 ]
@@ -119,6 +125,24 @@ func _process_money() -> void:
 			next_animation_step()
 
 
+func _process_tips() -> void:
+	if result_tips.size() == 0:
+		counting_tips = false
+		next_animation_step()
+	tick += 4
+	if tick > 60 and counting_tips:
+		tick = 0
+		var new_tip : Money_FX = tip_sprite.duplicate()
+		register.add_child(new_tip)
+		new_tip.play_anim("add")
+		counting_tips_amount += result_tips[spawning_receipt_count]
+		score.text = "$" + str(counting_score + counting_tips_amount)
+		spawning_receipt_count += 1
+		if spawning_receipt_count >= result_tip_count:
+			counting_tips = false
+			next_animation_step()
+
+
 func _physics_process(delta: float) -> void:
 	if spawning_receipts and spawning_receipt_count >= 0:
 		_process_receipts()
@@ -126,16 +150,19 @@ func _physics_process(delta: float) -> void:
 		_process_typing()
 	if counting_money and spawning_receipt_count >= 0:
 		_process_money()
+	if counting_tips and spawning_receipt_count >= 0:
+		_process_tips()
 	if holding_chef:
 		held_chef.position = Vector2(held_chef.position.x, $shutterdoor.position.y + chef_y_offset)
 
 
-func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array):
+func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array, tips : PackedInt32Array):
 	#order_count.text = str(accuracies.size())
 	result_accuracies = accuracies
 	result_percent = 0.0
 	result_scores = scores
 	result_total = 0
+	result_tips = tips
 	spawning_receipts = false
 	spawning_receipt_count = -1
 	typing_scorelabel = false
@@ -146,6 +173,7 @@ func display_results(accuracies : PackedFloat32Array, scores : PackedInt32Array)
 		child.queue_free()
 	##
 	result_order_count = accuracies.size()
+	result_tip_count = tips.size()
 	for a in accuracies:
 		result_percent += a
 	result_percent /= accuracies.size()
@@ -183,6 +211,8 @@ func next_animation_step():
 			start_spawning_receipts()
 		if timeline[next] == "!count_money":
 			start_counting_money()
+		if timeline[next] == "!count_tips":
+			start_counting_tips()
 		if timeline[next] == "!done":
 			finish_button.grab_focus()
 			animating = false
@@ -204,6 +234,13 @@ func start_counting_money():
 	spawning_receipt_count = 0
 	counting_score = 0
 	counting_money = true
+	tick = 0
+
+
+func start_counting_tips():
+	spawning_receipt_count = 0
+	counting_tips_amount = 0
+	counting_tips = true
 	tick = 0
 
 

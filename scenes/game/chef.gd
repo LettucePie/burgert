@@ -43,6 +43,7 @@ var charging_rate_max : float = 2.0
 var charging_speed : float = 5.0
 @onready var quick_throw_threshold : float = ((charging_rate_max - charging_rate_min) / 2) + charging_rate_min
 var post_game : bool = false
+var current_dance : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -272,7 +273,16 @@ func bounce_to_corner() -> void:
 	height_max = lerpf(200.0, 160.0, position.x / 640.0)
 	var timer : SceneTreeTimer = get_tree().create_timer(time_total)
 	var p0 : Vector2 = self.position
-	var p2 : Vector2 = Vector2(20.0, 380)
+	var p2 : Vector2 = Vector2(34.0, 380)
 	var p1 : Vector2 = p0.lerp(p2, 0.5)
 	p1.y = height_max
 	_tween_a_geddon(time_total, height_max, timer, p0, p1, p2, 0.01)
+
+
+func pick_next_dance() -> void:
+	var options : Array = [1, 2, 3, 4]
+	for o in options:
+		anim_tree.set("parameters/Dancing/conditions/dance_" + str(o), false)
+	options.erase(current_dance)
+	current_dance = options.pick_random()
+	anim_tree.set("parameters/Dancing/conditions/dance_" + str(current_dance), true)

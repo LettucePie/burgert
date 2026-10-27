@@ -1,9 +1,33 @@
-[gd_resource type="SpriteFrames" load_steps=595 format=3 uid="uid://b6p88o7ouw26p"]
+[gd_resource type="SpriteFrames" load_steps=601 format=3 uid="uid://b6p88o7ouw26p"]
 
 [ext_resource type="Texture2D" uid="uid://cgdp234owqf2f" path="res://assets/images/characters/chef/Chef_2.png" id="1_l3tyv"]
 [ext_resource type="Texture2D" uid="uid://258r12ltr84n" path="res://assets/images/characters/chef/Chef_4.png" id="1_q5hv8"]
 [ext_resource type="Texture2D" uid="uid://mablubc2cw2f" path="res://assets/images/characters/chef/Chef_enter_kitchen.png" id="4_nbcem"]
 [ext_resource type="Texture2D" uid="uid://dasdpddv8iqlt" path="res://assets/images/characters/chef/Chef_idlesting_L.png" id="4_yggcd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7m7h"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(0, 1920, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wenhu"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(96, 1920, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8onnq"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(192, 1920, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liwuh"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(288, 1920, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g45q2"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(384, 1920, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcio1"]
+atlas = ExtResource("1_q5hv8")
+region = Rect2(480, 1920, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_84fiv"]
 atlas = ExtResource("1_q5hv8")
@@ -2367,6 +2391,29 @@ region = Rect2(1536, 2112, 96, 96)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7m7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wenhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8onnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liwuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g45q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcio1")
+}],
+"loop": false,
+"name": &"Bounce",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_84fiv")

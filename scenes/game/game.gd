@@ -246,7 +246,7 @@ func _on_game_timer_timeout():
 	chef.submitting_burger = false
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
-	results.display_results(game_accuracies, game_scores)
+	results.display_results(game_accuracies, game_scores, game_tips)
 	emit_signal("game_finished", current_score)
 
 
