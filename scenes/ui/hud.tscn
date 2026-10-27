@@ -246,9 +246,7 @@ vertical_alignment = 1
 position = Vector2(306, 21)
 scale = Vector2(3.72727, 3.72727)
 sprite_frames = ExtResource("54_wvjg3")
-animation = &"Bonus"
-frame = 15
-frame_progress = 1.0
+animation = &"Ultra"
 speed_scale = 1.25
 
 [connection signal="gui_input" from="order" to="." method="_on_order_gui_input"]
