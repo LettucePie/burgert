@@ -1932,7 +1932,6 @@ trash_sfx = ExtResource("2_k12rg")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 reset_on_save = false
 tree_root = ExtResource("2_gn2r5")
-anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
 parameters/conditions/post_game = false
@@ -1948,7 +1947,7 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
-animation = &"Idle_Plate_R"
+animation = &"Run_Plate_L"
 autoplay = "Idle_L"
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
@@ -1957,7 +1956,8 @@ autoplay = "Idle_L"
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-62, -36)
+visible = false
+position = Vector2(-63, -37)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_yjpo2")
 
