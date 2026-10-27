@@ -146,7 +146,6 @@ offset_top = 600.0
 offset_bottom = 600.0
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
-visible = false
 layout_mode = 1
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
@@ -190,6 +189,8 @@ layout_mode = 1
 [connection signal="menu_selection" from="Main" to="." method="_on_main_menu_selection"]
 [connection signal="close_options" from="Options" to="." method="_on_options_close_options"]
 [connection signal="close_credits" from="Credits" to="." method="_on_credits_close_credits"]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/resume" to="." method="pause_button_event" binds= ["resume"]]
+[connection signal="pressed" from="Paused/Panel/VBoxContainer/quit" to="." method="pause_button_event" binds= ["quit"]]
 [connection signal="pressed" from="Help/Controls/close" to="." method="_on_help_close_pressed"]
 [connection signal="close_customerdex" from="CustomerDex" to="." method="_on_customer_dex_close_customerdex"]
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
