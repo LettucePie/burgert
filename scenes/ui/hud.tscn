@@ -243,11 +243,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="tip" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(299, 19)
-scale = Vector2(2.45455, 2.45455)
+position = Vector2(306, 21)
+scale = Vector2(3.72727, 3.72727)
 sprite_frames = ExtResource("54_wvjg3")
-animation = &"Basic"
+animation = &"Bonus"
+frame = 15
+frame_progress = 1.0
 
 [connection signal="gui_input" from="order" to="." method="_on_order_gui_input"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

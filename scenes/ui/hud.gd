@@ -12,6 +12,7 @@ var timer : Timer = null
 @onready var time : Label = $stats/frame/time
 @onready var score : Label = $stats/frame/score
 @onready var tip : AnimatedSprite2D = $tip
+var pending_tip_total : int = 0
 
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
 @onready var top_tear : TextureRect = $order/VBoxContainer/top
@@ -143,8 +144,8 @@ func add_tip(tip : int, total : int):
 		anim = "Bonus"
 	elif tip == 40:
 		anim = "Ultra"
+	pending_tip_total = total
 	play_tip(anim)
-	set_score(total)
 
 
 func set_timer(t : Timer):
@@ -210,3 +211,4 @@ func play_tip(anim_name : String):
 
 func _on_tip_animation_finished() -> void:
 	tip.hide()
+	set_score(pending_tip_total)
