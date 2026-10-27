@@ -11,6 +11,7 @@ var timer : Timer = null
 
 @onready var time : Label = $stats/frame/time
 @onready var score : Label = $stats/frame/score
+@onready var tip : AnimatedSprite2D = $tip
 
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
 @onready var top_tear : TextureRect = $order/VBoxContainer/top
@@ -136,6 +137,16 @@ func set_score(arg : int):
 	score.text = str(arg)
 
 
+func add_tip(tip : int, total : int):
+	var anim : String = "Basic"
+	if tip == 20:
+		anim = "Bonus"
+	elif tip == 40:
+		anim = "Ultra"
+	play_tip(anim)
+	set_score(total)
+
+
 func set_timer(t : Timer):
 	timer = t
 
@@ -148,6 +159,7 @@ func get_timer() -> Timer:
 func _ready():
 	$order.hide()
 	trash_bar.hide()
+	tip.hide()
 
 
 func process_scrolling(delta):
@@ -189,3 +201,12 @@ func update_trashing(val):
 func trashing_stopped():
 	trash_bar.hide()
 	trash_bar.value = 0
+
+
+func play_tip(anim_name : String):
+	tip.show()
+	tip.play(anim_name)
+
+
+func _on_tip_animation_finished() -> void:
+	tip.hide()

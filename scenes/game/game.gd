@@ -28,6 +28,7 @@ var current_order : PackedStringArray = []
 var current_score : int = 0
 var game_accuracies : PackedFloat32Array = []
 var game_scores : PackedInt32Array = []
+var game_tips : PackedInt32Array = []
 var current_order_start_time : float = 0
 var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
@@ -70,6 +71,7 @@ func start_game():
 	current_score = 0
 	game_accuracies.clear()
 	game_scores.clear()
+	game_tips.clear()
 	chef.reset_chef()
 	chef.burger_portal.set_mode_3D(burger_mode_3d)
 	if !kitchen.kitchen_prepped:
@@ -188,6 +190,12 @@ func assess_submission():
 	emit_signal("finished_order", kitchen.current_customer.customer_name, rank)
 	kitchen.customer_fed(rank)
 	chef.waiting = true
+
+
+func provide_regular_bonus_tip(amount : int) -> void:
+	game_tips.append(amount)
+	current_score += amount
+	hud.add_tip(amount, current_score)
 
 
 func _on_chef_start_burger_submission():

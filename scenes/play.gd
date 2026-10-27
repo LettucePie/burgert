@@ -546,6 +546,18 @@ func _on_game_finished_order(customer_name: String, satisfaction_rank: int) -> v
 	elif satisfaction_rank == 3:
 		customer_stats.add_fantastic_orders()
 	_save_stats()
+	if !customer_name.contains("Basic") and satisfaction_rank > 1:
+		var tip_amount : int = 0
+		var fantastic = customer_stats.get_fantastic_orders()
+		var disappointing = customer_stats.get_disappointing_orders()
+		if fantastic >= 5:
+			tip_amount = 10
+		if fantastic - disappointing >= 5:
+			tip_amount = 20
+		if fantastic - disappointing >= 10:
+			tip_amount = 40
+		if tip_amount > 0:
+			game_scene.provide_regular_bonus_tip(tip_amount)
 
 
 func _on_main_menu_resume_play():
