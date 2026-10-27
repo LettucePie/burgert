@@ -529,6 +529,7 @@ func _on_game_game_finished(final_score : int):
 	stats.add_times_played()
 	stats.set_highest_score(final_score)
 	stats.add_timeslot_played(game_scene.kitchen.kitchen_timeslot)
+	music.set_state(Music.STATE.RESULTS)
 	_save_stats()
 	#music.set_state(Music.STATE.MENU)
 

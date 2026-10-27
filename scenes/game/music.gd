@@ -12,7 +12,7 @@ var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 @export var silent_song : Song
 
 @onready var anim : AnimationPlayer = $anim
-enum STATE {MENU, PLAY, PAUSE, PREVIEW}
+enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS}
 var current_state : STATE = STATE.MENU
 var current_song : Song = null
 var max_volume_db : float = 1.0
@@ -25,7 +25,8 @@ func set_state(new_state : STATE):
 	if new_state == STATE.MENU:
 		anim.play("intro_ramp")
 	if new_state == STATE.PLAY:
-		if current_state == STATE.MENU:
+		if current_state == STATE.MENU \
+		or current_state == STATE.RESULTS:
 			anim.play("start_play")
 		if current_state == STATE.PAUSE \
 		or current_state == STATE.PREVIEW:
@@ -34,6 +35,12 @@ func set_state(new_state : STATE):
 			if timer_remaining >= 0:
 				audio_timer.start(timer_remaining)
 			anim.play("resume_play")
+	if new_state == STATE.RESULTS:
+		if current_state == STATE.PLAY:
+			current_song = silent_song
+			anim.stop()
+			stream = silent_song.track
+			play()
 	if new_state == STATE.PAUSE \
 	or new_state == STATE.PREVIEW:
 		if current_state == STATE.PLAY \
