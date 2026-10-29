@@ -39,6 +39,10 @@ func _process(delta):
 	if !play.game_scene.game_started:
 		curve_percent = 0
 	touch_controls.modulate.a = curve_percent
+	if curve_percent == 0:
+		touch_controls.hide()
+	else:
+		touch_controls.show()
 
 
 
