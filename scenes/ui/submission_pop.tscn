@@ -1,0 +1,285 @@
+[gd_scene load_steps=8 format=3 uid="uid://crf2kxl6hpvhp"]
+
+[ext_resource type="Script" path="res://scenes/ui/submission_pop.gd" id="1_x6ien"]
+[ext_resource type="Texture2D" uid="uid://bv2hxsmklykb3" path="res://assets/images/graphics/hud/submission_popup_receipt.png" id="2_lq4cf"]
+[ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="3_oe4qv"]
+
+[sub_resource type="Animation" id="Animation_6kw5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(453, 309)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(187, 171)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lw411"]
+resource_name = "spawn"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.813333, 0.833333),
+"transitions": PackedFloat32Array(0.143587, 0.138696, 0.176777, 0.164939, 0.176777, 0.138696, 0.153893, 0.153893, 0.0947323),
+"update": 0,
+"values": [Vector2(453, 480), Vector2(453, 450), Vector2(453, 424), Vector2(453, 400), Vector2(453, 380), Vector2(453, 356), Vector2(453, 330), Vector2(453, 330), Vector2(453, 310)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(187, 171)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"tip_revealed"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dv6uo"]
+resource_name = "vanish"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.891, 1),
+"transitions": PackedFloat32Array(0.466516, 0.450625, 0.63728),
+"update": 0,
+"values": [Vector2(453, 310), Vector2(453, 310), Vector2(453, 480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(187, 171)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rits6"]
+_data = {
+"RESET": SubResource("Animation_6kw5v"),
+"spawn": SubResource("Animation_lw411"),
+"vanish": SubResource("Animation_dv6uo")
+}
+
+[node name="submission_pop" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -171.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_x6ien")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rits6")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lq4cf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.069
+anchor_right = 0.936
+anchor_bottom = 0.969
+offset_left = -0.0400004
+offset_top = -0.0390005
+offset_right = 0.0399933
+offset_bottom = 0.060997
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="orderno" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "252"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="accuracy_entry" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/accuracy_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "accuracy"
+label_settings = ExtResource("3_oe4qv")
+vertical_alignment = 1
+
+[node name="accuracy" type="Label" parent="TextureRect/VBoxContainer/accuracy_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7 / 10"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="time_entry" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/time_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "time"
+label_settings = ExtResource("3_oe4qv")
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="TextureRect/VBoxContainer/time_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "15 sec"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="charge_entry" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/charge_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "chargeup"
+label_settings = ExtResource("3_oe4qv")
+vertical_alignment = 1
+
+[node name="charge" type="Label" parent="TextureRect/VBoxContainer/charge_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.4x"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus_entry" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/bonus_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "tip"
+label_settings = ExtResource("3_oe4qv")
+vertical_alignment = 1
+
+[node name="tip" type="Label" parent="TextureRect/VBoxContainer/bonus_entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ULTRA"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label_total" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "==== TOTAL ===="
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="total" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "252"
+label_settings = ExtResource("3_oe4qv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

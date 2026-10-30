@@ -12,7 +12,7 @@ var timer : Timer = null
 @onready var time : Label = $stats/frame/time
 @onready var score : Label = $stats/frame/score
 @onready var tip : AnimatedSprite2D = $tip
-var pending_tip_total : int = 0
+@onready var submission_pop : SubmissionPop = $submission_pop
 
 @onready var scribbles : VBoxContainer = $order/VBoxContainer
 @onready var top_tear : TextureRect = $order/VBoxContainer/top
@@ -30,6 +30,16 @@ var pending_tip_total : int = 0
 @export var mustard_scribbles : Array[Texture2D]
 
 @onready var trash_bar : TextureProgressBar = $trash_bar
+
+##
+
+var pending_score : int = -1
+var ticking_score : bool = false
+var current_score : int = -1
+var target_score : int = -1
+var offset : int = 1
+var tick : int = 0
+var pending_tip_total : int = 0
 
 ####
 #### Multi-Lang Texture Setters
@@ -135,7 +145,14 @@ func push_burger_build(build : PackedStringArray):
 
 
 func set_score(arg : int):
-	score.text = str(arg)
+	if current_score < 0:
+		current_score = 0
+	target_score = arg
+	offset = 1
+	if target_score < current_score:
+		offset = -1
+	tick = 0
+	ticking_score = target_score != current_score
 
 
 func add_tip(tip : int, total : int):
@@ -161,6 +178,7 @@ func _ready():
 	$order.hide()
 	trash_bar.hide()
 	tip.hide()
+	submission_pop.hide()
 
 
 func process_scrolling(delta):
@@ -179,6 +197,13 @@ func _physics_process(delta):
 			order_dither_buffer -= 1
 	if timer != null:
 		time.text = str(floor(timer.time_left))
+	if ticking_score:
+		tick += 1
+		if tick > 2:
+			current_score += offset
+			score.text = str(current_score)
+			ticking_score = current_score != target_score
+			tick = 0
 
 
 func _on_pause_pressed():
@@ -212,3 +237,11 @@ func play_tip(anim_name : String):
 func _on_tip_animation_finished() -> void:
 	tip.hide()
 	set_score(pending_tip_total)
+
+
+func _on_submission_pop_receipt_fully_popped() -> void:
+	set_score(pending_score)
+
+
+func _on_submission_pop_tip_revealed() -> void:
+	pass # Replace with function body.

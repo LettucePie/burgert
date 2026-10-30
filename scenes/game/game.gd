@@ -99,7 +99,7 @@ func stop_game(reset : bool):
 func adjust_score(arg : int):
 	game_scores.append(arg)
 	current_score += arg
-	hud.set_score(current_score)
+	#hud.set_score(current_score)
 
 
 func make_new_order():
@@ -179,6 +179,7 @@ func assess_submission():
 		current_order_charging_rate
 		))
 	submission_total = (burger_score + time_score) * charge_throw
+	hud.submission_pop.set_accuracy()
 	adjust_score(submission_total)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
