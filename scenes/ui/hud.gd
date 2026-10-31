@@ -39,6 +39,7 @@ var current_score : int = 0
 var target_score : int = -1
 var offset : int = 1
 var tick : int = 0
+const TWEEN_SPEED : float = 0.06
 
 ####
 #### Multi-Lang Texture Setters
@@ -179,6 +180,25 @@ func process_scrolling(delta):
 	if Input.is_action_just_pressed("down"): $order.scroll_vertical += 64
 
 
+func _tween_score_counter(pos : bool) -> void:
+	var tween : Tween = create_tween()
+	var target : Vector2 = Vector2(175.58, 0)
+	var rot : float = 0.0
+	var sca : Vector2 = Vector2.ONE
+	var colo : Color = Color.WHITE
+	score.position = score.position + Vector2(randf_range(-1.5, 1.5), randf_range(-0.5, 0.5))
+	score.rotation = randf_range(-0.12, 0.12)
+	score.scale = Vector2(1.25, 1.25)
+	score.self_modulate = Color.GREEN
+	if !pos:
+		score.self_modulate = Color.RED
+	tween.tween_property(score, "position", target, TWEEN_SPEED)
+	tween.set_parallel()
+	tween.tween_property(score, "rotation", rot, TWEEN_SPEED)
+	tween.tween_property(score, "scale", sca, TWEEN_SPEED)
+	tween.tween_property(score, "self_modulate", colo, TWEEN_SPEED)
+
+
 func _physics_process(delta):
 	if order_shown:
 		process_scrolling(delta)
@@ -192,10 +212,11 @@ func _physics_process(delta):
 		time.text = str(floor(timer.time_left))
 	if ticking_score:
 		tick += 1
-		if tick > 2:
+		if tick > 3:
 			current_score += offset
 			score.text = str(current_score)
 			ticking_score = current_score != target_score
+			_tween_score_counter(offset > 0)
 			tick = 0
 
 
