@@ -35,11 +35,10 @@ var timer : Timer = null
 
 var pending_score : int = -1
 var ticking_score : bool = false
-var current_score : int = -1
+var current_score : int = 0
 var target_score : int = -1
 var offset : int = 1
 var tick : int = 0
-var pending_tip_total : int = 0
 
 ####
 #### Multi-Lang Texture Setters
@@ -144,25 +143,19 @@ func push_burger_build(build : PackedStringArray):
 	_build_order(build)
 
 
+func print_popup_receipt(tip_amount : int):
+	pending_score += tip_amount
+	submission_pop.set_total(pending_score)
+	submission_pop.popup()
+
+
 func set_score(arg : int):
-	if current_score < 0:
-		current_score = 0
 	target_score = arg
 	offset = 1
 	if target_score < current_score:
 		offset = -1
 	tick = 0
 	ticking_score = target_score != current_score
-
-
-func add_tip(tip : int, total : int):
-	var anim : String = "Basic"
-	if tip == 20:
-		anim = "Bonus"
-	elif tip == 40:
-		anim = "Ultra"
-	pending_tip_total = total
-	play_tip(anim)
 
 
 func set_timer(t : Timer):
@@ -229,18 +222,8 @@ func trashing_stopped():
 	trash_bar.value = 0
 
 
-func play_tip(anim_name : String):
-	tip.show()
-	tip.play(anim_name)
-
-
-func _on_tip_animation_finished() -> void:
-	tip.hide()
-	set_score(pending_tip_total)
-
-
 func _on_submission_pop_receipt_fully_popped() -> void:
-	set_score(pending_score)
+	set_score(current_score + pending_score)
 
 
 func _on_submission_pop_tip_revealed() -> void:

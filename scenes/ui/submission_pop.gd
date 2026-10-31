@@ -22,11 +22,11 @@ func set_accuracy(submit : int, request : int):
 
 
 func set_time(arg : float):
-	time_label.text = str(arg) + "secs"
+	time_label.text = str(snapped(arg, 0.1)) + "secs"
 
 
 func set_chargeup(arg : float):
-	chargeup_label.text = str(arg) + "x"
+	chargeup_label.text = str(snapped(arg, 0.1)) + "x"
 
 
 func set_tip(arg : String):

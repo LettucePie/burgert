@@ -179,8 +179,12 @@ func assess_submission():
 		current_order_charging_rate
 		))
 	submission_total = (burger_score + time_score) * charge_throw
-	hud.submission_pop.set_accuracy()
 	adjust_score(submission_total)
+	hud.pending_score = submission_total
+	hud.submission_pop.set_order_num(game_scores.size())
+	hud.submission_pop.set_time(finish_time)
+	hud.submission_pop.set_accuracy(correct_placements, current_order.size())
+	hud.submission_pop.set_chargeup(charge_throw)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
 	var rank = 1
@@ -194,9 +198,18 @@ func assess_submission():
 
 
 func provide_regular_bonus_tip(amount : int) -> void:
-	game_tips.append(amount)
-	current_score += amount
-	hud.add_tip(amount, current_score)
+	var submission_pop_tip : String = "dud"
+	if amount > 0:
+		game_tips.append(amount)
+		current_score += amount
+	if amount == 10:
+		submission_pop_tip = "Basic"
+	if amount == 20:
+		submission_pop_tip = "Bonus"
+	if amount == 40:
+		submission_pop_tip = "Ultra"
+	hud.submission_pop.set_tip(submission_pop_tip)
+	hud.print_popup_receipt(amount)
 
 
 func _on_chef_start_burger_submission():

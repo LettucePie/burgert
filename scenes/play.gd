@@ -536,9 +536,11 @@ func _on_game_game_finished(final_score : int):
 
 func _on_game_finished_order(customer_name: String, satisfaction_rank: int) -> void:
 	var customer_stats : Stats.CustomerStat = stats.fetch_customerstat(customer_name)
+	## Printer Section
 	if customer_stats.get_orders_served() <= 0 and !customer_name.contains("Basic"):
 		main_menu.printer.printer_queue.append(customer_name)
 		game_scene.results.printer_queued = true
+	## Data Adjustment
 	customer_stats.add_orders_served()
 	if satisfaction_rank == 1:
 		customer_stats.add_disappointing_orders()
@@ -547,18 +549,19 @@ func _on_game_finished_order(customer_name: String, satisfaction_rank: int) -> v
 	elif satisfaction_rank == 3:
 		customer_stats.add_fantastic_orders()
 	_save_stats()
-	if !customer_name.contains("Basic") and satisfaction_rank > 1:
-		var tip_amount : int = 0
-		var fantastic = customer_stats.get_fantastic_orders()
-		var disappointing = customer_stats.get_disappointing_orders()
-		if fantastic >= 5:
-			tip_amount = 10
-		if fantastic - disappointing >= 5:
-			tip_amount = 20
-		if fantastic - disappointing >= 10:
-			tip_amount = 40
-		if tip_amount > 0:
-			game_scene.provide_regular_bonus_tip(tip_amount)
+	## Tipping
+	var tip_amount : int = 0
+	var fantastic = customer_stats.get_fantastic_orders()
+	var disappointing = customer_stats.get_disappointing_orders()
+	if fantastic >= 5:
+		tip_amount = 10
+	if fantastic - disappointing >= 5:
+		tip_amount = 20
+	if fantastic - disappointing >= 10:
+		tip_amount = 40
+	if customer_name.contains("Basic") or satisfaction_rank < 2:
+		tip_amount = 0
+	game_scene.provide_regular_bonus_tip(tip_amount)
 
 
 func _on_main_menu_resume_play():
