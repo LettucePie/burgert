@@ -178,6 +178,7 @@ func assess_submission():
 		chef.charging_rate_min, chef.charging_rate_max, 
 		current_order_charging_rate
 		))
+	charge_throw = snappedf(charge_throw, 0.2)
 	submission_total = (burger_score + time_score) * charge_throw
 	adjust_score(submission_total)
 	hud.pending_score = submission_total
