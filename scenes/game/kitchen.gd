@@ -157,10 +157,10 @@ func _start_timer():
 	kitchen_prepped = false
 
 
-func play_splat(pos : Vector2):
+func play_splat(pos : Vector2, anim : String):
 	splat.position = pos
 	splat.show()
-	splat.play("splat")
+	splat.play(anim)
 	splat.get_child(0).play()
 
 

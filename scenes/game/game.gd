@@ -240,7 +240,10 @@ func _on_burger_2d_reached_target(target) -> void:
 	if submit.check_customer(kitchen.current_customer):
 		assess_submission()
 	else:
-		kitchen.play_splat(submit.get_target_position())
+		var splat_anim : String = "splat"
+		if chef.current_burger.ingredients.size() == 0:
+			splat_anim = "clang"
+		kitchen.play_splat(submit.get_target_position(), splat_anim)
 	chef.current_burger.refresh_plate()
 	chef.burger_sprite.show()
 	chef.submitting_burger = false

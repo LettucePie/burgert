@@ -1,6 +1,26 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://e64v81dublgv"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://e64v81dublgv"]
 
 [ext_resource type="Texture2D" uid="uid://k4p5q8nixh8u" path="res://assets/images/graphics/missed_burger.png" id="1_jwsw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvm3v"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4geo"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlg7o"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvrte"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t0q0"]
+atlas = ExtResource("1_jwsw1")
+region = Rect2(320, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0r32o"]
 atlas = ExtResource("1_jwsw1")
@@ -24,6 +44,26 @@ region = Rect2(320, 0, 64, 64)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvm3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4geo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlg7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvrte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t0q0")
+}],
+"loop": false,
+"name": &"clang",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0r32o")

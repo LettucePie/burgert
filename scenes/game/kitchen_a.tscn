@@ -140,7 +140,7 @@ texture = ExtResource("7_b5ba6")
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("8_hjo3x")
-animation = &"splat"
+animation = &"clang"
 
 [node name="splat_sfx" type="AudioStreamPlayer2D" parent="splat"]
 stream = ExtResource("9_v7osa")

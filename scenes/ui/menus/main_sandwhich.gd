@@ -36,6 +36,7 @@ var stack_labels_translated : PackedStringArray = [
 ]
 @onready var sfx : AudioStreamPlayer = $sandwich_sfx
 @export var sandwich_sfx : Array[AudioStreamWAV]
+@onready var title3d : Title3D = $Subviews/SubView_Title/Node3D/Title3D
 
 ##
 ## Multi-Lang

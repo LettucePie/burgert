@@ -33,25 +33,8 @@ var play_order : Array = []
 @onready var shuffle_off_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off.png")
 @onready var shuffle_off_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png")
 ##
-var visualizer_instance : AudioEffectSpectrumAnalyzerInstance = null
-var frequency_ranges : PackedVector2Array = [
-	Vector2(0, 60),
-	Vector2(60, 250),
-	Vector2(250, 500),
-	Vector2(500, 2000),
-	Vector2(2000, 20000)
-]
-var balancer_weights : PackedFloat32Array = [
-	0.95,
-	1.00,
-	2.35,
-	3.80,
-	5.60
-]
-var spectrum_data : PackedVector2Array = []
-var visual_data : PackedFloat32Array = [0.0, 0.0, 0.0, 0.0, 0.0]
+var spectrum_analyzer : SpectrumAnalyzer = null
 @onready var spectrum_sliders : Array = $screen/spectrum_sliders.get_children()
-var largest_value : float = 0.0
 
 
 func ready_jukebox() -> void:
@@ -64,12 +47,17 @@ func ready_jukebox() -> void:
 	play_button.grab_focus()
 	jukebox_vol.value = current_volume
 	jukebox_vol.update_vals(true)
-	visualizer_instance = AudioServer.get_bus_effect_instance(4, 0)
+	spectrum_analyzer.set_active(true)
 
 
 func _ready() -> void:
 	if get_window().get_child(0) == self:
+		var new_analyzer : SpectrumAnalyzer = SpectrumAnalyzer.new()
+		add_child(new_analyzer)
+		spectrum_analyzer = new_analyzer
 		ready_jukebox()
+	elif get_window().get_child(0) is Play:
+		spectrum_analyzer = get_window().get_child(0).spectrum_analyzer
 
 
 func _build_play_order(shuffled : bool):
@@ -152,6 +140,7 @@ func _on_stop_pressed() -> void:
 	#_update_progress()
 	#current_playback = 0
 	emit_signal("stop_pressed")
+	spectrum_analyzer.set_active(false)
 
 
 func _update_player() -> void:
@@ -180,39 +169,17 @@ func _update_progress() -> void:
 		_on_player_finished()
 
 
-func _analyze_spectrum() -> void:
-	spectrum_data.clear()
-	for idx in frequency_ranges.size():
-		var range : Vector2 = frequency_ranges[idx]
-		var scaler : float = balancer_weights[idx]
-		var magnitude = visualizer_instance.get_magnitude_for_frequency_range(range.x, range.y)
-		magnitude *= scaler
-		spectrum_data.append(magnitude)
-
-
-func _calculate_visualizer_data() -> void:
-	for idx in spectrum_data.size():
-		var raw_value : float = 0.0
-		if player.playing:
-			raw_value = spectrum_data[idx].length_squared() * 10000
-		var lerp_speed : float = 0.90
-		if raw_value < visual_data[idx]:
-			lerp_speed = 0.35
-		visual_data[idx] = lerpf(visual_data[idx], raw_value, lerp_speed)
-
 
 func _draw_visualizer() -> void:
-	for idx in spectrum_data.size():
-		spectrum_sliders[idx].update_value(visual_data[idx])
+	for idx in spectrum_analyzer.spectrum_data.size():
+		spectrum_sliders[idx].update_value(spectrum_analyzer.visual_data[idx])
 
 
 func _physics_process(delta: float) -> void:
 	if player.playing:
 		_update_progress()
-		if visualizer_instance != null:
-			_analyze_spectrum()
-	_calculate_visualizer_data()
-	_draw_visualizer()
+	if spectrum_analyzer != null:
+		_draw_visualizer()
 
 
 func _on_jukebox_vol_update_value(new_val: Variant) -> void:

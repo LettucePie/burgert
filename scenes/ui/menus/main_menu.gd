@@ -38,6 +38,7 @@ var right_side_commands : PackedStringArray = [
 func refocus():
 	main.call_deferred("grab_focus")
 	main.go_to_layer("")
+	main.title3d.spectrum_analyzer.set_active(true)
 	if OS.has_feature("web"):
 		print("Make WEB Version of Sandwhich")
 
@@ -85,6 +86,7 @@ func _on_main_menu_selection(selection: String) -> void:
 			anim.play("desk_pan_right")
 		if queued_menu == SCREENS.RADIO:
 			emit_signal("bgm_pause", true)
+		main.title3d.spectrum_analyzer.set_active(false)
 
 
 ## TODO Migrate to _on_main_menu_selection
@@ -131,6 +133,7 @@ func set_state(state : SCREENS):
 	if state == SCREENS.MAIN:
 		main.grab_focus()
 		main.go_to_layer("Play")
+		main.title3d.spectrum_analyzer.set_active(true)
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:

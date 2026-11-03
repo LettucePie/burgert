@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/menus/main_sandwhich.gd" id="1_kifg5"]
-[ext_resource type="Script" path="res://scenes/ui/vfx/wobble_sprite.gd" id="2_f6xup"]
 [ext_resource type="AudioStream" uid="uid://e5g3k25ob5cn" path="res://assets/sound/sfx/Ingredients/Bun.wav" id="2_f8rkd"]
 [ext_resource type="AudioStream" uid="uid://dunfrlldr045r" path="res://assets/sound/sfx/Ingredients/Burger.wav" id="3_71vga"]
 [ext_resource type="Texture2D" uid="uid://xe4x8f1368br" path="res://assets/images/graphics/menu/icons/customerdex_icon.png" id="3_nw1xn"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
 [ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/Menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
+[ext_resource type="Script" path="res://scenes/ui/title_3d.gd" id="13_hl41g"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
@@ -77,10 +77,10 @@ size = Vector2i(640, 480)
 [node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
 transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.792844, 0.860624, 3.32185)
 
-[node name="Sprite3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
+[node name="Title3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
 texture_filter = 0
 texture = ExtResource("11_mm0ww")
-script = ExtResource("2_f6xup")
+script = ExtResource("13_hl41g")
 
 [node name="Plate" type="Sprite2D" parent="."]
 position = Vector2(217, 369)
