@@ -34,6 +34,7 @@ var current_station : Workstation = null
 var direction : String = "L"
 var order_size : int = 0
 var submitting_burger : bool = false
+var burger_thrown : bool = false
 var trashing : bool = false
 var trashing_ticks : int = 60
 var waiting : bool = true
@@ -60,6 +61,7 @@ func reset_chef():
 	anim_tree.set("parameters/conditions/post_game", false)
 	anim_tree.set("parameters/conditions/idle_R", true)
 	submitting_burger = false
+	burger_thrown = false
 	set_active(false)
 	waiting = true
 	burger_sprite.show()
@@ -130,6 +132,7 @@ func process_actions(delta):
 	if Input.is_action_just_pressed("up"):
 		if !submitting_burger:
 			submitting_burger = true
+			burger_thrown = false
 			charging_rate = charging_rate_min
 			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
@@ -171,16 +174,19 @@ func process_submission(delta):
 	if state_machine.get_current_node().contains("Charging"):
 		anim_tree.set('parameters/Charging_L/TimeScale/scale', charging_rate)
 		anim_tree.set('parameters/Charging_R/TimeScale/scale', charging_rate)
-	if Input.is_action_just_pressed("up") \
+	if (Input.is_action_just_pressed("up") \
 	or (Input.is_action_just_released("up") and charging_rate > quick_throw_threshold) \
-	or Input.is_action_just_pressed("confirm"):
+	or Input.is_action_just_pressed("confirm")) \
+	and !burger_thrown:
 		emit_signal("submit_burger")
+		burger_thrown = true
 		state_machine.travel("Throw_" + direction)
 		charging_rate = charging_rate_min
 		idle_counter = 0
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
+		burger_thrown = false
 		emit_signal("cancel_burger_submission")
 		state_machine.travel("Idle_" + direction)
 
