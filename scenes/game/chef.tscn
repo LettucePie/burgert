@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ddp4wjcafmrbj"]
+[gd_scene load_steps=36 format=3 uid="uid://ddp4wjcafmrbj"]
 
 [ext_resource type="Script" path="res://scenes/game/chef.gd" id="1_qyhq5"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bbbgfyoa6ge00" path="res://assets/animation/chef_animtree.tres" id="2_gn2r5"]
@@ -464,20 +464,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"pick_next_dance"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_belfp"]
 resource_name = "Dance2"
@@ -542,20 +528,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"pick_next_dance"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_ak82t"]
@@ -622,20 +594,6 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"pick_next_dance"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_aw2my"]
 resource_name = "Dance4"
@@ -700,20 +658,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"pick_next_dance"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_ovhst"]
@@ -2194,6 +2138,86 @@ tracks/4/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_eeojt"]
+resource_name = "Dance4_spinning"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Dance4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 7, 8, 9, 13, 14, 15, 16]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("burger_sprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pick_next_dance"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jp2nr"]
 _data = {
 "Bounce_Corner": SubResource("Animation_eaikq"),
@@ -2205,6 +2229,7 @@ _data = {
 "Dance2": SubResource("Animation_belfp"),
 "Dance3": SubResource("Animation_ak82t"),
 "Dance4": SubResource("Animation_aw2my"),
+"Dance4_spinning": SubResource("Animation_eeojt"),
 "Idle_L": SubResource("Animation_ovhst"),
 "Idle_R": SubResource("Animation_oocgj"),
 "Idle_Sting_L": SubResource("Animation_0wdwj"),
@@ -2258,9 +2283,8 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
-animation = &"Idle_Plate_R"
+animation = &"Dance4"
 autoplay = "Idle_L"
-frame = 2
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
@@ -2268,7 +2292,8 @@ frame = 2
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-67, -34)
+visible = false
+position = Vector2(34, -7)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_yjpo2")
 

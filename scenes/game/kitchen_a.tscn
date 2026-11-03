@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=78 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -38,8 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_grill.tres" id="42_y6et2"]
 [ext_resource type="PackedScene" uid="uid://cgmgqfpgsbl30" path="res://scenes/game/customers/customer_Karen.tscn" id="43_kfksk"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_alcove.tres" id="43_yb70e"]
+[ext_resource type="SpriteFrames" uid="uid://ds0lrkyq118e1" path="res://assets/images/environment/kitchen/janitor_bot_spriteframes.tres" id="43_yxlf8"]
 [ext_resource type="PackedScene" uid="uid://cm1q64oko5mup" path="res://scenes/game/customers/customer_Emo.tscn" id="44_1jhgf"]
 [ext_resource type="Texture2D" uid="uid://ctxu1fik5xxpo" path="res://assets/images/environment/kitchen/restaurant_fg/counter_glass_shield.png" id="44_1r70g"]
+[ext_resource type="Script" path="res://scenes/game/janitor_bot.gd" id="44_rtmyj"]
 [ext_resource type="PackedScene" uid="uid://dgdrqg66xl376" path="res://scenes/game/customers/customer_basic_b.tscn" id="45_o2d37"]
 [ext_resource type="Texture2D" uid="uid://jfx0q6ekhayi" path="res://assets/images/environment/kitchen/ingredients/rune_a.png" id="45_opf6f"]
 [ext_resource type="Script" path="res://scenes/ui/vfx/rune.gd" id="46_ha3fw"]
@@ -150,6 +152,14 @@ scale = Vector2(1.8875, 1.8875)
 sprite_frames = ExtResource("10_8tahq")
 frame = 9
 script = ExtResource("11_vxrt6")
+
+[node name="janitor_bot" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(246, 206)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("43_yxlf8")
+animation = &"walk"
+script = ExtResource("44_rtmyj")
 
 [node name="customers" type="Node2D" parent="."]
 z_index = -1

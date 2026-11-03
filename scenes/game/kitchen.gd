@@ -17,6 +17,7 @@ var queue : PackedInt32Array = []
 var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
+@onready var janitor_bot : JanitorBot = $janitor_bot
 var kitchen_timeslot : int = 0
 var kitchen_prepped : bool = false
 
@@ -41,6 +42,7 @@ func _ready():
 			if !child.kitchen_switch.is_connected(_on_kitchen_switch):
 				child.kitchen_switch.connect(_on_kitchen_switch)
 	customer_burger_portal.set_mode_customer(true)
+	janitor_bot.enable_bot(false)
 
 
 func prep_kitchen():
@@ -64,6 +66,7 @@ func prep_kitchen():
 	var times_str = ["night", "morning", "noon", "afternoon", "night"]
 	window.animation = times_str[timeslot_idx % 4]
 	kitchen_prepped = true
+	janitor_bot.enable_bot(true)
 	_build_queue()
 
 

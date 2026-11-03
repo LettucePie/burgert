@@ -128,8 +128,7 @@ func process_actions(delta):
 			current_station.pickup_sfx()
 			idle_counter = 0
 	if Input.is_action_just_pressed("up"):
-		if current_burger.ingredients.size() >= order_size \
-		and !submitting_burger:
+		if !submitting_burger:
 			submitting_burger = true
 			charging_rate = charging_rate_min
 			state_machine.travel("Chargup_" + direction)
@@ -279,10 +278,10 @@ func bounce_to_corner() -> void:
 	_tween_a_geddon(time_total, height_max, timer, p0, p1, p2, 0.01)
 
 
-func pick_next_dance() -> void:
-	var options : Array = [1, 2, 3, 4]
-	for o in options:
-		anim_tree.set("parameters/Dancing/conditions/dance_" + str(o), false)
-	options.erase(current_dance)
-	current_dance = options.pick_random()
-	anim_tree.set("parameters/Dancing/conditions/dance_" + str(current_dance), true)
+#func pick_next_dance() -> void:
+	#var options : Array = [1, 2, 3, 4]
+	#for o in options:
+		#anim_tree.set("parameters/Dancing/conditions/dance_" + str(o), false)
+	#options.erase(current_dance)
+	#current_dance = options.pick_random()
+	#anim_tree.set("parameters/Dancing/conditions/dance_" + str(current_dance), true)

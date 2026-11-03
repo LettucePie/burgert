@@ -253,8 +253,6 @@ vertical_alignment = 1
 
 [node name="submission_pop" parent="." instance=ExtResource("55_1lkbb")]
 layout_mode = 1
-offset_top = -171.0
-offset_bottom = 0.0
 
 [node name="tip" type="AnimatedSprite2D" parent="."]
 position = Vector2(439, 415)
