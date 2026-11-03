@@ -12,11 +12,11 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if spectrum_analyzer != null:
-		rot_target = clampf(spectrum_analyzer.visual_data[1] * 0.2, -0.15, 0.15)
-		rot_target -= clampf(spectrum_analyzer.visual_data[3] * 0.2, -0.15, 0.15)
-		rotation.y = lerpf(rotation.y, rot_target, 0.2222)
-		sca_target = clampf(spectrum_analyzer.visual_data[2] * 0.15, 1.0, 2.0)
-		scale.y = lerpf(scale.y, sca_target, 0.2222)
+		rot_target = clampf((spectrum_analyzer.visual_data[0] + spectrum_analyzer.visual_data[1]) * 0.25, -0.25, 0.25)
+		rot_target -= clampf((spectrum_analyzer.visual_data[3] + spectrum_analyzer.visual_data[4]) * 0.25, -0.25, 0.25)
+		rotation.y = lerpf(rotation.y, rot_target, 0.022)
+		sca_target = clampf(spectrum_analyzer.total_magnitude_raw * 35, 0.8, 1.8)
+		scale.y = lerpf(scale.y, sca_target, 0.1)
 
 
 

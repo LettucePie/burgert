@@ -142,6 +142,7 @@ func set_state(state : SCREENS):
 		anim.play("pause_open")
 
 
+## This function only is called if the animator failed to open a submenu
 func _return_to_desk_center():
 	if current_screen != SCREENS.MAIN:
 		var target_anim := "desk_return_left"
@@ -172,11 +173,14 @@ func _on_animation_player_animation_finished(anim_name : String):
 		elif queued_menu == SCREENS.SHOP:
 			anim.play("shop_open")
 		else:
+			## Something went wrong
+			main.title3d.spectrum_analyzer.set_enabled(true)
 			current_screen = queued_menu
 			_return_to_desk_center()
 	
 	if anim_name.contains("desk_return") and queued_menu == SCREENS.MAIN:
 		current_screen = queued_menu
+		main.title3d.spectrum_analyzer.set_active(true)
 	
 	if anim_name == "dex_open":
 		current_screen = SCREENS.DEX

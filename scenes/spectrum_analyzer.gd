@@ -20,11 +20,14 @@ var balancer_weights : PackedFloat32Array = [
 	5.60
 ]
 var spectrum_data : PackedVector2Array = []
+var total_magnitude_raw : float = 0.0
+var total_magnitude_scaled : float = 0.0
 var visual_data : PackedFloat32Array = [0.0, 0.0, 0.0, 0.0, 0.0]
 var largest_value : float = 0.0
 
 
 func set_active(tf : bool) -> void:
+	print("Spectrum Set Active: ", tf)
 	active = tf
 
 
@@ -34,11 +37,15 @@ func _ready():
 
 func _analyze_spectrum() -> void:
 	spectrum_data.clear()
+	total_magnitude_raw = 0.0
+	total_magnitude_scaled = 0.0
 	for idx in frequency_ranges.size():
 		var range : Vector2 = frequency_ranges[idx]
 		var scaler : float = balancer_weights[idx]
 		var magnitude = visualizer_instance.get_magnitude_for_frequency_range(range.x, range.y)
+		total_magnitude_raw += magnitude.length()
 		magnitude *= scaler
+		total_magnitude_scaled += magnitude.length()
 		spectrum_data.append(magnitude)
 
 
