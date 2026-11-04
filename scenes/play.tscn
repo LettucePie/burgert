@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=49 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/menus/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -38,6 +38,8 @@
 [ext_resource type="Resource" uid="uid://dduwexcxehkg5" path="res://assets/sound/music/songs/Ghost whistle.tres" id="30_5tl2m"]
 [ext_resource type="Resource" uid="uid://bkr8hybtqvi8i" path="res://assets/sound/music/songs/Hap-apple-pie.tres" id="31_jjs2m"]
 [ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="38_hkqee"]
+[ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
+[ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -241,7 +243,6 @@ silent_song = ExtResource("27_k5wvn")
 libraries = {
 "": SubResource("AnimationLibrary_2ve64")
 }
-autoplay = "intro_ramp"
 
 [node name="audio_timer" type="Timer" parent="Music"]
 
@@ -253,6 +254,13 @@ fonts = Array[FontVariation]([ExtResource("14_ourml"), ExtResource("15_crhnc"), 
 labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"), ExtResource("19_t53yn"), ExtResource("20_06v27"), ExtResource("21_qbr2j")])
 
 [node name="SpectrumAnalyzer" parent="." instance=ExtResource("38_hkqee")]
+
+[node name="intro_splash" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("39_5cbxr")
+script = ExtResource("40_igmts")
 
 [connection signal="finished_order" from="Game" to="." method="_on_game_finished_order"]
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
@@ -268,3 +276,6 @@ labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"),
 [connection signal="updated_playlists" from="Music" to="." method="_on_music_updated_playlists"]
 [connection signal="timeout" from="Music/audio_timer" to="Music" method="_on_audio_timer_timeout"]
 [connection signal="set_lang" from="MultiLang" to="." method="_on_multi_lang_set_lang"]
+[connection signal="animation_finished" from="intro_splash" to="intro_splash" method="_on_animation_finished"]
+[connection signal="frame_changed" from="intro_splash" to="intro_splash" method="_on_frame_changed"]
+[connection signal="intro_splash_fading" from="intro_splash" to="." method="_on_intro_splash_intro_splash_fading"]

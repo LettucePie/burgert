@@ -198,6 +198,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.SHOP
 	if anim_name == "print_close":
 		current_screen = SCREENS.MAIN
+		main.title3d.spectrum_analyzer.set_active(true)
 	
 	if anim_name == "quit_game":
 		if printer.printer_queue.size() <= 0:

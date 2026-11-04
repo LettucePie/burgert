@@ -79,7 +79,7 @@ offset_top = 154.5
 offset_bottom = 200.5
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00006
+offset_left = 2.0
 offset_top = 62.5
 offset_bottom = 164.5
 

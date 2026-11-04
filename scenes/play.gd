@@ -627,3 +627,7 @@ func _on_music_purchased_song(song: Song) -> void:
 
 func _on_music_updated_playlists() -> void:
 	_save_stats()
+
+
+func _on_intro_splash_intro_splash_fading() -> void:
+	music.anim.play("intro_ramp")
