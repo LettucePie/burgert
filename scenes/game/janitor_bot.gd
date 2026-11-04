@@ -51,7 +51,7 @@ func _return_to_dormancy() -> void:
 
 func _declare_dormant() -> void:
 	state = State.DORMANT
-	current_state_duration = Time.get_ticks_msec() + randf_range(3200, 8200)
+	current_state_duration = Time.get_ticks_msec() + randf_range(8500, 20000)
 	play("clean")
 
 
@@ -67,7 +67,7 @@ func enable_bot(tf : bool):
 	state = State.DORMANT
 	if tf:
 		show()
-		_pick_next_state()
+		_declare_dormant()
 	else:
 		hide()
 
