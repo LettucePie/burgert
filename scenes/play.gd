@@ -193,6 +193,7 @@ class Stats:
 	var times_played : int = 0
 	var total_score : int = 0
 	var spent_score : int = 0
+	var saved_score : int = 0
 	var timeslots_played : PackedInt32Array = []
 	var songs_owned : PackedInt32Array = []
 	var play_playlist : PackedInt32Array = []
@@ -201,7 +202,7 @@ class Stats:
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
-		"spent_score", "timeslots_played", 
+		"spent_score", "saved_score", "timeslots_played", 
 		"songs_owned", "play_playlist", "main_playlist", "jukebox_playlist",
 		"customer_stats"
 	]
@@ -276,6 +277,15 @@ class Stats:
 	
 	func adjust_spent_score(arg : int):
 		spent_score += arg
+	
+	func set_saved_score(new : int) -> void:
+		saved_score = new
+	
+	func get_saved_score() -> int:
+		return saved_score
+	
+	func adjust_saved_score(arg : int) -> void:
+		saved_score += arg
 	
 	func set_times_played(new : int):
 		times_played = new
@@ -413,6 +423,7 @@ func _load_stats():
 			stats.set_times_played(data["times_played"])
 			stats.set_total_score(data["total_score"])
 			stats.set_spent_score(data["spent_score"])
+			stats.set_saved_score(data["saved_score"])
 			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_songs_owned(data["songs_owned"])
 			stats.set_play_playlist(data["play_playlist"])
@@ -431,6 +442,7 @@ func _save_stats():
 		"times_played" = stats.get_times_played(),
 		"total_score" = stats.get_total_score(),
 		"spent_score" = stats.get_spent_score(),
+		"saved_score" = stats.get_saved_score(),
 		"timeslots_played" = stats.get_timeslots_played(),
 		"songs_owned" = stats.get_songs_owned(),
 		"play_playlist" = stats.get_play_playlist(),
