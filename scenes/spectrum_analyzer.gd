@@ -27,6 +27,7 @@ var largest_value : float = 0.0
 
 
 func set_active(tf : bool) -> void:
+	AudioServer.set_bus_effect_enabled(audio_bus_id, audio_bus_fx, tf)
 	active = tf
 
 

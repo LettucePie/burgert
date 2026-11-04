@@ -38,7 +38,6 @@ var right_side_commands : PackedStringArray = [
 func refocus():
 	main.call_deferred("grab_focus")
 	main.go_to_layer("")
-	main.title3d.spectrum_analyzer.set_active(true)
 	if OS.has_feature("web"):
 		print("Make WEB Version of Sandwhich")
 

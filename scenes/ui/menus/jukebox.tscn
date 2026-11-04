@@ -1,9 +1,10 @@
-[gd_scene load_steps=47 format=3 uid="uid://cecupkfcj6mv6"]
+[gd_scene load_steps=48 format=3 uid="uid://cecupkfcj6mv6"]
 
 [ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
 [ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
 [ext_resource type="Script" path="res://scenes/ui/menus/jukebox.gd" id="1_neq0u"]
 [ext_resource type="Texture2D" uid="uid://bni83pynxgrf6" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_screen_highlight.png" id="2_p112t"]
+[ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="3_oa80b"]
 [ext_resource type="Texture2D" uid="uid://co88beb78awff" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_prev.png" id="4_1sh5r"]
 [ext_resource type="Texture2D" uid="uid://riu5lawcp2qv" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_prev_highlight.png" id="5_14nkq"]
 [ext_resource type="Texture2D" uid="uid://2jcxgeuwmv6t" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_play.png" id="6_o6sof"]
@@ -523,7 +524,7 @@ _data = {
 "step5": SubResource("Animation_g8u4i")
 }
 
-[node name="Jukebox" type="Control"]
+[node name="Jukebox" type="Control" node_paths=PackedStringArray("spectrum_analyzer")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -533,6 +534,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_h1ud8")
 script = ExtResource("1_neq0u")
+spectrum_analyzer = NodePath("SpectrumAnalyzer")
+
+[node name="SpectrumAnalyzer" parent="." instance=ExtResource("3_oa80b")]
+audio_bus_id = 4
+audio_bus_fx = 0
 
 [node name="Player" type="AudioStreamPlayer" parent="."]
 bus = &"Jukebox"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=33 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/menus/main_sandwhich.gd" id="1_kifg5"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/Menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
 [ext_resource type="Script" path="res://scenes/ui/title_3d.gd" id="13_hl41g"]
+[ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="14_g12or"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
@@ -77,10 +78,15 @@ size = Vector2i(640, 480)
 [node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
 transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.792844, 0.860624, 3.32185)
 
-[node name="Title3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D"]
+[node name="Title3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D" node_paths=PackedStringArray("spectrum_analyzer")]
 texture_filter = 0
 texture = ExtResource("11_mm0ww")
 script = ExtResource("13_hl41g")
+spectrum_analyzer = NodePath("SpectrumAnalyzer")
+
+[node name="SpectrumAnalyzer" parent="Subviews/SubView_Title/Node3D/Title3D" instance=ExtResource("14_g12or")]
+audio_bus_id = 2
+audio_bus_fx = 0
 
 [node name="Plate" type="Sprite2D" parent="."]
 position = Vector2(217, 369)
@@ -199,4 +205,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="visibility_changed" from="Subviews/SubView_Title/Node3D/Title3D" to="Subviews/SubView_Title/Node3D/Title3D" method="_on_visibility_changed"]
 [connection signal="gui_input" from="PanelContainer" to="." method="_on_panel_container_gui_input"]

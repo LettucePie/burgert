@@ -8,7 +8,6 @@ class_name Play
 @export var multi_lang : MultiLang
 ##-----------
 @export var audio_bus : AudioBusLayout
-@export var spectrum_analyzer : SpectrumAnalyzer
 @export var container_scene : PackedScene
 var container : GameContainer = null
 var adopted : bool = false

@@ -33,7 +33,7 @@ var play_order : Array = []
 @onready var shuffle_off_texture : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off.png")
 @onready var shuffle_off_highlight : Texture = preload("res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png")
 ##
-var spectrum_analyzer : SpectrumAnalyzer = null
+@export var spectrum_analyzer : SpectrumAnalyzer = null
 @onready var spectrum_sliders : Array = $screen/spectrum_sliders.get_children()
 
 
@@ -52,12 +52,7 @@ func ready_jukebox() -> void:
 
 func _ready() -> void:
 	if get_window().get_child(0) == self:
-		var new_analyzer : SpectrumAnalyzer = SpectrumAnalyzer.new()
-		add_child(new_analyzer)
-		spectrum_analyzer = new_analyzer
 		ready_jukebox()
-	elif get_window().get_child(0) is Play:
-		spectrum_analyzer = get_window().get_child(0).spectrum_analyzer
 
 
 func _build_play_order(shuffled : bool):

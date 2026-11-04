@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=48 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/menus/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -37,7 +37,6 @@
 [ext_resource type="Resource" uid="uid://d1p4c5l4fy5dk" path="res://assets/sound/music/songs/FourtyOneAM.tres" id="29_s60c4"]
 [ext_resource type="Resource" uid="uid://dduwexcxehkg5" path="res://assets/sound/music/songs/Ghost whistle.tres" id="30_5tl2m"]
 [ext_resource type="Resource" uid="uid://bkr8hybtqvi8i" path="res://assets/sound/music/songs/Hap-apple-pie.tres" id="31_jjs2m"]
-[ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="38_hkqee"]
 [ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
 [ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
 
@@ -215,7 +214,7 @@ _data = {
 "start_play": SubResource("Animation_occq5")
 }
 
-[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang", "spectrum_analyzer")]
+[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang")]
 process_mode = 3
 script = ExtResource("1_j8n80")
 game_scene = NodePath("Game")
@@ -223,7 +222,6 @@ main_menu = NodePath("MainMenu")
 music = NodePath("Music")
 multi_lang = NodePath("MultiLang")
 audio_bus = ExtResource("2_tutvg")
-spectrum_analyzer = NodePath("SpectrumAnalyzer")
 container_scene = ExtResource("3_7qtb8")
 
 [node name="Game" parent="." instance=ExtResource("1_l5scj")]
@@ -252,8 +250,6 @@ libraries = {
 script = ExtResource("13_yh4ju")
 fonts = Array[FontVariation]([ExtResource("14_ourml"), ExtResource("15_crhnc"), ExtResource("16_ux3pj")])
 labels = Array[LabelSettings]([ExtResource("17_jy0cg"), ExtResource("18_y3ieu"), ExtResource("19_t53yn"), ExtResource("20_06v27"), ExtResource("21_qbr2j")])
-
-[node name="SpectrumAnalyzer" parent="." instance=ExtResource("38_hkqee")]
 
 [node name="intro_splash" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

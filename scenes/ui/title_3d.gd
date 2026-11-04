@@ -1,13 +1,12 @@
 extends Sprite3D
 class_name Title3D
 
-var spectrum_analyzer : SpectrumAnalyzer = null
+@export var spectrum_analyzer : SpectrumAnalyzer = null
 var rot_target : float = 0.0
 var sca_target : float = 0.0
 
 func _ready():
-	if get_window().get_child(0) is Play:
-		spectrum_analyzer = get_window().get_child(0).spectrum_analyzer
+	spectrum_analyzer.set_active(true)
 
 
 func _physics_process(delta: float) -> void:
@@ -26,3 +25,7 @@ func _physics_process(delta: float) -> void:
 	#var tween = create_tween()
 	#tween.tween_property(self, "rotation", Vector3(0, target, 0), time).set_trans(Tween.TRANS_SINE)
 	#tween.tween_callback(tweenit)
+
+
+func _on_visibility_changed() -> void:
+	spectrum_analyzer.set_active(visible)
