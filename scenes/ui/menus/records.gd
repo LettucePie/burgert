@@ -17,6 +17,10 @@ func _ready() -> void:
 	active = false
 
 
+func ready_records() -> void:
+	pass
+
+
 func assign_stats(stats : Play.Stats) -> void:
 	#loaded_stats = stats
 	total_score.text = "$" + str(stats.total_score)

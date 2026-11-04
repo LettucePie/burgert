@@ -27,7 +27,6 @@ var largest_value : float = 0.0
 
 
 func set_active(tf : bool) -> void:
-	print("Spectrum Set Active: ", tf)
 	active = tf
 
 
