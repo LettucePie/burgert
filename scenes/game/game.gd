@@ -184,10 +184,10 @@ func assess_submission():
 	hud.pending_score = submission_total
 	hud.submission_pop.set_order_num(game_scores.size())
 	hud.submission_pop.set_time(finish_time)
-	hud.submission_pop.set_accuracy(correct_placements, current_order.size())
-	hud.submission_pop.set_chargeup(charge_throw)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
+	hud.submission_pop.set_accuracy(correct_placements, current_order.size(), accuracy)
+	hud.submission_pop.set_chargeup(charge_throw)
 	var rank = 1
 	if satisfaction_percent > 0.5:
 		rank = 2

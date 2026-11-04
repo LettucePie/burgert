@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://crf2kxl6hpvhp"]
+[gd_scene load_steps=10 format=3 uid="uid://crf2kxl6hpvhp"]
 
 [ext_resource type="Script" path="res://scenes/ui/submission_pop.gd" id="1_x6ien"]
 [ext_resource type="Texture2D" uid="uid://bv2hxsmklykb3" path="res://assets/images/graphics/hud/submission_popup_receipt.png" id="2_lq4cf"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="3_oe4qv"]
+[ext_resource type="LabelSettings" uid="uid://d06abvkbftitt" path="res://assets/theme/fonts/submission_pop_colorcode_label_settings.tres" id="4_nne6l"]
+
+[sub_resource type="Gradient" id="Gradient_brldl"]
+offsets = PackedFloat32Array(0, 0.327586, 0.626437, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.439216, 0, 1, 1, 0.966667, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6kw5v"]
 length = 0.001
@@ -157,6 +162,7 @@ offset_top = -171.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_x6ien")
+result_gradient = SubResource("Gradient_brldl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -209,7 +215,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "7 / 10"
-label_settings = ExtResource("3_oe4qv")
+label_settings = ExtResource("4_nne6l")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -228,7 +234,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "15 sec"
-label_settings = ExtResource("3_oe4qv")
+label_settings = ExtResource("4_nne6l")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -247,7 +253,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1.4x"
-label_settings = ExtResource("3_oe4qv")
+label_settings = ExtResource("4_nne6l")
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -266,7 +272,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ULTRA"
-label_settings = ExtResource("3_oe4qv")
+label_settings = ExtResource("4_nne6l")
 horizontal_alignment = 2
 vertical_alignment = 1
 

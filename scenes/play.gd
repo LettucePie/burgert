@@ -495,6 +495,7 @@ func _ready():
 	main_menu.jukebox.music_library = music
 	main_menu.shop.wallet = stats
 	main_menu.shop.music_library = music
+	main_menu.main.active = false
 
 
 func _process(delta):
@@ -643,4 +644,5 @@ func _on_music_updated_playlists() -> void:
 
 
 func _on_intro_splash_intro_splash_fading() -> void:
+	main_menu.main.active = true
 	music.anim.play("intro_ramp")
