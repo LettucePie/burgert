@@ -153,7 +153,9 @@ sprite_frames = ExtResource("10_8tahq")
 frame = 9
 script = ExtResource("11_vxrt6")
 
-[node name="janitor_bot" type="AnimatedSprite2D" parent="."]
+[node name="interactive_targets" type="Node2D" parent="."]
+
+[node name="janitor_bot" type="AnimatedSprite2D" parent="interactive_targets"]
 z_index = -1
 position = Vector2(246, 206)
 scale = Vector2(1.5, 1.5)

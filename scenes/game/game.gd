@@ -243,7 +243,7 @@ func _on_burger_2d_reached_target(target) -> void:
 		var splat_anim : String = "splat"
 		if chef.current_burger.ingredients.size() == 0:
 			splat_anim = "clang"
-		kitchen.play_splat(submit.get_target_position(), splat_anim)
+		kitchen.play_splat(submit.get_target_position(), splat_anim, current_order_charging_rate > 1.33)
 	chef.current_burger.refresh_plate()
 	chef.burger_sprite.show()
 	chef.submitting_burger = false
@@ -303,3 +303,7 @@ func _on_chef_trashing_progress(val: Variant) -> void:
 
 func _on_chef_trashing_stopped() -> void:
 	hud.trashing_stopped()
+
+
+func _on_kitchen_a_struck_interactive_target(id: Variant) -> void:
+	print("Kitchen Interactive: ", id, " Struck!")

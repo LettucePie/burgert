@@ -5,6 +5,7 @@ signal customer_ready()
 signal customer_left()
 signal customer_reorder(new_order)
 signal start_timer()
+signal struck_interactive_target(id)
 
 @export var customer_burger_portal : BurgerPortal
 @export var customers_node : Node2D
@@ -17,7 +18,10 @@ var queue : PackedInt32Array = []
 var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
-@onready var janitor_bot : JanitorBot = $janitor_bot
+@onready var janitor_bot : JanitorBot = $interactive_targets/janitor_bot
+@onready var interactive_targets : Array[Node2D] = [
+	janitor_bot
+]
 var kitchen_timeslot : int = 0
 var kitchen_prepped : bool = false
 
@@ -157,11 +161,24 @@ func _start_timer():
 	kitchen_prepped = false
 
 
-func play_splat(pos : Vector2, anim : String):
+func check_interactive_targets(pos : Vector2) -> Node2D:
+	var result : Node2D = self
+	for it in interactive_targets:
+		if pos.x < (it.position.x + 40) \
+		and pos.x > (it.position.x - 40):
+			result = it
+	return result
+
+
+func play_splat(pos : Vector2, anim : String, charged : bool):
 	splat.position = pos
 	splat.show()
 	splat.play(anim)
 	splat.get_child(0).play()
+	if charged:
+		var interactive_hit = check_interactive_targets(pos)
+		if interactive_hit != self:
+			emit_signal("struck_interactive_target", interactive_targets.find(interactive_hit))
 
 
 func _on_splat_animation_finished():
