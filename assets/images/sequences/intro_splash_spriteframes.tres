@@ -279,9 +279,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_122uc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gisma")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_lqns7")
 }, {
 "duration": 1.0,
@@ -294,16 +291,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_517eg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_517eg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_s4ji0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_122uc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gisma")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lqns7")
@@ -328,9 +319,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lqns7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_517eg")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rsmva")
