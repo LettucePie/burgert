@@ -13,6 +13,7 @@ signal tip_revealed()
 @onready var total_label : Label = $TextureRect/VBoxContainer/total
 @export var result_gradient : Gradient = null
 
+
 func set_order_num(arg : int):
 	order_number_label.text = str(arg)
 
@@ -22,9 +23,9 @@ func set_accuracy(submit : int, request : int, grad_score : float):
 	accuracy_label.self_modulate = result_gradient.sample(grad_score)
 
 
-func set_time(arg : float):
+func set_time(arg : float, grad_score : float):
 	time_label.text = str(snapped(arg, 0.1)) + "secs"
-	time_label.self_modulate = Color.BLACK
+	time_label.self_modulate = result_gradient.sample(grad_score)
 
 
 func set_chargeup(arg : float):

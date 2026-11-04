@@ -183,7 +183,7 @@ func assess_submission():
 	adjust_score(submission_total)
 	hud.pending_score = submission_total
 	hud.submission_pop.set_order_num(game_scores.size())
-	hud.submission_pop.set_time(finish_time)
+	hud.submission_pop.set_time(finish_time, time_percent)
 	var accuracy = float(correct_placements) / float(current_order.size())
 	game_accuracies.append(accuracy)
 	hud.submission_pop.set_accuracy(correct_placements, current_order.size(), accuracy)
