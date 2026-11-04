@@ -191,12 +191,13 @@ func assign_stats(stats : Play.Stats):
 		customer_stats.append(stats.fetch_customerstat(_name))
 
 
-func extract_schedules(customers : Array[Customer]):
+func extract_schedules(customers : Array[Customer]) -> bool:
 	customer_schedules.clear()
 	for _name in customer_names_internal:
 		for c : Customer in customers:
 			if c.customer_name == _name:
 				customer_schedules.append(c.schedule)
+	return customer_schedules.size() > 0
 
 
 func assign_viewport(vp : Viewport) -> void:

@@ -384,6 +384,7 @@ func _default_stats():
 	stats.set_play_playlist([3, 5, 11])
 	stats.set_main_playlist([2, 8, 12])
 	stats.set_jukebox_playlist([2, 3, 5, 8, 11, 12])
+	stats.customers_in_kitchen = game_scene.kitchen.customers
 	_save_stats()
 
 
