@@ -30,12 +30,19 @@ func set_time(arg : float, grad_score : float):
 
 func set_chargeup(arg : float):
 	chargeup_label.text = str(snapped(arg, 0.1)) + "x"
-	chargeup_label.self_modulate = Color.BLACK
+	chargeup_label.self_modulate = result_gradient.sample(arg / 2.0)
 
 
 func set_tip(arg : String):
 	tip_label.text = arg
-	tip_label.self_modulate = Color.BLACK
+	var target_color : Color = Color.BLACK
+	if arg == "Basic":
+		target_color = result_gradient.colors[3]
+	elif arg == "Bonus":
+		target_color = result_gradient.colors[2]
+	elif arg == "Ultra":
+		target_color = result_gradient.colors[1]
+	tip_label.self_modulate = target_color
 
 
 func set_total(arg : int):
