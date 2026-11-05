@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=79 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -74,6 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://b8vuxekfn5lcw" path="res://assets/images/environment/kitchen/ingredients/rune_g.png" id="69_vjywy"]
 [ext_resource type="Texture2D" uid="uid://4vrmc0nkg8b6" path="res://assets/images/environment/kitchen/ingredients/rune_g_highlight.png" id="70_xgkgw"]
 [ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="74_wr2g3"]
+[ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="75_3eqe0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -263,7 +264,7 @@ texture = ExtResource("43_yb70e")
 
 [node name="foreground" type="Node2D" parent="."]
 
-[node name="workstation_bun" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_bun" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(57, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -271,6 +272,7 @@ ingredient = "Bun"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_bun"]
 position = Vector2(0, 20)
@@ -322,7 +324,7 @@ animation = &"pop"
 stream = ExtResource("50_2xqon")
 bus = &"SFX"
 
-[node name="workstation_meat" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_meat" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(177, 333)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -330,6 +332,7 @@ ingredient = "Meat"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop2")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_meat"]
 position = Vector2(0, 20)
@@ -381,13 +384,14 @@ animation = &"pop"
 stream = ExtResource("55_lgf1h")
 bus = &"SFX"
 
-[node name="workstation_lettuce" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_lettuce" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(297, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop3")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_lettuce"]
 position = Vector2(0, 20)
@@ -439,7 +443,7 @@ animation = &"pop"
 stream = ExtResource("60_bkbmp")
 bus = &"SFX"
 
-[node name="workstation_tomato" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_tomato" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(393, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -447,6 +451,7 @@ ingredient = "Tomato"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop4")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_tomato"]
 position = Vector2(0, 20)
@@ -498,7 +503,7 @@ animation = &"pop"
 stream = ExtResource("65_63bxq")
 bus = &"SFX"
 
-[node name="workstation_cheese" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_cheese" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(491, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -506,6 +511,7 @@ ingredient = "Cheese"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop5")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_cheese"]
 position = Vector2(0, 20)
@@ -557,7 +563,7 @@ animation = &"pop"
 stream = ExtResource("69_f1dyb")
 bus = &"SFX"
 
-[node name="workstation_ketchup" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_ketchup" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(563, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -565,6 +571,7 @@ ingredient = "Ketchup"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop6")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_ketchup"]
 position = Vector2(0, 20)
@@ -616,7 +623,7 @@ animation = &"pop"
 stream = ExtResource("74_wr2g3")
 bus = &"SFX"
 
-[node name="workstation_mustard" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop") groups=["Workstation"]]
+[node name="workstation_mustard" type="Area2D" parent="foreground" node_paths=PackedStringArray("highlight", "rune", "magic_pop", "spectrum_analyzer") groups=["Workstation"]]
 position = Vector2(611, 349)
 scale = Vector2(2, 2)
 script = ExtResource("3_ualts")
@@ -624,6 +631,7 @@ ingredient = "Mustard"
 highlight = NodePath("highlight")
 rune = NodePath("rune_sprite")
 magic_pop = NodePath("magic_pop7")
+spectrum_analyzer = NodePath("../SpectrumAnalyzer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/workstation_mustard"]
 position = Vector2(0, 20)
@@ -675,5 +683,8 @@ animation = &"pop"
 stream = ExtResource("74_wr2g3")
 pitch_scale = 1.2
 bus = &"SFX"
+
+[node name="SpectrumAnalyzer" parent="foreground" instance=ExtResource("75_3eqe0")]
+audio_bus_id = 1
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]

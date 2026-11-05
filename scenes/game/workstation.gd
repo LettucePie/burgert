@@ -4,12 +4,14 @@ class_name Workstation
 
 @export var ingredient : String = "Lettuce"
 @export var highlight : Sprite2D = null
+var active : bool = false
 @onready var ingredient_sprite : AnimatedSprite2D = $ingredient_sprite
 @onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
 var runic : bool = false
 @export var rune : Rune
 @export var magic_pop : AnimatedSprite2D
 var magic_pop_rot_offset : float = 0.0
+@export var spectrum_analyzer : SpectrumAnalyzer = null
 
 
 func _ready():
@@ -23,6 +25,12 @@ func _ready():
 func _physics_process(delta):
 	if magic_pop.visible:
 		magic_pop.rotate(magic_pop_rot_offset)
+	if spectrum_analyzer != null:
+		if active:
+			scale.y = lerpf(
+				scale.y, 
+				clampf(1.9 + (spectrum_analyzer.total_magnitude_raw * 1.25), 1.9, 2.8),
+				0.112)
 
 
 func set_highlight(tf : bool):
@@ -35,6 +43,11 @@ func set_highlight(tf : bool):
 		else:
 			ingredient_sprite.stop()
 			ingredient_sprite.frame = 0
+	active = tf
+	if spectrum_analyzer != null:
+		spectrum_analyzer.set_active(tf)
+		if !tf:
+			scale = Vector2(2.0, 2.0)
 
 
 func set_runic(tf : bool):
