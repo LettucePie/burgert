@@ -2281,7 +2281,7 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_nyvt1")
 animation = &"Idle_Plate_R"
 autoplay = "Idle_L"
-frame = 5
+frame = 2
 
 [node name="Area2D" type="Area2D" parent="." groups=["Chef"]]
 
@@ -2289,7 +2289,7 @@ frame = 5
 shape = SubResource("CircleShape2D_btgba")
 
 [node name="burger_sprite" type="Sprite2D" parent="."]
-position = Vector2(-63, -37)
+position = Vector2(-67, -34)
 scale = Vector2(0.380859, 0.380859)
 texture = SubResource("ViewportTexture_yjpo2")
 
