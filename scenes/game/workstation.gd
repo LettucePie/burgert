@@ -27,10 +27,11 @@ func _physics_process(delta):
 		magic_pop.rotate(magic_pop_rot_offset)
 	if spectrum_analyzer != null:
 		if active:
-			scale.y = lerpf(
+			var swell : float = lerpf(
 				scale.y, 
 				clampf(1.9 + (spectrum_analyzer.total_magnitude_raw * 1.25), 1.9, 2.8),
 				0.112)
+			scale = Vector2(swell, swell) 
 
 
 func set_highlight(tf : bool):
