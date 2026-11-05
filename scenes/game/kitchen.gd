@@ -49,7 +49,7 @@ func _ready():
 	janitor_bot.enable_bot(false)
 
 
-func prep_kitchen():
+func clear_kitchen():
 	for c in customers:
 		c.hide()
 	splat.hide()
@@ -65,6 +65,10 @@ func prep_kitchen():
 	for c in customers:
 		c.current_customer = false
 		c.status = Customer.CUSTOMER_STATE.Gone
+
+
+func prep_kitchen():
+	clear_kitchen()
 	var schedule : Schedule = Schedule.new()
 	var timeslot_idx : int = schedule.get_current_timeslot()
 	var times_str = ["night", "morning", "noon", "afternoon", "night"]

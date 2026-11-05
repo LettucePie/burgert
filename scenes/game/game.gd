@@ -261,7 +261,10 @@ func _on_game_timer_timeout():
 	game_started = false
 	chef.set_active(false)
 	chef.set_post_game(true)
-	chef.submitting_burger = false
+	chef.submitting_burger = false	
+	chef.burger_sprite.show()
+	kitchen.clear_kitchen()
+	chef.current_burger.refresh_plate()
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
 	results.display_results(game_accuracies, game_scores, game_tips)
