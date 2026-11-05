@@ -56,17 +56,14 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pyylp"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"dance_2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l54jg"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"dance_3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pbat8"]
 switch_mode = 2
 advance_mode = 2
-advance_condition = &"dance_4"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b2fpc"]
 switch_mode = 2
@@ -85,7 +82,7 @@ states/Dance4_spinning/node = SubResource("AnimationNodeAnimation_6xdv4")
 states/Dance4_spinning/position = Vector2(879, 100)
 states/End/position = Vector2(1118, 100)
 transitions = ["Start", "Dance1", SubResource("AnimationNodeStateMachineTransition_l0gxs"), "Dance1", "Dance2", SubResource("AnimationNodeStateMachineTransition_pyylp"), "Dance2", "Dance3", SubResource("AnimationNodeStateMachineTransition_l54jg"), "Dance3", "Dance4", SubResource("AnimationNodeStateMachineTransition_pbat8"), "Dance4", "Dance4_spinning", SubResource("AnimationNodeStateMachineTransition_b2fpc")]
-graph_offset = Vector2(-57, -97)
+graph_offset = Vector2(25, -84)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhn51"]
 animation = &"Idle_L"
