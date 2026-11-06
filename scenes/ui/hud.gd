@@ -175,6 +175,13 @@ func _ready():
 	submission_pop.hide()
 
 
+func reset_score() -> void:
+	pending_score = -1
+	ticking_score = false
+	current_score = 0
+	target_score = 0
+
+
 func process_scrolling(delta):
 	if Input.is_action_just_pressed("up"): $order.scroll_vertical -= 64
 	if Input.is_action_just_pressed("down"): $order.scroll_vertical += 64

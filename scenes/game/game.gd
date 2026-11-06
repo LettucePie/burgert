@@ -81,6 +81,7 @@ func start_game():
 	submit.assign_chef(chef)
 	results.hide()
 	results.printer_queued = false
+	hud.reset_score()
 	$AnimationPlayer.play("play_transition")
 
 
