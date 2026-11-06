@@ -161,7 +161,7 @@ z_index = -1
 position = Vector2(246, 206)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("43_yxlf8")
-animation = &"walk"
+animation = &"hit"
 script = ExtResource("44_rtmyj")
 
 [node name="customers" type="Node2D" parent="."]

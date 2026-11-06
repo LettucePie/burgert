@@ -309,5 +309,9 @@ func _on_chef_trashing_stopped() -> void:
 	hud.trashing_stopped()
 
 
-func _on_kitchen_a_struck_interactive_target(id: Variant) -> void:
+func _on_kitchen_a_struck_interactive_target(id : int) -> void:
 	print("Kitchen Interactive: ", id, " Struck!")
+	if id == 0: ## Janitor Bot
+		current_score -= 100
+		hud.set_score(current_score)
+		kitchen.interactive_targets[id].get_hit()

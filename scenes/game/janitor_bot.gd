@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 class_name JanitorBot
 
-enum State {DORMANT, WALKING, CLEANING}
+enum State {DORMANT, WALKING, CLEANING, HIT}
 var state : State = State.DORMANT
 const dormant_left_x : float = -120.0
 const dormant_right_x : float = 720.0
@@ -24,6 +24,8 @@ func _pick_next_state() -> void:
 		_start_cleaning()
 	elif state == State.CLEANING:
 		_decide_finished()
+	elif state == State.HIT:
+		_return_to_dormancy()
 
 
 func _pick_new_destination() -> void:
@@ -86,3 +88,9 @@ func _physics_process(delta: float) -> void:
 				_start_cleaning()
 	elif Time.get_ticks_msec() >= current_state_duration:
 		_pick_next_state()
+
+
+func get_hit() -> void:
+	state = State.HIT
+	current_state_duration = Time.get_ticks_msec() + 3000
+	play("hit")
