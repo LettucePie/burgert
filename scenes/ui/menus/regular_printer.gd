@@ -4,7 +4,7 @@ class_name RegularPrinter
 signal printer_finished
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
-@onready var profile : TextureRect = $printer/polaroid/profile
+@onready var profile : TextureRect = $printer/polaroid/crop/profile
 var customer_dex : CustomerDex = null
 var printer_queue : PackedStringArray = []
 var idx : int = 0
