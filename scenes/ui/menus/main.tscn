@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=34 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/menus/main_sandwhich.gd" id="1_kifg5"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
 [ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="21_4lms7"]
 [ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
+[ext_resource type="Texture2D" uid="uid://ocb4itaylgns" path="res://assets/images/graphics/menu/menu_desk/digital_planner.png" id="32_0h2fs"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_513kr"]
 viewport_path = NodePath("Subviews/SubView_Title")
@@ -203,6 +204,16 @@ layout_mode = 2
 text = "label"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 0.484375
+anchor_bottom = 0.479167
+rotation = -0.0349066
+pivot_offset = Vector2(155, 115)
+texture = ExtResource("32_0h2fs")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="visibility_changed" from="Subviews/SubView_Title/Node3D/Title3D" to="Subviews/SubView_Title/Node3D/Title3D" method="_on_visibility_changed"]
