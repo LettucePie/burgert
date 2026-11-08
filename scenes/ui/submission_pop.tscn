@@ -204,7 +204,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/accuracy_entry"]
+[node name="accuracy_label" type="Label" parent="TextureRect/VBoxContainer/accuracy_entry" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "accuracy"
@@ -223,7 +223,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/time_entry"]
+[node name="time_label" type="Label" parent="TextureRect/VBoxContainer/time_entry" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "time"
@@ -242,7 +242,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/charge_entry"]
+[node name="charge_label" type="Label" parent="TextureRect/VBoxContainer/charge_entry" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "chargeup"
@@ -261,7 +261,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="TextureRect/VBoxContainer/bonus_entry"]
+[node name="tip_label" type="Label" parent="TextureRect/VBoxContainer/bonus_entry" groups=["lang_text"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "tip"
