@@ -37,6 +37,7 @@ var stack_labels_translated : PackedStringArray = [
 @onready var sfx : AudioStreamPlayer = $sandwich_sfx
 @export var sandwich_sfx : Array[AudioStreamWAV]
 @onready var title3d : Title3D = $Subviews/SubView_Title/Node3D/Title3D
+@onready var random_decoration : RandomDeskDeco = $rando_deco
 
 ##
 ## Multi-Lang
@@ -145,4 +146,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			elif event.relative.y < -1:
 				_adjust_stack(1)
 				flicked = true
-			
+
+
+func shuffle_desk_decoration() -> void:
+	random_decoration.assign_random_texture()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://vrd4yei4hrcp"]
+[gd_scene load_steps=41 format=3 uid="uid://vrd4yei4hrcp"]
 
 [ext_resource type="Texture2D" uid="uid://dlwdbf1rkruuj" path="res://assets/images/graphics/menu/icons/play_icon.png" id="1_cd2sv"]
 [ext_resource type="Script" path="res://scenes/ui/menus/main_sandwhich.gd" id="1_kifg5"]
@@ -23,11 +23,18 @@
 [ext_resource type="AudioStream" uid="uid://dj570bpntnit7" path="res://assets/sound/sfx/Menu/fwip_3.wav" id="10_bquch"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
 [ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/Menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
+[ext_resource type="Texture2D" uid="uid://2blmparol5om" path="res://assets/images/graphics/menu/menu_desk/dollar.png" id="12_acsjk"]
+[ext_resource type="Texture2D" uid="uid://vsoy7n5hbnde" path="res://assets/images/graphics/menu/menu_desk/pencil.png" id="12_ejoqd"]
+[ext_resource type="Script" path="res://scenes/ui/menus/rando_deco.gd" id="13_7cm6f"]
 [ext_resource type="Texture2D" uid="uid://34yesoj2msuk" path="res://assets/images/graphics/menu/main/menu_sandwhich_cheese.png" id="13_hhppr"]
 [ext_resource type="Script" path="res://scenes/ui/title_3d.gd" id="13_hl41g"]
 [ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="14_g12or"]
+[ext_resource type="Texture2D" uid="uid://l51vd7587ye8" path="res://assets/images/graphics/menu/customerdex/customerdex_tomato_1.png" id="14_gyy47"]
 [ext_resource type="Texture2D" uid="uid://qhvj3qpjh5hn" path="res://assets/images/graphics/menu/main/menu_sandwhich_tomato.png" id="15_f8xqq"]
+[ext_resource type="Texture2D" uid="uid://da5px5y886t8h" path="res://assets/images/graphics/menu/customerdex/customerdex_cheese_1.png" id="15_mimie"]
+[ext_resource type="Texture2D" uid="uid://3n81fncnkf8i" path="res://assets/images/graphics/menu/menu_desk/desk_page_scribbles1.png" id="17_5prog"]
 [ext_resource type="Texture2D" uid="uid://gmh03kqygmky" path="res://assets/images/graphics/menu/main/menu_sandwhich_lettuce.png" id="17_cwois"]
+[ext_resource type="Texture2D" uid="uid://x14n80kremly" path="res://assets/images/graphics/menu/menu_desk/desk_page_scribbles2.png" id="18_e8y1n"]
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
 [ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="21_4lms7"]
 [ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
@@ -52,6 +59,14 @@ sandwich_sfx = Array[AudioStreamWAV]([ExtResource("2_f8rkd"), ExtResource("3_71v
 [node name="sandwich_sfx" type="AudioStreamPlayer" parent="."]
 volume_db = -4.0
 bus = &"SFX"
+
+[node name="rando_deco" type="Sprite2D" parent="."]
+position = Vector2(563, 69)
+rotation = -0.906418
+scale = Vector2(3.78767, 3.78767)
+texture = ExtResource("12_acsjk")
+script = ExtResource("13_7cm6f")
+textures = Array[Texture2D]([ExtResource("12_ejoqd"), ExtResource("14_gyy47"), ExtResource("15_mimie"), ExtResource("12_acsjk"), ExtResource("17_5prog"), ExtResource("18_e8y1n")])
 
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
@@ -88,6 +103,23 @@ spectrum_analyzer = NodePath("SpectrumAnalyzer")
 [node name="SpectrumAnalyzer" parent="Subviews/SubView_Title/Node3D/Title3D" instance=ExtResource("14_g12or")]
 audio_bus_id = 2
 audio_bus_fx = 0
+
+[node name="planner" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0311235
+anchor_top = 0.00308224
+anchor_right = 0.465498
+anchor_bottom = 0.459418
+offset_left = 3.91902
+offset_top = -5.47948
+offset_right = -3.91901
+offset_bottom = 5.47948
+rotation = -0.0349066
+pivot_offset = Vector2(155, 115)
+texture = ExtResource("32_0h2fs")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Plate" type="Sprite2D" parent="."]
 position = Vector2(217, 369)
@@ -204,16 +236,6 @@ layout_mode = 2
 text = "label"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-anchor_right = 0.484375
-anchor_bottom = 0.479167
-rotation = -0.0349066
-pivot_offset = Vector2(155, 115)
-texture = ExtResource("32_0h2fs")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="visibility_changed" from="Subviews/SubView_Title/Node3D/Title3D" to="Subviews/SubView_Title/Node3D/Title3D" method="_on_visibility_changed"]
