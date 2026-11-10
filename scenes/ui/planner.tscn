@@ -1,0 +1,264 @@
+[gd_scene load_steps=13 format=3 uid="uid://curnk04rub0hv"]
+
+[ext_resource type="Texture2D" uid="uid://ocb4itaylgns" path="res://assets/images/graphics/menu/menu_desk/digital_planner.png" id="1_scxwn"]
+[ext_resource type="Texture2D" uid="uid://bnp3kgutpswo3" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_test.png" id="2_0f8o1"]
+[ext_resource type="Script" path="res://scenes/ui/planner.gd" id="2_dw2pa"]
+[ext_resource type="Texture2D" uid="uid://bd8xr6hjamxm" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_1.png" id="3_perju"]
+[ext_resource type="Texture2D" uid="uid://fdp5u0j10bg3" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_atlastexture.tres" id="3_s8o35"]
+[ext_resource type="Texture2D" uid="uid://mlmp5u2kkwia" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_2.png" id="4_lc3g5"]
+[ext_resource type="Texture2D" uid="uid://friqp5eskoap" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_3.png" id="5_biwpl"]
+[ext_resource type="Texture2D" uid="uid://binjubiuufrge" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_4.png" id="6_bgns0"]
+[ext_resource type="Texture2D" uid="uid://n0f4awbfff2b" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_border.png" id="8_4mbc5"]
+[ext_resource type="Texture2D" uid="uid://lt72yd0c1thl" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_6.png" id="8_hc4lf"]
+[ext_resource type="Texture2D" uid="uid://23fpfw2hmqr2" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_rising_border.png" id="8_i6aoc"]
+[ext_resource type="Texture2D" uid="uid://cnvm45tq10sbk" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_noise_atlastexture.tres" id="11_pmlk4"]
+
+[node name="planner" type="TextureRect"]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = -0.0311235
+anchor_top = 0.00308224
+anchor_right = 0.465498
+anchor_bottom = 0.459418
+offset_left = 3.91902
+offset_top = -5.47948
+offset_right = -3.91901
+offset_bottom = 5.47948
+rotation = -0.0349066
+pivot_offset = Vector2(155, 115)
+texture = ExtResource("1_scxwn")
+stretch_mode = 5
+script = ExtResource("2_dw2pa")
+stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.0247594
+anchor_top = -0.0511065
+anchor_right = 0.823628
+anchor_bottom = 0.588024
+scale = Vector2(1.15, 1.15)
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_rising_border_glow" type="TextureRect" parent="Control"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.777993
+offset_top = -2.63745
+offset_right = -0.777985
+offset_bottom = -2.63745
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01, 1.01)
+pivot_offset = Vector2(131, 73)
+texture = ExtResource("8_i6aoc")
+
+[node name="stencil_glow_color" type="ColorRect" parent="Control/stencil_rising_border_glow"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.54816
+offset_top = -3.75469
+offset_right = -9.54816
+offset_bottom = -3.7547
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.737255, 1, 1, 0.529412)
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil_rising_border_glow"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="stencil_border_glow" type="TextureRect" parent="Control"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.777993
+offset_top = -2.63745
+offset_right = -0.777985
+offset_bottom = -2.63745
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01, 1.01)
+pivot_offset = Vector2(131, 73)
+texture = ExtResource("8_4mbc5")
+
+[node name="stencil_glow_color" type="ColorRect" parent="Control/stencil_border_glow"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.54816
+offset_top = -3.75469
+offset_right = -9.54816
+offset_bottom = -3.7547
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.737255, 1, 1, 0.529412)
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil_border_glow"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="stencil_border" type="TextureRect" parent="Control"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_4mbc5")
+
+[node name="stencil_noise_color" type="ColorRect" parent="Control/stencil_border"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.729412)
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil_border"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="stencil_noise" type="TextureRect" parent="Control"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_pmlk4")
+
+[node name="stencil_noise_color" type="ColorRect" parent="Control/stencil_noise"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.729412)
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil_noise"]
+modulate = Color(1, 1, 1, 0.643137)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.15
+offset_top = -7.35
+offset_right = -13.15
+offset_bottom = -7.35
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="stencil_glow" type="TextureRect" parent="Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0363048
+anchor_top = -0.0255421
+anchor_right = 1.0137
+anchor_bottom = 1.02446
+offset_left = 9.54816
+offset_top = 3.75469
+offset_right = -3.60184
+offset_bottom = -3.59529
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(131, 73)
+texture = ExtResource("2_0f8o1")
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_glow_color" type="ColorRect" parent="Control/stencil_glow"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.737255, 1, 1, 0.529412)
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil_glow"]
+modulate = Color(1, 1, 1, 0.717647)
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.09349
+offset_top = 3.5759
+offset_right = 9.09348
+offset_bottom = 3.5759
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="stencil" type="TextureRect" parent="Control"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.29406
+offset_top = -5.3356
+offset_right = -3.29407
+offset_bottom = -5.3356
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.02, 1.02)
+pivot_offset = Vector2(131, 73)
+texture = ExtResource("2_0f8o1")
+
+[node name="stencil_fx" type="TextureRect" parent="Control/stencil"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

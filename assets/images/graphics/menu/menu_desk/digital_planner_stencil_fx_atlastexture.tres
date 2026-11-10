@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://fdp5u0j10bg3"]
+
+[ext_resource type="Texture2D" uid="uid://bd8xr6hjamxm" path="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_1.png" id="1_ppank"]
+
+[resource]
+atlas = ExtResource("1_ppank")
+region = Rect2(0, 0, 4, 4)

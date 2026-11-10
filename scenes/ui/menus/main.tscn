@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://ci3chr7ma5o40" path="res://assets/images/graphics/menu/main/menu_sandwhich_ketchup_mustard.png" id="19_1kd2p"]
 [ext_resource type="Texture2D" uid="uid://ch3cqcj40gn7y" path="res://assets/images/graphics/menu/icons/shop_icon.png" id="21_4lms7"]
 [ext_resource type="Texture2D" uid="uid://dxkhgxmwvsip5" path="res://assets/images/graphics/menu/main/menu_sandwhich_top_bun.png" id="21_ci52s"]
-[ext_resource type="Texture2D" uid="uid://ocb4itaylgns" path="res://assets/images/graphics/menu/menu_desk/digital_planner.png" id="32_0h2fs"]
+[ext_resource type="PackedScene" uid="uid://curnk04rub0hv" path="res://scenes/ui/planner.tscn" id="22_sdei8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_513kr"]
 viewport_path = NodePath("Subviews/SubView_Title")
@@ -67,6 +67,17 @@ scale = Vector2(3.78767, 3.78767)
 texture = ExtResource("12_acsjk")
 script = ExtResource("13_7cm6f")
 textures = Array[Texture2D]([ExtResource("12_ejoqd"), ExtResource("14_gyy47"), ExtResource("15_mimie"), ExtResource("12_acsjk"), ExtResource("17_5prog"), ExtResource("18_e8y1n")])
+
+[node name="planner" parent="." instance=ExtResource("22_sdei8")]
+layout_mode = 1
+anchor_left = 0.020439
+anchor_top = 0.0468323
+anchor_right = 0.480327
+anchor_bottom = 0.473609
+offset_right = -3.40955
+offset_bottom = 4.66765
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
@@ -103,23 +114,6 @@ spectrum_analyzer = NodePath("SpectrumAnalyzer")
 [node name="SpectrumAnalyzer" parent="Subviews/SubView_Title/Node3D/Title3D" instance=ExtResource("14_g12or")]
 audio_bus_id = 2
 audio_bus_fx = 0
-
-[node name="planner" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0311235
-anchor_top = 0.00308224
-anchor_right = 0.465498
-anchor_bottom = 0.459418
-offset_left = 3.91902
-offset_top = -5.47948
-offset_right = -3.91901
-offset_bottom = 5.47948
-rotation = -0.0349066
-pivot_offset = Vector2(155, 115)
-texture = ExtResource("32_0h2fs")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
 [node name="Plate" type="Sprite2D" parent="."]
 position = Vector2(217, 369)
