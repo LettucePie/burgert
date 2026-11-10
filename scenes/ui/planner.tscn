@@ -1,20 +1,29 @@
-[gd_scene load_steps=14 format=3 uid="uid://curnk04rub0hv"]
+[gd_scene load_steps=21 format=3 uid="uid://curnk04rub0hv"]
 
+[ext_resource type="Theme" uid="uid://b54rq8l4nrant" path="res://assets/theme/digital_planner_theme.tres" id="1_iqtyi"]
 [ext_resource type="Texture2D" uid="uid://dya6tk7446v4r" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_no_buttons.png" id="1_j4u3n"]
-[ext_resource type="Texture2D" uid="uid://bnp3kgutpswo3" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_test.png" id="2_0f8o1"]
 [ext_resource type="Script" path="res://scenes/ui/planner.gd" id="2_dw2pa"]
 [ext_resource type="Texture2D" uid="uid://bd8xr6hjamxm" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_1.png" id="3_perju"]
 [ext_resource type="Texture2D" uid="uid://fdp5u0j10bg3" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_atlastexture.tres" id="3_s8o35"]
 [ext_resource type="Texture2D" uid="uid://mlmp5u2kkwia" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_2.png" id="4_lc3g5"]
 [ext_resource type="Texture2D" uid="uid://friqp5eskoap" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_3.png" id="5_biwpl"]
+[ext_resource type="Texture2D" uid="uid://cvyyqli6u4c5u" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_afternoon_atlastexture.tres" id="6_8gf7x"]
 [ext_resource type="Texture2D" uid="uid://binjubiuufrge" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_4.png" id="6_bgns0"]
+[ext_resource type="Texture2D" uid="uid://b6ula65cc7ewo" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_midnight_atlastexture.tres" id="7_q4qmt"]
 [ext_resource type="Texture2D" uid="uid://n0f4awbfff2b" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_border.png" id="8_4mbc5"]
 [ext_resource type="Texture2D" uid="uid://lt72yd0c1thl" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_6.png" id="8_hc4lf"]
 [ext_resource type="Texture2D" uid="uid://23fpfw2hmqr2" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_rising_border.png" id="8_i6aoc"]
 [ext_resource type="Texture2D" uid="uid://cnvm45tq10sbk" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_noise_atlastexture.tres" id="11_pmlk4"]
 [ext_resource type="LabelSettings" uid="uid://bxh2yxuisiqjv" path="res://assets/theme/fonts/digital_planner_labelsettings.tres" id="13_wri8d"]
+[ext_resource type="Texture2D" uid="uid://da4skx5iqi43u" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_daylight_progress.png" id="14_7lg2m"]
+[ext_resource type="Texture2D" uid="uid://cr6m1pynvj16m" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_morning_atlastexture.tres" id="14_oferi"]
+[ext_resource type="Texture2D" uid="uid://bcxymq2t45bhm" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_day_atlastexture.tres" id="16_5smma"]
+[ext_resource type="LabelSettings" uid="uid://b8tgjwsh7wri6" path="res://assets/theme/fonts/digital_planner_smaller_labelsettings.tres" id="18_wdfda"]
 
-[node name="planner" type="TextureRect"]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q2pcu"]
+graph_offset = Vector2(-109, -29)
+
+[node name="planner" type="TextureRect" groups=["lang_text_array"]]
 texture_filter = 1
 anchors_preset = -1
 anchor_left = -0.0311235
@@ -27,12 +36,19 @@ offset_right = -3.91901
 offset_bottom = 5.47948
 rotation = -0.0349066
 pivot_offset = Vector2(155, 115)
+theme = ExtResource("1_iqtyi")
 texture = ExtResource("1_j4u3n")
 stretch_mode = 5
 script = ExtResource("2_dw2pa")
-stencil_textures = Array[Texture2D]([null, null])
+timeslot_icons = Array[Texture2D]([ExtResource("7_q4qmt"), ExtResource("14_oferi"), ExtResource("16_5smma"), ExtResource("6_8gf7x"), ExtResource("7_q4qmt")])
 stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_q2pcu")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -194,80 +210,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_s8o35")
 
-[node name="stencil_glow" type="TextureRect" parent="Control"]
-visible = false
-clip_children = 1
+[node name="calendar" type="Control" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0363048
-anchor_top = -0.0255421
-anchor_right = 1.0137
-anchor_bottom = 1.02446
-offset_left = 9.54816
-offset_top = 3.75469
-offset_right = -3.60184
-offset_bottom = -3.59529
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(131, 73)
-texture = ExtResource("2_0f8o1")
-metadata/_edit_use_anchors_ = true
-
-[node name="stencil_glow_color" type="ColorRect" parent="Control/stencil_glow"]
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.737255, 1, 1, 0.529412)
-
-[node name="stencil_fx" type="TextureRect" parent="Control/stencil_glow"]
-modulate = Color(1, 1, 1, 0.717647)
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.09349
-offset_top = 3.5759
-offset_right = 9.09348
-offset_bottom = 3.5759
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_s8o35")
-
-[node name="stencil" type="TextureRect" parent="Control"]
-visible = false
-clip_children = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -3.29406
-offset_top = -5.3356
-offset_right = -3.29407
-offset_bottom = -5.3356
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.02, 1.02)
-pivot_offset = Vector2(131, 73)
-texture = ExtResource("2_0f8o1")
-
-[node name="stencil_fx" type="TextureRect" parent="Control/stencil"]
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_s8o35")
-
-[node name="calendar" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.0456274
 anchor_top = 0.0748299
 anchor_right = 0.942966
@@ -276,24 +220,140 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Control/calendar"]
+[node name="day" type="Label" parent="Control/calendar"]
+clip_children = 1
 layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.316667
+size_flags_vertical = 3
 text = "Wednesday"
 label_settings = ExtResource("13_wri8d")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_fx" type="TextureRect" parent="Control/calendar/day"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="timeslot_segment" type="Label" parent="Control/calendar"]
+clip_children = 1
+layout_mode = 2
+anchor_top = 0.341667
+anchor_right = 1.0
+anchor_bottom = 0.575
+size_flags_vertical = 3
+text = "Wednesday"
+label_settings = ExtResource("18_wdfda")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_fx" type="TextureRect" parent="Control/calendar/timeslot_segment"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/calendar"]
 layout_mode = 2
+anchor_top = 0.641667
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.57
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="from_icon" type="TextureRect" parent="Control/calendar/HBoxContainer"]
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("14_oferi")
+stretch_mode = 5
 
-[node name="HSlider" type="HSlider" parent="Control/calendar/HBoxContainer"]
+[node name="stencil_fx" type="TextureRect" parent="Control/calendar/HBoxContainer/from_icon"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="progress_bg" type="TextureRect" parent="Control/calendar/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.470588)
+clip_children = 2
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.29
+texture = ExtResource("14_7lg2m")
+
+[node name="stencil_fx" type="TextureRect" parent="Control/calendar/HBoxContainer/progress_bg"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
 
 [node name="to_icon" type="TextureRect" parent="Control/calendar/HBoxContainer"]
+clip_children = 1
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("16_5smma")
+stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="stencil_fx" type="TextureRect" parent="Control/calendar/HBoxContainer/to_icon"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="progress" type="HSlider" parent="Control/calendar"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.241525
+anchor_top = 0.641667
+anchor_right = 0.737288
+anchor_bottom = 0.991667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.37
+min_value = 0.125
+max_value = 1.0
+step = 0.125
+value = 0.125
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_fx2" type="TextureRect" parent="Control/calendar/progress"]
+clip_children = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")

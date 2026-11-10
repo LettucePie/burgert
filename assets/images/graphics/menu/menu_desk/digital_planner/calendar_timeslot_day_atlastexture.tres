@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bcxymq2t45bhm"]
+
+[ext_resource type="Texture2D" uid="uid://xhlkuvnlkap7" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_icons-sheet.png" id="1_olvuk"]
+
+[resource]
+atlas = ExtResource("1_olvuk")
+region = Rect2(0, 0, 20, 20)

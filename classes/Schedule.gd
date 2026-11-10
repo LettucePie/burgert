@@ -1,6 +1,11 @@
 extends Resource
 class_name Schedule
 
+const MORNING_START = 4
+const NOON_START = 10
+const AFTERNOON_START = 14
+const MIDNIGHT_START = 22
+
 class TimeSlot:
 	var weekday_a : Time.Weekday = Time.WEEKDAY_SUNDAY
 	var time_a : int = 0
@@ -16,34 +21,34 @@ class TimeSlot:
 
 var time_chart : Array[TimeSlot] = [
 	TimeSlot.new(0, 0, 6, 24), ## ALL Time
-	TimeSlot.new(0, 4, 0, 10), ## Sunday Morning
-	TimeSlot.new(0, 10, 0, 14), ## Sunday Noon
-	TimeSlot.new(0, 14, 0, 22), ## Sunday Night
-	TimeSlot.new(0, 22, 1, 4), ## Sunday Midnight
-	TimeSlot.new(1, 4, 1, 10), ## Monday Morning
-	TimeSlot.new(1, 10, 1, 14),
-	TimeSlot.new(1, 14, 1, 22),
-	TimeSlot.new(1, 22, 2, 4),
-	TimeSlot.new(2, 4, 2, 10), ## Tuesday Morning
-	TimeSlot.new(2, 10, 2, 14),
-	TimeSlot.new(2, 14, 2, 22),
-	TimeSlot.new(2, 22, 3, 4),
-	TimeSlot.new(3, 4, 3, 10), ## Wednesday Morning
-	TimeSlot.new(3, 10, 3, 14),
-	TimeSlot.new(3, 14, 3, 22),
-	TimeSlot.new(3, 22, 4, 4),
-	TimeSlot.new(4, 4, 4, 10), ## Thursday Morning
-	TimeSlot.new(4, 10, 4, 14),
-	TimeSlot.new(4, 14, 4, 22),
-	TimeSlot.new(4, 22, 5, 4),
-	TimeSlot.new(5, 4, 5, 10), ## Friday Morning
-	TimeSlot.new(5, 10, 5, 14),
-	TimeSlot.new(5, 14, 5, 22),
-	TimeSlot.new(5, 22, 6, 4),
-	TimeSlot.new(6, 4, 6, 10), ## Saturday Morning
-	TimeSlot.new(6, 10, 6, 14),
-	TimeSlot.new(6, 14, 6, 22),
-	TimeSlot.new(6, 22, 0, 4),
+	TimeSlot.new(0, MORNING_START, 0, NOON_START), ## Sunday Morning
+	TimeSlot.new(0, NOON_START, 0, AFTERNOON_START), ## Sunday Noon
+	TimeSlot.new(0, AFTERNOON_START, 0, MIDNIGHT_START), ## Sunday Night
+	TimeSlot.new(0, MIDNIGHT_START, 1, MORNING_START), ## Sunday Midnight
+	TimeSlot.new(1, MORNING_START, 1, NOON_START), ## Monday Morning
+	TimeSlot.new(1, NOON_START, 1, AFTERNOON_START),
+	TimeSlot.new(1, AFTERNOON_START, 1, MIDNIGHT_START),
+	TimeSlot.new(1, MIDNIGHT_START, 2, MORNING_START),
+	TimeSlot.new(2, MORNING_START, 2, NOON_START), ## Tuesday Morning
+	TimeSlot.new(2, NOON_START, 2, AFTERNOON_START),
+	TimeSlot.new(2, AFTERNOON_START, 2, MIDNIGHT_START),
+	TimeSlot.new(2, MIDNIGHT_START, 3, MORNING_START),
+	TimeSlot.new(3, MORNING_START, 3, NOON_START), ## Wednesday Morning
+	TimeSlot.new(3, NOON_START, 3, AFTERNOON_START),
+	TimeSlot.new(3, AFTERNOON_START, 3, MIDNIGHT_START),
+	TimeSlot.new(3, MIDNIGHT_START, 4, MORNING_START),
+	TimeSlot.new(4, MORNING_START, 4, NOON_START), ## Thursday Morning
+	TimeSlot.new(4, NOON_START, 4, AFTERNOON_START),
+	TimeSlot.new(4, AFTERNOON_START, 4, MIDNIGHT_START),
+	TimeSlot.new(4, MIDNIGHT_START, 5, MORNING_START),
+	TimeSlot.new(5, MORNING_START, 5, NOON_START), ## Friday Morning
+	TimeSlot.new(5, NOON_START, 5, AFTERNOON_START),
+	TimeSlot.new(5, AFTERNOON_START, 5, MIDNIGHT_START),
+	TimeSlot.new(5, MIDNIGHT_START, 6, MORNING_START),
+	TimeSlot.new(6, MORNING_START, 6, NOON_START), ## Saturday Morning
+	TimeSlot.new(6, NOON_START, 6, AFTERNOON_START),
+	TimeSlot.new(6, AFTERNOON_START, 6, MIDNIGHT_START),
+	TimeSlot.new(6, MIDNIGHT_START, 0, MORNING_START),
 ]
 
 var same_day_groups : Array = [
@@ -68,6 +73,15 @@ enum TIMES {
 }
 
 @export var times : Array[TIMES] = []
+
+var timeslot_segment : Array = [
+	MIDNIGHT_START,
+	MORNING_START,
+	NOON_START,
+	AFTERNOON_START,
+	MIDNIGHT_START
+]
+
 
 func within_range(w : Time.Weekday, t : int) -> bool:
 	var result : bool = false
