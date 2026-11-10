@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://curnk04rub0hv"]
 
-[ext_resource type="Texture2D" uid="uid://ocb4itaylgns" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner.png" id="1_scxwn"]
+[ext_resource type="Texture2D" uid="uid://dya6tk7446v4r" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_no_buttons.png" id="1_j4u3n"]
 [ext_resource type="Texture2D" uid="uid://bnp3kgutpswo3" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_test.png" id="2_0f8o1"]
 [ext_resource type="Script" path="res://scenes/ui/planner.gd" id="2_dw2pa"]
 [ext_resource type="Texture2D" uid="uid://bd8xr6hjamxm" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_1.png" id="3_perju"]
@@ -26,7 +26,7 @@ offset_right = -3.91901
 offset_bottom = 5.47948
 rotation = -0.0349066
 pivot_offset = Vector2(155, 115)
-texture = ExtResource("1_scxwn")
+texture = ExtResource("1_j4u3n")
 stretch_mode = 5
 script = ExtResource("2_dw2pa")
 stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
