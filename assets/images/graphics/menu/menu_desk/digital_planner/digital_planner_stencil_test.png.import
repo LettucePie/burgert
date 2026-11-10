@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnp3kgutpswo3"
-path="res://.godot/imported/digital_planner_stencil_test.png-a7785d09263f68d7d87af0deb79f6a76.ctex"
+path="res://.godot/imported/digital_planner_stencil_test.png-071e07204db8c46a0d506e2a5e132756.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_test.png"
-dest_files=["res://.godot/imported/digital_planner_stencil_test.png-a7785d09263f68d7d87af0deb79f6a76.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_test.png"
+dest_files=["res://.godot/imported/digital_planner_stencil_test.png-071e07204db8c46a0d506e2a5e132756.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dng8euvubiwr6"
-path="res://.godot/imported/digital_planner_stencil_noise.png-e71b89fab45d949701df2fcb6b7a5d13.ctex"
+uid="uid://do14alhr0n7d"
+path="res://.godot/imported/digital_planner_stencil_fx_5.png-18e3e17ab9ae09994951f35e78e5a4b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_noise.png"
-dest_files=["res://.godot/imported/digital_planner_stencil_noise.png-e71b89fab45d949701df2fcb6b7a5d13.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_5.png"
+dest_files=["res://.godot/imported/digital_planner_stencil_fx_5.png-18e3e17ab9ae09994951f35e78e5a4b2.ctex"]
 
 [params]
 

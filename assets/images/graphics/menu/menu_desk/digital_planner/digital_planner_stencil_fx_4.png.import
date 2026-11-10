@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ocb4itaylgns"
-path="res://.godot/imported/digital_planner.png-b12621bff2be7f9bf58f3d2937115a3f.ctex"
+uid="uid://binjubiuufrge"
+path="res://.godot/imported/digital_planner_stencil_fx_4.png-e81598af347ee416303dddbad81273ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/digital_planner.png"
-dest_files=["res://.godot/imported/digital_planner.png-b12621bff2be7f9bf58f3d2937115a3f.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_4.png"
+dest_files=["res://.godot/imported/digital_planner_stencil_fx_4.png-e81598af347ee416303dddbad81273ae.ctex"]
 
 [params]
 

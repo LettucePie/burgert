@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://23fpfw2hmqr2"
-path="res://.godot/imported/digital_planner_stencil_rising_border.png-4f811fcc96dbe9cb20ee43ad250ffc19.ctex"
+uid="uid://n0f4awbfff2b"
+path="res://.godot/imported/digital_planner_stencil_border.png-35daa5bc71a76d42c00eae9ea68aec1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_rising_border.png"
-dest_files=["res://.godot/imported/digital_planner_stencil_rising_border.png-4f811fcc96dbe9cb20ee43ad250ffc19.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_border.png"
+dest_files=["res://.godot/imported/digital_planner_stencil_border.png-35daa5bc71a76d42c00eae9ea68aec1d.ctex"]
 
 [params]
 

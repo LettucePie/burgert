@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://friqp5eskoap"
-path="res://.godot/imported/digital_planner_stencil_fx_3.png-39dc68c44e7a15a05fff7a8e92340b0b.ctex"
+uid="uid://dfo36rm1tktfb"
+path="res://.godot/imported/digital_planner_shimmer.png-01929c10e6e204ff89195710107f7076.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/menu_desk/digital_planner_stencil_fx_3.png"
-dest_files=["res://.godot/imported/digital_planner_stencil_fx_3.png-39dc68c44e7a15a05fff7a8e92340b0b.ctex"]
+source_file="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_shimmer.png"
+dest_files=["res://.godot/imported/digital_planner_shimmer.png-01929c10e6e204ff89195710107f7076.ctex"]
 
 [params]
 
