@@ -19,8 +19,10 @@ var queue_idx : int = 0
 var current_customer : Customer = null
 var next_customer : Customer = null
 @onready var janitor_bot : JanitorBot = $interactive_targets/janitor_bot
+@onready var drone : Drone = $interactive_targets/drone
 @onready var interactive_targets : Array[Node2D] = [
-	janitor_bot
+	janitor_bot,
+	drone
 ]
 var kitchen_timeslot : int = 0
 var kitchen_prepped : bool = false
@@ -47,6 +49,7 @@ func _ready():
 				child.kitchen_switch.connect(_on_kitchen_switch)
 	customer_burger_portal.set_mode_customer(true)
 	janitor_bot.enable_bot(false)
+	drone.enable_drone(false)
 
 
 func clear_kitchen():
@@ -75,6 +78,7 @@ func prep_kitchen():
 	window.animation = times_str[timeslot_idx % 4]
 	kitchen_prepped = true
 	janitor_bot.enable_bot(true)
+	drone.enable_drone(true)
 	_build_queue()
 
 

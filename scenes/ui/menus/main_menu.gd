@@ -14,7 +14,6 @@ signal bgm_pause(pause : bool)
 @onready var records : Records = $Records
 @onready var jukebox : Jukebox = $Jukebox
 @onready var shop : Shop = $Shop
-@onready var menu_flair : MenuFlair = $MenuFlair
 @onready var announce : Announce = $Announce
 @onready var printer : RegularPrinter = $RegularPrinter
 @export var anim : AnimationPlayer
