@@ -82,7 +82,6 @@ func update_calendar() -> void:
 	current_hour += (float(time.minute) / 60.0)
 	var current_hour_progress = inverse_lerp(timeslot_data.time_a, timeslot_data.time_b, current_hour)
 	time_progress_slider.value = current_hour_progress
-	print(current_hour, " | ", current_hour_progress)
 
 
 func _ready() -> void:

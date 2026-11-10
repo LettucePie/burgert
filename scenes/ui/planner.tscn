@@ -294,7 +294,7 @@ texture = ExtResource("3_s8o35")
 
 [node name="progress_bg" type="TextureRect" parent="Control/calendar/HBoxContainer"]
 self_modulate = Color(1, 1, 1, 0.470588)
-clip_children = 2
+clip_children = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.29
