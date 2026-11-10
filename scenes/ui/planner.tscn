@@ -196,18 +196,16 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.729412)
 
 [node name="stencil_fx" type="TextureRect" parent="Control/stencil_noise"]
-modulate = Color(1, 1, 1, 0.643137)
+modulate = Color(1, 1, 1, 0.847059)
 texture_repeat = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -13.15
-offset_top = -7.35
-offset_right = -13.15
-offset_bottom = -7.35
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 3.14159
+pivot_offset = Vector2(118.35, 66.15)
 texture = ExtResource("3_s8o35")
 
 [node name="calendar" type="Control" parent="Control"]

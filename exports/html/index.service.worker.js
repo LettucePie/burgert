@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1793947920|3342402803';
+const CACHE_VERSION = '1794340100|17996765743';
 /** @type {string} */
 const CACHE_PREFIX = 'burgert-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
