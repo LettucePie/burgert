@@ -8,3 +8,5 @@ script = ExtResource("1_m5knu")
 track = ExtResource("2_bawoa")
 title = "checking out"
 artist = "SC00T3R"
+crossfade = true
+store_cost = 49
