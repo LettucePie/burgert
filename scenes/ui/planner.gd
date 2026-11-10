@@ -4,7 +4,8 @@ class_name Planner
 ## Info display
 @onready var stencil : TextureRect = $Control/stencil
 @onready var stencil_glow : TextureRect = $Control/stencil_glow
-
+@export var stencil_textures : Array[Texture2D] = []
+@onready var 
 ## FX
 @onready var stencil_fx : TextureRect = $Control/stencil/stencil_fx
 @export var stencil_fx_textures : Array[Texture2D] = []
@@ -15,12 +16,18 @@ var y_pos : float = 0.0
 var y_pos_noise : float = 0.0
 var flicker_reset : float = 300.0
 
-# Called when the node enters the scene tree for the first time.
+
+func assign_stencil_textures(idx : int) -> void:
+	stencil.visible = idx >= 0
+	stencil_glow.visible = idx >= 0
+	stencil.texture = stencil_textures[0]
+	stencil_glow.texture = stencil_textures[0]
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	assign_stencil_textures(-1)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	y_pos += 0.9
 	stencil_fx_atlas.region = Rect2(0, y_pos, 4, 4)

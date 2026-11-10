@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://curnk04rub0hv"]
+[gd_scene load_steps=14 format=3 uid="uid://curnk04rub0hv"]
 
 [ext_resource type="Texture2D" uid="uid://dya6tk7446v4r" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_no_buttons.png" id="1_j4u3n"]
 [ext_resource type="Texture2D" uid="uid://bnp3kgutpswo3" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_test.png" id="2_0f8o1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://lt72yd0c1thl" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_fx_6.png" id="8_hc4lf"]
 [ext_resource type="Texture2D" uid="uid://23fpfw2hmqr2" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_rising_border.png" id="8_i6aoc"]
 [ext_resource type="Texture2D" uid="uid://cnvm45tq10sbk" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_stencil_noise_atlastexture.tres" id="11_pmlk4"]
+[ext_resource type="LabelSettings" uid="uid://bxh2yxuisiqjv" path="res://assets/theme/fonts/digital_planner_labelsettings.tres" id="13_wri8d"]
 
 [node name="planner" type="TextureRect"]
 texture_filter = 1
@@ -29,6 +30,7 @@ pivot_offset = Vector2(155, 115)
 texture = ExtResource("1_j4u3n")
 stretch_mode = 5
 script = ExtResource("2_dw2pa")
+stencil_textures = Array[Texture2D]([null, null])
 stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
 metadata/_edit_use_anchors_ = true
 
@@ -193,6 +195,7 @@ grow_vertical = 2
 texture = ExtResource("3_s8o35")
 
 [node name="stencil_glow" type="TextureRect" parent="Control"]
+visible = false
 clip_children = 1
 layout_mode = 1
 anchors_preset = -1
@@ -236,6 +239,7 @@ grow_vertical = 2
 texture = ExtResource("3_s8o35")
 
 [node name="stencil" type="TextureRect" parent="Control"]
+visible = false
 clip_children = 1
 layout_mode = 1
 anchors_preset = -1
@@ -260,5 +264,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_s8o35")
+
+[node name="calendar" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0456274
+anchor_top = 0.0748299
+anchor_right = 0.942966
+anchor_bottom = 0.891156
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/calendar"]
+layout_mode = 2
+text = "Wednesday"
+label_settings = ExtResource("13_wri8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/calendar"]
+layout_mode = 2
+alignment = 1
+
+[node name="from_icon" type="TextureRect" parent="Control/calendar/HBoxContainer"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Control/calendar/HBoxContainer"]
+layout_mode = 2
+
+[node name="to_icon" type="TextureRect" parent="Control/calendar/HBoxContainer"]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
