@@ -170,7 +170,7 @@ script = ExtResource("44_rtmyj")
 position = Vector2(-162, 116)
 sprite_frames = ExtResource("15_uy2g5")
 animation = &"carry_l"
-frame_progress = 0.222281
+frame_progress = 0.308725
 script = ExtResource("16_6mnpj")
 
 [node name="customers" type="Node2D" parent="."]
