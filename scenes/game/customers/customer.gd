@@ -3,7 +3,6 @@ class_name Customer
 
 signal customer_arrived()
 signal customer_served()
-signal customer_leaving()
 signal customer_finished()
 signal customer_reorder()
 signal start_time()

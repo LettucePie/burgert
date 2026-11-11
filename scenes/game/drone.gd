@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 class_name Drone
 
 signal stole_loot()
+signal drone_finished()
 
 enum State {DORMANT, WALKING, CARRYING, HIT, DEFEATED}
 var state : State = State.DORMANT
@@ -9,7 +10,7 @@ const dormant_left_x : float = -160.0
 const dormant_right_x : float = 800.0
 var destination_x : float = 0.0
 var walk_dir : String = "_r"
-var current_state_duration : float = 0.0
+#var current_state_duration : float = 0.0
 
 @onready var adjust : Node2D = $adjust
 
@@ -71,7 +72,7 @@ func _return_to_dormancy() -> void:
 
 func _declare_dormant() -> void:
 	state = State.DORMANT
-	current_state_duration = Time.get_ticks_msec() + randf_range(40000, 65000)
+	emit_signal("drone_finished")
 
 
 func _successfully_stole_loot() -> void:
@@ -80,13 +81,17 @@ func _successfully_stole_loot() -> void:
 
 
 func enable_drone(tf : bool):
-	position.x = dormant_left_x
 	state = State.DORMANT
+	position.x = dormant_left_x
 	if tf:
 		show()
-		_declare_dormant()
 	else:
 		hide()
+
+
+func initiate_drone() -> void:
+	enable_drone(true)
+	_pick_next_state()
 
 
 func _physics_process(delta: float) -> void:
@@ -111,10 +116,10 @@ func _physics_process(delta: float) -> void:
 		position = pos.move_toward(targ, delta * 100)
 		if is_equal_approx(pos.x, destination_x):
 			_declare_dormant()
-	elif Time.get_ticks_msec() >= current_state_duration \
-	and state == State.DORMANT\
-	and (is_equal_approx(position.x, dormant_left_x) or is_equal_approx(position.x, dormant_right_x)):
-		_pick_next_state()
+	#elif Time.get_ticks_msec() >= current_state_duration \
+	#and state == State.DORMANT\
+	#and (is_equal_approx(position.x, dormant_left_x) or is_equal_approx(position.x, dormant_right_x)):
+		#_pick_next_state()
 
 
 func get_hit() -> void:

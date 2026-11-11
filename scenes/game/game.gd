@@ -34,6 +34,7 @@ var current_order_charging_rate : float = 0.0
 var burger_2d : Burger2D = null
 var burger_mode_3d : bool = true
 var chef_idle : bool = false
+var drone_chance : float = 1.10
 #var first_time_customers : PackedStringArray = []
 
 
@@ -69,6 +70,7 @@ func _on_chef_chef_ready():
 
 func start_game():
 	current_score = 0
+	drone_chance = 1.10
 	game_accuracies.clear()
 	game_scores.clear()
 	game_tips.clear()
@@ -105,7 +107,12 @@ func adjust_score(arg : int):
 
 func make_new_order():
 	current_order.clear()
-	current_order = kitchen.readying_next_customer()
+	var drone_event : bool = false
+	drone_chance -= 0.05
+	if randf() > drone_chance:
+		drone_event = true
+		drone_chance = 1.10
+	current_order = kitchen.readying_next_customer(drone_event)
 	hud.push_burger_build(current_order)
 	chef.order_size = current_order.size()
 	chef.current_burger.refresh_plate()

@@ -26,6 +26,7 @@ var next_customer : Customer = null
 ]
 var kitchen_timeslot : int = 0
 var kitchen_prepped : bool = false
+var handling_drone_event : bool = false
 
 
 func _ready():
@@ -37,8 +38,6 @@ func _ready():
 			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
 			if !child.customer_arrived.is_connected(_on_customer_arrived):
 				child.customer_arrived.connect(_on_customer_arrived)
-			if !child.customer_leaving.is_connected(_on_customer_leaving):
-				child.customer_leaving.connect(_on_customer_leaving)
 			if !child.customer_finished.is_connected(_on_customer_finished):
 				child.customer_finished.connect(_on_customer_finished)
 			if !child.customer_reorder.is_connected(_on_customer_reorder):
@@ -80,7 +79,8 @@ func prep_kitchen():
 	window.animation = times_str[timeslot_idx % 4]
 	kitchen_prepped = true
 	janitor_bot.enable_bot(true)
-	drone.enable_drone(true)
+	drone.enable_drone(false)
+	handling_drone_event = false
 	_build_queue()
 
 
@@ -141,27 +141,48 @@ func _build_queue():
 				queue.append(_pick_normy())
 
 
+func _drone_event() -> void:
+	drone.initiate_drone()
 
-func readying_next_customer() -> PackedStringArray:
+
+func readying_next_customer(drone_event : bool) -> PackedStringArray:
+	print("READYING NEXT CUSTOMER : New Drone Event = ", drone_event)
+	print("Handling Drone Event: ", handling_drone_event)
 	var result : PackedStringArray = []
 	queue_idx += 1
+	print("queue_idx = ", queue_idx)
 	if current_customer != null:
 		current_customer.current_customer = false
+		print("Current Customer: ", current_customer, " was not null, so their current_customer bool was set to false.")
 	else:
+		print("Current Customer was ", current_customer)
 		current_customer = customers[queue[queue_idx]]
+		print("Current Customer is now ", current_customer)
 	if next_customer != null:
+		print("Next Customer is not null, they are: ", next_customer)
 		current_customer = next_customer
+		print("Current Customer is now that next customer who was: ", next_customer)
 	next_customer = customers[queue[queue_idx + 1]]
+	print("Next Customer was assigned the following queue_idx: ", queue_idx + 1, " making them into: ", next_customer)
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	if current_customer.status == Customer.CUSTOMER_STATE.Gone:
+		print("Current Customer: ", current_customer, " is labeled as gone, so they are entering.")
 		current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 	if current_customer.status == Customer.CUSTOMER_STATE.Queue:
+		print("Current Customer: ", current_customer, " is labeled as waiting in line, so they are ordering.")
 		current_customer.set_state(Customer.CUSTOMER_STATE.Ordering)
 	current_customer.current_customer = true
+	print("Current Customer: ", current_customer, " has been flagged as current_customer.")
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
-	and current_customer.status > 0:
+	and current_customer.status > 0 \
+	and !drone_event:
+		print("The Next Customer: ", next_customer, " has been told to enter the kitchen.")
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+	if drone_event and !handling_drone_event:
+		print("There is a drone event being assigned.")
+		handling_drone_event = true
+		_drone_event()
 	
 	return result
 
@@ -207,12 +228,9 @@ func customer_fed(meal_rank : int):
 
 func _on_customer_arrived():
 	emit_signal("customer_ready")
-	if next_customer.status == Customer.CUSTOMER_STATE.Gone:
+	if next_customer.status == Customer.CUSTOMER_STATE.Gone \
+	and !handling_drone_event:
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
-
-
-func _on_customer_leaving():
-	readying_next_customer()
 
 
 func _on_customer_finished():
@@ -229,3 +247,11 @@ func _on_customer_reorder():
 func _on_kitchen_switch(target_kitchen):
 	for w in workstations:
 		w.set_runic(target_kitchen == "runic")
+
+
+func _on_drone_drone_finished() -> void:
+	print("Drone Finished")
+	handling_drone_event = false
+	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
+	and current_customer.status > 0:
+		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)

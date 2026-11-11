@@ -169,7 +169,7 @@ animation = &"hit"
 script = ExtResource("44_rtmyj")
 
 [node name="drone" type="AnimatedSprite2D" parent="interactive_targets"]
-position = Vector2(-162, 116)
+position = Vector2(361, 116)
 sprite_frames = ExtResource("15_uy2g5")
 animation = &"carry_r"
 frame = 10
@@ -712,4 +712,5 @@ audio_bus_id = 1
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]
 [connection signal="animation_finished" from="interactive_targets/drone" to="interactive_targets/drone" method="_on_animation_finished"]
+[connection signal="drone_finished" from="interactive_targets/drone" to="." method="_on_drone_drone_finished"]
 [connection signal="frame_changed" from="interactive_targets/drone" to="interactive_targets/drone" method="_on_frame_changed"]
