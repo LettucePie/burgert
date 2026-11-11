@@ -67,7 +67,7 @@ func _return_to_dormancy() -> void:
 		destination_x = dormant_right_x
 	state = State.DEFEATED
 	_set_walk_dir()
-	play("walk" + walk_dir)
+	play("idle" + walk_dir)
 
 
 func _declare_dormant() -> void:

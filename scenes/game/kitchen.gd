@@ -143,44 +143,31 @@ func _build_queue():
 
 func _drone_event() -> void:
 	drone.initiate_drone()
+	janitor_bot._return_to_dormancy()
 
 
 func readying_next_customer(drone_event : bool) -> PackedStringArray:
-	print("READYING NEXT CUSTOMER : New Drone Event = ", drone_event)
-	print("Handling Drone Event: ", handling_drone_event)
 	var result : PackedStringArray = []
 	queue_idx += 1
-	print("queue_idx = ", queue_idx)
 	if current_customer != null:
 		current_customer.current_customer = false
-		print("Current Customer: ", current_customer, " was not null, so their current_customer bool was set to false.")
 	else:
-		print("Current Customer was ", current_customer)
 		current_customer = customers[queue[queue_idx]]
-		print("Current Customer is now ", current_customer)
 	if next_customer != null:
-		print("Next Customer is not null, they are: ", next_customer)
 		current_customer = next_customer
-		print("Current Customer is now that next customer who was: ", next_customer)
 	next_customer = customers[queue[queue_idx + 1]]
-	print("Next Customer was assigned the following queue_idx: ", queue_idx + 1, " making them into: ", next_customer)
 	result = current_customer.orders.pick_random().duplicate()
 	customer_burger_portal.burger.assemble_burger_build(result)
 	if current_customer.status == Customer.CUSTOMER_STATE.Gone:
-		print("Current Customer: ", current_customer, " is labeled as gone, so they are entering.")
 		current_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 	if current_customer.status == Customer.CUSTOMER_STATE.Queue:
-		print("Current Customer: ", current_customer, " is labeled as waiting in line, so they are ordering.")
 		current_customer.set_state(Customer.CUSTOMER_STATE.Ordering)
 	current_customer.current_customer = true
-	print("Current Customer: ", current_customer, " has been flagged as current_customer.")
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
 	and current_customer.status > 0 \
 	and !drone_event:
-		print("The Next Customer: ", next_customer, " has been told to enter the kitchen.")
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
 	if drone_event and !handling_drone_event:
-		print("There is a drone event being assigned.")
 		handling_drone_event = true
 		_drone_event()
 	
@@ -250,7 +237,6 @@ func _on_kitchen_switch(target_kitchen):
 
 
 func _on_drone_drone_finished() -> void:
-	print("Drone Finished")
 	handling_drone_event = false
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
 	and current_customer.status > 0:
