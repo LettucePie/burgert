@@ -71,7 +71,7 @@ func _return_to_dormancy() -> void:
 
 func _declare_dormant() -> void:
 	state = State.DORMANT
-	current_state_duration = Time.get_ticks_msec() + randf_range(20500, 50000)
+	current_state_duration = Time.get_ticks_msec() + randf_range(40000, 65000)
 
 
 func _successfully_stole_loot() -> void:
@@ -101,7 +101,7 @@ func _physics_process(delta: float) -> void:
 		var pos = position
 		var targ = pos
 		targ.x = destination_x
-		position = pos.move_toward(targ, delta * 80)
+		position = pos.move_toward(targ, delta * 70)
 		if is_equal_approx(pos.x, destination_x):
 			_pick_next_state()
 	elif state == State.DEFEATED:
@@ -119,6 +119,8 @@ func _physics_process(delta: float) -> void:
 
 func get_hit() -> void:
 	state = State.HIT
+	$adjust/carry_left.hide()
+	$adjust/carry_right.hide()
 	play("hit" + walk_dir)
 
 

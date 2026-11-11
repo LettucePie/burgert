@@ -53,7 +53,7 @@ func _return_to_dormancy() -> void:
 
 func _declare_dormant() -> void:
 	state = State.DORMANT
-	current_state_duration = Time.get_ticks_msec() + randf_range(8500, 20000)
+	current_state_duration = Time.get_ticks_msec() + randf_range(15000, 30000)
 	play("clean")
 
 

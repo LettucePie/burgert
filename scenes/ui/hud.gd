@@ -36,7 +36,7 @@ var timer : Timer = null
 var pending_score : int = -1
 var ticking_score : bool = false
 var current_score : int = 0
-var target_score : int = -1
+var target_score : int = 0
 var offset : int = 1
 var tick : int = 0
 const TWEEN_SPEED : float = 0.06
@@ -150,6 +150,8 @@ func print_popup_receipt(tip_amount : int):
 	submission_pop.popup()
 
 
+## Sets the Target Score to a value, then decides if the ticker effect
+## needs to go positive or negative.
 func set_score(arg : int):
 	target_score = arg
 	offset = 1
