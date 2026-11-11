@@ -50,6 +50,8 @@ func _ready():
 	customer_burger_portal.set_mode_customer(true)
 	janitor_bot.enable_bot(false)
 	drone.enable_drone(false)
+	if get_parent() is Game:
+		drone.stole_loot.connect(get_parent()._on_kitchen_a_drone_stole_loot)
 
 
 func clear_kitchen():

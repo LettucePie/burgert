@@ -3,7 +3,7 @@ class_name Drone
 
 signal stole_loot()
 
-enum State {DORMANT, WALKING, CARRYING, HIT}
+enum State {DORMANT, WALKING, CARRYING, HIT, DEFEATED}
 var state : State = State.DORMANT
 const dormant_left_x : float = -160.0
 const dormant_right_x : float = 800.0
@@ -11,6 +11,7 @@ var destination_x : float = 0.0
 var walk_dir : String = "_r"
 var current_state_duration : float = 0.0
 
+@onready var adjust : Node2D = $adjust
 
 func _set_walk_dir() -> void:
 	if position.x < destination_x:
@@ -20,6 +21,7 @@ func _set_walk_dir() -> void:
 
 
 func _pick_next_state() -> void:
+	adjust.hide()
 	if state == State.DORMANT:
 		_pick_destination()
 	elif state == State.WALKING:
@@ -43,10 +45,15 @@ func _pick_destination() -> void:
 
 
 func _steal_the_loot() -> void:
+	adjust.show()
 	if walk_dir == "_r":
 		destination_x = dormant_left_x
+		$adjust/carry_right.hide()
+		$adjust/carry_left.show()
 	else:
 		destination_x = dormant_right_x
+		$adjust/carry_left.hide()
+		$adjust/carry_right.show()
 	_set_walk_dir()
 	state = State.CARRYING
 	play("carry" + walk_dir)
@@ -57,7 +64,7 @@ func _return_to_dormancy() -> void:
 		destination_x = dormant_left_x
 	else:
 		destination_x = dormant_right_x
-	state = State.WALKING
+	state = State.DEFEATED
 	_set_walk_dir()
 	play("walk" + walk_dir)
 
@@ -83,7 +90,7 @@ func enable_drone(tf : bool):
 
 
 func _physics_process(delta: float) -> void:
-	if state == State.WALKING or state == State.HIT:
+	if state == State.WALKING:
 		var pos = position
 		var targ = pos
 		targ.x = destination_x
@@ -94,10 +101,19 @@ func _physics_process(delta: float) -> void:
 		var pos = position
 		var targ = pos
 		targ.x = destination_x
-		position = pos.move_toward(targ, delta * 100)
+		position = pos.move_toward(targ, delta * 80)
 		if is_equal_approx(pos.x, destination_x):
 			_pick_next_state()
-	elif Time.get_ticks_msec() >= current_state_duration and state == State.DORMANT:
+	elif state == State.DEFEATED:
+		var pos = position
+		var targ = pos
+		targ.x = destination_x
+		position = pos.move_toward(targ, delta * 100)
+		if is_equal_approx(pos.x, destination_x):
+			_declare_dormant()
+	elif Time.get_ticks_msec() >= current_state_duration \
+	and state == State.DORMANT\
+	and (is_equal_approx(position.x, dormant_left_x) or is_equal_approx(position.x, dormant_right_x)):
 		_pick_next_state()
 
 
@@ -109,3 +125,12 @@ func get_hit() -> void:
 func _on_animation_finished() -> void:
 	if animation.contains("hit"):
 		_return_to_dormancy()
+
+
+func _on_frame_changed() -> void:
+	if animation.contains("carry"):
+		if frame >= 0 \
+		and frame < 10:
+			adjust.position.y = lerp(0, -16, inverse_lerp(0, 10, frame))
+		else:
+			adjust.position.y = lerp(-16, 0, inverse_lerp(10, 19, frame))

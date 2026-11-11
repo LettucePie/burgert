@@ -315,6 +315,11 @@ func _on_kitchen_a_struck_interactive_target(id : int) -> void:
 		hud.set_score(current_score)
 		kitchen.interactive_targets[id].get_hit()
 	if id == 1: ## Drone
-		current_score += 100
+		current_score += 80
 		hud.set_score(current_score)
 		kitchen.interactive_targets[id].get_hit()
+
+
+func _on_kitchen_a_drone_stole_loot() -> void:
+	current_score -= 80
+	hud.set_score(current_score)
