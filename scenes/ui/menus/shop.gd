@@ -7,6 +7,11 @@ var connected : bool = false
 var connect_stage : int = 0
 var wallet : Play.Stats
 var music_library : Music = null
+var potential_song_level : int = 0
+var song_level_quantities : PackedInt32Array = [
+	25,
+	50
+]
 
 @onready var main : Control = $phone/main
 @onready var finished : Button = $phone/main/menu_0_0/finished
@@ -63,6 +68,15 @@ func _ready() -> void:
 	for child in main.get_children():
 		if child.name.contains("menu"):
 			menus.append(child)
+
+
+func calculate_shop_level() -> void:
+	var total_fantastic_orders : int = 0
+	for customer : Play.Stats.CustomerStat in wallet.customer_stats:
+		total_fantastic_orders += customer.get_fantastic_orders()
+	for i in song_level_quantities.size() - 1:
+		if total_fantastic_orders >= song_level_quantities[i]:
+			potential_song_level = i
 
 
 func open_shop():

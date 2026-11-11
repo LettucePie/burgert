@@ -132,6 +132,7 @@ func set_state(state : SCREENS):
 		main.grab_focus()
 		main.go_to_layer("Play")
 		main.title3d.spectrum_analyzer.set_active(true)
+		shop.calculate_shop_level()
 	if state == SCREENS.OPTIONS:
 		anim.play("options_open")
 	if state == SCREENS.CREDITS:
@@ -173,6 +174,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		else:
 			## Something went wrong
 			main.title3d.spectrum_analyzer.set_enabled(true)
+			shop.calculate_shop_level()
 			current_screen = queued_menu
 			_return_to_desk_center()
 	
@@ -197,6 +199,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name == "print_close":
 		current_screen = SCREENS.MAIN
 		main.title3d.spectrum_analyzer.set_active(true)
+		shop.calculate_shop_level()
 	
 	if anim_name == "quit_game":
 		if printer.printer_queue.size() <= 0:
