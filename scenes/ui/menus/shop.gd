@@ -157,7 +157,10 @@ func _prev_next_song(dir : int) -> void:
 		current_song_idx = library_max
 	elif current_song_idx > library_max:
 		current_song_idx = 0
-	_render_song(current_song_idx)
+	if potential_shop_level < music_library.all_songs[current_song_idx].shop_level:
+		_render_song(current_song_idx)
+	else:
+		_prev_next_song(dir)
 
 
 func _render_song(idx : int) -> void:
