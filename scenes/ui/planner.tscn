@@ -346,7 +346,7 @@ texture = ExtResource("1_j4u3n")
 stretch_mode = 5
 script = ExtResource("2_dw2pa")
 timeslot_icons = Array[Texture2D]([ExtResource("7_q4qmt"), ExtResource("14_oferi"), ExtResource("16_5smma"), ExtResource("6_8gf7x"), ExtResource("7_q4qmt")])
-stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
+stencil_fx_textures = Array[Texture2D]([ExtResource("3_perju"), ExtResource("4_lc3g5"), ExtResource("5_biwpl"), ExtResource("6_bgns0"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf"), ExtResource("8_hc4lf")])
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -733,7 +733,7 @@ position = Vector2(30, 90)
 scale = Vector2(1.13112, 1.13112)
 sprite_frames = ExtResource("20_as1fn")
 autoplay = "default"
-frame_progress = 0.114242
+frame_progress = 0.584442
 
 [node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point"]
 texture_repeat = 2
@@ -754,7 +754,7 @@ position = Vector2(205, 90)
 scale = Vector2(1.13112, 1.13112)
 sprite_frames = ExtResource("20_as1fn")
 autoplay = "default"
-frame_progress = 0.440258
+frame_progress = 0.910458
 
 [node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point2"]
 texture_repeat = 2
