@@ -44,6 +44,7 @@ func refocus():
 func _ready():
 	refocus()
 	printer._assign_customer_dex(customer_dex)
+	_main_menu_refresh()
 
 ## Why tho?
 ## at this point should just use the string as the memory point...
@@ -66,6 +67,11 @@ func screen_string_to_enum(string_in : String) -> SCREENS:
 	if string_in == "Printer":
 		result = SCREENS.PRINTER
 	return result
+
+
+func _main_menu_refresh() -> void:
+	main.title3d.spectrum_analyzer.set_active(true)
+	shop.calculate_shop_level()
 
 
 func _on_main_menu_selection(selection: String) -> void:
@@ -123,24 +129,6 @@ func pause_button_event(but):
 		main.go_to_layer("Play")
 
 
-## For instant overriding menu access
-## TODO Expand this
-func set_state(state : SCREENS):
-	anim.play("start")
-	current_screen = state
-	if state == SCREENS.MAIN:
-		main.grab_focus()
-		main.go_to_layer("Play")
-		main.title3d.spectrum_analyzer.set_active(true)
-		shop.calculate_shop_level()
-	if state == SCREENS.OPTIONS:
-		anim.play("options_open")
-	if state == SCREENS.CREDITS:
-		anim.play("credits_open")
-	if state == SCREENS.PAUSE:
-		anim.play("pause_open")
-
-
 ## This function only is called if the animator failed to open a submenu
 func _return_to_desk_center():
 	if current_screen != SCREENS.MAIN:
@@ -149,6 +137,7 @@ func _return_to_desk_center():
 			target_anim = "desk_return_right"
 		queued_menu = SCREENS.MAIN
 		anim.play(target_anim)
+		_main_menu_refresh()
 
 
 func _on_animation_player_animation_finished(anim_name : String):
@@ -173,14 +162,13 @@ func _on_animation_player_animation_finished(anim_name : String):
 			anim.play("shop_open")
 		else:
 			## Something went wrong
-			main.title3d.spectrum_analyzer.set_enabled(true)
-			shop.calculate_shop_level()
+			_main_menu_refresh()
 			current_screen = queued_menu
 			_return_to_desk_center()
 	
 	if anim_name.contains("desk_return") and queued_menu == SCREENS.MAIN:
 		current_screen = queued_menu
-		main.title3d.spectrum_analyzer.set_active(true)
+		_main_menu_refresh()
 	
 	if anim_name == "dex_open":
 		current_screen = SCREENS.DEX
@@ -198,8 +186,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.SHOP
 	if anim_name == "print_close":
 		current_screen = SCREENS.MAIN
-		main.title3d.spectrum_analyzer.set_active(true)
-		shop.calculate_shop_level()
+		_main_menu_refresh()
 	
 	if anim_name == "quit_game":
 		if printer.printer_queue.size() <= 0:

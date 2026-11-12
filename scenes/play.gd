@@ -195,8 +195,7 @@ class Stats:
 	var saved_score : int = 0
 	var timeslots_played : PackedInt32Array = []
 	var songs_owned : PackedInt32Array = []
-	var song_level : int = 0
-	var acknowledged_song_level : int = 0
+	var shop_level : int = 0
 	var play_playlist : PackedInt32Array = []
 	var main_playlist : PackedInt32Array = []
 	var jukebox_playlist : PackedInt32Array = []
@@ -204,7 +203,7 @@ class Stats:
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
 		"spent_score", "saved_score", "timeslots_played", 
-		"songs_owned", "song_level", 
+		"songs_owned", "shop_level", 
 		"play_playlist", "main_playlist", "jukebox_playlist",
 		"customer_stats"
 	]
@@ -318,11 +317,11 @@ class Stats:
 		if !songs_owned.has(song_idx):
 			songs_owned.append(song_idx)
 	
-	func set_song_level(new : int) -> void:
-		song_level = new
+	func set_shop_level(new : int) -> void:
+		shop_level = new
 	
-	func get_song_level() -> int:
-		return song_level
+	func get_shop_level() -> int:
+		return shop_level
 	
 	func set_play_playlist(new : Array) -> void:
 		play_playlist = new
@@ -435,7 +434,7 @@ func _load_stats():
 			stats.set_saved_score(data["saved_score"])
 			stats.set_timeslots_played(data["timeslots_played"])
 			stats.set_songs_owned(data["songs_owned"])
-			stats.set_song_level(data["song_level"])
+			stats.set_shop_level(data["shop_level"])
 			stats.set_play_playlist(data["play_playlist"])
 			stats.set_main_playlist(data["main_playlist"])
 			stats.set_jukebox_playlist(data["jukebox_playlist"])
@@ -455,7 +454,7 @@ func _save_stats():
 		"saved_score" = stats.get_saved_score(),
 		"timeslots_played" = stats.get_timeslots_played(),
 		"songs_owned" = stats.get_songs_owned(),
-		"song_level" = stats.get_song_level(),
+		"shop_level" = stats.get_shop_level(),
 		"play_playlist" = stats.get_play_playlist(),
 		"main_playlist" = stats.get_main_playlist(),
 		"jukebox_playlist" = stats.get_jukebox_playlist(),
@@ -505,6 +504,7 @@ func _ready():
 	main_menu.jukebox.music_library = music
 	main_menu.shop.wallet = stats
 	main_menu.shop.music_library = music
+	main_menu.shop.calculate_shop_level()
 	main_menu.main.active = false
 
 
