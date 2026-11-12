@@ -183,6 +183,8 @@ layout_mode = 1
 [connection signal="close_records" from="Records" to="." method="_on_records_close_records"]
 [connection signal="stop_pressed" from="Jukebox" to="." method="_on_jukebox_stop_pressed"]
 [connection signal="close_shop" from="Shop" to="." method="_on_shop_close_shop"]
+[connection signal="shop_level_marked" from="Shop" to="." method="_on_shop_shop_level_marked"]
+[connection signal="shop_level_unread" from="Shop" to="." method="_on_shop_shop_level_unread"]
 [connection signal="announce_finish" from="Announce" to="." method="_on_announce_announce_finish"]
 [connection signal="printer_finished" from="RegularPrinter" to="." method="_on_regular_printer_printer_finished"]
 

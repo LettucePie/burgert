@@ -2,6 +2,7 @@ extends Control
 class_name Shop
 
 signal close_shop()
+signal shop_level_unread()
 signal shop_level_marked(lvl)
 
 var connected : bool = false
@@ -80,6 +81,8 @@ func calculate_shop_level() -> void:
 		for i in song_level_quantities.size():
 			if total_fantastic_orders >= song_level_quantities[i]:
 				potential_shop_level = i
+		if wallet.get_shop_level() < potential_shop_level:
+			emit_signal("shop_level_unread")
 
 
 func open_shop():

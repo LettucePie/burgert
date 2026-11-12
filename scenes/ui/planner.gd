@@ -10,6 +10,7 @@ class_name Planner
 @onready var time_progress_slider : HSlider = $Control/calendar/progress
 @export var timeslot_icons : Array[Texture2D] = []
 
+var active_pages : Array = []
 ## FX
 @onready var stencil_fx : TextureRect = $Control/stencil_border/stencil_fx
 @export var stencil_fx_textures : Array[Texture2D] = []
@@ -99,3 +100,7 @@ func _physics_process(delta: float) -> void:
 	if y_pos_noise > 200.0:
 		y_pos_noise = 0.0
 	stencil_noise_atlas.region = Rect2(0, y_pos_noise, 128, 70)
+
+
+func set_shop_notice_page_active(tf : bool) -> void:
+	print("Shop Notice Page Active: ", tf)

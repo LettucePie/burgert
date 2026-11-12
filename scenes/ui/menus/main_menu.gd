@@ -249,3 +249,11 @@ func _on_regular_printer_printer_finished() -> void:
 	if current_screen == SCREENS.PRINTER:
 		anim.play("print_close")
 		queued_menu = SCREENS.MAIN
+
+
+func _on_shop_shop_level_unread() -> void:
+	main.planner.set_shop_notice_page_active(true)
+
+
+func _on_shop_shop_level_marked(_lvl: Variant) -> void:
+	main.planner.set_shop_notice_page_active(false)
