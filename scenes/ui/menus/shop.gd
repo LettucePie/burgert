@@ -2,6 +2,7 @@ extends Control
 class_name Shop
 
 signal close_shop()
+signal shop_level_marked(lvl)
 
 var connected : bool = false
 var connect_stage : int = 0
@@ -76,7 +77,6 @@ func calculate_shop_level() -> void:
 		var total_fantastic_orders : int = 0
 		for customer : Play.Stats.CustomerStat in wallet.customer_stats:
 			total_fantastic_orders += customer.get_fantastic_orders()
-		print(total_fantastic_orders)
 		for i in song_level_quantities.size():
 			if total_fantastic_orders >= song_level_quantities[i]:
 				potential_shop_level = i
@@ -88,6 +88,9 @@ func open_shop():
 	anim.play("connect")
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	anim.play("connected")
+	if wallet != null:
+		if wallet.shop_level < potential_shop_level:
+			emit_signal("shop_level_marked", potential_shop_level)
 	load_in_menu(0, 0)
 
 

@@ -502,6 +502,7 @@ func _ready():
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 	main_menu.jukebox.music_library = music
+	main_menu.shop.shop_level_marked.connect(_on_music_shop_level_marked)
 	main_menu.shop.wallet = stats
 	main_menu.shop.music_library = music
 	main_menu.shop.calculate_shop_level()
@@ -650,6 +651,11 @@ func _on_music_purchased_song(song: Song) -> void:
 
 
 func _on_music_updated_playlists() -> void:
+	_save_stats()
+
+
+func _on_music_shop_level_marked(lvl : int) -> void:
+	stats.set_shop_level(lvl)
 	_save_stats()
 
 
