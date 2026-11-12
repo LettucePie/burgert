@@ -8,3 +8,6 @@ script = ExtResource("1_3dpvd")
 track = ExtResource("2_tx40i")
 title = "Salutations"
 artist = "artie77"
+crossfade = true
+shop_level = 2
+store_cost = 149

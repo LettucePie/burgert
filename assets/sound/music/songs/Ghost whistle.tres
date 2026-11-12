@@ -6,5 +6,8 @@
 [resource]
 script = ExtResource("1_y2eei")
 track = ExtResource("2_iofty")
-title = "Cheesed to me you"
+title = "Cheesed to meet you"
 artist = "SC00T3R"
+crossfade = true
+shop_level = 1
+store_cost = 99

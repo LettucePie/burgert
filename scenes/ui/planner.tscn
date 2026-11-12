@@ -733,7 +733,7 @@ position = Vector2(30, 90)
 scale = Vector2(1.13112, 1.13112)
 sprite_frames = ExtResource("20_as1fn")
 autoplay = "default"
-frame_progress = 0.584442
+frame_progress = 0.36946
 
 [node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point"]
 texture_repeat = 2
@@ -754,7 +754,7 @@ position = Vector2(205, 90)
 scale = Vector2(1.13112, 1.13112)
 sprite_frames = ExtResource("20_as1fn")
 autoplay = "default"
-frame_progress = 0.910458
+frame_progress = 0.695475
 
 [node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point2"]
 texture_repeat = 2
