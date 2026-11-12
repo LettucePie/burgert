@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://curnk04rub0hv"]
+[gd_scene load_steps=37 format=3 uid="uid://curnk04rub0hv"]
 
 [ext_resource type="Theme" uid="uid://b54rq8l4nrant" path="res://assets/theme/digital_planner_theme.tres" id="1_iqtyi"]
 [ext_resource type="Texture2D" uid="uid://dya6tk7446v4r" path="res://assets/images/graphics/menu/menu_desk/digital_planner/digital_planner_no_buttons.png" id="1_j4u3n"]
@@ -19,9 +19,314 @@
 [ext_resource type="Texture2D" uid="uid://cr6m1pynvj16m" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_morning_atlastexture.tres" id="14_oferi"]
 [ext_resource type="Texture2D" uid="uid://bcxymq2t45bhm" path="res://assets/images/graphics/menu/menu_desk/digital_planner/calendar_timeslot_day_atlastexture.tres" id="16_5smma"]
 [ext_resource type="LabelSettings" uid="uid://b8tgjwsh7wri6" path="res://assets/theme/fonts/digital_planner_smaller_labelsettings.tres" id="18_wdfda"]
+[ext_resource type="SpriteFrames" uid="uid://d4cwliobnfrs" path="res://assets/images/graphics/menu/menu_desk/digital_planner/exclamation_point_spriteframes.tres" id="20_as1fn"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6uaqg"]
+animation = &"calendar_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5oj1t"]
+animation = &"calendar_open"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x6my2"]
+animation = &"shop_notice_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7ikhx"]
+animation = &"shop_notice_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oqfcr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e1dyx"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tsla2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lvr13"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8a5g"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q2pcu"]
-graph_offset = Vector2(-109, -29)
+states/calendar_close/node = SubResource("AnimationNodeAnimation_6uaqg")
+states/calendar_close/position = Vector2(649, 100)
+states/calendar_open/node = SubResource("AnimationNodeAnimation_5oj1t")
+states/calendar_open/position = Vector2(457, 100)
+states/shop_notice_close/node = SubResource("AnimationNodeAnimation_x6my2")
+states/shop_notice_close/position = Vector2(457, 3)
+states/shop_notice_open/node = SubResource("AnimationNodeAnimation_7ikhx")
+states/shop_notice_open/position = Vector2(649, 3)
+transitions = ["Start", "calendar_open", SubResource("AnimationNodeStateMachineTransition_oqfcr"), "calendar_open", "calendar_close", SubResource("AnimationNodeStateMachineTransition_e1dyx"), "calendar_close", "shop_notice_open", SubResource("AnimationNodeStateMachineTransition_tsla2"), "shop_notice_open", "shop_notice_close", SubResource("AnimationNodeStateMachineTransition_lvr13"), "shop_notice_close", "calendar_open", SubResource("AnimationNodeStateMachineTransition_l8a5g")]
+graph_offset = Vector2(29, -100)
+
+[sub_resource type="Animation" id="Animation_tovps"]
+resource_name = "calendar_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/calendar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/calendar:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/calendar:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s8fxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/calendar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/calendar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/calendar:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/shop_notice:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/shop_notice:pivot_offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/shop_notice:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iklxf"]
+resource_name = "calendar_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/calendar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/calendar:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/calendar:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 120)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/shop_notice:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_msbbk"]
+resource_name = "shop_notice_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/shop_notice:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/shop_notice:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(236, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/shop_notice:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p4drg"]
+resource_name = "shop_notice_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/shop_notice:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/shop_notice:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/shop_notice:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/calendar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evee0"]
+_data = {
+"RESET": SubResource("Animation_s8fxv"),
+"calendar_close": SubResource("Animation_tovps"),
+"calendar_open": SubResource("Animation_iklxf"),
+"shop_notice_close": SubResource("Animation_msbbk"),
+"shop_notice_open": SubResource("Animation_p4drg")
+}
 
 [node name="planner" type="TextureRect" groups=["lang_text_array"]]
 texture_filter = 1
@@ -49,6 +354,9 @@ tree_root = SubResource("AnimationNodeStateMachine_q2pcu")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_evee0")
+}
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -209,6 +517,7 @@ pivot_offset = Vector2(118.35, 66.15)
 texture = ExtResource("3_s8o35")
 
 [node name="calendar" type="Control" parent="Control"]
+visible = false
 layout_mode = 1
 anchor_left = 0.0456274
 anchor_top = 0.0748299
@@ -355,3 +664,113 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_s8o35")
+
+[node name="shop_notice" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchor_left = 0.0456274
+anchor_top = 0.0748299
+anchor_right = 0.942966
+anchor_bottom = 0.891156
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="label_1" type="Label" parent="Control/shop_notice" groups=["lang_text"]]
+clip_children = 1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.591667
+size_flags_vertical = 3
+text = "Glorbazon
+Alert"
+label_settings = ExtResource("13_wri8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_fx" type="TextureRect" parent="Control/shop_notice/label_1"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="label_2" type="Label" parent="Control/shop_notice" groups=["lang_text"]]
+clip_children = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133474
+anchor_top = 0.583333
+anchor_right = 0.866526
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+text = "new items
+available"
+label_settings = ExtResource("18_wdfda")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stencil_fx" type="TextureRect" parent="Control/shop_notice/label_2"]
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="exclamation_point" type="AnimatedSprite2D" parent="Control/shop_notice"]
+clip_children = 1
+position = Vector2(30, 90)
+scale = Vector2(1.13112, 1.13112)
+sprite_frames = ExtResource("20_as1fn")
+autoplay = "default"
+frame_progress = 0.114242
+
+[node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point"]
+texture_repeat = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="exclamation_point2" type="AnimatedSprite2D" parent="Control/shop_notice"]
+clip_children = 1
+position = Vector2(205, 90)
+scale = Vector2(1.13112, 1.13112)
+sprite_frames = ExtResource("20_as1fn")
+autoplay = "default"
+frame_progress = 0.440258
+
+[node name="stencil_fx2" type="TextureRect" parent="Control/shop_notice/exclamation_point2"]
+texture_repeat = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s8o35")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d4cwliobnfrs"]
+
+[ext_resource type="Texture2D" uid="uid://dwykaryswowwl" path="res://assets/images/graphics/menu/menu_desk/digital_planner/shop_alert_exclamation.png" id="1_y6sld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83hnd"]
+atlas = ExtResource("1_y6sld")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igv64"]
+atlas = ExtResource("1_y6sld")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83hnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igv64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

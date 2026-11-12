@@ -1,6 +1,11 @@
 extends TextureRect
 class_name Planner
 
+@onready var timer : Timer = $Timer
+@onready var anim_tree : AnimationTree = $AnimationTree
+@onready var anim_play : AnimationPlayer = $AnimationPlayer
+@onready var state_machine = anim_tree["parameters/playback"]
+
 ## Info display
 @onready var calendar : Control = $Control/calendar
 @onready var day_label : Label = $Control/calendar/day
@@ -9,8 +14,11 @@ class_name Planner
 @onready var to_time_icon : TextureRect = $Control/calendar/HBoxContainer/to_icon
 @onready var time_progress_slider : HSlider = $Control/calendar/progress
 @export var timeslot_icons : Array[Texture2D] = []
-
-var active_pages : Array = []
+@onready var shop_notice : Control = $Control/shop_notice
+var active_page_idx : int = 0
+var active_page_anim_nodes : PackedStringArray = [
+	"calendar_open",
+]
 ## FX
 @onready var stencil_fx : TextureRect = $Control/stencil_border/stencil_fx
 @export var stencil_fx_textures : Array[Texture2D] = []
@@ -103,4 +111,24 @@ func _physics_process(delta: float) -> void:
 
 
 func set_shop_notice_page_active(tf : bool) -> void:
-	print("Shop Notice Page Active: ", tf)
+	if tf:
+		if !active_page_anim_nodes.has("shop_notice_open"):
+			active_page_anim_nodes.append("shop_notice_open")
+	else:
+		if active_page_anim_nodes.has("shop_notice_open"):
+			active_page_anim_nodes.remove_at(active_page_anim_nodes.find("shop_notice_open"))
+			_rotate_planner_display()
+
+
+func _rotate_planner_display() -> void:
+	active_page_idx += 1
+	if active_page_idx >= active_page_anim_nodes.size():
+		active_page_idx = 0
+	state_machine.travel(active_page_anim_nodes[active_page_idx])
+
+
+func _on_timer_timeout() -> void:
+	timer.stop()
+	if active_page_anim_nodes.size() > 1:
+		_rotate_planner_display()
+	timer.start(5.0)
