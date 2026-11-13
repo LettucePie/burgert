@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1he05kgog3oq"
-path="res://.godot/imported/trash.png-a44f988ab7a7332c7dc1de67976dc16e.ctex"
+uid="uid://8p6tk500mnbm"
+path="res://.godot/imported/savings_button_highlight.png-e87e8220496d17f8e8ec1967d5756a5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/records/trash.png"
-dest_files=["res://.godot/imported/trash.png-a44f988ab7a7332c7dc1de67976dc16e.ctex"]
+source_file="res://assets/images/graphics/menu/records/savings_button_highlight.png"
+dest_files=["res://.godot/imported/savings_button_highlight.png-e87e8220496d17f8e8ec1967d5756a5c.ctex"]
 
 [params]
 

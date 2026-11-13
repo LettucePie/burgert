@@ -4,5 +4,8 @@ exports/linux
 exports/macos
 exports/windows
 
+*.kra~
+*.png~
+
 # Where are these files coming from?
 *.uid

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=9 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="3_hs6ma"]
-[ext_resource type="Texture2D" uid="uid://dj6qi6nu2nmrr" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_grayscale.png" id="4_d70or"]
 [ext_resource type="Texture2D" uid="uid://dq3lfkjvsiowr" path="res://assets/images/graphics/menu/records/back_button.png" id="4_i6kl1"]
-[ext_resource type="Texture2D" uid="uid://c1he05kgog3oq" path="res://assets/images/graphics/menu/records/trash.png" id="5_dtd0p"]
+[ext_resource type="Texture2D" uid="uid://b5upoxsehxue4" path="res://assets/images/graphics/menu/records/back_button_highlight.png" id="5_0coyn"]
+[ext_resource type="Texture2D" uid="uid://ocfkn7vmkmau" path="res://assets/images/graphics/menu/records/savings_button.png" id="5_73vbo"]
+[ext_resource type="Texture2D" uid="uid://dlttyip3q6ur1" path="res://assets/images/graphics/menu/records/trash_button.png" id="7_q5tvm"]
+[ext_resource type="Texture2D" uid="uid://01id7n86u526" path="res://assets/images/graphics/menu/records/trash_button_highlight.png" id="8_60oqu"]
 
 [node name="Records" type="Control"]
 texture_filter = 1
@@ -148,21 +150,27 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("4_i6kl1")
-stretch_mode = 5
+texture_pressed = ExtResource("5_0coyn")
+texture_hover = ExtResource("5_0coyn")
+texture_focused = ExtResource("5_0coyn")
+stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="savings_button" type="TextureButton" parent="TextureRect/controls"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_d70or")
-stretch_mode = 5
+texture_normal = ExtResource("5_73vbo")
+stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="trash_button" type="TextureButton" parent="TextureRect/controls"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("5_dtd0p")
-stretch_mode = 5
+texture_normal = ExtResource("7_q5tvm")
+texture_pressed = ExtResource("8_60oqu")
+texture_hover = ExtResource("8_60oqu")
+texture_focused = ExtResource("8_60oqu")
+stretch_mode = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="PiggyBankTransfer" type="Control" parent="."]
