@@ -10,6 +10,9 @@ class_name Help
 @onready var next_but : Button = $Controls/next
 @onready var prev_but : Button = $Controls/prev
 
+@onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
+@export var page_turn_sfx : Array[AudioStreamWAV]
+
 @export var titles : PackedStringArray = [
 	"Goal",
 	"Controls - Assembly",
@@ -128,6 +131,11 @@ func _convert_page_buttons(text_in : String) -> String:
 	return result
 
 
+func play_page_sfx() -> void:
+	sfx.stream = page_turn_sfx.pick_random()
+	sfx.play()
+
+
 func _load_page(num : int):
 	current_page = num
 	title.text = titles[current_page]
@@ -167,6 +175,7 @@ func _turn_page(dir : int):
 	if current_page + dir < titles.size() \
 	and current_page + dir >= 0:
 		_load_page(current_page + dir)
+		play_page_sfx()
 
 
 func _ready() -> void:

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ugadc4ilb6n"]
+[gd_scene load_steps=6 format=3 uid="uid://d0ugadc4ilb6n"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/help.gd" id="1_ik1ax"]
+[ext_resource type="AudioStream" uid="uid://b7m6gn0cvccec" path="res://assets/sound/sfx/page_flip_1.wav" id="2_ycyfb"]
+[ext_resource type="AudioStream" uid="uid://0t7if1tr8u54" path="res://assets/sound/sfx/page_flip_2.wav" id="3_6jvwm"]
 [ext_resource type="SpriteFrames" uid="uid://bb15vl3md5u26" path="res://assets/images/sequences/guide_frames.tres" id="3_gm58d"]
+[ext_resource type="AudioStream" uid="uid://wlx03rsc84jn" path="res://assets/sound/sfx/page_flip_3.wav" id="4_1gfmh"]
 
 [node name="Help" type="Control" groups=["lang_text_array"]]
 texture_filter = 1
@@ -12,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ik1ax")
+page_turn_sfx = Array[AudioStreamWAV]([ExtResource("2_ycyfb"), ExtResource("3_6jvwm"), ExtResource("4_1gfmh")])
 
 [node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -109,6 +113,9 @@ focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath("../close")
 focus_previous = NodePath("../prev")
 text = "Next"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="pressed" from="Controls/prev" to="." method="_turn_page" binds= [-1]]
 [connection signal="pressed" from="Controls/next" to="." method="_turn_page" binds= [1]]
