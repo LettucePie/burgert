@@ -62,26 +62,12 @@ visible = false
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 274.5
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 371.5
-
-[node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = -201.5
-offset_bottom = -90.5
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 104.5
-offset_bottom = 181.5
-
-[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 154.5
-offset_bottom = 200.5
+offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
 offset_left = 2.00006
-offset_top = 62.5
-offset_bottom = 164.5
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -148,6 +134,8 @@ offset_bottom = 600.0
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
 layout_mode = 1
+offset_top = -480.0
+offset_bottom = -480.0
 
 [node name="Help" parent="." instance=ExtResource("13_rpgj1")]
 layout_mode = 1
@@ -161,6 +149,8 @@ layout_mode = 1
 [node name="Records" parent="." instance=ExtResource("22_v8q47")]
 visible = false
 layout_mode = 1
+offset_left = 645.0
+offset_right = 645.0
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false

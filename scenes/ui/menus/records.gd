@@ -13,6 +13,10 @@ signal close_records()
 #var loaded_stats : Play.Stats
 
 
+func _ready() -> void:
+	savings_transfer.hide()
+
+
 func ready_records() -> void:
 	records_page.show()
 	savings_transfer.hide()

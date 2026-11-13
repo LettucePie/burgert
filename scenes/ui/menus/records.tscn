@@ -18,8 +18,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 645.0
-offset_right = 645.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k638m")
@@ -210,6 +208,7 @@ offset_bottom = 518.0
 texture = ExtResource("10_tl52b")
 
 [node name="oink" type="AnimatedSprite2D" parent="savings_transfer"]
+position = Vector2(549, 405)
 sprite_frames = ExtResource("11_qg5y1")
 animation = &"oink2"
 
