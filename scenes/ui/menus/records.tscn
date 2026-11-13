@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=7 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="3_hs6ma"]
 [ext_resource type="Texture2D" uid="uid://dj6qi6nu2nmrr" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_grayscale.png" id="4_d70or"]
+[ext_resource type="Texture2D" uid="uid://dq3lfkjvsiowr" path="res://assets/images/graphics/menu/records/back_button.png" id="4_i6kl1"]
+[ext_resource type="Texture2D" uid="uid://c1he05kgog3oq" path="res://assets/images/graphics/menu/records/trash.png" id="5_dtd0p"]
 
 [node name="Records" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,9 +144,25 @@ anchor_right = 0.955513
 anchor_bottom = 0.86875
 metadata/_edit_use_anchors_ = true
 
-[node name="piggy_icon" type="TextureButton" parent="TextureRect/controls"]
+[node name="back_button" type="TextureButton" parent="TextureRect/controls"]
 layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_i6kl1")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="savings_button" type="TextureButton" parent="TextureRect/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
 texture_normal = ExtResource("4_d70or")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="trash_button" type="TextureButton" parent="TextureRect/controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_dtd0p")
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="PiggyBankTransfer" type="Control" parent="."]
