@@ -546,7 +546,7 @@ func _on_main_menu_start_play():
 
 func _on_game_game_paused():
 	get_tree().paused = true
-	main_menu.set_state(MainMenu.SCREENS.PAUSE)
+	main_menu.game_paused()
 	music.set_state(Music.STATE.PAUSE)
 
 

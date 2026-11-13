@@ -75,6 +75,7 @@ func _main_menu_refresh() -> void:
 
 
 func _on_main_menu_selection(selection: String) -> void:
+	print(selection)
 	if current_screen == SCREENS.MAIN:
 		if selection == "Play":
 			anim.play("play_start")
@@ -140,6 +141,12 @@ func _return_to_desk_center():
 		_main_menu_refresh()
 
 
+func game_paused() -> void:
+	anim.play("start")
+	current_screen = SCREENS.PAUSE
+	anim.play("pause_open")
+
+
 func _on_animation_player_animation_finished(anim_name : String):
 	if anim_name == "pause_open" and current_screen == SCREENS.PAUSE:
 		$Paused/Panel/VBoxContainer/resume.grab_focus()
@@ -190,6 +197,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 	
 	if anim_name == "quit_game":
 		if printer.printer_queue.size() <= 0:
+			current_screen = SCREENS.MAIN
 			anim.play("play_stop")
 		else:
 			current_screen = SCREENS.PRINTER
