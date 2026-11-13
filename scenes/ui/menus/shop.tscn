@@ -655,6 +655,10 @@ grow_vertical = 2
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../finished")
+focus_neighbor_bottom = NodePath("../finished")
 text = "Music"
 
 [node name="decor" type="Button" parent="phone/main/menu_0_0" groups=["lang_text"]]
@@ -679,6 +683,10 @@ text = "Clothing
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../music")
+focus_neighbor_top = NodePath("../music")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 text = "Done"
 
 [node name="menu_1_0" type="VBoxContainer" parent="phone/main"]
@@ -701,22 +709,33 @@ grow_vertical = 2
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../playlists")
+focus_neighbor_bottom = NodePath("../playlists")
 text = "Store"
 
 [node name="playlists" type="Button" parent="phone/main/menu_1_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../music_store")
+focus_neighbor_top = NodePath("../music_store")
+focus_neighbor_right = NodePath("../return")
+focus_neighbor_bottom = NodePath("../return")
 text = "Playlists"
 
 [node name="return" type="Button" parent="phone/main/menu_1_0" groups=["lang_text"]]
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../playlists")
+focus_neighbor_top = NodePath("../playlists")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 text = "--- Return ---"
 
 [node name="menu_1_1" type="VBoxContainer" parent="phone/main"]
-visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
@@ -743,12 +762,21 @@ text_overrun_behavior = 3
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../preview")
+focus_neighbor_bottom = NodePath("../preview")
 text = "Purchase"
 
 [node name="owned" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
+visible = false
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../preview")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../preview")
+focus_neighbor_bottom = NodePath("../preview")
 disabled = true
 text = "Owned"
 
@@ -756,6 +784,7 @@ text = "Owned"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../stop")
 text = "Preview"
 
 [node name="stop" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
@@ -782,6 +811,7 @@ text = "-- >"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath(".")
 text = "--- Return ---"
 
 [node name="menu_1_2" type="VBoxContainer" parent="phone/main"]
@@ -828,9 +858,11 @@ text = "me time :)"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath(".")
 text = "--- Return ---"
 
 [node name="menu_1_3" type="VBoxContainer" parent="phone/main"]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
@@ -896,6 +928,7 @@ text = "-- >"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath(".")
 text = "--- Return ---"
 
 [node name="connection" type="Control" parent="phone"]
