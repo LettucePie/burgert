@@ -181,6 +181,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.DEX
 	if anim_name == "records_open":
 		current_screen = SCREENS.RECORDS
+		#records.ready_records()
 	if anim_name == "options_open":
 		current_screen = SCREENS.OPTIONS
 	if anim_name == "help_open":

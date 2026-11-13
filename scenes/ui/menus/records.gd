@@ -3,22 +3,20 @@ class_name Records
 
 signal close_records()
 
-@export var active : bool = false
-
-@onready var total_score : Label = $TextureRect/VBoxContainer/total_score/value
-@onready var highest_score : Label = $TextureRect/VBoxContainer/highest_score/value
-@onready var spent_score : Label = $TextureRect/VBoxContainer/spent_score/value
-@onready var times_played : Label = $TextureRect/VBoxContainer/times_played/value
-@onready var burgers_served : Label = $TextureRect/VBoxContainer/burgers_served/value
+@onready var records_page : Control = $records_page
+@onready var total_score : Label = $records_page/VBoxContainer/total_score/value
+@onready var highest_score : Label = $records_page/VBoxContainer/highest_score/value
+@onready var spent_score : Label = $records_page/VBoxContainer/spent_score/value
+@onready var times_played : Label = $records_page/VBoxContainer/times_played/value
+@onready var burgers_served : Label = $records_page/VBoxContainer/burgers_served/value
+@onready var savings_transfer : Control = $savings_transfer
 #var loaded_stats : Play.Stats
 
 
-func _ready() -> void:
-	active = false
-
-
 func ready_records() -> void:
-	pass
+	records_page.show()
+	savings_transfer.hide()
+	$records_page/controls/back_button.grab_focus()
 
 
 func assign_stats(stats : Play.Stats) -> void:
@@ -33,14 +31,10 @@ func assign_stats(stats : Play.Stats) -> void:
 	burgers_served.text = str(total)
 
 
-func _process(delta: float) -> void:
-	if active:
-		if Input.is_action_just_released("cancel") \
-		or Input.is_action_just_released("confirm"):
-			emit_signal("close_records")
-
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if !event.pressed:
-			emit_signal("close_records")
+func _on_button_press(button : String) -> void:
+	if button == "back":
+		emit_signal("close_records")
+	elif button == "savings":
+		print("Open Savings")
+	elif button == "trash":
+		print("Open Trash")
