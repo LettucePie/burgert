@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=12 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dlttyip3q6ur1" path="res://assets/images/graphics/menu/records/trash_button.png" id="7_q5tvm"]
 [ext_resource type="Texture2D" uid="uid://8p6tk500mnbm" path="res://assets/images/graphics/menu/records/savings_button_highlight.png" id="7_uex7t"]
 [ext_resource type="Texture2D" uid="uid://01id7n86u526" path="res://assets/images/graphics/menu/records/trash_button_highlight.png" id="8_60oqu"]
+[ext_resource type="Texture2D" uid="uid://vqvyuqmrroi4" path="res://assets/images/graphics/menu/records/wallet_large_pageless.png" id="10_tl52b"]
+[ext_resource type="SpriteFrames" uid="uid://bendqwhncjxhj" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_spriteframes.tres" id="11_qg5y1"]
 
 [node name="Records" type="Control"]
 texture_filter = 1
@@ -23,6 +25,7 @@ grow_vertical = 2
 script = ExtResource("1_k638m")
 
 [node name="records_page" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,10 +194,24 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="savings_transfer" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="savings_transfer"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 278.0
+offset_right = 306.0
+offset_bottom = 518.0
+texture = ExtResource("10_tl52b")
+
+[node name="oink" type="AnimatedSprite2D" parent="savings_transfer"]
+sprite_frames = ExtResource("11_qg5y1")
+animation = &"oink2"
 
 [connection signal="pressed" from="records_page/controls/back_button" to="." method="_on_button_press" binds= ["back"]]
 [connection signal="pressed" from="records_page/controls/savings_button" to="." method="_on_button_press" binds= ["savings"]]
