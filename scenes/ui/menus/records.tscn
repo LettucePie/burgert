@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=21 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -11,6 +11,121 @@
 [ext_resource type="Texture2D" uid="uid://01id7n86u526" path="res://assets/images/graphics/menu/records/trash_button_highlight.png" id="8_60oqu"]
 [ext_resource type="Texture2D" uid="uid://vqvyuqmrroi4" path="res://assets/images/graphics/menu/records/wallet_large_pageless.png" id="10_tl52b"]
 [ext_resource type="SpriteFrames" uid="uid://bendqwhncjxhj" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_spriteframes.tres" id="11_qg5y1"]
+[ext_resource type="Texture2D" uid="uid://cf200dxjx3s1t" path="res://assets/images/graphics/menu/records/transfer_subtract_normal.tres" id="12_wi580"]
+[ext_resource type="Texture2D" uid="uid://d0mryq2mdv3ov" path="res://assets/images/graphics/menu/records/transfer_subtract_pressed.tres" id="13_dferx"]
+[ext_resource type="Texture2D" uid="uid://ctyb5ijju4ewt" path="res://assets/images/graphics/menu/records/transfer_subtract_highlight.tres" id="14_nktog"]
+[ext_resource type="Texture2D" uid="uid://xtnrm62xuxfp" path="res://assets/images/graphics/menu/records/transfer_add_normal.tres" id="15_3k2mk"]
+[ext_resource type="Texture2D" uid="uid://c0s1j3j0ap68l" path="res://assets/images/graphics/menu/records/transfer_add_pressed.tres" id="16_7xcfy"]
+[ext_resource type="Texture2D" uid="uid://bvf0hec0tv4s6" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
+
+[sub_resource type="Animation" id="Animation_h0mp7"]
+resource_name = "open_transfer_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("savings_transfer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("records_page:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -80), Vector2(64, 674)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("records_page:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("savings_transfer:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, 480), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_knahh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("savings_transfer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("records_page:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("records_page:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("savings_transfer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhjrb"]
+_data = {
+"RESET": SubResource("Animation_knahh"),
+"open_transfer_menu": SubResource("Animation_h0mp7")
+}
 
 [node name="Records" type="Control"]
 texture_filter = 1
@@ -21,6 +136,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k638m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xhjrb")
+}
 
 [node name="records_page" type="TextureRect" parent="."]
 visible = false
@@ -40,13 +160,13 @@ texture = ExtResource("2_ruo3y")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
-anchor_top = 0.187
+anchor_top = 0.159
 anchor_right = 0.981
-anchor_bottom = 0.708
+anchor_bottom = 0.689
 offset_left = 0.0479984
-offset_top = 0.319992
+offset_top = 0.23999
 offset_right = -0.177032
-offset_bottom = -0.119995
+offset_bottom = 0.039978
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -192,25 +312,64 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="savings_transfer" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 480.0
+offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="savings_transfer"]
+[node name="wallet" type="TextureRect" parent="savings_transfer"]
 layout_mode = 0
-offset_left = -14.0
-offset_top = 278.0
-offset_right = 306.0
-offset_bottom = 518.0
+offset_left = -2.0
+offset_top = 290.0
+offset_right = 318.0
+offset_bottom = 530.0
 texture = ExtResource("10_tl52b")
 
 [node name="oink" type="AnimatedSprite2D" parent="savings_transfer"]
-position = Vector2(549, 405)
+position = Vector2(537, 390)
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("11_qg5y1")
 animation = &"oink2"
+
+[node name="Vbox" type="VBoxContainer" parent="savings_transfer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.589583
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="teller" type="HBoxContainer" parent="savings_transfer/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.08
+
+[node name="minus" type="TextureButton" parent="savings_transfer/Vbox/teller"]
+layout_mode = 2
+texture_normal = ExtResource("12_wi580")
+texture_pressed = ExtResource("13_dferx")
+texture_hover = ExtResource("14_nktog")
+texture_focused = ExtResource("14_nktog")
+
+[node name="add" type="TextureButton" parent="savings_transfer/Vbox/teller"]
+layout_mode = 2
+texture_normal = ExtResource("15_3k2mk")
+texture_pressed = ExtResource("16_7xcfy")
+texture_hover = ExtResource("17_m83h5")
+texture_focused = ExtResource("17_m83h5")
+
+[node name="approve" type="HBoxContainer" parent="savings_transfer/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="minus" type="TextureButton" parent="savings_transfer/Vbox/approve"]
+layout_mode = 2
 
 [connection signal="pressed" from="records_page/controls/back_button" to="." method="_on_button_press" binds= ["back"]]
 [connection signal="pressed" from="records_page/controls/savings_button" to="." method="_on_button_press" binds= ["savings"]]
