@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d2aevc3qmxngw"]
+
+[ext_resource type="Texture2D" uid="uid://chkk1amc0gi2m" path="res://assets/images/graphics/menu/records/counter_sheet.png" id="1_bkdn3"]
+
+[resource]
+atlas = ExtResource("1_bkdn3")
+region = Rect2(0, 0, 128, 64)

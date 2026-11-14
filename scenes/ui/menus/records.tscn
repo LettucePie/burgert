@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=23 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://d0mryq2mdv3ov" path="res://assets/images/graphics/menu/records/transfer_subtract_pressed.tres" id="13_dferx"]
 [ext_resource type="Texture2D" uid="uid://ctyb5ijju4ewt" path="res://assets/images/graphics/menu/records/transfer_subtract_highlight.tres" id="14_nktog"]
 [ext_resource type="Texture2D" uid="uid://xtnrm62xuxfp" path="res://assets/images/graphics/menu/records/transfer_add_normal.tres" id="15_3k2mk"]
+[ext_resource type="Texture2D" uid="uid://d2aevc3qmxngw" path="res://assets/images/graphics/menu/records/counter_atlastexture.tres" id="15_7qk4l"]
 [ext_resource type="Texture2D" uid="uid://c0s1j3j0ap68l" path="res://assets/images/graphics/menu/records/transfer_add_pressed.tres" id="16_7xcfy"]
+[ext_resource type="Texture2D" uid="uid://c7xsghc2sle30" path="res://assets/images/graphics/menu/records/counter_overlay_atlastexture.tres" id="16_uw14a"]
 [ext_resource type="Texture2D" uid="uid://bvf0hec0tv4s6" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
 
 [sub_resource type="Animation" id="Animation_h0mp7"]
@@ -352,13 +354,39 @@ size_flags_stretch_ratio = 2.08
 
 [node name="minus" type="TextureButton" parent="savings_transfer/Vbox/teller"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 texture_normal = ExtResource("12_wi580")
 texture_pressed = ExtResource("13_dferx")
 texture_hover = ExtResource("14_nktog")
 texture_focused = ExtResource("14_nktog")
 
+[node name="counter" type="TextureRect" parent="savings_transfer/Vbox/teller"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.29
+texture = ExtResource("15_7qk4l")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="savings_transfer/Vbox/teller/counter"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+text = "00"
+
+[node name="highlight" type="TextureRect" parent="savings_transfer/Vbox/teller/counter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_uw14a")
+
 [node name="add" type="TextureButton" parent="savings_transfer/Vbox/teller"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 texture_normal = ExtResource("15_3k2mk")
 texture_pressed = ExtResource("16_7xcfy")
 texture_hover = ExtResource("17_m83h5")
