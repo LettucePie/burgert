@@ -19,6 +19,7 @@ class_name Help
 	"Controls - Receipt",
 	"Controls - Submit",
 	"Controls - Charge Throw",
+	"Charge Throw - Continued",
 	"Controls - Trashing",
 	"Goal - Result",
 	"CustomerDex"
@@ -29,6 +30,7 @@ class_name Help
 	"The customer will display how they want their burger, or you can double check by reading the receipt with the $RECEIPT button.",
 	"Once you're ready, you can enter the throwing position by tapping the $SUBMIT button. When your aim is over the customer, throw the burger with the $CONFIRM button or $SUBMIT button. You can also step back with $CANCEL.",
 	"There is a faster way to give the customer their burger, it can earn you more cash too! By holding down the $SUBMIT button instead of tapping, you will charge up your throw. Release $SUBMIT to throw the burger.",
+	"Charge Throws have some risk and reward, but they are also the only way to stop the loan-drones from taking our cash!",
 	"If you want to scrap the whole burger, you can do so by holding the $CANCEL button.",
 	"Once your 2 minutes are up, the shop closes and your reward gets tallied.",
 	"Read through the CustomerDex to check your progress on each of the regulars, or see if they have a chance of showing up today."
@@ -39,6 +41,7 @@ var guide_names : PackedStringArray = [
 	"guide_2",
 	"guide_3",
 	"guide_4",
+	"guide_drone",
 	"guide_5",
 	"guide_results",
 	"guide_customerdex"
@@ -49,6 +52,7 @@ var guide_scales : PackedVector2Array = [
 	Vector2(1.42, 1.42),
 	Vector2(1.42, 1.42),
 	Vector2(1.42, 1.42),
+	Vector2(0.9, 0.9),
 	Vector2(1.42, 1.42),
 	Vector2(1.42, 1.42),
 	Vector2(0.715, 0.715)
