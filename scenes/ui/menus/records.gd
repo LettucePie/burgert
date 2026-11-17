@@ -85,7 +85,7 @@ func assign_stats(stats : Play.Stats) -> void:
 	spent_score.text = "$" + str(stats.total_score - stats.spent_score)
 	saved_score.text = "$" + str(stats.saved_score)
 	transfer_max = 1000000 - stats.saved_score
-	available_transfer = stats.saved_score - stats.spent_score
+	available_transfer = stats.total_score - stats.spent_score
 	times_played.text = str(stats.times_played)
 	var total : int = 0
 	for cs in stats.customer_stats:
@@ -106,8 +106,10 @@ func _on_button_press(button : String) -> void:
 
 func _apply_transfer_adjustment(scale_idx : int) -> void:
 	var adjustment = transfer_offset * scales[scale_idx]
+	if transfer_amount + adjustment > available_transfer:
+		adjustment = available_transfer - transfer_amount
 	if transfer_amount + adjustment > transfer_max:
-		adjustment = (transfer_amount + adjustment) - transfer_max
+		adjustment = transfer_max - transfer_amount
 	transfer_amount = clampi(transfer_amount + adjustment, 0, 999999)
 	var label_idx : int = 0
 	var amount_str : String = str(transfer_amount)
@@ -201,3 +203,5 @@ func _on_money_stream_animation_finished() -> void:
 	if money_stream.animation == "end":
 		money_stream.hide()
 		transfer_anim.play("finish_transfer")
+		transfer_amount = 0
+		_apply_transfer_adjustment(0)
