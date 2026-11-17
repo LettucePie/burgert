@@ -1,8 +1,10 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bsdam6lp4cvjn"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bsdam6lp4cvjn"]
 
 [ext_resource type="FontFile" uid="uid://db3yyouqfnvnp" path="res://third-party/openfont.org/Actor-Regular.ttf" id="1_4sato"]
 [ext_resource type="StyleBox" uid="uid://dl3vsbaeye7lr" path="res://assets/theme/styleboxes/serious_button_focus_stylebox.tres" id="1_c5ppr"]
 [ext_resource type="StyleBox" uid="uid://dmg1delgg5v6g" path="res://assets/theme/styleboxes/serious_button_normal_stylebox.tres" id="2_8ytnd"]
+[ext_resource type="StyleBox" uid="uid://bof7o2rase2ue" path="res://assets/theme/styleboxes/serious_buttondelete_focus_stylebox.tres" id="3_8h2ks"]
+[ext_resource type="StyleBox" uid="uid://c1vxdhoowu4vr" path="res://assets/theme/styleboxes/serious_buttondelete_normal_stylebox.tres" id="3_cmkmy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8jbtu"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
@@ -14,3 +16,8 @@ Button/styles/focus = ExtResource("1_c5ppr")
 Button/styles/hover = ExtResource("1_c5ppr")
 Button/styles/normal = ExtResource("2_8ytnd")
 Button/styles/pressed = ExtResource("2_8ytnd")
+ButtonDelete/base_type = &"Button"
+ButtonDelete/styles/focus = ExtResource("3_8h2ks")
+ButtonDelete/styles/hover = ExtResource("3_8h2ks")
+ButtonDelete/styles/normal = ExtResource("3_cmkmy")
+ButtonDelete/styles/pressed = ExtResource("3_cmkmy")

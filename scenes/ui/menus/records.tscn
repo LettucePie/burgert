@@ -1369,6 +1369,8 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../cancel")
 focus_neighbor_bottom = NodePath(".")
+theme = ExtResource("33_ksawn")
+theme_type_variation = &"ButtonDelete"
 text = "Confirm"
 
 [node name="padding3" type="Control" parent="deletion/VBoxContainer/HBoxContainer"]
