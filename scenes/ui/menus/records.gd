@@ -249,4 +249,4 @@ func _on_cancel_deletion_pressed() -> void:
 
 func _on_confirm_deletion_pressed() -> void:
 	_set_records_buttons_disabled(false)
-	emit_signal("confirm_deletion")
+	anim.play("deletion")
