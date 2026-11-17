@@ -67,7 +67,7 @@ offset_right = -140.0
 offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00006
+offset_left = 2.00003
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -151,6 +151,9 @@ visible = false
 layout_mode = 1
 offset_left = 645.0
 offset_right = 645.0
+
+[node name="Vbox" parent="Records/savings_transfer" index="2"]
+visible = false
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
