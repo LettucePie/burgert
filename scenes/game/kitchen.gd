@@ -83,7 +83,11 @@ func prep_kitchen():
 	janitor_bot.enable_bot(true)
 	drone.enable_drone(false)
 	handling_drone_event = false
-	kitchen_object.texture = kitchen_objects.pick_random()
+	if randf() > 0.2:
+		kitchen_object.show()
+		kitchen_object.texture = kitchen_objects.pick_random()
+	else:
+		kitchen_object.hide()
 	_build_queue()
 
 
