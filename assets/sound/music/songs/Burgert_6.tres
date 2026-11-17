@@ -9,4 +9,5 @@ track = ExtResource("2_bawoa")
 title = "checking out"
 artist = "SC00T3R"
 crossfade = true
-store_cost = 49
+shop_level = 1
+store_cost = 99

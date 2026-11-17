@@ -9,5 +9,5 @@ track = ExtResource("2_iofty")
 title = "Cheesed to meet you"
 artist = "SC00T3R"
 crossfade = true
-shop_level = 1
-store_cost = 99
+shop_level = 0
+store_cost = 49

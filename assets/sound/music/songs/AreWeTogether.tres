@@ -8,3 +8,6 @@ script = ExtResource("1_c3c2p")
 track = ExtResource("2_nlnal")
 title = "Are We Together"
 artist = "tomato&smoke"
+crossfade = true
+shop_level = 3
+store_cost = 199

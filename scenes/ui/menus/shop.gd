@@ -145,7 +145,7 @@ func load_in_menu(main_idx : int, branch_idx : int) -> void:
 	if primary_branch == 1:
 		if submenu_branch == 1 or submenu_branch == 3:
 			current_song_idx = 0
-			_render_song(current_song_idx)
+			_prev_next_song(1)
 
 
 func _prev_next_song(dir : int) -> void:
@@ -283,4 +283,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			if anim_name == "success":
 				$phone/main/menu_1_1/owned.grab_focus()
 			else:
-				$phone/main/menu_1_1/purchase.grab_focus()
+				$phone/main/menu_1_1/prev_next/next.grab_focus()

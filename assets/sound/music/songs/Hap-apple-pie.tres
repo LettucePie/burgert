@@ -9,5 +9,5 @@ track = ExtResource("2_tx40i")
 title = "Salutations"
 artist = "artie77"
 crossfade = true
-shop_level = 2
-store_cost = 149
+shop_level = 0
+store_cost = 49

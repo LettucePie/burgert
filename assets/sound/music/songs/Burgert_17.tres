@@ -8,3 +8,6 @@ script = ExtResource("1_jrn5s")
 track = ExtResource("2_h875k")
 title = "we broke it"
 artist = "tomato&smoke"
+crossfade = true
+shop_level = 2
+store_cost = 149

@@ -8,3 +8,6 @@ script = ExtResource("1_hwqti")
 track = ExtResource("2_ipken")
 title = "Drip of Bees"
 artist = "tomato&smoke"
+crossfade = true
+shop_level = 1
+store_cost = 99

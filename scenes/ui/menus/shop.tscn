@@ -736,6 +736,7 @@ focus_neighbor_bottom = NodePath(".")
 text = "--- Return ---"
 
 [node name="menu_1_1" type="VBoxContainer" parent="phone/main"]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
@@ -784,7 +785,6 @@ text = "Owned"
 use_parent_material = true
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_bottom = NodePath("../stop")
 text = "Preview"
 
 [node name="stop" type="Button" parent="phone/main/menu_1_1" groups=["lang_text"]]
