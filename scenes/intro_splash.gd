@@ -7,6 +7,7 @@ signal intro_splash_fading
 func _ready() -> void:
 	self.show()
 	play("no_ai")
+	$AudioStreamPlayer.play()
 
 
 func _on_frame_changed() -> void:

@@ -67,16 +67,19 @@ Sprites, Animation, Character Design, Gameplay Design, Music, SFX
 -- LettucePie --
 Sprites, Animation, Gameplay Design, UIX, SFX, Programming
 
-Made in
+ - Made in - 
 Godot 4.3
 Aseprite
 Krita
 LMMS
+The domain of fleshbound humanity
 
 -- third-party assets --
 kenney-nl (kenney.nl) : fonts
 OwlishMedia (opengameart.org) : sfx
 diligentcircle (opengameart.org) : sfx
+TinyWorlds (opengameart.org) : sfx
+bart (opengameart.org) : sfx
 mreliptik (godotshaders.com) : shader"
 label_settings = ExtResource("1_bikxg")
 horizontal_alignment = 1
