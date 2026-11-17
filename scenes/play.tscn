@@ -256,6 +256,7 @@ texture_filter = 1
 position = Vector2(320, 240)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("39_5cbxr")
+animation = &"no_ai"
 script = ExtResource("40_igmts")
 
 [connection signal="finished_order" from="Game" to="." method="_on_game_finished_order"]
