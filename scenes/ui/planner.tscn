@@ -1045,8 +1045,7 @@ layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 0.516667
 size_flags_vertical = 3
-text = "Hospital Bill
-Fund"
+text = "Hospital Bill"
 label_settings = ExtResource("13_wri8d")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1062,7 +1061,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_s8o35")
 
-[node name="label_2" type="Label" parent="Control/progress" groups=["lang_text"]]
+[node name="label_2" type="Label" parent="Control/progress"]
 clip_children = 1
 layout_mode = 1
 anchors_preset = -1

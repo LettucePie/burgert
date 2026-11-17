@@ -55,7 +55,7 @@ var guide_scales : PackedVector2Array = [
 	Vector2(0.9, 0.9),
 	Vector2(1.42, 1.42),
 	Vector2(1.42, 1.42),
-	Vector2(0.715, 0.715)
+	Vector2(1.42, 1.42)
 ]
 var button_replace_codes : PackedStringArray = [
 	"$LEFT",
