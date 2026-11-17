@@ -508,6 +508,7 @@ func _ready():
 	main_menu.shop.music_library = music
 	main_menu.shop.calculate_shop_level()
 	main_menu.records.deposit_to_savings.connect(_on_records_deposit_to_savings)
+	main_menu.records.confirm_deletion.connect(_delete_game_progress)
 	main_menu.main.active = false
 
 
@@ -670,3 +671,14 @@ func _on_records_deposit_to_savings(amount : int) -> void:
 	stats.adjust_saved_score(amount)
 	stats.adjust_spent_score(amount)
 	_save_stats()
+
+
+func _delete_game_progress() -> void:
+	print("Deleting Game Progress...")
+	settings = Settings.new()
+	_default_settings()
+	stats = Stats.new()
+	_default_stats()
+	print("Done replacing settings and stats with fresh instances...")
+	print("Restarting Primary Scene now!")
+	get_tree().reload_current_scene()

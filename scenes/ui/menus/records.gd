@@ -3,6 +3,7 @@ class_name Records
 
 signal close_records()
 signal deposit_to_savings(amount)
+signal confirm_deletion()
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
 
@@ -49,15 +50,27 @@ var target_bank : int = 0
 @export var oink_wavs : Array[AudioStreamWAV]
 @onready var oink : AnimatedSprite2D = $savings_transfer/oink
 
+## Deletion
+@onready var deletion_page : Control = $deletion
+var contemplating_deletion : bool = false
+
 
 func _ready() -> void:
 	savings_transfer.hide()
 
 
+func _set_records_buttons_disabled(tf):
+	$records_page/controls/back_button.disabled = tf
+	$records_page/controls/savings_button.disabled = tf
+	$records_page/controls/trash_button.disabled = tf
+
+
 func ready_records() -> void:
 	records_page.show()
 	savings_transfer.hide()
+	deletion_page.hide()
 	_set_transfer_buttons_disabled(true)
+	_set_records_buttons_disabled(false)
 	$records_page/controls/back_button.grab_focus()
 
 
@@ -70,6 +83,7 @@ func _set_transfer_buttons_disabled(tf : bool):
 
 func ready_transfer_menu() -> void:
 	records_page.hide()
+	deletion_page.hide()
 	transfer_amount = 0
 	tick = 0
 	transfer_offset = 0
@@ -80,6 +94,12 @@ func ready_transfer_menu() -> void:
 	_apply_transfer_adjustment(0)
 	_set_transfer_buttons_disabled(false)
 	$savings_transfer/counter/teller/minus.grab_focus()
+
+
+func ready_deletion_page() -> void:
+	records_page.hide()
+	savings_transfer.hide()
+	$deletion/VBoxContainer/HBoxContainer/cancel.grab_focus()
 
 
 func assign_stats(stats : Play.Stats) -> void:
@@ -102,9 +122,11 @@ func _on_button_press(button : String) -> void:
 	if button == "back":
 		emit_signal("close_records")
 	elif button == "savings":
+		_set_records_buttons_disabled(true)
 		anim.play("open_transfer_menu")
 	elif button == "trash":
-		print("Open Trash")
+		_set_records_buttons_disabled(true)
+		anim.play("open_deletion")
 
 
 func _apply_transfer_adjustment(scale_idx : int) -> void:
@@ -218,3 +240,13 @@ func _on_oink_sfx_finished() -> void:
 	if transferring:
 		oink_sfx.stream = oink_wavs.pick_random()
 		oink_sfx.play()
+
+
+func _on_cancel_deletion_pressed() -> void:
+	_set_records_buttons_disabled(false)
+	anim.play("close_deletion")
+
+
+func _on_confirm_deletion_pressed() -> void:
+	_set_records_buttons_disabled(false)
+	emit_signal("confirm_deletion")

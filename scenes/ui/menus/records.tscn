@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=47 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="AudioStream" uid="uid://c0of8ph3fsa0i" path="res://assets/sound/sfx/01-various_doots.wav" id="2_8jpgs"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bfimlcxmr4o3s" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_normal_atlastexture.tres" id="23_x05ih"]
 [ext_resource type="Texture2D" uid="uid://2uifbnc6jbju" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_focus_atlastexture.tres" id="24_iv8i0"]
 [ext_resource type="Texture2D" uid="uid://dj6n5dbujm0e8" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_disabled_atlastexture.tres" id="25_j1fae"]
+[ext_resource type="Theme" uid="uid://bsdam6lp4cvjn" path="res://assets/theme/serious_theme.tres" id="33_ksawn"]
 
 [sub_resource type="Curve" id="Curve_lj7i4"]
 min_value = 0.2
@@ -87,6 +88,54 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 480)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("deletion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("deletion/ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.141176, 0.0823529, 0.152941, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("deletion/VBoxContainer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_y2p6e"]
@@ -344,11 +393,168 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, -580)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("deletion:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tjgxk"]
+resource_name = "open_deletion"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deletion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("deletion/ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.1385, 0.081, 0.15, 0), Color(0.141176, 0.0823529, 0.152941, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deletion/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_deletion_page"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_w41qw"]
+resource_name = "close_deletion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deletion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("deletion/ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.0823529, 0.152941, 1), Color(0.1385, 0.081, 0.15, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deletion/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_records"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("records_page:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhjrb"]
 _data = {
 "RESET": SubResource("Animation_knahh"),
+"close_deletion": SubResource("Animation_w41qw"),
 "close_transfer_menu": SubResource("Animation_y2p6e"),
+"open_deletion": SubResource("Animation_tjgxk"),
 "open_transfer_menu": SubResource("Animation_h5ntn"),
 "start": SubResource("Animation_5lrix")
 }
@@ -641,9 +847,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 64.0
-offset_top = 674.0
+offset_top = -80.0
 offset_right = -59.0
-offset_bottom = 834.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ruo3y")
@@ -827,6 +1033,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 480.0
+offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -850,8 +1058,8 @@ anchor_left = -0.003125
 anchor_top = 0.414583
 anchor_right = 0.496875
 anchor_bottom = 0.914583
-offset_top = 65.0
-offset_bottom = 65.0
+offset_top = 65.0002
+offset_bottom = 65.0002
 pivot_offset = Vector2(160, 120)
 texture = ExtResource("10_tl52b")
 metadata/_edit_use_anchors_ = true
@@ -872,7 +1080,8 @@ anchors_preset = -1
 anchor_top = 0.858333
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 9.0
+offset_top = 0.000152588
+offset_bottom = 9.00015
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
@@ -904,6 +1113,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="counter" type="TextureRect" parent="savings_transfer"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.5125
@@ -1097,6 +1307,93 @@ stream = ExtResource("20_df6q3")
 volume_db = 1.5
 bus = &"SFX"
 
+[node name="deletion" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("33_ksawn")
+
+[node name="ColorRect" type="ColorRect" parent="deletion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.0823529, 0.152941, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="deletion"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="warning" type="Label" parent="deletion/VBoxContainer" groups=["lang_text"]]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Warning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="deletionmessage" type="Label" parent="deletion/VBoxContainer" groups=["lang_text"]]
+layout_mode = 2
+size_flags_vertical = 6
+text = "You are about to delete
+your game progress...
+
+Continue?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="deletion/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="padding1" type="Control" parent="deletion/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="confirm" type="Button" parent="deletion/VBoxContainer/HBoxContainer" groups=["lang_text"]]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../cancel")
+focus_neighbor_bottom = NodePath(".")
+text = "Confirm"
+
+[node name="padding3" type="Control" parent="deletion/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="cancel" type="Button" parent="deletion/VBoxContainer/HBoxContainer" groups=["lang_text"]]
+custom_minimum_size = Vector2(120, 80)
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../confirm")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Cancel"
+
+[node name="padding2" type="Control" parent="deletion/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="padding" type="Control" parent="deletion/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.76
+
 [connection signal="pressed" from="records_page/controls/back_button" to="." method="_on_button_press" binds= ["back"]]
 [connection signal="pressed" from="records_page/controls/savings_button" to="." method="_on_button_press" binds= ["savings"]]
 [connection signal="pressed" from="records_page/controls/trash_button" to="." method="_on_button_press" binds= ["trash"]]
@@ -1109,3 +1406,5 @@ bus = &"SFX"
 [connection signal="button_up" from="savings_transfer/counter/teller/add" to="." method="_adjust_transfer_amount" binds= [0]]
 [connection signal="pressed" from="savings_transfer/counter/approve/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="savings_transfer/counter/approve/submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="deletion/VBoxContainer/HBoxContainer/confirm" to="." method="_on_confirm_deletion_pressed"]
+[connection signal="pressed" from="deletion/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_deletion_pressed"]
