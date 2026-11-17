@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=31 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -20,6 +20,12 @@
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/counter_overlay_atlastexture.tres" id="16_uw14a"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
 [ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/throw_2.wav" id="20_df6q3"]
+[ext_resource type="Texture2D" uid="uid://bpeldobjm7bof" path="res://assets/images/graphics/menu/menu_desk/digital_planner/cancel_normal_atlastexture.tres" id="20_r6px2"]
+[ext_resource type="Texture2D" uid="uid://uvkdc4aige54" path="res://assets/images/graphics/menu/menu_desk/digital_planner/cancel_focus_atlastexture.tres" id="21_35f68"]
+[ext_resource type="Texture2D" uid="uid://40qhb05c30j4" path="res://assets/images/graphics/menu/menu_desk/digital_planner/cancel_disabled_atlastexture.tres" id="22_d5jwh"]
+[ext_resource type="Texture2D" uid="uid://bfimlcxmr4o3s" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_normal_atlastexture.tres" id="23_x05ih"]
+[ext_resource type="Texture2D" uid="uid://2uifbnc6jbju" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_focus_atlastexture.tres" id="24_iv8i0"]
+[ext_resource type="Texture2D" uid="uid://dj6n5dbujm0e8" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_disabled_atlastexture.tres" id="25_j1fae"]
 
 [sub_resource type="Animation" id="Animation_knahh"]
 length = 0.001
@@ -283,15 +289,6 @@ _data = {
 "open_transfer_menu": SubResource("Animation_h0mp7")
 }
 
-[sub_resource type="Animation" id="Animation_bjpge"]
-resource_name = "pulse_up"
-length = 0.1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_apnbk"]
-_data = {
-"pulse_up": SubResource("Animation_bjpge")
-}
-
 [node name="Records" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -382,6 +379,24 @@ text = "cash:"
 label_settings = ExtResource("3_hs6ma")
 
 [node name="value" type="Label" parent="records_page/VBoxContainer/spent_score"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = ExtResource("3_hs6ma")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="saved_score" type="HBoxContainer" parent="records_page/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="stat" type="Label" parent="records_page/VBoxContainer/saved_score" groups=["lang_text"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "savings:"
+label_settings = ExtResource("3_hs6ma")
+
+[node name="value" type="Label" parent="records_page/VBoxContainer/saved_score"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
@@ -487,11 +502,6 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="savings_transfer"]
-libraries = {
-"": SubResource("AnimationLibrary_apnbk")
-}
-
 [node name="wallet" type="TextureRect" parent="savings_transfer"]
 layout_mode = 0
 offset_left = -2.0
@@ -532,6 +542,10 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../add")
+focus_neighbor_bottom = NodePath("../../approve/cancel")
 texture_normal = ExtResource("12_wi580")
 texture_pressed = ExtResource("13_dferx")
 texture_hover = ExtResource("14_nktog")
@@ -627,6 +641,10 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 5
+focus_neighbor_left = NodePath("../minus")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../approve/submit")
 texture_normal = ExtResource("15_3k2mk")
 texture_pressed = ExtResource("16_7xcfy")
 texture_hover = ExtResource("17_m83h5")
@@ -637,8 +655,33 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="minus" type="TextureButton" parent="savings_transfer/Vbox/approve"]
+[node name="cancel" type="TextureButton" parent="savings_transfer/Vbox/approve"]
 layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../teller/minus")
+focus_neighbor_right = NodePath("../submit")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("20_r6px2")
+texture_pressed = ExtResource("20_r6px2")
+texture_hover = ExtResource("21_35f68")
+texture_disabled = ExtResource("22_d5jwh")
+texture_focused = ExtResource("21_35f68")
+stretch_mode = 5
+
+[node name="submit" type="TextureButton" parent="savings_transfer/Vbox/approve"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../cancel")
+focus_neighbor_top = NodePath("../../teller/add")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("23_x05ih")
+texture_pressed = ExtResource("23_x05ih")
+texture_hover = ExtResource("24_iv8i0")
+texture_disabled = ExtResource("25_j1fae")
+texture_focused = ExtResource("24_iv8i0")
+stretch_mode = 5
 
 [node name="teller_sfx" type="AudioStreamPlayer2D" parent="savings_transfer"]
 position = Vector2(319, 77)
@@ -653,3 +696,5 @@ bus = &"SFX"
 [connection signal="button_up" from="savings_transfer/Vbox/teller/minus" to="." method="_adjust_transfer_amount" binds= [0]]
 [connection signal="button_down" from="savings_transfer/Vbox/teller/add" to="." method="_adjust_transfer_amount" binds= [1]]
 [connection signal="button_up" from="savings_transfer/Vbox/teller/add" to="." method="_adjust_transfer_amount" binds= [0]]
+[connection signal="pressed" from="savings_transfer/Vbox/approve/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="savings_transfer/Vbox/approve/submit" to="." method="_on_submit_pressed"]
