@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=38 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -10,9 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://8p6tk500mnbm" path="res://assets/images/graphics/menu/records/savings_button_highlight.png" id="7_uex7t"]
 [ext_resource type="Texture2D" uid="uid://01id7n86u526" path="res://assets/images/graphics/menu/records/trash_button_highlight.png" id="8_60oqu"]
 [ext_resource type="Texture2D" uid="uid://vqvyuqmrroi4" path="res://assets/images/graphics/menu/records/wallet_large_pageless.png" id="10_tl52b"]
+[ext_resource type="SpriteFrames" uid="uid://c4lf0fsqavg6j" path="res://assets/images/graphics/menu/records/moneystream_spriteframes.tres" id="10_y637u"]
 [ext_resource type="SpriteFrames" uid="uid://dtx5meh2w3w0n" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_spriteframes.tres" id="11_qg5y1"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_normal.tres" id="12_wi580"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_pressed.tres" id="13_dferx"]
+[ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="13_jiddg"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_highlight.tres" id="14_nktog"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_normal.tres" id="15_3k2mk"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/counter_atlastexture.tres" id="15_7qk4l"]
@@ -26,6 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://bfimlcxmr4o3s" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_normal_atlastexture.tres" id="23_x05ih"]
 [ext_resource type="Texture2D" uid="uid://2uifbnc6jbju" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_focus_atlastexture.tres" id="24_iv8i0"]
 [ext_resource type="Texture2D" uid="uid://dj6n5dbujm0e8" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_disabled_atlastexture.tres" id="25_j1fae"]
+
+[sub_resource type="Curve" id="Curve_lj7i4"]
+min_value = 0.2
+_data = [Vector2(0, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.12, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_knahh"]
 length = 0.001
@@ -76,96 +83,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 480)]
-}
-
-[sub_resource type="Animation" id="Animation_h5ntn"]
-resource_name = "open_transfer_menu"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("savings_transfer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("records_page:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, -80), Vector2(64, 674)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("records_page:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("savings_transfer:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 480), Vector2(0, 480), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("savings_transfer/counter:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("savings_transfer/counter:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -580), Vector2(0, -580), Vector2(0, 0)]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"ready_transfer_menu"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_y2p6e"]
@@ -258,11 +175,299 @@ tracks/6/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_h5ntn"]
+resource_name = "open_transfer_menu"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("savings_transfer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("records_page:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -80), Vector2(64, 674)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("records_page:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("savings_transfer:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, 480), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("savings_transfer/counter:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("savings_transfer/counter:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -580), Vector2(0, -580), Vector2(0, 0)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_transfer_menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhjrb"]
 _data = {
 "RESET": SubResource("Animation_knahh"),
 "close_transfer_menu": SubResource("Animation_y2p6e"),
 "open_transfer_menu": SubResource("Animation_h5ntn")
+}
+
+[sub_resource type="Animation" id="Animation_qqsby"]
+resource_name = "prep_transfer"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wallet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 264), Vector2(-2, 199)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("oink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(537, 377), Vector2(537, 329)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("totals:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 412)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("counter:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -300)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wallet:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_6k53t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wallet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 264)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("oink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(537, 377)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("totals:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 412)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("counter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wallet:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6ny17"]
+resource_name = "finish_transfer"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wallet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 199), Vector2(-2, 264)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("oink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(537, 329), Vector2(537, 377)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("totals:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 412)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("counter:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("wallet:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0xw3"]
+_data = {
+"RESET": SubResource("Animation_6k53t"),
+"finish_transfer": SubResource("Animation_6ny17"),
+"prep_transfer": SubResource("Animation_qqsby")
 }
 
 [node name="Records" type="Control"]
@@ -274,6 +479,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k638m")
+transferring_anim_curve = SubResource("Curve_lj7i4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -287,9 +493,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 64.0
-offset_top = -80.0
+offset_top = 674.0
 offset_right = -59.0
-offset_bottom = 80.0
+offset_bottom = 834.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ruo3y")
@@ -473,32 +679,86 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 480.0
-offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="transfer_anim" type="AnimationPlayer" parent="savings_transfer"]
+libraries = {
+"": SubResource("AnimationLibrary_w0xw3")
+}
+
+[node name="money_stream" type="AnimatedSprite2D" parent="savings_transfer"]
+visible = false
+position = Vector2(320, 215)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("10_y637u")
+animation = &"end"
+
 [node name="wallet" type="TextureRect" parent="savings_transfer"]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 290.0
-offset_right = 318.0
-offset_bottom = 530.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.003125
+anchor_top = 0.414583
+anchor_right = 0.496875
+anchor_bottom = 0.914583
+offset_bottom = 3.05176e-05
+pivot_offset = Vector2(160, 120)
 texture = ExtResource("10_tl52b")
+metadata/_edit_use_anchors_ = true
 
 [node name="oink" type="AnimatedSprite2D" parent="savings_transfer"]
-position = Vector2(537, 390)
+position = Vector2(537, 377)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("11_qg5y1")
 animation = &"oink2"
 
 [node name="oink_sfx" type="AudioStreamPlayer2D" parent="savings_transfer/oink"]
 
+[node name="totals" type="HBoxContainer" parent="savings_transfer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.858333
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="wallet" type="PanelContainer" parent="savings_transfer/totals"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="savings_transfer/totals/wallet"]
+layout_mode = 2
+text = "0000000000"
+label_settings = ExtResource("13_jiddg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pad" type="Control" parent="savings_transfer/totals"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="bank" type="PanelContainer" parent="savings_transfer/totals"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="savings_transfer/totals/bank"]
+layout_mode = 2
+text = "0000000000"
+label_settings = ExtResource("13_jiddg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="counter" type="TextureRect" parent="savings_transfer"]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = -0.5125
 anchor_right = 1.0
-anchor_bottom = 0.65625
+anchor_bottom = 0.14375
+offset_top = -54.0
+offset_bottom = -54.0
 grow_horizontal = 2
 pivot_offset = Vector2(320, 157.5)
 size_flags_horizontal = 3
@@ -607,6 +867,7 @@ focus_neighbor_bottom = NodePath("../../approve/cancel")
 texture_normal = ExtResource("12_wi580")
 texture_pressed = ExtResource("13_dferx")
 texture_hover = ExtResource("14_nktog")
+texture_disabled = ExtResource("12_wi580")
 texture_focused = ExtResource("14_nktog")
 stretch_mode = 5
 
@@ -626,6 +887,7 @@ focus_neighbor_bottom = NodePath("../../approve/submit")
 texture_normal = ExtResource("15_3k2mk")
 texture_pressed = ExtResource("16_7xcfy")
 texture_hover = ExtResource("17_m83h5")
+texture_disabled = ExtResource("15_3k2mk")
 texture_focused = ExtResource("17_m83h5")
 stretch_mode = 5
 
@@ -686,6 +948,8 @@ bus = &"SFX"
 [connection signal="pressed" from="records_page/controls/back_button" to="." method="_on_button_press" binds= ["back"]]
 [connection signal="pressed" from="records_page/controls/savings_button" to="." method="_on_button_press" binds= ["savings"]]
 [connection signal="pressed" from="records_page/controls/trash_button" to="." method="_on_button_press" binds= ["trash"]]
+[connection signal="animation_finished" from="savings_transfer/transfer_anim" to="." method="_on_transfer_anim_animation_finished"]
+[connection signal="animation_finished" from="savings_transfer/money_stream" to="." method="_on_money_stream_animation_finished"]
 [connection signal="button_down" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [-1]]
 [connection signal="button_up" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [0]]
 [connection signal="button_down" from="savings_transfer/counter/teller/add" to="." method="_adjust_transfer_amount" binds= [1]]

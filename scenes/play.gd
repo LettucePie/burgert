@@ -506,6 +506,7 @@ func _ready():
 	main_menu.shop.wallet = stats
 	main_menu.shop.music_library = music
 	main_menu.shop.calculate_shop_level()
+	main_menu.records.deposit_to_savings.connect(_on_records_deposit_to_savings)
 	main_menu.main.active = false
 
 
@@ -662,3 +663,9 @@ func _on_music_shop_level_marked(lvl : int) -> void:
 func _on_intro_splash_intro_splash_fading() -> void:
 	main_menu.main.active = true
 	music.anim.play("intro_ramp")
+
+
+func _on_records_deposit_to_savings(amount : int) -> void:
+	stats.adjust_saved_score(amount)
+	stats.adjust_spent_score(amount)
+	_save_stats()

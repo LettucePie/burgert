@@ -62,12 +62,26 @@ visible = false
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 242.0
+offset_top = 274.5
 offset_right = -140.0
-offset_bottom = 339.0
+offset_bottom = 371.5
+
+[node name="radio" parent="office/desk/left_side_desktop" index="1"]
+offset_top = -201.5
+offset_bottom = -90.5
+
+[node name="records" parent="office/desk/left_side_desktop" index="2"]
+offset_top = 104.5
+offset_bottom = 181.5
+
+[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
+offset_top = 154.5
+offset_bottom = 200.5
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
-offset_left = 2.00003
+offset_left = 2.00006
+offset_top = 62.5
+offset_bottom = 164.5
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -151,6 +165,26 @@ visible = false
 layout_mode = 1
 offset_left = 645.0
 offset_right = 645.0
+
+[node name="records_page" parent="Records" index="1"]
+offset_top = -80.0
+offset_bottom = 80.0
+
+[node name="savings_transfer" parent="Records" index="2"]
+offset_top = 480.0
+offset_bottom = 480.0
+
+[node name="wallet" parent="Records/savings_transfer" index="2"]
+offset_top = 65.0
+offset_bottom = 65.0
+
+[node name="totals" parent="Records/savings_transfer" index="4"]
+offset_top = 0.0
+offset_bottom = 9.0
+
+[node name="counter" parent="Records/savings_transfer" index="5"]
+offset_top = 246.0
+offset_bottom = 246.0
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
