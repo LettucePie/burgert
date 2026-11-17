@@ -171,8 +171,7 @@ script = ExtResource("44_rtmyj")
 [node name="drone" type="AnimatedSprite2D" parent="interactive_targets"]
 position = Vector2(361, 116)
 sprite_frames = ExtResource("15_uy2g5")
-animation = &"carry_r"
-frame = 10
+animation = &"idle_r"
 script = ExtResource("16_6mnpj")
 
 [node name="adjust" type="Node2D" parent="interactive_targets/drone"]
