@@ -1,6 +1,7 @@
 extends Control
 class_name Help
 
+@onready var infopanel : Control = $InfoPanel
 @onready var title : Label = $InfoPanel/title
 @onready var page : RichTextLabel = $InfoPanel/page
 @onready var guide : AnimatedSprite2D = $InfoPanel/Panel/animated_guide
@@ -9,6 +10,8 @@ class_name Help
 @onready var close_but : Button = $Controls/close
 @onready var next_but : Button = $Controls/next
 @onready var prev_but : Button = $Controls/prev
+@onready var current_viewport : Viewport = get_window()
+@onready var render_sheet_a : Sprite2D = $render_sheet_a
 
 @onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
 @export var page_turn_sfx : Array[AudioStreamWAV]
@@ -180,6 +183,21 @@ func _turn_page(dir : int):
 	and current_page + dir >= 0:
 		_load_page(current_page + dir)
 		play_page_sfx()
+		_move_sheet(dir)
+
+
+func _move_sheet(dir : int) -> void:
+	controls.hide()
+	var dynamic_texture : Texture2D = current_viewport.get_texture()
+	var image : Image = dynamic_texture.get_image()
+	var texture : ImageTexture = ImageTexture.create_from_image(image)
+	render_sheet_a.texture = texture
+	controls.show()
+	infopanel.show()
+	if dir < 0:
+		$AnimationPlayer.play("move_r")
+	else:
+		$AnimationPlayer.play("move_l")
 
 
 func _ready() -> void:
