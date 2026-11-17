@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n5rco")
 }],
-"loop": false,
+"loop": true,
 "name": &"oink1",
 "speed": 10.0
 }, {
@@ -100,6 +100,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q6wc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oumw")
 }],
 "loop": false,
 "name": &"oink2",

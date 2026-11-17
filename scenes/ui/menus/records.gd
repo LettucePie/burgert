@@ -45,6 +45,9 @@ var transfer_timestart : int = 0
 var target_wallet : int = 0
 var target_bank : int = 0
 @onready var money_stream : AnimatedSprite2D = $savings_transfer/money_stream
+@onready var oink_sfx : AudioStreamPlayer2D = $savings_transfer/oink/oink_sfx
+@export var oink_wavs : Array[AudioStreamWAV]
+@onready var oink : AnimatedSprite2D = $savings_transfer/oink
 
 
 func _ready() -> void:
@@ -199,9 +202,19 @@ func _on_money_stream_animation_finished() -> void:
 		(6000 * \
 		transferring_anim_curve.sample(
 		inverse_lerp(0.0, float(transfer_max), float(transfer_amount))))
+		oink_sfx.stream = oink_wavs.pick_random()
+		oink_sfx.play()
+		oink.play("oink1")
 		money_stream.play("loop")
 	if money_stream.animation == "end":
 		money_stream.hide()
 		transfer_anim.play("finish_transfer")
 		transfer_amount = 0
 		_apply_transfer_adjustment(0)
+		oink.play("oink2")
+
+
+func _on_oink_sfx_finished() -> void:
+	if transferring:
+		oink_sfx.stream = oink_wavs.pick_random()
+		oink_sfx.play()

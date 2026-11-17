@@ -1,11 +1,15 @@
-[gd_scene load_steps=40 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=44 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
+[ext_resource type="AudioStream" uid="uid://c0of8ph3fsa0i" path="res://assets/sound/sfx/01-various_doots.wav" id="2_8jpgs"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
+[ext_resource type="AudioStream" uid="uid://nr1qsma71x0v" path="res://assets/sound/sfx/02-various_doots.wav" id="3_e4n8a"]
 [ext_resource type="LabelSettings" uid="uid://m0m0xt1h6qbw" path="res://assets/theme/fonts/records_labelsettings.tres" id="3_hs6ma"]
+[ext_resource type="AudioStream" uid="uid://ble5lpcx42hob" path="res://assets/sound/sfx/03-various_doots.wav" id="4_hlcvj"]
 [ext_resource type="Texture2D" uid="uid://dq3lfkjvsiowr" path="res://assets/images/graphics/menu/records/back_button.png" id="4_i6kl1"]
 [ext_resource type="Texture2D" uid="uid://b5upoxsehxue4" path="res://assets/images/graphics/menu/records/back_button_highlight.png" id="5_0coyn"]
 [ext_resource type="Texture2D" uid="uid://ocfkn7vmkmau" path="res://assets/images/graphics/menu/records/savings_button.png" id="5_73vbo"]
+[ext_resource type="AudioStream" uid="uid://c3sfcwgppd3tr" path="res://assets/sound/sfx/04-various_doots.wav" id="5_gvqm1"]
 [ext_resource type="Texture2D" uid="uid://dlttyip3q6ur1" path="res://assets/images/graphics/menu/records/trash_button.png" id="7_q5tvm"]
 [ext_resource type="Texture2D" uid="uid://8p6tk500mnbm" path="res://assets/images/graphics/menu/records/savings_button_highlight.png" id="7_uex7t"]
 [ext_resource type="Texture2D" uid="uid://01id7n86u526" path="res://assets/images/graphics/menu/records/trash_button_highlight.png" id="8_60oqu"]
@@ -622,6 +626,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k638m")
 transferring_anim_curve = SubResource("Curve_lj7i4")
+oink_wavs = Array[AudioStreamWAV]([ExtResource("2_8jpgs"), ExtResource("3_e4n8a"), ExtResource("4_hlcvj"), ExtResource("5_gvqm1")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -857,9 +862,11 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(537, 377)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("11_qg5y1")
-animation = &"oink2"
+animation = &"oink1"
 
 [node name="oink_sfx" type="AudioStreamPlayer2D" parent="savings_transfer/oink"]
+volume_db = -8.0
+bus = &"SFX"
 
 [node name="totals" type="HBoxContainer" parent="savings_transfer"]
 layout_mode = 1
@@ -899,14 +906,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="counter" type="TextureRect" parent="savings_transfer"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.5125
 anchor_right = 1.0
 anchor_bottom = 0.14375
-offset_top = -334.0
-offset_bottom = -334.0
+offset_top = 246.0
+offset_bottom = 246.0
 grow_horizontal = 2
 pivot_offset = Vector2(320, 157.5)
 size_flags_horizontal = 3
@@ -1098,6 +1104,7 @@ bus = &"SFX"
 [connection signal="pressed" from="records_page/controls/trash_button" to="." method="_on_button_press" binds= ["trash"]]
 [connection signal="animation_finished" from="savings_transfer/transfer_anim" to="." method="_on_transfer_anim_animation_finished"]
 [connection signal="animation_finished" from="savings_transfer/money_stream" to="." method="_on_money_stream_animation_finished"]
+[connection signal="finished" from="savings_transfer/oink/oink_sfx" to="." method="_on_oink_sfx_finished"]
 [connection signal="button_down" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [-1]]
 [connection signal="button_up" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [0]]
 [connection signal="button_down" from="savings_transfer/counter/teller/add" to="." method="_adjust_transfer_amount" binds= [1]]
