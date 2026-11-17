@@ -197,6 +197,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/shop_notice:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 11)]
+}
 
 [sub_resource type="Animation" id="Animation_tovps"]
 resource_name = "calendar_close"
@@ -341,6 +353,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1e-05, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/shop_notice:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, 11), Vector2(-2.97615, 10.477)]
+}
 
 [sub_resource type="Animation" id="Animation_p4drg"]
 resource_name = "shop_notice_open"
@@ -404,6 +428,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/shop_notice:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 11)]
 }
 
 [sub_resource type="Animation" id="Animation_u2gst"]
@@ -885,10 +921,14 @@ texture = ExtResource("3_s8o35")
 [node name="shop_notice" type="Control" parent="Control"]
 visible = false
 layout_mode = 1
-anchor_left = 0.0456274
-anchor_top = 0.0748299
-anchor_right = 0.942966
-anchor_bottom = 0.891156
+anchor_left = -0.0113162
+anchor_top = 0.0712722
+anchor_right = 0.886022
+anchor_bottom = 0.887598
+offset_left = 14.9762
+offset_top = 0.522979
+offset_right = 14.9762
+offset_bottom = 0.52298
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -1057,7 +1097,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("21_uwfe1")
 animation = &"outlined_oink2"
 autoplay = "outlined_oink2"
-frame_progress = 0.116974
+frame_progress = 0.426837
 flip_h = true
 
 [node name="stencil_fx2" type="TextureRect" parent="Control/progress/oink_l"]
