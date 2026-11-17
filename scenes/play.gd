@@ -471,6 +471,7 @@ func _save_stats():
 func apply_stats():
 	main_menu.customer_dex.assign_stats(stats)
 	main_menu.records.assign_stats(stats)
+	main_menu.main.planner.update_progress(stats.saved_score)
 	music.owned_songs = stats.get_songs_owned()
 	music.play_playlist = stats.get_play_playlist()
 	music.main_playlist = stats.get_main_playlist()

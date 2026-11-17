@@ -15,9 +15,11 @@ class_name Planner
 @onready var time_progress_slider : HSlider = $Control/calendar/progress
 @export var timeslot_icons : Array[Texture2D] = []
 @onready var shop_notice : Control = $Control/shop_notice
+@onready var progress_label : Label = $Control/progress/label_2
 var active_page_idx : int = 0
 var active_page_anim_nodes : PackedStringArray = [
 	"calendar_open",
+	"progress_open",
 ]
 ## FX
 @onready var stencil_fx : TextureRect = $Control/stencil_border/stencil_fx
@@ -91,6 +93,22 @@ func update_calendar() -> void:
 	current_hour += (float(time.minute) / 60.0)
 	var current_hour_progress = inverse_lerp(timeslot_data.time_a, timeslot_data.time_b, current_hour)
 	time_progress_slider.value = current_hour_progress
+
+
+func update_progress(amount_saved : int) -> void:
+	if amount_saved >= 1000000:
+		if active_page_anim_nodes.has("progress_open"):
+			active_page_anim_nodes.remove_at(active_page_anim_nodes.find("progress_open"))
+	else:
+		var comma_string : String = ""
+		var digit_idx : int = 0
+		for char in str(amount_saved).reverse():
+			if digit_idx == 3 or digit_idx == 6:
+				comma_string += ","
+			comma_string += char
+			digit_idx += 1
+		comma_string = "$" + comma_string.reverse()
+		progress_label.text = comma_string + "\n/\n$1,000,000"
 
 
 func _ready() -> void:
