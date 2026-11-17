@@ -1,9 +1,11 @@
-[gd_scene load_steps=83 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=86 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
 [ext_resource type="Texture2D" uid="uid://jwnkfxgvx81d" path="res://assets/images/environment/kitchen/restaurant_bg/Restuarant_bg_plain.png" id="3_m4pdk"]
+[ext_resource type="Texture2D" uid="uid://dxs84awtr535b" path="res://assets/images/environment/kitchen/restaurant_fg/kitchen_object_sign_wet_atlastexture.tres" id="3_s37yp"]
 [ext_resource type="Script" path="res://scenes/game/workstation.gd" id="3_ualts"]
+[ext_resource type="Texture2D" uid="uid://cepn6n10mxw45" path="res://assets/images/environment/kitchen/restaurant_fg/kitchen_object_trash_atlastexture.tres" id="4_fh5w6"]
 [ext_resource type="SpriteFrames" uid="uid://di6fbw0pgmqfi" path="res://assets/images/environment/kitchen/restaurant_bg/kitchen_window_spriteframes.tres" id="4_gx61c"]
 [ext_resource type="SpriteFrames" uid="uid://8n3ejah1lcnb" path="res://assets/images/environment/kitchen/restaurant_bg/kitchen_sign_spriteframes.tres" id="5_l5lse"]
 [ext_resource type="Texture2D" uid="uid://bxydn1v4n65po" path="res://assets/images/environment/kitchen/restaurant_bg/restaurant_bg_windowframe.png" id="5_v7g7i"]
@@ -79,6 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://4vrmc0nkg8b6" path="res://assets/images/environment/kitchen/ingredients/rune_g_highlight.png" id="70_xgkgw"]
 [ext_resource type="AudioStream" uid="uid://caok08heu4ia0" path="res://assets/sound/sfx/Ingredients/Ketchup and Mustard.wav" id="74_wr2g3"]
 [ext_resource type="PackedScene" uid="uid://dx40ogvqdtrjl" path="res://scenes/spectrum_analyzer.tscn" id="75_3eqe0"]
+[ext_resource type="Texture2D" uid="uid://bbb6i15nmydl6" path="res://assets/images/environment/kitchen/restaurant_fg/kitchen_object_mop_atlastexture.tres" id="80_3mxko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4bo"]
 size = Vector2(40, 80)
@@ -97,6 +100,7 @@ customers_node = NodePath("customers")
 normy_customers = [NodePath("customers/Basic_A"), NodePath("customers/Basic_B"), NodePath("customers/Basic_C")]
 splat = NodePath("splat")
 workstations = [NodePath("foreground/workstation_bun"), NodePath("foreground/workstation_meat"), NodePath("foreground/workstation_lettuce"), NodePath("foreground/workstation_tomato"), NodePath("foreground/workstation_cheese"), NodePath("foreground/workstation_ketchup"), NodePath("foreground/workstation_mustard")]
+kitchen_objects = Array[AtlasTexture]([ExtResource("80_3mxko"), ExtResource("3_s37yp"), ExtResource("4_fh5w6")])
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 mode_customer = true
@@ -708,6 +712,12 @@ bus = &"SFX"
 
 [node name="SpectrumAnalyzer" parent="foreground" instance=ExtResource("75_3eqe0")]
 audio_bus_id = 1
+
+[node name="kitchen_object_corner" type="Sprite2D" parent="foreground"]
+z_index = 1
+position = Vector2(591, 383)
+scale = Vector2(3, 3)
+texture = ExtResource("80_3mxko")
 
 [connection signal="animation_finished" from="splat" to="." method="_on_splat_animation_finished"]
 [connection signal="animation_finished" from="interactive_targets/drone" to="interactive_targets/drone" method="_on_animation_finished"]

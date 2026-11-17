@@ -27,6 +27,8 @@ var next_customer : Customer = null
 var kitchen_timeslot : int = 0
 var kitchen_prepped : bool = false
 var handling_drone_event : bool = false
+@export var kitchen_objects : Array[AtlasTexture] = []
+@onready var kitchen_object : Sprite2D = $foreground/kitchen_object_corner
 
 
 func _ready():
@@ -81,6 +83,7 @@ func prep_kitchen():
 	janitor_bot.enable_bot(true)
 	drone.enable_drone(false)
 	handling_drone_event = false
+	kitchen_object.texture = kitchen_objects.pick_random()
 	_build_queue()
 
 
