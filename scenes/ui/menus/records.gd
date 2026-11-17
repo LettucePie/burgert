@@ -15,6 +15,7 @@ signal close_records()
 @onready var savings_transfer : Control = $savings_transfer
 
 ## Savings Transfer
+@onready var transfer_anim : AnimationPlayer = $savings_transfer/AnimationPlayer
 @onready var digits : Array[Label] = [
 	$"savings_transfer/Vbox/teller/counter/1",
 	$"savings_transfer/Vbox/teller/counter/2",
@@ -27,6 +28,10 @@ var transfer_amount : int = 0
 var tick : int = 0
 var transfer_offset : int = 0
 var tick_rate : int = 0
+var offset_accelerate : int = 5
+var scales : PackedInt32Array = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
+var scale_progress : int = 0
+@onready var teller_sfx : AudioStreamPlayer2D = $savings_transfer/teller_sfx
 
 
 func _ready() -> void:
@@ -37,6 +42,17 @@ func ready_records() -> void:
 	records_page.show()
 	savings_transfer.hide()
 	$records_page/controls/back_button.grab_focus()
+
+
+func ready_transfer_menu() -> void:
+	records_page.hide()
+	transfer_amount = 0
+	tick = 0
+	transfer_offset = 0
+	tick_rate = 0
+	offset_accelerate = 5
+	_apply_transfer_adjustment(0)
+	$savings_transfer/Vbox/teller/minus.grab_focus()
 
 
 func assign_stats(stats : Play.Stats) -> void:
@@ -55,26 +71,51 @@ func _on_button_press(button : String) -> void:
 	if button == "back":
 		emit_signal("close_records")
 	elif button == "savings":
-		print("Open Savings")
+		anim.play("open_transfer_menu")
 	elif button == "trash":
 		print("Open Trash")
+
+
+func _apply_transfer_adjustment(scale_idx : int) -> void:
+	transfer_amount = clampi(transfer_amount + (transfer_offset * scales[scale_idx]), 0, 999999)
+	var label_idx : int = 0
+	var amount_str : String = str(transfer_amount)
+	amount_str = amount_str.reverse()
+	for label in digits:
+		label.text = "0"
+	for char in amount_str:
+		digits[label_idx].text = char
+		label_idx += 1
 
 
 func _physics_process(delta: float) -> void:
 	if transfer_offset != 0:
 		tick += 1
 		if tick >= tick_rate:
-			transfer_amount = clampi(transfer_amount + transfer_offset, 0, 999999)
+			_apply_transfer_adjustment(scale_progress)
 			tick = 0
-			tick_rate = clampi(tick_rate - 2, 6, 60)
+			offset_accelerate -= 1
+			teller_sfx.play()
+			$savings_transfer/Vbox.rotation = randf_range(-0.1, 0.1)
+			if offset_accelerate <= 0:
+				offset_accelerate = 5
+				tick_rate = clampi(tick_rate - 2, 2, 18)
+				scale_progress = clampi(scale_progress + 1, 0, scales.size() - 1)
+				teller_sfx.pitch_scale = clampf(teller_sfx.pitch_scale + (transfer_offset * 0.15), -0.6, 1.6)
+	$savings_transfer/Vbox.rotation = lerp_angle($savings_transfer/Vbox.rotation, 0, 0.33)
 
 
 func _adjust_transfer_amount(dir : int) -> void:
 	if dir > 0:
 		transfer_offset = 1
+		_apply_transfer_adjustment(0)
 	elif dir < 0:
 		transfer_offset = -1
+		_apply_transfer_adjustment(0)
 	elif dir == 0:
 		transfer_offset = 0
-	tick_rate = 60
+	tick_rate = 18
 	tick = 0
+	offset_accelerate = 5
+	scale_progress = 0
+	teller_sfx.pitch_scale = 1.0

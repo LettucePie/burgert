@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=27 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="Texture2D" uid="uid://bsb7ikkknmr58" path="res://assets/images/graphics/menu/records/crunchy_paper.png" id="2_ruo3y"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_pressed.tres" id="16_7xcfy"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/counter_overlay_atlastexture.tres" id="16_uw14a"]
 [ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
+[ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/throw_2.wav" id="20_df6q3"]
 
 [sub_resource type="Animation" id="Animation_knahh"]
 length = 0.001
@@ -170,11 +171,125 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, -580), Vector2(0, -580), Vector2(0, 0)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_transfer_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_40rh8"]
+resource_name = "close_transfer_menu"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("savings_transfer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("records_page:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.233333, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, 674), Vector2(64, -80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("records_page:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("savings_transfer:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 480)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("savings_transfer/Vbox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("savings_transfer/Vbox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -580), Vector2(0, -580)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_records"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhjrb"]
 _data = {
 "RESET": SubResource("Animation_knahh"),
+"close_transfer_menu": SubResource("Animation_40rh8"),
 "open_transfer_menu": SubResource("Animation_h0mp7")
+}
+
+[sub_resource type="Animation" id="Animation_bjpge"]
+resource_name = "pulse_up"
+length = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apnbk"]
+_data = {
+"pulse_up": SubResource("Animation_bjpge")
 }
 
 [node name="Records" type="Control"]
@@ -372,6 +487,11 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="savings_transfer"]
+libraries = {
+"": SubResource("AnimationLibrary_apnbk")
+}
+
 [node name="wallet" type="TextureRect" parent="savings_transfer"]
 layout_mode = 0
 offset_left = -2.0
@@ -386,6 +506,8 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("11_qg5y1")
 animation = &"oink2"
 
+[node name="oink_sfx" type="AudioStreamPlayer2D" parent="savings_transfer/oink"]
+
 [node name="Vbox" type="VBoxContainer" parent="savings_transfer"]
 visible = false
 layout_mode = 1
@@ -397,6 +519,7 @@ offset_top = 569.5
 offset_bottom = 569.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(320, 141.5)
 metadata/_edit_use_anchors_ = true
 
 [node name="teller" type="HBoxContainer" parent="savings_transfer/Vbox"]
@@ -516,6 +639,12 @@ size_flags_vertical = 3
 
 [node name="minus" type="TextureButton" parent="savings_transfer/Vbox/approve"]
 layout_mode = 2
+
+[node name="teller_sfx" type="AudioStreamPlayer2D" parent="savings_transfer"]
+position = Vector2(319, 77)
+stream = ExtResource("20_df6q3")
+volume_db = 1.5
+bus = &"SFX"
 
 [connection signal="pressed" from="records_page/controls/back_button" to="." method="_on_button_press" binds= ["back"]]
 [connection signal="pressed" from="records_page/controls/savings_button" to="." method="_on_button_press" binds= ["savings"]]
