@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cb2lak3w8b1s8"]
+[gd_scene load_steps=92 format=3 uid="uid://cb2lak3w8b1s8"]
 
 [ext_resource type="Script" path="res://scenes/game/kitchen.gd" id="1_737en"]
 [ext_resource type="PackedScene" uid="uid://d3ew6f33rvhla" path="res://scenes/game/burger_portal.tscn" id="2_ng540"]
@@ -18,8 +18,14 @@
 [ext_resource type="Script" path="res://scenes/ui/vfx/fly.gd" id="11_vxrt6"]
 [ext_resource type="SpriteFrames" uid="uid://cgscyk25flom" path="res://assets/models/renders/3d_drone/3d_drone_renders_spriteframes.tres" id="15_uy2g5"]
 [ext_resource type="Script" path="res://scenes/game/drone.gd" id="16_6mnpj"]
+[ext_resource type="Texture2D" uid="uid://b13b2xcfrskjh" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_a_atlastexture.tres" id="16_cy142"]
 [ext_resource type="Texture2D" uid="uid://3xf0fnjefewd" path="res://assets/images/graphics/cashwad_drone_hands_left.png" id="17_tq7vq"]
+[ext_resource type="Script" path="res://scenes/game/blur_customer.gd" id="17_ueour"]
+[ext_resource type="Texture2D" uid="uid://xjib1850to6v" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_b_atlastexture.tres" id="18_56byt"]
 [ext_resource type="Texture2D" uid="uid://7h2ap35r3dcu" path="res://assets/images/graphics/cashwad_drone_hands_right.png" id="18_xgfpj"]
+[ext_resource type="Texture2D" uid="uid://byo5u3h2w2mlv" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_c_atlastexture.tres" id="19_x4a3o"]
+[ext_resource type="Texture2D" uid="uid://bhslpxnoxc83a" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_d_atlastexture.tres" id="20_hbdyj"]
+[ext_resource type="Texture2D" uid="uid://ee75qe5ibm77" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_e_atlastexture.tres" id="21_4es2k"]
 [ext_resource type="PackedScene" uid="uid://swaf5bjjfxgu" path="res://scenes/game/customers/customer_Liam.tscn" id="29_7xrkj"]
 [ext_resource type="PackedScene" uid="uid://c7syhn75al8f7" path="res://scenes/game/customers/customer_Beef_and_Kale.tscn" id="31_5u44v"]
 [ext_resource type="PackedScene" uid="uid://bfb1mmcvy0gn0" path="res://scenes/game/customers/customer_Brandon.tscn" id="32_b8h7a"]
@@ -161,6 +167,44 @@ scale = Vector2(1.8875, 1.8875)
 sprite_frames = ExtResource("10_8tahq")
 frame = 9
 script = ExtResource("11_vxrt6")
+
+[node name="blur_customers" type="Node2D" parent="."]
+z_index = -1
+
+[node name="blur_customer1" type="Sprite2D" parent="blur_customers"]
+position = Vector2(-60, 249)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_cy142")
+script = ExtResource("17_ueour")
+sprites = Array[AtlasTexture]([ExtResource("16_cy142"), ExtResource("18_56byt"), ExtResource("19_x4a3o"), ExtResource("20_hbdyj"), ExtResource("21_4es2k")])
+
+[node name="blur_customer2" type="Sprite2D" parent="blur_customers"]
+position = Vector2(-60, 249)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_cy142")
+script = ExtResource("17_ueour")
+sprites = Array[AtlasTexture]([ExtResource("16_cy142"), ExtResource("18_56byt"), ExtResource("19_x4a3o"), ExtResource("20_hbdyj"), ExtResource("21_4es2k")])
+
+[node name="blur_customer3" type="Sprite2D" parent="blur_customers"]
+position = Vector2(-60, 249)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_cy142")
+script = ExtResource("17_ueour")
+sprites = Array[AtlasTexture]([ExtResource("16_cy142"), ExtResource("18_56byt"), ExtResource("19_x4a3o"), ExtResource("20_hbdyj"), ExtResource("21_4es2k")])
+
+[node name="blur_customer4" type="Sprite2D" parent="blur_customers"]
+position = Vector2(-60, 249)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_cy142")
+script = ExtResource("17_ueour")
+sprites = Array[AtlasTexture]([ExtResource("16_cy142"), ExtResource("18_56byt"), ExtResource("19_x4a3o"), ExtResource("20_hbdyj"), ExtResource("21_4es2k")])
+
+[node name="blur_customer5" type="Sprite2D" parent="blur_customers"]
+position = Vector2(-60, 249)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("16_cy142")
+script = ExtResource("17_ueour")
+sprites = Array[AtlasTexture]([ExtResource("16_cy142"), ExtResource("18_56byt"), ExtResource("19_x4a3o"), ExtResource("20_hbdyj"), ExtResource("21_4es2k")])
 
 [node name="interactive_targets" type="Node2D" parent="."]
 z_index = -1

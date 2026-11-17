@@ -88,6 +88,8 @@ func prep_kitchen():
 		kitchen_object.texture = kitchen_objects.pick_random()
 	else:
 		kitchen_object.hide()
+	for bc in $blur_customers.get_children():
+		bc.initial_dormancy()
 	_build_queue()
 
 
@@ -188,9 +190,14 @@ func _start_timer():
 
 func check_interactive_targets(pos : Vector2) -> Node2D:
 	var result : Node2D = self
+	var range : float = 40.0
 	for it in interactive_targets:
-		if pos.x < (it.position.x + 40) \
-		and pos.x > (it.position.x - 40):
+		if it is JanitorBot:
+			range = 40.0
+		elif it is Drone:
+			range = 74.0
+		if pos.x < (it.position.x + range) \
+		and pos.x > (it.position.x - range):
 			result = it
 	return result
 

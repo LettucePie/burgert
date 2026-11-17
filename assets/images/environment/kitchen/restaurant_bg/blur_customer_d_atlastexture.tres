@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bhslpxnoxc83a"]
+
+[ext_resource type="Texture2D" uid="uid://6ah2lwj430pv" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customers.png" id="1_23grd"]
+
+[resource]
+atlas = ExtResource("1_23grd")
+region = Rect2(96, 0, 32, 64)
