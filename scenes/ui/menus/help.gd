@@ -11,7 +11,7 @@ class_name Help
 @onready var next_but : Button = $Controls/next
 @onready var prev_but : Button = $Controls/prev
 @onready var current_viewport : Viewport = get_window()
-@onready var render_sheet_a : Sprite2D = $render_sheet_a
+@onready var render_sheet_a : Sprite2D = $clip/render
 
 @onready var sfx : AudioStreamPlayer = $AudioStreamPlayer
 @export var page_turn_sfx : Array[AudioStreamWAV]
@@ -186,14 +186,15 @@ func _turn_page(dir : int):
 		_move_sheet(dir)
 
 
-func _move_sheet(dir : int) -> void:
-	controls.hide()
+func capture_sheet() -> void:
 	var dynamic_texture : Texture2D = current_viewport.get_texture()
 	var image : Image = dynamic_texture.get_image()
 	var texture : ImageTexture = ImageTexture.create_from_image(image)
 	render_sheet_a.texture = texture
-	controls.show()
-	infopanel.show()
+
+
+func _move_sheet(dir : int) -> void:
+	capture_sheet()
 	if dir < 0:
 		$AnimationPlayer.play("move_r")
 	else:
@@ -202,3 +203,9 @@ func _move_sheet(dir : int) -> void:
 
 func _ready() -> void:
 	start_page()
+	controls.show()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	_load_page(current_page)
+	$clip.hide()
