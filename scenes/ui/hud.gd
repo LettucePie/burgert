@@ -3,6 +3,7 @@ class_name HUD
 
 signal gui_pause()
 
+@onready var anim : AnimationPlayer = $AnimationPlayer
 var order_shown : bool = false
 var order_dithered : bool = false
 var order_dither_buffer : int = 60
@@ -29,7 +30,10 @@ var timer : Timer = null
 @export var ketchup_scribbles : Array[Texture2D]
 @export var mustard_scribbles : Array[Texture2D]
 
+@onready var order : Control = $order
 @onready var trash_bar : TextureProgressBar = $trash_bar
+@onready var oink : AnimatedSprite2D = $oink
+@onready var money_spray : CPUParticles2D = $money_spray
 
 ##
 
@@ -97,7 +101,7 @@ func clear_order():
 	bot_tear.hide()
 	for child in scribbles.get_children():
 		child.queue_free()
-	$order.scroll_vertical = 0
+	order.scroll_vertical = 0
 
 
 func _build_order(build):
@@ -130,7 +134,7 @@ func _build_order(build):
 
 func show_order(tf : bool):
 	order_shown = tf
-	$order.visible = tf
+	order.visible = tf
 	if tf:
 		order_dither_buffer = 10
 	dither_order(false)
@@ -171,10 +175,12 @@ func get_timer() -> Timer:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$order.hide()
+	order.hide()
 	trash_bar.hide()
 	tip.hide()
 	submission_pop.hide()
+	oink.hide()
+	money_spray.hide()
 
 
 func reset_score() -> void:
@@ -185,8 +191,8 @@ func reset_score() -> void:
 
 
 func process_scrolling(delta):
-	if Input.is_action_just_pressed("up"): $order.scroll_vertical -= 64
-	if Input.is_action_just_pressed("down"): $order.scroll_vertical += 64
+	if Input.is_action_just_pressed("up"): order.scroll_vertical -= 64
+	if Input.is_action_just_pressed("down"): order.scroll_vertical += 64
 
 
 func _tween_score_counter(pos : bool) -> void:
@@ -212,9 +218,9 @@ func _physics_process(delta):
 	if order_shown:
 		process_scrolling(delta)
 		if order_dithered and order_dither_buffer <= 0:
-			$order.modulate = $order.modulate.lerp(dithered_color, 0.2)
+			order.modulate = order.modulate.lerp(dithered_color, 0.2)
 		else:
-			$order.modulate = $order.modulate.lerp(Color.WHITE, 0.2)
+			order.modulate = order.modulate.lerp(Color.WHITE, 0.2)
 		if order_dither_buffer > 0:
 			order_dither_buffer -= 1
 	if timer != null:
@@ -235,7 +241,7 @@ func _on_pause_pressed():
 
 func _on_order_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		$order.scroll_vertical -= event.relative.y
+		order.scroll_vertical -= event.relative.y
 
 
 func start_trashing():
@@ -256,5 +262,14 @@ func _on_submission_pop_receipt_fully_popped() -> void:
 	set_score(current_score + pending_score)
 
 
-func _on_submission_pop_tip_revealed() -> void:
-	pass # Replace with function body.
+func oink_popup() -> void:
+	anim.play("oink")
+
+
+func pop_money() -> void:
+	money_spray.show()
+	money_spray.restart()
+
+
+func _on_money_spray_finished() -> void:
+	money_spray.hide()
