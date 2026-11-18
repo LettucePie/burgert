@@ -29,6 +29,7 @@ var kitchen_prepped : bool = false
 var handling_drone_event : bool = false
 @export var kitchen_objects : Array[AtlasTexture] = []
 @onready var kitchen_object : Sprite2D = $foreground/kitchen_object_corner
+@export var TEST_CUSTOMER : Customer = null
 
 
 func _ready():
@@ -125,6 +126,8 @@ func _pick_unique(pool : Array[Customer]) -> PackedInt32Array:
 				result.append(_pick_normy())
 		else:
 			result = [idx]
+	if TEST_CUSTOMER != null and OS.has_feature("editor"):
+		result = [customers.find(TEST_CUSTOMER)]
 	return result
 
 
