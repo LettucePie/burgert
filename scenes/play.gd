@@ -544,6 +544,9 @@ func _on_main_menu_prepare_kitchen() -> void:
 func _on_main_menu_start_play():
 	get_tree().paused = false
 	game_scene.start_game()
+	for customer in stats.customer_stats:
+		if customer.get_orders_served() <= 0:
+			game_scene.unregistered_customers.append(customer.customer_name)
 	music.set_state(Music.STATE.PLAY)
 
 

@@ -35,6 +35,7 @@ var burger_2d : Burger2D = null
 var burger_mode_3d : bool = true
 var chef_idle : bool = false
 var drone_chance : float = 1.10
+var unregistered_customers : PackedStringArray = []
 #var first_time_customers : PackedStringArray = []
 
 
@@ -84,6 +85,7 @@ func start_game():
 	results.hide()
 	results.printer_queued = false
 	hud.reset_score()
+	unregistered_customers.clear()
 	$AnimationPlayer.play("play_transition")
 
 
@@ -285,6 +287,9 @@ func _on_results_finished_results():
 
 func _on_kitchen_a_customer_ready():
 	chef.waiting = false
+	if unregistered_customers.has(kitchen.current_customer.customer_name):
+		hud.new_regular_snapped()
+		unregistered_customers.remove_at(unregistered_customers.find(kitchen.current_customer.customer_name))
 
 
 func _on_kitchen_a_customer_left():

@@ -39,16 +39,13 @@ texture = ExtResource("2_v7sa6")
 modulate = Color(0.219501, 0.219501, 0.219501, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.037
-anchor_top = 0.153
-anchor_right = 0.962
-anchor_bottom = 0.844
-offset_left = 0.32
-offset_top = 0.0799942
-offset_right = 0.319946
-offset_bottom = -0.160034
+anchor_left = 0.0375
+anchor_top = 0.129688
+anchor_right = 0.9625
+anchor_bottom = 0.865625
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="paper/VBoxContainer" groups=["lang_text"]]
 layout_mode = 2
@@ -76,10 +73,8 @@ The domain of fleshbound humanity
 
 -- third-party assets --
 kenney-nl (kenney.nl) : fonts
-OwlishMedia (opengameart.org) : sfx
-diligentcircle (opengameart.org) : sfx
-TinyWorlds (opengameart.org) : sfx
-bart (opengameart.org) : sfx
+OwlishMedia, diligentcircle, TinyWorlds, 
+bart, themightyglider (opengameart.org) : sfx
 mreliptik (godotshaders.com) : shader"
 label_settings = ExtResource("1_bikxg")
 horizontal_alignment = 1

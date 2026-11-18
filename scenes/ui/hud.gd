@@ -34,6 +34,8 @@ var timer : Timer = null
 @onready var trash_bar : TextureProgressBar = $trash_bar
 @onready var oink : AnimatedSprite2D = $oink
 @onready var money_spray : CPUParticles2D = $money_spray
+@onready var flash : ColorRect = $flash
+@onready var camera_shutter : AudioStreamPlayer = $flash/camera_shutter
 
 ##
 
@@ -233,6 +235,10 @@ func _physics_process(delta):
 			ticking_score = current_score != target_score
 			_tween_score_counter(offset > 0)
 			tick = 0
+	if flash.visible:
+		flash.modulate = flash.modulate.lerp( Color(1, 1, 1, 0.0), 0.24)
+		if flash.modulate.is_equal_approx(Color(1, 1, 1, 0.0)):
+			flash.hide()
 
 
 func _on_pause_pressed():
@@ -273,3 +279,9 @@ func pop_money() -> void:
 
 func _on_money_spray_finished() -> void:
 	money_spray.hide()
+
+
+func new_regular_snapped() -> void:
+	flash.modulate = Color.WHITE
+	flash.show()
+	camera_shutter.play()
