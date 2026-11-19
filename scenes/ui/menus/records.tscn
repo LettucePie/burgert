@@ -16,15 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://vqvyuqmrroi4" path="res://assets/images/graphics/menu/records/wallet_large_pageless.png" id="10_tl52b"]
 [ext_resource type="SpriteFrames" uid="uid://c4lf0fsqavg6j" path="res://assets/images/graphics/menu/records/moneystream_spriteframes.tres" id="10_y637u"]
 [ext_resource type="SpriteFrames" uid="uid://dtx5meh2w3w0n" path="res://assets/images/graphics/menu/menu_desk/piggy_bank_spriteframes.tres" id="11_qg5y1"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_normal.tres" id="12_wi580"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_pressed.tres" id="13_dferx"]
+[ext_resource type="Texture2D" uid="uid://cf200dxjx3s1t" path="res://assets/images/graphics/menu/records/transfer_subtract_normal.tres" id="12_wi580"]
+[ext_resource type="Texture2D" uid="uid://d0mryq2mdv3ov" path="res://assets/images/graphics/menu/records/transfer_subtract_pressed.tres" id="13_dferx"]
 [ext_resource type="LabelSettings" uid="uid://caxy0xglfp5b0" path="res://assets/theme/fonts/scoreboard_labelsettings.tres" id="13_jiddg"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_subtract_highlight.tres" id="14_nktog"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_normal.tres" id="15_3k2mk"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/counter_atlastexture.tres" id="15_7qk4l"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_pressed.tres" id="16_7xcfy"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/counter_overlay_atlastexture.tres" id="16_uw14a"]
-[ext_resource type="Texture2D" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
+[ext_resource type="Texture2D" uid="uid://ctyb5ijju4ewt" path="res://assets/images/graphics/menu/records/transfer_subtract_highlight.tres" id="14_nktog"]
+[ext_resource type="Texture2D" uid="uid://xtnrm62xuxfp" path="res://assets/images/graphics/menu/records/transfer_add_normal.tres" id="15_3k2mk"]
+[ext_resource type="Texture2D" uid="uid://d2aevc3qmxngw" path="res://assets/images/graphics/menu/records/counter_atlastexture.tres" id="15_7qk4l"]
+[ext_resource type="Texture2D" uid="uid://c0s1j3j0ap68l" path="res://assets/images/graphics/menu/records/transfer_add_pressed.tres" id="16_7xcfy"]
+[ext_resource type="Texture2D" uid="uid://c7xsghc2sle30" path="res://assets/images/graphics/menu/records/counter_overlay_atlastexture.tres" id="16_uw14a"]
+[ext_resource type="Texture2D" uid="uid://bvf0hec0tv4s6" path="res://assets/images/graphics/menu/records/transfer_add_highlight.tres" id="17_m83h5"]
 [ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/throw_2.wav" id="20_df6q3"]
 [ext_resource type="Texture2D" uid="uid://bpeldobjm7bof" path="res://assets/images/graphics/menu/menu_desk/digital_planner/cancel_normal_atlastexture.tres" id="20_r6px2"]
 [ext_resource type="Texture2D" uid="uid://uvkdc4aige54" path="res://assets/images/graphics/menu/menu_desk/digital_planner/cancel_focus_atlastexture.tres" id="21_35f68"]
@@ -138,6 +138,83 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_w41qw"]
+resource_name = "close_deletion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deletion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("deletion/ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.0823529, 0.152941, 1), Color(0.1385, 0.081, 0.15, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deletion/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_records"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("records_page:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_y2p6e"]
 resource_name = "close_transfer_menu"
 length = 0.7
@@ -225,6 +302,137 @@ tracks/6/keys = {
 "values": [{
 "args": [],
 "method": &"ready_records"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f4ce3"]
+resource_name = "deletion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deletion/VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("records_page:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deletion:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"confirm_deletion"],
+"method": &"emit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tjgxk"]
+resource_name = "open_deletion"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deletion:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("deletion/ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.1385, 0.081, 0.15, 0), Color(0.141176, 0.0823529, 0.152941, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deletion/VBoxContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ready_deletion_page"
 }]
 }
 
@@ -404,214 +612,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_tjgxk"]
-resource_name = "open_deletion"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("deletion:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("deletion/ColorRect:color")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.1385, 0.081, 0.15, 0), Color(0.141176, 0.0823529, 0.152941, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("deletion/VBoxContainer:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.8, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"ready_deletion_page"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_w41qw"]
-resource_name = "close_deletion"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("deletion:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("deletion/ColorRect:color")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.141176, 0.0823529, 0.152941, 1), Color(0.1385, 0.081, 0.15, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("deletion/VBoxContainer:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("deletion/VBoxContainer:modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"ready_records"
-}]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("records_page:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_f4ce3"]
-resource_name = "deletion"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("deletion/VBoxContainer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("deletion/VBoxContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("records_page:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("deletion:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"confirm_deletion"],
-"method": &"emit_signal"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhjrb"]
@@ -1124,8 +1124,8 @@ anchor_left = -0.003125
 anchor_top = 0.414583
 anchor_right = 0.496875
 anchor_bottom = 0.914583
-offset_top = 65.0
-offset_bottom = 65.0
+offset_top = 65.0002
+offset_bottom = 65.0002
 pivot_offset = Vector2(160, 120)
 texture = ExtResource("10_tl52b")
 metadata/_edit_use_anchors_ = true
@@ -1146,7 +1146,8 @@ anchors_preset = -1
 anchor_top = 0.858333
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 9.0
+offset_top = 0.000152588
+offset_bottom = 9.00015
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
@@ -1184,8 +1185,8 @@ anchors_preset = -1
 anchor_top = -0.5125
 anchor_right = 1.0
 anchor_bottom = 0.14375
-offset_top = -334.0
-offset_bottom = -334.0
+offset_top = 246.0
+offset_bottom = 246.0
 grow_horizontal = 2
 pivot_offset = Vector2(320, 157.5)
 size_flags_horizontal = 3

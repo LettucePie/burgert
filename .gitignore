@@ -6,6 +6,7 @@ exports/windows
 
 *.kra~
 *.png~
+*autosave.kra
 
 # Where are these files coming from?
 *.uid
