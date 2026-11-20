@@ -16,18 +16,26 @@ enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS, RADIO}
 var current_state : STATE = STATE.MENU
 var current_song : Song = null
 var max_volume_db : float = 1.0
-var playback_time : float = -0
-var timer_remaining : float = 0
+var playback_time : float = -0.0
+var timer_remaining : float = 0.0
 @onready var audio_timer : Timer = $audio_timer
+
+var muted : bool = false
+var muted_track : Song = null
 
 
 func set_state(new_state : STATE):
 	if new_state == STATE.MENU:
-		anim.play("intro_ramp")
+		if !muted:
+			anim.play("intro_ramp")
+		else:
+			stream = silent_song.track
+			play()
 	if new_state == STATE.PLAY:
 		if current_state == STATE.MENU \
 		or current_state == STATE.RESULTS:
-			anim.play("start_play")
+			if !muted:
+				anim.play("start_play")
 		if current_state == STATE.PAUSE \
 		or current_state == STATE.PREVIEW:
 			if playback_time >= 0:
@@ -66,7 +74,8 @@ func set_track_random():
 
 
 func _on_finished():
-	anim.play("queue_next")
+	if !muted:
+		anim.play("queue_next")
 
 
 func capture_playback_time():
@@ -111,6 +120,16 @@ func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 func _process(delta: float) -> void:
 	if current_state == STATE.MENU or current_state == STATE.PLAY:
 		if Input.is_action_just_pressed("mute"):
-			print("Mute")
+			if muted:
+				muted = false
+				stream = muted_track.track
+				play(playback_time)
+			else:
+				muted = true
+				muted_track = current_song
+				capture_playback_time()
+				stream = silent_song.track
+				play()
 		if Input.is_action_just_pressed("next_track"):
-			print("NextTrack")
+			if !muted:
+				anim.play("queue_next")
