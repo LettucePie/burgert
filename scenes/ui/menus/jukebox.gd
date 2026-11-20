@@ -48,6 +48,7 @@ func ready_jukebox() -> void:
 	jukebox_vol.value = current_volume
 	jukebox_vol.update_vals(true)
 	spectrum_analyzer.set_active(true)
+	music_library.set_state(Music.STATE.RADIO)
 
 
 func _ready() -> void:
@@ -132,8 +133,7 @@ func _on_next_pressed() -> void:
 func _on_stop_pressed() -> void:
 	player.stop()
 	track_timer.stop()
-	#_update_progress()
-	#current_playback = 0
+	music_library.set_state(Music.STATE.MENU)
 	emit_signal("stop_pressed")
 	spectrum_analyzer.set_active(false)
 

@@ -12,7 +12,7 @@ var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 @export var silent_song : Song
 
 @onready var anim : AnimationPlayer = $anim
-enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS}
+enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS, RADIO}
 var current_state : STATE = STATE.MENU
 var current_song : Song = null
 var max_volume_db : float = 1.0
@@ -42,7 +42,8 @@ func set_state(new_state : STATE):
 			stream = silent_song.track
 			play()
 	if new_state == STATE.PAUSE \
-	or new_state == STATE.PREVIEW:
+	or new_state == STATE.PREVIEW \
+	or new_state == STATE.RADIO:
 		if current_state == STATE.PLAY \
 		or (current_state == STATE.MENU and new_state == STATE.PREVIEW):
 			playback_time = -1
@@ -105,3 +106,11 @@ func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 		elif !jukebox_playlist.has(song_library_idx) and add_remove:
 			jukebox_playlist.append(song_library_idx)
 	emit_signal("updated_playlists")
+
+
+func _process(delta: float) -> void:
+	if current_state == STATE.MENU or current_state == STATE.PLAY:
+		if Input.is_action_just_pressed("mute"):
+			print("Mute")
+		if Input.is_action_just_pressed("next_track"):
+			print("NextTrack")
