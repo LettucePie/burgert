@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_pgsu6")
 track = ExtResource("2_q7bwy")
-title = "title"
-artist = "artist"
+title = "boss the hoss"
+artist = "artie77"
 crossfade = true
 shop_level = 0
 store_cost = 49

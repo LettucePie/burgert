@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_fit6q")
 track = ExtResource("2_j4oac")
-title = "title"
-artist = "artist"
+title = "Beach Day"
+artist = "tomato&smoke"
 crossfade = true
 shop_level = 0
 store_cost = 49

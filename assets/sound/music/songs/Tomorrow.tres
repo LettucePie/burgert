@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_pd3ni")
 track = ExtResource("2_dpt22")
-title = "title"
-artist = "artist"
+title = "waterfall_Dungeon"
+artist = "sarah"
 crossfade = true
 shop_level = 0
 store_cost = 49
