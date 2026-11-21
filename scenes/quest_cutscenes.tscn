@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b84f6lp85tde8"]
+[gd_scene load_steps=9 format=3 uid="uid://b84f6lp85tde8"]
 
 [ext_resource type="Script" path="res://scenes/quest_cutscenes.gd" id="1_h64cq"]
 [ext_resource type="Texture2D" uid="uid://bq7xna01bov4h" path="res://assets/images/sequences/space.png" id="2_qqxq1"]
 [ext_resource type="Texture2D" uid="uid://cimmq03a45a5p" path="res://assets/images/sequences/restaurant_outside_building_only.png" id="3_0ywtj"]
 [ext_resource type="Texture2D" uid="uid://doluhhj6e5emi" path="res://assets/images/sequences/restaurant_outside_sign_only.png" id="4_6xqs6"]
+[ext_resource type="Texture2D" uid="uid://crjr68vylud0v" path="res://assets/images/sequences/basic_vehicle.png" id="5_5lten"]
 
 [sub_resource type="Animation" id="Animation_o418f"]
 resource_name = "scene_1"
@@ -33,6 +34,54 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-69.5186, -65.9703), Vector2(-68.5412, -64.9839), Vector2(-67.5639, -69.423), Vector2(-69.5186, -65.9703)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("space/vehicle_a:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.966667, 1.6, 2.36667, 2.96667, 4.2, 4.66667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(214.881, 67.2034), Vector2(214.881, 67.2034), Vector2(-207.809, 67.2034), Vector2(-201.457, -1.84964), Vector2(210, -1.85), Vector2(214.393, 95.8111), Vector2(-220, 95.811), Vector2(-207.809, 67.2034)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("space/vehicle_a:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.966667, 1.6, 2.36667, 2.96667, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(0.75, 0.75), Vector2(0.75, 0.75), Vector2(0.69, 0.69), Vector2(0.699908, 0.699908), Vector2(0.9, 0.9)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("space/vehicle_a:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.966667, 1.6, 2.36667, 2.96667, 4.2, 4.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("space/vehicle_a:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.966667, 2.36667, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_j1ndl"]
 length = 0.001
@@ -59,6 +108,54 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-69.5186, -65.9703)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("space/vehicle_a:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(214.881, 67.2034)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("space/vehicle_a:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("space/vehicle_a:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("space/vehicle_a:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oheuq"]
@@ -92,3 +189,9 @@ texture = ExtResource("3_0ywtj")
 [node name="sign" type="Sprite2D" parent="space"]
 position = Vector2(-69.5186, -65.9703)
 texture = ExtResource("4_6xqs6")
+
+[node name="vehicle_a" type="Sprite2D" parent="space"]
+position = Vector2(214.881, 67.2034)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_5lten")
+flip_h = true
