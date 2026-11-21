@@ -758,8 +758,7 @@ bus = &"SFX"
 audio_bus_id = 1
 
 [node name="kitchen_object_corner" type="Sprite2D" parent="foreground"]
-z_index = 1
-position = Vector2(591, 383)
+position = Vector2(617, 383)
 scale = Vector2(3, 3)
 texture = ExtResource("80_3mxko")
 
