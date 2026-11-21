@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://dnqj7c0rq3g3x"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_pgsu6"]
+[ext_resource type="AudioStream" uid="uid://nygyvohmg8kb" path="res://assets/sound/music/tracks/KindaKrunchy.mp3" id="2_q7bwy"]
+
+[resource]
+script = ExtResource("1_pgsu6")
+track = ExtResource("2_q7bwy")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

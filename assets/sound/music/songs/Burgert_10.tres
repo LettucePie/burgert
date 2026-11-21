@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://ceucgqq5nxev5"]
 
 [ext_resource type="Script" path="res://classes/song.gd" id="1_rp0qi"]
-[ext_resource type="AudioStream" uid="uid://cgev0uulpq6yg" path="res://assets/sound/music/tracks_v2/Burgert_10.mp3" id="2_8vr4r"]
+[ext_resource type="AudioStream" uid="uid://cgev0uulpq6yg" path="res://assets/sound/music/tracks/Burgert_10.mp3" id="2_8vr4r"]
 
 [resource]
 script = ExtResource("1_rp0qi")

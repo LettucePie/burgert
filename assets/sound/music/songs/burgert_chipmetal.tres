@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://i2afngyy5ybq"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_1kx2o"]
+[ext_resource type="AudioStream" uid="uid://b42ql5wc2mvs4" path="res://assets/sound/music/tracks/burgert_chipmetal.mp3" id="2_s3k6e"]
+
+[resource]
+script = ExtResource("1_1kx2o")
+track = ExtResource("2_s3k6e")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://dyyk1aqwh3ul2"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_cx0hy"]
+[ext_resource type="AudioStream" uid="uid://dj6k1fc0qf8ob" path="res://assets/sound/music/tracks/LofiLimp.mp3" id="2_ly4km"]
+
+[resource]
+script = ExtResource("1_cx0hy")
+track = ExtResource("2_ly4km")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://snuvp2gw4miv"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_fit6q"]
+[ext_resource type="AudioStream" uid="uid://dfoami78oyta4" path="res://assets/sound/music/tracks/Saveas.mp3" id="2_j4oac"]
+
+[resource]
+script = ExtResource("1_fit6q")
+track = ExtResource("2_j4oac")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

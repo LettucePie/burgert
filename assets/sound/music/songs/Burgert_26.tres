@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://cnnaxuko2auxs"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_twmnr"]
+[ext_resource type="AudioStream" uid="uid://b1apvin5r564n" path="res://assets/sound/music/tracks/Burgert_26.mp3" id="2_51rjv"]
+
+[resource]
+script = ExtResource("1_twmnr")
+track = ExtResource("2_51rjv")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49
