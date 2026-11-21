@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dst8w218s4e87" path="res://assets/images/graphics/menu/help/charge_throw_spritesheet.png" id="4_ppyc2"]
 [ext_resource type="Texture2D" uid="uid://b6bdrn2xky3lt" path="res://assets/images/graphics/menu/help/trashing-spritesheet.png" id="5_b4tak"]
 [ext_resource type="Texture2D" uid="uid://cw0fhwr7t8vcd" path="res://assets/images/graphics/menu/help/customer_dex_spritesheet.png" id="6_oigi2"]
-[ext_resource type="Texture2D" uid="uid://di2jo0ipqsbb0" path="res://assets/images/graphics/menu/help/goal_spritesheet_compat.png" id="8_vdind"]
+[ext_resource type="Texture2D" uid="uid://di2jo0ipqsbb0" path="res://assets/images/graphics/menu/help/goal_spritesheet.png" id="8_vdind"]
 [ext_resource type="Texture2D" uid="uid://4f0b0rscpvtl" path="res://assets/images/graphics/menu/help/results_spritesheet.png" id="9_4o8ju"]
 [ext_resource type="Texture2D" uid="uid://cik36bwn7ml3j" path="res://assets/models/renders/3d_drone/3d_drone_spritesheet.png" id="277_gswp0"]
 
