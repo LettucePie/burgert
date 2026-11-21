@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=61 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/menus/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -31,12 +31,24 @@
 [ext_resource type="Resource" uid="uid://brke3y7eghkup" path="res://assets/sound/music/songs/Burgert_14.tres" id="24_ro22o"]
 [ext_resource type="Resource" uid="uid://drmg6kf4v0q1t" path="res://assets/sound/music/songs/Burgert_16.tres" id="25_t1eki"]
 [ext_resource type="Resource" uid="uid://df78lawteqr38" path="res://assets/sound/music/songs/Burgert_17.tres" id="26_jbiup"]
+[ext_resource type="Resource" uid="uid://cnnaxuko2auxs" path="res://assets/sound/music/songs/Burgert_26.tres" id="27_emqbe"]
 [ext_resource type="Resource" uid="uid://cmw44uy4xphgf" path="res://assets/sound/music/songs/Burgert_18.tres" id="27_hujx7"]
 [ext_resource type="Resource" uid="uid://c7a4t3aet4xor" path="res://assets/sound/music/songs/silence.tres" id="27_k5wvn"]
 [ext_resource type="Resource" uid="uid://b5o7uraf54eyy" path="res://assets/sound/music/songs/DireDocksIndeed.tres" id="28_ii6f5"]
+[ext_resource type="Resource" uid="uid://0ril20kdm7vx" path="res://assets/sound/music/songs/Burgert_22.tres" id="28_yqi7h"]
+[ext_resource type="Resource" uid="uid://b708elvtwfyai" path="res://assets/sound/music/songs/Burgert_24.tres" id="29_qxisf"]
 [ext_resource type="Resource" uid="uid://d1p4c5l4fy5dk" path="res://assets/sound/music/songs/FourtyOneAM.tres" id="29_s60c4"]
+[ext_resource type="Resource" uid="uid://i2afngyy5ybq" path="res://assets/sound/music/songs/burgert_chipmetal.tres" id="30_5dij2"]
 [ext_resource type="Resource" uid="uid://dduwexcxehkg5" path="res://assets/sound/music/songs/Ghost whistle.tres" id="30_5tl2m"]
+[ext_resource type="Resource" uid="uid://dvf3qjnmv87u0" path="res://assets/sound/music/songs/Burgert_House.tres" id="31_4chh5"]
 [ext_resource type="Resource" uid="uid://bkr8hybtqvi8i" path="res://assets/sound/music/songs/Hap-apple-pie.tres" id="31_jjs2m"]
+[ext_resource type="Resource" uid="uid://oyjlfh6noyi7" path="res://assets/sound/music/songs/Club_Burgert.tres" id="32_05ejp"]
+[ext_resource type="Resource" uid="uid://dnqj7c0rq3g3x" path="res://assets/sound/music/songs/KindaKrunchy.tres" id="33_j1ekc"]
+[ext_resource type="Resource" uid="uid://dyyk1aqwh3ul2" path="res://assets/sound/music/songs/LofiLimp.tres" id="34_76pqm"]
+[ext_resource type="Resource" uid="uid://b5fv64avsw68x" path="res://assets/sound/music/songs/MaybePizza.tres" id="35_lndot"]
+[ext_resource type="Resource" uid="uid://snuvp2gw4miv" path="res://assets/sound/music/songs/Saveas.tres" id="36_8k3dw"]
+[ext_resource type="Resource" uid="uid://dxsdqg2ylwl5j" path="res://assets/sound/music/songs/The Doot Doot Doo_s.tres" id="37_k2uad"]
+[ext_resource type="Resource" uid="uid://cfxp6gnpkcg3m" path="res://assets/sound/music/songs/Tomorrow.tres" id="38_ki0gl"]
 [ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
 [ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
 [ext_resource type="AudioStream" uid="uid://br2f1hn6v4ug8" path="res://assets/sound/sfx/menu/patty_fry_sound_with_spatula.wav" id="40_rdbmm"]
@@ -235,7 +247,7 @@ volume_db = -80.0
 autoplay = true
 bus = &"MUS"
 script = ExtResource("4_8x8kb")
-all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m")])
+all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m"), ExtResource("27_emqbe"), ExtResource("28_yqi7h"), ExtResource("29_qxisf"), ExtResource("30_5dij2"), ExtResource("31_4chh5"), ExtResource("32_05ejp"), ExtResource("33_j1ekc"), ExtResource("34_76pqm"), ExtResource("35_lndot"), ExtResource("36_8k3dw"), ExtResource("37_k2uad"), ExtResource("38_ki0gl")])
 silent_song = ExtResource("27_k5wvn")
 
 [node name="anim" type="AnimationPlayer" parent="Music"]

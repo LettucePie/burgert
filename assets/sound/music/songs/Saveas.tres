@@ -9,5 +9,5 @@ track = ExtResource("2_j4oac")
 title = "Beach Day"
 artist = "tomato&smoke"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 3
+store_cost = 199

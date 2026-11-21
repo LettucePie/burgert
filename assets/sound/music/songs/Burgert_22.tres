@@ -9,5 +9,5 @@ track = ExtResource("2_d2xlg")
 title = "foundation on the subway"
 artist = "sarah"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 1
+store_cost = 99

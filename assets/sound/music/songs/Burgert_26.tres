@@ -9,5 +9,5 @@ track = ExtResource("2_51rjv")
 title = "chillin with the invaders"
 artist = "yerr"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 2
+store_cost = 149
