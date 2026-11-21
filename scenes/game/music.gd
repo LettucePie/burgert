@@ -10,6 +10,7 @@ var main_playlist : PackedInt32Array = [2, 8, 12]
 var play_playlist : PackedInt32Array = [3, 5, 11]
 var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 @export var silent_song : Song
+@export var results_song : Song
 
 @onready var anim : AnimationPlayer = $anim
 enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS, RADIO}
@@ -47,7 +48,8 @@ func set_state(new_state : STATE):
 		if current_state == STATE.PLAY:
 			current_song = silent_song
 			anim.stop()
-			stream = silent_song.track
+			#stream = silent_song.track
+			stream = results_song.track
 			play()
 	if new_state == STATE.PAUSE \
 	or new_state == STATE.PREVIEW \
