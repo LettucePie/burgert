@@ -4,8 +4,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://ddrhyntsygkjv" path="res://assets/animation/customers/chief_patty_zarkon_animlib.res" id="2_4ru26"]
 [ext_resource type="Resource" uid="uid://xlxjvc5jm6hl" path="res://assets/data/schedules/Chief_Patty_Zarkon_schedule.tres" id="2_v4j6c"]
 [ext_resource type="SpriteFrames" uid="uid://x3a647ak20p1" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_spriteframes.tres" id="3_ithvq"]
-[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/Voice/Doot_7.wav" id="4_gdvlt"]
-[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="5_tpa5x"]
+[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/game/characters/Voice/Doot_7.wav" id="4_gdvlt"]
+[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/game/characters/Voice/Doot_2.wav" id="5_tpa5x"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g8lqv"]
 viewport_path = NodePath("burger_portal")

@@ -39,7 +39,7 @@
 [ext_resource type="Resource" uid="uid://bkr8hybtqvi8i" path="res://assets/sound/music/songs/Hap-apple-pie.tres" id="31_jjs2m"]
 [ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
 [ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
-[ext_resource type="AudioStream" uid="uid://br2f1hn6v4ug8" path="res://assets/sound/sfx/patty_fry_sound_with_spatula.wav" id="40_rdbmm"]
+[ext_resource type="AudioStream" uid="uid://br2f1hn6v4ug8" path="res://assets/sound/sfx/menu/patty_fry_sound_with_spatula.wav" id="40_rdbmm"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001

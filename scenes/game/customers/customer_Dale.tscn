@@ -4,8 +4,8 @@
 [ext_resource type="Resource" uid="uid://3t7kfxh6jge4" path="res://assets/data/schedules/Dale_schedule.tres" id="2_85uy5"]
 [ext_resource type="AnimationLibrary" uid="uid://dnkm0ke1nypr3" path="res://assets/animation/customers/dale_animlib.res" id="2_aeini"]
 [ext_resource type="SpriteFrames" uid="uid://d3k3ls7siphk6" path="res://assets/images/characters/customers/customer_dale_spriteframes.tres" id="3_4exvb"]
-[ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/Voice/Doot_1.wav" id="4_g83na"]
-[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="5_1bfpt"]
+[ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/game/characters/Voice/Doot_1.wav" id="4_g83na"]
+[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="5_1bfpt"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_86ljq"]
 viewport_path = NodePath("burger_portal")

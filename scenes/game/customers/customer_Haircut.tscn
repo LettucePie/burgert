@@ -4,8 +4,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://dy2uihutceyy0" path="res://assets/animation/customers/haircut_animlib.res" id="2_dagw2"]
 [ext_resource type="SpriteFrames" uid="uid://bfeuwt5gm6i5b" path="res://assets/images/characters/customers/customer_Haircut_spriteframes.tres" id="2_mlw1m"]
 [ext_resource type="Resource" uid="uid://wdjvwwkqwcty" path="res://assets/data/schedules/Haircut_schedule.tres" id="2_yhl0v"]
-[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_4p3yu"]
-[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="5_ff8jr"]
+[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/game/characters/Voice/Doot_11.wav" id="4_4p3yu"]
+[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="5_ff8jr"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xlpyc"]
 viewport_path = NodePath(".")

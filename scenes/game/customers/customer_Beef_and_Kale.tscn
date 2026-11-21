@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qodln"]
 [ext_resource type="Resource" uid="uid://djcpsmkfif20c" path="res://assets/data/schedules/Beef_and_Kale._scheduletres.tres" id="2_kreob"]
 [ext_resource type="SpriteFrames" uid="uid://bc7vnthwcf8s8" path="res://assets/images/characters/customers/customer_beef_and_kale_spriteframes.tres" id="2_paq2d"]
-[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="3_kmekt"]
-[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="4_oacoj"]
-[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="5_kpq2c"]
-[ext_resource type="AudioStream" uid="uid://d0fv242kxkyfh" path="res://assets/sound/sfx/Voice/Doot_5.wav" id="6_m315y"]
-[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/Voice/Doot_7.wav" id="7_g3lfv"]
-[ext_resource type="AudioStream" uid="uid://ba86xs3k5x3b5" path="res://assets/sound/sfx/Voice/Doot_9.wav" id="8_y6mnn"]
+[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/game/characters/Voice/Doot_12.wav" id="3_kmekt"]
+[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/game/characters/Voice/Doot_2.wav" id="4_oacoj"]
+[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="5_kpq2c"]
+[ext_resource type="AudioStream" uid="uid://d0fv242kxkyfh" path="res://assets/sound/sfx/game/characters/Voice/Doot_5.wav" id="6_m315y"]
+[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/game/characters/Voice/Doot_7.wav" id="7_g3lfv"]
+[ext_resource type="AudioStream" uid="uid://ba86xs3k5x3b5" path="res://assets/sound/sfx/game/characters/Voice/Doot_9.wav" id="8_y6mnn"]
 
 [sub_resource type="Animation" id="Animation_s81vx"]
 length = 0.001

@@ -13,11 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter.tres" id="7_ph5yu"]
 [ext_resource type="Script" path="res://scenes/game/customers/jitter_dialog.gd" id="8_bky86"]
 [ext_resource type="Texture2D" uid="uid://cyncm1vjbbtti" path="res://assets/images/environment/kitchen/restaurant_fg/counter_grill.tres" id="8_etuw3"]
-[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="9_5olih"]
+[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/game/characters/Voice/Doot_10.wav" id="9_5olih"]
 [ext_resource type="Texture2D" uid="uid://xt254ac7wjjk" path="res://assets/images/environment/kitchen/restaurant_fg/counter_alcove.tres" id="9_r7r5x"]
 [ext_resource type="PackedScene" uid="uid://dw13tjhxgla35" path="res://scenes/ui/vfx/feedback.tscn" id="10_1olr1"]
-[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/Voice/Doot_7.wav" id="10_1rp0e"]
-[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/Voice/Doot_2.wav" id="11_d1nxy"]
+[ext_resource type="AudioStream" uid="uid://bpo0fkf25hukk" path="res://assets/sound/sfx/game/characters/Voice/Doot_7.wav" id="10_1rp0e"]
+[ext_resource type="AudioStream" uid="uid://ussag783tp2w" path="res://assets/sound/sfx/game/characters/Voice/Doot_2.wav" id="11_d1nxy"]
 
 [sub_resource type="Resource" id="Resource_iv4l3"]
 script = ExtResource("2_b173g")

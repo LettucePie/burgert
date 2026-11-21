@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://coiterr3m7akw" path="res://assets/images/graphics/menu/menu_desk/printer_top.png" id="4_2pl0a"]
 [ext_resource type="Texture2D" uid="uid://b7ulnwb8hfwa1" path="res://assets/images/characters/customers/customer_beef_and_kale_still.png" id="4_b8kbd"]
 [ext_resource type="SpriteFrames" uid="uid://c6cn6rn5kppak" path="res://assets/images/graphics/menu/customerdex/folder_drop_spriteframes.tres" id="5_x7ued"]
-[ext_resource type="AudioStream" uid="uid://djijymalvhri" path="res://assets/sound/sfx/Menu/customer_registered.wav" id="6_txy0u"]
+[ext_resource type="AudioStream" uid="uid://djijymalvhri" path="res://assets/sound/sfx/menu/customer_registered.wav" id="6_txy0u"]
 
 [sub_resource type="Animation" id="Animation_e2l5l"]
 length = 0.001

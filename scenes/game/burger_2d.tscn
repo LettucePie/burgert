@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d4fwb5easwkfc" path="res://assets/images/environment/kitchen/ingredients/burger_2d_tomato.png" id="7_p7v1t"]
 [ext_resource type="Texture2D" uid="uid://xteh201fiflh" path="res://assets/images/environment/kitchen/ingredients/burger_2d_ketchup.png" id="8_l5d5f"]
 [ext_resource type="Texture2D" uid="uid://clil2yskemf6i" path="res://assets/images/environment/kitchen/ingredients/burger_2d_mustard.png" id="9_fgtwy"]
-[ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/throw_2.wav" id="11_t4jm8"]
+[ext_resource type="AudioStream" uid="uid://len51es4bair" path="res://assets/sound/sfx/game/throw_2.wav" id="11_t4jm8"]
 
 [node name="burger_2D" type="Node2D"]
 texture_filter = 1

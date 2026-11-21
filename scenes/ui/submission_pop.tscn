@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/submission_pop.gd" id="1_x6ien"]
 [ext_resource type="Texture2D" uid="uid://bv2hxsmklykb3" path="res://assets/images/graphics/hud/submission_popup_receipt.png" id="2_lq4cf"]
-[ext_resource type="AudioStream" uid="uid://d1g3ccdnfma54" path="res://assets/sound/sfx/receipt_sfx.wav" id="2_vs834"]
+[ext_resource type="AudioStream" uid="uid://d1g3ccdnfma54" path="res://assets/sound/sfx/game/receipt_sfx.wav" id="2_vs834"]
 [ext_resource type="LabelSettings" uid="uid://di8n3a4uvrl4y" path="res://assets/theme/fonts/customerdex_labelsettings.tres" id="3_oe4qv"]
 [ext_resource type="LabelSettings" uid="uid://d06abvkbftitt" path="res://assets/theme/fonts/submission_pop_colorcode_label_settings.tres" id="4_nne6l"]
 

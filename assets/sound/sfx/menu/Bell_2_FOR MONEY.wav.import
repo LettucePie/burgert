@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db8aetxoj0ve1"
+path="res://.godot/imported/Bell_2_FOR MONEY.wav-44c9e9a3bfcad90475ba55eae7daf2ed.sample"
+
+[deps]
+
+source_file="res://assets/sound/sfx/menu/Bell_2_FOR MONEY.wav"
+dest_files=["res://.godot/imported/Bell_2_FOR MONEY.wav-44c9e9a3bfcad90475ba55eae7daf2ed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

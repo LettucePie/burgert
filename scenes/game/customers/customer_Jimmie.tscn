@@ -4,7 +4,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://knkofo4mts3u" path="res://assets/animation/customers/jimmie_animlib.res" id="2_4wsg3"]
 [ext_resource type="SpriteFrames" uid="uid://dw3p885dlqutw" path="res://assets/images/characters/customers/customer_Jimmie_spriteframes.tres" id="2_5sth2"]
 [ext_resource type="Resource" uid="uid://b0rdcsjh5c4cj" path="res://assets/data/schedules/Jimmie_schedule.tres" id="2_kisee"]
-[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="4_6dce2"]
+[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="4_6dce2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4mh3j"]
 viewport_path = NodePath(".")

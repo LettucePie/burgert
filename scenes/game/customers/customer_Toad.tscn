@@ -4,8 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://dm1tphux6j6mm" path="res://assets/images/characters/customers/customer_Toad_spriteframes.tres" id="2_5stev"]
 [ext_resource type="Resource" uid="uid://bhaw4br0m80k3" path="res://assets/data/schedules/Toad_schedule.tres" id="2_bd1v4"]
 [ext_resource type="AnimationLibrary" uid="uid://dv0ythsrdrr53" path="res://assets/animation/customers/toad_animlib.res" id="2_u8d3v"]
-[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/Voice/Doot_8.wav" id="5_gs74w"]
-[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="6_r3i6d"]
+[ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="5_gs74w"]
+[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="6_r3i6d"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mawkp"]
 viewport_path = NodePath(".")

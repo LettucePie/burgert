@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/vfx/munch.gd" id="1_3f41q"]
 [ext_resource type="SpriteFrames" uid="uid://d2qv6v80ys6uc" path="res://assets/images/graphics/customer_eating_frames.tres" id="2_ucjjy"]
-[ext_resource type="AudioStream" uid="uid://dcf2s60818rbq" path="res://assets/sound/sfx/munch.ogg" id="3_7ki4k"]
+[ext_resource type="AudioStream" uid="uid://dcf2s60818rbq" path="res://assets/sound/sfx/game/characters/munch.ogg" id="3_7ki4k"]
 
 [node name="munch" type="Node2D"]
 script = ExtResource("1_3f41q")

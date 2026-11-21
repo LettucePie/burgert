@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://crsb1nqkcsqgm"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_5j8yp"]
-[ext_resource type="AnimationLibrary" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
+[ext_resource type="AnimationLibrary" uid="uid://biapfbq37jlfd" path="res://assets/animation/customers/persistant_animlib.res" id="2_77amt"]
 [ext_resource type="Resource" uid="uid://ccxwq72l36kgn" path="res://assets/data/schedules/Persistant_schedule.tres" id="2_ei0vr"]
 [ext_resource type="SpriteFrames" uid="uid://dujb4hl83qoxm" path="res://assets/images/characters/customers/customer_persistant_spriteframes_v2.tres" id="3_6pqky"]
-[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="4_ebmwu"]
-[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="5_s0t0m"]
+[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/game/characters/Voice/Doot_10.wav" id="4_ebmwu"]
+[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/game/characters/Voice/Doot_11.wav" id="5_s0t0m"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ip23c"]
 viewport_path = NodePath(".")

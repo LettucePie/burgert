@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0ugadc4ilb6n"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/help.gd" id="1_ik1ax"]
-[ext_resource type="AudioStream" uid="uid://b7m6gn0cvccec" path="res://assets/sound/sfx/page_flip_1.wav" id="2_ycyfb"]
-[ext_resource type="AudioStream" uid="uid://0t7if1tr8u54" path="res://assets/sound/sfx/page_flip_2.wav" id="3_6jvwm"]
+[ext_resource type="AudioStream" uid="uid://b7m6gn0cvccec" path="res://assets/sound/sfx/menu/page_flip_1.wav" id="2_ycyfb"]
+[ext_resource type="AudioStream" uid="uid://0t7if1tr8u54" path="res://assets/sound/sfx/menu/page_flip_2.wav" id="3_6jvwm"]
 [ext_resource type="SpriteFrames" uid="uid://bb15vl3md5u26" path="res://assets/images/sequences/guide_frames.tres" id="3_gm58d"]
-[ext_resource type="AudioStream" uid="uid://wlx03rsc84jn" path="res://assets/sound/sfx/page_flip_3.wav" id="4_1gfmh"]
+[ext_resource type="AudioStream" uid="uid://wlx03rsc84jn" path="res://assets/sound/sfx/menu/page_flip_3.wav" id="4_1gfmh"]
 [ext_resource type="Texture2D" uid="uid://dasdpddv8iqlt" path="res://assets/images/characters/chef/Chef_idlesting_L.png" id="5_awclv"]
 [ext_resource type="Texture2D" uid="uid://r5a02tic3xl2" path="res://assets/images/graphics/menu/help/page_mask.png" id="5_by1f3"]
 

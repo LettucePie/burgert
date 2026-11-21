@@ -14,8 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://cjrx203ylout1" path="res://third-party/opengameart.org/typewrite/click64.wav" id="8_jtguk"]
 [ext_resource type="AudioStream" uid="uid://bgln5p6nniw5y" path="res://third-party/opengameart.org/typewrite/click85.wav" id="9_el8ti"]
 [ext_resource type="AudioStream" uid="uid://bn7lt6v1f20tr" path="res://third-party/opengameart.org/fireball.wav" id="10_k4cm6"]
-[ext_resource type="AudioStream" uid="uid://dia3kp00j65g5" path="res://assets/sound/sfx/throw_1.wav" id="12_nd8g6"]
-[ext_resource type="AudioStream" uid="uid://cemwghsevvjut" path="res://assets/sound/sfx/announce/impact.wav" id="13_f1fxm"]
+[ext_resource type="AudioStream" uid="uid://dia3kp00j65g5" path="res://assets/sound/sfx/game/throw_1.wav" id="12_nd8g6"]
+[ext_resource type="AudioStream" uid="uid://cemwghsevvjut" path="res://assets/sound/sfx/game/announce/impact.wav" id="13_f1fxm"]
 [ext_resource type="AudioStream" uid="uid://cniqex75671fq" path="res://third-party/opengameart.org/fireball_reversed.wav" id="14_kya6c"]
 
 [sub_resource type="Animation" id="Animation_k1xdu"]

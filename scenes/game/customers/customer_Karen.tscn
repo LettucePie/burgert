@@ -4,9 +4,9 @@
 [ext_resource type="AnimationLibrary" uid="uid://dflhdwynqrjmq" path="res://assets/animation/customers/karen_animlib.res" id="2_4r0sl"]
 [ext_resource type="Resource" uid="uid://ca04jwsafmhhc" path="res://assets/data/schedules/Karen_schedule.tres" id="2_q4y7n"]
 [ext_resource type="SpriteFrames" uid="uid://btm5thc8t56mw" path="res://assets/images/characters/customers/customer_Karen_spriteframes.tres" id="3_4o1ic"]
-[ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/Voice/Doot_1.wav" id="4_47me5"]
-[ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/Voice/Doot_4.wav" id="5_rk2xr"]
-[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/Voice/Doot_3.wav" id="6_uyusu"]
+[ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/game/characters/Voice/Doot_1.wav" id="4_47me5"]
+[ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/game/characters/Voice/Doot_4.wav" id="5_rk2xr"]
+[ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="6_uyusu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kq22m"]
 viewport_path = NodePath(".")

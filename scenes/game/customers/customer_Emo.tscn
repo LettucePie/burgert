@@ -4,9 +4,9 @@
 [ext_resource type="AnimationLibrary" uid="uid://duh0ugvp1ls1y" path="res://assets/animation/customers/emo_animlib.res" id="2_0ie3v"]
 [ext_resource type="Resource" uid="uid://drgj1d1e5t5py" path="res://assets/data/schedules/Emo_schedule.tres" id="2_u3awu"]
 [ext_resource type="SpriteFrames" uid="uid://be3tqdut6e5lp" path="res://assets/images/characters/customers/customer_Emo_spriteframes.tres" id="3_316rr"]
-[ext_resource type="AudioStream" uid="uid://ibo4e6md2u5l" path="res://assets/sound/sfx/Voice/Doot_14.wav" id="4_hod5a"]
-[ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/Voice/Doot_15.wav" id="5_xdv34"]
-[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="6_hl83t"]
+[ext_resource type="AudioStream" uid="uid://ibo4e6md2u5l" path="res://assets/sound/sfx/game/characters/Voice/Doot_14.wav" id="4_hod5a"]
+[ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/game/characters/Voice/Doot_15.wav" id="5_xdv34"]
+[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/game/characters/Voice/Doot_12.wav" id="6_hl83t"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_umyo3"]
 viewport_path = NodePath(".")

@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_f3ox2"]
 [ext_resource type="SpriteFrames" uid="uid://cbgxmv8q24lld" path="res://assets/images/characters/customers/customer_brandon_spriteframes.tres" id="2_gyl4l"]
 [ext_resource type="Resource" uid="uid://baf28jvlg8amo" path="res://assets/data/schedules/Brandon_schedule.tres" id="2_rsnaf"]
-[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/Voice/Doot_12.wav" id="3_45cqo"]
-[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/Voice/Doot_11.wav" id="4_x3r8s"]
-[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/Voice/Doot_10.wav" id="5_f0efv"]
+[ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/game/characters/Voice/Doot_12.wav" id="3_45cqo"]
+[ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/game/characters/Voice/Doot_11.wav" id="4_x3r8s"]
+[ext_resource type="AudioStream" uid="uid://ceh87evyvqe3o" path="res://assets/sound/sfx/game/characters/Voice/Doot_10.wav" id="5_f0efv"]
 
 [sub_resource type="Animation" id="Animation_s81vx"]
 length = 0.001
