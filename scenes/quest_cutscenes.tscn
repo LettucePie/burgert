@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=3 uid="uid://b84f6lp85tde8"]
+
+[ext_resource type="Script" path="res://scenes/quest_cutscenes.gd" id="1_h64cq"]
+[ext_resource type="Texture2D" uid="uid://bq7xna01bov4h" path="res://assets/images/sequences/space.png" id="2_qqxq1"]
+[ext_resource type="Texture2D" uid="uid://cimmq03a45a5p" path="res://assets/images/sequences/restaurant_outside_building_only.png" id="3_0ywtj"]
+[ext_resource type="Texture2D" uid="uid://doluhhj6e5emi" path="res://assets/images/sequences/restaurant_outside_sign_only.png" id="4_6xqs6"]
+
+[sub_resource type="Animation" id="Animation_o418f"]
+resource_name = "scene_1"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space/restaurant:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.83333, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(33.5887, 16.4001), Vector2(37.0093, 17.3866), Vector2(36.032, 15.9069), Vector2(38.9639, 16.8933), Vector2(33.5887, 16.4001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("space/sign:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.46667, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-69.5186, -65.9703), Vector2(-68.5412, -64.9839), Vector2(-67.5639, -69.423), Vector2(-69.5186, -65.9703)]
+}
+
+[sub_resource type="Animation" id="Animation_j1ndl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space/restaurant:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33.5887, 16.4001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("space/sign:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-69.5186, -65.9703)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oheuq"]
+_data = {
+"RESET": SubResource("Animation_j1ndl"),
+"scene_1": SubResource("Animation_o418f")
+}
+
+[node name="QuestCutscenes" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_h64cq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oheuq")
+}
+autoplay = "scene_1"
+
+[node name="space" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(320.264, 239.75)
+scale = Vector2(2.04641, 2.02743)
+texture = ExtResource("2_qqxq1")
+region_enabled = true
+region_rect = Rect2(0, 0, 313, 237)
+
+[node name="restaurant" type="Sprite2D" parent="space"]
+position = Vector2(33.5887, 16.4001)
+texture = ExtResource("3_0ywtj")
+
+[node name="sign" type="Sprite2D" parent="space"]
+position = Vector2(-69.5186, -65.9703)
+texture = ExtResource("4_6xqs6")
