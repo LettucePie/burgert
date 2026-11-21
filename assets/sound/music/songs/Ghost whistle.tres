@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://dduwexcxehkg5"]
 
 [ext_resource type="Script" path="res://classes/song.gd" id="1_y2eei"]
-[ext_resource type="AudioStream" uid="uid://dgau8pjmccku0" path="res://assets/sound/music/tracks/Ghost whistle.mp3" id="2_iofty"]
+[ext_resource type="AudioStream" uid="uid://t4428vrdcjfl" path="res://assets/sound/music/tracks_v2/Ghost whistle.mp3" id="2_plsny"]
 
 [resource]
 script = ExtResource("1_y2eei")
-track = ExtResource("2_iofty")
+track = ExtResource("2_plsny")
 title = "Cheesed to meet you"
 artist = "SC00T3R"
 crossfade = true

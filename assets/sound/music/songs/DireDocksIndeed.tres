@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://b5o7uraf54eyy"]
 
 [ext_resource type="Script" path="res://classes/song.gd" id="1_8jn51"]
-[ext_resource type="AudioStream" uid="uid://bq7xeini8tu45" path="res://assets/sound/music/tracks/DireDocksIndeed.mp3" id="2_v21lj"]
+[ext_resource type="AudioStream" uid="uid://o51jst2hahtg" path="res://assets/sound/music/tracks_v2/DireDocksIndeed.mp3" id="2_b2kie"]
 
 [resource]
 script = ExtResource("1_8jn51")
-track = ExtResource("2_v21lj")
+track = ExtResource("2_b2kie")
 title = "set sail for the sunset"
 artist = "tomato&smoke"
+crossfade = true
+shop_level = 0
+store_cost = 49

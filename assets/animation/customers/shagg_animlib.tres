@@ -1,6 +1,6 @@
 [gd_resource type="AnimationLibrary" load_steps=12 format=3 uid="uid://cmxb5hi3ksa0d"]
 
-[ext_resource type="AudioStream" uid="uid://bnf7je3se2di2" path="res://assets/sound/sfx/game/characters/Voice/Doot_6_uhh.wav" id="1_v5q8l"]
+[ext_resource type="AudioStream" uid="uid://bnf7je3se2di2" path="res://assets/sound/sfx/game/characters/Voice/Doot_6_uhh.wav" id="1_xnxu8"]
 
 [sub_resource type="Animation" id="Animation_kcgmy"]
 length = 0.001
@@ -966,7 +966,7 @@ tracks/12/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("1_v5q8l")
+"stream": ExtResource("1_xnxu8")
 }],
 "times": PackedFloat32Array(0.8)
 }
