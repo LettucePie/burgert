@@ -17,14 +17,18 @@ var scene_playwrite : PackedStringArray = [
 	"hold",
 	"hold",
 	"hold",
-	"scene_2"
+	"scene_2",
+	"scene_3",
+	"scene_4"
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
 	"text_1",
 	"text_2",
 	"text_3",
-	"text_4"
+	"text_4",
+	"text_5",
+	"text_6"
 ]
 var announces : PackedStringArray = [
 	"",
@@ -33,7 +37,10 @@ var announces : PackedStringArray = [
 var dialogs : PackedStringArray = [
 	"",
 	"Gramps: Has anyone seen the mayo? I don't normally like it but I’ve got the taste for it.",
-	"Gramps: Oh there it is..."
+	"Gramps: Oh there it is...",
+	"Gramps: Can't read the date on here anymore...",
+	"Gramps: *sniff sniff*",
+	"Gramps: OH WELL! If I die, I die."
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
