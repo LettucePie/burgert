@@ -4,8 +4,13 @@ class_name IntroSplash
 signal intro_splash_fading
 
 
-func _ready() -> void:
+func _ready():
+	hide()
+
+
+func play_intro():
 	self.show()
+	frame = 0
 	play("no_ai")
 	$AudioStreamPlayer.play()
 

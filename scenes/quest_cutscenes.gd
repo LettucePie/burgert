@@ -1,6 +1,8 @@
 extends Node2D
 class_name QuestCutscenes
 
+signal exit_cutscene()
+
 @onready var anim_scene : AnimationPlayer = $AnimationPlayer
 @onready var space : Sprite2D = $space
 ##
@@ -20,7 +22,7 @@ class_name QuestCutscenes
 ]
 var current_voice_bank_L : int = 0
 var current_voice_bank_R : int = 1
-
+##
 var page : int = -1
 var scene_playwrite : PackedStringArray = [
 	"scene_1",
@@ -34,6 +36,7 @@ var scene_playwrite : PackedStringArray = [
 	"hold",
 	"hold",
 	"scene_6",
+	"exit"
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
@@ -47,6 +50,7 @@ var text_playwrite : PackedStringArray = [
 	"text_8",
 	"pause_long",
 	"pause_hold",
+	"exit"
 ]
 var announces : PackedStringArray = [
 	"",
@@ -69,7 +73,19 @@ var char_count_R : int = 0
 
 func _ready() -> void:
 	page = -1
-	advance_page()
+	if get_window() == self:
+		advance_page()
+	else:
+		hide()
+
+
+func play_cutscene(id : int) -> void:
+	if id == 0:
+		page = -1
+		show()
+		anim_scene.play("start")
+		anim_text.play("start")
+		advance_page()
 
 
 func advance_page() -> void:
@@ -79,7 +95,7 @@ func advance_page() -> void:
 	text_speed = 1.0
 	char_count_L = 0
 	char_count_R = 0
-	if scene_playwrite[page].contains("scene"):
+	if !scene_playwrite[page].contains("hold"):
 		anim_scene.play(scene_playwrite[page])
 	anim_text.play(text_playwrite[page])
 
@@ -133,8 +149,9 @@ func _process_text() -> void:
 
 
 func _process(delta: float) -> void:
-	space.region_rect.position.x += space_speed * delta
-	_process_text()
+	if visible:
+		space.region_rect.position.x += space_speed * delta
+		_process_text()
 
 
 func populate_announce(idx : int) -> void:

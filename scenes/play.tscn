@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=62 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/menus/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -52,6 +52,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
 [ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
 [ext_resource type="AudioStream" uid="uid://br2f1hn6v4ug8" path="res://assets/sound/sfx/menu/patty_fry_sound_with_spatula.wav" id="40_rdbmm"]
+[ext_resource type="PackedScene" uid="uid://b84f6lp85tde8" path="res://scenes/quest_cutscenes.tscn" id="53_l4hev"]
 
 [sub_resource type="Animation" id="Animation_ffduw"]
 length = 0.001
@@ -227,13 +228,15 @@ _data = {
 "start_play": SubResource("Animation_occq5")
 }
 
-[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang")]
+[node name="Play" type="Node" node_paths=PackedStringArray("game_scene", "main_menu", "music", "multi_lang", "intro_splash", "quest_cutscenes")]
 process_mode = 3
 script = ExtResource("1_j8n80")
 game_scene = NodePath("Game")
 main_menu = NodePath("MainMenu")
 music = NodePath("Music")
 multi_lang = NodePath("MultiLang")
+intro_splash = NodePath("intro_splash")
+quest_cutscenes = NodePath("QuestCutscenes")
 audio_bus = ExtResource("2_tutvg")
 container_scene = ExtResource("3_7qtb8")
 
@@ -277,6 +280,8 @@ script = ExtResource("40_igmts")
 stream = ExtResource("40_rdbmm")
 bus = &"SFX"
 
+[node name="QuestCutscenes" parent="." instance=ExtResource("53_l4hev")]
+
 [connection signal="finished_order" from="Game" to="." method="_on_game_finished_order"]
 [connection signal="game_finished" from="Game" to="." method="_on_game_game_finished"]
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
@@ -294,3 +299,4 @@ bus = &"SFX"
 [connection signal="animation_finished" from="intro_splash" to="intro_splash" method="_on_animation_finished"]
 [connection signal="frame_changed" from="intro_splash" to="intro_splash" method="_on_frame_changed"]
 [connection signal="intro_splash_fading" from="intro_splash" to="." method="_on_intro_splash_intro_splash_fading"]
+[connection signal="exit_cutscene" from="QuestCutscenes" to="." method="_on_quest_cutscenes_exit_cutscene"]

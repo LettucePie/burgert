@@ -6,6 +6,8 @@ class_name Play
 @export var main_menu : MainMenu
 @export var music : Music
 @export var multi_lang : MultiLang
+@export var intro_splash : IntroSplash
+@export var quest_cutscenes : QuestCutscenes
 ##-----------
 @export var audio_bus : AudioBusLayout
 @export var container_scene : PackedScene
@@ -440,6 +442,7 @@ func _load_stats():
 			stats.set_jukebox_playlist(data["jukebox_playlist"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	stats.customers_in_kitchen = game_scene.kitchen.customers
+	stats_file.close()
 	apply_stats()
 
 
@@ -510,6 +513,11 @@ func _ready():
 	main_menu.records.deposit_to_savings.connect(_on_records_deposit_to_savings)
 	main_menu.records.confirm_deletion.connect(_delete_game_progress)
 	main_menu.main.active = false
+	if stats.get_times_played() > 0:
+		quest_cutscenes.hide()
+		intro_splash.play_intro()
+	else:
+		quest_cutscenes.play_cutscene(0)
 
 
 func _process(delta):
@@ -685,3 +693,9 @@ func _delete_game_progress() -> void:
 	print("Done replacing settings and stats with fresh instances...")
 	print("Restarting Primary Scene now!")
 	get_tree().reload_current_scene()
+
+
+func _on_quest_cutscenes_exit_cutscene() -> void:
+	print("Cutscene Exit")
+	quest_cutscenes.hide()
+	intro_splash.play_intro()
