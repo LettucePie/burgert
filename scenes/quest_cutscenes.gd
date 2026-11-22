@@ -19,7 +19,11 @@ var scene_playwrite : PackedStringArray = [
 	"hold",
 	"scene_2",
 	"scene_3",
-	"scene_4"
+	"scene_4",
+	"scene_5",
+	"hold",
+	"hold",
+	
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
@@ -28,7 +32,11 @@ var text_playwrite : PackedStringArray = [
 	"text_3",
 	"text_4",
 	"text_5",
-	"text_6"
+	"text_6",
+	"text_7",
+	"text_8",
+	"pause_long",
+	
 ]
 var announces : PackedStringArray = [
 	"",
@@ -44,6 +52,7 @@ var dialogs : PackedStringArray = [
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
+var space_speed : float = 1.0
 
 
 func _ready() -> void:
@@ -66,6 +75,10 @@ func finish_text_pause() -> void:
 	text_speed = 1.0
 
 
+func set_space_speed(val : float) -> void:
+	space_speed = val
+
+
 func _process_text() -> void:
 	anim_text.speed_scale = text_speed
 	if Input.is_action_just_pressed("confirm") \
@@ -78,7 +91,7 @@ func _process_text() -> void:
 
 
 func _process(delta: float) -> void:
-	space.region_rect.position.x += delta
+	space.region_rect.position.x += space_speed * delta
 	_process_text()
 
 
