@@ -39,6 +39,24 @@ var unregistered_customers : PackedStringArray = []
 #var first_time_customers : PackedStringArray = []
 
 
+func _ready() -> void:
+	current_score = 0
+	drone_chance = 1.10
+	game_accuracies.clear()
+	game_scores.clear()
+	game_tips.clear()
+	chef.reset_chef()
+	chef.hide()
+	kitchen.clear_kitchen()
+	#kitchen.hide()
+	submit.set_playing(false, 0, 0)
+	submit.assign_chef(chef)
+	results.hide()
+	results.printer_queued = false
+	hud.reset_score()
+	unregistered_customers.clear()
+	$AnimationPlayer.play("menu_mode")
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu") and game_started:
 		hud.show_order(false)
@@ -75,8 +93,10 @@ func start_game():
 	game_accuracies.clear()
 	game_scores.clear()
 	game_tips.clear()
+	chef.show()
 	chef.reset_chef()
 	chef.burger_portal.set_mode_3D(burger_mode_3d)
+	kitchen.show()
 	if !kitchen.kitchen_prepped:
 		kitchen.prep_kitchen()
 	kitchen.customer_burger_portal.set_mode_3D(burger_mode_3d)

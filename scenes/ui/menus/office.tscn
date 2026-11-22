@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c11iqp1ppgjwn"]
+[gd_scene load_steps=15 format=3 uid="uid://c11iqp1ppgjwn"]
 
 [ext_resource type="Texture2D" uid="uid://vsxak5nqydwv" path="res://assets/images/graphics/menu/menu_desk/office_wall.png" id="1_4hug6"]
 [ext_resource type="Script" path="res://scenes/ui/menus/office.gd" id="1_r15cb"]
@@ -7,97 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://3n81fncnkf8i" path="res://assets/images/graphics/menu/menu_desk/desk_page_scribbles1.png" id="3_oorin"]
 [ext_resource type="Texture2D" uid="uid://7vcu1nqmf33b" path="res://assets/images/graphics/menu/menu_desk/menu_desk_windowtrim.png" id="4_hq5f2"]
 [ext_resource type="Texture2D" uid="uid://djnjjot1slux2" path="res://assets/images/graphics/menu/menu_desk/menu_desk_folder.png" id="5_43y5r"]
-[ext_resource type="Texture2D" uid="uid://bykhoysl2rhml" path="res://assets/images/graphics/menu/menu_desk/paper_airplane.png" id="5_re48q"]
 [ext_resource type="Texture2D" uid="uid://db08ohuumqut1" path="res://assets/images/graphics/menu/menu_desk/menu_desk_radio.png" id="6_37t1m"]
 [ext_resource type="Texture2D" uid="uid://1tyqud4klqm8" path="res://assets/images/graphics/menu/menu_desk/menu_desk_wallet.png" id="7_72liy"]
 [ext_resource type="Texture2D" uid="uid://dc8lntohj67a7" path="res://assets/images/graphics/menu/menu_desk/menu_desk_calculator.png" id="7_kb0vi"]
 [ext_resource type="Texture2D" uid="uid://caup7scsud4tv" path="res://assets/images/graphics/menu/menu_desk/menu_desk_stickynote.png" id="8_dfjxs"]
 [ext_resource type="Texture2D" uid="uid://bmseprmgm1wko" path="res://assets/images/graphics/menu/menu_desk/menu_desk_help.png" id="8_odl42"]
-
-[sub_resource type="Animation" id="Animation_brf7n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("random_paper_airplane:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("random_paper_airplane:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-705, -152)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("random_paper_airplane:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_87la2"]
-resource_name = "paper_airplane"
-length = 1.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("random_paper_airplane:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("random_paper_airplane:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667, 0.7, 0.866667, 0.966667, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-705, -152), Vector2(258.333, 79.3889), Vector2(402, 67), Vector2(482, 53), Vector2(543, 53), Vector2(1335, 338)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("random_paper_airplane:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.566667, 0.7, 0.866667, 0.966667, 1.06667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -0.0698132, -0.10472, -0.10472, 0.0349066, 0.0698132]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8mmu"]
-_data = {
-"RESET": SubResource("Animation_brf7n"),
-"paper_airplane": SubResource("Animation_87la2")
-}
 
 [sub_resource type="Gradient" id="Gradient_mij2h"]
 offsets = PackedFloat32Array(0, 0.491071, 0.735119, 0.997024)
@@ -116,11 +30,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r15cb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_n8mmu")
-}
 
 [node name="wall" type="TextureRect" parent="."]
 texture_filter = 1
@@ -361,12 +270,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 texture = ExtResource("8_odl42")
-
-[node name="random_paper_airplane" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-705, -152)
-scale = Vector2(5.125, 5.125)
-texture = ExtResource("5_re48q")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
