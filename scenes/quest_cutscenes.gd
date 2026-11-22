@@ -23,7 +23,7 @@ var scene_playwrite : PackedStringArray = [
 	"scene_5",
 	"hold",
 	"hold",
-	
+	"scene_6",
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
@@ -36,7 +36,7 @@ var text_playwrite : PackedStringArray = [
 	"text_7",
 	"text_8",
 	"pause_long",
-	
+	"pause_hold",
 ]
 var announces : PackedStringArray = [
 	"",
