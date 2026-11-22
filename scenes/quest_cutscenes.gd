@@ -10,6 +10,16 @@ class_name QuestCutscenes
 @onready var profile_picture_right : TextureRect = $Control/Panel/profile_bg_R/profile_picture_R
 @onready var dialog_right : Label = $Control/Panel/dialog_R
 @onready var announce_label : Label = $Control/center_shade/announce
+@onready var audio_L : AudioStreamPlayer2D = $Control/Panel/profile_bg_L/audio_L
+@onready var audio_R : AudioStreamPlayer2D = $Control/Panel/profile_bg_R/audio_R
+@export var voice_libary : Array[AudioStreamWAV] = []
+@onready var voice_banks : Array[PackedInt32Array] = [
+	[0, 1],
+	[0, 2],
+	[0, 2, 3]
+]
+var current_voice_bank_L : int = 0
+var current_voice_bank_R : int = 1
 
 var page : int = -1
 var scene_playwrite : PackedStringArray = [
@@ -53,6 +63,8 @@ var dialogs : PackedStringArray = [
 var text_finished : bool = false
 var text_speed : float = 1.0
 var space_speed : float = 1.0
+var char_count_L : int = 0
+var char_count_R : int = 0
 
 
 func _ready() -> void:
@@ -65,6 +77,8 @@ func advance_page() -> void:
 	page += 1
 	text_finished = false
 	text_speed = 1.0
+	char_count_L = 0
+	char_count_R = 0
 	if scene_playwrite[page].contains("scene"):
 		anim_scene.play(scene_playwrite[page])
 	anim_text.play(text_playwrite[page])
@@ -79,6 +93,26 @@ func set_space_speed(val : float) -> void:
 	space_speed = val
 
 
+func set_voice_bank(side : String, bank : int) -> void:
+	if side == "Left":
+		current_voice_bank_L = bank
+	if side == "Right":
+		current_voice_bank_R = bank
+
+
+func play_voice(side : String) -> void:
+	if side == "Left":
+		var bank : PackedInt32Array = voice_banks[current_voice_bank_L]
+		var vox = bank[randi_range(0, bank.size() - 1)]
+		audio_L.stream = voice_libary[vox]
+		audio_L.play()
+	if side == "Right":
+		var bank : PackedInt32Array = voice_banks[current_voice_bank_R]
+		var vox = bank[randi_range(0, bank.size() - 1)]
+		audio_R.stream = voice_libary[vox]
+		audio_R.play()
+
+
 func _process_text() -> void:
 	anim_text.speed_scale = text_speed
 	if Input.is_action_just_pressed("confirm") \
@@ -88,6 +122,14 @@ func _process_text() -> void:
 			text_speed += 0.5
 		else:
 			advance_page()
+	if dialog_left.visible:
+		if abs(dialog_left.visible_characters - char_count_L) >= 2:
+			char_count_L = dialog_left.visible_characters
+			play_voice("Left")
+	if dialog_right.visible:
+		if abs(dialog_right.visible_characters - char_count_R) >= 2:
+			char_count_R = dialog_left.visible_characters
+			play_voice("Right")
 
 
 func _process(delta: float) -> void:
