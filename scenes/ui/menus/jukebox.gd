@@ -179,6 +179,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_jukebox_vol_update_value(new_val: Variant) -> void:
 	player.volume_db = linear_to_db(new_val / 10.0)
+	_trigger_sfx()
 
 
 func _on_loop_pressed() -> void:
@@ -214,3 +215,7 @@ func _on_player_finished() -> void:
 		player.play()
 		track_timer.start()
 		_update_play_button()
+
+
+func _trigger_sfx() -> void:
+	$sfx.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c6bktnv8pckdn"]
+[gd_scene load_steps=54 format=3 uid="uid://c6bktnv8pckdn"]
 
 [ext_resource type="Theme" uid="uid://c3tnbswc271oo" path="res://assets/theme/theme_customer-dex.tres" id="1_nrhih"]
 [ext_resource type="Script" path="res://scenes/ui/menus/customer_dex.gd" id="2_wglwc"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://c6hqkrewc5umh" path="res://assets/images/graphics/menu/customerdex/customerdex_cheese_2.png" id="34_gtknb"]
 [ext_resource type="SpriteFrames" uid="uid://0eo7ahqtmhx8" path="res://assets/images/graphics/menu/customerdex/page_reveal_spriteframes.tres" id="34_i5vm5"]
 [ext_resource type="Texture2D" uid="uid://cuakdk8l7h031" path="res://assets/models/page_page_render_test.png" id="35_4v0xb"]
+[ext_resource type="AudioStream" uid="uid://0t7if1tr8u54" path="res://assets/sound/sfx/menu/page_flip_2.wav" id="35_6hsbd"]
 [ext_resource type="Texture2D" uid="uid://c7mty3oepjq04" path="res://assets/images/graphics/menu/customerdex/page_corner_marker.png" id="35_v8xod"]
 [ext_resource type="Texture2D" uid="uid://4tirvar6fq33" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_left.png" id="36_nk078"]
 [ext_resource type="Texture2D" uid="uid://5ml3bd3n08ej" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_leftt_underlined.png" id="37_oaplr"]
@@ -49,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://dk7508eo7xxbe" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right.png" id="40_k0i2s"]
 [ext_resource type="Texture2D" uid="uid://cwa8iu4r5ftml" path="res://assets/images/graphics/menu/customerdex/customerdex_arrow_right_underlined.png" id="41_ywawu"]
 [ext_resource type="AnimationLibrary" uid="uid://d1vi251gfqd3y" path="res://assets/animation/customerdex_sheet_animlib.res" id="43_3hg27"]
+[ext_resource type="AudioStream" uid="uid://nxud45jr383a" path="res://assets/sound/sfx/menu/page_flip_4.wav" id="50_ho3lf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lcfjd"]
 atlas = ExtResource("30_b2p22")
@@ -72,6 +74,7 @@ customer_image_unknown = ExtResource("28_1cxe3")
 render_sheet_a = NodePath("render_sheet_a")
 render_sheet_b = NodePath("render_sheet_b")
 sheet_ingredients = Array[Texture2D]([ExtResource("29_sg0mg"), ExtResource("30_1kg2y"), ExtResource("31_3gwsv"), ExtResource("32_rnxse"), ExtResource("33_od62q"), ExtResource("34_gtknb")])
+dex_sounds = Array[AudioStreamWAV]([ExtResource("35_6hsbd"), ExtResource("50_ho3lf")])
 
 [node name="render_sheet_a" type="Sprite2D" parent="."]
 visible = false
@@ -348,9 +351,18 @@ next/throw_2 = &"hide"
 next/throw_3 = &"hide"
 next/throw_4 = &"hide"
 
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_ho3lf")
+volume_db = -4.0
+bus = &"SFX"
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="animation_finished" from="Control/page_reveal" to="." method="_on_page_reveal_animation_finished"]
+[connection signal="focus_entered" from="Control/page_reveal_button" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="Control/page_reveal_button" to="." method="_on_page_reveal_button_pressed"]
+[connection signal="focus_entered" from="Control/controls/prev" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="Control/controls/prev" to="." method="_on_pagebutton_pressed" binds= [-1]]
+[connection signal="focus_entered" from="Control/controls/done" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="Control/controls/done" to="." method="_on_done_pressed"]
+[connection signal="focus_entered" from="Control/controls/next" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="Control/controls/next" to="." method="_on_pagebutton_pressed" binds= [1]]

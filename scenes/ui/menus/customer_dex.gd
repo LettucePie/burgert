@@ -136,6 +136,7 @@ var focused_button : TextureButton = null
 @onready var current_viewport : Viewport = get_window()
 @export var sheet_ingredients : Array[Texture2D] = []
 @onready var sheet_ingredient : Sprite2D = $sheet_ingredient
+@export var dex_sounds : Array[AudioStreamWAV] = []
 
 var current_page : int = 0
 var customer_stats : Array[Play.Stats.CustomerStat] = []
@@ -237,6 +238,8 @@ func _on_pagebutton_pressed(dir: int) -> void:
 		new_val = customer_names_internal.size() - 1
 	_move_sheet(dir)
 	_load_page(new_val)
+	$sfx.stream = dex_sounds[1]
+	$sfx.play()
 
 
 func _load_page(target : int):
@@ -324,3 +327,8 @@ func _on_visibility_changed() -> void:
 func set_random_sheet_ingredient() -> void:
 	sheet_ingredient.texture = sheet_ingredients.pick_random()
 	sheet_ingredient.rotation = randf_range(0, PI * 2)
+
+
+func _trigger_sfx() -> void:
+	$sfx.stream = dex_sounds[0]
+	$sfx.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cecupkfcj6mv6"]
+[gd_scene load_steps=49 format=3 uid="uid://cecupkfcj6mv6"]
 
 [ext_resource type="Texture2D" uid="uid://ci6rjugu7s040" path="res://assets/images/graphics/menu/jukebox/jukebox_interface_base.png" id="1_a0fdn"]
 [ext_resource type="Theme" uid="uid://d2q6iq8cwc67v" path="res://assets/theme/jukebox_theme.tres" id="1_h1ud8"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://462mxd31g6v5" path="res://assets/images/graphics/menu/jukebox/loop_off.png" id="30_fmri3"]
 [ext_resource type="Texture2D" uid="uid://cukr7wago3rt2" path="res://assets/images/graphics/menu/jukebox/loop_on_hover.png" id="31_l35ev"]
 [ext_resource type="Texture2D" uid="uid://b2pwitc4g01eg" path="res://assets/images/graphics/menu/jukebox/loop_off_hover.png" id="32_0tcnn"]
+[ext_resource type="AudioStream" uid="uid://ci1tt4bkp06j5" path="res://third-party/opengameart.org/typewrite/click2.wav" id="33_kenwy"]
 [ext_resource type="Texture2D" uid="uid://dlseyfvlyl63b" path="res://assets/images/graphics/menu/jukebox/shuffle_off.png" id="33_shvqd"]
 [ext_resource type="Texture2D" uid="uid://xk6p4ju5vpgy" path="res://assets/images/graphics/menu/jukebox/shuffle_on_hover.png" id="34_tqhcu"]
 [ext_resource type="Texture2D" uid="uid://uf075h0rlgig" path="res://assets/images/graphics/menu/jukebox/shuffle_off_hover.png" id="35_ajqae"]
@@ -1157,15 +1158,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="track_time" type="Timer" parent="."]
 
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_kenwy")
+bus = &"SFX"
+
 [connection signal="finished" from="Player" to="." method="_on_player_finished"]
+[connection signal="focus_entered" from="controls/prev" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="controls/prev" to="." method="_on_prev_pressed"]
+[connection signal="focus_entered" from="controls/play" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="controls/play" to="." method="_on_play_pressed"]
+[connection signal="focus_entered" from="controls/next" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="controls/next" to="." method="_on_next_pressed"]
+[connection signal="focus_entered" from="stop" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
 [connection signal="focus_entered" from="jukebox_vol" to="jukebox_vol" method="_on_focus_entered"]
 [connection signal="focus_exited" from="jukebox_vol" to="jukebox_vol" method="_on_focus_exited"]
 [connection signal="update_value" from="jukebox_vol" to="." method="_on_jukebox_vol_update_value"]
 [connection signal="drag_ended" from="jukebox_vol/HSlider" to="jukebox_vol" method="_on_volslider_drag_ended" binds= ["mus"]]
+[connection signal="focus_entered" from="loop" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="loop" to="." method="_on_loop_pressed"]
+[connection signal="focus_entered" from="shuffle" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]
 [connection signal="timeout" from="track_time" to="." method="_on_player_finished"]
