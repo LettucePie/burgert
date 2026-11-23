@@ -343,17 +343,17 @@ func _on_chef_trashing_stopped() -> void:
 
 func _on_kitchen_a_struck_interactive_target(id : int) -> void:
 	if id == 0: ## Janitor Bot
-		current_score -= 100
+		current_score -= 80
 		hud.set_score(current_score)
 		kitchen.interactive_targets[id].get_hit()
 		hud.oink_popup()
 	if id == 1: ## Drone
-		current_score += 80
+		current_score += 50
 		hud.set_score(current_score)
 		kitchen.interactive_targets[id].get_hit()
 
 
 func _on_kitchen_a_drone_stole_loot() -> void:
-	current_score -= 80
+	current_score -= 50
 	hud.set_score(current_score)
 	hud.oink_popup()
