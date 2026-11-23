@@ -250,3 +250,7 @@ func _on_cancel_deletion_pressed() -> void:
 func _on_confirm_deletion_pressed() -> void:
 	_set_records_buttons_disabled(false)
 	anim.play("deletion")
+
+
+func _trigger_sfx() -> void:
+	$records_page/sfx.play()
