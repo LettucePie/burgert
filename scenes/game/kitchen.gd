@@ -29,6 +29,8 @@ var kitchen_prepped : bool = false
 var handling_drone_event : bool = false
 @export var kitchen_objects : Array[AtlasTexture] = []
 @onready var kitchen_object : Sprite2D = $foreground/kitchen_object_corner
+@onready var throw_riff_player : AudioStreamPlayer = $throw_riffs
+@export var throw_riffs : Array[AudioStreamWAV] = []
 @export var TEST_CUSTOMER : Customer = null
 
 
@@ -210,10 +212,12 @@ func play_splat(pos : Vector2, anim : String, charged : bool):
 	splat.show()
 	splat.play(anim)
 	splat.get_child(0).play()
-	if charged:
-		var interactive_hit = check_interactive_targets(pos)
-		if interactive_hit != self:
-			emit_signal("struck_interactive_target", interactive_targets.find(interactive_hit))
+	var interactive_hit = check_interactive_targets(pos)
+	if charged and interactive_hit != self:
+		emit_signal("struck_interactive_target", interactive_targets.find(interactive_hit))
+		_play_throw_riff(1)
+	else:
+		_play_throw_riff(0)
 
 
 func _on_splat_animation_finished():
@@ -258,3 +262,11 @@ func _on_drone_drone_finished() -> void:
 	if next_customer.status == Customer.CUSTOMER_STATE.Gone\
 	and current_customer.status > 0:
 		next_customer.set_state(Customer.CUSTOMER_STATE.Entering)
+
+
+func _play_throw_riff(idx : int) -> void:
+	if idx < 0:
+		throw_riff_player.stream = throw_riffs.pick_random()
+	else:
+		throw_riff_player.stream = throw_riffs[idx]
+	throw_riff_player.play()

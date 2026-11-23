@@ -269,6 +269,12 @@ func _throw_burger_2d_at(target : Vector2) -> void:
 func _on_burger_2d_reached_target(target) -> void:
 	if submit.check_customer(kitchen.current_customer):
 		assess_submission()
+		kitchen._play_throw_riff(randi_range(1, 2))
+	#elif kitchen.next_customer != null:
+		#if submit.check_customer(kitchen.next_customer):
+			#pass
+			### Feature
+			### Hitting customers in queue and they leave.
 	else:
 		var splat_anim : String = "splat"
 		if chef.current_burger.ingredients.size() == 0:
