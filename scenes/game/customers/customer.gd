@@ -16,6 +16,7 @@ signal kitchen_switch(target)
 @export var schedule : Schedule = null
 @onready var sound_player : AudioStreamPlayer2D = $character/AudioStreamPlayer2D
 @onready var jitter_dialog : JitterDialog = $character/AudioStreamPlayer2D/JitterDialog
+@onready var character : AnimatedSprite2D = $character
 @onready var left_area : Marker2D = $character/Left
 @onready var right_area : Marker2D = $character/Right
 #@onready var munch : Munch = $character/munch
@@ -97,3 +98,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _process(delta: float) -> void:
 	z_index = current_customer
+
+
+func flee() -> void:
+	if status != CUSTOMER_STATE.Gone:
+		var pos_x : float = character.position.x
+		var target : Vector2 = Vector2(-300.0, character.position.y)
+		if pos_x > 320:
+			target.x = 940.0
+		var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
+		tween.tween_property(character, "position", target, 0.36)
+		

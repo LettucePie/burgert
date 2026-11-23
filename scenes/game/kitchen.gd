@@ -270,3 +270,11 @@ func _play_throw_riff(idx : int) -> void:
 	else:
 		throw_riff_player.stream = throw_riffs[idx]
 	throw_riff_player.play()
+
+
+func everyone_flee() -> void:
+	if current_customer != null:
+		current_customer.flee()
+	if next_customer != null:
+		next_customer.flee()
+		
