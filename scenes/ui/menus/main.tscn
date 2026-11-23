@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bs635osy3t6" path="res://assets/images/graphics/menu/main/menu_sandwhich_meat.png" id="9_oagvs"]
 [ext_resource type="AudioStream" uid="uid://dj570bpntnit7" path="res://assets/sound/sfx/menu/fwip_3.wav" id="10_bquch"]
 [ext_resource type="Texture2D" uid="uid://d30fcprmtv32l" path="res://publishing/burgert_title_logo_shaded.png" id="11_mm0ww"]
-[ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/menu/Quick record scratch_FOR MENU.wav" id="11_ncpqt"]
+[ext_resource type="AudioStream" uid="uid://daemxh1xhv8cs" path="res://assets/sound/sfx/menu/record_scratch_4.wav" id="11_ncpqt"]
 [ext_resource type="Texture2D" uid="uid://2blmparol5om" path="res://assets/images/graphics/menu/menu_desk/dollar.png" id="12_acsjk"]
 [ext_resource type="Texture2D" uid="uid://vsoy7n5hbnde" path="res://assets/images/graphics/menu/menu_desk/pencil.png" id="12_ejoqd"]
 [ext_resource type="Script" path="res://scenes/ui/menus/rando_deco.gd" id="13_7cm6f"]

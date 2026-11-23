@@ -3,8 +3,8 @@
 [ext_resource type="LabelSettings" uid="uid://cmxx3kcd4lvrr" path="res://assets/theme/fonts/smaller_labelsettings.tres" id="1_bikxg"]
 [ext_resource type="Script" path="res://scenes/ui/menus/credits.gd" id="1_kr7ig"]
 [ext_resource type="Texture2D" uid="uid://w1e0q1eyvmg" path="res://assets/images/graphics/menu/credits/credit_paper.png" id="2_v7sa6"]
-[ext_resource type="AudioStream" uid="uid://c7elti668wy73" path="res://assets/sound/sfx/menu/record_scratches/2.wav" id="3_jdlo5"]
-[ext_resource type="AudioStream" uid="uid://c0dpi3wiimgu5" path="res://assets/sound/sfx/menu/record_scratches/1.wav" id="4_dvqj5"]
+[ext_resource type="AudioStream" uid="uid://c7elti668wy73" path="res://assets/sound/sfx/menu/record_scratch_2.wav" id="3_jdlo5"]
+[ext_resource type="AudioStream" uid="uid://c0dpi3wiimgu5" path="res://assets/sound/sfx/menu/record_scratch_1.wav" id="4_dvqj5"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
