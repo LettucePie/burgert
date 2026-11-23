@@ -46,8 +46,11 @@ func set_state(new_state : STATE):
 			anim.play("resume_play")
 	if new_state == STATE.RESULTS:
 		if current_state == STATE.PLAY:
-			current_song = silent_song
-			anim.stop()
+			current_song = results_song
+			#anim.stop()
+			#volume_db = 0
+			audio_timer.stop()
+			anim.play("resume_play")
 			#stream = silent_song.track
 			stream = results_song.track
 			play()
@@ -78,6 +81,10 @@ func set_track_random():
 func _on_finished():
 	if !muted:
 		anim.play("queue_next")
+		#if current_state != STATE.RESULTS:
+			#anim.play("queue_next")
+		#else:
+			#play()
 
 
 func capture_playback_time():
