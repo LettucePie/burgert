@@ -26,6 +26,7 @@ const MOVE_SPEED = 10
 @onready var grab_right : Vector2 = $right_pos.position
 @onready var sfx : AudioStreamPlayer2D = $sfx
 @export var trash_sfx : AudioStreamWAV = null
+@export var charge_up_sfx : AudioStreamWAV = null
 
 var active : bool = true
 var idle_counter : int = 0
@@ -165,6 +166,9 @@ func process_submission(delta):
 			charging_rate_min,
 			charging_rate_max
 		)
+		if !sfx.playing:
+			sfx.stream = charge_up_sfx
+			sfx.play()
 	else:
 		charging_rate = clampf(
 			charging_rate - charging_speed * delta,
@@ -183,12 +187,14 @@ func process_submission(delta):
 		state_machine.travel("Throw_" + direction)
 		charging_rate = charging_rate_min
 		idle_counter = 0
+		sfx.stop()
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
 		burger_thrown = false
 		emit_signal("cancel_burger_submission")
 		state_machine.travel("Idle_" + direction)
+		sfx.stop()
 
 
 func _physics_process(delta):
