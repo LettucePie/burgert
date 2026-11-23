@@ -95,9 +95,10 @@ func advance_page() -> void:
 	text_speed = 1.0
 	char_count_L = 0
 	char_count_R = 0
-	if !scene_playwrite[page].contains("hold"):
-		anim_scene.play(scene_playwrite[page])
-	anim_text.play(text_playwrite[page])
+	if page <= scene_playwrite.size() - 1:
+		if !scene_playwrite[page].contains("hold"):
+			anim_scene.play(scene_playwrite[page])
+		anim_text.play(text_playwrite[page])
 
 
 func finish_text_pause() -> void:
