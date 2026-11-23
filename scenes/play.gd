@@ -499,6 +499,7 @@ func _ready():
 	if OS.has_feature("portmaster"):
 		_clear_joypad_inputs()
 	if OS.has_feature("mobile") and !adopted:
+		print("Adopting Touchscreen")
 		container = container_scene.instantiate()
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
@@ -518,6 +519,7 @@ func _ready():
 		intro_splash.play_intro()
 	else:
 		quest_cutscenes.play_cutscene(0)
+		music.set_state(Music.STATE.CUTSCENE)
 
 
 func _process(delta):
@@ -675,6 +677,7 @@ func _on_music_shop_level_marked(lvl : int) -> void:
 
 func _on_intro_splash_intro_splash_fading() -> void:
 	main_menu.main.active = true
+	music.set_state(Music.STATE.MENU)
 	music.anim.play("intro_ramp")
 
 
@@ -692,7 +695,9 @@ func _delete_game_progress() -> void:
 	_default_stats()
 	print("Done replacing settings and stats with fresh instances...")
 	print("Restarting Primary Scene now!")
-	get_tree().reload_current_scene()
+	if adopted:
+		get_tree().quit()
+	get_tree().call_deferred("reload_current_scene")
 
 
 func _on_quest_cutscenes_exit_cutscene() -> void:

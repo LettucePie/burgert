@@ -13,7 +13,7 @@ var jukebox_playlist : PackedInt32Array = [2, 3, 5, 8, 11, 12]
 @export var results_song : Song
 
 @onready var anim : AnimationPlayer = $anim
-enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS, RADIO}
+enum STATE {MENU, PLAY, PAUSE, PREVIEW, RESULTS, RADIO, CUTSCENE}
 var current_state : STATE = STATE.MENU
 var current_song : Song = null
 var max_volume_db : float = 1.0
