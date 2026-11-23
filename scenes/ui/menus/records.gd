@@ -253,4 +253,7 @@ func _on_confirm_deletion_pressed() -> void:
 
 
 func _trigger_sfx() -> void:
-	$records_page/sfx.play()
+	if records_page.visible:
+		$records_page/sfx.play()
+	elif savings_transfer.visible:
+		$savings_transfer/sfx.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://74a6r632y6fd"]
+[gd_scene load_steps=50 format=3 uid="uid://74a6r632y6fd"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/records.gd" id="1_k638m"]
 [ext_resource type="AudioStream" uid="uid://c0of8ph3fsa0i" path="res://assets/sound/sfx/game/01-various_doots.wav" id="2_8jpgs"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dj6n5dbujm0e8" path="res://assets/images/graphics/menu/menu_desk/digital_planner/submit_arrow_disabled_atlastexture.tres" id="25_j1fae"]
 [ext_resource type="Theme" uid="uid://bsdam6lp4cvjn" path="res://assets/theme/serious_theme.tres" id="33_ksawn"]
 [ext_resource type="AudioStream" uid="uid://w1m8tbn6d57o" path="res://assets/sound/sfx/menu/scratch.wav" id="34_nwhvh"]
+[ext_resource type="AudioStream" uid="uid://ybpw5x0ooydh" path="res://third-party/opengameart.org/typewrite/click45.wav" id="34_ya0dj"]
 
 [sub_resource type="Curve" id="Curve_lj7i4"]
 min_value = 0.2
@@ -1185,7 +1186,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="counter" type="TextureRect" parent="savings_transfer"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.5125
@@ -1379,6 +1379,11 @@ stream = ExtResource("20_df6q3")
 volume_db = 1.5
 bus = &"SFX"
 
+[node name="sfx" type="AudioStreamPlayer" parent="savings_transfer"]
+stream = ExtResource("34_ya0dj")
+volume_db = -4.0
+bus = &"SFX"
+
 [node name="deletion" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -1479,9 +1484,13 @@ size_flags_stretch_ratio = 0.76
 [connection signal="finished" from="savings_transfer/oink/oink_sfx" to="." method="_on_oink_sfx_finished"]
 [connection signal="button_down" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [-1]]
 [connection signal="button_up" from="savings_transfer/counter/teller/minus" to="." method="_adjust_transfer_amount" binds= [0]]
+[connection signal="focus_entered" from="savings_transfer/counter/teller/minus" to="." method="_trigger_sfx"]
 [connection signal="button_down" from="savings_transfer/counter/teller/add" to="." method="_adjust_transfer_amount" binds= [1]]
 [connection signal="button_up" from="savings_transfer/counter/teller/add" to="." method="_adjust_transfer_amount" binds= [0]]
+[connection signal="focus_entered" from="savings_transfer/counter/teller/add" to="." method="_trigger_sfx"]
+[connection signal="focus_entered" from="savings_transfer/counter/approve/cancel" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="savings_transfer/counter/approve/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="focus_entered" from="savings_transfer/counter/approve/submit" to="." method="_trigger_sfx"]
 [connection signal="pressed" from="savings_transfer/counter/approve/submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="deletion/VBoxContainer/HBoxContainer/confirm" to="." method="_on_confirm_deletion_pressed"]
 [connection signal="pressed" from="deletion/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_deletion_pressed"]
