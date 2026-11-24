@@ -1,7 +1,9 @@
 extends Control
 class_name Results
 
+@warning_ignore("unused_signal")
 signal finished_results()
+@warning_ignore("unused_signal")
 signal results_revealed()
 
 @onready var order_count : Label = $Panel/ordercount
@@ -144,6 +146,7 @@ func _process_tips() -> void:
 			next_animation_step()
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if spawning_receipts and spawning_receipt_count >= 0:
 		_process_receipts()

@@ -1,6 +1,7 @@
 extends Node
 class_name MultiLang
 
+@warning_ignore("unused_signal")
 signal set_lang(lang)
 
 ## Supported Languages by 639-2 Codes
@@ -57,6 +58,7 @@ func _ready():
 	_check_locale()
 
 
+@warning_ignore("unused_parameter")
 func _process(delta : float):
 	pass
 

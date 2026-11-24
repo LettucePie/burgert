@@ -62,8 +62,8 @@ func _on_game_world_render_gui_input(event):
 
 
 func rescale():
-	var w = 640
-	var h = 480
+	var w = 640.0
+	var h = 480.0
 	var x = get_window().size.x
 	var y = get_window().size.y
 	var multis = [x / w, y / h]
@@ -73,8 +73,8 @@ func rescale():
 		render.position = Vector2.ZERO
 	else:
 		render.scale = Vector2(scale_factor, scale_factor)
-		render.position.x = (x / 2) - ((w * scale_factor) / 2)
-		render.position.y = (y / 2) - ((h * scale_factor) / 2)
+		render.position.x = (x / 2.0) - ((w * scale_factor) / 2.0)
+		render.position.y = (y / 2.0) - ((h * scale_factor) / 2.0)
 
 
 func _on_resized():

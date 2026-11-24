@@ -1,9 +1,13 @@
 extends Node
 class_name Game
 
+@warning_ignore("unused_signal")
 signal game_paused()
+@warning_ignore("unused_signal")
 signal game_finished(final_score : int)
+@warning_ignore("unused_signal")
 signal game_over()
+@warning_ignore("unused_signal")
 signal finished_order(customer_name : String, satisfaction_rank : int)
 
 @export var kitchen : Kitchen
@@ -57,6 +61,7 @@ func _ready() -> void:
 	unregistered_customers.clear()
 	$AnimationPlayer.play("menu_mode")
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	if Input.is_action_just_pressed("menu") and game_started:
 		hud.show_order(false)
@@ -209,7 +214,7 @@ func assess_submission():
 		current_order_charging_rate
 		))
 	charge_throw = snappedf(charge_throw, 0.2)
-	submission_total = (burger_score + time_score) * charge_throw
+	submission_total = roundi((burger_score + time_score) * charge_throw)
 	adjust_score(submission_total)
 	hud.pending_score = submission_total
 	hud.submission_pop.set_order_num(game_scores.size())
@@ -279,7 +284,7 @@ func _on_burger_2d_reached_target(target) -> void:
 		var splat_anim : String = "splat"
 		if chef.current_burger.ingredients.size() == 0:
 			splat_anim = "clang"
-		kitchen.play_splat(submit.get_target_position(), splat_anim, current_order_charging_rate > 1.33)
+		kitchen.play_splat(target, splat_anim, current_order_charging_rate > 1.33)
 	chef.current_burger.refresh_plate()
 	chef.burger_sprite.show()
 	chef.submitting_burger = false

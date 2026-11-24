@@ -1,6 +1,7 @@
 extends Control
 class_name HUD
 
+@warning_ignore("unused_signal")
 signal gui_pause()
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
@@ -192,6 +193,7 @@ func reset_score() -> void:
 	target_score = 0
 
 
+@warning_ignore("unused_parameter")
 func process_scrolling(delta):
 	if Input.is_action_just_pressed("up"): order.scroll_vertical -= 64
 	if Input.is_action_just_pressed("down"): order.scroll_vertical += 64

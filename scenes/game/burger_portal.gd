@@ -33,7 +33,7 @@ func _apply_3d_mode() -> void:
 
 
 func _apply_mode_customer() -> void:
-	burger_render.position = Vector2(512 / 2, 330)
+	burger_render.position = Vector2(512.0 / 2.0, 330)
 
 
 func set_mode_3D(tf : bool) -> void:

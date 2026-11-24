@@ -1,6 +1,7 @@
 extends Node2D
 class_name QuestCutscenes
 
+@warning_ignore("unused_signal")
 signal exit_cutscene()
 
 @onready var anim_scene : AnimationPlayer = $AnimationPlayer
@@ -166,6 +167,7 @@ func populate_dialog(box : String, idx : int) -> void:
 		dialog_right.text = dialogs[idx]
 
 
+@warning_ignore("unused_parameter")
 func _on_anim_text_finished(anim_name: StringName) -> void:
 	text_speed = 1.0
 	text_finished = true

@@ -22,6 +22,7 @@ func _ready():
 		magic_pop.hide()
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta):
 	if magic_pop.visible:
 		magic_pop.rotate(magic_pop_rot_offset)

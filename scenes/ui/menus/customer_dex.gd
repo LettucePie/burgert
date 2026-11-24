@@ -1,6 +1,7 @@
 extends Control
 class_name CustomerDex
 
+@warning_ignore("unused_signal")
 signal close_customerdex
 
 @onready var name_label : Label = $Control/VBoxContainer/name
@@ -292,6 +293,7 @@ func _load_page(target : int):
 	schedule.text = schedule_text
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if description_b.visible_ratio < 1.0:
 		description_b.visible_ratio += 0.018

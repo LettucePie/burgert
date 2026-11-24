@@ -1,8 +1,11 @@
 extends Control
 class_name Records
 
+@warning_ignore("unused_signal")
 signal close_records()
+@warning_ignore("unused_signal")
 signal deposit_to_savings(amount)
+@warning_ignore("unused_signal")
 signal confirm_deletion()
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
@@ -141,14 +144,15 @@ func _apply_transfer_adjustment(scale_idx : int) -> void:
 	amount_str = amount_str.reverse()
 	for label in digits:
 		label.text = "0"
-	for char in amount_str:
-		digits[label_idx].text = char
+	for a_char in amount_str:
+		digits[label_idx].text = a_char
 		label_idx += 1
 	if adjustment != 0:
 		teller_sfx.play()
 		$savings_transfer/counter.rotation = randf_range(-0.1, 0.1)
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if transfer_offset != 0:
 		tick += 1
@@ -220,10 +224,10 @@ func _on_money_stream_animation_finished() -> void:
 	if money_stream.animation == "intro":
 		transferring = true
 		transfer_timestart = Time.get_ticks_msec()
-		transfer_timestop = transfer_timestart + \
-		(6000 * \
+		transfer_timestop = roundi(transfer_timestart + \
+		(6000.0 * \
 		transferring_anim_curve.sample(
-		inverse_lerp(0.0, float(transfer_max), float(transfer_amount))))
+		inverse_lerp(0.0, float(transfer_max), float(transfer_amount)))))
 		oink_sfx.stream = oink_wavs.pick_random()
 		oink_sfx.play()
 		oink.play("oink1")

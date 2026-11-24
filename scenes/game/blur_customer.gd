@@ -34,6 +34,7 @@ func _ready() -> void:
 	initial_dormancy()
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if active:
 		position = position.move_toward(destinations[destination], speed)

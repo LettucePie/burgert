@@ -1,7 +1,9 @@
 extends Control
 class_name SubmissionPop
 
+@warning_ignore("unused_signal")
 signal receipt_fully_popped()
+@warning_ignore("unused_signal")
 signal tip_revealed()
 
 @onready var anim : AnimationPlayer = $AnimationPlayer

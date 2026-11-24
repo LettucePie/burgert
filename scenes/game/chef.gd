@@ -1,14 +1,23 @@
 extends Node2D
 class_name Chef
 
+@warning_ignore("unused_signal")
 signal start_burger_submission()
+@warning_ignore("unused_signal")
 signal cancel_burger_submission()
+@warning_ignore("unused_signal")
 signal submit_burger()
+@warning_ignore("unused_signal")
 signal chef_ready()
+@warning_ignore("unused_signal")
 signal trashing_start()
+@warning_ignore("unused_signal")
 signal trashing_progress(val)
+@warning_ignore("unused_signal")
 signal trashing_stopped()
+@warning_ignore("unused_signal")
 signal grabbed_results_door(obj)
+@warning_ignore("unused_signal")
 signal closed_results_door()
 #signal chef_idle(tf)
 
@@ -99,6 +108,7 @@ func _update_direction(dir : String):
 			grab_area.position = grab_right
 
 
+@warning_ignore("unused_parameter")
 func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("left"):
@@ -121,6 +131,7 @@ func process_movement(delta):
 		anim_tree.set("parameters/conditions/idle_" + direction, true)
 
 
+@warning_ignore("unused_parameter")
 func process_actions(delta):
 	if Input.is_action_just_pressed("confirm"):
 		if current_station != null \

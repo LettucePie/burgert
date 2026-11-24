@@ -1,10 +1,15 @@
 extends Node2D
 class_name Kitchen
 
+@warning_ignore("unused_signal")
 signal customer_ready()
+@warning_ignore("unused_signal")
 signal customer_left()
+@warning_ignore("unused_signal")
 signal customer_reorder(new_order)
+@warning_ignore("unused_signal")
 signal start_timer()
+@warning_ignore("unused_signal")
 signal struck_interactive_target(id)
 
 @export var customer_burger_portal : BurgerPortal
@@ -203,14 +208,14 @@ func _start_timer():
 
 func check_interactive_targets(pos : Vector2) -> Node2D:
 	var result : Node2D = self
-	var range : float = 40.0
+	var tar_range : float = 40.0
 	for it in interactive_targets:
 		if it is JanitorBot:
-			range = 40.0
+			tar_range = 40.0
 		elif it is Drone:
-			range = 74.0
-		if pos.x < (it.position.x + range) \
-		and pos.x > (it.position.x - range):
+			tar_range = 74.0
+		if pos.x < (it.position.x + tar_range) \
+		and pos.x > (it.position.x - tar_range):
 			result = it
 	return result
 

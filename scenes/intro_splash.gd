@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 class_name IntroSplash
 
+@warning_ignore("unused_signal")
 signal intro_splash_fading
 
 

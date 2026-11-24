@@ -1,7 +1,9 @@
 extends AnimatedSprite2D
 class_name Drone
 
+@warning_ignore("unused_signal")
 signal stole_loot()
+@warning_ignore("unused_signal")
 signal drone_finished()
 
 enum State {DORMANT, WALKING, CARRYING, HIT, DEFEATED}
