@@ -243,6 +243,7 @@ func intro_animation_finished():
 func set_active(tf : bool):
 	active = tf
 	if !tf:
+		sfx.stop()
 		trashing = false
 		emit_signal("trashing_stopped")
 
