@@ -18,8 +18,6 @@ signal exit_cutscene()
 @export var voice_libary : Array[AudioStreamWAV] = []
 @onready var voice_banks : Array[PackedInt32Array] = [
 	[0, 1],
-	[0, 2],
-	[0, 2, 3]
 ]
 var current_voice_bank_L : int = 0
 var current_voice_bank_R : int = 1
@@ -36,7 +34,19 @@ var scene_playwrite : PackedStringArray = [
 	"scene_5",
 	"hold",
 	"hold",
-	"scene_6",
+	"scene_6", ## Fade Black
+	"scene_7", ## Reveal Hospital
+	"scene_8", ## Enter Chef
+	"scene_9", ## Grampa starts talking
+	"hold",
+	"hold",
+	"hold",
+	"hold",
+	"hold",
+	"hold",
+	"hold", ## Grampa snores
+	"hold", ## Grampa Stops
+	"scene_10", ## Chef equip and leave
 	"exit"
 ]
 var text_playwrite : PackedStringArray = [
@@ -49,8 +59,20 @@ var text_playwrite : PackedStringArray = [
 	"text_6",
 	"text_7",
 	"text_8",
+	"pause_long", ## Sit on Ambulance
+	"pause_hold", ## Fade Black
 	"pause_long",
-	"pause_hold",
+	"pause_mid",
+	"text_9", ## Grampa in bed
+	"text_10",
+	"text_11",
+	"text_12",
+	"text_13",
+	"text_14",
+	"text_15",
+	"text_16", ## Grampa Snoring
+	"text_17", ## Finish Grampa dialog
+	"pause_hold", ## Chef equip
 	"exit"
 ]
 var announces : PackedStringArray = [
@@ -63,7 +85,15 @@ var dialogs : PackedStringArray = [
 	"Gramps: Oh there it is...",
 	"Gramps: Can't read the date on here anymore...",
 	"Gramps: *sniff sniff*",
-	"Gramps: OH WELL!"
+	"Gramps: OH WELL!",
+	"Gramps: Oh hey ya lil bugger... ya lil... burger...",
+	"Gramps: Listen, I need you to run my restaurant for me while I recover from that horrible mayo botulism... ya burgerr.",
+	"Gramps: I’ll live! Thats the good news... ",
+	"Gramps: The bad news is that this drained my savings. (I may have gambled a lot of money while on all these meds.)",
+	"Gramps: So! That’s why you’re here ya lil burgger. You gotta go serve my regulars, the regulars pay to keep the lights on!",
+	"Gramps: Oh! And protect my stash! Those bookies will send robot burgorls for what’s left of my money!",
+	"Gramps: I know you will do well. You can use the radio, just don’t spend all of the money on your music! Ya sneaky lil bug-... burg-...",
+	"Gramps: My lil burgert"
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
@@ -131,22 +161,24 @@ func play_voice(side : String) -> void:
 		audio_R.play()
 
 
+func _step_progress() -> void:
+	if !text_finished and anim_text.current_animation.contains("text"):
+		text_speed += 0.5
+	else:
+		advance_page()
+
 func _process_text() -> void:
 	anim_text.speed_scale = text_speed
 	if Input.is_action_just_pressed("confirm") \
-	or Input.is_action_just_pressed("cancel") \
-	or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if !text_finished:
-			text_speed += 0.5
-		else:
-			advance_page()
+	or Input.is_action_just_pressed("cancel"):
+		_step_progress()
 	if dialog_left.visible:
-		if abs(dialog_left.visible_characters - char_count_L) >= 2:
+		if abs(dialog_left.visible_characters - char_count_L) >= 3:
 			char_count_L = dialog_left.visible_characters
 			play_voice("Left")
 	if dialog_right.visible:
-		if abs(dialog_right.visible_characters - char_count_R) >= 2:
-			char_count_R = dialog_left.visible_characters
+		if abs(dialog_right.visible_characters - char_count_R) >= 3:
+			char_count_R = dialog_right.visible_characters
 			play_voice("Right")
 
 
@@ -171,3 +203,9 @@ func populate_dialog(box : String, idx : int) -> void:
 func _on_anim_text_finished(anim_name: StringName) -> void:
 	text_speed = 1.0
 	text_finished = true
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == 1:
+			_step_progress()

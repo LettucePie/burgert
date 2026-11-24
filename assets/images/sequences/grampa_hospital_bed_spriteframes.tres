@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bk1fx0nk8s1x4"]
+
+[ext_resource type="Texture2D" uid="uid://dm7hjr15tqnl6" path="res://assets/images/sequences/grampa_hospital_bed_sheet.png" id="1_6u8qw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_468j1"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(0, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xl02"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(128, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exrir"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(256, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cchl"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(384, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y13sq"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(512, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiqmc"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(640, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enhu6"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(768, 0, 128, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4gq1"]
+atlas = ExtResource("1_6u8qw")
+region = Rect2(896, 0, 128, 127)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_468j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xl02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exrir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cchl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y13sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiqmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enhu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4gq1")
+}],
+"loop": true,
+"name": &"chillin",
+"speed": 10.0
+}]
