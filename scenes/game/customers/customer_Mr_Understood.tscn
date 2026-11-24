@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bidmanqullgka"]
+[gd_scene load_steps=20 format=3 uid="uid://bidmanqullgka"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qbk6q"]
 [ext_resource type="Resource" uid="uid://bai8pcqbfibw5" path="res://assets/data/schedules/Mr_Understood_schedule.tres" id="2_0yedi"]
@@ -1092,9 +1092,6 @@ _data = {
 "waiting": SubResource("Animation_8j4fp")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_conl1"]
-viewport_path = NodePath("burger_portal")
-
 [sub_resource type="Curve" id="Curve_md3tk"]
 max_value = 3.0
 _data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.93029, 0.0, 0, 0]
@@ -1126,9 +1123,6 @@ bus = &"MrDistorted"
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_crjuk"), ExtResource("4_crjuk"), ExtResource("3_u80g2")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_conl1")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="burger_portal_view" index="1"]
 emitting = false

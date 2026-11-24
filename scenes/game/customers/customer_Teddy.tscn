@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw4eao43mdwok"]
+[gd_scene load_steps=9 format=3 uid="uid://bw4eao43mdwok"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_ma572"]
 [ext_resource type="AnimationLibrary" uid="uid://d1ni27cn363hy" path="res://assets/animation/customers/teddy_animlib.res" id="2_mx3bf"]
@@ -11,9 +11,6 @@
 [sub_resource type="Resource" id="Resource_jjknl"]
 script = ExtResource("2_nwkdb")
 times = Array[int]([1, 2, 3, 4, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28])
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8v420"]
-viewport_path = NodePath(".")
 
 [node name="Teddy" instance=ExtResource("1_ma572")]
 customer_name = "Teddy"
@@ -33,6 +30,3 @@ offset = Vector2(0, -10)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_whhyp"), ExtResource("5_uuh5f"), ExtResource("6_1f3s5")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_8v420")

@@ -40,6 +40,12 @@ func _ready():
 	default_y = $character.position.y
 
 
+func override_burger_viewport(path) -> void:
+	burger_portal_sprite.texture.viewport_path = path
+	if self.has_node("placeholder"):
+		get_node("placeholder").queue_free()
+
+
 func set_state(new_state : CUSTOMER_STATE):
 	if new_state == CUSTOMER_STATE.Entering \
 	and status == CUSTOMER_STATE.Gone:

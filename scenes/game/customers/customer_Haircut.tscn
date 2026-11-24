@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2ps37k82g24j"]
+[gd_scene load_steps=7 format=3 uid="uid://2ps37k82g24j"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_rit48"]
 [ext_resource type="AnimationLibrary" uid="uid://dy2uihutceyy0" path="res://assets/animation/customers/haircut_animlib.res" id="2_dagw2"]
@@ -6,9 +6,6 @@
 [ext_resource type="Resource" uid="uid://wdjvwwkqwcty" path="res://assets/data/schedules/Haircut_schedule.tres" id="2_yhl0v"]
 [ext_resource type="AudioStream" uid="uid://d4hmn28wi0ysg" path="res://assets/sound/sfx/game/characters/Voice/Doot_11.wav" id="4_4p3yu"]
 [ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="5_ff8jr"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xlpyc"]
-viewport_path = NodePath(".")
 
 [node name="Haircut" instance=ExtResource("1_rit48")]
 customer_name = "Haircut"
@@ -28,9 +25,6 @@ offset = Vector2(0, -15)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_4p3yu"), ExtResource("4_4p3yu"), ExtResource("5_ff8jr")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_xlpyc")
 
 [node name="thought_cloud" parent="burger_portal_view" index="0"]
 flip_h = true

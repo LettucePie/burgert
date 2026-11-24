@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7syhn75al8f7"]
+[gd_scene load_steps=21 format=3 uid="uid://c7syhn75al8f7"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_qodln"]
 [ext_resource type="Resource" uid="uid://djcpsmkfif20c" path="res://assets/data/schedules/Beef_and_Kale._scheduletres.tres" id="2_kreob"]
@@ -1057,9 +1057,6 @@ _data = {
 "waiting": SubResource("Animation_kwks4")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_c1q4k"]
-viewport_path = NodePath("burger_portal")
-
 [node name="Beef_and_Kale" instance=ExtResource("1_qodln")]
 customer_name = "Beef and Kale"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Meat", "Meat", "Bun Top"), PackedStringArray("Bun", "Lettuce", "Lettuce", "Bun Top"), PackedStringArray("Bun", "Meat", "Lettuce", "Bun Top")])
@@ -1084,6 +1081,3 @@ position = Vector2(-50.5, 0)
 
 [node name="Right" parent="character" index="3"]
 position = Vector2(35, 0)
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_c1q4k")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2crwu2ludbm7"]
+[gd_scene load_steps=9 format=3 uid="uid://d2crwu2ludbm7"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_r6gyx"]
 [ext_resource type="Script" path="res://classes/Schedule.gd" id="2_4dqmd"]
@@ -11,9 +11,6 @@
 [sub_resource type="Resource" id="Resource_0ehkm"]
 script = ExtResource("2_4dqmd")
 times = Array[int]([5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 21, 22, 23, 24, 25, 26, 27, 28])
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ajo77"]
-viewport_path = NodePath(".")
 
 [node name="Ted" instance=ExtResource("1_r6gyx")]
 customer_name = "Ted"
@@ -33,6 +30,3 @@ offset = Vector2(0, -15)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_i3i26"), ExtResource("5_b56sa"), ExtResource("6_ded2p")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_ajo77")

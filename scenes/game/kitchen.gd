@@ -47,7 +47,7 @@ func _ready():
 	for child in customers_node.get_children():
 		if child is Customer:
 			customers.append(child)
-			child.burger_portal_sprite.texture.viewport_path = customer_burger_portal.get_path()
+			child.override_burger_viewport(customer_burger_portal.get_path())
 			if !child.customer_arrived.is_connected(_on_customer_arrived):
 				child.customer_arrived.connect(_on_customer_arrived)
 			if !child.customer_finished.is_connected(_on_customer_finished):

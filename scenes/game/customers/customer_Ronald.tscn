@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://biq41106bohio"]
+[gd_scene load_steps=7 format=3 uid="uid://biq41106bohio"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_1hjss"]
 [ext_resource type="Resource" uid="uid://dd4b4jw3kcapi" path="res://assets/data/schedules/Ronald_schedule.tres" id="2_on0g4"]
@@ -6,9 +6,6 @@
 [ext_resource type="SpriteFrames" uid="uid://30qqs5l5mnm3" path="res://assets/images/characters/customers/customer_ronald_spriteframes.tres" id="3_pq3c2"]
 [ext_resource type="AudioStream" uid="uid://cg3nmxb7xg5hg" path="res://assets/sound/sfx/game/characters/Voice/Doot_6.wav" id="4_khudy"]
 [ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/game/characters/Voice/Doot_16.wav" id="5_qaplt"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_pbiwr"]
-viewport_path = NodePath("burger_portal")
 
 [node name="Ronald" instance=ExtResource("1_1hjss")]
 customer_name = "Ronald"
@@ -34,9 +31,6 @@ position = Vector2(-38, 0)
 
 [node name="Right" parent="character" index="3"]
 position = Vector2(35, 0)
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_pbiwr")
 
 [node name="munch" parent="." index="3"]
 scale = Vector2(0.6, 0.6)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://swaf5bjjfxgu"]
+[gd_scene load_steps=7 format=3 uid="uid://swaf5bjjfxgu"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_vfpqv"]
 [ext_resource type="Resource" uid="uid://118kimpb6sm6" path="res://assets/data/schedules/Liam_schedule.tres" id="2_hfj5y"]
@@ -6,9 +6,6 @@
 [ext_resource type="AnimationLibrary" uid="uid://b3tti5m237x8y" path="res://assets/animation/customers/liam_animlib.res" id="2_wcd30"]
 [ext_resource type="AudioStream" uid="uid://d0fv242kxkyfh" path="res://assets/sound/sfx/game/characters/Voice/Doot_5.wav" id="4_45bu8"]
 [ext_resource type="AudioStream" uid="uid://byemdoshr7r0m" path="res://assets/sound/sfx/game/characters/Voice/Doot_12.wav" id="5_v4aat"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_h3wsb"]
-viewport_path = NodePath(".")
 
 [node name="Liam" instance=ExtResource("1_vfpqv")]
 customer_name = "Macho Liam"
@@ -28,6 +25,3 @@ offset = Vector2(0, -10)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_45bu8"), ExtResource("4_45bu8"), ExtResource("5_v4aat")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_h3wsb")

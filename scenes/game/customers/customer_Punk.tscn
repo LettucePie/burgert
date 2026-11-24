@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://yy7pwwtvklkk"]
+[gd_scene load_steps=8 format=3 uid="uid://yy7pwwtvklkk"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_egn53"]
 [ext_resource type="AnimationLibrary" uid="uid://dfjy0svltnjyj" path="res://assets/animation/customers/punk_animlib.res" id="2_sycni"]
@@ -10,9 +10,6 @@
 [sub_resource type="Resource" id="Resource_fkluu"]
 script = ExtResource("2_wtpcx")
 times = Array[int]([4, 5, 8, 9, 12, 13, 16, 17, 20, 21])
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4n10n"]
-viewport_path = NodePath(".")
 
 [node name="Punk" instance=ExtResource("1_egn53")]
 customer_name = "Punk"
@@ -33,9 +30,6 @@ offset = Vector2(0, -15)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_pj5f5"), ExtResource("4_pj5f5"), ExtResource("5_pohgv")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_4n10n")
 
 [node name="thought_cloud" parent="burger_portal_view" index="0"]
 flip_h = true

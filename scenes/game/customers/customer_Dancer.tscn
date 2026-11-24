@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwc2jks4dayst"]
+[gd_scene load_steps=8 format=3 uid="uid://dwc2jks4dayst"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_dc22s"]
 [ext_resource type="SpriteFrames" uid="uid://v1q758ngfak7" path="res://assets/images/characters/customers/customer_Dancer_spriteframes.tres" id="2_codsj"]
@@ -7,9 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://ibo4e6md2u5l" path="res://assets/sound/sfx/game/characters/Voice/Doot_14.wav" id="4_8iwf8"]
 [ext_resource type="AudioStream" uid="uid://c8inl5p3nfi2r" path="res://assets/sound/sfx/game/characters/Voice/Doot_15.wav" id="5_b7eck"]
 [ext_resource type="AudioStream" uid="uid://cq12h7pkxe4g4" path="res://assets/sound/sfx/game/characters/Voice/Doot_16.wav" id="6_7nl1m"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_w3gyi"]
-viewport_path = NodePath(".")
 
 [node name="Dancer" instance=ExtResource("1_dc22s")]
 customer_name = "Dancer"
@@ -29,6 +26,3 @@ offset = Vector2(0, -25)
 
 [node name="JitterDialog" parent="character/AudioStreamPlayer2D" index="0"]
 jitter_box = Array[AudioStreamWAV]([ExtResource("4_8iwf8"), ExtResource("5_b7eck"), ExtResource("6_7nl1m")])
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_w3gyi")

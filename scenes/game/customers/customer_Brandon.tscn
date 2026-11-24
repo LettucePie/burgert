@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfb1mmcvy0gn0"]
+[gd_scene load_steps=18 format=3 uid="uid://bfb1mmcvy0gn0"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_f3ox2"]
 [ext_resource type="SpriteFrames" uid="uid://cbgxmv8q24lld" path="res://assets/images/characters/customers/customer_brandon_spriteframes.tres" id="2_gyl4l"]
@@ -1058,9 +1058,6 @@ _data = {
 "waiting": SubResource("Animation_kwks4")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uj25u"]
-viewport_path = NodePath("burger_portal")
-
 [node name="Brandon" instance=ExtResource("1_f3ox2")]
 customer_name = "Brandon"
 orders = Array[PackedStringArray]([PackedStringArray("Bun", "Cheese", "Cheese", "Cheese", "Cheese"), PackedStringArray("Cheese", "Tomato", "Cheese")])
@@ -1085,6 +1082,3 @@ position = Vector2(-33, 0)
 
 [node name="Right" parent="character" index="3"]
 position = Vector2(35, 0)
-
-[node name="burger_portal_view" parent="." index="2"]
-texture = SubResource("ViewportTexture_uj25u")

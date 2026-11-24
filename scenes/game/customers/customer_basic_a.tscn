@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/game/customers/customer.gd" id="1_cb4rt"]
 [ext_resource type="AnimationLibrary" uid="uid://bovbyhx0nrv02" path="res://assets/animation/customers/basic_b_animlib.res" id="2_h1kl1"]
 [ext_resource type="Script" path="res://classes/Schedule.gd" id="2_i0dq6"]
-[ext_resource type="Texture2D" uid="uid://ddwiu4633dbx7" path="res://assets/images/graphics/vptex_customer_burger.tres" id="3_05x6d"]
 [ext_resource type="SpriteFrames" uid="uid://b3ot6egm0rbcr" path="res://assets/images/graphics/thoughtcloud_frames.tres" id="4_2isv5"]
 [ext_resource type="SpriteFrames" uid="uid://bn4fx1emgt6x6" path="res://assets/images/characters/customers/customer_basic_a_spriteframes.tres" id="4_ki675"]
 [ext_resource type="PackedScene" uid="uid://b8kipvk4lji2c" path="res://scenes/game/customers/accessory.tscn" id="4_pi1xv"]
@@ -20,6 +19,9 @@
 [sub_resource type="Resource" id="Resource_exele"]
 script = ExtResource("2_i0dq6")
 times = Array[int]([0])
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_400qy"]
+viewport_path = NodePath("placeholder")
 
 [node name="Basic_A" type="Node2D" node_paths=PackedStringArray("burger_portal_sprite")]
 texture_filter = 1
@@ -62,7 +64,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(198, 110)
 scale = Vector2(0.275878, 0.275878)
-texture = ExtResource("3_05x6d")
+texture = SubResource("ViewportTexture_400qy")
 
 [node name="thought_cloud" type="AnimatedSprite2D" parent="burger_portal_view"]
 position = Vector2(0, -7.24954)
@@ -103,5 +105,9 @@ texture = ExtResource("9_4oqsp")
 
 [node name="Feedback" parent="." instance=ExtResource("10_q4hk2")]
 position = Vector2(360, 132)
+
+[node name="placeholder" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(2, 2)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
