@@ -13,8 +13,17 @@ var finished : bool = false
 var closing : bool = false
 
 var notification_table : Array = [
-	[0, "Gramps", "Content"]
+	[0, "Gramps", "The Regulars pay the bills! Make them happy, and they will return the favor."],
+	[0, "Gramps", "Every day different Regulars may appear, keep at it!"],
+	[0, "Gramps", "Wow! You have met every one of the Regulars!"],
+	[0, "Gramps", "Goodness, Great work! You have befriended all the Regulars!"],
+	[1, "Houndfall", "Thanks for buying all my tracks! Enjoy"]
 ]
+
+
+
+func _ready() -> void:
+	self.hide()
 
 
 func display_notification(idx : int) -> void:
