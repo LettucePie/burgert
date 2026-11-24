@@ -40,10 +40,21 @@ signal set_lang(lang)
 @export var starting_lang : String = "eng"
 var current_lang : String = "eng"
 
+
+
+func _check_locale() -> void:
+	var lang_code : String = OS.get_locale_language()
+	## ps. I just now learned that godot has a translation server builtin
+	if supported_languages.has(lang_code):
+		load_lang(lang_code)
+	else:
+		load_lang(starting_lang)
+
+
 func _ready():
 	if build_template:
 		_build_template()
-	load_lang(starting_lang)
+	_check_locale()
 
 
 func _process(delta : float):
