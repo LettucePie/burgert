@@ -39,6 +39,7 @@ func apply_settings() -> void:
 	sfx_vol.update_vals(false)
 	swap_confirm.button_pressed = settings_host.settings.get_a_b_swap()
 	mode_3d.button_pressed = settings_host.settings.get_mode_3d()
+	language_button.visible = settings_host.multi_lang.supported_languages.size() > 1
 
 
 func open_options():
