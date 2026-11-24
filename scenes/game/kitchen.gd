@@ -152,6 +152,9 @@ func _build_queue():
 		and !normy_customers.has(c):
 			eligible_pool.append(c)
 	
+	for eligible in eligible_pool:
+		print(eligible)
+	
 	randomize()
 	for i in 38:
 		if randf() <= 0.5:
