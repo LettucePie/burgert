@@ -266,3 +266,7 @@ func _on_shop_shop_level_unread() -> void:
 
 func _on_shop_shop_level_marked(_lvl: Variant) -> void:
 	main.planner.set_shop_notice_page_active(false)
+
+
+func _on_notifiers_notifier_started() -> void:
+	pass # Replace with function body.

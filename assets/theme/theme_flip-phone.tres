@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://j0vyfdprpqgb"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://j0vyfdprpqgb"]
 
 [ext_resource type="Texture2D" uid="uid://bktf7myck0ds8" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-outline_texture_2x.png" id="1_rr58k"]
 [ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="1_waj2h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://88dyxhbnmn8s" path="res://assets/images/graphics/menu/flip-phone-os/toggle_disabled_on.png" id="4_pu0ya"]
 [ext_resource type="Texture2D" uid="uid://bx2wmf42wutiw" path="res://assets/images/graphics/menu/flip-phone-os/toggle_off.png" id="5_xcuuc"]
 [ext_resource type="Texture2D" uid="uid://baivj5j0fc46s" path="res://assets/images/graphics/menu/flip-phone-os/toggle_disabled_off.png" id="6_mpalg"]
+[ext_resource type="StyleBox" uid="uid://df6am7jqkkbaa" path="res://assets/theme/styleboxes/flip-phone-stylebox_panel.tres" id="9_xt455"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kv3i6"]
 texture = ExtResource("1_rr58k")
@@ -52,3 +53,4 @@ HSlider/icons/grabber_highlight = ExtResource("3_xjbyu")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_8rqoc")
 HSlider/styles/slider = SubResource("StyleBoxFlat_ftjc3")
 Label/colors/font_color = Color(0, 0, 0, 0.443137)
+Panel/styles/panel = ExtResource("9_xt455")

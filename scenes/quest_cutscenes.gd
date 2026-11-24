@@ -63,7 +63,7 @@ var dialogs : PackedStringArray = [
 	"Gramps: Oh there it is...",
 	"Gramps: Can't read the date on here anymore...",
 	"Gramps: *sniff sniff*",
-	"Gramps: OH WELL! If I die, I die."
+	"Gramps: OH WELL!"
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
@@ -74,7 +74,7 @@ var char_count_R : int = 0
 
 func _ready() -> void:
 	page = -1
-	if get_window() == self:
+	if get_window().get_child(0) == self:
 		advance_page()
 	else:
 		hide()

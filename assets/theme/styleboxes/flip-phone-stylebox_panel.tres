@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://df6am7jqkkbaa"]
+
+[ext_resource type="Texture2D" uid="uid://c08j0sp0oiqhw" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-outline_texture_2x_panel.png" id="1_bb4q8"]
+
+[resource]
+texture = ExtResource("1_bb4q8")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1, 1, 1, 0.839216)
