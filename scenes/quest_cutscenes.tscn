@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b84f6lp85tde8"]
+[gd_scene load_steps=61 format=3 uid="uid://b84f6lp85tde8"]
 
 [ext_resource type="Script" path="res://scenes/quest_cutscenes.gd" id="1_h64cq"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="2_ot22a"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cenyayu2lx5tc" path="res://assets/sound/music/silence.mp3" id="13_v6c8f"]
 [ext_resource type="Texture2D" uid="uid://dviukwcfb23u3" path="res://assets/images/sequences/hospital_room.png" id="15_quagq"]
 [ext_resource type="SpriteFrames" uid="uid://bk1fx0nk8s1x4" path="res://assets/images/sequences/grampa_hospital_bed_spriteframes.tres" id="16_0t7g1"]
+[ext_resource type="SpriteFrames" uid="uid://bsr1y3qu8w4ha" path="res://assets/images/sequences/sleepyzees_spriteframes.tres" id="16_er43n"]
 [ext_resource type="Texture2D" uid="uid://dl8oscrk1lvsd" path="res://assets/images/sequences/grampa_faceanims_atlastexture.tres" id="16_mawd3"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="17_ili5q"]
 
@@ -453,6 +454,18 @@ tracks/35/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("hospital/snoring:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_hrfve"]
@@ -1565,6 +1578,18 @@ tracks/20/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("hospital/snoring:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rsxc1"]
 resource_name = "scene_7"
@@ -1683,6 +1708,18 @@ tracks/9/path = NodePath("hospital/chef:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("hospital/snoring:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1859,7 +1896,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3kc5l"]
-resource_name = "scene_10"
+resource_name = "scene_11"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1942,12 +1979,113 @@ tracks/5/keys = {
 }
 tracks/5/use_blend = true
 
+[sub_resource type="Animation" id="Animation_y30sc"]
+resource_name = "scene_10"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hospital/chef:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hospital/chef:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hospital/chef:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hospital/chef")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Idle_R_Naked", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hospital:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("space:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hospital/snoring:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("hospital/snoring")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oheuq"]
 _data = {
 "RESET": SubResource("Animation_j1ndl"),
 "exit": SubResource("Animation_hrfve"),
 "scene_1": SubResource("Animation_o418f"),
-"scene_10": SubResource("Animation_3kc5l"),
+"scene_10": SubResource("Animation_y30sc"),
+"scene_11": SubResource("Animation_3kc5l"),
 "scene_2": SubResource("Animation_qqgxl"),
 "scene_3": SubResource("Animation_oiias"),
 "scene_4": SubResource("Animation_xrw4r"),
@@ -5004,6 +5142,14 @@ sprite_frames = ExtResource("17_ili5q")
 animation = &"Run_R_Naked"
 
 [node name="sfx" type="AudioStreamPlayer" parent="hospital"]
+
+[node name="snoring" type="AnimatedSprite2D" parent="hospital"]
+visible = false
+position = Vector2(78, -21.5)
+scale = Vector2(0.984375, 0.984375)
+sprite_frames = ExtResource("16_er43n")
+animation = &"snore"
+autoplay = "snore"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

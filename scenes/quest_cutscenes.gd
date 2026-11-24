@@ -44,9 +44,9 @@ var scene_playwrite : PackedStringArray = [
 	"hold",
 	"hold",
 	"hold",
-	"hold", ## Grampa snores
+	"scene_10", ## Grampa snores
 	"hold", ## Grampa Stops
-	"scene_10", ## Chef equip and leave
+	"scene_11", ## Chef equip and leave
 	"exit"
 ]
 var text_playwrite : PackedStringArray = [

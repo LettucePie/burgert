@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3vopwxe4tjvw"]
+[gd_scene load_steps=12 format=3 uid="uid://c3vopwxe4tjvw"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/notifiers.gd" id="1_nlo86"]
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="1_rgwd8"]
 [ext_resource type="Texture2D" uid="uid://croeeq84ep5t2" path="res://assets/images/graphics/menu/main/notifier_pop_atlastexture.tres" id="1_yswfw"]
-[ext_resource type="Texture2D" uid="uid://ygth2buvc3r6" path="res://assets/images/sequences/chef_profile_atlastexture.tres" id="4_onxxw"]
+[ext_resource type="Texture2D" uid="uid://bqd8mjurs2xfn" path="res://assets/images/sequences/grampa_profile_atlastexture.tres" id="3_w4qvy"]
+[ext_resource type="Material" uid="uid://dtd41gf11icbe" path="res://assets/shaders/palette_limit_shadermaterial.tres" id="4_es6l8"]
+[ext_resource type="Texture2D" uid="uid://dl8oscrk1lvsd" path="res://assets/images/sequences/grampa_faceanims_atlastexture.tres" id="5_h3y0c"]
 
 [sub_resource type="Animation" id="Animation_xcrfr"]
 resource_name = "notification_start"
@@ -127,6 +129,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(520, 190)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Panel/notification_content:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_yo6hp"]
@@ -339,10 +353,75 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(1, 1e-05)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Panel/notification_content:visible_ratio")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bsf4i"]
+resource_name = "notification_end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("notif:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(260, 95)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u6oy2"]
 _data = {
 "RESET": SubResource("Animation_a643m"),
+"notification_end": SubResource("Animation_bsf4i"),
 "notification_start": SubResource("Animation_xcrfr"),
 "start": SubResource("Animation_yo6hp")
 }
@@ -357,6 +436,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rgwd8")
 script = ExtResource("1_nlo86")
+profile_pictures = Array[Texture2D]([ExtResource("3_w4qvy")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -385,8 +465,7 @@ anchor_left = 0.090625
 anchor_top = 0.302083
 anchor_right = 0.901563
 anchor_bottom = 0.697917
-offset_left = 2.0
-offset_right = 3.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1e-05)
@@ -406,7 +485,7 @@ offset_right = 25.048
 offset_bottom = -1.52588e-05
 
 [node name="picture" type="TextureRect" parent="Panel/picture_panel"]
-self_modulate = Color(0, 0, 0, 0.501961)
+material = ExtResource("4_es6l8")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.045
@@ -419,7 +498,7 @@ offset_right = -0.015007
 offset_bottom = -0.015007
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_onxxw")
+texture = ExtResource("5_h3y0c")
 stretch_mode = 5
 
 [node name="name_panel" type="Panel" parent="Panel"]
@@ -457,4 +536,9 @@ anchor_right = 0.990366
 anchor_bottom = 0.968421
 text = "yo dude, you can totally like do the thing, this is advice man"
 autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
