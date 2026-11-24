@@ -41,7 +41,8 @@ func _physics_process(delta: float) -> void:
 		and !hiding:
 			_dormant_time()
 	else:
-		if Time.get_ticks_msec() > dormancy_timer:
+		if Time.get_ticks_msec() > dormancy_timer \
+		and !hiding:
 			active = true
 			speed = randf_range(5.0, 10.0)
 			if randf() > 0.5:
