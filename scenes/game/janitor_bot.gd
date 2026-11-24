@@ -94,3 +94,8 @@ func get_hit() -> void:
 	state = State.HIT
 	current_state_duration = Time.get_ticks_msec() + 3000
 	play("hit")
+
+
+func flee() -> void:
+	if state != State.DORMANT:
+		_return_to_dormancy()

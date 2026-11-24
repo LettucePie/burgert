@@ -31,6 +31,13 @@ var handling_drone_event : bool = false
 @onready var kitchen_object : Sprite2D = $foreground/kitchen_object_corner
 @onready var throw_riff_player : AudioStreamPlayer = $throw_riffs
 @export var throw_riffs : Array[AudioStreamWAV] = []
+@onready var blur_customers : Array[BlurCustomer] = [
+	$blur_customers/blur_customer1,
+	$blur_customers/blur_customer2,
+	$blur_customers/blur_customer3,
+	$blur_customers/blur_customer4,
+	$blur_customers/blur_customer5,
+]
 @export var TEST_CUSTOMER : Customer = null
 
 
@@ -92,8 +99,8 @@ func prep_kitchen():
 		kitchen_object.texture = kitchen_objects.pick_random()
 	else:
 		kitchen_object.hide()
-	for bc in $blur_customers.get_children():
-		bc.initial_dormancy()
+	for bc in blur_customers:
+		bc.reset_pos()
 	_build_queue()
 
 
@@ -274,8 +281,12 @@ func _play_throw_riff(idx : int) -> void:
 
 
 func everyone_flee() -> void:
+	print("Everyone Flee")
 	if current_customer != null:
 		current_customer.flee()
 	if next_customer != null:
 		next_customer.flee()
-		
+	for bc in blur_customers:
+		bc.flee()
+	janitor_bot.flee()
+	drone.flee()

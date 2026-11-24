@@ -241,7 +241,6 @@ func intro_animation_finished():
 
 
 func set_active(tf : bool):
-	print("Chef set active: ", tf)
 	active = tf
 	if !tf:
 		trashing = false

@@ -9,7 +9,15 @@ var destinations : PackedVector2Array = [
 var destination : int = 0
 var active : bool = false
 var dormancy_timer : int = 0
-var speed : float = 8
+var speed : float = 8.0
+var hiding : bool = false
+
+
+func reset_pos() -> void:
+	hiding = false
+	destination = 0
+	position = destinations[0]
+	initial_dormancy()
 
 
 func _dormant_time() -> void:
@@ -29,7 +37,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if active:
 		position = position.move_toward(destinations[destination], speed)
-		if is_equal_approx(position.x, destinations[destination].x):
+		if is_equal_approx(position.x, destinations[destination].x) \
+		and !hiding:
 			_dormant_time()
 	else:
 		if Time.get_ticks_msec() > dormancy_timer:
@@ -43,3 +52,12 @@ func _physics_process(delta: float) -> void:
 				position = destinations[0]
 			texture = sprites.pick_random()
 			flip_h = randf() > 0.5
+
+
+func flee() -> void:
+	if active:
+		speed = 10.0
+		destination = 0
+		if position.x > 320:
+			destination = 1
+	hiding = true

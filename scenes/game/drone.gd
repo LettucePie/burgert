@@ -141,3 +141,8 @@ func _on_frame_changed() -> void:
 			adjust.position.y = lerp(0, -16, inverse_lerp(0, 10, frame))
 		else:
 			adjust.position.y = lerp(-16, 0, inverse_lerp(10, 19, frame))
+
+
+func flee() -> void:
+	if state != State.DORMANT:
+		_return_to_dormancy()

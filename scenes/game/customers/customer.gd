@@ -101,11 +101,13 @@ func _process(delta: float) -> void:
 
 
 func flee() -> void:
+	print("Customer Flee: ", customer_name)
 	if status != CUSTOMER_STATE.Gone:
+		anim.stop()
 		var pos_x : float = character.position.x
 		var target : Vector2 = Vector2(-300.0, character.position.y)
 		if pos_x > 320:
 			target.x = 940.0
 		var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
-		tween.tween_property(character, "position", target, 0.36)
+		tween.tween_property(character, "position", target, 0.5)
 		
