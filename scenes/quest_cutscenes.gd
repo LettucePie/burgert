@@ -93,7 +93,7 @@ var dialogs : PackedStringArray = [
 	"Gramps: So! That’s why you’re here ya lil burgger. You gotta go serve my regulars, the regulars pay to keep the lights on!",
 	"Gramps: Oh! And protect my stash! Those bookies will send robot burgorls for what’s left of my money!",
 	"Gramps: I know you will do well. You can use the radio, just don’t spend all of the money on your music! Ya sneaky lil bug-... burg-...",
-	"Gramps: My lil burgert"
+	"Gramps: My lil burgert... take... the mayo... off the menu..."
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
