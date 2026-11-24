@@ -23,5 +23,4 @@ func _on_frame_changed() -> void:
 
 
 func _on_animation_finished() -> void:
-	print("HIDE")
 	hide()

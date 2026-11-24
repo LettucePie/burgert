@@ -2,6 +2,7 @@ extends Control
 class_name Results
 
 signal finished_results()
+signal results_revealed()
 
 @onready var order_count : Label = $Panel/ordercount
 @onready var accuracy : Label = $Panel/accuracy

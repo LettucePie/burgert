@@ -449,4 +449,5 @@ wait_time = 120.0
 [connection signal="trashing_stopped" from="chef" to="." method="_on_chef_trashing_stopped"]
 [connection signal="gui_pause" from="hud" to="." method="_on_hud_gui_pause"]
 [connection signal="finished_results" from="results" to="." method="_on_results_finished_results"]
+[connection signal="results_revealed" from="results" to="." method="_on_results_results_revealed"]
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

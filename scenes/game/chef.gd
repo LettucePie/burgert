@@ -56,6 +56,7 @@ func _ready():
 
 func reset_chef():
 	set_post_game(false)
+	anim_tree.active = true
 	current_burger.refresh_plate()
 	self.position.x = -100
 	_update_direction("R")
@@ -64,6 +65,7 @@ func reset_chef():
 	submitting_burger = false
 	burger_thrown = false
 	set_active(false)
+	sfx.stop()
 	waiting = true
 	burger_sprite.show()
 	idle_counter = 0
@@ -239,7 +241,11 @@ func intro_animation_finished():
 
 
 func set_active(tf : bool):
+	print("Chef set active: ", tf)
 	active = tf
+	if !tf:
+		trashing = false
+		emit_signal("trashing_stopped")
 
 
 func set_post_game(tf : bool) -> void:

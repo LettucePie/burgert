@@ -110,6 +110,7 @@ func start_game():
 
 
 func stop_game(reset : bool):
+	print("Stop Game. Reset: ", reset)
 	if reset:
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)
@@ -293,13 +294,18 @@ func _on_chef_submit_burger():
 
 
 func _on_game_timer_timeout():
+	print("Gamer Timer Timeout")
 	$game_timer.stop()
 	game_started = false
 	chef.set_active(false)
+	chef.state_machine.stop()
+	chef.state_machine.start("Idle_R")
 	chef.set_post_game(true)
-	chef.submitting_burger = false	
+	chef.submitting_burger = false
 	chef.burger_sprite.show()
-	kitchen.clear_kitchen()
+	#kitchen.clear_kitchen()
+	kitchen.everyone_flee()
+	kitchen.process_mode = Node.PROCESS_MODE_ALWAYS
 	chef.current_burger.refresh_plate()
 	hud.show_order(false)
 	submit.set_playing(false, 0, 0)
@@ -363,3 +369,8 @@ func _on_kitchen_a_drone_stole_loot() -> void:
 	current_score -= 50
 	hud.set_score(current_score)
 	hud.oink_popup()
+
+
+func _on_results_results_revealed() -> void:
+	kitchen.clear_kitchen()
+	kitchen.process_mode = Node.PROCESS_MODE_INHERIT

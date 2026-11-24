@@ -77,6 +77,7 @@ func clear_kitchen():
 
 
 func prep_kitchen():
+	self.process_mode = Node.PROCESS_MODE_INHERIT
 	clear_kitchen()
 	var schedule : Schedule = Schedule.new()
 	var timeslot_idx : int = schedule.get_current_timeslot()
