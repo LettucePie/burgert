@@ -206,6 +206,6 @@ func _ready() -> void:
 	controls.show()
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	_load_page(current_page)
 	$clip.hide()

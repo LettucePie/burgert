@@ -1,6 +1,7 @@
 extends Node2D
 class_name Burger2D
 
+@warning_ignore("unused_signal")
 signal reached_target(target)
 
 @onready var plate : Sprite2D = $plate
@@ -68,6 +69,7 @@ func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vecto
 	return result
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if target_pos != Vector2.ZERO:
 		journey += speed

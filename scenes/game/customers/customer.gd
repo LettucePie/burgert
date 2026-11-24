@@ -1,11 +1,17 @@
 extends Node2D
 class_name Customer
 
+@warning_ignore("unused_signal")
 signal customer_arrived()
+@warning_ignore("unused_signal")
 signal customer_served()
+@warning_ignore("unused_signal")
 signal customer_finished()
+@warning_ignore("unused_signal")
 signal customer_reorder()
+@warning_ignore("unused_signal")
 signal start_time()
+@warning_ignore("unused_signal")
 signal kitchen_switch(target)
 
 @export var customer_name : String = "Basic"
@@ -102,7 +108,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		set_state(CUSTOMER_STATE.Gone)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	z_index = current_customer
 
 

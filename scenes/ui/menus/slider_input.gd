@@ -1,6 +1,7 @@
 extends HBoxContainer
 class_name SliderInput
 
+@warning_ignore("unused_signal")
 signal update_value(new_val)
 
 #@export var slider : HSlider
@@ -25,7 +26,7 @@ func _ready():
 	update_vals(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if focused:
 		label_label.add_theme_color_override("font_color", label_color_highlight)
 		value_label.add_theme_color_override("font_color", label_color_highlight)
@@ -58,6 +59,6 @@ func _on_focus_exited():
 	focused = false
 
 
-func _on_volslider_drag_ended(value_changed, handle):
-	value = slider.value
+func _on_volslider_drag_ended(_value_changed, _handle):
+	value = roundi(slider.value)
 	update_vals(true)

@@ -26,7 +26,7 @@ func _apply_3d_mode() -> void:
 		burger_render.scale = Vector2(3.25, 3.25)
 		size_2d_override = Vector2(512, 512)
 		size_2d_override_stretch = true
-		burger_render.position = Vector2(512 / 2, 460)
+		burger_render.position = Vector2(512.0 / 2.0, 460.0)
 		disable_3d = true
 		#own_world_3d = false
 		snap_2d_transforms_to_pixel = true

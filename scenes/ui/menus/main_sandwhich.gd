@@ -1,5 +1,6 @@
 extends Control
 class_name MainSandwhich
+@warning_ignore("unused_signal")
 signal menu_selection(selection)
 
 @onready var stack : Array = $Sandwhich.get_children()
@@ -107,7 +108,7 @@ func _fill_label(idx : int) -> void:
 	label_tween.tween_property(label, "visible_ratio", 1.0, label.text.length() * 0.02)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("down") \
 		or Input.is_action_just_pressed("left"):

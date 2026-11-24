@@ -104,10 +104,10 @@ func update_progress(amount_saved : int) -> void:
 	else:
 		var comma_string : String = ""
 		var digit_idx : int = 0
-		for char in str(amount_saved).reverse():
+		for character in str(amount_saved).reverse():
 			if digit_idx == 3 or digit_idx == 6:
 				comma_string += ","
-			comma_string += char
+			comma_string += character
 			digit_idx += 1
 		comma_string = "$" + comma_string.reverse()
 		progress_label.text = comma_string + "\n/\n$1,000,000"
@@ -117,7 +117,7 @@ func _ready() -> void:
 	update_calendar()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	y_pos += 0.9
 	stencil_fx_atlas.region = Rect2(0, y_pos, 4, 4)
 	if y_pos > flicker_reset:

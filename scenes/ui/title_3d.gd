@@ -9,7 +9,7 @@ func _ready():
 	spectrum_analyzer.set_active(true)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if spectrum_analyzer != null:
 		rot_target = clampf((spectrum_analyzer.visual_data[0] + spectrum_analyzer.visual_data[1]) * 0.25, -0.25, 0.25)
 		rot_target -= clampf((spectrum_analyzer.visual_data[3] + spectrum_analyzer.visual_data[4]) * 0.25, -0.25, 0.25)

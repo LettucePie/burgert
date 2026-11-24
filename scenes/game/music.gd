@@ -1,7 +1,9 @@
 extends AudioStreamPlayer
 class_name Music
 
+@warning_ignore("unused_signal")
 signal purchased_song(song)
+@warning_ignore("unused_signal")
 signal updated_playlists()
 
 @export var all_songs : Array[Song] = []
@@ -126,6 +128,7 @@ func playlist_edit(playlist : String, song : Song, add_remove : bool) -> void:
 	emit_signal("updated_playlists")
 
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if current_state == STATE.MENU or current_state == STATE.PLAY:
 		if Input.is_action_just_pressed("mute"):

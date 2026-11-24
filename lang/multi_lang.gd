@@ -7,12 +7,12 @@ signal set_lang(lang)
 ## Ref https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 @export var supported_languages : PackedStringArray = [
 	"eng",
-	"example",
+	#"example",
 ]
 ## Supported Languages in legible form.
 @export var supported_languages_named : PackedStringArray = [
 	"English",
-	"English-EX"
+	#"English-EX"
 ]
 ## Source Font Files, refer to their indecies
 @export var large_fontfiles : Array[FontFile]

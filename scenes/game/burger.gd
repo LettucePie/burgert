@@ -1,5 +1,6 @@
 extends Node3D
 class_name Burger
+@warning_ignore("unused_signal")
 signal ingredients_updated()
 
 const OFFSET_MULTI = 0.12

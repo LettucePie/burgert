@@ -40,9 +40,9 @@ func _analyze_spectrum() -> void:
 	total_magnitude_raw = 0.0
 	total_magnitude_scaled = 0.0
 	for idx in frequency_ranges.size():
-		var range : Vector2 = frequency_ranges[idx]
+		var freq_range : Vector2 = frequency_ranges[idx]
 		var scaler : float = balancer_weights[idx]
-		var magnitude = visualizer_instance.get_magnitude_for_frequency_range(range.x, range.y)
+		var magnitude = visualizer_instance.get_magnitude_for_frequency_range(freq_range.x, freq_range.y)
 		total_magnitude_raw += magnitude.length()
 		magnitude *= scaler
 		total_magnitude_scaled += magnitude.length()
@@ -58,7 +58,7 @@ func _calculate_visualizer_data() -> void:
 		visual_data[idx] = lerpf(visual_data[idx], raw_value, lerp_speed)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if active:
 		if visualizer_instance != null:
 			_analyze_spectrum()

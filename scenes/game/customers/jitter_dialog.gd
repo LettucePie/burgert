@@ -12,6 +12,7 @@ func _ready():
 	player.set_bus("SFX")
 
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if toggled:
 		var ticks = Time.get_ticks_msec()

@@ -1,6 +1,7 @@
 extends Control
 class_name LanguageSelector
 
+@warning_ignore("unused_signal")
 signal language_selector_finished()
 
 @onready var scroll : ScrollContainer = $VBoxContainer/ScrollContainer
