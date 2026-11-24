@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs02eb4vgoghq"
-path="res://.godot/imported/flip-phone-frame0005.png-c4188c567a2bcc02741fae2050213e04.ctex"
+uid="uid://ld8ume78me6b"
+path="res://.godot/imported/flip-phone_spritesheet.png-54e65ae8ae945277590f33239b349529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/graphics/menu/flip-phone-os/flip-phone-sequence/flip-phone-frame0005.png"
-dest_files=["res://.godot/imported/flip-phone-frame0005.png-c4188c567a2bcc02741fae2050213e04.ctex"]
+source_file="res://assets/images/graphics/menu/flip-phone-os/flip-phone_spritesheet.png"
+dest_files=["res://.godot/imported/flip-phone_spritesheet.png-54e65ae8ae945277590f33239b349529.ctex"]
 
 [params]
 

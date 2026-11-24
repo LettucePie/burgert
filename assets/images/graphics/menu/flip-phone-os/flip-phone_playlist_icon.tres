@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://djw3xj1jmicb6"]
+
+[ext_resource type="Texture2D" uid="uid://del2i8bch1teo" path="res://assets/images/graphics/menu/flip-phone-os/button_icons_sheet.png" id="1_6jjf3"]
+
+[resource]
+atlas = ExtResource("1_6jjf3")
+region = Rect2(48, 0, 12, 12)

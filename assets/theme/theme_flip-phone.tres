@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://j0vyfdprpqgb"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://j0vyfdprpqgb"]
 
+[ext_resource type="Texture2D" uid="uid://bktf7myck0ds8" path="res://assets/images/graphics/menu/flip-phone-os/flip-phone-outline_texture_2x.png" id="1_rr58k"]
 [ext_resource type="FontFile" uid="uid://dxal2gbw47rpc" path="res://third-party/kenney-nl/fonts/Kenney Mini.ttf" id="1_waj2h"]
 [ext_resource type="StyleBox" uid="uid://do15hyo23q5de" path="res://assets/theme/styleboxes/flip-phone_stylebox_focus.tres" id="1_xmb3s"]
 [ext_resource type="StyleBox" uid="uid://cpk46y2ets7iu" path="res://assets/theme/styleboxes/flip-phone-stylebox_normal.tres" id="2_k5otm"]
@@ -9,7 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bx2wmf42wutiw" path="res://assets/images/graphics/menu/flip-phone-os/toggle_off.png" id="5_xcuuc"]
 [ext_resource type="Texture2D" uid="uid://baivj5j0fc46s" path="res://assets/images/graphics/menu/flip-phone-os/toggle_disabled_off.png" id="6_mpalg"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fcgxg"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kv3i6"]
+texture = ExtResource("1_rr58k")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1, 1, 1, 0.313726)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rqoc"]
 bg_color = Color(0.246035, 0.51198, 0.27451, 1)
@@ -29,7 +36,7 @@ default_font_size = 24
 Button/colors/font_color = Color(0, 0, 0, 0.443137)
 Button/colors/font_focus_color = Color(0.813258, 0.813258, 0.813258, 0.890196)
 Button/colors/font_hover_color = Color(0.811765, 0.811765, 0.811765, 0.890196)
-Button/styles/disabled = SubResource("StyleBoxEmpty_fcgxg")
+Button/styles/disabled = SubResource("StyleBoxTexture_kv3i6")
 Button/styles/focus = ExtResource("1_xmb3s")
 Button/styles/hover = ExtResource("1_xmb3s")
 Button/styles/hover_pressed = ExtResource("2_k5otm")
