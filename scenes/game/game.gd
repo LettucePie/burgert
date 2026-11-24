@@ -110,7 +110,6 @@ func start_game():
 
 
 func stop_game(reset : bool):
-	print("Stop Game. Reset: ", reset)
 	if reset:
 		chef.reset_chef()
 		submit.set_playing(false, 0, 0)

@@ -57,9 +57,6 @@ scale = Vector2(1.2, 1.2)
 offset_top = 582.0
 offset_bottom = 201.0
 
-[node name="shade" parent="office/desk" index="0"]
-visible = false
-
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
 offset_top = 274.5
@@ -173,10 +170,10 @@ offset_right = 6.10352e-05
 offset_right = -3.05176e-05
 
 [node name="totals" parent="Records/savings_transfer" index="4"]
-offset_right = -0.000183105
+offset_right = -0.000244141
 
 [node name="counter" parent="Records/savings_transfer" index="5"]
-offset_right = -0.000183105
+offset_right = -0.000244141
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
