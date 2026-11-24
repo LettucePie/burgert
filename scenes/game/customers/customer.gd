@@ -102,6 +102,8 @@ func _process(delta: float) -> void:
 
 func flee() -> void:
 	print("Customer Flee: ", customer_name)
+	jitter_dialog.toggle_jitter(false)
+	burger_portal_sprite.hide()
 	if status != CUSTOMER_STATE.Gone:
 		anim.stop()
 		var pos_x : float = character.position.x

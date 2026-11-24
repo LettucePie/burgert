@@ -25,6 +25,8 @@ func toggle_jitter(on_off : bool):
 	if toggled:
 		interval_trace = Time.get_ticks_msec() + interval
 		randomize()
+	else:
+		player.stop()
 
 
 func set_interval(val : int):
