@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bay2gjrfd60sn"]
+
+[ext_resource type="Texture2D" uid="uid://j40wku2ryj2q" path="res://assets/images/graphics/hud/customer_timer_bar_sheet.png" id="1_xmemi"]
+
+[resource]
+atlas = ExtResource("1_xmemi")
+region = Rect2(50, 0, 50, 10)

@@ -11,10 +11,10 @@ var wallet : Play.Stats
 var music_library : Music = null
 var potential_shop_level : int = 0
 var song_level_quantities : PackedInt32Array = [
-	25,
-	50,
-	100,
-	150,
+	0,
+	15,
+	40,
+	85,
 ]
 
 @onready var main : Control = $phone/main

@@ -37,6 +37,7 @@ var timer : Timer = null
 @onready var money_spray : CPUParticles2D = $money_spray
 @onready var flash : ColorRect = $flash
 @onready var camera_shutter : AudioStreamPlayer = $flash/camera_shutter
+@onready var customer_timer : TextureProgressBar = $customer_timer
 
 ##
 
@@ -287,3 +288,19 @@ func new_regular_snapped() -> void:
 	flash.modulate = Color.WHITE
 	flash.show()
 	camera_shutter.play()
+
+
+func reveal_customer_timer() -> void:
+	customer_timer.show()
+	customer_timer.value = 0.0
+	customer_timer.self_modulate = Color(1.0, 1.0, 1.0, 0.0)
+	var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(customer_timer, "self_modulate", Color(1.0, 1.0, 1.0, 0.6), 0.4)
+
+
+func update_customer_timer(val : float) -> void:
+	customer_timer.value = 1.0 - val
+
+
+func hide_customer_timer() -> void:
+	customer_timer.hide()

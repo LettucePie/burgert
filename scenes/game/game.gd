@@ -34,7 +34,9 @@ var game_accuracies : PackedFloat32Array = []
 var game_scores : PackedInt32Array = []
 var game_tips : PackedInt32Array = []
 var current_order_start_time : float = 0
+var current_order_deadline : float = 0.0
 var current_order_charging_rate : float = 0.0
+var timing_customer : bool = false
 var burger_2d : Burger2D = null
 var burger_mode_3d : bool = true
 var chef_idle : bool = false
@@ -46,6 +48,7 @@ var unregistered_customers : PackedStringArray = []
 func _ready() -> void:
 	current_score = 0
 	drone_chance = 1.10
+	timing_customer = false
 	game_accuracies.clear()
 	game_scores.clear()
 	game_tips.clear()
@@ -60,6 +63,13 @@ func _ready() -> void:
 	hud.reset_score()
 	unregistered_customers.clear()
 	$AnimationPlayer.play("menu_mode")
+
+
+func _process_customer_timer() -> void:
+	var finish_time : float = current_order_start_time - $game_timer.time_left
+	var time_performance = inverse_lerp(0, current_order_deadline, finish_time)
+	hud.update_customer_timer(time_performance)
+
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta):
@@ -79,6 +89,8 @@ func _physics_process(delta):
 			hud.dither_order(false)
 	elif !hud.order_dithered:
 		hud.dither_order(true)
+	if timing_customer:
+		_process_customer_timer()
 	if Input.is_key_pressed(KEY_F2) and OS.has_feature("editor"):
 		$game_timer.start(5)
 
@@ -95,6 +107,8 @@ func _on_chef_chef_ready():
 func start_game():
 	current_score = 0
 	drone_chance = 1.10
+	timing_customer = false
+	hud.hide_customer_timer()
 	game_accuracies.clear()
 	game_scores.clear()
 	game_tips.clear()
@@ -134,12 +148,15 @@ func adjust_score(arg : int):
 
 func make_new_order():
 	current_order.clear()
+	timing_customer = false
+	hud.hide_customer_timer()
 	var drone_event : bool = false
 	drone_chance -= 0.05
 	if randf() > drone_chance:
 		drone_event = true
 		drone_chance = 1.10
 	current_order = kitchen.readying_next_customer(drone_event)
+	current_order_deadline = 6 + (current_order.size() * 1.45)
 	hud.push_burger_build(current_order)
 	chef.order_size = current_order.size()
 	chef.current_burger.refresh_plate()
@@ -148,6 +165,7 @@ func make_new_order():
 
 func _on_kitchen_a_start_timer() -> void:
 	current_order_start_time = $game_timer.time_left
+	current_order_deadline = 6 + (current_order.size() * 1.45)
 
 
 func generate_order(difficulty : int) -> PackedStringArray:
@@ -203,8 +221,7 @@ func assess_submission():
 			correct_placements += 1
 	var burger_score : int = (correct_ingredients + correct_placements) - wrong_ingredients
 	var finish_time : float = current_order_start_time - $game_timer.time_left
-	var deadline : float = 6 + (current_order.size() * 1.45)
-	var time_performance = inverse_lerp(0, deadline, finish_time)
+	var time_performance = inverse_lerp(0, current_order_deadline, finish_time)
 	var time_percent = order_point_time_curve.sample(time_performance)
 	var time_score := roundf((current_order.size() - wrong_ingredients) * time_percent)
 	var satisfaction_percent : float = float(time_score) / float(current_order.size())
@@ -231,6 +248,8 @@ func assess_submission():
 	emit_signal("finished_order", kitchen.current_customer.customer_name, rank)
 	kitchen.customer_fed(rank)
 	chef.waiting = true
+	hud.hide_customer_timer()
+	timing_customer = false
 
 
 func provide_regular_bonus_tip(amount : int) -> void:
@@ -323,9 +342,12 @@ func _on_results_finished_results():
 
 func _on_kitchen_a_customer_ready():
 	chef.waiting = false
+	timing_customer = true
+	hud.reveal_customer_timer()
 	if unregistered_customers.has(kitchen.current_customer.customer_name):
 		hud.new_regular_snapped()
 		unregistered_customers.remove_at(unregistered_customers.find(kitchen.current_customer.customer_name))
+	
 
 
 func _on_kitchen_a_customer_left():
