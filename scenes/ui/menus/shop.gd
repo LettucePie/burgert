@@ -13,7 +13,8 @@ var potential_shop_level : int = 0
 var song_level_quantities : PackedInt32Array = [
 	25,
 	50,
-	100
+	100,
+	150,
 ]
 
 @onready var main : Control = $phone/main

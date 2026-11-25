@@ -402,8 +402,8 @@ var stats : Stats
 func _default_stats():
 	stats = Stats.new()
 	stats.set_songs_owned([2, 3, 5, 8, 11, 12])
-	stats.set_play_playlist([3, 5, 11])
-	stats.set_main_playlist([2, 8, 12])
+	stats.set_play_playlist([0, 28])
+	stats.set_main_playlist([29, ])
 	stats.set_jukebox_playlist([2, 3, 5, 8, 11, 12])
 	stats.customers_in_kitchen = game_scene.kitchen.customers
 	_save_stats()
@@ -747,7 +747,8 @@ func _on_main_menu_notification_check() -> void:
 		if served_once_count >= 25 and !stats.notifications_read.has(2):
 			main_menu.notifier.display_notification(2)
 		elif good_relations >= 25 and !stats.notifications_read.has(3):
-			main_menu.notifier.display_notifications(3)
+			main_menu.notifier.display_notification(3)
+	print(stats.songs_owned.size())
 	if stats.songs_owned.size() >= music.all_songs.size():
 		if !stats.notifications_read.has(4):
 			main_menu.notifier.display_notification(4)

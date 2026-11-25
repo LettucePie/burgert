@@ -79,8 +79,8 @@ func _main_menu_refresh() -> void:
 
 
 func _on_main_menu_selection(selection: String) -> void:
-	print(selection)
 	if current_screen == SCREENS.MAIN and main.active:
+		main.active = false
 		if selection == "Play":
 			anim.play("play_start")
 			printer.printer_queue.clear()
@@ -278,4 +278,5 @@ func _on_notifiers_notifier_started() -> void:
 
 
 func _on_notifiers_notifier_finished(_idx: Variant) -> void:
+	print("Notifer Finished. Set active true")
 	main.active = true

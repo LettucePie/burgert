@@ -157,10 +157,10 @@ offset_right = 6.10352e-05
 offset_right = -3.05176e-05
 
 [node name="totals" parent="Records/savings_transfer" index="4"]
-offset_right = -0.000732422
+offset_right = -0.000793457
 
 [node name="counter" parent="Records/savings_transfer" index="5"]
-offset_right = -0.000732422
+offset_right = -0.000793457
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false

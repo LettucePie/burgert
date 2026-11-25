@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 
 func _close_notification() -> void:
 	closing = true
+	finished = false
 	anim.play("notification_end")
 	emit_signal("notifier_finished", notification_index)
 
