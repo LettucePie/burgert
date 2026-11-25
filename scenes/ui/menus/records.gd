@@ -138,7 +138,7 @@ func _apply_transfer_adjustment(scale_idx : int) -> void:
 		adjustment = available_transfer - transfer_amount
 	if transfer_amount + adjustment > transfer_max:
 		adjustment = transfer_max - transfer_amount
-	transfer_amount = clampi(transfer_amount + adjustment, 0, 249999)
+	transfer_amount = clampi(transfer_amount + adjustment, 0, 250000)
 	var label_idx : int = 0
 	var amount_str : String = str(transfer_amount)
 	amount_str = amount_str.reverse()

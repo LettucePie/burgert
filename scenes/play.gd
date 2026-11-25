@@ -560,6 +560,9 @@ func _input(event):
 			for customer in game_scene.kitchen.customers:
 				for i in 10:
 					_on_game_finished_order(customer.customer_name, 3)
+		if event.keycode == KEY_F3 and event.is_pressed():
+			stats.set_highest_score(500000)
+			_save_stats()
 
 
 func _on_main_menu_prepare_kitchen() -> void:
@@ -698,10 +701,20 @@ func _on_intro_splash_intro_splash_fading() -> void:
 	_on_main_menu_notification_check()
 
 
+func _check_goal_met() -> void:
+	if stats.saved_score >= 250000:
+		print("VICTORY")
+		main_menu.records.anim.play("goal_reached")
+		main_menu.main.active = false
+		#main_menu.refocus()
+		quest_cutscenes.play_cutscene(1)
+
+
 func _on_records_deposit_to_savings(amount : int) -> void:
 	stats.adjust_saved_score(amount)
 	stats.adjust_spent_score(amount)
 	_save_stats()
+	_check_goal_met()
 
 
 func _delete_game_progress() -> void:
@@ -719,6 +732,8 @@ func _delete_game_progress() -> void:
 
 func _on_quest_cutscenes_exit_cutscene(id : int) -> void:
 	print("Cutscene Exit")
+	if id == 1:
+		_load_settings()
 	quest_cutscenes.hide()
 	intro_splash.play_intro()
 
@@ -757,3 +772,12 @@ func _on_main_menu_notification_check() -> void:
 func _on_notification_read(idx : int) -> void:
 	stats.add_notification_read(idx)
 	_save_stats()
+
+
+func _on_quest_cutscenes_prepare_credits() -> void:
+	print("Preparing Main Menu")
+	AudioServer.set_bus_volume_db(2, -72.0)
+	main_menu.anim.play("start")
+	main_menu.current_screen = main_menu.SCREENS.MAIN
+	main_menu.main.go_to_layer("Credits")
+	main_menu._on_main_menu_selection("Credits")

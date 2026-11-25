@@ -323,3 +323,4 @@ justification_flags = 160
 [connection signal="frame_changed" from="intro_splash" to="intro_splash" method="_on_frame_changed"]
 [connection signal="intro_splash_fading" from="intro_splash" to="." method="_on_intro_splash_intro_splash_fading"]
 [connection signal="exit_cutscene" from="QuestCutscenes" to="." method="_on_quest_cutscenes_exit_cutscene"]
+[connection signal="prepare_credits" from="QuestCutscenes" to="." method="_on_quest_cutscenes_prepare_credits"]

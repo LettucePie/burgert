@@ -2,6 +2,7 @@ extends Node2D
 class_name QuestCutscenes
 
 signal exit_cutscene(idx)
+signal prepare_credits()
 
 @onready var anim_scene : AnimationPlayer = $AnimationPlayer
 @onready var space : Sprite2D = $space
@@ -126,7 +127,6 @@ var char_count_R : int = 0
 func _ready() -> void:
 	page = -1
 	if get_window().get_child(0) == self:
-		print("TESTING")
 		play_cutscene(1)
 	else:
 		hide()
@@ -145,23 +145,16 @@ func play_cutscene(id : int) -> void:
 
 
 func advance_page() -> void:
-	print("Advance Page")
 	page += 1
 	text_finished = false
 	text_speed = 1.0
 	char_count_L = 0
 	char_count_R = 0
-	print("SCENE: ", scene_playwrite[page])
-	print("TEXT: ", text_playwrite[page])
 	if page <= scene_playwrite.size() - 1 and anim_text.current_animation != "exit":
 		if !scene_playwrite[page].contains("hold"):
-			print("Running Scene")
 			anim_scene.play(scene_playwrite[page])
 		anim_text.play(text_playwrite[page])
-		print("Running Text")
-	else:
-		print("PAGEID: ", page, " TOTAL: ", scene_playwrite.size() - 1)
-		print(anim_text.current_animation)
+
 
 
 func finish_text_pause() -> void:
@@ -194,10 +187,12 @@ func play_voice(side : String) -> void:
 
 
 func _step_progress() -> void:
-	if !text_finished and anim_text.current_animation.contains("text"):
-		text_speed += 0.5
-	else:
-		advance_page()
+	if visible:
+		if !text_finished and anim_text.current_animation.contains("text"):
+			if page < 23:
+				text_speed += 0.5
+		else:
+			advance_page()
 
 func _process_text() -> void:
 	anim_text.speed_scale = text_speed
@@ -243,12 +238,8 @@ func _input(event: InputEvent) -> void:
 			_step_progress()
 
 
-func spread_customers() -> void:
-	for c in $kitchen/Node2D.get_children():
-		if randf() > 0.5:
-			c.position.x = 800
-		else:
-			c.position.x = -800
+func relocate_to_credits() -> void:
+	emit_signal("prepare_credits")
 
 
 func exit_custscene() -> void:

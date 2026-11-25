@@ -11,6 +11,7 @@ func _ready():
 
 func play_intro():
 	self.show()
+	modulate = Color.WHITE
 	frame = 0
 	play("no_ai")
 	$AudioStreamPlayer.play()
