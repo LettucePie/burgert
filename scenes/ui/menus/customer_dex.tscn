@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://1jbkgwvlsnoo" path="res://assets/images/characters/customers/customer_persistant_still.png" id="14_rahtd"]
 [ext_resource type="Texture2D" uid="uid://cqrvdvkxolvub" path="res://assets/images/characters/customers/customer_anxiety_still.png" id="15_uln1r"]
 [ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="16_n50c5"]
-[ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/customer_jimmie_still.png" id="17_ee0ij"]
+[ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/delete_me_customer_jimmie_still.png" id="17_ee0ij"]
 [ext_resource type="Texture2D" uid="uid://croqar7nh1iwo" path="res://assets/images/characters/customers/customer_mrpink_still.png" id="18_7npwb"]
 [ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="19_sdjq2"]
 [ext_resource type="Texture2D" uid="uid://bcnaompom57bb" path="res://assets/images/characters/customers/customer_RAT_still.png" id="20_3dqd7"]

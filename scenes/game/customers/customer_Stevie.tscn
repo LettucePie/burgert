@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmycphaqf0bvr"]
+[gd_scene load_steps=7 format=3 uid="uid://bmycphaqf0bvr"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_dybq8"]
-[ext_resource type="AnimationLibrary" uid="uid://knkofo4mts3u" path="res://assets/animation/customers/jimmie_animlib.res" id="2_4wsg3"]
-[ext_resource type="SpriteFrames" uid="uid://dw3p885dlqutw" path="res://assets/images/characters/customers/customer_Jimmie_spriteframes.tres" id="2_5sth2"]
-[ext_resource type="Resource" uid="uid://b0rdcsjh5c4cj" path="res://assets/data/schedules/Jimmie_schedule.tres" id="2_kisee"]
+[ext_resource type="AnimationLibrary" uid="uid://knkofo4mts3u" path="res://assets/animation/customers/stevie_animlib.res" id="2_4wsg3"]
+[ext_resource type="SpriteFrames" uid="uid://dw3p885dlqutw" path="res://assets/images/characters/customers/customer_Stevie_spriteframes.tres" id="2_5sth2"]
+[ext_resource type="Resource" uid="uid://b0rdcsjh5c4cj" path="res://assets/data/schedules/Stevie_schedule.tres" id="2_kisee"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="4_6dce2"]
 
-[node name="Jimmie" instance=ExtResource("1_dybq8")]
-customer_name = "Jimmie"
+[sub_resource type="ViewportTexture" id="ViewportTexture_ulw7q"]
+viewport_path = NodePath("placeholder")
+
+[node name="Stevie" instance=ExtResource("1_dybq8")]
+customer_name = "Stevie"
 orders = Array[PackedStringArray]([PackedStringArray("Lettuce"), PackedStringArray("Bun", "Lettuce", "Bun Top"), PackedStringArray("Lettuce", "Bun", "Lettuce"), PackedStringArray("Bun", "Meat", "Lettuce", "Bun Top")])
 schedule = ExtResource("2_kisee")
 
@@ -30,3 +33,6 @@ position = Vector2(-30.7143, 0)
 
 [node name="Right" parent="character" index="3"]
 position = Vector2(24.2857, 0)
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_ulw7q")

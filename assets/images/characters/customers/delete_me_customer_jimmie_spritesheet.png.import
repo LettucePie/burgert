@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1u3542wpc4vx"
-path="res://.godot/imported/customer_jimmie_still.png-be396cfe25ab91b82f2c153bcd27333a.ctex"
+uid="uid://vnwkwwwn1wx4"
+path="res://.godot/imported/delete_me_customer_jimmie_spritesheet.png-fd4b40808e4a4ab9c385b5eeae059b29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customer_jimmie_still.png"
-dest_files=["res://.godot/imported/customer_jimmie_still.png-be396cfe25ab91b82f2c153bcd27333a.ctex"]
+source_file="res://assets/images/characters/customers/delete_me_customer_jimmie_spritesheet.png"
+dest_files=["res://.godot/imported/delete_me_customer_jimmie_spritesheet.png-fd4b40808e4a4ab9c385b5eeae059b29.ctex"]
 
 [params]
 

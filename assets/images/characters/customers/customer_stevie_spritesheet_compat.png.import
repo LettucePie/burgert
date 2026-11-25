@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vnwkwwwn1wx4"
-path="res://.godot/imported/customer_jimmie_spritesheet.png-fc89f111409ba0f21a3feef299ef4306.ctex"
+uid="uid://bufoghnn26ilt"
+path="res://.godot/imported/customer_stevie_spritesheet_compat.png-6a90c44e09f3c9dc382b1ff72db7eb6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/characters/customers/customer_jimmie_spritesheet.png"
-dest_files=["res://.godot/imported/customer_jimmie_spritesheet.png-fc89f111409ba0f21a3feef299ef4306.ctex"]
+source_file="res://assets/images/characters/customers/customer_stevie_spritesheet_compat.png"
+dest_files=["res://.godot/imported/customer_stevie_spritesheet_compat.png-6a90c44e09f3c9dc382b1ff72db7eb6b.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

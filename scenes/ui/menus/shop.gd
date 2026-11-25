@@ -18,6 +18,7 @@ var song_level_quantities : PackedInt32Array = [
 ]
 
 @onready var main : Control = $phone/main
+@onready var music_button_0 : Button = $phone/main/menu_0_0/music
 @onready var finished : Button = $phone/main/menu_0_0/finished
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var connection_label : Label = $phone/connection/label
@@ -103,7 +104,7 @@ func update_connection_stage():
 	if connect_stage <= 2:
 		connection_label.text = connection_messages[connect_stage]
 	else:
-		finished.grab_focus()
+		music_button_0.grab_focus()
 
 
 func _on_finished_pressed() -> void:

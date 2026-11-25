@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgmgqfpgsbl30"]
+[gd_scene load_steps=9 format=3 uid="uid://cgmgqfpgsbl30"]
 
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="1_har53"]
 [ext_resource type="AnimationLibrary" uid="uid://dflhdwynqrjmq" path="res://assets/animation/customers/karen_animlib.res" id="2_4r0sl"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://dtocbyusabk7e" path="res://assets/sound/sfx/game/characters/Voice/Doot_1.wav" id="4_47me5"]
 [ext_resource type="AudioStream" uid="uid://y2e34pymm5a6" path="res://assets/sound/sfx/game/characters/Voice/Doot_4.wav" id="5_rk2xr"]
 [ext_resource type="AudioStream" uid="uid://bpfk5gp5w4xfv" path="res://assets/sound/sfx/game/characters/Voice/Doot_3.wav" id="6_uyusu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8dhsr"]
+viewport_path = NodePath("placeholder")
 
 [node name="Karen" instance=ExtResource("1_har53")]
 customer_name = "Karen"
@@ -32,3 +35,6 @@ position = Vector2(-30.7143, 0)
 
 [node name="Right" parent="character" index="3"]
 position = Vector2(24.2857, 0)
+
+[node name="burger_portal_view" parent="." index="2"]
+texture = SubResource("ViewportTexture_8dhsr")

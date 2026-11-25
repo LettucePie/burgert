@@ -18,14 +18,14 @@ signal close_customerdex
 @export var customer_names_internal : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
-	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
+	"Stevie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
 	"Brandon", "Chief Patty Zarkon", "Dale", "Mr. Understood",
 	"Ronald", "Shagg"
 ]
 @export var customer_names_display : PackedStringArray = [
 	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
 	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
-	"Jimmie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
+	"Stevie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
 	"Brandon", "Chief Patty Zarkon", "Dale", "Mr. Understood",
 	"Ronald", "Shagg"
 ]

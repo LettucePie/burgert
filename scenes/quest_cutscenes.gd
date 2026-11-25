@@ -47,7 +47,8 @@ var scene_playwrite : PackedStringArray = [
 	"scene_10", ## Grampa snores
 	"hold", ## Grampa Stops
 	"scene_11", ## Chef equip and leave
-	"exit"
+	"exit",
+	"scene_12"
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
@@ -73,7 +74,9 @@ var text_playwrite : PackedStringArray = [
 	"text_16", ## Grampa Snoring
 	"text_17", ## Finish Grampa dialog
 	"pause_hold", ## Chef equip
-	"exit"
+	"exit",
+	"pause_mid", ## Start Victory Scene
+	"pause_mid",
 ]
 var announces : PackedStringArray = [
 	"",
@@ -113,10 +116,12 @@ func _ready() -> void:
 func play_cutscene(id : int) -> void:
 	if id == 0:
 		page = -1
-		show()
-		anim_scene.play("start")
-		anim_text.play("start")
-		advance_page()
+	if id == 1:
+		page = 23
+	show()
+	anim_scene.play("start")
+	anim_text.play("start")
+	advance_page()
 
 
 func advance_page() -> void:
@@ -126,7 +131,7 @@ func advance_page() -> void:
 	text_speed = 1.0
 	char_count_L = 0
 	char_count_R = 0
-	if page <= scene_playwrite.size() - 1:
+	if page <= scene_playwrite.size() - 1 and !anim_text.current_animation != "exit":
 		if !scene_playwrite[page].contains("hold"):
 			anim_scene.play(scene_playwrite[page])
 		anim_text.play(text_playwrite[page])

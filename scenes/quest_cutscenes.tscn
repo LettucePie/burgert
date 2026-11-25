@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b84f6lp85tde8"]
+[gd_scene load_steps=90 format=3 uid="uid://b84f6lp85tde8"]
 
 [ext_resource type="Script" path="res://scenes/quest_cutscenes.gd" id="1_h64cq"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="2_ot22a"]
@@ -19,7 +19,34 @@
 [ext_resource type="SpriteFrames" uid="uid://bk1fx0nk8s1x4" path="res://assets/images/sequences/grampa_hospital_bed_spriteframes.tres" id="16_0t7g1"]
 [ext_resource type="SpriteFrames" uid="uid://bsr1y3qu8w4ha" path="res://assets/images/sequences/sleepyzees_spriteframes.tres" id="16_er43n"]
 [ext_resource type="Texture2D" uid="uid://dl8oscrk1lvsd" path="res://assets/images/sequences/grampa_faceanims_atlastexture.tres" id="16_mawd3"]
+[ext_resource type="SpriteFrames" uid="uid://smmnf0nccpq4" path="res://assets/images/sequences/restaurant_interior_spriteframes.tres" id="17_2eees"]
 [ext_resource type="SpriteFrames" uid="uid://b6p88o7ouw26p" path="res://assets/images/characters/chef/chef_frames.tres" id="17_ili5q"]
+[ext_resource type="Texture2D" uid="uid://dhva2jkthjd1r" path="res://assets/images/characters/customers/customer_wizard_still.png" id="18_aerrf"]
+[ext_resource type="Texture2D" uid="uid://dephh5h80edxg" path="res://assets/images/characters/customers/customer_tommy_still.png" id="19_fmteh"]
+[ext_resource type="Texture2D" uid="uid://dqq7p152luv35" path="res://assets/images/characters/customers/customer_toad_and_buddy_still.png" id="20_28ohg"]
+[ext_resource type="Texture2D" uid="uid://cg0yvqwq3r3wb" path="res://assets/images/characters/customers/customer_ted_still.png" id="21_7ui6g"]
+[ext_resource type="Texture2D" uid="uid://crhdkvxa8ixn0" path="res://assets/images/characters/customers/customer_teddy_still.png" id="22_olqgi"]
+[ext_resource type="Texture2D" uid="uid://bivwcupa7xnh1" path="res://assets/images/characters/customers/customer_shagg_still.png" id="23_c5ard"]
+[ext_resource type="Texture2D" uid="uid://43mqcc7ke18t" path="res://assets/images/characters/customers/customer_ronald_still.png" id="24_7f2m8"]
+[ext_resource type="Texture2D" uid="uid://bcnaompom57bb" path="res://assets/images/characters/customers/customer_RAT_still.png" id="25_wxodv"]
+[ext_resource type="Texture2D" uid="uid://dtcuxkfwf2cti" path="res://assets/images/characters/customers/customer_punk_still.png" id="26_tl575"]
+[ext_resource type="Texture2D" uid="uid://1jbkgwvlsnoo" path="res://assets/images/characters/customers/customer_persistant_still.png" id="27_3m402"]
+[ext_resource type="Texture2D" uid="uid://dxlt1mwtpdlgc" path="res://assets/images/characters/customers/customer_patient_still.png" id="28_o1cwj"]
+[ext_resource type="Texture2D" uid="uid://d2w2qyg4gst2j" path="res://assets/images/characters/customers/customer_mustard_still.png" id="29_1eudc"]
+[ext_resource type="Texture2D" uid="uid://dyrui1jgjmhly" path="res://assets/images/characters/customers/customer_mr_understood_still.png" id="30_dkj1p"]
+[ext_resource type="Texture2D" uid="uid://croqar7nh1iwo" path="res://assets/images/characters/customers/customer_mrpink_still.png" id="31_n7i2v"]
+[ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="32_pgx4r"]
+[ext_resource type="Texture2D" uid="uid://cny0jvo6jpucg" path="res://assets/images/characters/customers/customer_karen_still.png" id="33_thm1v"]
+[ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="34_f7ck6"]
+[ext_resource type="Texture2D" uid="uid://g7cuqrmeh738" path="res://assets/images/characters/customers/customer_emo_still.png" id="35_2euae"]
+[ext_resource type="Texture2D" uid="uid://p6m7b8sqepi1" path="res://assets/images/characters/customers/customer_dancer_still.png" id="36_erfq8"]
+[ext_resource type="Texture2D" uid="uid://bllvpk5oixvd" path="res://assets/images/characters/customers/customer_dale_still.png" id="37_8hecn"]
+[ext_resource type="Texture2D" uid="uid://dt2410ejxspie" path="res://assets/images/characters/customers/customer_chief_patty_zarkon_still.png" id="38_h7o7f"]
+[ext_resource type="Texture2D" uid="uid://bfelf6xvhbex3" path="res://assets/images/characters/customers/customer_brandon_still.png" id="39_qc4kq"]
+[ext_resource type="Texture2D" uid="uid://b7ulnwb8hfwa1" path="res://assets/images/characters/customers/customer_beef_and_kale_still.png" id="40_6s0cn"]
+[ext_resource type="Texture2D" uid="uid://cqrvdvkxolvub" path="res://assets/images/characters/customers/customer_anxiety_still.png" id="41_j6iuj"]
+[ext_resource type="Texture2D" uid="uid://d2p2i73x7xdhi" path="res://assets/images/characters/customers/customer_al_still.png" id="42_5sd34"]
+[ext_resource type="Texture2D" uid="uid://dqs8p3c26h7dr" path="res://assets/images/environment/kitchen/restaurant_fg/counter.tres" id="43_8sri3"]
 
 [sub_resource type="Animation" id="Animation_j1ndl"]
 length = 0.001
@@ -474,6 +501,18 @@ tracks/37/path = NodePath("Control/Panel:visible")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("kitchen:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2128,6 +2167,120 @@ tracks/22/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("kitchen:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5s1vb"]
+resource_name = "scene_12"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hospital:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FullShade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.0823529, 0.152941, 0), Color(0.1385, 0.081, 0.15, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FullShade:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("kitchen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5gldm"]
+resource_name = "scene_13"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FullShade:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("kitchen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FullShade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.1385, 0.081, 0.15, 1), Color(0.1385, 0.081, 0.15, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oheuq"]
 _data = {
@@ -2136,6 +2289,8 @@ _data = {
 "scene_1": SubResource("Animation_o418f"),
 "scene_10": SubResource("Animation_y30sc"),
 "scene_11": SubResource("Animation_3kc5l"),
+"scene_12": SubResource("Animation_5s1vb"),
+"scene_13": SubResource("Animation_5gldm"),
 "scene_2": SubResource("Animation_qqgxl"),
 "scene_3": SubResource("Animation_oiias"),
 "scene_4": SubResource("Animation_xrw4r"),
@@ -5201,7 +5356,97 @@ sprite_frames = ExtResource("16_er43n")
 animation = &"snore"
 autoplay = "snore"
 
-[node name="kitchen" type="Sprite2D" parent="."]
+[node name="kitchen" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("17_2eees")
+autoplay = "default"
+
+[node name="Node2D" type="Node2D" parent="kitchen"]
+
+[node name="Sprite2D" type="Sprite2D" parent="kitchen/Node2D"]
+position = Vector2(128.5, 0)
+texture = ExtResource("18_aerrf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="kitchen/Node2D"]
+position = Vector2(-122, 0)
+texture = ExtResource("19_fmteh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("20_28ohg")
+
+[node name="Sprite2D4" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("21_7ui6g")
+
+[node name="Sprite2D5" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("22_olqgi")
+
+[node name="Sprite2D6" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("23_c5ard")
+
+[node name="Sprite2D7" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("24_7f2m8")
+
+[node name="Sprite2D8" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("25_wxodv")
+
+[node name="Sprite2D9" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("26_tl575")
+
+[node name="Sprite2D10" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("27_3m402")
+
+[node name="Sprite2D11" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("28_o1cwj")
+
+[node name="Sprite2D12" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("29_1eudc")
+
+[node name="Sprite2D13" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("30_dkj1p")
+
+[node name="Sprite2D14" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("31_n7i2v")
+
+[node name="Sprite2D15" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("32_pgx4r")
+
+[node name="Sprite2D16" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("33_thm1v")
+
+[node name="steve" type="Sprite2D" parent="kitchen/Node2D"]
+
+[node name="Sprite2D18" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("34_f7ck6")
+
+[node name="Sprite2D19" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("35_2euae")
+
+[node name="Sprite2D20" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("36_erfq8")
+
+[node name="Sprite2D21" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("37_8hecn")
+
+[node name="Sprite2D22" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("38_h7o7f")
+
+[node name="Sprite2D23" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("39_qc4kq")
+
+[node name="Sprite2D24" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("40_6s0cn")
+
+[node name="Sprite2D25" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("41_j6iuj")
+
+[node name="Sprite2D26" type="Sprite2D" parent="kitchen/Node2D"]
+texture = ExtResource("42_5sd34")
+
+[node name="counter" type="Sprite2D" parent="kitchen"]
+position = Vector2(0, 49)
+texture = ExtResource("43_8sri3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -5226,8 +5471,8 @@ anchors_preset = -1
 anchor_top = 0.312503
 anchor_right = 1.0
 anchor_bottom = 0.629163
-offset_top = -150.002
-offset_bottom = -149.998
+offset_top = 177.999
+offset_bottom = 178.003
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
