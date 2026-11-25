@@ -2254,7 +2254,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yjpo2"]
-viewport_path = NodePath(".")
+viewport_path = NodePath("burger_portal")
 
 [node name="chef" type="Node2D"]
 texture_filter = 1
@@ -2269,6 +2269,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle_L = false
 parameters/conditions/idle_R = false
 parameters/conditions/post_game = false
+parameters/conditions/rested = false
 parameters/Charging_L/TimeScale/scale = 1.0
 parameters/Charging_R/TimeScale/scale = 1.0
 

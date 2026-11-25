@@ -42,6 +42,7 @@ var idle_counter : int = 0
 var stations : Array[Workstation]
 var current_station : Workstation = null
 var direction : String = "L"
+var turn_rest : int = 0
 var order_size : int = 0
 var submitting_burger : bool = false
 var burger_thrown : bool = false
@@ -113,11 +114,23 @@ func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("left"):
 		move_vec.x -= 1
-		state_machine.travel("Run_L")
+		if turn_rest >= 12:
+			state_machine.start("Run_L")
+		else:
+			if direction == "R":
+				state_machine.travel("Swing_L")
+			else:
+				state_machine.travel("Run_L")
 		_update_direction("L")
 	elif Input.is_action_pressed("right"):
 		move_vec.x += 1
-		state_machine.travel("Run_R")
+		if turn_rest >= 12:
+			state_machine.start("Run_R")
+		else:
+			if direction == "L":
+				state_machine.travel("Swing_R")
+			else:
+				state_machine.travel("Run_R")
 		_update_direction("R")
 	#if !state_machine.get_current_node().contains("Swing"):
 	position.x += move_vec.x * MOVE_SPEED
@@ -127,8 +140,10 @@ func process_movement(delta):
 		anim_tree.set("parameters/conditions/idle_L", false)
 		anim_tree.set("parameters/conditions/idle_R", false)
 		idle_counter = 0
+		turn_rest = 0
 	else:
 		anim_tree.set("parameters/conditions/idle_" + direction, true)
+		turn_rest = clamp(turn_rest + 1, 0, 60)
 
 
 @warning_ignore("unused_parameter")
