@@ -80,7 +80,7 @@ func _main_menu_refresh() -> void:
 
 func _on_main_menu_selection(selection: String) -> void:
 	print(selection)
-	if current_screen == SCREENS.MAIN:
+	if current_screen == SCREENS.MAIN and main.active:
 		if selection == "Play":
 			anim.play("play_start")
 			printer.printer_queue.clear()
@@ -274,4 +274,8 @@ func _on_shop_shop_level_marked(_lvl: Variant) -> void:
 
 
 func _on_notifiers_notifier_started() -> void:
-	pass # Replace with function body.
+	main.active = false
+
+
+func _on_notifiers_notifier_finished(_idx: Variant) -> void:
+	main.active = true

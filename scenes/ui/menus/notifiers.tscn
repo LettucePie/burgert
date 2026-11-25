@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3vopwxe4tjvw"]
+[gd_scene load_steps=13 format=3 uid="uid://c3vopwxe4tjvw"]
 
 [ext_resource type="Script" path="res://scenes/ui/menus/notifiers.gd" id="1_nlo86"]
 [ext_resource type="Theme" uid="uid://j0vyfdprpqgb" path="res://assets/theme/theme_flip-phone.tres" id="1_rgwd8"]
 [ext_resource type="Texture2D" uid="uid://croeeq84ep5t2" path="res://assets/images/graphics/menu/main/notifier_pop_atlastexture.tres" id="1_yswfw"]
-[ext_resource type="Texture2D" uid="uid://bqd8mjurs2xfn" path="res://assets/images/sequences/grampa_profile_atlastexture.tres" id="3_w4qvy"]
+[ext_resource type="Texture2D" uid="uid://bqd8mjurs2xfn" path="res://assets/images/graphics/menu/main/grampa_profile_atlastexture.tres" id="3_w4qvy"]
+[ext_resource type="Texture2D" uid="uid://50h5kfhqi7o8" path="res://assets/images/graphics/menu/main/chef_houndfall_profile.png" id="4_32d1y"]
 [ext_resource type="Material" uid="uid://dtd41gf11icbe" path="res://assets/shaders/palette_limit_shadermaterial.tres" id="4_es6l8"]
 [ext_resource type="Texture2D" uid="uid://dl8oscrk1lvsd" path="res://assets/images/sequences/grampa_faceanims_atlastexture.tres" id="5_h3y0c"]
 
@@ -436,7 +437,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rgwd8")
 script = ExtResource("1_nlo86")
-profile_pictures = Array[Texture2D]([ExtResource("3_w4qvy")])
+profile_pictures = Array[Texture2D]([ExtResource("3_w4qvy"), ExtResource("4_32d1y")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -451,8 +452,9 @@ anchors_preset = -1
 anchor_top = 0.871
 anchor_right = 0.097
 anchor_bottom = 1.0
-offset_top = -0.0800171
+offset_top = -0.0799866
 offset_right = -0.0800018
+offset_bottom = 3.05176e-05
 grow_vertical = 0
 pivot_offset = Vector2(31, 31)
 texture = ExtResource("1_yswfw")
@@ -465,8 +467,9 @@ anchor_left = 0.090625
 anchor_top = 0.302083
 anchor_right = 0.901563
 anchor_bottom = 0.697917
-offset_left = 2.0
-offset_right = 3.0
+offset_top = 0.000167847
+offset_right = 0.999695
+offset_bottom = -0.000152588
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1e-05)

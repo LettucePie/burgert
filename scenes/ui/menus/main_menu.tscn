@@ -157,10 +157,10 @@ offset_right = 6.10352e-05
 offset_right = -3.05176e-05
 
 [node name="totals" parent="Records/savings_transfer" index="4"]
-offset_right = -0.000671387
+offset_right = -0.000732422
 
 [node name="counter" parent="Records/savings_transfer" index="5"]
-offset_right = -0.000671387
+offset_right = -0.000732422
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
@@ -205,6 +205,7 @@ layout_mode = 1
 [connection signal="shop_level_unread" from="Shop" to="." method="_on_shop_shop_level_unread"]
 [connection signal="announce_finish" from="Announce" to="." method="_on_announce_announce_finish"]
 [connection signal="printer_finished" from="RegularPrinter" to="." method="_on_regular_printer_printer_finished"]
+[connection signal="notifier_finished" from="notifiers" to="." method="_on_notifiers_notifier_finished"]
 [connection signal="notifier_started" from="notifiers" to="." method="_on_notifiers_notifier_started"]
 
 [editable path="office"]
