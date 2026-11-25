@@ -215,14 +215,16 @@ func process_submission(delta):
 		state_machine.travel("Throw_" + direction)
 		charging_rate = charging_rate_min
 		idle_counter = 0
-		sfx.stop()
+		if sfx.stream == charge_up_sfx:
+			sfx.stop()
 	if Input.is_action_just_pressed("down") \
 	or Input.is_action_just_pressed("cancel"):
 		submitting_burger = false
 		burger_thrown = false
 		emit_signal("cancel_burger_submission")
 		state_machine.travel("Idle_" + direction)
-		sfx.stop()
+		if sfx.stream == charge_up_sfx:
+			sfx.stop()
 
 
 func _physics_process(delta):
@@ -269,8 +271,6 @@ func intro_animation_finished():
 func set_active(tf : bool):
 	active = tf
 	if !tf:
-		sfx.stop()
-		trashing = false
 		emit_signal("trashing_stopped")
 
 
