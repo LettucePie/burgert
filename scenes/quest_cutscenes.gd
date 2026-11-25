@@ -1,8 +1,7 @@
 extends Node2D
 class_name QuestCutscenes
 
-@warning_ignore("unused_signal")
-signal exit_cutscene()
+signal exit_cutscene(idx)
 
 @onready var anim_scene : AnimationPlayer = $AnimationPlayer
 @onready var space : Sprite2D = $space
@@ -22,6 +21,7 @@ signal exit_cutscene()
 var current_voice_bank_L : int = 0
 var current_voice_bank_R : int = 1
 ##
+var scene_id : int = -1
 var page : int = -1
 var scene_playwrite : PackedStringArray = [
 	"scene_1",
@@ -48,7 +48,15 @@ var scene_playwrite : PackedStringArray = [
 	"hold", ## Grampa Stops
 	"scene_11", ## Chef equip and leave
 	"exit",
-	"scene_12"
+	"scene_12", ## Purple Shroud over everything (Victory Scene)
+	"scene_13", ## Reveal Kitchen Scene
+	"scene_14", ## Enter Chef and Gramps behind
+	"hold",
+	"scene_15", ## Lights Flicker
+	"scene_16", ## Lights off, customers sneak in
+	"scene_17", ## Lights On reveal (Grandiose)
+	"scene_18", ## Congrats Message
+	"exit"
 ]
 var text_playwrite : PackedStringArray = [
 	"pause_mid",
@@ -76,11 +84,19 @@ var text_playwrite : PackedStringArray = [
 	"pause_hold", ## Chef equip
 	"exit",
 	"pause_mid", ## Start Victory Scene
-	"pause_mid",
+	"pause_mid", ## Reveal Kitchen
+	"pause_long", ## Enter Chef and Gramps
+	"text_18", ## Dialog
+	"pause_long", ## lights flickering
+	"text_19", ## Dialog about power bill. customers enter shadowed. hide text at end
+	"pause_long", ## Reveal
+	"text_20", ## Thank Player
+	"exit" ##Somehow get to credits at this point.
 ]
 var announces : PackedStringArray = [
 	"",
-	"Once Upon a normal afternoon shift..."
+	"Once Upon a normal afternoon shift...",
+	"Thanks for playing"
 ]
 var dialogs : PackedStringArray = [
 	"",
@@ -96,7 +112,9 @@ var dialogs : PackedStringArray = [
 	"Gramps: So! That’s why you’re here ya lil burgger. You gotta go serve my regulars, the regulars pay to keep the lights on!",
 	"Gramps: Oh! And protect my stash! Those bookies will send robot burgorls for what’s left of my money!",
 	"Gramps: I know you will do well. You can use the radio, just don’t spend all of the money on your music! Ya sneaky lil bug-... burg-...",
-	"Gramps: My lil burgert... take... the mayo... off the menu..."
+	"Gramps: My lil burgert... take... the mayo... off the menu...",
+	"Gramps: Well grandson, you really took my generational debt like a champ... I would be doomed without you.",
+	"Gramps: Oh right... the power bill- You got to understand, this stuff never ends. The boulder always rolls back down."
 ]
 var text_finished : bool = false
 var text_speed : float = 1.0
@@ -108,7 +126,8 @@ var char_count_R : int = 0
 func _ready() -> void:
 	page = -1
 	if get_window().get_child(0) == self:
-		advance_page()
+		print("TESTING")
+		play_cutscene(1)
 	else:
 		hide()
 
@@ -118,6 +137,7 @@ func play_cutscene(id : int) -> void:
 		page = -1
 	if id == 1:
 		page = 23
+	scene_id = id
 	show()
 	anim_scene.play("start")
 	anim_text.play("start")
@@ -131,10 +151,17 @@ func advance_page() -> void:
 	text_speed = 1.0
 	char_count_L = 0
 	char_count_R = 0
-	if page <= scene_playwrite.size() - 1 and !anim_text.current_animation != "exit":
+	print("SCENE: ", scene_playwrite[page])
+	print("TEXT: ", text_playwrite[page])
+	if page <= scene_playwrite.size() - 1 and anim_text.current_animation != "exit":
 		if !scene_playwrite[page].contains("hold"):
+			print("Running Scene")
 			anim_scene.play(scene_playwrite[page])
 		anim_text.play(text_playwrite[page])
+		print("Running Text")
+	else:
+		print("PAGEID: ", page, " TOTAL: ", scene_playwrite.size() - 1)
+		print(anim_text.current_animation)
 
 
 func finish_text_pause() -> void:
@@ -214,3 +241,15 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == 1:
 			_step_progress()
+
+
+func spread_customers() -> void:
+	for c in $kitchen/Node2D.get_children():
+		if randf() > 0.5:
+			c.position.x = 800
+		else:
+			c.position.x = -800
+
+
+func exit_custscene() -> void:
+	emit_signal("exit_cutscene", scene_id)

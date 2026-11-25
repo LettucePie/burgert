@@ -717,7 +717,7 @@ func _delete_game_progress() -> void:
 	get_tree().call_deferred("reload_current_scene")
 
 
-func _on_quest_cutscenes_exit_cutscene() -> void:
+func _on_quest_cutscenes_exit_cutscene(id : int) -> void:
 	print("Cutscene Exit")
 	quest_cutscenes.hide()
 	intro_splash.play_intro()
