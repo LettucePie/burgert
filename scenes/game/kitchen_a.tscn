@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bxydn1v4n65po" path="res://assets/images/environment/kitchen/restaurant_bg/restaurant_bg_windowframe.png" id="5_v7g7i"]
 [ext_resource type="AudioStream" uid="uid://bklpam3oo3qwb" path="res://assets/sound/sfx/game/record_riff_2.wav" id="6_gxoov"]
 [ext_resource type="Texture2D" uid="uid://bae5v51mhtdfs" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stools.png" id="6_hsy50"]
-[ext_resource type="Texture2D" uid="uid://btbmo03ysvsw0" path="res://assets/images/environment/kitchen/restaurant_bg/Restaurant_bg_stopnpuke_sign.png" id="7_b5ba6"]
 [ext_resource type="AudioStream" uid="uid://drq0sdl5f1u3a" path="res://assets/sound/sfx/game/record_riff_3.wav" id="7_rmxbh"]
 [ext_resource type="SpriteFrames" uid="uid://e64v81dublgv" path="res://assets/images/graphics/missed_burger_frames.tres" id="8_hjo3x"]
 [ext_resource type="AudioStream" uid="uid://b34rn41nkyiii" path="res://assets/sound/sfx/game/wallsplat_sfx_1.wav" id="9_v7osa"]
 [ext_resource type="SpriteFrames" uid="uid://cube2vyexgvdu" path="res://assets/images/environment/kitchen/restaurant_bg/fly_spriteframes.tres" id="10_8tahq"]
 [ext_resource type="PackedScene" uid="uid://c8pl8fy2uqcm5" path="res://scenes/game/customers/customer_basic_a.tscn" id="10_ejulj"]
 [ext_resource type="Script" path="res://scenes/ui/vfx/fly.gd" id="11_vxrt6"]
+[ext_resource type="SpriteFrames" uid="uid://cttqncanqy4hl" path="res://assets/images/environment/kitchen/restaurant_bg/stopnpuke_spriteframes.tres" id="14_c2k5s"]
 [ext_resource type="SpriteFrames" uid="uid://cgscyk25flom" path="res://assets/models/renders/3d_drone/3d_drone_renders_spriteframes.tres" id="15_uy2g5"]
 [ext_resource type="Script" path="res://scenes/game/drone.gd" id="16_6mnpj"]
 [ext_resource type="Texture2D" uid="uid://b13b2xcfrskjh" path="res://assets/images/environment/kitchen/restaurant_bg/blur_customer_a_atlastexture.tres" id="16_cy142"]
@@ -149,11 +149,11 @@ position = Vector2(320, 232)
 scale = Vector2(2, 2)
 texture = ExtResource("6_hsy50")
 
-[node name="stopnpuke" type="Sprite2D" parent="." groups=["lang_image"]]
+[node name="stopnpuke" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(320, 240)
+position = Vector2(556, 90)
 scale = Vector2(2, 2)
-texture = ExtResource("7_b5ba6")
+sprite_frames = ExtResource("14_c2k5s")
 
 [node name="splat" type="AnimatedSprite2D" parent="."]
 position = Vector2(320, 240)
