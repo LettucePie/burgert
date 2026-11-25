@@ -127,7 +127,7 @@ var char_count_R : int = 0
 func _ready() -> void:
 	page = -1
 	if get_window().get_child(0) == self:
-		play_cutscene(1)
+		play_cutscene(0)
 	else:
 		hide()
 

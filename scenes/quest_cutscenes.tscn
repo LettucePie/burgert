@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://b84f6lp85tde8"]
+[gd_scene load_steps=103 format=3 uid="uid://b84f6lp85tde8"]
 
 [ext_resource type="Script" path="res://scenes/quest_cutscenes.gd" id="1_h64cq"]
 [ext_resource type="AudioStream" uid="uid://cxlkbm1si0rki" path="res://assets/sound/sfx/game/characters/Voice/Doot_8.wav" id="2_ot22a"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://co2eiwnl27qof" path="res://assets/images/sequences/emergency_vehicle.png" id="7_2f11h"]
 [ext_resource type="Texture2D" uid="uid://d1m367pgvsqcx" path="res://assets/images/sequences/profile_bg_1.tres" id="7_c7uq2"]
 [ext_resource type="AudioStream" uid="uid://bjgr4tef7e635" path="res://assets/sound/sfx/cutscene/siren.wav" id="8_mp2hq"]
+[ext_resource type="SpriteFrames" uid="uid://cnjf73wpvdoec" path="res://assets/images/sequences/space_fx_spriteframes.tres" id="8_wkfm8"]
 [ext_resource type="LabelSettings" uid="uid://o1xcitnd5sux" path="res://assets/theme/fonts/dialog_box_labelsettings.tres" id="9_qus1v"]
 [ext_resource type="Texture2D" uid="uid://4wvtyfpm1svu" path="res://assets/images/sequences/announcement_shade.png" id="9_x7fkv"]
 [ext_resource type="AudioStream" uid="uid://cenyayu2lx5tc" path="res://assets/sound/music/silence.mp3" id="13_v6c8f"]
@@ -1374,6 +1375,18 @@ tracks/109/keys = {
 "update": 0,
 "values": [-18.0]
 }
+tracks/110/type = "value"
+tracks/110/imported = false
+tracks/110/enabled = true
+tracks/110/path = NodePath("space/vfx:visible")
+tracks/110/interp = 1
+tracks/110/loop_wrap = true
+tracks/110/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_hrfve"]
 resource_name = "exit"
@@ -1636,6 +1649,102 @@ tracks/13/path = NodePath("space:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("space/vfx/star1")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"1", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("space/vfx/star2")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"2", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("space/vfx/star3")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"3", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("space/vfx/star4")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 4.0, false],
+"method": &"play"
+}]
+}
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("space/vfx/star5")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"2", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("space/vfx/star6")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"3", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("space/vfx:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -4602,6 +4711,18 @@ tracks/15/keys = {
 "args": [],
 "method": &"stop"
 }]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("space/vfx:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_rsxc1"]
@@ -8705,6 +8826,40 @@ scale = Vector2(2.04641, 2.02743)
 texture = ExtResource("2_qqxq1")
 region_enabled = true
 region_rect = Rect2(0, 0, 313, 237)
+
+[node name="vfx" type="Node2D" parent="space"]
+
+[node name="star1" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(-124.737, 54.8724)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"2"
+
+[node name="star2" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(119.104, 76.5748)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"2"
+
+[node name="star3" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(33.0999, -71.3958)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"3"
+frame = 4
+
+[node name="star4" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(-139.886, -24.0452)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"4"
+
+[node name="star5" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(134.253, 8.50831)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"3"
+
+[node name="star6" type="AnimatedSprite2D" parent="space/vfx"]
+position = Vector2(-84.6673, -0.369926)
+sprite_frames = ExtResource("8_wkfm8")
+animation = &"4"
+frame = 3
 
 [node name="restaurant" type="Sprite2D" parent="space"]
 position = Vector2(33.5887, 16.4001)
