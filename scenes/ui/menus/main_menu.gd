@@ -6,6 +6,8 @@ signal start_play()
 signal resume_play()
 signal quit_play()
 signal bgm_pause(pause : bool)
+signal printer_notification()
+signal check_for_notifications()
 
 @onready var main : MainSandwhich = $Main
 @onready var help : Help = $Help
@@ -16,6 +18,7 @@ signal bgm_pause(pause : bool)
 @onready var shop : Shop = $Shop
 @onready var announce : Announce = $Announce
 @onready var printer : RegularPrinter = $RegularPrinter
+@onready var notifier : Notifier = $notifiers
 @export var anim : AnimationPlayer
 enum SCREENS{MAIN, OPTIONS, RECORDS, RADIO, HELP, DEX, CREDITS, PAUSE, SHOP, PRINTER}
 var current_screen : SCREENS = SCREENS.MAIN
@@ -72,6 +75,7 @@ func screen_string_to_enum(string_in : String) -> SCREENS:
 func _main_menu_refresh() -> void:
 	main.title3d.spectrum_analyzer.set_active(true)
 	shop.calculate_shop_level()
+	emit_signal("check_for_notifications")
 
 
 func _on_main_menu_selection(selection: String) -> void:
@@ -257,6 +261,7 @@ func _on_shop_close_shop() -> void:
 func _on_regular_printer_printer_finished() -> void:
 	if current_screen == SCREENS.PRINTER:
 		anim.play("print_close")
+		emit_signal("printer_notification")
 		queued_menu = SCREENS.MAIN
 
 

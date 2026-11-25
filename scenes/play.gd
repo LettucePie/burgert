@@ -201,12 +201,14 @@ class Stats:
 	var play_playlist : PackedInt32Array = []
 	var main_playlist : PackedInt32Array = []
 	var jukebox_playlist : PackedInt32Array = []
+	var notifications_read : PackedInt32Array = []
 	
 	var keys : Array = [
 		"version", "highest_score", "times_played", "total_score",
 		"spent_score", "saved_score", "timeslots_played", 
 		"songs_owned", "shop_level", 
 		"play_playlist", "main_playlist", "jukebox_playlist",
+		"notifications_read",
 		"customer_stats"
 	]
 	
@@ -343,6 +345,16 @@ class Stats:
 	func get_jukebox_playlist() -> PackedInt32Array:
 		return jukebox_playlist
 	
+	func add_notification_read(add : int) -> void:
+		if !notifications_read.has(add):
+			notifications_read.append(add)
+	
+	func set_notifications_read(new : Array) -> void:
+		notifications_read = new
+	
+	func get_notifications_read() -> PackedInt32Array:
+		return notifications_read
+	
 	func set_customer_stats(new : Array[CustomerStat]):
 		customer_stats = new
 	
@@ -440,6 +452,7 @@ func _load_stats():
 			stats.set_play_playlist(data["play_playlist"])
 			stats.set_main_playlist(data["main_playlist"])
 			stats.set_jukebox_playlist(data["jukebox_playlist"])
+			stats.set_notifications_read(data["notifications_read"])
 			stats.set_customer_stats_from_dict(data["customer_stats"])
 	stats.customers_in_kitchen = game_scene.kitchen.customers
 	stats_file.close()
@@ -461,6 +474,7 @@ func _save_stats():
 		"play_playlist" = stats.get_play_playlist(),
 		"main_playlist" = stats.get_main_playlist(),
 		"jukebox_playlist" = stats.get_jukebox_playlist(),
+		"notifications_read" = stats.get_notifications_read(),
 		"customer_stats" = stats.get_customer_stats_as_dict(),
 	}
 	var stats_file = FileAccess.open("user://burgert.sav", FileAccess.WRITE)
@@ -679,6 +693,7 @@ func _on_intro_splash_intro_splash_fading() -> void:
 	main_menu.main.active = true
 	music.set_state(Music.STATE.MENU)
 	music.anim.play("intro_ramp")
+	_on_main_menu_notification_check()
 
 
 func _on_records_deposit_to_savings(amount : int) -> void:
@@ -704,3 +719,15 @@ func _on_quest_cutscenes_exit_cutscene() -> void:
 	print("Cutscene Exit")
 	quest_cutscenes.hide()
 	intro_splash.play_intro()
+
+
+func _on_main_menu_printer_notification() -> void:
+	if !stats.notifications_read.has(0):
+		main_menu.notifier.display_notification(0)
+
+
+func _on_main_menu_notification_check() -> void:
+	if stats.songs_owned.size() >= music.all_songs.size():
+		if !stats.notifications_read.has(4):
+			main_menu.notifier.display_notification(4)
+	

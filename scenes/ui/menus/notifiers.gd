@@ -2,7 +2,7 @@ extends Control
 class_name Notifier
 
 signal notifier_started()
-signal notifier_finished()
+signal notifier_finished(idx)
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var picture_rect : TextureRect = $Panel/picture_panel/picture
@@ -11,6 +11,7 @@ signal notifier_finished()
 @export var profile_pictures : Array[Texture2D] = []
 var finished : bool = false
 var closing : bool = false
+var notification_index : int = -1
 
 var notification_table : Array = [
 	[0, "Gramps", "The Regulars pay the bills! Make them happy, and they will return the favor."],
@@ -21,13 +22,13 @@ var notification_table : Array = [
 ]
 
 
-
 func _ready() -> void:
 	self.hide()
 
 
 func display_notification(idx : int) -> void:
 	self.show()
+	notification_index = idx
 	var table = notification_table[idx]
 	picture_rect.texture = profile_pictures[table[0]]
 	name_label.text = table[1]
@@ -48,7 +49,7 @@ func _process(delta: float) -> void:
 func _close_notification() -> void:
 	closing = true
 	anim.play("notification_end")
-	emit_signal("notifier_finished")
+	emit_signal("notifier_finished", notification_index)
 
 
 func _on_gui_input(event: InputEvent) -> void:
