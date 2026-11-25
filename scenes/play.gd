@@ -763,7 +763,6 @@ func _on_main_menu_notification_check() -> void:
 			main_menu.notifier.display_notification(2)
 		elif good_relations >= 25 and !stats.notifications_read.has(3):
 			main_menu.notifier.display_notification(3)
-	print(stats.songs_owned.size())
 	if stats.songs_owned.size() >= music.all_songs.size():
 		if !stats.notifications_read.has(4):
 			main_menu.notifier.display_notification(4)

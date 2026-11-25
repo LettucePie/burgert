@@ -113,7 +113,6 @@ func _process(_delta: float) -> void:
 
 
 func flee() -> void:
-	print("Customer Flee: ", customer_name)
 	jitter_dialog.toggle_jitter(false)
 	burger_portal_sprite.hide()
 	if status != CUSTOMER_STATE.Gone:

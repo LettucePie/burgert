@@ -14,6 +14,7 @@ signal close_options
 @onready var swap_confirm : Button = $phone/main/vcont1/swap_confirm
 @onready var mode_3d : Button = $phone/main/vcont1/mode_3D
 @onready var language_button : Button = $phone/main/vcont1/set_lang
+@onready var version_label : Label = $phone/main/vcont1/HBoxContainer/version
 ##
 ##
 @onready var language_selector : LanguageSelector = $phone/language
@@ -40,6 +41,7 @@ func apply_settings() -> void:
 	swap_confirm.button_pressed = settings_host.settings.get_a_b_swap()
 	mode_3d.button_pressed = settings_host.settings.get_mode_3d()
 	language_button.visible = settings_host.multi_lang.supported_languages.size() > 1
+	version_label.text = "v-" + str(settings_host.game_version)
 
 
 func open_options():

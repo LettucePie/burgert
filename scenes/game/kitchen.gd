@@ -286,7 +286,6 @@ func _play_throw_riff(idx : int) -> void:
 
 
 func everyone_flee() -> void:
-	print("Everyone Flee")
 	if current_customer != null:
 		current_customer.flee()
 	if next_customer != null:

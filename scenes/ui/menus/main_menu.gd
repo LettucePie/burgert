@@ -278,5 +278,4 @@ func _on_notifiers_notifier_started() -> void:
 
 
 func _on_notifiers_notifier_finished(_idx: Variant) -> void:
-	print("Notifer Finished. Set active true")
 	main.active = true
