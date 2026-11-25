@@ -520,6 +520,7 @@ func _ready():
 		main_menu.customer_dex.assign_viewport(container.portal)
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
+	main_menu.check_for_notifications.connect(_on_main_menu_notification_check)
 	main_menu.jukebox.music_library = music
 	main_menu.shop.shop_level_marked.connect(_on_music_shop_level_marked)
 	main_menu.shop.wallet = stats
@@ -527,6 +528,7 @@ func _ready():
 	main_menu.shop.calculate_shop_level()
 	main_menu.records.deposit_to_savings.connect(_on_records_deposit_to_savings)
 	main_menu.records.confirm_deletion.connect(_delete_game_progress)
+	main_menu.notifier.notifier_finished.connect(_on_notification_read)
 	main_menu.main.active = false
 	if stats.get_times_played() > 0:
 		quest_cutscenes.hide()
@@ -727,7 +729,30 @@ func _on_main_menu_printer_notification() -> void:
 
 
 func _on_main_menu_notification_check() -> void:
+	var one_shot : bool = false
+	if stats.timeslots_played.size() > 2 and !one_shot:
+		if !stats.notifications_read.has(1):
+			one_shot = true
+			main_menu.notifier.display_notification(1)
+	if (!stats.notifications_read.has(2) or !stats.notifications_read.has(3)) \
+	 and !one_shot:
+		var served_once_count : int = 0
+		var good_relations : int = 0
+		for c in stats.get_customer_stats():
+			if !c.customer_name.contains("Basic"):
+				if c.orders_served > 0:
+					served_once_count += 1
+				if c.get_fantastic_orders() >= 5:
+					good_relations += 1
+		if served_once_count >= 25 and !stats.notifications_read.has(2):
+			main_menu.notifier.display_notification(2)
+		elif good_relations >= 25 and !stats.notifications_read.has(3):
+			main_menu.notifier.display_notifications(3)
 	if stats.songs_owned.size() >= music.all_songs.size():
 		if !stats.notifications_read.has(4):
 			main_menu.notifier.display_notification(4)
-	
+
+
+func _on_notification_read(idx : int) -> void:
+	stats.add_notification_read(idx)
+	_save_stats()

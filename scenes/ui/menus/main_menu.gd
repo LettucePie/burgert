@@ -198,6 +198,7 @@ func _on_animation_player_animation_finished(anim_name : String):
 		current_screen = SCREENS.SHOP
 	if anim_name == "print_close":
 		current_screen = SCREENS.MAIN
+		emit_signal("printer_notification")
 		_main_menu_refresh()
 	
 	if anim_name == "quit_game":
@@ -261,7 +262,6 @@ func _on_shop_close_shop() -> void:
 func _on_regular_printer_printer_finished() -> void:
 	if current_screen == SCREENS.PRINTER:
 		anim.play("print_close")
-		emit_signal("printer_notification")
 		queued_menu = SCREENS.MAIN
 
 

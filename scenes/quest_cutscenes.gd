@@ -60,7 +60,7 @@ var text_playwrite : PackedStringArray = [
 	"text_7",
 	"text_8",
 	"pause_long", ## Sit on Ambulance
-	"pause_hold", ## Fade Black
+	"pause_long", ## Fade Black
 	"pause_long",
 	"pause_mid",
 	"text_9", ## Grampa in bed

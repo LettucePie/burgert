@@ -103,7 +103,7 @@ size = Vector2i(640, 480)
 [node name="Node3D" type="Node3D" parent="Subviews/SubView_Title"]
 
 [node name="Camera3D" type="Camera3D" parent="Subviews/SubView_Title/Node3D"]
-transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.792844, 0.860624, 3.32185)
+transform = Transform3D(0.958093, -0.186333, 0.217572, 0.128474, 0.958364, 0.255016, -0.256031, -0.216377, 0.942141, 0.809473, 0.880115, 3.39386)
 
 [node name="Title3D" type="Sprite3D" parent="Subviews/SubView_Title/Node3D" node_paths=PackedStringArray("spectrum_analyzer")]
 texture_filter = 0

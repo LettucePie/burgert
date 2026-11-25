@@ -309,7 +309,6 @@ justification_flags = 160
 [connection signal="game_over" from="Game" to="." method="_on_game_game_over"]
 [connection signal="game_paused" from="Game" to="." method="_on_game_game_paused"]
 [connection signal="bgm_pause" from="MainMenu" to="." method="_on_main_menu_bgm_pause"]
-[connection signal="check_for_notifications" from="MainMenu" to="." method="_on_main_menu_notification_check"]
 [connection signal="prepare_kitchen" from="MainMenu" to="." method="_on_main_menu_prepare_kitchen"]
 [connection signal="printer_notification" from="MainMenu" to="." method="_on_main_menu_printer_notification"]
 [connection signal="quit_play" from="MainMenu" to="." method="_on_main_menu_quit_play"]
