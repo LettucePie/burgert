@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_y3qmr")
 track = ExtResource("2_xcwti")
-title = "title"
-artist = "artist"
+title = "A girl and her dog"
+artist = "sarah + Dogman"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 2
+store_cost = 149

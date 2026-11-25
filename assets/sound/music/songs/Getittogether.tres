@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_0br8a")
 track = ExtResource("2_0t0hb")
-title = "title"
-artist = "artist"
+title = "Get a grip"
+artist = "Dogman"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 1
+store_cost = 99

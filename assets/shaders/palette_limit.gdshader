@@ -10,7 +10,7 @@ vec3 palette_limiter (in vec3 albedo){
 	vec3 closest_color;
 	float min_dist = 2.0;
 	float n = float(num_colors);
-	
+
 	for (int i=0; i<num_colors; i++ ){
 		float index = 1.000/(2.000*n)+float(i)/n;
 		vec3 index_color = texture(PALETTE_TEXTURE, vec2(index,0.5)).rgb;

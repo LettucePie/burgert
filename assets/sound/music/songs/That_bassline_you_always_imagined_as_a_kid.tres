@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_f3mc1")
 track = ExtResource("2_lpq1p")
-title = "title"
-artist = "artist"
+title = "Wonky"
+artist = "SC00T3R"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 3
+store_cost = 199

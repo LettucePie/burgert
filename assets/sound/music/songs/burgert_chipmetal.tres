@@ -7,7 +7,7 @@
 script = ExtResource("1_1kx2o")
 track = ExtResource("2_s3k6e")
 title = "on the wire"
-artist = "artie77 + sarah"
+artist = "sarah + artie77"
 crossfade = true
 shop_level = 2
 store_cost = 149

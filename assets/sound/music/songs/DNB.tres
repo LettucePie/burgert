@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_m8xkn")
 track = ExtResource("2_kektd")
-title = "title"
-artist = "artist"
+title = "Wishful thinking"
+artist = "sarah"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 1
+store_cost = 99

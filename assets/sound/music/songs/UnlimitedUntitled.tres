@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_8cbf5")
 track = ExtResource("2_awp6r")
-title = "title"
-artist = "artist"
+title = "Train Riders"
+artist = "Dogman + tomato&smoke"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 2
+store_cost = 149

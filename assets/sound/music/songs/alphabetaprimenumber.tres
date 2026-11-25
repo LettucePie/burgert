@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_4dfrr")
 track = ExtResource("2_2opg4")
-title = "alphabetaprimenumber"
+title = "alpha-beta-primenumber"
 artist = "artie77"
 crossfade = true
 shop_level = 0

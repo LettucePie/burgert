@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_lnoip")
 track = ExtResource("2_ghdod")
-title = "filed under the drums"
-artist = "tomato&smoke"
+title = "Dance, Fool!"
+artist = "Dogman"
 crossfade = true
 shop_level = 3
 store_cost = 199

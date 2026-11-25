@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_s55rg")
 track = ExtResource("2_1w2ly")
-title = "title"
-artist = "artist"
+title = "City Strides"
+artist = "Dogman"
 crossfade = true
 shop_level = 0
 store_cost = 49

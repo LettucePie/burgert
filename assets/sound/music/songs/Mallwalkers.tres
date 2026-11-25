@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://ddj62d8473cqu"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_abn4d"]
+[ext_resource type="AudioStream" uid="uid://dred65aieg237" path="res://assets/sound/music/tracks/Mallwalkers.mp3" id="2_brir6"]
+
+[resource]
+script = ExtResource("1_abn4d")
+track = ExtResource("2_brir6")
+title = "Mall Walkers"
+artist = "yerr"
+crossfade = true
+shop_level = 3
+store_cost = 199

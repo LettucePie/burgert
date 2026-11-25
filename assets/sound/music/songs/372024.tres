@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_ccn2o")
 track = ExtResource("2_kr618")
-title = "title"
-artist = "artist"
+title = "Cramp yo style"
+artist = "SC00T3R"
 crossfade = true
-shop_level = 0
-store_cost = 49
+shop_level = 3
+store_cost = 199
