@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://dr5tjsjfvwnhh"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_f3mc1"]
+[ext_resource type="AudioStream" uid="uid://bgpuvauj3mpiv" path="res://assets/sound/music/tracks/That bassline you always imagine as a kid.mp3" id="2_lpq1p"]
+
+[resource]
+script = ExtResource("1_f3mc1")
+track = ExtResource("2_lpq1p")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

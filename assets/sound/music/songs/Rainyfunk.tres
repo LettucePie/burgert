@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://3pnnaqs7xt51"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_7hmf0"]
+[ext_resource type="AudioStream" uid="uid://bsl8em465k7l1" path="res://assets/sound/music/tracks/Rainyfunk.mp3" id="2_hrsm5"]
+
+[resource]
+script = ExtResource("1_7hmf0")
+track = ExtResource("2_hrsm5")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

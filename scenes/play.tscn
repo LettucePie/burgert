@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://driqobsb18pkp"]
+[gd_scene load_steps=72 format=3 uid="uid://driqobsb18pkp"]
 
 [ext_resource type="PackedScene" uid="uid://8g4xevkrdylk" path="res://scenes/ui/menus/main_menu.tscn" id="1_8ijes"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_j8n80"]
@@ -50,8 +50,17 @@
 [ext_resource type="Resource" uid="uid://dxsdqg2ylwl5j" path="res://assets/sound/music/songs/The Doot Doot Doo_s.tres" id="37_k2uad"]
 [ext_resource type="Resource" uid="uid://cfxp6gnpkcg3m" path="res://assets/sound/music/songs/Tomorrow.tres" id="38_ki0gl"]
 [ext_resource type="SpriteFrames" uid="uid://bly5e5rdsek5j" path="res://assets/images/sequences/intro_splash_spriteframes.tres" id="39_5cbxr"]
+[ext_resource type="Resource" uid="uid://cj2ar00o7wfyh" path="res://assets/sound/music/songs/372024.tres" id="39_ljavl"]
 [ext_resource type="Script" path="res://scenes/intro_splash.gd" id="40_igmts"]
+[ext_resource type="Resource" uid="uid://8pqtuxtqwlra" path="res://assets/sound/music/songs/312024.tres" id="40_jy4v3"]
 [ext_resource type="AudioStream" uid="uid://br2f1hn6v4ug8" path="res://assets/sound/sfx/menu/patty_fry_sound_with_spatula.wav" id="40_rdbmm"]
+[ext_resource type="Resource" uid="uid://c5dpknfd7jcsh" path="res://assets/sound/music/songs/15.tres" id="41_poau0"]
+[ext_resource type="Resource" uid="uid://dr5tjsjfvwnhh" path="res://assets/sound/music/songs/That_bassline_you_always_imagined_as_a_kid.tres" id="42_pmvhl"]
+[ext_resource type="Resource" uid="uid://3pnnaqs7xt51" path="res://assets/sound/music/songs/Rainyfunk.tres" id="43_4p0ko"]
+[ext_resource type="Resource" uid="uid://bilya8qd7xwql" path="res://assets/sound/music/songs/UnlimitedUntitled.tres" id="44_wik3i"]
+[ext_resource type="Resource" uid="uid://byxr671plylj4" path="res://assets/sound/music/songs/Getittogether.tres" id="45_dbevd"]
+[ext_resource type="Resource" uid="uid://hxlbtvk38jht" path="res://assets/sound/music/songs/DNB.tres" id="46_kn5nn"]
+[ext_resource type="Resource" uid="uid://b2sswvkbmbkil" path="res://assets/sound/music/songs/Burgert_FutureBass.tres" id="47_s757a"]
 [ext_resource type="PackedScene" uid="uid://b84f6lp85tde8" path="res://scenes/quest_cutscenes.tscn" id="53_l4hev"]
 [ext_resource type="Script" path="res://scenes/diag.gd" id="54_0e11o"]
 
@@ -251,7 +260,7 @@ volume_db = -80.0
 autoplay = true
 bus = &"MUS"
 script = ExtResource("4_8x8kb")
-all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m"), ExtResource("27_emqbe"), ExtResource("28_yqi7h"), ExtResource("29_qxisf"), ExtResource("30_5dij2"), ExtResource("31_4chh5"), ExtResource("32_05ejp"), ExtResource("33_j1ekc"), ExtResource("34_76pqm"), ExtResource("35_lndot"), ExtResource("36_8k3dw"), ExtResource("37_k2uad"), ExtResource("38_ki0gl")])
+all_songs = Array[ExtResource("12_geyru")]([ExtResource("13_erjm2"), ExtResource("14_xwnau"), ExtResource("15_bgt7c"), ExtResource("16_o6avh"), ExtResource("17_6thr3"), ExtResource("18_g0cvq"), ExtResource("19_d53c1"), ExtResource("20_fv7jx"), ExtResource("21_ythsf"), ExtResource("22_cfytl"), ExtResource("23_0q2nb"), ExtResource("24_ro22o"), ExtResource("25_t1eki"), ExtResource("26_jbiup"), ExtResource("27_hujx7"), ExtResource("28_ii6f5"), ExtResource("29_s60c4"), ExtResource("30_5tl2m"), ExtResource("31_jjs2m"), ExtResource("27_emqbe"), ExtResource("28_yqi7h"), ExtResource("29_qxisf"), ExtResource("30_5dij2"), ExtResource("31_4chh5"), ExtResource("32_05ejp"), ExtResource("33_j1ekc"), ExtResource("34_76pqm"), ExtResource("35_lndot"), ExtResource("36_8k3dw"), ExtResource("37_k2uad"), ExtResource("38_ki0gl"), ExtResource("39_ljavl"), ExtResource("40_jy4v3"), ExtResource("41_poau0"), ExtResource("42_pmvhl"), ExtResource("43_4p0ko"), ExtResource("44_wik3i"), ExtResource("45_dbevd"), ExtResource("46_kn5nn"), ExtResource("47_s757a")])
 silent_song = ExtResource("27_k5wvn")
 results_song = ExtResource("29_qxisf")
 

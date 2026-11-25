@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://byxr671plylj4"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_0br8a"]
+[ext_resource type="AudioStream" uid="uid://71o0k2esoi4v" path="res://assets/sound/music/tracks/Getittogether.mp3" id="2_0t0hb"]
+
+[resource]
+script = ExtResource("1_0br8a")
+track = ExtResource("2_0t0hb")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

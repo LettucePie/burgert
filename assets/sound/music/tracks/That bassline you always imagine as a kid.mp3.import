@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgpuvauj3mpiv"
+path="res://.godot/imported/That bassline you always imagine as a kid.mp3-08973975b89dc9a59f4b451ddea77d49.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/tracks/That bassline you always imagine as a kid.mp3"
+dest_files=["res://.godot/imported/That bassline you always imagine as a kid.mp3-08973975b89dc9a59f4b451ddea77d49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

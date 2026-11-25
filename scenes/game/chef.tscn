@@ -2254,7 +2254,7 @@ _data = {
 radius = 46.5296
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yjpo2"]
-viewport_path = NodePath("burger_portal")
+viewport_path = NodePath(".")
 
 [node name="chef" type="Node2D"]
 texture_filter = 1

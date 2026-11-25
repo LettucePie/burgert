@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://b2sswvkbmbkil"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_y3qmr"]
+[ext_resource type="AudioStream" uid="uid://dw4xtng6knf78" path="res://assets/sound/music/tracks/Burgert_FutureBass.mp3" id="2_xcwti"]
+
+[resource]
+script = ExtResource("1_y3qmr")
+track = ExtResource("2_xcwti")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49

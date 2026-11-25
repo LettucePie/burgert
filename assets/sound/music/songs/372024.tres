@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Song" load_steps=3 format=3 uid="uid://cj2ar00o7wfyh"]
+
+[ext_resource type="Script" path="res://classes/song.gd" id="1_ccn2o"]
+[ext_resource type="AudioStream" uid="uid://b37tqmc8kf8i7" path="res://assets/sound/music/tracks/372024.mp3" id="2_kr618"]
+
+[resource]
+script = ExtResource("1_ccn2o")
+track = ExtResource("2_kr618")
+title = "title"
+artist = "artist"
+crossfade = true
+shop_level = 0
+store_cost = 49
