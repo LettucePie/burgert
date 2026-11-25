@@ -23,8 +23,8 @@ signal close_customerdex
 	"Ronald", "Shagg"
 ]
 @export var customer_names_display : PackedStringArray = [
-	"Tommy", "Teddy", "Ted", "Al", "Emo", "Karen", "Patient", "Mustard",
-	"Dancer", "Punk", "Toad", "Persistant", "Anxiety", "Haircut",
+	"Tommy", "Teddy", "Bart", "Al", "Vick", "Becky", "Colby", "Mustard Guy",
+	"Saffyre", "Skeevy", "Toad Guy", "Martin", "Bubba Glub", "Haircut",
 	"Stevie", "Mr. Pink", "Macho Liam", "R.A.T.", "Beef and Kale",
 	"Brandon", "Chief Patty Zarkon", "Dale", "Mr. Understood",
 	"Ronald", "Shagg"
@@ -46,8 +46,8 @@ signal close_customerdex
 	"Species: Lima Bean\nHeight: 5'3\nFavorite Ingredient: Burgers",
 	"Species: Fish\nHeight: 0'2 without the apparatus\nFavorite Ingredient: \
 	Bread Crumbs",
-	"Species: Bronk\nHeight: 5'11\nFavorite Ingredient: Paint",
-	"Species: GetBentOS\nHeight: Standard\nFavorite Ingredient: Lettuce",
+	"Species: Bronk\nHeight: 5'11\nFavorite Ingredient: Rejection",
+	"Species: TotallyHumanOS\nHeight: Home Edition\nFavorite Ingredient: Lettuce",
 	"Species: Plorb\nHeight: 6'7\nFavorite Ingredient: Tomato",
 	"Species: Djinn\nHeight: 5'4\nFavorite Ingredient: Meat",
 	"Species: Rat\nHeight: 5'3\nFavorite Ingredient: Cheese",
@@ -62,16 +62,16 @@ signal close_customerdex
 @export var customer_descriptions_b : PackedStringArray = [
 	"Can often be seen around the local theater... like all the time. Probably \
 	lives there. Is insistant that actors must perform their own stunts.",
-	"Extemely lonely and worried about what others think. This dude won't come \
-	to the counter unless we've made eye-contact at least 5 times.",
-	"Always a good time with Ted. This dude's so freakin funny. Clever too. \
+	"Sometimes asking other customers to tuck him into bed. If they aren't \
+	freaked out right away, he asks them to tuck his bear in too.",
+	"Always a good time with Bart. This dude's so freakin funny. Clever too. \
 	I wish I could orchestrate jokes the way he does.\nShame about the \
 	depression.",
 	"Local handy-man. Probably has fixed everything in here at one point... \
 	except for his meal.",
 	"Dramatic, Sporadic, Confusing... I have no idea where to begin with this \
 	one. I don't even know how to start a conversation through their endless \
-	monologue.",
+	monologue.\nHis blank stare freaks me out.",
 	"Over time, we have come to a mutual agreement... you see, I too really \
 	want to get this over with. The sooner I'm done, the sooner you're gone.",
 	"Honestly a really nice guy and strangely comforting to talk to. \
@@ -84,9 +84,9 @@ signal close_customerdex
 	to make an enchanting breeze as she dances out the door.",
 	"I try to be an honest chef. I make food how the people want it, \
 	it makes me happy. This dude though, this dude is a freak.",
-	"I think they're trying to make their own sandwhich somewhere, I don't get \
+	"I think they're trying to assemble their own sandwhich somewhere, I don't get \
 	it. Just let me make your sandwhich for you. It's my whole job. I'm not \
-	a grocery store!",
+	a grocery store! Do you not like your ingredients touching each other?",
 	"Just order a triple. I can do that. Nothing bad will happen. You will get \
 	the same amount of food, and be on your way to continue deliveries.\n\
 	oh wait... you're just wasting your time here aren't you...",
@@ -94,9 +94,8 @@ signal close_customerdex
 	fish, find a way.",
 	"He's about to go on a date... I know it. He gets a haircut, then comes \
 	here to eat just before meeting up with is date. I'm guessing he is worried \
-	about how he eats or gets too nervous and ends up starving.",
-	"Sarcastic and Rude... as intended. Sometimes I convince myself the \
-	\"Thank you have a nice day\" isn't disingenuous.",
+	about how he eats or gets too nervous and ends up starving. (get a new barber)",
+	"Just a normal man.\nJust an innocent man.",
 	"Extremely physically slow. Works at the therapy center, so I'm guessing \
 	he has trained himself to be this slow and balanced.",
 	"Will not stop pestering me about protein intake. I'm sure it's important \

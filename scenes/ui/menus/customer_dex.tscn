@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://1jbkgwvlsnoo" path="res://assets/images/characters/customers/customer_persistant_still.png" id="14_rahtd"]
 [ext_resource type="Texture2D" uid="uid://cqrvdvkxolvub" path="res://assets/images/characters/customers/customer_anxiety_still.png" id="15_uln1r"]
 [ext_resource type="Texture2D" uid="uid://iqllnco2obag" path="res://assets/images/characters/customers/customer_haircut_still.png" id="16_n50c5"]
-[ext_resource type="Texture2D" uid="uid://d1u3542wpc4vx" path="res://assets/images/characters/customers/delete_me_customer_jimmie_still.png" id="17_ee0ij"]
+[ext_resource type="Texture2D" uid="uid://bexmeptdochhw" path="res://assets/images/characters/customers/customer_stevie_still.png" id="17_12ene"]
 [ext_resource type="Texture2D" uid="uid://croqar7nh1iwo" path="res://assets/images/characters/customers/customer_mrpink_still.png" id="18_7npwb"]
 [ext_resource type="Texture2D" uid="uid://dkv3gjwjsfku" path="res://assets/images/characters/customers/customer_macholiam_still.png" id="19_sdjq2"]
 [ext_resource type="Texture2D" uid="uid://bcnaompom57bb" path="res://assets/images/characters/customers/customer_RAT_still.png" id="20_3dqd7"]
@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_nrhih")
 script = ExtResource("2_wglwc")
-customer_images = Array[Texture2D]([ExtResource("3_ax81m"), ExtResource("4_vuwwj"), ExtResource("5_lq85u"), ExtResource("6_or16b"), ExtResource("7_0td7o"), ExtResource("8_c6p44"), ExtResource("9_hrm1n"), ExtResource("10_2ntug"), ExtResource("11_35n3x"), ExtResource("12_llslg"), ExtResource("13_lfn5a"), ExtResource("14_rahtd"), ExtResource("15_uln1r"), ExtResource("16_n50c5"), ExtResource("17_ee0ij"), ExtResource("18_7npwb"), ExtResource("19_sdjq2"), ExtResource("20_3dqd7"), ExtResource("21_44jrk"), ExtResource("22_6ai14"), ExtResource("23_ue6w0"), ExtResource("24_tbxie"), ExtResource("25_doo0i"), ExtResource("26_tdmgy"), ExtResource("27_f26yv")])
+customer_images = Array[Texture2D]([ExtResource("3_ax81m"), ExtResource("4_vuwwj"), ExtResource("5_lq85u"), ExtResource("6_or16b"), ExtResource("7_0td7o"), ExtResource("8_c6p44"), ExtResource("9_hrm1n"), ExtResource("10_2ntug"), ExtResource("11_35n3x"), ExtResource("12_llslg"), ExtResource("13_lfn5a"), ExtResource("14_rahtd"), ExtResource("15_uln1r"), ExtResource("16_n50c5"), ExtResource("17_12ene"), ExtResource("18_7npwb"), ExtResource("19_sdjq2"), ExtResource("20_3dqd7"), ExtResource("21_44jrk"), ExtResource("22_6ai14"), ExtResource("23_ue6w0"), ExtResource("24_tbxie"), ExtResource("25_doo0i"), ExtResource("26_tdmgy"), ExtResource("27_f26yv")])
 customer_image_unknown = ExtResource("28_1cxe3")
 render_sheet_a = NodePath("render_sheet_a")
 render_sheet_b = NodePath("render_sheet_b")

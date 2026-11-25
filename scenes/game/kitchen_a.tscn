@@ -101,7 +101,7 @@ size = Vector2(16, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62g6r"]
 size = Vector2(16, 80)
 
-[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat", "workstations", "TEST_CUSTOMER")]
+[node name="kitchen_a" type="Node2D" node_paths=PackedStringArray("customer_burger_portal", "customers_node", "normy_customers", "splat", "workstations")]
 texture_filter = 1
 script = ExtResource("1_737en")
 customer_burger_portal = NodePath("burger_portal")
@@ -111,7 +111,6 @@ splat = NodePath("splat")
 workstations = [NodePath("foreground/workstation_bun"), NodePath("foreground/workstation_meat"), NodePath("foreground/workstation_lettuce"), NodePath("foreground/workstation_tomato"), NodePath("foreground/workstation_cheese"), NodePath("foreground/workstation_ketchup"), NodePath("foreground/workstation_mustard")]
 kitchen_objects = Array[AtlasTexture]([ExtResource("80_3mxko"), ExtResource("3_s37yp"), ExtResource("4_fh5w6")])
 throw_riffs = Array[AudioStreamWAV]([ExtResource("5_byxb7"), ExtResource("6_gxoov"), ExtResource("7_rmxbh")])
-TEST_CUSTOMER = NodePath("customers/Stevie")
 
 [node name="burger_portal" parent="." instance=ExtResource("2_ng540")]
 mode_customer = true
