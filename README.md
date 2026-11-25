@@ -19,6 +19,28 @@ FOSS Arcade Game made in Godot 4
 
 Everything within `exports/portmaster/burgert` is what you need for most portmaster configuration, where you put them on your handheld varies by cfw. To apply new changes Export to the Portmaster target, then copy the `exports/portmaster/arm64/burgert.pck` file over the `exports/portmaster/burgert/burgert/burgert.pck` file. This could be done more elegantly, I do not know how.
 
+## Contribution
+
+At the moment, we are not actively seeking design members. If you wish to add your own designs, be it characters, gameplay modes, etcetera, it may be best to do so in a fork of your own. If you wanted to fix, optimize, or add extending functionality, such as mod support; I would be happy to review and accept those additions.
+
+### Potential Questions
+
+#### What is this?
+
+This is an idea that went too far. I (LettucePie) purchased an Anbernic device for my friend (Houndfall). After he discovered the Portmaster community, he wanted to add something too it, and I did too. Portmaster is pretty cool by the way. What started as a 3 month demo project turned into 1.5 years. It has been a learning experience.
+
+#### Why is this open source?
+
+Originally it was meant to be small enough that being open-source made perfect sense. It expands portfolio, teaches others how program incorrectly, and also provides a backing of security. It is massive now, and I think github hates me. Originally I was not concerned with the possibility of feeding more data into the ai ecosystem. After going back and forth on whether or not to privatize it, I ultimately decided that pushing it forward into the world to add whatever it wants to it was the best call.
+
+#### How was this made?
+
+This was made with the intention of avoiding ai tools, staying away from diarrhea in the batter and all that. Old versions of LMMS, Krita, Aseprite, Godot, Audacity, and Blender were used both intentionally and because Houndfall refuses to update anything ever.
+
+#### What is next?
+
+We have ideas for updating it, mainly items the in shop. I want to also make it so certain items and songs can attract certain customers, which means more customers will be added too. When? no idea.
+
 ## Translation
 
 Nodes that are group/tagged with `lang_text`, `lang_text_array`, `lang_image`, `lang_image_array` can be altered based on data placed within the language designations on the `lang/lang_master.json` file. The Scene `lang/multi_lang.tscn` contains the tools and functions to both organize and apply translations.
