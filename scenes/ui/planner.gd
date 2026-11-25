@@ -98,7 +98,7 @@ func update_calendar() -> void:
 
 
 func update_progress(amount_saved : int) -> void:
-	if amount_saved >= 1000000:
+	if amount_saved >= 250000:
 		if active_page_anim_nodes.has("progress_open"):
 			active_page_anim_nodes.remove_at(active_page_anim_nodes.find("progress_open"))
 	else:
@@ -110,7 +110,7 @@ func update_progress(amount_saved : int) -> void:
 			comma_string += character
 			digit_idx += 1
 		comma_string = "$" + comma_string.reverse()
-		progress_label.text = comma_string + "\n/\n$1,000,000"
+		progress_label.text = comma_string + "\n/\n$250,000"
 
 
 func _ready() -> void:

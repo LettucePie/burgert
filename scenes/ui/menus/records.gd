@@ -40,7 +40,7 @@ var offset_accelerate : int = 5
 var scales : PackedInt32Array = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]
 var scale_progress : int = 0
 @onready var teller_sfx : AudioStreamPlayer2D = $savings_transfer/teller_sfx
-var transfer_max : int = 1000000
+var transfer_max : int = 250000
 var available_transfer : int = 0
 var transferring : bool = false
 @export var transferring_anim_curve : Curve = null
@@ -110,7 +110,7 @@ func assign_stats(stats : Play.Stats) -> void:
 	highest_score.text = "$" + str(stats.highest_score)
 	spent_score.text = "$" + str(stats.total_score - stats.spent_score)
 	saved_score.text = "$" + str(stats.saved_score)
-	transfer_max = 1000000 - stats.saved_score
+	transfer_max = 250000 - stats.saved_score
 	available_transfer = stats.total_score - stats.spent_score
 	times_played.text = str(stats.times_played)
 	var total : int = 0
@@ -138,7 +138,7 @@ func _apply_transfer_adjustment(scale_idx : int) -> void:
 		adjustment = available_transfer - transfer_amount
 	if transfer_amount + adjustment > transfer_max:
 		adjustment = transfer_max - transfer_amount
-	transfer_amount = clampi(transfer_amount + adjustment, 0, 999999)
+	transfer_amount = clampi(transfer_amount + adjustment, 0, 249999)
 	var label_idx : int = 0
 	var amount_str : String = str(transfer_amount)
 	amount_str = amount_str.reverse()
@@ -173,7 +173,7 @@ func _physics_process(delta: float) -> void:
 			float(transfer_timestop), 
 			float(current_time))
 		wallet_label.text = "$" + str(int(lerp(available_transfer, target_wallet, progress)))
-		bank_label.text = "$" + str(int(lerp(1000000 - transfer_max, target_bank, progress)))
+		bank_label.text = "$" + str(int(lerp(250000 - transfer_max, target_bank, progress)))
 		if current_time >= transfer_timestop:
 			transferring = false
 			money_stream.play("end")
@@ -207,7 +207,7 @@ func _on_submit_pressed() -> void:
 	_set_transfer_buttons_disabled(true)
 	transfer_anim.play("prep_transfer")
 	target_wallet = available_transfer - transfer_amount
-	target_bank = (1000000 - transfer_max) + transfer_amount
+	target_bank = (250000 - transfer_max) + transfer_amount
 
 
 func _on_transfer_anim_animation_finished(anim_name: StringName) -> void:
