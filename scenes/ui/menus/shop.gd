@@ -93,6 +93,7 @@ func open_shop():
 	anim.play("connect")
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	anim.play("connected")
+	current_song_idx = 0
 	if wallet != null:
 		if wallet.shop_level < potential_shop_level:
 			emit_signal("shop_level_marked", potential_shop_level)
@@ -133,21 +134,22 @@ func _process(delta: float) -> void:
 
 
 func load_in_menu(main_idx : int, branch_idx : int) -> void:
-	primary_branch = 0
-	submenu_branch = 0
 	for menu in menus:
 		menu.hide()
 		if menu.name == "menu_" + str(main_idx) + "_" + str(branch_idx):
 			menu.show()
 			menu.grab_focus()
 			primary_branch = main_idx
-			submenu_branch = branch_idx
-	if primary_branch == 0:
+	if main_idx == 0:
 		intro_menu.show()
-	if primary_branch == 1:
-		if submenu_branch == 1 or submenu_branch == 3:
+		submenu_branch = branch_idx
+	if main_idx == 1:
+		if branch_idx == 0 and (submenu_branch == 1 or submenu_branch == 3):
+			submenu_branch = branch_idx
 			current_song_idx = 0
-			_prev_next_song(1)
+		if branch_idx == 1 or branch_idx == 3:
+			submenu_branch = branch_idx
+			_prev_next_song(0)
 
 
 func _prev_next_song(dir : int) -> void:
@@ -163,7 +165,9 @@ func _prev_next_song(dir : int) -> void:
 
 
 func _render_song(idx : int) -> void:
+	print("Render Song :", idx)
 	current_song = music_library.all_songs[idx]
+	print("Song: ", current_song.title)
 	if submenu_branch == 1:
 		$phone/main/menu_1_1/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_1/purchase.show()
@@ -285,7 +289,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$phone/purchase.hide()
 		load_in_menu(primary_branch, submenu_branch)
 		if primary_branch == 1 and submenu_branch == 1:
-			_render_song(current_song_idx)
+			print("Grab Focus")
+			#_render_song(current_song_idx)
 			if anim_name == "success":
 				$phone/main/menu_1_1/owned.grab_focus()
 			else:
