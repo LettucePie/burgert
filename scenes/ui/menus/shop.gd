@@ -165,9 +165,7 @@ func _prev_next_song(dir : int) -> void:
 
 
 func _render_song(idx : int) -> void:
-	print("Render Song :", idx)
 	current_song = music_library.all_songs[idx]
-	print("Song: ", current_song.title)
 	if submenu_branch == 1:
 		$phone/main/menu_1_1/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_1/purchase.show()
@@ -185,7 +183,6 @@ func _render_song(idx : int) -> void:
 			$phone/main/menu_1_1/owned.show()
 	if submenu_branch == 3:
 		var owned_idx : int = music_library.owned_songs[idx]
-		print("Owned IDX: ", owned_idx)
 		current_song = music_library.all_songs[owned_idx]
 		$phone/main/menu_1_3/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_3/toggle.show()
@@ -289,7 +286,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$phone/purchase.hide()
 		load_in_menu(primary_branch, submenu_branch)
 		if primary_branch == 1 and submenu_branch == 1:
-			print("Grab Focus")
 			#_render_song(current_song_idx)
 			if anim_name == "success":
 				$phone/main/menu_1_1/owned.grab_focus()

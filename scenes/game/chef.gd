@@ -112,6 +112,7 @@ func _update_direction(dir : String):
 @warning_ignore("unused_parameter")
 func process_movement(delta):
 	var move_vec : Vector2 = Vector2.ZERO
+	#burger_sprite.offset = Vector2.ZERO
 	if Input.is_action_pressed("left"):
 		move_vec.x -= 1
 		if turn_rest >= 12:
@@ -122,6 +123,8 @@ func process_movement(delta):
 			else:
 				state_machine.travel("Run_L")
 		_update_direction("L")
+		#if !burger_portal.mode_3D:
+			#burger_sprite.offset = Vector2(0, -10.0)
 	elif Input.is_action_pressed("right"):
 		move_vec.x += 1
 		if turn_rest >= 12:
@@ -239,10 +242,6 @@ func _physics_process(delta):
 		if idle_counter >= 1200:
 			state_machine.travel("Idle_Sting_" + direction)
 			idle_counter = 35
-		#if idle_counter >= 60:
-			#emit_signal("chef_idle", true)
-		#if idle_counter <= 0:
-			#emit_signal("chef_idle", false)
 
 
 func _on_area_2d_area_entered(area):
