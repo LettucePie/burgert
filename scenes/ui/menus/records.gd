@@ -181,6 +181,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _adjust_transfer_amount(dir : int) -> void:
+	print("Adjust Transfer: ", dir)
 	if !transferring:
 		if dir > 0:
 			transfer_offset = 1
@@ -203,11 +204,12 @@ func _on_cancel_pressed() -> void:
 
 
 func _on_submit_pressed() -> void:
-	print("Send Savings: ", transfer_amount)
-	_set_transfer_buttons_disabled(true)
-	transfer_anim.play("prep_transfer")
-	target_wallet = available_transfer - transfer_amount
-	target_bank = (250000 - transfer_max) + transfer_amount
+	if transfer_amount > 0:
+		print("Send Savings: ", transfer_amount)
+		_set_transfer_buttons_disabled(true)
+		transfer_anim.play("prep_transfer")
+		target_wallet = available_transfer - transfer_amount
+		target_bank = (250000 - transfer_max) + transfer_amount
 
 
 func _on_transfer_anim_animation_finished(anim_name: StringName) -> void:

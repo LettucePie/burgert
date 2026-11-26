@@ -28,7 +28,6 @@ var muted_track : Song = null
 
 
 func set_state(new_state : STATE):
-	print("SETTING STATE: ", new_state)
 	if new_state == STATE.MENU:
 		if current_state == STATE.PREVIEW:
 			## Resume Play
@@ -46,7 +45,6 @@ func set_state(new_state : STATE):
 		if current_state == STATE.MENU \
 		or current_state == STATE.RESULTS:
 			if !muted:
-				print("START PLAY")
 				anim.play("start_play")
 		if current_state == STATE.PAUSE:
 			if playback_time >= 0:
