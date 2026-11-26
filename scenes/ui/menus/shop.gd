@@ -194,15 +194,18 @@ func _render_song(idx : int) -> void:
 
 func _on_purchase_pressed() -> void:
 	anim.play("purchasing")
+	print("Purchasing")
 	$empty_nothing.grab_focus()
 	$phone/purchase/label.text = purchase_messages[0]
 	await get_tree().create_timer(randf_range(1.8, 3.2)).timeout
 	if wallet.total_score - wallet.spent_score > current_song.store_cost:
 		anim.play("success")
+		print("Success")
 		$phone/purchase/label.text = purchase_messages[1]
 		music_library.purchased_song_from_shop(current_song)
 	else:
 		anim.play("fail")
+		print("Fail")
 		$phone/purchase/label.text = purchase_messages[2]
 
 
