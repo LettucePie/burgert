@@ -86,6 +86,7 @@ func clear_kitchen():
 	for c in customers:
 		c.current_customer = false
 		c.status = Customer.CUSTOMER_STATE.Gone
+	splat.hide()
 
 
 func prep_kitchen():

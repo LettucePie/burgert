@@ -400,3 +400,6 @@ func _on_kitchen_a_drone_stole_loot() -> void:
 func _on_results_results_revealed() -> void:
 	kitchen.clear_kitchen()
 	kitchen.process_mode = Node.PROCESS_MODE_INHERIT
+	if burger_2d != null:
+		burger_2d.queue_free()
+		burger_2d = null
