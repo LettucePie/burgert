@@ -20,8 +20,16 @@ var notification_table : Array = [
 	[0, "Gramps", "Goodness, Great work! You have befriended all the Regulars!"],
 	[1, "Houndfall", "Thanks for buying all my tracks! Enjoy"]
 ]
-
-
+##
+## MultiLang
+##
+func set_notifier_messages(strings : Array):
+	for index in strings.size():
+		if strings[index] is String:
+			notification_table[index][2] = strings[index]
+##
+## End MultiLang
+##
 func _ready() -> void:
 	self.hide()
 

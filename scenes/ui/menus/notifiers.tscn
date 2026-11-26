@@ -427,7 +427,7 @@ _data = {
 "start": SubResource("Animation_yo6hp")
 }
 
-[node name="notifiers" type="Control"]
+[node name="notifiers" type="Control" groups=["lang_text_array"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

@@ -159,10 +159,7 @@ func _prev_next_song(dir : int) -> void:
 		current_song_idx = library_max
 	elif current_song_idx > library_max:
 		current_song_idx = 0
-	if potential_shop_level >= music_library.all_songs[current_song_idx].shop_level:
-		_render_song(current_song_idx)
-	else:
-		_prev_next_song(dir)
+	_render_song(current_song_idx)
 
 
 func _render_song(idx : int) -> void:
@@ -170,17 +167,21 @@ func _render_song(idx : int) -> void:
 	if submenu_branch == 1:
 		$phone/main/menu_1_1/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_1/purchase.show()
+		$phone/main/menu_1_1/purchase.disabled = false
 		$phone/main/menu_1_1/preview.show()
 		$phone/main/menu_1_1/stop.hide()
 		$phone/main/menu_1_1/prev_next.show()
 		$phone/main/menu_1_1/return.show()
 		$phone/main/menu_1_1/purchase.text = "$" + str(current_song.store_cost)
 		$phone/main/menu_1_1/owned.hide()
+		if current_song.shop_level > potential_shop_level:
+			$phone/main/menu_1_1/purchase.disabled = true
 		if music_library.owned_songs.has(idx):
 			$phone/main/menu_1_1/purchase.hide()
 			$phone/main/menu_1_1/owned.show()
 	if submenu_branch == 3:
 		var owned_idx : int = music_library.owned_songs[idx]
+		print("Owned IDX: ", owned_idx)
 		current_song = music_library.all_songs[owned_idx]
 		$phone/main/menu_1_3/song_label.text = current_song.title + "\n" + current_song.artist
 		$phone/main/menu_1_3/toggle.show()
