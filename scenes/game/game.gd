@@ -108,7 +108,6 @@ func start_game():
 	current_score = 0
 	drone_chance = 1.10
 	timing_customer = false
-	hud.hide_customer_timer()
 	game_accuracies.clear()
 	game_scores.clear()
 	game_tips.clear()
@@ -123,6 +122,7 @@ func start_game():
 	submit.assign_chef(chef)
 	results.hide()
 	results.printer_queued = false
+	hud.hide_customer_timer()
 	hud.reset_score()
 	unregistered_customers.clear()
 	$AnimationPlayer.play("play_transition")

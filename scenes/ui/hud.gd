@@ -192,6 +192,7 @@ func reset_score() -> void:
 	ticking_score = false
 	current_score = 0
 	target_score = 0
+	score.text = str(current_score)
 
 
 @warning_ignore("unused_parameter")
