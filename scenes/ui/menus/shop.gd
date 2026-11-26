@@ -247,7 +247,7 @@ func _on_stop_pressed() -> void:
 		$phone/main/menu_1_1/preview.grab_focus()
 	elif submenu_branch == 3:
 		$phone/main/menu_1_3/preview.grab_focus()
-	music_library.set_state(Music.STATE.PLAY)
+	music_library.set_state(Music.STATE.MENU)
 
 
 func _on_toggle_pressed() -> void:

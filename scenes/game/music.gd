@@ -28,8 +28,16 @@ var muted_track : Song = null
 
 
 func set_state(new_state : STATE):
+	print("SETTING STATE: ", new_state)
 	if new_state == STATE.MENU:
-		if !muted:
+		if current_state == STATE.PREVIEW:
+			## Resume Play
+			if playback_time >= 0:
+				play(playback_time)
+			if timer_remaining >= 0:
+				audio_timer.start(timer_remaining)
+			anim.play("resume_play")
+		elif !muted:
 			anim.play("intro_ramp")
 		else:
 			stream = silent_song.track
@@ -38,9 +46,9 @@ func set_state(new_state : STATE):
 		if current_state == STATE.MENU \
 		or current_state == STATE.RESULTS:
 			if !muted:
+				print("START PLAY")
 				anim.play("start_play")
-		if current_state == STATE.PAUSE \
-		or current_state == STATE.PREVIEW:
+		if current_state == STATE.PAUSE:
 			if playback_time >= 0:
 				play(playback_time)
 			if timer_remaining >= 0:
@@ -49,11 +57,8 @@ func set_state(new_state : STATE):
 	if new_state == STATE.RESULTS:
 		if current_state == STATE.PLAY:
 			current_song = results_song
-			#anim.stop()
-			#volume_db = 0
 			audio_timer.stop()
 			anim.play("resume_play")
-			#stream = silent_song.track
 			stream = results_song.track
 			play()
 	if new_state == STATE.PAUSE \
