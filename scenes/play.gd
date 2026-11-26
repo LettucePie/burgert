@@ -518,6 +518,7 @@ func _ready():
 		container.call_deferred("adopt", self, get_tree().get_root())
 		adopted = true
 		main_menu.customer_dex.assign_viewport(container.portal)
+		main_menu.help.assign_viewport(container.portal)
 	multi_lang.call_deferred("introduce_language_selector", main_menu.options.language_selector)
 	main_menu.customer_dex.extract_schedules(stats.customers_in_kitchen)
 	main_menu.check_for_notifications.connect(_on_main_menu_notification_check)

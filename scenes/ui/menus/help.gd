@@ -186,6 +186,10 @@ func _turn_page(dir : int):
 		_move_sheet(dir)
 
 
+func assign_viewport(vp : Viewport) -> void:
+	current_viewport = vp
+
+
 func capture_sheet() -> void:
 	var dynamic_texture : Texture2D = current_viewport.get_texture()
 	var image : Image = dynamic_texture.get_image()
