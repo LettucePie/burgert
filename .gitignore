@@ -10,6 +10,7 @@ exports/html
 *.kra~
 *.png~
 *autosave.kra
+*.blend1
 
 # Where are these files coming from?
 *.uid
