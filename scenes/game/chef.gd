@@ -191,7 +191,7 @@ func process_actions(delta):
 
 
 func process_submission(delta):
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up") and !burger_thrown:
 		charging_rate = clampf(
 			charging_rate + charging_speed * delta, 
 			charging_rate_min,
