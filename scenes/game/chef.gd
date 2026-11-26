@@ -169,6 +169,9 @@ func process_actions(delta):
 			state_machine.travel("Chargup_" + direction)
 			emit_signal("start_burger_submission")
 			idle_counter = 0
+			if trashing:
+				trashing = false
+				emit_signal("trashing_stopped")
 	if Input.is_action_pressed("cancel") \
 	and current_burger.ingredients.size() > 0:
 		if !trashing:
@@ -191,6 +194,9 @@ func process_actions(delta):
 
 
 func process_submission(delta):
+	if trashing:
+		trashing = false
+		emit_signal("trashing_stopped")
 	if Input.is_action_pressed("up") and !burger_thrown:
 		charging_rate = clampf(
 			charging_rate + charging_speed * delta, 
