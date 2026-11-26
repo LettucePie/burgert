@@ -55,31 +55,17 @@ layout_mode = 1
 scale = Vector2(1.2, 1.2)
 
 [node name="desk" parent="office" index="2"]
-offset_top = -176.0
-offset_bottom = -492.0
+offset_top = 582.0
+offset_bottom = 201.0
 
 [node name="folder" parent="office/desk/left_side_desktop" index="0"]
 offset_left = -272.0
-offset_top = 274.5
+offset_top = 242.0
 offset_right = -140.0
-offset_bottom = 371.5
-
-[node name="radio" parent="office/desk/left_side_desktop" index="1"]
-offset_top = -201.5
-offset_bottom = -90.5
-
-[node name="records" parent="office/desk/left_side_desktop" index="2"]
-offset_top = 104.5
-offset_bottom = 181.5
-
-[node name="stickynote" parent="office/desk/right_side_desktop" index="0"]
-offset_top = 154.5
-offset_bottom = 200.5
+offset_bottom = 339.0
 
 [node name="help" parent="office/desk/right_side_desktop" index="2"]
 offset_left = 2.00006
-offset_top = 62.5
-offset_bottom = 164.5
 
 [node name="vignette" type="TextureRect" parent="."]
 layout_mode = 1
@@ -130,6 +116,8 @@ animation = &"open"
 
 [node name="Main" parent="." instance=ExtResource("4_6oetw")]
 layout_mode = 1
+offset_top = 480.0
+offset_bottom = 480.0
 
 [node name="Options" parent="." instance=ExtResource("5_5is6g")]
 visible = false
@@ -143,6 +131,7 @@ offset_bottom = 600.0
 
 [node name="Paused" parent="." instance=ExtResource("7_i4os7")]
 visible = false
+z_index = 1
 layout_mode = 1
 offset_top = -480.0
 offset_bottom = -480.0
@@ -169,10 +158,12 @@ offset_right = 6.10352e-05
 offset_right = -3.05176e-05
 
 [node name="totals" parent="Records/savings_transfer" index="4"]
-offset_right = -0.000854492
+offset_right = -0.000915527
 
 [node name="counter" parent="Records/savings_transfer" index="5"]
-offset_right = -0.000854492
+offset_top = 246.0
+offset_right = -0.000915527
+offset_bottom = 246.0
 
 [node name="Jukebox" parent="." instance=ExtResource("68_21bnj")]
 visible = false
