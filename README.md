@@ -27,7 +27,7 @@ At the moment, we are not actively seeking design members. If you wish to add yo
 
 #### What is this?
 
-This is an idea that went too far. I (LettucePie) purchased an Anbernic device for my friend (Houndfall). After he discovered the Portmaster community, he wanted to add something too it, and I did too. Portmaster is pretty cool by the way. What started as a 3 month demo project turned into 1.5 years. It has been a learning experience.
+This is an idea that went too far. I (LettucePie) purchased an Anbernic device for my friend (Houndfall). After he discovered the Portmaster community, he wanted to add something to it, and I did too. Portmaster is pretty cool by the way. What started as a 3 month demo project turned into 1.5 years. It has been a learning experience.
 
 #### Why is this open source?
 
@@ -39,7 +39,11 @@ This was made with the intention of avoiding ai tools, staying away from diarrhe
 
 #### What is next?
 
-We have ideas for updating it, mainly items the in shop. I want to also make it so certain items and songs can attract certain customers, which means more customers will be added too. When? no idea.
+We have ideas for updating it, mainly adding items into the shop. I want to also make it so certain items and songs can attract certain customers, which means more customers will be added too. When? no idea.
+
+#### How can I $upport this?
+
+On the itch.io page (https://lettucepie.itch.io/burgert) there is an option to purchase your download at your own chosen price. That kind of works for now. There isn't an absolute way to distribute payments from itch evenly between us, so I have to be the accountant which is not optimal. I have no idea how this conundrum plays out if more contributors join the band. Really I think the best way to support the game would be to share it, download it, and tinker with it. This whole project at its core is a thrust of energy into the nothing. You can ignore it, or gaze upon it as it passes by; but if you take some of it and make something more, that would mean more to me than money in most scenarios.
 
 ## Translation
 
