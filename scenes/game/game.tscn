@@ -400,8 +400,10 @@ autoplay = "menu_mode"
 next/menu_transition = &"menu_mode"
 next/play_transition = &"play_mode"
 
-[node name="kitchen_a" parent="." instance=ExtResource("1_xsld7")]
+[node name="kitchen_a" parent="." node_paths=PackedStringArray("normy_customers", "workstations") instance=ExtResource("1_xsld7")]
 z_index = -1
+normy_customers = []
+workstations = []
 
 [node name="submit" type="Node2D" parent="."]
 z_index = 1

@@ -68,6 +68,14 @@ func _ready():
 	drone.enable_drone(false)
 	if get_parent() is Game:
 		drone.stole_loot.connect(get_parent()._on_kitchen_a_drone_stole_loot)
+	if workstations.size() <= 0:
+		for child in $foreground.get_children():
+			if child is Workstation:
+				workstations.append(child)
+	if normy_customers.size() <= 0:
+		for child in customers_node.get_children():
+			if child is Customer and child.name.contains("Basic"):
+				normy_customers.append(child)
 
 
 func clear_kitchen():
@@ -100,6 +108,7 @@ func prep_kitchen():
 	janitor_bot.enable_bot(true)
 	drone.enable_drone(false)
 	handling_drone_event = false
+	
 	if randf() > 0.2:
 		kitchen_object.show()
 		kitchen_object.texture = kitchen_objects.pick_random()
@@ -232,6 +241,7 @@ func play_splat(pos : Vector2, anim : String, charged : bool):
 		_play_throw_riff(1)
 	else:
 		_play_throw_riff(0)
+	current_customer.show_hide_burger_portal(true)
 
 
 func _on_splat_animation_finished():

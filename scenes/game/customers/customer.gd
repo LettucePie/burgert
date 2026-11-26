@@ -123,4 +123,12 @@ func flee() -> void:
 			target.x = 940.0
 		var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
 		tween.tween_property(character, "position", target, 0.5)
-		
+
+
+func show_hide_burger_portal(tf : bool) -> void:
+	if burger_portal_sprite.visible:
+		var tween : Tween = create_tween().set_trans(Tween.TRANS_SINE)
+		var target_color : Color = Color.WHITE
+		if !tf:
+			target_color = Color(1.0, 1.0, 1.0, 0.2)
+		tween.tween_property(burger_portal_sprite, "modulate", target_color, 0.6)

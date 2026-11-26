@@ -272,10 +272,12 @@ func _on_chef_start_burger_submission():
 	if chef.direction == "L":
 		travel_dir = -1
 	submit.set_playing(true, chef.position.x, travel_dir)
+	kitchen.current_customer.show_hide_burger_portal(false)
 
 
 func _on_chef_cancel_burger_submission():
 	submit.set_playing(false, 0, 0)
+	kitchen.current_customer.show_hide_burger_portal(true)
 
 
 func _throw_burger_2d_at(target : Vector2) -> void:
