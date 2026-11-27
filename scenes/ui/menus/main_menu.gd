@@ -80,7 +80,9 @@ func _main_menu_refresh() -> void:
 
 func _on_main_menu_selection(selection: String) -> void:
 	if current_screen == SCREENS.MAIN and main.active:
-		main.active = false
+		if selection != "":
+			main.active = false
+			main.title3d.spectrum_analyzer.set_active(false)
 		if selection == "Play":
 			anim.play("play_start")
 			printer.printer_queue.clear()
@@ -95,7 +97,6 @@ func _on_main_menu_selection(selection: String) -> void:
 			anim.play("desk_pan_right")
 		if queued_menu == SCREENS.RADIO:
 			emit_signal("bgm_pause", true)
-		main.title3d.spectrum_analyzer.set_active(false)
 
 
 ## TODO Migrate to _on_main_menu_selection

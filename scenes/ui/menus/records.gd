@@ -181,7 +181,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _adjust_transfer_amount(dir : int) -> void:
-	print("Adjust Transfer: ", dir)
 	if !transferring:
 		if dir > 0:
 			transfer_offset = 1
