@@ -33,6 +33,7 @@ func set_active(tf : bool) -> void:
 
 func _ready():
 	visualizer_instance = AudioServer.get_bus_effect_instance(audio_bus_id, audio_bus_fx)
+	print(visualizer_instance)
 
 
 func _analyze_spectrum() -> void:

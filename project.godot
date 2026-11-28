@@ -19,6 +19,10 @@ boot_splash/image="res://assets/images/sequences/intro_splash_still.png"
 config/icon="res://publishing/game_icon192x192.png"
 config/windows_native_icon="res://publishing/game_icon.ico"
 
+[audio]
+
+general/default_playback_type.web=0
+
 [display]
 
 window/size/viewport_width=640
