@@ -963,7 +963,7 @@ tracks/21/keys = {
 "start_offset": 1.1708,
 "stream": ExtResource("14_kya6c")
 }, {
-"end_offset": 1.0336,
+"end_offset": 1.0581,
 "start_offset": 0.1227,
 "stream": ExtResource("10_k4cm6")
 }],
