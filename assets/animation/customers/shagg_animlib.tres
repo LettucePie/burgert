@@ -884,14 +884,11 @@ tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.766667, 2.53333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"customer_reorder"],
 "method": &"emit_signal"
-}, {
-"args": [],
-"method": &"play_greeting"
 }]
 }
 tracks/8/type = "value"
